@@ -1,9 +1,14 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:400,900);
+
+
 body {
 padding-top: 0px; /* 60px to make the container go all the way to the bottom of the topbar */
 margin-bottom:0px;
 background:#111;
 padding:0px;
 margin:0px;
+font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
+
 }
 
 .alert {margin-bottom:0px;}
@@ -24,16 +29,28 @@ margin:0px;
 
 
 /* Fix Blue Hero Unit */
-.hero-unit {background:#00a9c8; margin:0px 0px 30px 0px; display: block; border-radius: 0px; border:2px solid #005ca1; border-right:none; border-left:none; text-align:center; color:#fff; text-shadow: 1px 1px 1px #005ca1;}
-.hero-unit h1 {text-shadow: 2px 2px 2px #005ca1; margin-bottom:7px;}
-.hero-unit a {color:#d9edf6;}
+.hero-unit {background:#00a9c8; margin:0px 0px 30px 0px; display: block; border-radius: 0px; border:2px solid #005ca1; border-right:none; border-left:none; text-align:center; color:#fff; text-shadow: 1px 1px 1px #004356;
+
+background: #00a9c8; /* Old browsers */
+background: -moz-linear-gradient(top, #00a9c8 33%, #4bcdf4 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(33%,#00a9c8), color-stop(100%,#4bcdf4)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, #00a9c8 33%,#4bcdf4 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, #00a9c8 33%,#4bcdf4 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, #00a9c8 33%,#4bcdf4 100%); /* IE10+ */
+background: linear-gradient(top, #00a9c8 33%,#4bcdf4 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00a9c8', endColorstr='#4bcdf4',GradientType=0 ); /* IE6-9 */
+
+ font-weight:bold !important;
+}
+.hero-unit h1 {text-shadow: 2px 2px 2px #004356; margin-bottom:7px; font-family: 'Lato-Black', 'Helvetica Neue', Arial, sans-serif; }
+.hero-unit a {color:#d9edf6; }
 
 
 /* Jumbo Button */
 .btn-jumbo {
 	font-size: 20px;
 	font-weight: bold;
-	padding: 14px 24px;
+	padding: 14px 24px 18px 24px;
 	margin-right: 10px;
 	-webkit-border-radius: 6px;
 	-moz-border-radius: 6px;
@@ -44,7 +61,7 @@ margin:0px;
 
 }
 
-.btn-jumbo i {margin-top:3px;}
+.btn-jumbo i {margin-top:6px;}
 
 
 /** Logo Sprites **/
