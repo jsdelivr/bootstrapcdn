@@ -1,0 +1,65 @@
+body {
+padding-top: 0px; /* 60px to make the container go all the way to the bottom of the topbar */
+margin-bottom:0px;
+background:#111;
+padding:0px;
+margin:0px;
+}
+
+.alert {margin-bottom:0px;}
+
+
+/* White Background Stage (no clipping portrait view)*/
+#main-wrap {background:#fff; padding-bottom:0px; padding-top:40px;}
+.main {max-width:1170px; margin:0px auto; background:#fff; padding:0px 15px 15px 15px;}
+
+
+/* Full Width Footer */
+#footer-wrap {border-top:2px solid #000; display: block; Width:100%; position: relative; bottom:0px;}
+.footer {max-width:1170px; margin:0px auto; padding:15px; color:#efefef;}
+.footer a {color:#3A87AD;}
+.footer a:hover {color:#05aaea; text-decoration:none;}
+.footer p {font-size:12px;}
+.disclaimer {font-size:9px; color:#555;}
+
+
+/* Fix Blue Hero Unit */
+.hero-unit {background:#00a9c8; margin:0px 0px 30px 0px; display: block; border-radius: 0px; border:2px solid #005ca1; border-right:none; border-left:none; text-align:center; color:#fff; text-shadow: 1px 1px 1px #005ca1;}
+.hero-unit h1 {text-shadow: 2px 2px 2px #005ca1; margin-bottom:7px;}
+.hero-unit a {color:#d9edf6;}
+
+
+/* Jumbo Button */
+.btn-jumbo {
+	font-size: 20px;
+	font-weight: bold;
+	padding: 14px 24px;
+	margin-right: 10px;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+	border:1px solid #005ca1;
+	color:#111 !important;
+	margin-top:15px;
+
+}
+
+.btn-jumbo i {margin-top:3px;}
+
+
+/** Logo Sprites **/
+.logoArea {display: block; width:575px; min-height:105px; overflow: hidden;}
+#NetDNA, #MaxCDN, #CloudCache {display: block; Width:185px; height:90px; margin:7px 0px; float:left; background-image:url('/img/logos.png');}
+#NetDNA {background-position:0px 0px; margin-right:10px;}
+#MaxCDN {background-position:-185px 0px; margin-right:10px;}
+#CloudCache {background-position:-370px 0px;}
+#NetDNA:hover {background-position:0px -90px;}
+#MaxCDN:hover {background-position:-185px -90px;}
+#CloudCache:hover {background-position:-370px -90px;}
+
+
+/* Misc */
+.smallerTxt {font-size:14px;}
+.whois {font-size: 14px; text-align: left; line-height:20px; padding:1px 0 5px 5px;}
+
+

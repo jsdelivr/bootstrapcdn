@@ -1,45 +1,47 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <title>Bootstrap CDN - Twitter's Bootstrap hosted on NetDNA's Tier-1 Content Delivery Network</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Bootstrap + NetDNA CDN">
+    <meta name="description" content="Twitter Bootstrap Supercharged For Performance By Free NetDNA CDN">
     <meta name="author" content="Justin Dorfman">
 
-    <!-- Le styles -->
+    <!-- Bootstrap CSS Styles - Served Up By NetDNA -->
     <link href="http://current.bootstrapcdn.com/bootstrap-v204/css/bootstrap.css" rel="stylesheet">
-    <link href="http://current.bootstrapcdn.com/bootstrap-v204/css/socialite.css" rel="stylesheet">
-    <link href="http://current.bootstrapcdn.com/barometer.css" rel="stylesheet">
-    <style>
-      body {
-        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
-      }
-    </style>
     <link href="http://current.bootstrapcdn.com/bootstrap-v204/css/bootstrap-responsive.css" rel="stylesheet">
+    <!-- Socialite -->
+    <link href="http://current.bootstrapcdn.com/bootstrap-v204/css/socialite.css" rel="stylesheet">
+    <link href="http://current.bootstrapcdn.com/css/barometer.css" rel="stylesheet">
 
-    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <!-- Styling for this site {bootstrapcdn.com} -->
+    <link href="/css/bootstrapcdn.css?v=1.0" rel="stylesheet" >
 
-    <!-- Le fav and touch icons -->
+		    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+		    <!--[if lt IE 9]>
+		      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		    <![endif]-->
+
+    <!-- Favicon -->
     <link rel="shortcut icon" href="http://www.netdna.com/favicon.ico">
+  
+  	<!-- Google Analytics -->
+	<script type="text/javascript">
 
-<script type="text/javascript">
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-32253110-1']);
+	  _gaq.push(['_setDomainName', 'bootstrapcdn.com']);
+	  _gaq.push(['_trackPageview']);
 
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-32253110-1']);
-  _gaq.push(['_setDomainName', 'bootstrapcdn.com']);
-  _gaq.push(['_trackPageview']);
+	  (function() {
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+	</script>
 
-</script>
   </head>
 
   <body>
@@ -52,10 +54,10 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="index.html">Bootstrap CDN powered by NetDNA</a>
+          <a class="brand" href="/">Bootstrap CDN powered by NetDNA</a>
           <div class="nav-collapse">
             <ul class="nav">
-              <li class="active"><a href="index.html">Home</a></li>
+              <li class="active"><a href="/">Home</a></li>
               <li><a href="https://github.com/jdorfman/bootstrap-cdn/issues">Issues</a></li>
             </ul>
           </div><!--/.nav-collapse -->
@@ -63,150 +65,235 @@
       </div>
     </div>
 
-    	<div class="alert alert-info">
-	<center>Currently serving v2.0.4</center>
+
+
+
+<div id="main-wrap">
+    <div class="alert alert-info">
+	   <center>Currently serving v2.0.4</center>
 	</div>
 
 	<div class="hero-unit">
 
-      <h1>You asked, we delivered.</h1>
-      <p>We <a href="https://github.com/twitter/bootstrap/issues/1679#issuecomment-5861281" target="_blank">saw</a> there was a need for a FREE way to deliver ALL bootstrap objects.<br>Since our company is built on open source, we thought it was the least that we could do. Enjoy ;)</p><p><a class="btn-large btn-success" href ="#getstarted">Get Started <i class="icon-chevron-down icon-white"></i></a>
+      <h1>Supercharge Twitter Bootstrap</h1>
+
+      <p>We <a href="https://github.com/twitter/bootstrap/issues/1679#issuecomment-5861281">heard</a> there was a need for a FREE way to deliver ALL Bootstrap objects<br>Since our company is built on open source, we thought it was the least that we could do. Enjoy ;)</p><p><a class="btn btn-jumbo  " href ="/#getstarted">Get Started <i class="icon-chevron-down "></i></a>
     </div> <!-- /container -->
 
+			<div class="main">
 
-		<a name="getstarted"></a><h1>Getting Started</h1>
-			<p style="font-size: 14px;">It is easy to implement Bootstrap CDN.  All you need to do is find &amp; replace the location where the Bootstrap objects are pointed to. <span class="label label-success">Now with SSL Support!</span></p>
-	
-		<div class="tabbable">
-				<ul class="nav nav-tabs">
-					<li class="active"><a href="#css" data-toggle="tab">css</a></li>
-					<li><a href="#js" data-toggle="tab">javascript</a></li>
-					<li><a href="#img" data-toggle="tab">images</a></li>
-					<li><a href="#ssl" data-toggle="tab">SSL</a></li>
-				</ul>
-		</div>
-		<div class="tab-content">
-			<div class="tab-pane active" id="css">
-				<p><input type="text" class="span6" value="http://current.bootstrapcdn.com/bootstrap-v204/css/bootstrap.css"></p>
-				<p><input type="text" class="span6" value="http://current.bootstrapcdn.com/bootstrap-v204/css/bootstrap.min.css"></p>
-				<p><input type="text" class="span6" value="http://current.bootstrapcdn.com/bootstrap-v204/css/bootstrap-responsive.css"></p>
-			</div>
-			<div class="tab-pane" id="js">
-					<p><input type="text" class="span6" value="http://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-alert.js"></p>
-					<p><input type="text" class="span6" value="http://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-button.js"></p>
-					<p><input type="text" class="span6" value="http://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-carousel.js"></p>
-					<p><input type="text" class="span6" value="http://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-collapse.js"></p>
-					<p><input type="text" class="span6" value="http://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-dropdown.js"></p>
-					<p><input type="text" class="span6" value="http://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap.js"></p>
-					<p><input type="text" class="span6" value="http://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap.min.js"></p>
-					<p><input type="text" class="span6" value="http://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-modal.js"></p>
-					<p><input type="text" class="span6" value="http://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-popover.js"></p>
-					<p><input type="text" class="span6" value="http://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-scrollspy.js"></p>
-					<p><input type="text" class="span6" value="http://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-tab.js"></p>
-					<p><input type="text" class="span6" value="http://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-tooltip.js"></p>
-					<p><input type="text" class="span6" value="http://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-transition.js"></p>
-					<p><input type="text" class="span6" value="http://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-typeahead.js"></p>
-					<p><input type="text" class="span6" value="http://current.bootstrapcdn.com/bootstrap-v204/js/jquery.js"></p>
-			</div>
-			<div class="tab-pane" id="img">
-				<p><input type="text" class="span7" value="http://current.bootstrapcdn.com/bootstrap-v204/img/glyphicons-halflings.png"></p>
-				<p><input type="text" class="span7" value="http://current.bootstrapcdn.com/bootstrap-v204/img/glyphicons-halflings-white.png"></p>
-			</div>
-			<div class="tab-pane" id="ssl">
-				<p style="font-size: 12px;"><img src="img/spacer.gif" height="1px" width="446px"><span class="label label-inverse">Powered by</span> <a href="http://www.netdna.com/products/edgessl/">EdgeSSL</a></p>
-				<p><span class="label label-info">css</span></p>				
-				<p><input type="text" class="span6" value="https://current.bootstrapcdn.com/bootstrap-v204/css/bootstrap.css"></p>
-				<p><input type="text" class="span6" value="https://current.bootstrapcdn.com/bootstrap-v204/css/bootstrap.min.css"></p>
-				<p><input type="text" class="span6" value="https://current.bootstrapcdn.com/bootstrap-v204/css/bootstrap-responsive.css"></p>
-				<p><span class="label label-info">js</span></p>							
-				<p><input type="text" class="span6" value="https://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-alert.js"></p>
-				<p><input type="text" class="span6" value="https://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-button.js"></p>
-				<p><input type="text" class="span6" value="https://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-carousel.js"></p>
-				<p><input type="text" class="span6" value="https://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-collapse.js"></p>
-				<p><input type="text" class="span6" value="https://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-dropdown.js"></p>
-				<p><input type="text" class="span6" value="https://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap.js"></p>
-				<p><input type="text" class="span6" value="https://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap.min.js"></p>
-				<p><input type="text" class="span6" value="https://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-modal.js"></p>
-				<p><input type="text" class="span6" value="https://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-popover.js"></p>
-				<p><input type="text" class="span6" value="https://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-scrollspy.js"></p>
-				<p><input type="text" class="span6" value="https://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-tab.js"></p>
-				<p><input type="text" class="span6" value="https://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-tooltip.js"></p>
-				<p><input type="text" class="span6" value="https://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-transition.js"></p>
-				<p><input type="text" class="span6" value="https://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-typeahead.js"></p>
-				<p><input type="text" class="span6" value="https://current.bootstrapcdn.com/bootstrap-v204/js/jquery.js"></p>
-				<p><span class="label label-info">images</span></p>
-				<p><input type="text" class="span7" value="https://current.bootstrapcdn.com/bootstrap-v204/img/glyphicons-halflings.png"></p>
-				<p><input type="text" class="span7" value="https://current.bootstrapcdn.com/bootstrap-v204/img/glyphicons-halflings-white.png"></p>
-			</div>
-				
-	</div>
-<br>
+				    <h1 id="getstarted">Getting Started</h1>
+						<p >It is easy to implement Bootstrap CDN</p>
+						<div class="smallerTxt">
+						<p > Simply find &amp; replace the local Bootstrap objects with the ones hosted on our superfast CDN servers.</p>
+						<p >Not only will your site load faster, but you will save money on your bandwidth expenses</p>
 
-	<div class="row">
-	
-	<div class="span4">
-		<h3>About</h3>
-			<p style="font-size: 14px; text-align: justify;">NetDNA is a Content Delivery Network (CDN). Content Delivery Networks are critical for enhancing a site’s quality, reliability, and scalability. Our CDN will deploy your website content across <a href="http://www.netdna.com/technology/our-network" target="_blank" onClick="javascript:pageTracker._trackPageview("/?f=on-bscdn");">our global network.</a></p><a class="btn btn-primary btn-large" href="http://www.netdna.com" target="_blank" onClick="javascript:pageTracker._trackPageview("/?f=lm-bscdn");">Learn more »</a></p>
-	</div>
-	<div class="span1">&nbsp;</div>
-	
-	<div class="span3"><h3>Bootstrap Links</h3>
-		<p><a href="http://twitter.github.com/bootstrap/index.html" target="_blank">Bootstrap on Github</a></p>
-		<p><a href="http://blog.getbootstrap.com/" target="_blank">Official Bootstrap Blog</a></p>
-		<p><a href="http://stylebootstrap.info/" target="_blank">Style Bootstrap</a></p>
-		<p><a href="http://stackoverflow.com/questions/tagged/bootstrap" target="_blank">Bootstrap Q&amp;A on Stackoverflow</a></p>
-		<p><a href="http://builtwithbootstrap.com/" target="_blank">Built with Bootstrap</a></p>
-		<p><a href="http://bootswatchr.com/" target="_blank">Bootswatchr</a></p>
-		<p><a href="http://www.bootstraphero.com/" target="_blank">Bootstrap Hero</a></p>
-		<p><a href ="http://www.plugolabs.com/twitter-bootstrap-button-generator/" target="_blank">Bootstrap Button Generator</a>
+						</br>
+						<p><strong>Grab Your URLs Below!</strong><p>
+						<p>CSS Files Are Included Also!</p>
+						</br>
+						</div>
+					<div class="tabbable">
+							<ul class="nav nav-tabs">
+								<li class="active"><a href="#quickstart" data-toggle="tab">QuickStart</a></li>
+								<li><a href="#css" data-toggle="tab">CSS</a></li>
+								<li><a href="#js" data-toggle="tab">JavaScript</a></li>
+								<li><a href="#img" data-toggle="tab">Images</a></li>
+								<li><a href="#ssl" data-toggle="tab">SSL</a></li>
+							</ul>
+					</div>
 
-	</div>
-	<div class="span5">
-			<h3>Share</a><p>
-	    
-		 <!-- AddThis Button BEGIN -->
+					<!-- Actual Tab Content -->
+					<div class="tab-content">
 
-				<div class="addthis_toolbox addthis_default_style ">
-					<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
-					<a class="addthis_button_tweet"></a>
-					<a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
-					<a class="addthis_counter addthis_pill_style"></a>
+
+					<div class="tab-pane active" id="quickstart">
+
+						<p><input type="text" class="span6" value="//current.bootstrapcdn.com/bootstrap-v204/css/bootstrap.min.css">						
+						</p>
+
+						<p><input type="text" class="span6" value="//current.bootstrapcdn.com/bootstrap-v204/css/bootstrap-responsive.css">					
+					    </p>
+
+						<p><input type="text" class="span6" value="//current.bootstrapcdn.com/bootstrap-v204/js/bootstrap.min.js">
+						</p>
+
+
+
+					</div>	
+			
+					<!-- CSS tab -->
+					<div class="tab-pane" id="css">
+						<p><input type="text" class="span6" value="http://current.bootstrapcdn.com/bootstrap-v204/css/bootstrap.min.css"> <span class="label label-info">Recommended</span></p>
+						<p><input type="text" class="span6" value="http://current.bootstrapcdn.com/bootstrap-v204/css/bootstrap.css"></p>
+						<p><input type="text" class="span6" value="http://current.bootstrapcdn.com/bootstrap-v204/css/bootstrap-responsive.css"></p>
+					</div>
+
+					<!-- javasScript tab -->
+					<div class="tab-pane" id="js">
+							<p><input type="text" class="span6" value="http://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap.min.js"> <span class="label label-info">Recommended</span></p>
+							<p><input type="text" class="span6" value="http://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap.js"></p>
+							
+							<br>
+							<p><span class="label label-info">Individual JavaScript</span> <span class="label ">Not Required If Using Either Link Above </span></p>
+							
+							<p><input type="text" class="span6" value="http://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-alert.js"></p>
+							<p><input type="text" class="span6" value="http://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-button.js"></p>
+							<p><input type="text" class="span6" value="http://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-carousel.js"></p>
+							<p><input type="text" class="span6" value="http://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-collapse.js"></p>
+							<p><input type="text" class="span6" value="http://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-dropdown.js"></p>
+							<p><input type="text" class="span6" value="http://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-modal.js"></p>
+							<p><input type="text" class="span6" value="http://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-popover.js"></p>
+							<p><input type="text" class="span6" value="http://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-scrollspy.js"></p>
+							<p><input type="text" class="span6" value="http://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-tab.js"></p>
+							<p><input type="text" class="span6" value="http://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-tooltip.js"></p>
+							<p><input type="text" class="span6" value="http://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-transition.js"></p>
+							<p><input type="text" class="span6" value="http://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-typeahead.js"></p>
+							<p><input type="text" class="span6" value="http://current.bootstrapcdn.com/bootstrap-v204/js/jquery.js"></p>
+					</div>
+
+
+
+						<!-- Images Tab -->
+						<div class="tab-pane" id="img">
+							<p><input type="text" class="span7" value="http://current.bootstrapcdn.com/bootstrap-v204/img/glyphicons-halflings.png"></p>
+							<p><input type="text" class="span7" value="http://current.bootstrapcdn.com/bootstrap-v204/img/glyphicons-halflings-white.png"></p>
+							<p><span class="label label-important">NOTE: It is not necessary to include images url if you already have linked to CSS files</span></p>
+						</div>
+		
+					<!-- SSL Tab -->			
+					<div class="tab-pane" id="ssl">
+						<p style="font-size: 12px;"><img src="img/spacer.gif" height="1px" width="446px"><span class="label label-inverse">Powered by</span> <a href="http://www.netdna.com/products/edgessl/">EdgeSSL</a></p>
+
+						<!-- CSS SSL -->
+						<p><span class="label label-info">css</span></p>				
+						<p><input type="text" class="span6" value="https://current.bootstrapcdn.com/bootstrap-v204/css/bootstrap.min.css"> <span class="label label-info">Recommended</span></p>
+						<p><input type="text" class="span6" value="https://current.bootstrapcdn.com/bootstrap-v204/css/bootstrap.css"></p>
+						<p><input type="text" class="span6" value="https://current.bootstrapcdn.com/bootstrap-v204/css/bootstrap-responsive.css"> <span class="label label-info">Recommended</span></p>
+						
+						<!-- JS SSL -->
+						<p><span class="label label-info">js</span></p>	
+						<p><input type="text" class="span6" value="https://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap.min.js"> <span class="label label-info">Recommended</span></p>
+						<p><input type="text" class="span6" value="https://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap.js"></p>
+
+
+						<!-- Individual Files -->
+						<p><input type="text" class="span6" value="https://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-alert.js"></p>
+						<p><input type="text" class="span6" value="https://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-button.js"></p>
+						<p><input type="text" class="span6" value="https://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-carousel.js"></p>
+						<p><input type="text" class="span6" value="https://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-collapse.js"></p>
+						<p><input type="text" class="span6" value="https://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-dropdown.js"></p>
+						<p><input type="text" class="span6" value="https://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-modal.js"></p>
+						<p><input type="text" class="span6" value="https://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-popover.js"></p>
+						<p><input type="text" class="span6" value="https://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-scrollspy.js"></p>
+						<p><input type="text" class="span6" value="https://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-tab.js"></p>
+						<p><input type="text" class="span6" value="https://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-tooltip.js"></p>
+						<p><input type="text" class="span6" value="https://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-transition.js"></p>
+						<p><input type="text" class="span6" value="https://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-typeahead.js"></p>
+						<p><input type="text" class="span6" value="https://current.bootstrapcdn.com/bootstrap-v204/js/jquery.js"></p>
+						
+						<!-- Images SSL -->
+						<p><span class="label label-info">images</span></p>
+						<p><input type="text" class="span7" value="https://current.bootstrapcdn.com/bootstrap-v204/img/glyphicons-halflings.png"></p>
+						<p><input type="text" class="span7" value="https://current.bootstrapcdn.com/bootstrap-v204/img/glyphicons-halflings-white.png"></p>
+					</div>
+
+
+
+
 				</div>
-				<script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
-				<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4fd3ed034b18b135"></script>
+
+<!-- END TABS AND TAB CONENTENT -->
+
+
+
+
+
+			<hr>
+			<br>
+
+
+				<div class="row">
+				
+				<div class="span4">
+					<h3>Whois NetDNA</h3>
+						<p class="whois">NetDNA is a Content Delivery Network (CDN). 
+							<br>Content Delivery Networks are critical for enhancing a site’s quality, reliability, and scalability. By using our CDN your website content will deploy across <a href="http://www.netdna.com/technology/our-network/">our global network</a>, making your site faster and possibly lowering your overall bandwidth costs.*</p><a class="btn btn-primary btn-large" href="http://www.netdna.com/">Learn more »</a></p>
+	
+						<br>
+					
+				    
+
+				</div>
+				<div class="span1">&nbsp;</div>
+				
+				<div class="span3"><h3>Twitter Bootstrap Links</h3>
+					<p class="whois">
+						<a href="http://twitter.github.com/bootstrap/index.html">Bootstrap on Github</a><br>
+						<a href="http://blog.getbootstrap.com/" target="_blank">Official Bootstrap Blog</a><br>
+						<a href="http://stylebootstrap.info/">Style Bootstrap</a><br>
+						<a href="http://http/stackoverflow.com/questions/tagged/bootstrap">Bootstrap Q&amp;A on Stackoverflow</a><br>
+						<a href="http://builtwithbootstrap.com/" target="_blank">Built with Bootstrap</a><br>
+						<a href="http://bootswatchr.com/" target="_blank">Bootswatchr</a><br>
+						<a href="http://www.bootstraphero.com/" target="_blank">Bootstrap Hero</a><br>
+
+					</p>
+				</div>
+				<div class="span5">
+
+
+				</div>
+				</div>
+
+
+				<div class="well" align="center">
+
+				<div class="logoArea">
+					<a id="NetDNA" 		href="http://www.netdna.com/?src=bootstrapcdn.com"></a>
+					<a id="MaxCDN" 		href="http://www.maxcdn.com/?src=bootstrapcdn.com"></a>
+					<a id="CloudCache" 	href="http://www.cloudcache.com/?src=bootstrapcdn.com"></a>
+				</div>
+				</div>
+
+
+
+
+
+		 <!-- AddThis Button BEGIN -->
+			<div class="addthis_toolbox addthis_default_style ">
+				<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+				<a class="addthis_button_tweet"></a>
+				<a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+				<a class="addthis_counter addthis_pill_style"></a>
+			</div>
+			<script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+			<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4fd3ed034b18b135"></script>
 		<!-- AddThis Button END -->
 
-	</div>
-	</div>
-<map id="imgmap201269182153" name="imgmap201269182153"><area shape="rect" alt="NetDNA - Content Delivery Network" title="" coords="0,0,85,51" href="http://www.netdna.com" target="" /><area shape="rect" alt="MaxCDN - Pay as go CDN" title="" coords="208,0,343,53" href="http://www.maxcdn.com" target="" /><area shape="rect" alt="CloudCache - GLOBAL CONTENT CACHING " title="" coords="450,1,561,51" href="http://www.cloudcache.com" target="" /><!-- Created by Online Image Map Editor (http://www.maschek.hu/imagemap/index) --></map>
-	<div class="well" align="center">
-		<img src="img/logos.png" border="0" usemap="#imgmap201269182153">
-	</div>
 
-<footer class="footer">
-        <p style="font-size: 12px;">Bootstrap is designed and built by <a href="http://twitter.com/twitter" target="_blank">@twitter</a>, <a href="http://twitter.com/mdo" target="_blank">@mdo</a> and <a href="http://twitter.com/fat" target="_blank">@fat</a>.</p>
-        <p style="font-size: 12px;">Code licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License v2.0</a>. Documentation licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
-        <p style="font-size: 12px;">Icons from <a href="http://glyphicons.com">Glyphicons Free</a>, licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
- <p style="font-size: 12px;">This site is maintained by <a href="http://twitter.com/jdorfman" target="_blank">@jdorfman</a> &amp; hosted by <a href="https://www.digitalfyre.com/">digitalfyre</a>
-<br><p style="font-size: 10px;"><span class="label label-important">This free service comes with no warranty.</span></p>
-      </footer>
+			</div>
+</div>
 
+<!-- Begin Footer -->
+<div id="footer-wrap">
+	<footer class="footer">
+	        <p >Twitter Bootstrap is designed, built and maintained by <a href="http://twitter.com/twitter" target="_blank">@twitter</a>, <a href="http://twitter.com/mdo" target="_blank">@mdo</a> and <a href="http://twitter.com/fat" target="_blank">@fat</a>.</p>
+
+	        <p >Code licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License v2.0</a>. Documentation licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
+	        <p >Icons from <a href="http://glyphicons.com/">Glyphicons Free</a>, licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
+		    <p >This site is maintained by <a href="http://twitter.com/jdorfman" target="_blank">@jdorfman</a><p>
+	        
+	        <br>
+	        <p><span class="label label-inverse">This free service comes with no warranty. NetDNA LLC shall not be held responsible for any issues related to availability or performance.</span></p>
+	</footer>
+</div>
     <!-- Le javascript
     ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-	<script src="http://current.bootstrapcdn.com/bootstrap-v204/js/jquery.js"></script>
-    <script src="http://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-transition.js"></script>
-    <script src="http://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-alert.js"></script>
-    <script src="http://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-modal.js"></script>
-    <script src="http://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-dropdown.js"></script>
-    <script src="http://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-scrollspy.js"></script>
-    <script src="http://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-tab.js"></script>
-    <script src="http://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-tooltip.js"></script>
-    <script src="http://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-popover.js"></script>
-    <script src="http://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-button.js"></script>
-    <script src="http://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-collapse.js"></script>
-    <script src="http://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-carousel.js"></script>
-    <script src="http://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-typeahead.js"></script>
+    <!-- JQuery / Bootstrap -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="http://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap.min.js"></script>
+ 
+    <!-- MISC JS -->
    	<script src='http://getbarometer.s3.amazonaws.com/assets/barometer/javascripts/barometer.js' type='text/javascript'></script>
    	<script type="text/javascript" charset="utf-8">
    		BAROMETER.load('hXM25hDcWPxyDWXmjCC78');
