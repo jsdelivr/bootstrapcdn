@@ -87,9 +87,12 @@ input {font-weight:bold;}
 .nav li a {font-weight:bold;}
 
 
-/* Brand */
+/* Branding*/
 .brand: {border-right:1px solid #ccc !important;}
 .brand {color:#fff !important; text-shadow:1px 1px 2px #000;}
-.bscdn {color:#fff; font-weight:bold; font-family: 'Lato-Black', 'Helvetica Neue', Arial, sans-serif; font-size:18px;}
+.bscdn {color:#d9edf6; font-weight:bold; font-family: 'Lato-Black', 'Helvetica Neue', Arial, sans-serif; font-size:18px;}
 .pwr {font-size:12px !important; color:#888; font-style:italic;  font-family: 'Helvetica Neue', Arial, sans-serif;}
 .netdnabrnd {color:#efefef;}
+
+
+
