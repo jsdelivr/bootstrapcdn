@@ -1,0 +1,27 @@
+.cf:after { visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; }
+* html .cf { zoom: 1; }
+*:first-child+html .cf { zoom: 1; }
+
+body { font-family: 'Helvetica Neue', Arial, sans-serif; padding: 1.25em; font-size: 100%; line-height: 1;  -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+
+h1 { font-size: 2.5em; line-height: 1.333em; margin: 0 0 0.5em 0; }
+h2 { font-size: 1.25em; line-height: 1.333em; margin: 0.5em 0; }
+
+.text p, .text li { font-size: 1em; line-height: 1.5em; margin: 0 0 0.5em 0; }
+.text li { margin: 0 0 0.25em 0; }
+
+.vhidden { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
+
+/*
+ * Socialite Look-a-like defaults
+ */
+
+.social-buttons { display: block; list-style: none; padding: 0; margin: 20px; }
+.social-buttons > li { display: block; margin: 0; padding: 10px; float: left; }
+.social-buttons .socialite { display: block; position: relative; background: url('images/social-sprite.png') 0 0 no-repeat; }
+.social-buttons .socialite-loaded { background: none !important; }
+
+.social-buttons .twitter-share { width: 55px; height: 65px; background-position: 0 0; }
+.social-buttons .googleplus-one { width: 50px; height: 65px; background-position: -75px 0; }
+.social-buttons .facebook-like { width: 50px; height: 65px; background-position: -145px 0; }
+.social-buttons .linkedin-share { width: 60px; height: 65px; background-position: -215px 0; }

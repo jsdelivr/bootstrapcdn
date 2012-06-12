@@ -11,12 +11,12 @@
     <!-- Bootstrap CSS Styles - Served Up By NetDNA -->
     <link href="http://current.bootstrapcdn.com/bootstrap-v204/css/bootstrap.css" rel="stylesheet">
     <link href="http://current.bootstrapcdn.com/bootstrap-v204/css/bootstrap-responsive.css" rel="stylesheet">
-    <!-- Socialite -->
-    <link href="http://current.bootstrapcdn.com/bootstrap-v204/css/socialite.css" rel="stylesheet">
+    <!-- Socialite / Barometer-->
     <link href="css/barometer.css" rel="stylesheet">
-
-    <!-- Styling for this site {bootstrapcdn.com} -->
-    <link href="css/bootstrapcdn.css?v=1.0" rel="stylesheet" >
+    <link href="css/socialite.css" rel="stylesheet">
+    
+    <!-- Custom Styling for this site {bootstrapcdn.com} -->
+    <link href="css/bootstrapcdn.css?v=1.1" rel="stylesheet" >
 
 		    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
 		    <!--[if lt IE 9]>
@@ -54,10 +54,10 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="/">Bootstrap CDN powered by NetDNA</a>
+          <a class="brand" href="/"><span class="bscdn">Bootstrap CDN</span> <span class="pwr">powered by</span> <span class="netdnabrnd">NetDNA<span></a>
           <div class="nav-collapse">
             <ul class="nav">
-              <li class="active"><a href="/">Home</a></li>
+              <li><a href="/">Home</a></li>
               <li><a href="https://github.com/jdorfman/bootstrap-cdn/issues">Issues</a></li>
             </ul>
           </div><!--/.nav-collapse -->
@@ -109,14 +109,9 @@
 
 					<div class="tab-pane active" id="quickstart">
 
-						<p><input type="text" class="span6" value="//current.bootstrapcdn.com/bootstrap-v204/css/bootstrap.min.css">						
-						</p>
+						<p><input type="text" class="span6" value="//current.bootstrapcdn.com/bootstrap-v204/css/bootstrap-combined.min.css">	<span class="label label-info">Complete CSS / Images</span>											</p>
 
-						<p><input type="text" class="span6" value="//current.bootstrapcdn.com/bootstrap-v204/css/bootstrap-responsive.css">					
-					    </p>
-
-						<p><input type="text" class="span6" value="//current.bootstrapcdn.com/bootstrap-v204/js/bootstrap.min.js">
-						</p>
+						<p><input type="text" class="span6" value="//current.bootstrapcdn.com/bootstrap-v204/js/bootstrap.min.js">		<span class="label label-info">Complete Javascript</span>				</p>
 
 
 
@@ -124,14 +119,16 @@
 			
 					<!-- CSS tab -->
 					<div class="tab-pane" id="css">
-						<p><input type="text" class="span6" value="http://current.bootstrapcdn.com/bootstrap-v204/css/bootstrap.min.css"> <span class="label label-info">Recommended</span></p>
+						<p><input type="text" class="span6 recommended" value="http://current.bootstrapcdn.com/bootstrap-v204/css/bootstrap-combined.min.css">	<span class="label label-info">Recommended</span></p>
+						<p><input type="text" class="span6" value="http://current.bootstrapcdn.com/bootstrap-v204/css/bootstrap.min.css"> </p>
 						<p><input type="text" class="span6" value="http://current.bootstrapcdn.com/bootstrap-v204/css/bootstrap.css"></p>
 						<p><input type="text" class="span6" value="http://current.bootstrapcdn.com/bootstrap-v204/css/bootstrap-responsive.css"></p>
+						<p><input type="text" class="span6" value="http://current.bootstrapcdn.com/bootstrap-v204/css/bootstrap-responsive.min.css"></p>
 					</div>
 
 					<!-- javasScript tab -->
 					<div class="tab-pane" id="js">
-							<p><input type="text" class="span6" value="http://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap.min.js"> <span class="label label-info">Recommended</span></p>
+							<p><input type="text" class="span6 recommended" value="http://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap.min.js"> <span class="label label-info">Recommended</span></p>
 							<p><input type="text" class="span6" value="http://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap.js"></p>
 							
 							<br>
@@ -167,13 +164,16 @@
 
 						<!-- CSS SSL -->
 						<p><span class="label label-info">css</span></p>				
-						<p><input type="text" class="span6" value="https://current.bootstrapcdn.com/bootstrap-v204/css/bootstrap.min.css"> <span class="label label-info">Recommended</span></p>
+						<p><input type="text" class="span6 recommended" value="https://current.bootstrapcdn.com/bootstrap-v204/css/bootstrap-combined.min.css">	<span class="label label-info">Recommended</span></p>
+						<p><input type="text" class="span6" value="https://current.bootstrapcdn.com/bootstrap-v204/css/bootstrap.min.css"> </p>
 						<p><input type="text" class="span6" value="https://current.bootstrapcdn.com/bootstrap-v204/css/bootstrap.css"></p>
-						<p><input type="text" class="span6" value="https://current.bootstrapcdn.com/bootstrap-v204/css/bootstrap-responsive.css"> <span class="label label-info">Recommended</span></p>
-						
+						<p><input type="text" class="span6" value="https://current.bootstrapcdn.com/bootstrap-v204/css/bootstrap-responsive.css"></p>
+						<p><input type="text" class="span6" value="https://current.bootstrapcdn.com/bootstrap-v204/css/bootstrap-responsive.min.css"></p>
+
+
 						<!-- JS SSL -->
 						<p><span class="label label-info">js</span></p>	
-						<p><input type="text" class="span6" value="https://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap.min.js"> <span class="label label-info">Recommended</span></p>
+						<p><input type="text" class="span6 recommended" value="https://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap.min.js"> <span class="label label-info">Recommended</span></p>
 						<p><input type="text" class="span6" value="https://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap.js"></p>
 
 
@@ -295,7 +295,7 @@
     <script src="http://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap.min.js"></script>
  
     <!-- MISC JS -->
-   	<script src='http://getbarometer.s3.amazonaws.com/assets/barometer/javascripts/barometer.js' type='text/javascript'></script>
+ 	<script src='http://getbarometer.s3.amazonaws.com/assets/barometer/javascripts/barometer.js' type='text/javascript'></script>
    	<script type="text/javascript" charset="utf-8">
    		BAROMETER.load('hXM25hDcWPxyDWXmjCC78');
    	</script>
