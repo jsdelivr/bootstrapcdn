@@ -49,7 +49,7 @@ margin:0px;
 
 /** Logo Sprites **/
 .logoArea {display: block; width:575px; min-height:105px; overflow: hidden;}
-#NetDNA, #MaxCDN, #CloudCache {display: block; Width:185px; height:90px; margin:7px 0px; float:left; background-image:url('/img/logos.png');}
+#NetDNA, #MaxCDN, #CloudCache {display: block; Width:185px; height:90px; margin:7px 0px; float:left; background-image:url('../img/logos.png');}
 #NetDNA {background-position:0px 0px; margin-right:10px;}
 #MaxCDN {background-position:-185px 0px; margin-right:10px;}
 #CloudCache {background-position:-370px 0px;}
