@@ -72,8 +72,8 @@
 
 	        <p >Code licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License v2.0</a>. Documentation licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
 	        <p >Icons from <a href="http://glyphicons.com/">Glyphicons Free</a>, licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
-		<p >This site is maintained by <a href="http://twitter.com/jdorfman" target="_blank">@jdorfman</a> &amp; <a href="https://github.com/flashtopia">frank</a></p>
-		<p>Powered by <a href="http://www.digitalfyre.com">DigitalFyre</a>, NetDNA &amp; <a href="http://www.nginx.org">nginx</a></p>
+		<p >This site is maintained by <a href="http://twitter.com/jdorfman" target="_blank">@jdorfman</a> &amp; <a href="https://github.com/flashtopia">frank</a>.</p>
+		<p>Powered by <a href="http://www.digitalfyre.com">DigitalFyre</a>, <a href="http://www.netdna.com">NetDNA</a> &amp; <a href="http://www.nginx.org">nginx</a>.</p>
 	        <br>
 	        <p><span class="label label-inverse">This free service comes with no warranty.</span></p>
 	</footer>
