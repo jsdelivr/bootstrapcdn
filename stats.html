@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Bootstrap CDN - Twitter's Bootstrap hosted on NetDNA's Tier-1 Content Delivery Network</title>
+  	 
+	 <?php include("inc/head.inc"); ?>
+  </head>
+
+  <body>
+
+  <?php include "inc/nav.inc" ?> 
+
+
+
+			<div class="main">
+				<p>
+					<script type="text/javascript">
+						
+var hits_chart;
+$(document).ready(function(){
+
+    // define the options
+    var hits_options = $.extend(true, {}, default_report_options, {
+        chart: {
+            renderTo: 'cachehits',
+            defaultSeriesType: 'area'
+        },
+
+        xAxis: {
+            type: 'datetime',
+            tickWidth: 0,
+            gridLineWidth: 0
+        },
+
+        yAxis: { // left y axis
+        },
+
+      tooltip: {
+         formatter : function() {
+            var s = '<span style="font-size: 10px">'+Highcharts.dateFormat("%A, %B %d, %Y", this.x)+'</span>';
+
+            $.each(this.points, function(i, point) {
+                s += '<br/><span style="color:'+default_report_options.colors[i]+'">'+point.series.name +'</span>: '+
+                    Highcharts.numberFormat(point.y, 0);
+            });
+
+            return s;
+         }
+      },
+
+      series: [{
+         name: 'Cache Hits',
+         lineWidth: 2,
+         marker: {
+            radius: 4
+         }
+      },{
+         name: 'Non-cache Hits',
+         lineWidth: 2,
+         marker: {
+            radius: 4
+         }
+      }]
+   });
+
+   hits_chart = new Highcharts.Chart(hits_options);
+
+    function loadGraphs(id) {
+        hits_chart.showLoading("Loading...");
+
+        var date_from = $('[name=date_from]').data("dateinput").getValue("yyyy-mm-dd");
+        var date_to = $('[name=date_to]').data("dateinput").getValue("yyyy-mm-dd");
+
+        jQuery.getJSON(BASE_URL + '/api/proxy/zones/pull' + (id? '/' + 44703 : '') + '/stats.json/' + (date_from==date_to? 'hourly' : 'daily'), {nopaginate: 1, date_from: date_from, date_to: date_to}, function(data, state, xhr) {
+            var allHits = [],
+              allCacheHits = [];
+            // split the data return into lines and parse them
+            jQuery.each(data.data.stats, function(i, line) {
+            date = Date.parse(line.timestamp +' UTC');
+
+            allHits.push([
+               date,
+               parseInt(line.noncache_hit, 10)
+            ]);
+            allCacheHits.push([
+               date,
+               parseInt(line.cache_hit, 10)
+            ]);
+          });
+
+          hits_chart.series[0].setData(allCacheHits);
+          hits_chart.series[1].setData(allHits);
+
+          hits_chart.hideLoading();
+       });
+   }
+
+   loadGraphs();
+});
+
+						</script>
+					<div id="cachehits"></div>
+
+				    <h1 id="getstarted">Stats</h1>
+						<p>CSS Files Are Included Also!</p>
+						</br>
+						</div>
+					<div class="tabbable">
+							<ul class="nav nav-tabs">
+								<li class="active"><a href="#quickstart" data-toggle="tab">QuickStart</a></li>
+								<li><a href="#css" data-toggle="tab">CSS</a></li>
+								<li><a href="#js" data-toggle="tab">JavaScript</a></li>
+								<li><a href="#img" data-toggle="tab">Images</a></li>
+								<li><a href="#ssl" data-toggle="tab">SSL</a></li>
+							</ul>
+					</div>
+
+					<!-- Actual Tab Content -->
+					<div class="tab-content">
+
+
+					<div class="tab-pane active" id="quickstart">
+
+						<p><input type="text" class="span6" value="//current.bootstrapcdn.com/bootstrap-v204/css/bootstrap-combined.min.css">	<span class="label label-info">Complete CSS / Images</span>											</p>
+
+						<p><input type="text" class="span6" value="//current.bootstrapcdn.com/bootstrap-v204/js/bootstrap.min.js">		<span class="label label-info">Complete Javascript</span>				</p>
+
+
+
+					</div>	
+			
+					<!-- CSS tab -->
+					<div class="tab-pane" id="css">
+						<p><input type="text" class="span6 recommended" value="http://current.bootstrapcdn.com/bootstrap-v204/css/bootstrap-combined.min.css">	<span class="label label-info">Recommended</span></p>
+						<p><input type="text" class="span6" value="http://current.bootstrapcdn.com/bootstrap-v204/css/bootstrap.min.css"> </p>
+						<p><input type="text" class="span6" value="http://current.bootstrapcdn.com/bootstrap-v204/css/bootstrap.css"></p>
+						<p><input type="text" class="span6" value="http://current.bootstrapcdn.com/bootstrap-v204/css/bootstrap-responsive.css"></p>
+						<p><input type="text" class="span6" value="http://current.bootstrapcdn.com/bootstrap-v204/css/bootstrap-responsive.min.css"></p>
+					</div>
+
+					<!-- javasScript tab -->
+					<div class="tab-pane" id="js">
+							<p><input type="text" class="span6 recommended" value="http://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap.min.js"> <span class="label label-info">Recommended</span></p>
+							<p><input type="text" class="span6" value="http://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap.js"></p>
+							
+							<br>
+							<p><span class="label label-info">Individual JavaScript</span> <span class="label ">Not Required If Using Either Link Above </span></p>
+							
+							<p><input type="text" class="span6" value="http://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-alert.js"></p>
+							<p><input type="text" class="span6" value="http://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-button.js"></p>
+							<p><input type="text" class="span6" value="http://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-carousel.js"></p>
+							<p><input type="text" class="span6" value="http://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-collapse.js"></p>
+							<p><input type="text" class="span6" value="http://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-dropdown.js"></p>
+							<p><input type="text" class="span6" value="http://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-modal.js"></p>
+							<p><input type="text" class="span6" value="http://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-popover.js"></p>
+							<p><input type="text" class="span6" value="http://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-scrollspy.js"></p>
+							<p><input type="text" class="span6" value="http://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-tab.js"></p>
+							<p><input type="text" class="span6" value="http://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-tooltip.js"></p>
+							<p><input type="text" class="span6" value="http://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-transition.js"></p>
+							<p><input type="text" class="span6" value="http://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-typeahead.js"></p>
+							<p><input type="text" class="span6" value="http://current.bootstrapcdn.com/bootstrap-v204/js/jquery.js"></p>
+					</div>
+
+
+
+						<!-- Images Tab -->
+						<div class="tab-pane" id="img">
+							<p><input type="text" class="span7" value="http://current.bootstrapcdn.com/bootstrap-v204/img/glyphicons-halflings.png"></p>
+							<p><input type="text" class="span7" value="http://current.bootstrapcdn.com/bootstrap-v204/img/glyphicons-halflings-white.png"></p>
+							<p><span class="label label-important">NOTE: It is not necessary to include images url if you already have linked to CSS files</span></p>
+						</div>
+		
+					<!-- SSL Tab -->			
+					<div class="tab-pane" id="ssl">
+						<p style="font-size: 12px;"><img src="img/spacer.gif" height="1px" width="446px"><span class="label label-inverse">Powered by</span> <a href="http://www.netdna.com/products/edgessl/">EdgeSSL</a></p>
+
+						<!-- CSS SSL -->
+						<p><span class="label label-info">css</span></p>				
+						<p><input type="text" class="span6 recommended" value="https://current.bootstrapcdn.com/bootstrap-v204/css/bootstrap-combined.min.css">	<span class="label label-info">Recommended</span></p>
+						<p><input type="text" class="span6" value="https://current.bootstrapcdn.com/bootstrap-v204/css/bootstrap.min.css"> </p>
+						<p><input type="text" class="span6" value="https://current.bootstrapcdn.com/bootstrap-v204/css/bootstrap.css"></p>
+						<p><input type="text" class="span6" value="https://current.bootstrapcdn.com/bootstrap-v204/css/bootstrap-responsive.css"></p>
+						<p><input type="text" class="span6" value="https://current.bootstrapcdn.com/bootstrap-v204/css/bootstrap-responsive.min.css"></p>
+
+
+						<!-- JS SSL -->
+						<p><span class="label label-info">js</span></p>	
+						<p><input type="text" class="span6 recommended" value="https://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap.min.js"> <span class="label label-info">Recommended</span></p>
+						<p><input type="text" class="span6" value="https://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap.js"></p>
+
+
+						<!-- Individual Files -->
+						<p><input type="text" class="span6" value="https://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-alert.js"></p>
+						<p><input type="text" class="span6" value="https://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-button.js"></p>
+						<p><input type="text" class="span6" value="https://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-carousel.js"></p>
+						<p><input type="text" class="span6" value="https://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-collapse.js"></p>
+						<p><input type="text" class="span6" value="https://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-dropdown.js"></p>
+						<p><input type="text" class="span6" value="https://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-modal.js"></p>
+						<p><input type="text" class="span6" value="https://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-popover.js"></p>
+						<p><input type="text" class="span6" value="https://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-scrollspy.js"></p>
+						<p><input type="text" class="span6" value="https://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-tab.js"></p>
+						<p><input type="text" class="span6" value="https://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-tooltip.js"></p>
+						<p><input type="text" class="span6" value="https://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-transition.js"></p>
+						<p><input type="text" class="span6" value="https://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap-typeahead.js"></p>
+						<p><input type="text" class="span6" value="https://current.bootstrapcdn.com/bootstrap-v204/js/jquery.js"></p>
+						
+						<!-- Images SSL -->
+						<p><span class="label label-info">images</span></p>
+						<p><input type="text" class="span7" value="https://current.bootstrapcdn.com/bootstrap-v204/img/glyphicons-halflings.png"></p>
+						<p><input type="text" class="span7" value="https://current.bootstrapcdn.com/bootstrap-v204/img/glyphicons-halflings-white.png"></p>
+					</div>
+
+
+
+
+				</div>
+
+<!-- END TABS AND TAB CONENTENT -->
+	<script src="js/highcharts-defaults.js"></script>
+	<scripts src="js/highcharts.js"></script>
+	<?php include "inc/footer.inc"; ?>
+  </body>
+</html>
