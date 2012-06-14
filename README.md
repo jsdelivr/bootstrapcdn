@@ -3,51 +3,53 @@
 
 Supercharge Twitter Bootstrap
 We [saw](https://github.com/twitter/bootstrap/issues/1679#issuecomment-5861281) there was a need for a FREE way to deliver ALL Bootstrap objects. 
+
 Since our [company](http://www.netdna.com/?src=github-readme) is built on open source, we thought it was the least that we could do. Enjoy ;)
 
 Bugs / Ideas
 -----------
 
-Have a bug or and idea? Please create an issue here on GitHub! Also, when filing please make sure you're familiar with [necolas's guidelines](https://github.com/necolas/issue-guidelines). thanks! <3
+Have a bug or and idea? Please create an issue here on GitHub:
 
-https://github.com/twitter/bootstrap/issues
-
+https://github.com/jdorfman/bootstrap-cdn/issues
 
 Twitter accounts
 ---------------
 
 [@jdorfman](http://twitter.com/jdorfman) - Project Manager
+
 [@flashtopia](http://twitter.com/flashtopia) - Contributer (and came up with this idea)
+
 [@netdna](http://twitter.com/netdna) - Project Sponsor
+
 [@netdnadeveloper](http://twitter.com/netdnadeveloper) - Updates on the NetDNA Platform & This project
 
 Links
 ----
 
-[Bootstrap CDN Status](http://status.netdna.com)
-[NetDNA Developer](http://www.developer.netdna.com)
-[Bootstrap CDN Blog](http://blog.bootstrapcdn.com)
+* [Bootstrap CDN Status](http://status.netdna.com)
+* [NetDNA Developer](http://www.developer.netdna.com)
+* [Bootstrap CDN Blog](http://blog.bootstrapcdn.com)
 
 
 Thanks
 -----
 
-NetDNA.com
+[NetDNA](http://www.netdna.com)
 * Chris Ueland
 * David Henzel
 * Stephen Gonzalez
 
-Twitter.com
+[Twitter](http://www.twitter.com)
 * Mark Otto
 * Jacob Thornton
 
-CDNPlanet.com
+CDNPlanet
 * Sajal Kayan
 * Aaron Peters
-* CDNPlanet.com
 
 Others:
-* Frank B.
+* Frank B. @ [WarrantyTree.com](http://WarrantyTree.com)
 
 Authors of Twitter Bootstrap
 -------
