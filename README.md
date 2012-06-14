@@ -1,7 +1,6 @@
-[Bootstrap CDN](http://bootstrapcdn.com/?src=github-readme)
+[Bootstrap CDN](http://bootstrapcdn.com/) - Supercharge Twitter Bootstrap!
 =================
 
-Supercharge Twitter Bootstrap
 We [saw](https://github.com/twitter/bootstrap/issues/1679#issuecomment-5861281) there was a need for a FREE way to deliver ALL Bootstrap objects. 
 
 Since our [company](http://www.netdna.com/?src=github-readme) is built on open source, we thought it was the least that we could do. Enjoy ;)
@@ -9,20 +8,17 @@ Since our [company](http://www.netdna.com/?src=github-readme) is built on open s
 Bugs / Ideas
 -----------
 
-Have a bug or and idea? Please create an issue here on GitHub:
+Found a bug or have an idea? Please create an issue here on GitHub:
 
 https://github.com/jdorfman/bootstrap-cdn/issues
 
 Twitter accounts
 ---------------
 
-[@jdorfman](http://twitter.com/jdorfman) - Project Manager
-
-[@flashtopia](http://twitter.com/flashtopia) - Contributer (and came up with this idea)
-
-[@netdna](http://twitter.com/netdna) - Project Sponsor
-
-[@netdnadeveloper](http://twitter.com/netdnadeveloper) - Updates on the NetDNA Platform & This project
+* [@jdorfman](http://twitter.com/jdorfman) - Project Manager
+* [@flashtopia](http://twitter.com/flashtopia) - Contributer (and came up with this idea)
+* [@netdna](http://twitter.com/netdna) - Project Sponsor
+* [@netdnadeveloper](http://twitter.com/netdnadeveloper) - Updates on the NetDNA Platform & This project
 
 Links
 ----
@@ -44,7 +40,7 @@ Thanks
 * Mark Otto
 * Jacob Thornton
 
-CDNPlanet
+[CDNPlanet](http://www.cdnplanet.com)
 * Sajal Kayan
 * Aaron Peters
 
