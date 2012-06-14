@@ -1,0 +1,7 @@
+AddType application/x-httpd-php .html
+
+RewriteEngine On
+IndexIgnore *
+Options +FollowSymLinks -Multiviews -Indexes
+RewriteCond %{HTTP_HOST} ^bootstrapcdn\.com$ [NC]
+RewriteRule ^(.*)$ http://www.bootstrapcdn.com/$1 [R=301,L]
