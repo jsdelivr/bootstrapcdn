@@ -35,16 +35,16 @@
 				</div>
 
 
-				<div class="well" align="center">
+<!--				<div class="well" align="center">
 <map id="imgmap201269182153" name="imgmap201269182153"><area shape="rect" alt="NetDNA - Content Delivery Network" title="" coords="0,0,85,51" href="http://www.netdna.com" target="" /><area shape="rect" alt="MaxCDN - Pay as go CDN" title="" coords="208,0,343,53" href="http://www.maxcdn.com" target="" /><area shape="rect" alt="CloudCache - GLOBAL CONTENT CACHING " title="" coords="450,1,561,51" href="http://www.cloudcache.com" target="" /><!-- Created by Online Image Map Editor (http://www.maschek.hu/imagemap/index) --></map>
 		<img src="//current.bootstrapcdn.com/img/logos.png" border="0" usemap="#imgmap201269182153"> 
-				</div>
+				</div> -->
 
-				 <!-- <div class="logoArea">
+				 <div class="logoArea">
 					<a id="NetDNA" 		target="_blank"  href="http://www.netdna.com/?src=bootstrapcdn.com"></a>
 					<a id="MaxCDN" 		target="_blank"  href="http://www.maxcdn.com/?src=bootstrapcdn.com"></a>
 					<a id="CloudCache" 	target="_blank"  href="http://www.cloudcache.com/?src=bootstrapcdn.com"></a>
-				</div> -->
+				</div>
 
 
 
