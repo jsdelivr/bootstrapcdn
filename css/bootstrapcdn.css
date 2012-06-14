@@ -67,7 +67,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00a9c8', end
 
 /** Logo Sprites **/
 .logoArea {display: block; width:500px; min-height:69px; overflow: hidden;}
-#NetDNA, #MaxCDN, #CloudCache {display: block; Width:134px; height:55px; margin:7px 0px; float:left; background-image:url('../img/logos.png');}
+#NetDNA, #MaxCDN, #CloudCache {display: block; Width:134px; height:55px; margin:7px 0px; float:left; background-image:url('../img/logos-ro.png');}
 #NetDNA {background-position:0px 0px; margin-right:49px;}
 #MaxCDN {background-position:-134px 0px; margin-right:49px;}
 #CloudCache {background-position:-268px 0px;}
