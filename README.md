@@ -20,14 +20,6 @@ Twitter accounts
 * [@netdna](http://twitter.com/netdna) - Project Sponsor
 * [@netdnadeveloper](http://twitter.com/netdnadeveloper) - Updates on the NetDNA Platform & This project
 
-Links
-----
-
-* [Bootstrap CDN Status](http://status.netdna.com)
-* [NetDNA Developer](http://www.developer.netdna.com)
-* [Bootstrap CDN Blog](http://blog.bootstrapcdn.com)
-
-
 Thanks
 -----
 
