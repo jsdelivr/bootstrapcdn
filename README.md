@@ -24,21 +24,21 @@ Thanks
 -----
 
 [NetDNA](http://www.netdna.com)
+* Ahmed Samir
 * Chris Ueland
 * David Henzel
+* Kevin Baldwin
 * Stephen Gonzalez
-
-[Twitter](http://www.twitter.com)
-* Mark Otto
-* Jacob Thornton
 
 [CDNPlanet](http://www.cdnplanet.com)
 * Sajal Kayan
 * Aaron Peters
 
 Others:
+* [DigitalFyre](http://digitalfyre.com) Hosting Services
 * Frank B. @ [WarrantyTree.com](http://WarrantyTree.com)
 * Andrey Alexeev @ [nginx](http://www.nginx.com)
+* Mark Otto & Jacob Thornton @twitter
 
 Authors of Twitter Bootstrap
 -------
