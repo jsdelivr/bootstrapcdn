@@ -38,6 +38,7 @@ Thanks
 
 Others:
 * Frank B. @ [WarrantyTree.com](http://WarrantyTree.com)
+* Andrey Alexeev @ [nginx](http://www.nginx.com)
 
 Authors of Twitter Bootstrap
 -------
