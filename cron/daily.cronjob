@@ -1,0 +1,1 @@
+@daily /usr/bin/python /path/to/cron/daily.getstats.py > /path/to/www/data/daily.stats.json 
