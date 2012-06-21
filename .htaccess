@@ -9,8 +9,9 @@ AddType application/json .json
 Header append Cache-Control "public, must-revalidate, proxy-revalidate"
 ExpiresActive On
 ExpiresByType text/css A31536000
-ExpiresByType application/x-javascript A31536000
-ExpiresByType text/html A31536000
+ExpiresByType application/javascript A31536000
+ExpiresByType image/png A31536000
+ExpiresByType image/gif A31536000
 ExpiresByType application/json A86400
 
 # This will allow us to point www to the CDN so each page is cached globally.
