@@ -27,8 +27,6 @@ class NetDNAREST():
 
    def get(self, uri):
        endpoint = "https://%s/%s%s" %(self.server, self.alias, uri)
-       print "\n"
-       print endpoint
        return self.request("GET", endpoint)
  
    def get_zone_stats(self, zoneid, reporttype, fromdate, todate):
@@ -48,6 +46,7 @@ if __name__ in "__main__":
    
 
    getdate = datetime.date.today()
-   thirty = datetime.timedelta(days=10)
+   thirty = datetime.timedelta(days=30)
    last_month = getdate - thirty
    print json.dumps(api.get_zone_stats(44703, "daily", str(last_month), str(getdate)))
+#  zone id ------------------------------^
