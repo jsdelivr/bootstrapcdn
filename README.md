@@ -26,13 +26,14 @@ Thanks
 [NetDNA](http://www.netdna.com)
 * Ahmed Samir
 * Chris Ueland
+* Eamon Pascal
 * David Henzel
 * Kevin Baldwin
 * Stephen Gonzalez
 
 [CDNPlanet](http://www.cdnplanet.com)
-* Sajal Kayan
 * Aaron Peters
+* Sajal Kayan
 
 Others:
 * [DigitalFyre](http://digitalfyre.com) Hosting Services
@@ -58,7 +59,7 @@ Authors of Twitter Bootstrap
 Copyright and license
 ---------------------
 
-Copyright 2012 Twitter, Inc.
+Copyright 2012 NetDNA LLC.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this work except in compliance with the License.
