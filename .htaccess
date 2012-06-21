@@ -1,7 +1,27 @@
+# php in HTML are you nuts? Yup.
 AddType application/x-httpd-php .html
+# Tell the origin what json is
+AddType application/json .json
+
+# Cache everything on for 1 year. 
+# We are making an 24 hour exception for json since we are using it for the daily stats and need that $#!+ fresh
+
+Header append Cache-Control "public, must-revalidate, proxy-revalidate"
+ExpiresActive On
+ExpiresByType text/css A31536000
+ExpiresByType application/x-javascript A31536000
+ExpiresByType text/html A31536000
+ExpiresByType application/json A86400
+
+# This will allow us to point www to the CDN so each page is cached globally.
 
 RewriteEngine On
 IndexIgnore *
 Options +FollowSymLinks -Multiviews -Indexes
 RewriteCond %{HTTP_HOST} ^bootstrapcdn\.com$ [NC]
 RewriteRule ^(.*)$ http://www.bootstrapcdn.com/$1 [R=301,L]
+
+# A million dollars isn't cool, adding your own custom headers is. That's how it went right?
+
+Header set X-Powered-By "NetDNA - The Science of Acceleration™"
+Header set X-Hello-Human "You must be bored.  You should work for us. Email jdorfman+theheader@netdna.com or @NetDNADeveloper on the twitter"
