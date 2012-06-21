@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /branches
+Disallow: /inc
+Disallow: /cron
+Disallow: /css
+Disallow: /js
+Disallow: /bootstrap-v204
