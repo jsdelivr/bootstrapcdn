@@ -53,7 +53,7 @@ var hits_chart;
                  var date_from = 'd.dateFormat("Y-m-d));';
                  var date_to = "2012-06-10";
 
-                 jQuery.getJSON('http://origin.bootstrapcdn.com/branches/justin/jdorfman-bootstrap-cdn-2d5a491/data/daily.stats.json', {nopaginate: 1, date_from: date_from, date_to: 
+                 jQuery.getJSON('http://www.bootstrapcdn.com/data/daily.stats.json', {nopaginate: 1, date_from: date_from, date_to: 
 date_to}, function(data, state, xhr) {
                      var allHits = [],
                        allCacheHits = [];
