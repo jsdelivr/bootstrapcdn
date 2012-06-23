@@ -10,7 +10,7 @@
           <div class="nav-collapse">
             <ul class="nav">
               <li><a href="/">Home</a></li>
-              <li><a href="https://github.com/jdorfman/bootstrap-cdn/issues" target="_blank">Issues <i class="icon-white icon-share-alt"></i></a></li>
+              <li><a href="https://github.com/netdna/bootstrap-cdn/issues" target="_blank">Issues <i class="icon-white icon-share-alt"></i></a></li>
 			  <li class="dropdown" id="menu1">
 				<a class="dropdown-toggle" data-toggle="dropdown" href="#menu1">
 				Reports
