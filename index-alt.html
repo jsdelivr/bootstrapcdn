@@ -5,7 +5,7 @@
 	<title>BootstrapCDN: Twitter Bootstrap hosted on a content delivery network</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="">
-	<meta name="author" content="">
+	<meta name="author" content="Justin Dorfman">
 
 	<!-- Le styles -->
 	<link href="css/bootstrap.min.css" rel="stylesheet">
@@ -15,7 +15,7 @@
 
 		body {
 			background-color: #333;
-			background: top center url('http://subtlepatterns.com/patterns/random_grey_variations.png') repeat #414852;
+			background: top center url('img/random_grey_variations.png') repeat #414852;
 		}
 
 		.navbar-inner {
@@ -178,12 +178,16 @@
 				</a>
 				<a class="brand" href="#">BootstrapCDN</a>
 				<div class="nav-collapse">
-					<ul class="nav">
-						<li><a href="#">Uptime</a></li>
-						<li><a href="#">Stats</a></li>
-						<li><a href="#">Issues</a></li>
-					</ul>
-				</div>
+            		<ul class="nav">
+              			<li><a href="/">Home</a></li>
+              				<li><a href="https://github.com/netdna/bootstrap-cdn/issues" target="_blank">Issues <i class="icon-white icon-share-alt"></i></a></li>
+			  				<li class="dropdown" id="menu1"><a class="dropdown-toggle" data-toggle="dropdown" href="#menu1">Reports<b class="caret"></b></a>
+		             			<ul class="dropdown-menu">
+				      				<li><a href="http://status.bootstrapcdn.com" target="_blank"><i class="icon-ok-sign"></i> Uptime</a></li>
+				      				<li><a href="stats.html"><i class="icon-tasks"></i> Stats/Charts</a></li>
+	    						</ul>
+	  				</ul>
+          		</div>
 			</div>
 		</div>
 	</div>
