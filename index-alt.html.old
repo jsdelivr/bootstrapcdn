@@ -9,10 +9,163 @@
 
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+<<<<<<< HEAD
+	<!-- <link href="css/style.css" rel="stylesheet"> -->
+	<style type="text/css">
+
+		body {
+			background-color: #333;
+			background: top center url('img/random_grey_variations.gif') repeat #414852;
+		}
+
+		.navbar-inner {
+			background-image: none;
+			background-color: rgba(0, 0, 0, 0.5);
+		}
+
+		.navbar .nav li a,
+		.navbar .brand {
+			color: #fff;
+		}
+
+		.main {
+			padding: 60px 0;
+			/*background-color: #222;*/
+		}
+
+		.hero {
+			padding: 30px;
+			text-align: center;
+			color: rgba(255, 255, 255, 1);
+		}
+
+		.hero h1 {
+			margin-bottom: 20px;
+			font-size: 60px;
+			line-height: 60px;
+			text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
+		}
+
+		.hero h3 {
+			margin-bottom: 10px;
+			font-size: 20px;
+			line-height: 24px;
+			font-weight: normal;
+			text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.6);
+		}
+
+		.nav-tabs {
+			margin-bottom: 0;
+			border-bottom: none;
+		}
+
+		input[type="text"] {
+			width: 100%;
+			height: 30px;
+			margin-left: -2px;
+			font-size: 16px;
+		}
+
+		.nav-tabs li > a,
+		.nav-tabs li > a:hover {
+			border-color: transparent;
+			background-color: #ccc;
+			box-shadow: inset 0 -1px 4px rgba(0, 0, 0, 0.1);
+			color: #404650;
+		}
+
+		.nav-tabs li.active > a,
+		.nav-tabs li.active > a:hover {
+			background-color: #ddd;
+			box-shadow: none;
+			color: #404650;
+		}
+
+		.tab-content {
+			padding: 30px;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+			box-shadow: 4px 4px 2px rgba(0, 0, 0, 0.3);
+			border-radius: 0 6px 6px 6px;
+			background-color: #ddd;
+		}
+
+		.tab-content h4 {
+			margin-bottom: 20px;
+		}
+
+		.label-container {
+			line-height: 14px;
+		}
+
+		.label {
+			margin-left: -1px;
+			background-color: rgba(0, 0, 0, 0.6);
+			background-color: #FA9236;
+			background-color: #212429;
+			border-radius: 3px 3px 0 0;
+		}
+
+		.bar {
+			background-color: rgba(0, 0, 0, 0.5);
+			color: #fff;
+		}
+
+		.bar .row-fluid > [class*="span"] {
+			min-height: 12px;
+		}
+
+		.bar h3 {
+			margin: 5px;
+			text-align: center;
+		}
+
+		.sponsors {
+			padding: 20px 0 40px;
+			background-color: #ddd;
+			/*background-color: #FEDB9D;*/
+			/*background: top center url('http://subtlepatterns.com/patterns/exclusive_paper.png') repeat #eee;*/
+		}
+
+		.logo {
+			padding: 30px 0 20px;
+			text-align: center;
+			opacity: 0.8;
+		}
+
+		.footer {
+			padding: 40px 0 20px;
+
+			background-color: rgba(0, 0, 0, 0.5);
+			color: #fff;
+
+		}
+
+		.footer ul {
+			margin-left: 0;
+			list-style-type: none;
+		}
+
+		@media (min-width: 1200px) {
+
+			.container,
+			.navbar-fixed-top .container {
+				width: 940px;
+			}
+
+			.row {
+				margin-left: -20px;
+			}
+	/*	}*/
+
+
+	</style>
+=======
 	<link href="css/style.css" rel="stylesheet">
 	<script>
 		!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
 	</script>
+>>>>>>> 5d6e646d0a6c5ec626059027ae0dfd02e6648d0e
 
 	<!--[if lt IE 9]>
 		<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -189,7 +342,11 @@
 					<div class="span4">
 						<div class="logo"><a href="http://cloudcache.com" target="_blank"><img src="img/cloudcache-logo.png" alt="CloudCache"></a></div>
 
+<<<<<<< HEAD
+					<p>CloudCache is a pay-as-you-go, static file serving CDN. You can sign up online, be up &amp; running in 5 minutes and they offer a 30-day, money-back guarantee. With monthly plans starting at $12/month, CloudCache is appealing to those looking to speed up their Wordpress blog or PrestaShop.</p>
+=======
 						<p>CloudCache is a low-threshold, static file serving CDN. You can sign up online, be up &amp; running in 5 minutes and they offer a 30-day, money-back guarantee. With monthly plans starting at $12/month, CloudCache is appealing to those looking to speed up their Wordpress blog or PrestaShop.</p>
+>>>>>>> 5d6e646d0a6c5ec626059027ae0dfd02e6648d0e
 
 					</div>
 				</div>
@@ -222,6 +379,34 @@
 			</div>
 		</footer>
 
+<<<<<<< HEAD
+	<footer class="footer">
+		<div class="container">
+			<ul class="pull-right">
+				<li><a href="http://twitter.github.com/bootstrap/index.html" target="_blank">Twitter Bootstrap</a></li>
+				<li><a href="http://bootswatch.com/" target="_blank">Bootswatch</a></li>
+				<li><a href="http://builtwithbootstrap.com/" target="_blank">Built with Bootstrap</a></li>
+				<li><a href="http://www.bootstraphero.com/" target="_blank">Bootstrap Hero</a></li>
+				<li><a href="http://stylebootstrap.info/" target="_blank">StyleBootstrap</a></li>
+				<li><a href="http://bootswatchr.com/" target="_blank">Bootswatchr</a></li>
+				<li><a href="http://www.plugolabs.com/twitter-bootstrap-button-generator/" target="_blank">Bootstrap Button Generator</a></li>
+				<li><a href="http://fortawesome.github.com/Font-Awesome/" target="_blank">Font Awesome</a></li>
+				<li><a href="http://stackoverflow.com/questions/tagged/bootstrap" target="_blank">Bootstrap Q&amp;A on Stackoverflow</a></li>
+			</ul>
+			<ul>
+				<li>Site maintained by <a href="http://www.twitter.com/jdorfman" target="_blank">@jdorfman</a></li>
+				<li>Site designed by <a href="http://www.twitter.com/thomashpark" target="_blank">@thomashpark</a> of <a href="http://bootswatch.com/" target="_blank">Bootswatch</a>.</li>
+				<li>Site powered by <a href="http://www.digitalfyre.com" target="_blank">DigitalFyre</a>, <a href="http://www.netdna.com" target="_blank">NetDNA</a>, and <a href="http://www.nginx.org" target="_blank">nginx</a>.</li>
+				<li>This free service comes with no warrany.</li>
+			</ul>
+		</div>
+	</footer>
+
+	<!-- Le javascript
+	================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+=======
+>>>>>>> 5d6e646d0a6c5ec626059027ae0dfd02e6648d0e
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/scripts.js"></script>
