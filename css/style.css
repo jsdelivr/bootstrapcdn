@@ -52,6 +52,11 @@ a:hover {
 	text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.6);
 }
 
+.social {
+	text-align: center;
+	margin-bottom: 30px;
+}
+
 .nav-tabs {
 	margin-bottom: 0;
 	border-bottom: none;
