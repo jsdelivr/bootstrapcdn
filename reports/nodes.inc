@@ -3,17 +3,21 @@
   
     <h2>Location Overview</h2>
     <p>Total requests and bandwidth by map location </p>
-	<div class="row">
-		<div class="span6">
-			<h3>United States</h3>
-			<div id="chart_div1" style="width: 480px; height: 300px;"></div>
-		</div>
-	    <div class="span6">
-			<h3>Europe</h3>
-			<div id="chart_div2" style="width: 480px; height: 300px;"></div>
-		</div>	
-	</div>
-    <p>
+	<table class="table table-striped">
+		  <tr>
+			<td>
+				<h3>United States</h3>
+				<div id="chart_div1" style="width: 400px; height: 400px;"></div>
+
+			</td>
+			<td>
+				<h3>Europe</h3>
+				<div id="chart_div2" style="width: 400px; height: 400px;"></div>
+
+			</td>	
+		  </tr>
+	</table>		
+    <p> 
     <h2>Nodes Breakdown Overview</h2>
     <p>Total requests and bandwidth by location </p>
 	<table class="table table-striped">
@@ -236,7 +240,8 @@ else
 		markerOpacity:0.65,
 		sizeAxis:{minValue: 1,  maxSize: 20},
 		tooltip:  {textStyle: {color: '#AA0000'}, showColorCode: true},
-        colorAxis: {colors: ['orange', 'red']}
+        colorAxis: {colors: ['orange', 'red']},
+		backgroundColor: '#F9F9F9'
 
       };
 
@@ -272,7 +277,8 @@ else
 		markerOpacity:0.65,
 		sizeAxis:{minValue: 1,  maxSize: 20},
 		tooltip:  {textStyle: {color: '#AA0000'}, showColorCode: true},
-        colorAxis: {colors: ['orange', 'red']}
+        colorAxis: {colors: ['orange', 'red']},
+		backgroundColor: '#F9F9F9'
       };
 
       var chart = new google.visualization.GeoChart(document.getElementById('chart_div2'));

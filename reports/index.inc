@@ -1,7 +1,7 @@
 <!--     <div class="container">
 		<div class="span11"> -->
       <h2>   Popular Files Overview</h2>
-      <p>    Total requests per file and total bandwith of popular files</p>
+      <p>    Total requests per file and total bandwdith of popular files</p>
 	
 	
 		<table class="table table-striped table-index">
@@ -175,6 +175,10 @@ else
 
         </tbody>
       </table>
+	<p>
+	      <a href="http://medialoot.com/" target="_blank"><small>Icons by Medialoot.com</small></a>
+	</p>
+
 
 
 
