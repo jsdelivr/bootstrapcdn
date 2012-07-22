@@ -176,14 +176,6 @@ else
         </tbody>
       </table>
 
-<!-- </div>
-</div> -->
-    <!-- Le javascript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="js/highcharts.js"></script>
-	<script src="js/highcharts-defaults.js"></script>
-	<script src="js/highcharts-cachehits.js"></script>
 
 
 

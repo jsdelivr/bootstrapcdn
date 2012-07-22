@@ -62,21 +62,18 @@
 							</ul>
 						</div>
 
-						<!-- Actual Tab Content -->
 						<div class="tab-content">
 
 							<div class="tab-pane active" id="popular">
 								<?php include "reports/index.inc" ?>
 							</div>	
 
-							<!-- CSS tab -->
 							<div class="tab-pane" id="nodes">
 								<?php include "reports/nodes.inc" ?>
 							</div>
 
-							<!-- JavaScript tab -->
 							<div class="tab-pane" id="hourly">
-				
+								<iframe frameborder="0" height="1050" width="850" src="reports/stats-hourly.html"></iframe>
 							</div>
 
 						</div>
@@ -91,11 +88,65 @@
 
 
 <!-- Sponsors -->
+	<div class="sponsors">
+			<div class="container">
+				<div class="row-fluid">
+					<div class="span12">
+						<h3>Sponsored By:</h3>
+					</div>
+				</div>
+				<div class="row-fluid">
+					<div class="span4">
+						<div class="logo"><a href="http://netdna.com" target="_blank"><img src="img/netdna-logo.png" alt="NetDNA"></a></div>
+						<p>NetDNA was founded in October 2009 and has quickly become a well known CDN company, providing a complete feature set and POPs in multiple continents. The NetDNA branded service is targeted at enterprise customers in long-term agreements, who enjoy priority support and priority development for new feature requests.</p>
 
-	
+					</div>
+					<div class="span4">
+						<div class="logo"><a href="http://maxcdn.com" target="_blank"><img src="img/maxcdn-logo.png" alt="MaxCDN"></a></div>
+						<p>MaxCDN is a low-threshold, static file serving CDN. You can sign up online, be up &amp; running in 5 minutes and they offer a 30-day, money-back guarantee. With an aggressive $39.95-for-your-first-TB offering, MaxCDN is appealing to those looking for a first experience with a CDN.</p>
 
+					</div>
+					<div class="span4">
+						<div class="logo"><a href="http://cloudcache.com" target="_blank"><img src="img/cloudcache-logo.png" alt="CloudCache"></a></div>
+
+						<p>CloudCache is a low-threshold, static file serving CDN. You can sign up online, be up &amp; running in 5 minutes and they offer a 30-day, money-back guarantee. With monthly plans starting at $12/month, CloudCache is appealing to those looking to speed up their Wordpress blog or PrestaShop.</p>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<footer class="footer">
+			<div class="container">
+				<div class="row-fluid">
+					<div class="span12">
+						<ul class="pull-left">
+							<li>Maintained by <a href="http://www.twitter.com/jdorfman" target="_blank">@jdorfman</a>.</li>
+							<li>Designed by <a href="http://www.twitter.com/parqin" target="_blank">@parqin</a> of <a href="http://bootswatch.com/" target="_blank">Bootswatch</a>.</li>
+							<li>Powered by <a href="http://www.digitalfyre.com" target="_blank">DigitalFyre</a>, <a href="http://www.netdna.com" target="_blank">NetDNA</a>, and <a href="http://www.nginx.org" target="_blank">nginx</a>.</li>
+							<li>This free service comes with no warrany.</li>
+						</ul>
+						<ul class="pull-right">
+							<li>Links</li>
+							<li><a href="http://twitter.github.com/bootstrap/index.html" target="_blank">Twitter Bootstrap</a></li>
+							<li><a href="http://bootswatch.com/" target="_blank">Bootswatch</a></li>
+							<li><a href="http://builtwithbootstrap.com/" target="_blank">Built with Bootstrap</a></li>
+							<li><a href="http://www.bootstraphero.com/" target="_blank">Bootstrap Hero</a></li>
+							<li><a href="http://stylebootstrap.info/" target="_blank">StyleBootstrap</a></li>
+							<li><a href="http://bootswatchr.com/" target="_blank">Bootswatchr</a></li>
+							<li><a href="http://www.plugolabs.com/twitter-bootstrap-button-generator/" target="_blank">Bootstrap Button Generator</a></li>
+							<li><a href="http://stackoverflow.com/questions/tagged/bootstrap" target="_blank">Bootstrap Q&amp;A on Stackoverflow</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+	 <!-- Placed at the end of the document so the pages load faster -->
+   	<script src="js/bootstrap-datepicker.js"></script>
+    <script src="js/highcharts.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-    <script src="http://current.bootstrapcdn.com/bootstrap-v204/js/bootstrap.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
 	<script src="js/scripts.js"></script>
 
 </body>
