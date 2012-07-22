@@ -1,4 +1,10 @@
     <!-- Le styles -->
+        <style type="text/css">
+                .main           {
+                background-color:#ECECEC;
+                }
+
+        </style>
     <link href="http://current.bootstrapcdn.com/bootstrap-v204/css/bootstrap-combined.min.css" rel="stylesheet"> 
     <link href="css/datepicker.css" rel="stylesheet">
 
@@ -77,7 +83,7 @@ function getlast24($status_codes,$label) {
 	   $union_str .= "UNION (SELECT '$gmtstringtime' as HOUR, 0)\n";
 	}	
 	
-	$select = "SELECT tstamp, hit FROM (
+	$select = "SELECT tstamp, sum(hit) as hits FROM (
 	(
         SELECT TIMESTAMP as tstamp, hit
         FROM hourly
@@ -90,11 +96,12 @@ function getlast24($status_codes,$label) {
 	GROUP BY tstamp
 	ORDER BY tstamp asc
 	";
-	
+
+
 	$result=mysql_query($select,$conn);
 	
 	while($row = mysql_fetch_array($result)) {
-		array_push($array_data,$row['hit']);	
+		array_push($array_data,$row['hits']);	
 	}	
     //place series label at beginning
 	array_unshift($array_data,$label);
@@ -106,23 +113,24 @@ function getlast24($status_codes,$label) {
 }
 
 
+
 /**
  * fetches hourly error data 
  * @param string, comma-delimited status codes
  * @param label for series
  * @return string 
  */
-
-function gethourly($status_codes,$label) 
+function gethourly($selected_date,$status_codes,$label) 
 {
 	global $conn;
 	$array_data = array();
 	
-	$select = "SELECT tstamp, hit FROM (
+	$select = "SELECT tstamp, sum(hit) as hits FROM (
 	(
         SELECT hour(TIMESTAMP) as tstamp, hit
         FROM hourly
         WHERE status_code IN ($status_codes)
+		AND DATE(TIMESTAMP) = '$selected_date'
     )
     UNION (SELECT 0 as HOUR, 0)
     UNION (SELECT 1 as HOUR, 0)
@@ -159,7 +167,7 @@ function gethourly($status_codes,$label)
 	$result=mysql_query($select,$conn);
 	
 	while($row = mysql_fetch_array($result)) {
-		array_push($array_data,$row['hit']);	
+		array_push($array_data,$row['hits']);	
 	}	
     //place series label
 	array_unshift($array_data,$label);
@@ -307,21 +315,21 @@ if ($selected_date == $gmtdate) {
 	$array_header = generate_last24hourlabels();
 } else {
 	//generate csv file for 24 hour period of specific date
-	$successhits_csv = gethourly("200,304","Successful Hits (Status Code: 200 and 304)");
-	$errorhits_csv = gethourly("502,500,404,301,408,499,400,206,405,403,302,406,504","Error Hits");
-	$error502_csv = gethourly("502","502 Bad Gateway");
-	$error500_csv = gethourly("500","500 Internal Server Error");
-	$error404_csv = gethourly("404","404 Not Found");
-	$error301_csv = gethourly("301","301 Moved Permanently");
-	$error408_csv = gethourly("408","408 Request Timeout");
-	$error499_csv = gethourly("499","499 Client Unexpectedly Terminated Connection");
-	$error400_csv = gethourly("400","400 Bad Request");
-	$error206_csv = gethourly("206","206 Partial Content");
-	$error405_csv = gethourly("405","405 Method Not Allowed");
-	$error302_csv = gethourly("403","403 Forbidden");
-	$error403_csv = gethourly("302","302 Found");
-	$error406_csv = gethourly("406","406 Not Acceptable");
-	$error504_csv = gethourly("504","504 Gateway Timeout");
+	$successhits_csv = gethourly("$selected_date","200,304","Successful Hits (Status Code: 200 and 304)");
+	$errorhits_csv = gethourly("$selected_date","502,500,404,301,408,499,400,206,405,403,302,406,504","Error Hits");
+	$error502_csv = gethourly("$selected_date","502","502 Bad Gateway");
+	$error500_csv = gethourly("$selected_date","500","500 Internal Server Error");
+	$error404_csv = gethourly("$selected_date","404","404 Not Found");
+	$error301_csv = gethourly("$selected_date","301","301 Moved Permanently");
+	$error408_csv = gethourly("$selected_date","408","408 Request Timeout");
+	$error499_csv = gethourly("$selected_date","499","499 Client Unexpectedly Terminated Connection");
+	$error400_csv = gethourly("$selected_date","400","400 Bad Request");
+	$error206_csv = gethourly("$selected_date","206","206 Partial Content");
+	$error405_csv = gethourly("$selected_date","405","405 Method Not Allowed");
+	$error302_csv = gethourly("$selected_date","403","403 Forbidden");
+	$error403_csv = gethourly("$selected_date","302","302 Found");
+	$error406_csv = gethourly("$selected_date","406","406 Not Acceptable");
+	$error504_csv = gethourly("$selected_date","504","504 Gateway Timeout");
 	
 	//generate x-axis labels for last 24 hours
 	$array_header = array( 'hour','0:00','1:00','2:00','3:00','4:00','5:00','6:00','7:00','8:00','9:00','10:00','11:00','12:00','13:00','14:00','15:00','16:00','17:00','18:00','19:00','20:00','21:00','22:00','23:00');
@@ -429,6 +437,7 @@ else
 				chart: {
 					renderTo: 'container1',
 					type: 'area',
+					backgroundColor: '#ECECEC'
 				},
 				title: {
 					text: 'Successful Vs. Error Requests (Hourly)'
@@ -519,7 +528,8 @@ else
 				},
 				chart: {
 					renderTo: 'container2',
-					defaultSeriesType: 'areaspline'
+					type: 'area',
+					backgroundColor: '#ECECEC'
 				},
 				title: {
 					text: 'Hourly Error Status Breakdown'
