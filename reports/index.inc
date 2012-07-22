@@ -1,10 +1,10 @@
-    <div class="container">
-		<div class="span11">
+<!--     <div class="container">
+		<div class="span11"> -->
       <h2>   Popular Files Overview</h2>
       <p>    Total requests per file and total bandwith of popular files</p>
 	
 	
-		      <table class="table table-striped">
+		<table class="table table-striped table-index">
         <thead>
           <tr>
 			<th></th>
@@ -176,8 +176,8 @@ else
         </tbody>
       </table>
 
-</div>
-</div>
+<!-- </div>
+</div> -->
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
