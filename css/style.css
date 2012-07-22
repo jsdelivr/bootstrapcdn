@@ -156,6 +156,11 @@ input[type="text"] {
 	list-style-type: none;
 }
 
+.table-index td:first-child {
+
+	min-width: 30px;
+}
+
 @media (max-width: 480px) {
 
 
@@ -176,7 +181,6 @@ input[type="text"] {
 	.tab-content h4 {
 		margin: 5px 0 15px;
 	}
-
 }
 
 
