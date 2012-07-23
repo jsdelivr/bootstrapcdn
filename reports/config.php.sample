@@ -1,0 +1,30 @@
+<?
+
+//Rename to config.php
+
+//NetDNA OAuth API Parameters
+//your app key and secret
+$key    = "dkfFkmdd3e9f65345d37b7cb04fed6080";
+$secret = "Ldc8dje3df9f7c453cdab023c06f183";
+$alias  = "companyalias";
+
+/**
+ * fetches last 24 hours status data 
+ * @param string, comma-delimited status codes
+ * @param label for series
+ * @return string 
+ */
+
+//Database parameters
+$username = "user";
+$password = "5ecur3p@$$w0rd";
+$hostname = "localhost"; 
+$dbname = "bootstrapcdn_reports";
+$tablename = "hourly";
+
+//Connect to the DB
+$conn = mysql_connect($host, $username, $password);
+mysql_select_db($dbname, $conn);
+if (!$conn) {
+   die('Could not connect to database: '. mysql_errno() . mysql_error());
+}
