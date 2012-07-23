@@ -17,6 +17,7 @@ Twitter accounts
 
 * [@jdorfman](http://twitter.com/jdorfman) - Project Manager
 * [@flashtopia](http://twitter.com/flashtopia) - Contributer (and came up with this idea)
+* [@parqin](http://twitter.com/parqin) - Contributer
 * [@netdna](http://twitter.com/netdna) - Project Sponsor
 * [@netdnadeveloper](http://twitter.com/netdnadeveloper) - Updates on the NetDNA Platform & This project
 
@@ -38,6 +39,7 @@ Thanks
 Others:
 * [DigitalFyre](http://digitalfyre.com) Hosting Services
 * Frank B. @ [WarrantyTree.com](http://WarrantyTree.com)
+* Thomas Park @ [Bootswatch.com](http://bootswatch.com)
 * Andrey Alexeev @ [nginx](http://www.nginx.com)
 * Mark Otto & Jacob Thornton @twitter
 
