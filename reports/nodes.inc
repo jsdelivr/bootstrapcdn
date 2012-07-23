@@ -18,16 +18,16 @@
 		  </tr>
 	</table>-->		
 <div class="row-fluid">
-  <div class="span10">
+  <div class="span11">
     <h2>Location Overview</h2>
     <p>Total requests and bandwidth by map location </p>
 
       <div class="span6">
 				<h3>United States</h3>
-				<div id="chart_div1" style="width: 430px; height: 400px;"></div>	
+				<div id="chart_div1" style="width: 410px; height: 400px;"></div>	
 	 </div>
 
-       <div class="span4">
+       <div class="span5">
 				<h3>Europe</h3>
 				<div id="chart_div2" style="width: 410px; height: 400px;"></div>
 
@@ -260,7 +260,7 @@ else
 		tooltip:  {textStyle: {color: '#AA0000'}, showColorCode: true},
         colorAxis: {colors: ['orange', 'red']},
 		backgroundColor: '#F9F9F9',
-		width:'430px',
+		width:'410px',
 		height:'400px'
 
 
@@ -301,7 +301,7 @@ else
         colorAxis: {colors: ['orange', 'red']},
 		backgroundColor: '#F9F9F9',
 		width:'410px',
-		height:'40px'
+		height:'400px'
       };
 
       var chart = new google.visualization.GeoChart(document.getElementById('chart_div2'));
