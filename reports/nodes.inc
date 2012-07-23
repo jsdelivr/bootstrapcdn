@@ -1,22 +1,40 @@
     <!-- <div class="container"> -->
 
-  
+ <!-- 
     <h2>Location Overview</h2>
     <p>Total requests and bandwidth by map location </p>
 	<table class="table table-striped">
 		  <tr>
 			<td>
 				<h3>United States</h3>
-				<div id="chart_div1" style="width: 400px; height: 400px;"></div>
+				<div id="chart_div1" style="width: 390px; height: 400px;"></div>
 
 			</td>
 			<td>
 				<h3>Europe</h3>
-				<div id="chart_div2" style="width: 400px; height: 400px;"></div>
+				<div id="chart_div2" style="width: 390px; height: 400px;"></div>
 
 			</td>	
 		  </tr>
-	</table>		
+	</table>-->		
+<div class="row-fluid">
+  <div class="span10">
+    <h2>Location Overview</h2>
+    <p>Total requests and bandwidth by map location </p>
+
+      <div class="span6">
+				<h3>United States</h3>
+				<div id="chart_div1" style="width: 440px; height: 400px;"></div>	
+	 </div>
+
+       <div class="span4">
+				<h3>Europe</h3>
+				<div id="chart_div2" style="width: 400px; height: 400px;"></div>
+
+	  </div>
+
+  </div>
+</div>
     <p> 
     <h2>Nodes Breakdown Overview</h2>
     <p>Total requests and bandwidth by location </p>
@@ -211,7 +229,7 @@ else
 
         </tbody>
       </table>
-       <script type='text/javascript' src='https://www.google.com/jsapi'></script>
+    <script type='text/javascript' src='https://www.google.com/jsapi'></script>
     <script type='text/javascript'>
 	//US data	
      google.load('visualization', '1', {'packages': ['geochart']});
@@ -235,13 +253,16 @@ else
         displayMode: 'markers',
 		enableRegionInteractivity: true,
 		resolution:'metros',
-		legend: {textStyle: {color: 'blue', fontSize: 16, numberFormat:'.##'}},
+		legend: {textStyle: {color: 'grey', fontSize: 8, numberFormat:'.##'}},
 		magnifyingGlass:{enable: true, zoomFactor: 7.5},
 		markerOpacity:0.65,
 		sizeAxis:{minValue: 1,  maxSize: 20},
 		tooltip:  {textStyle: {color: '#AA0000'}, showColorCode: true},
         colorAxis: {colors: ['orange', 'red']},
-		backgroundColor: '#F9F9F9'
+		backgroundColor: '#F9F9F9',
+		width:'440px',
+		height:'400px'
+
 
       };
 
@@ -272,13 +293,15 @@ else
         displayMode: 'markers',
 		enableRegionInteractivity: true,
 		resolution:'countries',
-		legend: {textStyle: {color: 'blue', fontSize: 16}},
+		legend: {textStyle: {color: 'grey', fontSize: 8}},
 		magnifyingGlass:{enable: true, zoomFactor: 7.5},
 		markerOpacity:0.65,
 		sizeAxis:{minValue: 1,  maxSize: 20},
 		tooltip:  {textStyle: {color: '#AA0000'}, showColorCode: true},
         colorAxis: {colors: ['orange', 'red']},
-		backgroundColor: '#F9F9F9'
+		backgroundColor: '#F9F9F9',
+		width:'400px',
+		height:'400px'
       };
 
       var chart = new google.visualization.GeoChart(document.getElementById('chart_div2'));

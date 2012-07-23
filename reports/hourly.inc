@@ -406,8 +406,8 @@ else
 			  </div>
           </div>
 		</form>
-		<div id="container1" style="min-width: 400px; height: 400px; margin: 0 auto"></div><p>
-		<div id="container2" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
+		<div id="container1" style="min-width: 400px; height: 500px; margin: 0 auto"></div><p><p>
+		<div id="container2" style="min-width: 400px; height: 500px; margin: 0 auto"></div>
     </div> <!--end container-->
     <!-- Le javascript
     ================================================== -->
