@@ -18,9 +18,10 @@ a:hover {
 	color: #fff;
 }
 
+.navbar .nav > li > a:hover,
+.navbar .brand:hover,
 .navbar .dropdown-menu a:hover {
-	background-color: #464C56 !important;
-	background-color: #8893A8 !important;
+	background-color: #272A30 !important;
 }
 
 .caret {
