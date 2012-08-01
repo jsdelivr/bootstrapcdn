@@ -221,3 +221,12 @@ input[type="text"] {
 		margin-left: -20px;
 	}
 }
+
+.logoArea{display:block;width:500px;min-height:69px;overflow:hidden;}
+#NetDNA, #MaxCDN, #CloudCache{display:block;Width:134px;height:55px;margin:7px 0px;float:left;background-image:url('../img/logos.png');}
+#NetDNA{background-position:0px 0px;margin-right:49px;}
+#MaxCDN{background-position:-134px 0px;margin-right:49px;}
+#CloudCache{background-position:-268px 0px;}
+#NetDNA:hover{background-position:0px -55px;}
+#MaxCDN:hover{background-position:-134px -55px;}
+#CloudCache:hover{background-position:-268px -55px;}
