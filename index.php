@@ -187,6 +187,7 @@
 				<div class="row-fluid">
 					<div class="span12">
 						<h3>Sponsored By:</h3>
+						<br><center><a href="http://www.speedawarenessmonth.com/?ref=bootstrapcdn" target="_blank"><img src="img/sam.png" border="0"></center></a>
 					</div>
 				</div>
 				<div class="row-fluid" align="center">
