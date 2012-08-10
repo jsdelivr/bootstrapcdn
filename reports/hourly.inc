@@ -89,6 +89,7 @@ function getlast24($status_codes,$label) {
         FROM hourly
         WHERE status_code IN ($status_codes)
 		AND TIMESTAMP >= '$strstarttime'
+		AND TIMESTAMP < '$gmdate'
     )
 	$union_str	
 	)
@@ -212,7 +213,7 @@ if ($selected_date == $gmtdate) {
 
 //echo "startdate = $startdate | nextdate = $nextdate";
 //url to send request to (everything after alias/ in endpoint)
-$selected_call = "reports/statuscodes.json/hourly?date_from=$date_from&date_to=$date_to";
+$selected_call = "reports/statuscodes.json/hourly?date_from=$date_from&date_to=$date_to&nopaginate=1";
 
 //echo "<h3>selected_call =  $selected_call</h3>";
 // the endpoint for your request
