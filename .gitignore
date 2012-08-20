@@ -14,3 +14,5 @@ reports/config.php
 css/style.css.old
 
 .index.html.swp
+
+.DS_Store
