@@ -49,7 +49,7 @@
 							<li><a href="https://github.com/netdna/bootstrap-cdn/issues" target="_blank">Issues <i class="icon-white icon-share-alt"></i></a></li>
 							<li class="dropdown" id="menu1"><a class="dropdown-toggle" data-toggle="dropdown" href="#menu1">Reports<b class="caret"></b></a>
 								<ul class="dropdown-menu">
-									<li><a href="uptime.html" target="_blank"><i class="icon-ok-sign"></i> Uptime</a></li>
+									<li><a href="http://status.bootstrapcdn.com" target="_blank"><i class="icon-ok-sign"></i> Uptime</a></li>
 									<li><a href="stats.html"><i class="icon-tasks"></i> Stats/Charts</a></li>
 								</ul>
 							</li>
@@ -60,7 +60,7 @@
 		</div>
 
 
-<!-- Stats -->
+<!-- Uptime -->
 
 	<div class="main">
 			<div class="container">
@@ -69,25 +69,16 @@
 
 						<div class="tabbable">
 							<ul class="nav nav-tabs">
-								<li class="active"><a href="#popular" data-toggle="tab">Popular Files</a></li>
-								<li><a href="#nodes" data-toggle="tab">Nodes Breakdown</a></li>
-								<li><a href="#hourly" data-toggle="tab">Hourly</a></li>
+								<li class="active"><a href="#popular" data-toggle="tab">Uptime</a></li>
 							</ul>
 						</div>
 
-						<div class="tab-content">
+						<div class="tab-content" style="padding: 10px;">
 
 							<div class="tab-pane active" id="popular">
-								<?php include "reports/index.inc" ?>
+								<iframe frameborder="0" height="630" width="920" src="http://status.bootstrapcdn.com/"></iframe>
 							</div>	
 
-							<div class="tab-pane" id="nodes">
-								<?php include "reports/nodes.inc" ?>
-							</div>
-
-							<div class="tab-pane" id="hourly">
-								<iframe frameborder="0" height="1165" width="850" src="http://origin.bootstrapcdn.com/reports/stats-hourly.html"></iframe>
-							</div>
 
 						</div>
 
