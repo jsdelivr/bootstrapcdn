@@ -47,7 +47,7 @@
 							<li><a href="https://github.com/netdna/bootstrap-cdn/issues" target="_blank">Issues <i class="icon-white icon-share-alt"></i></a></li>
 							<li class="dropdown" id="menu1"><a class="dropdown-toggle" data-toggle="dropdown" href="#menu1">Reports<b class="caret"></b></a>
 								<ul class="dropdown-menu">
-									<li><a href="http://status.bootstrapcdn.com" target="_blank"><i class="icon-ok-sign"></i> Uptime</a></li>
+									<li><a href="uptime.html" target="_blank"><i class="icon-ok-sign"></i> Uptime</a></li>
 									<li><a href="stats.html"><i class="icon-tasks"></i> Stats/Charts</a></li>
 								</ul>
 							</li>
@@ -84,12 +84,14 @@
 								<li><a href="#js" data-toggle="tab">JavaScript</a></li>
 								<li><a href="#img" data-toggle="tab">Images</a></li>
 								<li><a href="#ssl" data-toggle="tab">SSL</a></li>
+								<li><a href="#fontawesome" data-toggle="tab"><i class="icon-grey icon-flag"></i> Font Awesome</a></li>
 							</ul>
 						</div>
 
 						<!-- Actual Tab Content -->
 						<div class="tab-content">
 
+							<!-- Quick Start -->
 							<div class="tab-pane active" id="quickstart">
 								<h4>Simply replace your local Bootstrap objects with the ones hosted on <a href="http://www.netdna.com/technology/our-network/" target="_blank">our global network</a> of Edge Servers.</h4>
 								<div class="label-container"><span class="label">Complete CSS</span></div>
@@ -174,8 +176,18 @@
 								<p><input type="text" class="" value="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.0.4/img/glyphicons-halflings.png"></p>
 								<p><input type="text" class="" value="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.0.4/img/glyphicons-halflings-white.png"></p>
 							</div>
-						</div>
 
+							<!-- Font Awesome -->
+							<div class="tab-pane" id="fontawesome">
+								<h4>Simply replace your local Font Awesome objects with the ones hosted on <a href="http://www.netdna.com/technology/our-network/" target="_blank">our global network</a> of Edge Servers.</h4>
+								<div class="label-container"><span class="label">Complete CSS</span></div>
+								<p><input type="text" class="" value="//netdna.bootstrapcdn.com/font-awesome/2.0/css/font-awesome.css"></p>
+
+								<div class="label-container"><span class="label">Complete IE7 CSS</span></div>
+								<p><input type="text" class="" value="//netdna.bootstrapcdn.com/font-awesome/2.0/css/font-awesome-ie7.css"></p>
+							</div>	
+
+						</div>
 					</div>
 				</div>
 			</div> <!-- /container -->
