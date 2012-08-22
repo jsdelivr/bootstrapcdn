@@ -1,10 +1,50 @@
-<hr>
-<br>
-	<ul class="social-buttons cf">
-			<li><a href="http://twitter.com/share" class="socialite twitter-share" data-text="Bootstrap CDN" data-url="http://www.bootstrapcdn.com" data-count="vertical" data-via="dbushell" rel="nofollow" target="_blank"><span class="vhidden">Share on Twitter</span></a></li>
-			<li><a href="https://plus.google.com/share?url=http://www.bootstrapcdn.com" class="socialite googleplus-one" data-size="tall" data-href="http://www.bootstrapcdn.com" rel="nofollow" target="_blank"><span class="vhidden">Share on Google+</span></a></li>
-			<li><a href="http://www.facebook.com/sharer.php?u=http://www.bootstrapcdn.com&amp;t=Bootstrap%20CDN" class="socialite facebook-like" data-href="http://www.bootstrapcdn.com" data-send="false" data-layout="box_count" data-width="60" data-show-faces="false" rel="nofollow" target="_blank"><span class="vhidden">Share on Facebook</span></a></li>
-			<li><a href="http://www.linkedin.com/shareArticle?mini=true&amp;url=http://www.bootstrapcdn.com&amp;title=Socialite.js" class="socialite linkedin-share" data-url="http://www.bootstrapcdn.com" data-counter="top" rel="nofollow" target="_blank"><span class="vhidden">Share on LinkedIn</span></a></li>
-		</ul>
+	<div class="sponsors">
+			<div class="container">
+				<div class="row-fluid">
+					<div class="span12">
+						<h3>Sponsored By:</h3>
+						<br><center><a href="http://www.speedawarenessmonth.com/?ref=bootstrapcdn" target="_blank"><img src="img/sam.png" border="0"></center></a>
+					</div>
+				</div>
+				<div class="row-fluid" align="center">
+						<div class="logoArea">
+							<a id="NetDNA" alt="NetDNA" target="_blank" href="http://www.netdna.com/?src=bootstrapcdn.com" data-bitly-type="bitly_hover_card"></a>
+							<a id="MaxCDN" alt="MaxCDN" target="_blank" href="http://www.maxcdn.com/?src=bootstrapcdn.com" data-bitly-type="bitly_hover_card"></a>
+							<a id="CloudCache" alt="CloudCache" target="_blank" href="http://www.cloudcache.com/?src=bootstrapcdn.com" data-bitly-type="bitly_hover_card"></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
-<br><div class="row"><div class="span4"><h3>About NetDNA</h3><p class="whois">NetDNA is a Content Delivery Network (CDN). Content Delivery Networks are critical for enhancing a site’s quality, reliability, and scalability. Our CDN will deploy your website content across <a href="http://www.netdna.com/technology/our-network" target="_blank" onClick="javascript:pageTracker._trackPageview("/?f=on-bscdn");">our global network.</a></p><a class="btn btn-primary btn-large" href="http://www.netdna.com" target="_blank" onClick="javascript:pageTracker._trackPageview("/?f=lm-bscdn");">Learn more »</a></p><br></div><div class="span1"> </div><div class="span3"><h3>Twitter Bootstrap Links</h3><p class="whois"><p><a href="http://twitter.github.com/bootstrap/index.html" target="_blank">Bootstrap on Github</a></p><p><a href="http://blog.getbootstrap.com/" target="_blank">Official Bootstrap Blog</a></p><p><a href="http://stylebootstrap.info/" target="_blank">Style Bootstrap</a></p><p><a href="http://stackoverflow.com/questions/tagged/bootstrap" target="_blank">Bootstrap Q&A on Stackoverflow</a></p><p><a href="http://builtwithbootstrap.com/" target="_blank">Built with Bootstrap</a></p><p><a href="http://bootswatchr.com/" target="_blank">Bootswatchr</a></p><p><a href="http://www.bootstraphero.com/" target="_blank">Bootstrap Hero</a></p><p><a href="http://www.plugolabs.com/twitter-bootstrap-button-generator/" target="_blank">Bootstrap Button Generator</a></p></div><div class="span5"></div></div></div></div></div><!--Begin Footer --><div id="footer-wrap" style="background: black;"><footer class="footer"><p >Twitter Bootstrap is designed, built and maintained by <a href="http://twitter.com/twitter" target="_blank">@twitter</a>, <a href="http://twitter.com/mdo" target="_blank">@mdo</a> and <a href="http://twitter.com/fat" target="_blank">@fat</a>.</p><p >Code licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License v2.0</a>. Documentation licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p><p >Icons from <a href="http://glyphicons.com/">Glyphicons Free</a>, licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p><p >This site is maintained by <a href="http://twitter.com/jdorfman" target="_blank">@jdorfman</a> and frank aka <a href="https://github.com/flashtopia">@flashtopia</a>.</p><p>Powered by <a href="http://www.digitalfyre.com">DigitalFyre</a>, <a href="http://www.netdna.com">NetDNA</a> and <a href="http://www.nginx.org">nginx</a>.</p><br><p><span class="label label-inverse">This free service comes with no warranty.</span></p></footer></div><!--Le javascript==================================================--><!--JQuery / Bootstrap --><script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script><script src="//current.bootstrapcdn.com/bootstrap-v204/js/bootstrap.min.js"></script><script src="//current.bootstrapcdn.com/js/html5.js"></script><!--MISC JS -->
+<footer class="footer">
+			<div class="container">
+				<div class="row-fluid">
+					<div class="span12">
+						<ul class="pull-left">
+							<li>Maintained by <a href="http://www.twitter.com/jdorfman" target="_blank">@jdorfman</a>.</li>
+							<li>Designed by <a href="http://thomaspark.me" target="_blank">Thomas Park</a> of <a href="http://bootswatch.com/" target="_blank">Bootswatch</a>.</li>
+							<li>Powered by <a href="http://www.digitalfyre.com" target="_blank">DigitalFyre</a>, <a href="http://www.netdna.com" target="_blank">NetDNA</a>, and <a href="http://www.nginx.org" target="_blank">nginx</a>.</li>
+							<li>This free service comes with no warranty.</li>
+						</ul>
+						<ul class="pull-right">
+							<li>Links</li>
+							<li><a href="http://twitter.github.com/bootstrap/index.html" target="_blank">Twitter Bootstrap</a></li>
+							<li><a href="http://bootswatch.com/" target="_blank">Bootswatch</a></li>
+							<li><a href="http://builtwithbootstrap.com/" target="_blank">Built with Bootstrap</a></li>
+							<li><a href="http://www.bootstraphero.com/" target="_blank">Bootstrap Hero</a></li>
+							<li><a href="http://stylebootstrap.info/" target="_blank">StyleBootstrap</a></li>
+							<li><a href="http://bootswatchr.com/" target="_blank">Bootswatchr</a></li>
+							<li><a href="http://www.plugolabs.com/twitter-bootstrap-button-generator/" target="_blank">Bootstrap Button Generator</a></li>
+							<li><a href="http://stackoverflow.com/questions/tagged/bootstrap" target="_blank">Bootstrap Q&amp;A on Stackoverflow</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script src="//netdna.bootstrapcdn.com/js/bootstrap.min.js"></script>
+	<script>$("input:text").focus(function(){$(this).select();$(this).mouseup(function(a){a.preventDefault()})});</script>
+</body>
+</html>
