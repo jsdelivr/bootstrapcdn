@@ -47,7 +47,7 @@
 							<li><a href="https://github.com/netdna/bootstrap-cdn/issues" target="_blank">Issues <i class="icon-white icon-share-alt"></i></a></li>
 							<li class="dropdown" id="menu1"><a class="dropdown-toggle" data-toggle="dropdown" href="#menu1">Reports<b class="caret"></b></a>
 								<ul class="dropdown-menu">
-									<li><a href="http://status.bootstrapcdn.com" target="_blank"><i class="icon-ok-sign"></i> Uptime</a></li>
+									<li><a href="uptime.html" target="_blank"><i class="icon-ok-sign"></i> Uptime</a></li>
 									<li><a href="stats.html"><i class="icon-tasks"></i> Stats/Charts</a></li>
 								</ul>
 							</li>
@@ -67,16 +67,15 @@
 							<h3>With NetDNA's Content Delivery Network, your site will load faster, a lot faster.</h3>
 						</div>
 
-						<div class="social">
+	<div class="social">
 
 
-							<iframe src="http://markdotto.github.com/github-buttons/github-btn.html?user=netdna&repo=bootstrap-cdn&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px"></iframe>
-							<iframe src="http://markdotto.github.com/github-buttons/github-btn.html?user=netdna&repo=bootstrap-cdn&type=fork" allowtransparency="true" frameborder="0" scrolling="0" width="53px" height="20px"></iframe>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<iframe src="http://ghbtns.com/github-btn.html?user=netdna&repo=bootstrap-cdn&type=watch&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="62px" height="20px"></iframe>							
+<iframe src="http://ghbtns.com/github-btn.html?user=netdna&repo=bootstrap-cdn&type=fork" allowtransparency="true" frameborder="0" scrolling="0" width="53px" height="20px"></iframe>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.bootstrapcdn.com" data-via="jdorfman">Tweet</a>
 <a href="https://twitter.com/NetDNADeveloper" class="twitter-follow-button" data-show-count="false">Follow @NetDNADeveloper</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 						</div>
-
 
 						<div class="tabbable">
 							<ul class="nav nav-tabs">
@@ -85,12 +84,14 @@
 								<li><a href="#js" data-toggle="tab">JavaScript</a></li>
 								<li><a href="#img" data-toggle="tab">Images</a></li>
 								<li><a href="#ssl" data-toggle="tab">SSL</a></li>
+								<li><a href="#fontawesome" data-toggle="tab"><i class="icon-grey icon-flag"></i> Font Awesome</a></li>
 							</ul>
 						</div>
 
 						<!-- Actual Tab Content -->
 						<div class="tab-content">
 
+							<!-- Quick Start -->
 							<div class="tab-pane active" id="quickstart">
 								<h4>Simply replace your local Bootstrap objects with the ones hosted on <a href="http://www.netdna.com/technology/our-network/" target="_blank">our global network</a> of Edge Servers.</h4>
 								<div class="label-container"><span class="label">Complete CSS</span></div>
@@ -175,8 +176,18 @@
 								<p><input type="text" class="" value="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.0.4/img/glyphicons-halflings.png"></p>
 								<p><input type="text" class="" value="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.0.4/img/glyphicons-halflings-white.png"></p>
 							</div>
-						</div>
 
+							<!-- Font Awesome -->
+							<div class="tab-pane" id="fontawesome">
+								<h4>Simply replace your local Font Awesome objects with the ones hosted on <a href="http://www.netdna.com/technology/our-network/" target="_blank">our global network</a> of Edge Servers.</h4>
+								<div class="label-container"><span class="label">Complete CSS</span></div>
+								<p><input type="text" class="" value="//netdna.bootstrapcdn.com/font-awesome/2.0/css/font-awesome.css"></p>
+
+								<div class="label-container"><span class="label">Complete IE7 CSS</span></div>
+								<p><input type="text" class="" value="//netdna.bootstrapcdn.com/font-awesome/2.0/css/font-awesome-ie7.css"></p>
+							</div>	
+
+						</div>
 					</div>
 				</div>
 			</div> <!-- /container -->
@@ -187,6 +198,7 @@
 				<div class="row-fluid">
 					<div class="span12">
 						<h3>Sponsored By:</h3>
+						<br><center><a href="http://www.speedawarenessmonth.com/?ref=bootstrapcdn" target="_blank"><img src="img/sam.png" border="0"></center></a>
 					</div>
 				</div>
 				<div class="row-fluid" align="center">
