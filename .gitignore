@@ -12,3 +12,9 @@ reports/config.php
 .stats.html.swo
 
 css/style.css.old
+
+.index.html.swp
+
+.DS_Store
+
+twitter-bootstrap/2.1.0/css/.bootstrap.min.nr.css.swp
