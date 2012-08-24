@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>groupInfo</key>
+	<dict>
+		<key>expandAfterMode</key>
+		<integer>0</integer>
+		<key>groupName</key>
+		<string>Bootstrap</string>
+	</dict>
+	<key>snippetsTE2</key>
+	<array>
+		<dict>
+			<key>abbreviation</key>
+			<string>,bstable</string>
+			<key>abbreviationMode</key>
+			<integer>0</integer>
+			<key>creationDate</key>
+			<date>2012-08-24T19:07:40Z</date>
+			<key>flags</key>
+			<integer>0</integer>
+			<key>label</key>
+			<string>Table</string>
+			<key>modificationDate</key>
+			<date>2012-08-24T19:07:40Z</date>
+			<key>plainText</key>
+			<string>&lt;table class="table"&gt;
+  %l
+&lt;/table&gt;</string>
+			<key>snippetType</key>
+			<integer>0</integer>
+			<key>useCount</key>
+			<integer>0</integer>
+			<key>uuidString</key>
+			<string>4E089B1C-2A8F-40B7-8652-AA5407508EAB</string>
+		</dict>
+		<dict>
+			<key>abbreviation</key>
+			<string>,bsstripedtable</string>
+			<key>abbreviationMode</key>
+			<integer>0</integer>
+			<key>creationDate</key>
+			<date>2012-08-24T19:07:40Z</date>
+			<key>flags</key>
+			<integer>0</integer>
+			<key>label</key>
+			<string>Table Striped</string>
+			<key>modificationDate</key>
+			<date>2012-08-24T19:09:15Z</date>
+			<key>plainText</key>
+			<string>&lt;table class="table table-striped"&gt;
+  %l
+&lt;/table&gt;</string>
+			<key>snippetType</key>
+			<integer>0</integer>
+			<key>useCount</key>
+			<integer>0</integer>
+			<key>uuidString</key>
+			<string>D39A791F-B81D-4F5E-8263-C24A52E92249</string>
+		</dict>
+		<dict>
+			<key>abbreviation</key>
+			<string>,bsborderedtable</string>
+			<key>abbreviationMode</key>
+			<integer>0</integer>
+			<key>creationDate</key>
+			<date>2012-08-24T19:07:40Z</date>
+			<key>flags</key>
+			<integer>0</integer>
+			<key>label</key>
+			<string>Table Bordered</string>
+			<key>modificationDate</key>
+			<date>2012-08-24T19:10:26Z</date>
+			<key>plainText</key>
+			<string>&lt;table class="table table-bordered"&gt;
+%l
+&lt;/table&gt;</string>
+			<key>snippetType</key>
+			<integer>0</integer>
+			<key>useCount</key>
+			<integer>0</integer>
+			<key>uuidString</key>
+			<string>F91C594C-C422-4D70-8516-0A96B50F328D</string>
+		</dict>
+		<dict>
+			<key>abbreviation</key>
+			<string>,bshovertable</string>
+			<key>abbreviationMode</key>
+			<integer>0</integer>
+			<key>creationDate</key>
+			<date>2012-08-24T19:07:40Z</date>
+			<key>flags</key>
+			<integer>0</integer>
+			<key>label</key>
+			<string>Table Hover</string>
+			<key>modificationDate</key>
+			<date>2012-08-24T19:10:26Z</date>
+			<key>plainText</key>
+			<string>&lt;table class="table table-hover"&gt;
+%l
+&lt;/table&gt;</string>
+			<key>snippetType</key>
+			<integer>0</integer>
+			<key>useCount</key>
+			<integer>0</integer>
+			<key>uuidString</key>
+			<string>79EF66F3-F815-4639-9B1C-55B0FF0B6943</string>
+		</dict>
+		<dict>
+			<key>abbreviation</key>
+			<string>,bsreponsivedesign</string>
+			<key>abbreviationMode</key>
+			<integer>0</integer>
+			<key>creationDate</key>
+			<date>2012-08-24T19:03:20Z</date>
+			<key>flags</key>
+			<integer>0</integer>
+			<key>label</key>
+			<string>Responsive Design</string>
+			<key>modificationDate</key>
+			<date>2012-08-24T19:03:20Z</date>
+			<key>plainText</key>
+			<string>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+&lt;link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.0/css/bootstrap-combined.min.css" rel="stylesheet"&gt;</string>
+			<key>snippetType</key>
+			<integer>0</integer>
+			<key>useCount</key>
+			<integer>0</integer>
+			<key>uuidString</key>
+			<string>27DE5486-0F3A-40FA-A186-1112D8CC8348</string>
+		</dict>
+		<dict>
+			<key>abbreviation</key>
+			<string>,bsfixedlayout</string>
+			<key>abbreviationMode</key>
+			<integer>0</integer>
+			<key>creationDate</key>
+			<date>2012-08-24T19:01:29Z</date>
+			<key>flags</key>
+			<integer>0</integer>
+			<key>label</key>
+			<string>Fixed Layout</string>
+			<key>modificationDate</key>
+			<date>2012-08-24T19:01:29Z</date>
+			<key>plainText</key>
+			<string>&lt;body&gt;
+  &lt;div class="container"&gt;
+     %l
+  &lt;/div&gt;
+&lt;/body&gt;</string>
+			<key>snippetType</key>
+			<integer>0</integer>
+			<key>useCount</key>
+			<integer>0</integer>
+			<key>uuidString</key>
+			<string>4420CB21-1340-4C9E-BEEE-70CE7A735D2F</string>
+		</dict>
+		<dict>
+			<key>abbreviation</key>
+			<string>,bsfluidlayout</string>
+			<key>abbreviationMode</key>
+			<integer>0</integer>
+			<key>creationDate</key>
+			<date>2012-08-24T19:01:29Z</date>
+			<key>flags</key>
+			<integer>0</integer>
+			<key>label</key>
+			<string>Fluid Layout</string>
+			<key>modificationDate</key>
+			<date>2012-08-24T19:01:29Z</date>
+			<key>plainText</key>
+			<string>&lt;body&gt;
+  &lt;div class="container-fluid"&gt;
+     %l
+  &lt;/div&gt;
+&lt;/body&gt;</string>
+			<key>snippetType</key>
+			<integer>0</integer>
+			<key>useCount</key>
+			<integer>0</integer>
+			<key>uuidString</key>
+			<string>12573470-D166-4D69-88FD-DA57CD1AE008</string>
+		</dict>
+		<dict>
+			<key>abbreviation</key>
+			<string>,bsbasicgrid</string>
+			<key>abbreviationMode</key>
+			<integer>0</integer>
+			<key>creationDate</key>
+			<date>2012-08-24T18:59:08Z</date>
+			<key>flags</key>
+			<integer>0</integer>
+			<key>label</key>
+			<string>Basic Grid</string>
+			<key>modificationDate</key>
+			<date>2012-08-24T19:00:49Z</date>
+			<key>plainText</key>
+			<string>&lt;div class="row"&gt;
+%|
+&lt;/div&gt;</string>
+			<key>snippetType</key>
+			<integer>0</integer>
+			<key>useCount</key>
+			<integer>0</integer>
+			<key>uuidString</key>
+			<string>B00512FE-30DB-482B-A3DD-22D97CD34A73</string>
+		</dict>
+		<dict>
+			<key>abbreviation</key>
+			<string>,bsfluidgrid</string>
+			<key>abbreviationMode</key>
+			<integer>0</integer>
+			<key>creationDate</key>
+			<date>2012-08-24T18:59:08Z</date>
+			<key>flags</key>
+			<integer>0</integer>
+			<key>label</key>
+			<string>Basic Grid</string>
+			<key>modificationDate</key>
+			<date>2012-08-24T18:59:08Z</date>
+			<key>plainText</key>
+			<string>&lt;div class="row-fluid"&gt;
+%l
+&lt;/div&gt;</string>
+			<key>snippetType</key>
+			<integer>0</integer>
+			<key>useCount</key>
+			<integer>0</integer>
+			<key>uuidString</key>
+			<string>87F22032-910A-429F-9DF6-BBA103EEBE93</string>
+		</dict>
+		<dict>
+			<key>abbreviation</key>
+			<string>,bscolumns</string>
+			<key>abbreviationMode</key>
+			<integer>0</integer>
+			<key>creationDate</key>
+			<date>2012-08-24T18:49:37Z</date>
+			<key>flags</key>
+			<integer>0</integer>
+			<key>label</key>
+			<string>Columns Span #</string>
+			<key>lastUsed</key>
+			<date>2012-08-24T18:58:05Z</date>
+			<key>modificationDate</key>
+			<date>2012-08-24T18:57:47Z</date>
+			<key>plainText</key>
+			<string>&lt;div class="span%fillpopup:name=How many Columns:default=1:2:3:4:5:6:7:8:9:10:11:12%"&gt;
+%|
+&lt;/div&gt;</string>
+			<key>snippetType</key>
+			<integer>0</integer>
+			<key>useCount</key>
+			<integer>0</integer>
+			<key>uuidString</key>
+			<string>A6D74577-C544-4C77-BBC1-53DE6DA4290E</string>
+		</dict>
+		<dict>
+			<key>abbreviation</key>
+			<string>,bsherounit</string>
+			<key>abbreviationMode</key>
+			<integer>0</integer>
+			<key>creationDate</key>
+			<date>2012-08-24T18:47:46Z</date>
+			<key>flags</key>
+			<integer>0</integer>
+			<key>label</key>
+			<string>Hero Unit</string>
+			<key>modificationDate</key>
+			<date>2012-08-24T18:48:02Z</date>
+			<key>plainText</key>
+			<string>&lt;div class="hero-unit"&gt;
+        &lt;h1&gt;Hello, world!&lt;/h1&gt;
+        &lt;p&gt;This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.&lt;/p&gt;
+        &lt;p&gt;&lt;a class="btn btn-primary btn-large"&gt;Learn more »&lt;/a&gt;&lt;/p&gt;
+      &lt;/div&gt;</string>
+			<key>snippetType</key>
+			<integer>0</integer>
+			<key>useCount</key>
+			<integer>0</integer>
+			<key>uuidString</key>
+			<string>D2709F89-7993-4B47-95A7-11DD416E8813</string>
+		</dict>
+		<dict>
+			<key>abbreviation</key>
+			<string>,bshtml5bsfa</string>
+			<key>abbreviationMode</key>
+			<integer>0</integer>
+			<key>creationDate</key>
+			<date>2012-08-24T18:41:29Z</date>
+			<key>flags</key>
+			<integer>0</integer>
+			<key>label</key>
+			<string>HTML5 Boilerplate + BoostrapCDN + FontAwesome</string>
+			<key>modificationDate</key>
+			<date>2012-08-24T18:44:43Z</date>
+			<key>plainText</key>
+			<string>&lt;!doctype html&gt;
+&lt;!--[if lt IE 7]&gt; &lt;html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"&gt; &lt;![endif]--&gt;
+&lt;!--[if IE 7]&gt;    &lt;html class="no-js lt-ie9 lt-ie8" lang="en"&gt; &lt;![endif]--&gt;
+&lt;!--[if IE 8]&gt;    &lt;html class="no-js lt-ie9" lang="en"&gt; &lt;![endif]--&gt;
+&lt;!--[if gt IE 8]&gt;&lt;!--&gt; &lt;html class="no-js" lang="en"&gt; &lt;!--&lt;![endif]--&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"&gt;
+  &lt;title&gt;&lt;/title&gt;
+  &lt;meta name="description" content=""&gt;
+  &lt;meta name="viewport" content="width=device-width"&gt;
+  &lt;link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.0/css/bootstrap.no-icons.min.css" rel="stylesheet"&gt;
+  &lt;link href="//netdna.bootstrapcdn.com/font-awesome/2.0/css/font-awesome.css" rel="stylesheet"&gt;
+
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;!--[if lt IE 7]&gt;&lt;p class=chromeframe&gt;Your browser is &lt;em&gt;ancient!&lt;/em&gt; &lt;a href="http://browsehappy.com/"&gt;Upgrade to a different browser&lt;/a&gt; or &lt;a href="http://www.google.com/chromeframe/?redirect=true"&gt;install Google Chrome Frame&lt;/a&gt; to experience this site.&lt;/p&gt;
+  &lt;link href="//netdna.bootstrapcdn.com/font-awesome/2.0/css/font-awesome-ie7.css" rel="stylesheet"&gt;
+&lt;![endif]--&gt;
+
+  &lt;header&gt;
+
+  &lt;/header&gt;
+
+  &lt;div role="main"&gt;
+
+  &lt;/div&gt;
+
+  &lt;footer&gt;
+
+  &lt;/footer&gt;
+
+
+  &lt;script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"&gt;&lt;/script&gt;
+  &lt;script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.0/js/bootstrap.min.js"&gt;&lt;/script&gt;
+  &lt;script&gt;
+    var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+    s.parentNode.insertBefore(g,s)}(document,'script'));
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</string>
+			<key>snippetType</key>
+			<integer>0</integer>
+			<key>useCount</key>
+			<integer>0</integer>
+			<key>uuidString</key>
+			<string>FA4459F1-3C4F-40E5-B400-DC08DCFD0839</string>
+		</dict>
+		<dict>
+			<key>abbreviation</key>
+			<string>,bshtml5cdn</string>
+			<key>abbreviationMode</key>
+			<integer>0</integer>
+			<key>creationDate</key>
+			<date>2012-08-24T17:31:51Z</date>
+			<key>flags</key>
+			<integer>0</integer>
+			<key>label</key>
+			<string>HTML5 Boilerplate + BoostrapCDN</string>
+			<key>modificationDate</key>
+			<date>2012-08-24T18:42:30Z</date>
+			<key>plainText</key>
+			<string>&lt;!doctype html&gt;
+&lt;!--[if lt IE 7]&gt; &lt;html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"&gt; &lt;![endif]--&gt;
+&lt;!--[if IE 7]&gt;    &lt;html class="no-js lt-ie9 lt-ie8" lang="en"&gt; &lt;![endif]--&gt;
+&lt;!--[if IE 8]&gt;    &lt;html class="no-js lt-ie9" lang="en"&gt; &lt;![endif]--&gt;
+&lt;!--[if gt IE 8]&gt;&lt;!--&gt; &lt;html class="no-js" lang="en"&gt; &lt;!--&lt;![endif]--&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"&gt;
+  &lt;title&gt;&lt;/title&gt;
+  &lt;meta name="description" content=""&gt;
+  &lt;meta name="viewport" content="width=device-width"&gt;
+  &lt;link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.0/css/bootstrap-combined.min.css" rel="stylesheet"&gt;
+
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;!--[if lt IE 7]&gt;&lt;p class=chromeframe&gt;Your browser is &lt;em&gt;ancient!&lt;/em&gt; &lt;a href="http://browsehappy.com/"&gt;Upgrade to a different browser&lt;/a&gt; or &lt;a href="http://www.google.com/chromeframe/?redirect=true"&gt;install Google Chrome Frame&lt;/a&gt; to experience this site.&lt;/p&gt;&lt;![endif]--&gt;
+
+  &lt;header&gt;
+
+  &lt;/header&gt;
+
+  &lt;div role="main"&gt;
+
+  &lt;/div&gt;
+
+  &lt;footer&gt;
+
+  &lt;/footer&gt;
+
+
+  &lt;script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"&gt;&lt;/script&gt;
+  &lt;script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.0/js/bootstrap.min.js"&gt;&lt;/script&gt;
+  &lt;script&gt;
+    var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+    s.parentNode.insertBefore(g,s)}(document,'script'));
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</string>
+			<key>snippetType</key>
+			<integer>0</integer>
+			<key>useCount</key>
+			<integer>0</integer>
+			<key>uuidString</key>
+			<string>D11DFDFF-32EF-4AB2-A8D3-04CC094E5EF6</string>
+		</dict>
+	</array>
+</dict>
+</plist>
