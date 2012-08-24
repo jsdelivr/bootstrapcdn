@@ -28,3 +28,12 @@ RewriteRule ^(.*)$ http://www.bootstrapcdn.com/$1?v=08242012095015 [R=301,L]
 
 Header set X-Powered-By "NetDNA - The Science of Acceleration™"
 Header set X-Hello-Human "You must be bored.  You should work for us. Email jdorfman+theheader@netdna.com or @NetDNADeveloper on the twitter"
+
+
+# Allow fonts to be downloaded to Firefox & IE
+
+<FilesMatch ".(ttf|otf|woff)$">
+Header set Access-Control-Allow-Origin "*"
+</FilesMatch>
+
+
