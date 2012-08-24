@@ -14,6 +14,7 @@ ExpiresByType application/javascript A31536000
 ExpiresByType image/png A31536000
 ExpiresByType image/gif A31536000
 ExpiresByType application/json A86400
+ExpiresByType application/html A86400
 
 # This will allow us to point www to the CDN so each page is cached globally.
 
@@ -21,7 +22,7 @@ RewriteEngine On
 IndexIgnore *
 Options +FollowSymLinks -Multiviews -Indexes
 RewriteCond %{HTTP_HOST} ^bootstrapcdn\.com$ [NC]
-RewriteRule ^(.*)$ http://www.bootstrapcdn.com/$1 [R=301,L]
+RewriteRule ^(.*)$ http://www.bootstrapcdn.com/$1?v=08242012095015 [R=301,L]
 
 # A million dollars isn't cool, adding your own custom headers is. That's how it went right?
 
