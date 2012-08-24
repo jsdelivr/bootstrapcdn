@@ -1,5 +1,5 @@
 <?php
 
-$version = date("dmYHis");
+$version = "08242012095015";
 
 ?>
