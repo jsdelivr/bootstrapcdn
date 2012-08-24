@@ -1,0 +1,5 @@
+<?php
+
+$version = date("dmYHis");
+
+?>
