@@ -1,5 +1,6 @@
 # php in HTML are you nuts? Yup.
 AddType application/x-httpd-php .html
+AddType application/x-httpd-php .inc
 # Tell the origin what json is
 AddType application/json .json
 
