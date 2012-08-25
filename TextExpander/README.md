@@ -13,7 +13,7 @@ To install the current version:
 
 Then click/open `~/Downloads/Bootstrap.textexpander` 
 
-<img src="https://github.com/netdna/bootstrap-cdn/blob/v2.1/TextExpander/Bootstrap.TextExpander.png" />
+<img src="https://raw.github.com/netdna/bootstrap-cdn/v2.1/TextExpander/Bootstrap.TextExpander.png" />
 
 TODO:
 ====
