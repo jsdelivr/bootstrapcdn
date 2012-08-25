@@ -18,8 +18,8 @@ Then click/open `~/Downloads/Bootstrap.textexpander`
 TODO:
 ====
 * Finish adding Bootstrap Snipplets
-** Base CSS (Forms, Buttons, Images, Icons)
-** Components
-** Javascript
-** Font Awesome Icons
+ * Base CSS (Forms, Buttons, Images, Icons)
+ * Components
+ * Javascript
+ * Font Awesome Icons
 
