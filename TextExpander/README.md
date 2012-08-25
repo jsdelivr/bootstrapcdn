@@ -9,11 +9,11 @@ Current Version: 0.1.3 Alpha
 
 To install the current version:
 
-`cd ~/Downloads/wget https://raw.github.com/netdna/bootstrap-cdn/v2.1/TextExpander/Bootstrap.textexpander`
+`cd ~/Downloads/ wget https://raw.github.com/netdna/bootstrap-cdn/v2.1/TextExpander/Bootstrap.textexpander`
 
 Then click/open `~/Downloads/Bootstrap.textexpander` 
 
-!(Bootstrap.TextExpander.png)
+(Bootstrap.TextExpander.png)
 
 TODO:
 ====
