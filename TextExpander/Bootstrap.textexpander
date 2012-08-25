@@ -13,6 +13,368 @@
 	<array>
 		<dict>
 			<key>abbreviation</key>
+			<string>,bsappendinput</string>
+			<key>abbreviationMode</key>
+			<integer>0</integer>
+			<key>creationDate</key>
+			<date>2012-08-25T00:52:50Z</date>
+			<key>flags</key>
+			<integer>0</integer>
+			<key>label</key>
+			<string>Input Append</string>
+			<key>modificationDate</key>
+			<date>2012-08-25T00:52:50Z</date>
+			<key>plainText</key>
+			<string>&lt;div class="input-append"&gt;
+  &lt;input class="span2" id="appendedInput" size="16" type="text"&gt;&lt;span class="add-on"&gt;.00&lt;/span&gt;
+&lt;/div&gt;</string>
+			<key>snippetType</key>
+			<integer>0</integer>
+			<key>useCount</key>
+			<integer>0</integer>
+			<key>uuidString</key>
+			<string>AAB9F9D4-4A2F-40D6-8972-5B8AA1F8009A</string>
+		</dict>
+		<dict>
+			<key>abbreviation</key>
+			<string>,bsprependinput</string>
+			<key>abbreviationMode</key>
+			<integer>0</integer>
+			<key>creationDate</key>
+			<date>2012-08-25T00:52:09Z</date>
+			<key>flags</key>
+			<integer>0</integer>
+			<key>label</key>
+			<string>Input Prepend</string>
+			<key>modificationDate</key>
+			<date>2012-08-25T00:52:09Z</date>
+			<key>plainText</key>
+			<string>&lt;div class="input-prepend"&gt;
+  &lt;span class="add-on"&gt;@&lt;/span&gt;&lt;input class="span2" id="prependedInput" size="16" type="text" placeholder="Username"&gt;
+&lt;/div&gt;</string>
+			<key>snippetType</key>
+			<integer>0</integer>
+			<key>useCount</key>
+			<integer>0</integer>
+			<key>uuidString</key>
+			<string>14BE42F8-5DFB-48E8-8B0A-8B87724AF43C</string>
+		</dict>
+		<dict>
+			<key>abbreviation</key>
+			<string>,bsmultipleselect</string>
+			<key>abbreviationMode</key>
+			<integer>0</integer>
+			<key>creationDate</key>
+			<date>2012-08-25T00:49:38Z</date>
+			<key>flags</key>
+			<integer>0</integer>
+			<key>label</key>
+			<string>Select Multiple</string>
+			<key>modificationDate</key>
+			<date>2012-08-25T00:49:38Z</date>
+			<key>plainText</key>
+			<string>&lt;select multiple="multiple"&gt;
+  &lt;option&gt;1&lt;/option&gt;
+  &lt;option&gt;2&lt;/option&gt;
+  &lt;option&gt;3&lt;/option&gt;
+  &lt;option&gt;4&lt;/option&gt;
+  &lt;option&gt;5&lt;/option&gt;
+&lt;/select&gt;</string>
+			<key>snippetType</key>
+			<integer>0</integer>
+			<key>useCount</key>
+			<integer>0</integer>
+			<key>uuidString</key>
+			<string>F19A0A5A-020E-4146-A2A5-623AD7A61791</string>
+		</dict>
+		<dict>
+			<key>abbreviation</key>
+			<string>,bsselects</string>
+			<key>abbreviationMode</key>
+			<integer>0</integer>
+			<key>creationDate</key>
+			<date>2012-08-25T00:47:59Z</date>
+			<key>flags</key>
+			<integer>0</integer>
+			<key>label</key>
+			<string>Selects</string>
+			<key>modificationDate</key>
+			<date>2012-08-25T00:47:59Z</date>
+			<key>plainText</key>
+			<string>&lt;select&gt;
+  &lt;option&gt;1&lt;/option&gt;
+  &lt;option&gt;2&lt;/option&gt;
+  &lt;option&gt;3&lt;/option&gt;
+  &lt;option&gt;4&lt;/option&gt;
+  &lt;option&gt;5&lt;/option&gt;
+&lt;/select&gt;</string>
+			<key>snippetType</key>
+			<integer>0</integer>
+			<key>useCount</key>
+			<integer>0</integer>
+			<key>uuidString</key>
+			<string>F5BEA4CF-3529-4B4C-8626-7053B6B75EDC</string>
+		</dict>
+		<dict>
+			<key>abbreviation</key>
+			<string>,bsinlinecheckboxes</string>
+			<key>abbreviationMode</key>
+			<integer>0</integer>
+			<key>creationDate</key>
+			<date>2012-08-25T00:47:04Z</date>
+			<key>flags</key>
+			<integer>0</integer>
+			<key>label</key>
+			<string>Inline Checkboxes</string>
+			<key>modificationDate</key>
+			<date>2012-08-25T00:47:04Z</date>
+			<key>plainText</key>
+			<string>&lt;label class="checkbox inline"&gt;
+  &lt;input type="checkbox" id="inlineCheckbox1" value="option1"&gt; 1
+&lt;/label&gt;
+&lt;label class="checkbox inline"&gt;
+  &lt;input type="checkbox" id="inlineCheckbox2" value="option2"&gt; 2
+&lt;/label&gt;
+&lt;label class="checkbox inline"&gt;
+  &lt;input type="checkbox" id="inlineCheckbox3" value="option3"&gt; 3
+&lt;/label&gt;</string>
+			<key>snippetType</key>
+			<integer>0</integer>
+			<key>useCount</key>
+			<integer>0</integer>
+			<key>uuidString</key>
+			<string>2FA26D4A-44CA-416D-92DC-E06A36ACC6F6</string>
+		</dict>
+		<dict>
+			<key>abbreviation</key>
+			<string>,bsradios</string>
+			<key>abbreviationMode</key>
+			<integer>0</integer>
+			<key>creationDate</key>
+			<date>2012-08-25T00:45:55Z</date>
+			<key>flags</key>
+			<integer>0</integer>
+			<key>label</key>
+			<string>Radios</string>
+			<key>modificationDate</key>
+			<date>2012-08-25T00:45:55Z</date>
+			<key>plainText</key>
+			<string>&lt;label class="radio"&gt;
+  &lt;input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked&gt;
+  Option one is this and that—be sure to include why it's great
+&lt;/label&gt;
+&lt;label class="radio"&gt;
+  &lt;input type="radio" name="optionsRadios" id="optionsRadios2" value="option2"&gt;
+  Option two can be something else and selecting it will deselect option one
+&lt;/label&gt;</string>
+			<key>snippetType</key>
+			<integer>0</integer>
+			<key>useCount</key>
+			<integer>0</integer>
+			<key>uuidString</key>
+			<string>E8110C97-EAE8-415F-AF79-C7D0BF55E8C5</string>
+		</dict>
+		<dict>
+			<key>abbreviation</key>
+			<string>,bscheckbox</string>
+			<key>abbreviationMode</key>
+			<integer>0</integer>
+			<key>creationDate</key>
+			<date>2012-08-25T00:45:06Z</date>
+			<key>flags</key>
+			<integer>0</integer>
+			<key>label</key>
+			<string>Checkbox</string>
+			<key>modificationDate</key>
+			<date>2012-08-25T00:46:27Z</date>
+			<key>plainText</key>
+			<string>&lt;label class="checkbox"&gt;
+  &lt;input type="checkbox" value=""&gt;
+  Option one is this and that—be sure to include why it's great
+&lt;/label&gt;</string>
+			<key>snippetType</key>
+			<integer>0</integer>
+			<key>useCount</key>
+			<integer>0</integer>
+			<key>uuidString</key>
+			<string>AF43DE11-1428-49DC-87C8-B443E7CF6262</string>
+		</dict>
+		<dict>
+			<key>abbreviation</key>
+			<string>,bstextareainput</string>
+			<key>abbreviationMode</key>
+			<integer>0</integer>
+			<key>creationDate</key>
+			<date>2012-08-25T00:41:34Z</date>
+			<key>flags</key>
+			<integer>0</integer>
+			<key>label</key>
+			<string>Textarea Input</string>
+			<key>lastUsed</key>
+			<date>2012-08-25T00:44:39Z</date>
+			<key>modificationDate</key>
+			<date>2012-08-25T00:41:34Z</date>
+			<key>plainText</key>
+			<string>&lt;textarea rows="%filltext:name=Rows:default=3%"&gt;&lt;/textarea&gt;</string>
+			<key>snippetType</key>
+			<integer>0</integer>
+			<key>useCount</key>
+			<integer>0</integer>
+			<key>uuidString</key>
+			<string>21C82BF6-AC33-46DB-812C-5BB64C90057F</string>
+		</dict>
+		<dict>
+			<key>abbreviation</key>
+			<string>,bstextinput</string>
+			<key>abbreviationMode</key>
+			<integer>0</integer>
+			<key>creationDate</key>
+			<date>2012-08-25T00:40:26Z</date>
+			<key>flags</key>
+			<integer>0</integer>
+			<key>label</key>
+			<string>Text Input</string>
+			<key>modificationDate</key>
+			<date>2012-08-25T00:40:26Z</date>
+			<key>plainText</key>
+			<string>&lt;input type="text" placeholder="Text input"&gt;</string>
+			<key>snippetType</key>
+			<integer>0</integer>
+			<key>useCount</key>
+			<integer>0</integer>
+			<key>uuidString</key>
+			<string>2532BBD5-D3C0-4B51-A58F-4BF42507B01F</string>
+		</dict>
+		<dict>
+			<key>abbreviation</key>
+			<string>,bshorizontalform</string>
+			<key>abbreviationMode</key>
+			<integer>0</integer>
+			<key>creationDate</key>
+			<date>2012-08-25T00:39:37Z</date>
+			<key>flags</key>
+			<integer>0</integer>
+			<key>label</key>
+			<string>Horizontal Form</string>
+			<key>modificationDate</key>
+			<date>2012-08-25T00:39:37Z</date>
+			<key>plainText</key>
+			<string>&lt;form class="form-horizontal"&gt;
+  &lt;div class="control-group"&gt;
+    &lt;label class="control-label" for="inputEmail"&gt;Email&lt;/label&gt;
+    &lt;div class="controls"&gt;
+      &lt;input type="text" id="inputEmail" placeholder="Email"&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="control-group"&gt;
+    &lt;label class="control-label" for="inputPassword"&gt;Password&lt;/label&gt;
+    &lt;div class="controls"&gt;
+      &lt;input type="password" id="inputPassword" placeholder="Password"&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="control-group"&gt;
+    &lt;div class="controls"&gt;
+      &lt;label class="checkbox"&gt;
+        &lt;input type="checkbox"&gt; Remember me
+      &lt;/label&gt;
+      &lt;button type="submit" class="btn"&gt;Sign in&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/form&gt;</string>
+			<key>snippetType</key>
+			<integer>0</integer>
+			<key>useCount</key>
+			<integer>0</integer>
+			<key>uuidString</key>
+			<string>94B69493-A8E0-4E9D-B43E-30D5300C6262</string>
+		</dict>
+		<dict>
+			<key>abbreviation</key>
+			<string>,bsinlineform</string>
+			<key>abbreviationMode</key>
+			<integer>0</integer>
+			<key>creationDate</key>
+			<date>2012-08-25T00:38:41Z</date>
+			<key>flags</key>
+			<integer>0</integer>
+			<key>label</key>
+			<string>Inline Form</string>
+			<key>modificationDate</key>
+			<date>2012-08-25T00:38:41Z</date>
+			<key>plainText</key>
+			<string>&lt;form class="form-inline"&gt;
+  &lt;input type="text" class="input-small" placeholder="Email"&gt;
+  &lt;input type="password" class="input-small" placeholder="Password"&gt;
+  &lt;label class="checkbox"&gt;
+    &lt;input type="checkbox"&gt; Remember me
+  &lt;/label&gt;
+  &lt;button type="submit" class="btn"&gt;Sign in&lt;/button&gt;
+&lt;/form&gt;</string>
+			<key>snippetType</key>
+			<integer>0</integer>
+			<key>useCount</key>
+			<integer>0</integer>
+			<key>uuidString</key>
+			<string>53F9A58A-ADA8-483F-887D-1C5F53A6894F</string>
+		</dict>
+		<dict>
+			<key>abbreviation</key>
+			<string>,bssearchform</string>
+			<key>abbreviationMode</key>
+			<integer>0</integer>
+			<key>creationDate</key>
+			<date>2012-08-25T00:38:09Z</date>
+			<key>flags</key>
+			<integer>0</integer>
+			<key>label</key>
+			<string>Search Form</string>
+			<key>modificationDate</key>
+			<date>2012-08-25T00:38:09Z</date>
+			<key>plainText</key>
+			<string>&lt;form class="form-search"&gt;
+  &lt;input type="text" class="input-medium search-query"&gt;
+  &lt;button type="submit" class="btn"&gt;Search&lt;/button&gt;
+&lt;/form&gt;</string>
+			<key>snippetType</key>
+			<integer>0</integer>
+			<key>useCount</key>
+			<integer>0</integer>
+			<key>uuidString</key>
+			<string>72378536-F9E6-40E8-B41B-286488B64F77</string>
+		</dict>
+		<dict>
+			<key>abbreviation</key>
+			<string>,bsdefaultform</string>
+			<key>abbreviationMode</key>
+			<integer>0</integer>
+			<key>creationDate</key>
+			<date>2012-08-25T00:37:19Z</date>
+			<key>flags</key>
+			<integer>0</integer>
+			<key>label</key>
+			<string>Default Form</string>
+			<key>modificationDate</key>
+			<date>2012-08-25T00:37:47Z</date>
+			<key>plainText</key>
+			<string>&lt;form&gt;
+  &lt;legend&gt;Legend&lt;/legend&gt;
+  &lt;label&gt;Label name&lt;/label&gt;
+  &lt;input type="text" placeholder="Type something…"&gt;
+  &lt;span class="help-block"&gt;Example block-level help text here.&lt;/span&gt;
+  &lt;label class="checkbox"&gt;
+    &lt;input type="checkbox"&gt; Check me out
+  &lt;/label&gt;
+  &lt;button type="submit" class="btn"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;</string>
+			<key>snippetType</key>
+			<integer>0</integer>
+			<key>useCount</key>
+			<integer>0</integer>
+			<key>uuidString</key>
+			<string>3237573C-4009-430D-A10D-CD967A0BEC6D</string>
+		</dict>
+		<dict>
+			<key>abbreviation</key>
 			<string>,bstable</string>
 			<key>abbreviationMode</key>
 			<integer>0</integer>
@@ -22,6 +384,8 @@
 			<integer>0</integer>
 			<key>label</key>
 			<string>Table</string>
+			<key>lastUsed</key>
+			<date>2012-08-24T22:01:16Z</date>
 			<key>modificationDate</key>
 			<date>2012-08-24T19:07:40Z</date>
 			<key>plainText</key>
@@ -242,7 +606,7 @@
 			<key>label</key>
 			<string>Columns Span #</string>
 			<key>lastUsed</key>
-			<date>2012-08-24T18:58:05Z</date>
+			<date>2012-08-24T22:01:52Z</date>
 			<key>modificationDate</key>
 			<date>2012-08-24T18:57:47Z</date>
 			<key>plainText</key>
@@ -358,6 +722,8 @@
 			<integer>0</integer>
 			<key>label</key>
 			<string>HTML5 Boilerplate + BoostrapCDN</string>
+			<key>lastUsed</key>
+			<date>2012-08-24T21:58:17Z</date>
 			<key>modificationDate</key>
 			<date>2012-08-24T18:42:30Z</date>
 			<key>plainText</key>
