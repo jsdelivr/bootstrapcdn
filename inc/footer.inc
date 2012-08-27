@@ -8,9 +8,9 @@
 				</div>
 				<div class="row-fluid" align="center">
 						<div class="logoArea">
-							<a id="NetDNA" alt="NetDNA" target="_blank" href="http://www.netdna.com/?src=bootstrapcdn.com" data-bitly-type="bitly_hover_card"></a>
-							<a id="MaxCDN" alt="MaxCDN" target="_blank" href="http://www.maxcdn.com/?src=bootstrapcdn.com" data-bitly-type="bitly_hover_card"></a>
-							<a id="CloudCache" alt="CloudCache" target="_blank" href="http://www.cloudcache.com/?src=bootstrapcdn.com" data-bitly-type="bitly_hover_card"></a>
+							<a id="NetDNA" alt="NetDNA" target="_blank" href="http://www.netdna.com/?src=bootstrapcdn.com"></a>
+							<a id="MaxCDN" alt="MaxCDN" target="_blank" href="http://www.maxcdn.com/?src=bootstrapcdn.com"></a>
+							<a id="CloudCache" alt="CloudCache" target="_blank" href="http://www.cloudcache.com/?src=bootstrapcdn.com"></a>
 						</div>
 					</div>
 				</div>
