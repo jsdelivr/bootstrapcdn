@@ -1,5 +1,6 @@
 # php in HTML are you nuts? Yup.
 AddType application/x-httpd-php .html
+AddType application/x-httpd-php .inc
 # Tell the origin what json is
 AddType application/json .json
 
@@ -13,6 +14,7 @@ ExpiresByType application/javascript A31536000
 ExpiresByType image/png A31536000
 ExpiresByType image/gif A31536000
 ExpiresByType application/json A86400
+ExpiresByType application/html A86400
 
 # This will allow us to point www to the CDN so each page is cached globally.
 
@@ -20,9 +22,18 @@ RewriteEngine On
 IndexIgnore *
 Options +FollowSymLinks -Multiviews -Indexes
 RewriteCond %{HTTP_HOST} ^bootstrapcdn\.com$ [NC]
-RewriteRule ^(.*)$ http://www.bootstrapcdn.com/$1 [R=301,L]
+RewriteRule ^(.*)$ http://www.bootstrapcdn.com/$1?v=08242012095015 [R=301,L]
 
 # A million dollars isn't cool, adding your own custom headers is. That's how it went right?
 
 Header set X-Powered-By "NetDNA - The Science of Acceleration™"
 Header set X-Hello-Human "You must be bored.  You should work for us. Email jdorfman+theheader@netdna.com or @NetDNADeveloper on the twitter"
+
+
+# Allow fonts to be downloaded to Firefox & IE
+
+<FilesMatch ".(ttf|eot|woff)$">
+Header set Access-Control-Allow-Origin "*"
+</FilesMatch>
+
+
