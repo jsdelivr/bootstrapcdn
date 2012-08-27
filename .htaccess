@@ -32,7 +32,7 @@ Header set X-Hello-Human "You must be bored.  You should work for us. Email jdor
 
 # Allow fonts to be downloaded to Firefox & IE
 
-<FilesMatch ".(ttf|otf|woff)$">
+<FilesMatch ".(ttf|eot|woff)$">
 Header set Access-Control-Allow-Origin "*"
 </FilesMatch>
 
