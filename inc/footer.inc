@@ -23,7 +23,6 @@
 					<div class="span12">
 						<ul class="pull-left">
 							<li>Maintained by <a href="http://www.twitter.com/jdorfman" target="_blank">@jdorfman</a>.</li>
-							<li>Designed by <a href="http://thomaspark.me" target="_blank">Thomas Park</a> of <a href="http://bootswatch.com/" target="_blank">Bootswatch</a>.</li>
 							<li>Powered by <a href="http://www.digitalfyre.com" target="_blank">DigitalFyre</a>, <a href="http://www.netdna.com" target="_blank">NetDNA</a>, and <a href="http://www.nginx.org" target="_blank">nginx</a>.</li>
 							<li>This free service comes with no warranty.</li>
 						</ul>
