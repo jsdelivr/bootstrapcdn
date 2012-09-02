@@ -30,6 +30,7 @@
 							<li>Links</li>
 							<li><a href="http://twitter.github.com/bootstrap/index.html" target="_blank">Twitter Bootstrap</a></li>
 							<li><a href="http://bootswatch.com/" target="_blank">Bootswatch</a></li>
+							<li><a href="http://jetstrap.com/" target="_blank">jetstrap</a></li>
 							<li><a href="http://builtwithbootstrap.com/" target="_blank">Built with Bootstrap</a></li>
 							<li><a href="http://www.bootstraphero.com/" target="_blank">Bootstrap Hero</a></li>
 							<li><a href="http://stylebootstrap.info/" target="_blank">StyleBootstrap</a></li>
