@@ -22,7 +22,7 @@ RewriteEngine On
 IndexIgnore *
 Options +FollowSymLinks -Multiviews -Indexes
 RewriteCond %{HTTP_HOST} ^bootstrapcdn\.com$ [NC]
-RewriteRule ^(.*)$ http://www.bootstrapcdn.com/$1?v=08242012095015 [R=301,L]
+RewriteRule ^(.*)$ http://www.bootstrapcdn.com/$1?v=09012012113225 [R=301,L]
 
 # A million dollars isn't cool, adding your own custom headers is. That's how it went right?
 
