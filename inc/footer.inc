@@ -25,6 +25,7 @@
 							<li>Maintained by <a href="http://www.twitter.com/jdorfman" target="_blank">@jdorfman</a>.</li>
 							<li>Powered by <a href="http://www.digitalfyre.com" target="_blank">DigitalFyre</a>, <a href="http://www.netdna.com" target="_blank">NetDNA</a>, and <a href="http://www.nginx.org" target="_blank">nginx</a>.</li>
 							<li>This free service comes with no warranty.</li>
+							<li><a href="terms.html">Terms of Use</a></li>
 						</ul>
 						<ul class="pull-right">
 							<li>Links</li>
