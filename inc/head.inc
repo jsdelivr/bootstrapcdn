@@ -7,6 +7,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="With NetDNA's Content Delivery Network, your Bootstrap objects will load faster, a lot faster.">
 	<meta name="author" content="Justin Dorfman">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:site" content="@NetDNADeveloper">
+	<meta name="twitter:creator" content="@jdorfman">
+	<meta name="twitter:url" content="http://www.bootstrapcdn.com/?utm_source=twitter&utm_medium=card&utm_campaign=Twitter%2BCard%2BMeta">
+	<meta name="twitter:title" content="BootstrapCDN Delivers Twitter's Bootstrap Globally for Free">
+	<meta name="twitter:description" content="With NetDNA's Content Delivery Network, your site will load faster, a lot faster. Trusted by: Stanford University, Lucky Magazine, GruntJS & more.">
+	<meta name="twitter:image" content="http://www.bootstrapcdn.com/img/BootstrapCDN-TwitterCard.png">
 	<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.0.4/css/bootstrap-combined.min.css" rel="stylesheet">		
 	<link href="//www.bootstrapcdn.com/css/style.origin.css?v=<?php echo $version ?>" rel="stylesheet">
 	<script>
