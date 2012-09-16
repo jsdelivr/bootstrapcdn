@@ -14,7 +14,7 @@ ExpiresByType application/javascript A31536000
 ExpiresByType image/png A31536000
 ExpiresByType image/gif A31536000
 ExpiresByType application/json A86400
-ExpiresByType application/html A86400
+ExpiresByType text/html A21600
 
 # This will allow us to point www to the CDN so each page is cached globally.
 
@@ -22,7 +22,7 @@ RewriteEngine On
 IndexIgnore *
 Options +FollowSymLinks -Multiviews -Indexes
 RewriteCond %{HTTP_HOST} ^bootstrapcdn\.com$ [NC]
-RewriteRule ^(.*)$ http://www.bootstrapcdn.com/$1?v=09132012113652 [R=301,L]
+RewriteRule ^(.*)$ http://www.bootstrapcdn.com/$1?v=09152012141031 [R=301,L]
 
 # A million dollars isn't cool, adding your own custom headers is. That's how it went right?
 
@@ -36,4 +36,13 @@ Header set X-Hello-Human "You must be bored.  You should work for us. Email jdor
 Header set Access-Control-Allow-Origin "*"
 </FilesMatch>
 
+# Caching schema for HTML (6 hours)
+#<FilesMatch "\.(html)$">
+#Header set Cache-Control "public, proxy-revalidate, max-age=21600"
+#</FilesMatch>
 
+#Prevent viewing of .htaccess file
+<Files .htaccess>
+order allow,deny
+deny from all
+</Files>
