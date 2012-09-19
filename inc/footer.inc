@@ -8,16 +8,34 @@
 				</div>
 				<div class="row-fluid" align="center">
 						<div class="logoArea">
-							<a id="NetDNA" alt="NetDNA" target="_blank" href="http://www.netdna.com/?src=bootstrapcdn.com"></a>
-							<a id="MaxCDN" alt="MaxCDN" target="_blank" href="http://www.maxcdn.com/?src=bootstrapcdn.com"></a>
-							<a id="CloudCache" alt="CloudCache" target="_blank" href="http://www.cloudcache.com/?src=bootstrapcdn.com"></a>
+							<a id="NetDNA" alt="NetDNA" target="_blank" href="http://www.netdna.com/?utm_source=bootstrapcdn&utm_medium=SponsoredBySprite&utm_campaign=netdna%2Blogo"></a>
+							<a id="MaxCDN" alt="MaxCDN" target="_blank" href="http://www.maxcdn.com/?utm_source=bootstrapcdn&utm_medium=SponsoredBySprite&utm_campaign=maxcdn%2Blogo"></a>
+							<a id="CloudCache" alt="CloudCache" target="_blank" href="http://www.cloudcache.com/?utm_source=bootstrapcdn&utm_medium=SponsoredBySprite&utm_campaign=cloudcache%2Blogo"></a>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 
-<footer class="footer">
+	<div class="endorse">
+		<div class="container">
+			<div class="row-fluid">
+				<div class="span12">
+					<h3>Endorsed By:</h3>
+				</div>
+			</div>
+		
+			<div class="row-fluid" align="center">
+              <div>	
+				<blockquote class="twitter-tweet"><p>It's really cool to see the bootstrap community step up with projects like this.<a href="http://t.co/YLVWCevr" title="http://www.bootstrapcdn.com/">bootstrapcdn.com</a> &lt;3</p>&mdash; ♒∆✝ (@fat) <a href="https://twitter.com/fat/status/230014001256464384" data-datetime="2012-07-30T18:56:26+00:00">July 30, 2012</a></blockquote>
+			 </div>
+              <div> <blockquote class="twitter-tweet"><p>if you're looking for a CDN to host @<a href="https://twitter.com/twbootstrap">twbootstrap</a>, the folks at @<a href="https://twitter.com/netdnadeveloper">netdnadeveloper</a> have graciously provided a free one <a href="http://t.co/MsH8NBJ1" title="http://www.bootstrapcdn.com/">bootstrapcdn.com</a></p>&mdash; Twitter Open Source (@TwitterOSS) <a href="https://twitter.com/TwitterOSS/status/233235680166293504" data-datetime="2012-08-08T16:18:14+00:00">August 8, 2012</a></blockquote></div>
+
+				<div> <blockquote class="twitter-tweet"><p><a href="http://t.co/GYVUGWg7" title="http://www.bootstrapcdn.com/">bootstrapcdn.com</a> nice to see a CDN like NetDNA take these kind of initiatives</p>&mdash; CDN Planet (@cdnplanet) <a href="https://twitter.com/cdnplanet/status/213008798707744768" data-datetime="2012-06-13T20:43:49+00:00">June 13, 2012</a></blockquote></div>
+        	</div>
+
+
+	<footer class="footer">
 			<div class="container">
 				<div class="row-fluid">
 					<div class="span12">
@@ -43,8 +61,9 @@
 				</div>
 			</div>
 		</footer>
-
+	</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>	
 	<script src="//netdna.bootstrapcdn.com/js/bootstrap.min.js"></script>
 	<script>$("input:text").focus(function(){$(this).select();$(this).mouseup(function(a){a.preventDefault()})});</script>
 </body>
