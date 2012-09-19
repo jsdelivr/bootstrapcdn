@@ -15,7 +15,7 @@
 	<meta name="twitter:description" content="With NetDNA's Content Delivery Network, your site will load faster, a lot faster. Trusted by: Stanford University, Lucky Magazine, GruntJS & more.">
 	<meta name="twitter:image" content="http://www.bootstrapcdn.com/img/BootstrapCDN-TwitterCard.png">
 	<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.0.4/css/bootstrap-combined.min.css" rel="stylesheet">		
-	<link href="//www.bootstrapcdn.com/css/style.origin.css?v=<?php echo $version ?>" rel="stylesheet">
+	<link href="css/style.origin.css?v=<?php echo $version ?>" rel="stylesheet">
 	<script>
 		!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
 	</script>

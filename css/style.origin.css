@@ -1,11 +1,11 @@
 body {
 	background-color: #333;
-	background: top center url('http://www.bootstrapcdn.com/img/random_grey_variations.png') repeat #414852;
+	background: top center url('http://www.bootstrapcdn.com/img/random_tan_variations.png') repeat #414852;
 }
 
 a,
 a:hover {
-	color: #aaa;
+	color: #333;
 }
 
 .navbar-inner {
@@ -134,6 +134,16 @@ input[type="text"] {
 }
 
 .sponsors h3 {
+	text-align: center;
+	color: #404650;
+}
+
+.endorse {
+	padding: 1px 0 40px;
+	background-color: #ddd;
+}
+
+.endorse h3 {
 	text-align: center;
 	color: #404650;
 }
