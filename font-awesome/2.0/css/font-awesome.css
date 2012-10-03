@@ -1,9 +1,9 @@
 @font-face{
     font-family:FontAwesome;
-    src:url(https://netdna.bootstrapcdn.com/font-awesome/2.0/font//fontawesome-webfont.eot?#iefix) format('eot'),
-	url(https://netdna.bootstrapcdn.com/font-awesome/2.0/font//fontawesome-webfont.woff) format('woff'),
-	url(https://netdna.bootstrapcdn.com/font-awesome/2.0/font//fontawesome-webfont.ttf) format('truetype'),
-	url(https://netdna.bootstrapcdn.com/font-awesome/2.0/font//fontawesome-webfont.svg#FontAwesome) format('svg');
+    src:url(//netdna.bootstrapcdn.com/font-awesome/2.0/font/fontawesome-webfont.eot?#iefix) format('eot'),
+	url(//netdna.bootstrapcdn.com/font-awesome/2.0/font/fontawesome-webfont.woff) format('woff'),
+	url(//netdna.bootstrapcdn.com/font-awesome/2.0/font/fontawesome-webfont.ttf) format('truetype'),
+	url(//netdna.bootstrapcdn.com/font-awesome/2.0/font/fontawesome-webfont.svg#FontAwesome) format('svg');
     font-weight:400;font-style:normal;}
 
 [class^=icon-]:before,[class*=" icon-"]:before{font-family:FontAwesome;font-weight:400;font-style:normal;display:inline-block;text-decoration:inherit;}
