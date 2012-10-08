@@ -1,11 +1,11 @@
 body {
 	background-color: #333;
-	background: top center url('http://www.bootstrapcdn.com/img/random_grey_variations.png') repeat #414852;
+	background: top center url('http://www.bootstrapcdn.com/img/random_tan_variations.png') repeat #414852;
 }
 
 a,
 a:hover {
-	color: #aaa;
+	color: #333;
 }
 
 .navbar-inner {
@@ -138,6 +138,16 @@ input[type="text"] {
 	color: #404650;
 }
 
+.endorse {
+	padding: 1px 0 40px;
+	background-color: #ddd;
+}
+
+.endorse h3 {
+	text-align: center;
+	color: #404650;
+}
+
 .logo {
 	padding: 30px 0 20px;
 	text-align: center;
@@ -230,6 +240,14 @@ input[type="text"] {
 #NetDNA:hover{background-position:0px -55px;}
 #MaxCDN:hover{background-position:-134px -55px;}
 #CloudCache:hover{background-position:-268px -55px;}
+.trusted-by { display:block; float:left; margin-right:62px;; }
+#luckymag-logo,#grunt-logo,#stanford-logo,#applesencia-logo,#dramafever-logo{background-repeat: no-repeat;background-image: url('http://www.bootstrapcdn.com/img/trusted-by.png');}
+#luckymag-logo{background-position:0px 0px;width:70px;height:23px;}
+#grunt-logo{background-position:-73px 0px;width:87px;height:19px; margin-top: 1px;}
+#stanford-logo{background-position:-163px 0px;width:140px;height:17px;}
+#applesencia-logo{background-position:-306px 0px;width:143px;height:24px;}
+#dramafever-logo{background-position:0px -27px;width:182px;height:39px;margin-top:-10px;}
+.trusted-by:last-child { margin-right: 0; }
+#trusted-logos { margin-bottom: 7px; }
+#trusted-logos h3 { margin-bottom: 14px; }
 
-
-	</style>
