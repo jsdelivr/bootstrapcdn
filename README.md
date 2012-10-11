@@ -10,7 +10,7 @@ Bugs / Ideas
 
 Found a bug or have an idea? Please create an issue here on GitHub:
 
-https://github.com/jdorfman/bootstrap-cdn/issues
+https://github.com/netdna/bootstrap-cdn/issues
 
 Twitter accounts
 ---------------
