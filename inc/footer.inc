@@ -3,14 +3,13 @@
 				<div class="row-fluid">
 					<div class="span12">
 						<h3>Sponsored By:</h3>
-						<br><center><a href="http://www.speedawarenessmonth.com/?ref=bootstrapcdn" target="_blank"><img src="img/sam.png" border="0"></center></a>
 					</div>
 				</div>
 				<div class="row-fluid" align="center">
 						<div class="logoArea">
-							<a id="NetDNA" alt="NetDNA" target="_blank" href="http://www.netdna.com/?utm_source=bootstrapcdn&utm_medium=SponsoredBySprite&utm_campaign=netdna%2Blogo"></a>
-							<a id="MaxCDN" alt="MaxCDN" target="_blank" href="http://www.maxcdn.com/?utm_source=bootstrapcdn&utm_medium=SponsoredBySprite&utm_campaign=maxcdn%2Blogo"></a>
-							<a id="CloudCache" alt="CloudCache" target="_blank" href="http://www.cloudcache.com/?utm_source=bootstrapcdn&utm_medium=SponsoredBySprite&utm_campaign=cloudcache%2Blogo"></a>
+							<a id="NetDNA" alt="NetDNA - Content Delivery Network" target="_blank" href="http://www.netdna.com/?utm_source=bootstrapcdn&utm_medium=SponsoredBySprite&utm_campaign=netdna%2Blogo"></a>
+							<a id="MaxCDN" alt="MaxCDN - Content Delivery Network" target="_blank" href="http://www.maxcdn.com/?utm_source=bootstrapcdn&utm_medium=SponsoredBySprite&utm_campaign=maxcdn%2Blogo"></a>
+							<a id="CloudCache" alt="CloudCache - Content Delivery Network" target="_blank" href="http://www.cloudcache.com/?utm_source=bootstrapcdn&utm_medium=SponsoredBySprite&utm_campaign=cloudcache%2Blogo"></a>
 						</div>
 					</div>
 				</div>
@@ -41,7 +40,7 @@
 					<div class="span12">
 						<ul class="pull-left">
 							<li>Maintained by <a href="http://www.twitter.com/jdorfman" target="_blank">@jdorfman</a>.</li>
-							<li>Powered by <a href="http://www.digitalfyre.com" target="_blank">DigitalFyre</a>, <a href="http://www.netdna.com" target="_blank">NetDNA</a>, and <a href="http://www.nginx.org" target="_blank">nginx</a>.</li>
+							<li>Powered by <a href="http://www.digitalfyre.com" target="_blank">DigitalFyre</a>, <a href="http://www.netdna.com" target="_blank" title="CDN">NetDNA</a>, and <a href="http://www.nginx.org" target="_blank">nginx</a>.</li>
 							<li>This free service comes with no warranty.</li>
 							<li><a href="terms.html">Terms of Use</a></li>
 						</ul>
