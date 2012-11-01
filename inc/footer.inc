@@ -65,5 +65,6 @@
 	<script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>	
 	<script src="//netdna.bootstrapcdn.com/js/bootstrap.min.js"></script>
 	<script>$("input:text").focus(function(){$(this).select();$(this).mouseup(function(a){a.preventDefault()})});</script>
+	<script src="http://cdn.webglstats.com/stat.js" defer="defer" async="async"></script>
 </body>
 </html>
