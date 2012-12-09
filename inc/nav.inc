@@ -18,7 +18,7 @@
 									<li><a href="stats.html?v=<?php echo $version ?>"><i class="icon-tasks"></i> Stats/Charts</a></li>
 								</ul>
 							</li>
-							<li><a href="http://bootstrapcdn.blogspot.com/" target="_blank">Blog <i class="icon-white icon-share-alt"></i></a></li>				
+							<li><a href="http://blog.netdna.com/opensource/bootstrapcdn/" target="_blank">Blog <i class="icon-white icon-share-alt"></i></a></li>				
 						  <li><a href="http://eepurl.com/nYBcv" target="_blank">Newsletter <i class="icon-white icon-envelope"></i></a></li>
 						</ul>
 					</div>
