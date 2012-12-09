@@ -49,6 +49,7 @@
 							<li><a href="http://twitter.github.com/bootstrap/index.html" target="_blank">Twitter Bootstrap</a></li>
 							<li><a href="http://bootswatch.com/" target="_blank">Bootswatch</a></li>
 							<li><a href="http://jetstrap.com/" target="_blank">jetstrap</a></li>
+							<li><a href="http://bootsnipp.com/" target="_blank">Bootsnipp</a></li>
 							<li><a href="http://builtwithbootstrap.com/" target="_blank">Built with Bootstrap</a></li>
 							<li><a href="http://www.bootstraphero.com/" target="_blank">Bootstrap Hero</a></li>
 							<li><a href="http://stylebootstrap.info/" target="_blank">StyleBootstrap</a></li>
@@ -65,5 +66,6 @@
 	<script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>	
 	<script src="//netdna.bootstrapcdn.com/js/bootstrap.min.js"></script>
 	<script>$("input:text").focus(function(){$(this).select();$(this).mouseup(function(a){a.preventDefault()})});</script>
+	<script src="http://cdn.webglstats.com/stat.js" defer="defer" async="async"></script>
 </body>
 </html>
