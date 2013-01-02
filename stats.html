@@ -5,6 +5,8 @@
 	
 <!-- Stats -->
 
+<!-- Stats -->
+
 	<div class="main">
 			<div class="container">
 				<div class="row-fluid">
@@ -21,30 +23,15 @@
 						<div class="tab-content">
 
 							<div class="tab-pane active" id="popular">
-								<div class="span8">
-								      <div class="alert alert-error">
-								       
-								        <strong>Fail Whale</strong> Having Some Origin Issues, Reports are Unavailable at this time. 
-								      </div>
-								    </div>	
+								<?php include "reports/index.inc" ?>
 							</div>	
 
 							<div class="tab-pane" id="nodes">
-									<div class="span8">
-									      <div class="alert alert-error">
-
-									        <strong>Fail Whale</strong> Having Some Origin Issues, Reports are Unavailable at this time. 
-									      </div>
-									    </div>
+								<?php include "reports/nodes.inc" ?>
 							</div>
 
 							<div class="tab-pane" id="hourly">
-									<div class="span8">
-									      <div class="alert alert-error">
-
-									        <strong>Fail Whale</strong> Having Some Origin Issues, Reports are Unavailable at this time. 
-									      </div>
-									    </div>
+								<iframe frameborder="0" height="1165" width="850" src="http://origin.bootstrapcdn.com/reports/stats-hourly.html"></iframe>
 							</div>
 
 						</div>
@@ -56,6 +43,9 @@
 	</div>
 
 
-<?php
-	include 'inc/footer.min.inc';
-?>	
+
+
+
+	<?php
+		include 'inc/footer.min.inc';
+	?>
