@@ -66,6 +66,20 @@
 	<script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>	
 	<script src="//netdna.bootstrapcdn.com/js/bootstrap.min.js"></script>
 	<script>$("input:text").focus(function(){$(this).select();$(this).mouseup(function(a){a.preventDefault()})});</script>
+	<script>
+	// Javascript to enable link to tab
+	var hash = document.location.hash;
+	var prefix = "tab_";
+	if (hash) {
+	    $('.nav-tabs a[href='+hash.replace(prefix,"")+']').tab('show');
+	} 
+
+	// Change hash for page-reload
+	$('.nav-tabs a').on('shown', function (e) {
+	    window.location.hash = e.target.hash.replace("#", "#" + prefix);
+	});
+	</script>
 	<script src="http://cdn.webglstats.com/stat.js" defer="defer" async="async"></script>
+
 </body>
 </html>
