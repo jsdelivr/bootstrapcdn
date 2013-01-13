@@ -246,6 +246,11 @@ else
 
       ]);
 
+      var formatter_req = new google.visualization.NumberFormat({fractionDigits: 0});
+      var formatter_bw = new google.visualization.NumberFormat({fractionDigits: 2});
+      formatter_req.format(data, 1); // Apply formatter to second column
+      formatter_bw.format(data, 2); // Apply formatter to 3rd column
+
       var options = {
 	    showZoomOut: true,
 		colorAxis: {colors:['red','#004411']},
@@ -286,6 +291,11 @@ else
 		?>
 
       ]);
+
+      var formatter_req = new google.visualization.NumberFormat({fractionDigits: 0});
+      var formatter_bw = new google.visualization.NumberFormat({fractionDigits: 2});
+      formatter_req.format(data, 1); // Apply formatter to second column
+      formatter_bw.format(data, 2); // Apply formatter to 3rd column
 
       var options = {
 	    showZoomOut: true,
