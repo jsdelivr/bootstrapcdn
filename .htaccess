@@ -22,24 +22,25 @@ RewriteEngine On
 IndexIgnore *
 Options +FollowSymLinks -Multiviews -Indexes
 RewriteCond %{HTTP_HOST} ^bootstrapcdn\.com$ [NC]
-RewriteRule ^(.*)$ http://www.bootstrapcdn.com/$1?v=10292012225705 [R=302,L]
+RewriteRule ^(.*)$ http://www.bootstrapcdn.com/$1?v=01222013095352 [R=302,L]
 
 # A million dollars isn't cool, adding your own custom headers is. That's how it went right?
 
 Header set X-Powered-By "NetDNA - The Science of Acceleration™"
 Header set X-Hello-Human "You must be bored.  You should work for us. Email jdorfman+theheader@netdna.com or @NetDNADeveloper on the twitter"
 
+# Vary Important - http://stackoverflow.com/a/14541454/1258484
+
+<FilesMatch "\.(js|css|xml|gz|ttf|eot|woff|json|html)$">
+	Header append Vary: Accept-Encoding
+</FilesMatch>
+
 
 # Allow fonts to be downloaded to Firefox & IE
 
 <FilesMatch ".(ttf|eot|woff)$">
-Header set Access-Control-Allow-Origin "*"
+	Header set Access-Control-Allow-Origin "*"
 </FilesMatch>
-
-# Caching schema for HTML (6 hours)
-#<FilesMatch "\.(html)$">
-#Header set Cache-Control "public, proxy-revalidate, max-age=21600"
-#</FilesMatch>
 
 #Prevent viewing of .htaccess file
 <Files .htaccess>
