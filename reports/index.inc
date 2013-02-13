@@ -92,7 +92,7 @@ $json_o = json_decode($json_output);
 
 
 //array of filetypes with icons
-$filetypes = array('txt','ico','json','acc','ai','aif','app','atom','avi','bmp','cdr','css','doc','docx','eps','exe','fla','flv','gif','gzip','html','indd','jpg','js','keynote','mov','mp3','mp4','numbers','otf','pages','pdf','php','png','ppt','pptx','psd','rar','raw','rss','rtf','sql','svg','swf','tar','tiff','ttf','wav','wmv','xls','xlsx','xml','zip');
+$filetypes = array('txt','ico','json','acc','ai','aif','app','atom','avi','bmp','cdr','css','doc','docx','eps','exe','fla','flv','gif','gzip','html','indd','jpg','js','keynote','mov','mp3','mp4','numbers','otf','pages','pdf','php','png','ppt','pptx','psd','rar','raw','rss','rtf','sql','svg','swf','tar','tiff','ttf','wav','wmv','xls','xlsx','xml','zip','woff','eot');
 
 
 if(array_key_exists("code",$json_o))
