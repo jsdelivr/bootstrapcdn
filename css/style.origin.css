@@ -1,6 +1,12 @@
-body {
+/*body {
 	background-color: #333;
 	background: top center url('../img/bootstrap-bkg.jpg') repeat #414852;
+}*/
+
+body {
+	background-color: rgb(138, 138, 138);
+	background-image:url('../img/bootstrap-bkg.jpg');
+	background-repeat:no-repeat;
 }
 
 a,
