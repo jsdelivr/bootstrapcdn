@@ -162,9 +162,7 @@ input[type="text"] {
 
 .footer {
 	padding: 40px 0 20px;
-
-	/*background-color: rgba(0, 0, 0, 0.5);*/
-	color: #fff;
+	color: #999;
 
 }
 
