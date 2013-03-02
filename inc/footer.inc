@@ -44,9 +44,9 @@
 			</div>
 		</footer>
 	</div>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 	<script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>	
-	<script src="//netdna.bootstrapcdn.com/js/bootstrap.min.js"></script>
+	<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
 	<script>$("input:text").focus(function(){$(this).select();$(this).mouseup(function(a){a.preventDefault()})});</script>
 	<script>
 	// Javascript to enable link to tab
