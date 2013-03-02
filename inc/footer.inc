@@ -1,21 +1,3 @@
-	<div class="sponsors">
-			<div class="container">
-				<div class="row-fluid">
-					<div class="span12">
-						<h3>Sponsored By:</h3>
-					</div>
-				</div>
-				<div class="row-fluid" align="center">
-						<div class="logoArea">
-							<a id="NetDNA" alt="NetDNA - Content Delivery Network" target="_blank" href="http://www.netdna.com/?utm_source=bootstrapcdn&utm_medium=SponsoredBySprite&utm_campaign=netdna%2Blogo"></a>
-							<a id="MaxCDN" alt="MaxCDN - Content Delivery Network" target="_blank" href="http://www.maxcdn.com/?utm_source=bootstrapcdn&utm_medium=SponsoredBySprite&utm_campaign=maxcdn%2Blogo"></a>
-							<a id="CloudCache" alt="CloudCache - Content Delivery Network" target="_blank" href="http://www.cloudcache.com/?utm_source=bootstrapcdn&utm_medium=SponsoredBySprite&utm_campaign=cloudcache%2Blogo"></a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
 	<div class="endorse">
 		<div class="container">
 			<div class="row-fluid">
