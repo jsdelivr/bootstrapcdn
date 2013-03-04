@@ -319,8 +319,13 @@ input[type="text"] {
 
 
 .dataTables_info {
-	width: 60%;
+  font-size: 11px;
+	width: 300px;
 	float: left;
+}
+
+.no-padding .dataTables_info {
+    margin-left: 10px;
 }
 
 .dataTables_paginate {
@@ -359,25 +364,25 @@ input[type="text"] {
 }
 
 .paginate_disabled_previous {
-	background: url('../img/back_disabled.png') no-repeat top left;
+	background: url('../img/datatables/back_disabled.png') no-repeat top left;
 }
 
 .paginate_enabled_previous {
-	background: url('../img/back_enabled.png') no-repeat top left;
+	background: url('../img/datatables/back_enabled.png') no-repeat top left;
 }
 .paginate_enabled_previous:hover {
-	background: url('../img/back_enabled_hover.png') no-repeat top left;
+	background: url('../img/datatables/back_enabled_hover.png') no-repeat top left;
 }
 
 .paginate_disabled_next {
-	background: url('../img/forward_disabled.png') no-repeat top right;
+	background: url('../img/datatables/forward_disabled.png') no-repeat top right;
 }
 
 .paginate_enabled_next {
-	background: url('../img/forward_enabled.png') no-repeat top right;
+	background: url('../img/datatables/forward_enabled.png') no-repeat top right;
 }
 .paginate_enabled_next:hover {
-	background: url('../img/forward_enabled_hover.png') no-repeat top right;
+	background: url('../img/datatables/forward_enabled_hover.png') no-repeat top right;
 }
 
 
@@ -438,23 +443,23 @@ table.display td.center {
  */
 
 .sorting_asc {
-	background: url('../img/sort_asc.png') no-repeat center right;
+	background: url('../img/datatables/sort_asc.png') no-repeat center right;
 }
 
 .sorting_desc {
-	background: url('../img/sort_desc.png') no-repeat center right;
+	background: url('../img/datatables/sort_desc.png') no-repeat center right;
 }
 
 .sorting {
-	background: url('../img/sort_both.png') no-repeat center right;
+	background: url('../img/datatables/sort_both.png') no-repeat center right;
 }
 
 .sorting_asc_disabled {
-	background: url('../img/sort_asc_disabled.png') no-repeat center right;
+	background: url('../img/datatables/sort_asc_disabled.png') no-repeat center right;
 }
 
 .sorting_desc_disabled {
-	background: url('../img/sort_desc_disabled.png') no-repeat center right;
+	background: url('../img/datatables/sort_desc_disabled.png') no-repeat center right;
 }
  
 table.display thead th:active,
@@ -522,18 +527,27 @@ tr.even {
 
 .dataTables_scrollBody {
 	*margin-top: -1px;
-	-webkit-overflow-scrolling: touch;
 }
 
-.top, .bottom {
-	padding: 15px;
+.dataTables_wrapper .top, .dataTables_wrapper .bottom {
+	padding: 0px;
 	background-color: #F5F5F5;
-	border: 1px solid #CCCCCC;
+	border: 1px solid #ccc;
+}
+
+.dataTables_wrapper .top .dataTables_info {
+	float: none;
+}
+
+/*.top, .bottom {
+    padding: 15px;
+    background-color: #F5F5F5;
+    border: 1px solid #CCCCCC;
 }
 
 .top .dataTables_info {
-	float: none;
-}
+    float: none;
+}*/
 
 .clear {
 	clear: both;
