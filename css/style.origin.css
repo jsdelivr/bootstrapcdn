@@ -281,16 +281,42 @@ input[type="text"] {
 	background-color: white;
 }
 
+
 .dataTables_length {
-	width: 40%;
+  display: none;
+	width: 75px;
 	float: left;
 }
 
 .dataTables_filter {
-	width: 50%;
+	width: 182px;
 	float: right;
 	text-align: right;
+	margin-top: -56px;
 }
+
+.no-padding .dataTables_filter {
+    margin-top: -46px;
+    margin-right: 10px;
+}
+
+.dataTables_filter input {
+  background: url(../img/datatables/search.png) 6px 6px no-repeat #FEFFFE;
+  border: 1px solid #c7c7c7;
+  border-radius: 20px;
+  box-shadow: 0 1px 0 #FEFFFE;
+  color: #282828;
+  margin: 8px 0;
+  padding: 3px 10px;
+  padding-left: 20px;
+  width: 150px;
+  
+  -moz-border-radius: 20px;  
+  -webkit-border-radius: 20px;
+  -moz-box-shadow: 0 1px 0 #FEFFFE;
+  -webkit-box-shadow: 0 1px 0 #FEFFFE;
+}
+
 
 .dataTables_info {
 	width: 60%;
