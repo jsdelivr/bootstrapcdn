@@ -55,8 +55,6 @@
 	<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
 	<script src="http://www.bootstrapcdn.com/js/footer.js"></script>
 	<script src="http://cdn.webglstats.com/stat.js" defer="defer" async="async"></script>
-    <script src="http://www.bootstrapcdn.com/js/jquery.dataTables.min.js"></script>
-    <script src="http://www.bootstrapcdn.com/js/datatables.js"></script>
 
 </body>
 </html>
