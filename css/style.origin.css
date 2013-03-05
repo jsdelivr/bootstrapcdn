@@ -71,7 +71,7 @@ a:hover {
 
 input[type="text"] {
 	width: 100%;
-	height: 20px;
+	height: 30px;
 	margin-left: -2px;
 	font-size: 16px;
 }
@@ -259,26 +259,21 @@ input[type="text"] {
  * DataTables features
  */
 
+
 div.dataTables_length label {
 	float: left;
 	text-align: left;
-	visibility:hidden;
+	visibility: hidden;
 }
 
 div.dataTables_length select {
 	width: 75px;
-	visibility:hidden;
+	visibility: hidden;
 }
 
 div.dataTables_filter label {
 	float: right;
-	display: inline-block;
-
 }
-
-.dataTables_filter input {
-    display: inline-block;
-}    
 
 div.dataTables_info {
 	padding-top: 8px;
@@ -304,12 +299,12 @@ table.table thead .sorting_desc_disabled {
 	*cursor: hand;
 }
 
-table.table thead .sorting { background: url('img/datatables/sort_both.png') no-repeat center right; }
-table.table thead .sorting_asc { background: url('img/datatables/sort_asc.png') no-repeat center right; }
-table.table thead .sorting_desc { background: url('img/datatables/sort_desc.png') no-repeat center right; }
+/*table.table thead .sorting { background: url('../img/datatables/sort_both.png') no-repeat center right; }
+table.table thead .sorting_asc { background: url('../img/datatables/sort_asc.png') no-repeat center right; }
+table.table thead .sorting_desc { background: url('../img/datatables/sort_desc.png') no-repeat center right; }
 
-table.table thead .sorting_asc_disabled { background: url('img/datatables/sort_asc_disabled.png') no-repeat center right; }
-table.table thead .sorting_desc_disabled { background: url('img/datatables/sort_desc_disabled.png') no-repeat center right; }
+table.table thead .sorting_asc_disabled { background: url('../img/datatables/sort_asc_disabled.png') no-repeat center right; }
+table.table thead .sorting_desc_disabled { background: url('../img/datatables/sort_desc_disabled.png') no-repeat center right; }*/
 
 table.dataTable th:active {
 	outline: none;
@@ -415,7 +410,7 @@ div.DTTT_print_info p {
 div.DTFC_LeftHeadWrapper table,
 div.DTFC_LeftFootWrapper table,
 table.DTFC_Cloned tr.even {
-	background-color: #f9f9f9;
+	background-color: white;
 }
 
 div.DTFC_LeftHeadWrapper table {
