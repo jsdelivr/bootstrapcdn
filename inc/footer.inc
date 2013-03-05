@@ -55,14 +55,8 @@
 	<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
 	<script src="http://www.bootstrapcdn.com/js/footer.js"></script>
 	<script src="http://cdn.webglstats.com/stat.js" defer="defer" async="async"></script>
-    <script src="js/jquery.dataTables.min.js"></script>
-    <script type="text/javascript" charset="utf-8">
-        $(function() {
-        	$('.table').dataTable( {
-        	    "iDisplayLength": 20,
-        	    "aLengthMenu": [[20, 30, 50, -1], [20, 30, 50, "All"]]
-        	} );
-        } );        
-    </script>
+    <script src="../js/jquery.dataTables.min.js"></script>
+    <script src="../js/datatables.js"></script>
+
 </body>
 </html>
