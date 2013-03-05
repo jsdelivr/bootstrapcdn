@@ -19,16 +19,16 @@
 	</table>-->		
 <h2>Location Overview</h2>
 <p>Total requests and bandwidth by map location </p>	
-<div class="row-fluid">
+<div class="row">
   <div class="span12">
 	<div class="row-fluid">
 		<div class="span6">
 			<h3>United States</h3>
-			<div id="chart_div1" style="width: 470px; height: 280px;"></div>
+			<div id="chart_div1" style="width: 460px; height: 270px;"></div>
 		</div>
 	    <div class="span6">
 			<h3>Europe</h3>
-			<div id="chart_div2" style="width: 470px; height: 280px;"></div>
+			<div id="chart_div2" style="width: 460px; height: 270px;"></div>
 		</div>	
 	</div>
   </div>
