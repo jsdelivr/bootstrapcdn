@@ -19,6 +19,18 @@
 						<ul class="dropdown-menu">
 							<li><a href="uptime.html?v=<?php echo $version ?>"><i class="icon-ok-sign"></i> Uptime</a></li>
 							<li><a href="stats.html?v=<?php echo $version ?>"><i class="icon-tasks"></i> Stats/Charts</a></li>
+							<li class="divider"></li>
+								<li class="dropdown-submenu">
+									<a tabindex="-1" href="pulse.html?v=<?php echo $version ?>"><i class="icon-heart"></i> PULSE</a>
+									<ul class="dropdown-menu">
+										<li><a href="http://pulse.bootstrapcdn.com/day" target="_blank">Day</a></li>
+										<li><a href="http://pulse.bootstrapcdn.com/week" target="_blank">Week</a></li>
+										<li><a href="http://pulse.bootstrapcdn.com/month" target="_blank">Month</a></li>
+										<li class="divider"></li>
+										<li><a href="http://pulse.bootstrapcdn.com/ga" target="_blank">Pageviews</a></li>
+									</ul>
+								</li>
+							</li>
 						</ul>
 					</li>
 					<li><a href="http://blog.netdna.com/opensource/bootstrapcdn/" target="_blank">Blog <i class="icon-white icon-share-alt"></i></a></li>				
