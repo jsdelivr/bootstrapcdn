@@ -38,7 +38,7 @@ Thanks
 
 Others:
 * [DigitalFyre](http://digitalfyre.com) Hosting Services
-* Frank B. @ [WarrantyTree.com](http://WarrantyTree.com)
+* [Frank Basti](http://frankbasti.com/)
 * Thomas Park @ [Bootswatch.com](http://bootswatch.com)
 * Andrey Alexeev @ [nginx](http://www.nginx.com)
 * Mark Otto & Jacob Thornton @twitter
