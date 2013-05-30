@@ -1,5 +1,6 @@
 inc/cachebuster.php
 reports/config.php
+security/config.ini
 css/style.css.old
 cb
 
