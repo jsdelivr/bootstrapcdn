@@ -5,6 +5,11 @@
 
 $ini_array = parse_ini_file("./config.ini");
 $email = $ini_array['email']; //set e-mail
+if ($email == "name@domain.com" ) {
+	echo "Please put the correct e-mail address in \"bootstrap-cdn/security/config.ini\"\n";
+	return;
+}
+
 echo "Notifications will be sent to: ".$email."\n";
 
 date_default_timezone_set('America/Los_Angeles');

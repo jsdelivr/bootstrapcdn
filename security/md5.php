@@ -27,7 +27,7 @@ if ($searchPath == "") $searchPath = "/bootstrap-cdn"; //default to root
 $objects =	new RecursiveIteratorIterator(
 						new RecursiveDirectoryIterator($rootPath), 
 						RecursiveIteratorIterator::SELF_FIRST);
-echo "<table class='table table-striped table-index'><thead><tr><th>File</th><!--<th>MD5 Local Hash</th><th>MD5 Remote Hash</th>--><th>Remote Matches Local</th></tr></thead><tbody>\n";
+echo "<table class='table table-striped table-index'><thead><tr><th>File</th><th>MD5 Local Hash</th><th>MD5 Remote Hash</th><th>Match</th></tr></thead><tbody>\n";
 
 $ch = curl_init();
 foreach($objects as $name => $object){
@@ -43,7 +43,7 @@ foreach($objects as $name => $object){
 			$md5remote = md5($response);
 			if( $md5local == $md5remote ) $status = true; //some condition comparing md5s
 			if( $object->isFile() and strpos($path,$searchPath) !== FALSE ){
-				echo "<tr><td>". substr($path,strrpos($path,$searchPath));//"</td><td>".$md5local."</td><td>".$md5remote."</td>";
+				echo "<tr><td>". substr($path,strrpos($path,$searchPath))."</td><td>".$md5local."</td><td>".$md5remote."</td>";
 				if ($status) echo "<td style='color:green'>".$check."</td></tr>\n";
 				else echo  "<td style='color:red'>".$x."</td></tr>\n";
 			}
