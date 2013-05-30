@@ -18,7 +18,8 @@
 					<li class="dropdown" id="menu1"><a class="dropdown-toggle" data-toggle="dropdown" href="#menu1">Reports<b class="caret"></b></a>
 						<ul class="dropdown-menu">
 							<li><a href="uptime.html?v=<?php echo $version ?>"><i class="icon-ok-sign"></i> Uptime</a></li>
-							<li><a href="stats.html?v=<?php echo $version ?>"><i class="icon-tasks"></i> Stats/Charts</a></li>
+							<li><a href="#"><i class="icon-tasks"></i> Stats/Charts (Offline)</a></li>
+							<li><a href="security/?v=<?php echo $version ?>" target="_blank"><i class="icon-lock"></i> Security</a></li>
 							<li class="divider"></li>
 								<li class="dropdown-submenu">
 									<a tabindex="-1" href="pulse.html?v=<?php echo $version ?>"><i class="icon-heart"></i> PULSE</a>
