@@ -84,7 +84,7 @@ echo "</table>\n";
   </div>
   <footer>
 	<center>
-		<div class="span12">If a hash does not match, we will be notified. <br> Please send any other security concerns to support at bootstrapcdn.com</div>
+		<div class="span12">If a hash does not match, we will be notified. <br> Please send any other security concerns to support at bootstrapcdn.com <br> BTW We are just getting started ;)</div>
 	</center>
   </footer>
 
