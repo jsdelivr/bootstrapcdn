@@ -22,7 +22,6 @@
   <div role="main">
 		<div class="span12">
 			<center><h2>BootstrapCDN Security <sup>Beta</sup></h2></center>
-
 <?php
 
 $rootPath = realpath('../');
@@ -68,7 +67,7 @@ foreach($legacy as $ver => $url){
 			$md5remote = md5($response);
 			if( $md5local == $md5remote ) $status = true; //some condition comparing md5s
 			if( $object->isFile() and strpos($path,$searchPath) !== FALSE ){
-				echo "<tr><td>". substr($path,strrpos($path,$searchPath))."</td><td>".$md5local."</td><td>".$md5remote."</td>";
+				echo "<tr><td>". substr($path,strrpos($path,$searchPath))."</td><td><a href='".$path."'><code>".$md5local."</code></a></td><td><a href='http:".$url."'><code>".$md5remote."</code></a></td>";
 				if ($status) echo "<td style='color:green'>".$check."</td></tr>\n";
 				else echo  "<td style='color:red'>".$x."</td></tr>\n";
 			}
