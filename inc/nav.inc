@@ -19,7 +19,7 @@
 						<ul class="dropdown-menu">
 							<li><a href="uptime.html?v=<?php echo $version ?>"><i class="icon-ok-sign"></i> Uptime</a></li>
 							<li><a href="stats.html?v=<?php echo $version ?>"><i class="icon-tasks"></i> Stats/Charts</a></li>
-							<li><a href="security.php?v=<?php echo $version ?>"><i class="icon-lock"></i> Security</a></li>
+							<li><a href="security/index.php?v=<?php echo $version ?>"><i class="icon-lock"></i> Security</a></li>
 							<!---
 							<li class="divider"></li>
 								<li class="dropdown-submenu">
