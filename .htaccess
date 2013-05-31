@@ -3,8 +3,9 @@ AddType application/x-httpd-php .html
 AddType application/x-httpd-php .inc
 # Tell the origin what json is
 AddType application/json .json
+AddType application/font-woff .woff
 
-# Cache everything on for 1 year. 
+# Cache everything on for 1 year.
 # We are making an 24 hour exception for json since we are using it for the daily stats and need that $#!+ fresh
 
 Header append Cache-Control "public, must-revalidate, proxy-revalidate"
@@ -22,7 +23,7 @@ RewriteEngine On
 IndexIgnore *
 Options +FollowSymLinks -Multiviews -Indexes
 RewriteCond %{HTTP_HOST} ^bootstrapcdn\.com$ [NC]
-RewriteRule ^(.*)$ http://www.bootstrapcdn.com/$1?v=01222013095352 [R=302,L]
+RewriteRule ^(.*)$ http://www.bootstrapcdn.com/$1?v=05312013104429 [R=302,L]
 
 # A million dollars isn't cool, adding your own custom headers is. That's how it went right?
 
