@@ -24,17 +24,17 @@ $legacy = array(	"2.3.1/css"=>"//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1
 
 if ($searchPath == "") $searchPath = "/bootstrap-cdn"; //default to root
 
-$objects =	new RecursiveIteratorIterator(
-						new RecursiveDirectoryIterator($rootPath), 
-						RecursiveIteratorIterator::SELF_FIRST);
 echo "<table class='table table-striped table-index'><thead><tr><th>File</th><th>MD5 Local Hash</th><th>MD5 Remote Hash</th><th>Match</th></tr></thead><tbody>\n";
 
 $ch = curl_init();
-foreach($objects as $name => $object){
-	$path = $object->getPathname();
-	$md5local = md5(file_get_contents($path));
-	$status = false;
-	foreach($legacy as $ver => $url){
+foreach($legacy as $ver => $url){
+	$objects =	new RecursiveIteratorIterator(
+							new RecursiveDirectoryIterator($rootPath), 
+							RecursiveIteratorIterator::SELF_FIRST);
+	foreach($objects as $name => $object){
+		$path = $object->getPathname();
+		$md5local = md5(file_get_contents($path));
+		$status = false;
 		$urldir = substr($url,strrpos($url,$ver));
 		if( strpos($path,$urldir) !== FALSE ){
 			curl_setopt($ch, CURLOPT_URL, "http:".$url);
@@ -47,6 +47,9 @@ foreach($objects as $name => $object){
 				if ($status) echo "<td style='color:green'>".$check."</td></tr>\n";
 				else echo  "<td style='color:red'>".$x."</td></tr>\n";
 			}
+			break;
+		} else { 
+			continue; 
 		}
 	}
 }
