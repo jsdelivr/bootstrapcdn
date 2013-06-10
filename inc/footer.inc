@@ -42,6 +42,7 @@
 							<li><a href="http://www.bootstraphero.com/" target="_blank">Bootstrap Hero</a></li>
 							<li><a href="http://stylebootstrap.info/" target="_blank">StyleBootstrap</a></li>
 							<li><a href="http://bootswatchr.com/" target="_blank">Bootswatchr</a></li>
+							<li><a href="http://bootstrapstyler.com/" target="_blank">Bootstrapstyler</a></li>
 							<li><a href="http://www.plugolabs.com/twitter-bootstrap-button-generator/" target="_blank">Bootstrap Button Generator</a></li>
 							<li><a href="http://stackoverflow.com/questions/tagged/bootstrap" target="_blank">Bootstrap Q&amp;A on Stackoverflow</a></li>
 						</ul>
