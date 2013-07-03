@@ -29,7 +29,9 @@ $searchPath = "/twitter-bootstrap";
 
 $check = '&#x2714';
 $x = '&#x2718';
-$legacy = array(					"2.3.1/css"=>"//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css",
+$legacy = array(					"2.3.2/css"=>"//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css",
+									"2.3.2/js" =>"//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js",
+									"2.3.1/css"=>"//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css",
 									"2.3.1/js" =>"//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js",
 									"2.3.0/css"=>"//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/css/bootstrap-combined.min.css",
 									"2.3.0/js" =>"//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/js/bootstrap.min.js",
