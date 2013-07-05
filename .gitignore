@@ -15,3 +15,4 @@ Icon?
 ehthumbs.db
 Thumbs.db
 *.swp
+inc/cachebuster.php
