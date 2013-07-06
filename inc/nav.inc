@@ -38,6 +38,7 @@
 					</li>
 					<li><a href="http://blog.netdna.com/category/opensource/bootstrapcdn/" target="_blank">Blog <i class="icon-white icon-share-alt"></i></a></li>				
 				  <li><a href="http://eepurl.com/nYBcv" target="_blank">Newsletter <i class="icon-white icon-envelope"></i></a></li>
+				  <li><a href="birthday/1/" target="_blank">Birthday <i class="icon-white icon-gift"></i></a></li>
 	            </ul>
 	          </div>
 	        </div>
