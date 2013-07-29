@@ -126,7 +126,7 @@ $json_o = json_decode($json_output);
 //  var_dump($json_output);
 
 //define array for geochart
-$eu_cities = array('Amsterdam','London');
+$eu_cities = array('Amsterdam','London','Frankfurt');
 
 //define array for US and Europe cities
 $us_data = array();
