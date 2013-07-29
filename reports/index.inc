@@ -1,7 +1,7 @@
 <!--     <div class="container">
 		<div class="span11"> -->
       <h2>   Popular Files Overview</h2>
-      <p>    Total requests per file and total bandwdith of popular files</p>
+      <p>    Total requests per file and total bandwidth of popular files</p>
 	
 	
 		<table class="table table-striped table-index">
