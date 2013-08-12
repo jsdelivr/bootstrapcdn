@@ -18,6 +18,7 @@ ExpiresByType application/json A86400
 ExpiresByType text/html A21600
 
 # This will allow us to point www to the CDN so each page is cached globally.
+# TODO: Remove cache-buster "v="
 
 RewriteEngine On
 IndexIgnore *
@@ -27,8 +28,8 @@ RewriteRule ^(.*)$ http://www.bootstrapcdn.com/$1?v=05312013104429 [R=302,L]
 
 # A million dollars isn't cool, adding your own custom headers is. That's how it went right?
 
-Header set X-Powered-By "NetDNA - The Science of Acceleration™"
-Header set X-Hello-Human "You must be bored.  You should work for us. Email jdorfman+theheader@netdna.com or @NetDNADeveloper on the twitter"
+Header set X-Powered-By "NetDNA - The Science of Acceleration"
+Header set X-Hello-Human "You must be bored.  You should work for us. Email jdorfman+theheader@netdna.com or @NetDNADeveloper"
 
 # Vary Important - http://stackoverflow.com/a/14541454/1258484
 
