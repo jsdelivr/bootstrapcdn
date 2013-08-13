@@ -1,21 +1,58 @@
+# Use UTF-8 encoding for anything served as `text/html` or `text/plain`.
+AddDefaultCharset utf-8
+
+# Force UTF-8 for certain file formats.
+<IfModule mod_mime.c>
+    AddCharset utf-8 .css .js .json .vtt .xml .html
+</IfModule>
+
 # php in HTML are you nuts? Yup.
 AddType application/x-httpd-php .html
 AddType application/x-httpd-php .inc
 # Tell the origin what json is
 AddType application/json .json
-AddType application/font-woff .woff
+#Fonts
+AddType application/font-woff woff
+AddType application/vnd.ms-fontobject eot
+AddType application/x-font-ttf ttc ttf
+AddType font/opentype otf
+# Make SVGZ fonts work on iPad:
+ # https://twitter.com/FontSquirrel/status/14855840545
+AddType     image/svg+xml svg svgz
+AddEncoding gzip svgz
 
-# Cache everything on for 1 year.
-# We are making an 24 hour exception for json since we are using it for the daily stats and need that $#!+ fresh
+# Cache Control
+<IfModule mod_expires.c>
+    ExpiresActive on
+    ExpiresDefault                                      "access plus 1 month"
 
-Header append Cache-Control "public, must-revalidate, proxy-revalidate"
-ExpiresActive On
-ExpiresByType text/css A31536000
-ExpiresByType application/javascript A31536000
-ExpiresByType image/png A31536000
-ExpiresByType image/gif A31536000
-ExpiresByType application/json A86400
-ExpiresByType text/html A21600
+    ExpiresByType application/json                      "access plus 0 seconds"
+    ExpiresByType application/xml                       "access plus 0 seconds"
+    ExpiresByType text/xml                              "access plus 0 seconds"
+    ExpiresByType application/x-web-app-manifest+json   "access plus 0 seconds"
+    ExpiresByType text/cache-manifest                   "access plus 0 seconds"
+
+    ExpiresByType text/css                              "access plus 1 year"
+    ExpiresByType image/x-icon                          "access plus 1 week"
+    ExpiresByType text/x-component                      "access plus 1 month"
+    ExpiresByType text/html                             "access plus 1 day"
+    ExpiresByType application/javascript                "access plus 1 year"
+
+    ExpiresByType audio/ogg                             "access plus 1 year"
+    ExpiresByType image/gif                             "access plus 1 year"
+    ExpiresByType image/jpeg                            "access plus 1 year"
+    ExpiresByType image/png                             "access plus 1 year"
+    ExpiresByType video/mp4                             "access plus 1 year"
+    ExpiresByType video/ogg                             "access plus 1 year"
+    ExpiresByType video/webm                            "access plus 1 year"
+    ExpiresByType application/atom+xml                  "access plus 1 hour"
+    ExpiresByType application/rss+xml                   "access plus 1 hour"
+    ExpiresByType application/font-woff                 "access plus 1 year"
+    ExpiresByType application/vnd.ms-fontobject         "access plus 1 year"
+    ExpiresByType application/x-font-ttf                "access plus 1 year"
+    ExpiresByType font/opentype                         "access plus 1 year"
+    ExpiresByType image/svg+xml                         "access plus 1 year"
+</IfModule>
 
 # This will allow us to point www to the CDN so each page is cached globally.
 # TODO: Remove cache-buster "v="
@@ -26,22 +63,49 @@ Options +FollowSymLinks -Multiviews -Indexes
 RewriteCond %{HTTP_HOST} ^bootstrapcdn\.com$ [NC]
 RewriteRule ^(.*)$ http://www.bootstrapcdn.com/$1?v=05312013104429 [R=302,L]
 
-# A million dollars isn't cool, adding your own custom headers is. That's how it went right?
-
+# Custom headers.
 Header set X-Powered-By "NetDNA - The Science of Acceleration"
 Header set X-Hello-Human "You must be bored.  You should work for us. Email jdorfman+theheader@netdna.com or @NetDNADeveloper"
 
 # Vary Important - http://stackoverflow.com/a/14541454/1258484
+<IfModule mod_deflate.c>
+    <IfModule mod_setenvif.c>
+        <IfModule mod_headers.c>
+            SetEnvIfNoCase ^(Accept-EncodXng|X-cept-Encoding|X{15}|~{15}|-{15})$ ^((gzip|deflate)\s*,?\s*)+|[X~-]{4,13}$ HAVE_Accept-Encoding
+            RequestHeader append Accept-Encoding "gzip,deflate" env=HAVE_Accept-Encoding
+        </IfModule>
+    </IfModule>
+</IfModule>
 
-<FilesMatch "\.(js|css|xml|gz|ttf|eot|woff|json|html)$">
-	Header append Vary: Accept-Encoding
-</FilesMatch>
+<IfModule mod_headers.c>
+ Header unset ETag
+</IfModule>
+
+FileETag None
 
 
-# Allow fonts to be downloaded to Firefox & IE
+# Allow fonts/images to be downloaded/show up in Chrome, Firefox & IE (CORS)
 
-<FilesMatch ".(ttf|eot|woff)$">
-	Header set Access-Control-Allow-Origin "*"
+<IfModule mod_setenvif.c>
+    <IfModule mod_headers.c>
+        <FilesMatch "\.(gif|ico|jpe?g|png|svgz?|webp)$">
+            SetEnvIf Origin ":" IS_CORS
+            Header set Access-Control-Allow-Origin "*" env=IS_CORS
+        </FilesMatch>
+    </IfModule>
+</IfModule>
+
+<IfModule mod_headers.c>
+    <FilesMatch "\.(eot|font.css|otf|ttc|ttf|woff)$">
+        Header set Access-Control-Allow-Origin "*"
+    </FilesMatch>
+</IfModule>
+
+#Security
+<FilesMatch "(^#.*#|\.(bak|config|dist|fla|inc|ini|log|psd|sh|sql|sw[op])|~)$">
+    Order allow,deny
+    Deny from all
+    Satisfy All
 </FilesMatch>
 
 #Prevent viewing of .htaccess file
