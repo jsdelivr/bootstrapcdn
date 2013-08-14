@@ -61,7 +61,7 @@ RewriteEngine On
 IndexIgnore *
 Options +FollowSymLinks -Multiviews -Indexes
 RewriteCond %{HTTP_HOST} ^bootstrapcdn\.com$ [NC]
-RewriteRule ^(.*)$ http://www.bootstrapcdn.com/$1?v=05312013104429 [R=302,L]
+RewriteRule ^(.*)$ http://www.bootstrapcdn.com/$1?v=08132013113520 [R=302,L]
 
 # Custom headers.
 Header set X-Powered-By "NetDNA - The Science of Acceleration"
