@@ -7,12 +7,11 @@
     <meta name="author" content="Justin Dorfman">
     <title>Bootstrap CDN</title>
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.css" rel="stylesheet">
     <link href="favicon.png" rel="shortcut icon">
-    <link href="css/bootstrap-glyphicons.css" rel="stylesheet">
     <link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
+    <link href="css/bootstrap-cdn.css" rel="stylesheet"> <!-- Temp -->
     <link href="css/docs.css" rel="stylesheet">
   </head>
 
@@ -38,13 +37,13 @@
 <p><input value="&lt;link href=&quot;//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css&quot; rel=&quot;stylesheet&quot;&gt;" class="inputs"></p>
 <div class="label-container"><span class="label">Complete JavaScript</span></div>
 <p><input value="&lt;script src=&quot;//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;" class="inputs"></p>
-<div class="label-container"><span class="label">Glyphicons</span></div>
-<p><input value="&lt;link href=&quot;//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css&quot; rel=&quot;stylesheet&quot;&gt;" class="inputs"></p>
 <br/>
 </div>
 <!-- Font Awesome -->
 <div id="fontawesome" class="tab-pane">
-<div class="label-container"><span class="label">Complete CSS</span></div>
+<div class="label-container"><span class="label">CSS No Icons</span></div>
+<p><input value="&lt;link href=&quot;//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.no-icons.min.css&quot; rel=&quot;stylesheet&quot;&gt;" class="inputs"></p>
+<div class="label-container"><span class="label">Font Awesome CSS</span></div>
 <p><input value="&lt;link href=&quot;//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css&quot; rel=&quot;stylesheet&quot;&gt;" class="inputs"></p>
 <br/></div>
 <!-- Legacy -->
@@ -234,7 +233,7 @@
 	</script>
 	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 	<script src="http://platform.twitter.com/widgets.js" charset="utf-8"></script>
-	<script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 	<script>
 // Select to Copy
 $("input:text").focus(function(){$(this).select();$(this).mouseup(function(a){a.preventDefault()})});
