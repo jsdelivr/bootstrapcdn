@@ -17,7 +17,7 @@
             li
                 a(data-toggle="tab", href="#legacy", onclick="tabAction(this)") Legacy
 
-        ul.nav.navbar-nav.pull-right
+        ul.nav.navbar-nav.pull-right.visible-md.visible-lg
             li
                 a.alert-link(href="http://www.speedawarenessmonth.com/?f=ribbon", target="_blank") #SAM2013 Partner&nbsp;
                     i.icon-external-link-sign
@@ -30,17 +30,18 @@
                             onclick="_gaq.push(['_trackEvent', 'Jumbotron actions', 'Jumbotron links', 'GitHub project']);") GitHub project
                     li
                         a(href="http://getbootstrap.com",
-                            onclick="_gaq.push(['_trackEvent', 'Jumbotron actions', 'Jumbotron links', 'Bootstrap']);") Bootstrap
+                            onclick="_gaq.push(['_trackEvent', 'Navigation', 'Resources', 'Bootstrap']);") Bootstrap
                     li
                         a(href="http://expo.getbootstrap.com",
-                            onclick="_gaq.push(['_trackEvent', 'Jumbotron actions', 'Jumbotron links', 'Expo']);") Bootstrap Expo
+                            onclick="_gaq.push(['_trackEvent', 'Navigation', 'Resources', 'Expo']);") Bootstrap Expo
                     li
-                        a(href="http://getbootstrap.com") Bootstrap
+                        a(href="http://fontawesome.io",
+                            onclick="_gaq.push(['_trackEvent', 'Navigation', 'Resources', 'Font Awesome']);") Font Awesome
                     li
-                        a(href="http://fontawesome.io") Font Awesome
+                        a(href="http://bootswatch.com",
+                            onclick="_gaq.push(['_trackEvent', 'Navigation', 'Resources', 'Bootswatch']);") Bootswatch
                     li
-                        a(href="http://bootswatch.com") Bootswatch
-                    li
-                        a(href="http://glyphicons.com") Glyphicons
+                        a(href="http://glyphicons.com",
+                            onclick="_gaq.push(['_trackEvent', 'Navigation', 'Resources', 'Glyphicons']);") Glyphicons
 
 //- vim: ft=jade sw=4 sts=4 et:
