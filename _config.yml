@@ -1,5 +1,7 @@
 port: 3333
 
+theme: 1 # bootswatch.themes[n]
+
 authors:
 - Joshua Mervine
 - Justin Dorfman
@@ -16,6 +18,24 @@ google_analytics:
     domain_name: bootstrapcdn.com
 
 ####
+# Note: stylesheets and javascript will be loaded
+# in the order they are specified.
+stylesheets:
+- "//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css"
+
+javascript:
+    # scripts specified in the before group will be loaded
+    # as blocking scripts inside the head tag
+    #before:
+    #
+    # scripts specified in the after group will be loaded
+    # as blocking scripts at the bottom of the page
+    after:
+    - "//code.jquery.com/jquery-1.10.1.min.js"
+    - "//platform.twitter.com/widgets.js"
+    - "//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"
+
+####
 # TODO: Perhaps move to a database (redis or mongo),
 # or in to it's own configuration file.
 #
@@ -28,17 +48,17 @@ bootswatch:
     image: "http://bootswatch.com/SWATCH_NAME/thumbnail.png"
     bootstrap: "//netdna.bootstrapcdn.com/bootswatch/SWATCH_VERSION/SWATCH_NAME/bootstrap.min.css"
     themes:
-        - amelia
-        - cerulean
-        - cosmo
-        - cyborg
-        - flatly
-        - journal
-        - readable
-        - simplex
-        - slate
-        - spacelab
-        - united
+        - amelia    # 0
+        - cerulean  # 1
+        - cosmo     # 2
+        - cyborg    # 3
+        - flatly    # 4
+        - journal   # 5
+        - readable  # 6
+        - simplex   # 7
+        - slate     # 8
+        - spacelab  # 9
+        - united    # 10
 
 ####
 # TODO: Perhaps move to a database (redis or mongo),
@@ -86,28 +106,5 @@ bootstrap:
     - version: "2.0.4"
       css_complete: "//netdna.bootstrapcdn.com/twitter-bootstrap/2.0.4/css/bootstrap-combined.min.css"
       javascript:   "//netdna.bootstrapcdn.com/twitter-bootstrap/2.0.4/js/bootstrap.min.js"
-
-
-####
-# Note: stylesheets and javascript will be loaded
-# in the order they are specified.
-
-stylesheets:
-- "//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css"
-- "http://www.bootstrapcdn.com/css/bootstrap-cdn.css"
-- "http://www.bootstrapcdn.com/css/docs.css"
-
-javascript:
-    # scripts specified in the before group will be loaded
-    # as blocking scripts inside the head tag
-    #before:
-    #
-    # scripts specified in the after group will be loaded
-    # as blocking scripts at the bottom of the page
-    after:
-    - "//code.jquery.com/jquery-1.10.1.min.js"
-    - "//platform.twitter.com/widgets.js"
-    - "//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"
-
 
 # vim: ft=yaml sw=4 sts=4 et:

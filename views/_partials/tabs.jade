@@ -1,12 +1,8 @@
-ul.nav.nav-tabs
-    li.active
-        a(data-toggle="tab", href="#quickstart") Quick Start
-    li
-        a(data-toggle="tab", href="#fontawesome")
-            .icon-flag &nbsp;Font Awesome
-    li
-        a(data-toggle="tab", href="#bootswatch") Bootswatch
-    li
-        a(data-toggle="tab", href="#legacy") Legacy
+.tab-content
+    include quickstart
+    include fontawesome
+    include bootswatch
+    include legacy
 
+include footer
 //- vim: ft=jade sw=4 sts=4 et:

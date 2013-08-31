@@ -1,13 +1,29 @@
 script.
-    // Select to Copy
-    $("input:text").focus(function(){$(this).select();$(this).mouseup(function(a){a.preventDefault()})});
-    // Javascript to enable link to tab
-    var hash = document.location.hash;
-    var prefix = "tab_";
-    if (hash) { $('.nav-tabs a[href='+hash.replace(prefix,"")+']').tab('show'); }
-    // Change hash for page-reload
-    $('.nav-tabs a').on('shown', function (e) {
-        window.location.hash = e.target.hash.replace("#", "#" + prefix);
+    $("input:text").focus(function(){
+        $(this).select();
+        $(this).mouseup( function(a){ a.preventDefault(); })
     });
 
+    var hash;
+    var hash_suffix = '_tab';
+    if (document.location.href.split('#')[1]) {
+        hash = '#'+document.location.href.split('#')[1].replace(hash_suffix,'');
+    }
+    if (hash) {
+        $('ul.nav.navbar-nav li a[href='+hash+']').tab('show');
+    }
+
+    function tabAction(ele) {
+        var selected = $(ele).attr('href');
+        if (hash) {
+            document.location.href = document.location.href.replace(hash+hash_suffix, selected+hash_suffix);
+        } else {
+            document.location.href += selected+hash_suffix;
+        }
+        hash = selected;
+    }
+
+    function tryIt(n) {
+        window.location.href = "/?theme="+n+(hash ? hash+hash_suffix : '');
+    }
 //- vim: ft=jade sw=4 sts=4 et:

@@ -1,4 +1,46 @@
-.alert.alert-success
-  center
-    a.alert-link(href="http://www.speedawarenessmonth.com/?f=ribbon", target="_blank") #SAM2013 Partner
-      i.icon-external-link-sign
+.navbar.navbar-default
+    .navbar-header
+        button.navbar-toggle(type="button", data-toggle="collapse", data-target=".navbar-collapse")
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+        b.navbar-brand Bootstrap CDN
+    .navbar-collapse.collapse
+        ul.nav.navbar-nav
+            li.active
+                a(data-toggle="tab", href="#quickstart", onclick="tabAction(this)") Quick Start
+            li
+                a(data-toggle="tab", href="#fontawesome", onclick="tabAction(this)")
+                    .icon-flag &nbsp;Font Awesome
+            li
+                a(data-toggle="tab", href="#bootswatch", onclick="tabAction(this)") Bootswatch
+            li
+                a(data-toggle="tab", href="#legacy", onclick="tabAction(this)") Legacy
+
+        ul.nav.navbar-nav.pull-right
+            li
+                a.alert-link(href="http://www.speedawarenessmonth.com/?f=ribbon", target="_blank") #SAM2013 Partner&nbsp;
+                    i.icon-external-link-sign
+            li.dropdown
+                a.dropdown-toggle(href="#", data-toggle="dropdown") Resources&nbsp;
+                    b.caret
+                ul.dropdown-menu
+                    li
+                        a(href="http://github.com/netdna/bootstrap-cdn",
+                            onclick="_gaq.push(['_trackEvent', 'Jumbotron actions', 'Jumbotron links', 'GitHub project']);") GitHub project
+                    li
+                        a(href="http://getbootstrap.com",
+                            onclick="_gaq.push(['_trackEvent', 'Jumbotron actions', 'Jumbotron links', 'Bootstrap']);") Bootstrap
+                    li
+                        a(href="http://expo.getbootstrap.com",
+                            onclick="_gaq.push(['_trackEvent', 'Jumbotron actions', 'Jumbotron links', 'Expo']);") Bootstrap Expo
+                    li
+                        a(href="http://getbootstrap.com") Bootstrap
+                    li
+                        a(href="http://fontawesome.io") Font Awesome
+                    li
+                        a(href="http://bootswatch.com") Bootswatch
+                    li
+                        a(href="http://glyphicons.com") Glyphicons
+
+//- vim: ft=jade sw=4 sts=4 et:

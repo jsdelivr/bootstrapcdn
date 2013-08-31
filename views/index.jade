@@ -3,5 +3,11 @@ extends layout
 block content
     include _partials/jumbotron
 
-    include _partials/mad_love
+    .container
+        .col-sm-12.col-md-9
+            include _partials/tabs
+
+        .col-md-3.visible-md.visible-lg
+            include _partials/mad_love
+
 //- vim: ft=jade sw=4 sts=4 et:

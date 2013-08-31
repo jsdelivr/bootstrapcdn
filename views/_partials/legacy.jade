@@ -1,24 +1,26 @@
 #legacy.tab-pane
+    h2 Bootstrap Legacy
     - each item in config.bootstrap
-        - if (!item.current)
-            .label-container
-                .label.label-info= item.version
-            - if (item.css_complete)
+        center.well
+            - if (!item.current)
                 .label-container
-                    .label Complete CSS
-                p
-                    input.inputs(value=item.css_complete)
+                    h3= item.version
+                - if (item.css_complete)
+                    .label-container
+                        h5 Complete CSS
+                    p
+                        input.input-lg(value=item.css_complete)
 
-            - if (item.javascript)
-                .label-container
-                    .label Complete JavaScript
-                p
-                    input.inputs(value=item.javascript)
+                - if (item.javascript)
+                    .label-container
+                        h5 Complete JavaScript
+                    p
+                        input.input-lg(value=item.javascript)
 
-            - if (item.css_no_icons)
-                .label-container
-                    .label Complete CSS (without Icons)
-                p
-                    input.inputs(value=item.css_no_icons)
+                - if (item.css_no_icons)
+                    .label-container
+                        h5 Complete CSS (without Icons)
+                    p
+                        input.input-lg(value=item.css_no_icons)
     br
 //- vim: ft=jade sw=4 sts=4 et:

@@ -1,17 +1,25 @@
 #bootswatch.tab-pane
-    - for (var i = 0; i < config.bootswatch.themes.length; i++) {
-        - var name = config.bootswatch.themes[i]
-        .row
-            .col-sm-2.col-md-2
-            .col-sm-8.col-md-8
-                .well
-                    a(href=config.bootswatch.link.replace('SWATCH_NAME', name))
-                        img.bootswatch(src=config.bootswatch.image.replace('SWATCH_NAME', name))
-                    p
-                        input.bootswatch(value=config.bootswatch.bootstrap
-                                                .replace('SWATCH_NAME', name)
-                                                .replace('SWATCH_VERSION', config.bootswatch.version))
-            .col-sm-2.col-md-2
-    - }
+    h2 Bootswatch
+    center.well
+        - for (var i = 0; i < config.bootswatch.themes.length; i++) {
+            - var name = config.bootswatch.themes[i]
+            .row
+                .col-sm-0.col-md-2
+                    .tryit
+                        - if (i === helpers.theme.selected(config, theme))
+                            b Featured
+                        - else
+                            a(href="javascript:tryIt("+i+")") Try it!
+                .col-sm-12.col-md-8
+                    .bootswatch
+                        a(href=config.bootswatch.link.replace('SWATCH_NAME', name))
+                            img.bootswatch(src=config.bootswatch.image.replace('SWATCH_NAME', name))
+                        p
+                            input.input-lg(value=config.bootswatch.bootstrap
+                                                    .replace('SWATCH_NAME', name)
+                                                    .replace('SWATCH_VERSION', config.bootswatch.version))
+                .col-sm-0.col-md-2
+
+        - }
     br
 //- vim: ft=jade sw=4 sts=4 et:

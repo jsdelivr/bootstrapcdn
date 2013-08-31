@@ -28,6 +28,7 @@ app.configure(function() {
 });
 
 // locals
+app.locals({ helpers: require('./lib/helpers') });
 app.locals({ config: config });
 
 // middleware
