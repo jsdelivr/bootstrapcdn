@@ -1,5 +1,5 @@
 function index(req, res) {
-    res.render('index', { title: 'Express' });
+    res.render('index', { title: 'Bootstrap CDN' });
 }
 
 module.exports = {
