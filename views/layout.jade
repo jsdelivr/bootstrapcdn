@@ -1,0 +1,32 @@
+doctype 5
+html
+  head
+    title= title
+
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(name='author', content=config.authors.join(', '))
+    meta(name='description', content=(description || config.description))
+
+    link(rel='shortcut', href=config.favicon.png)
+
+    - if (config.stylesheets)
+      - each css in config.stylesheets
+        link(rel='stylesheet', href=css)
+
+    - if (config.javascript && config.javascript.before)
+      - each js in config.javascript.before
+        script(src=js)
+
+  body
+    include _partials/header
+
+    block content
+
+- if (config.google_analytics)
+    include _partials/google_analytics
+
+- if (config.javascript && config.javascript.after)
+  - each js in config.javascript.after
+    script(src=js)
+
+//- vim: ft=jade sw=4 sts=4 et:

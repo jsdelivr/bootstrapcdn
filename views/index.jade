@@ -1,0 +1,25 @@
+extends layout
+
+block content
+    .jumbotron
+        .container
+            h1 Bootstrap CDN
+            p The recommended CDN for&nbsp;
+                a(href="http://getbootstrap.com", target="_blank") Bootstrap
+                ,&nbsp;
+                a(href="http://FontAwesome.io", target="_blank") Font Awesome
+                , and&nbsp;
+                a(href="http://bootswatch.com") Bootswatch
+                .
+
+            .tabbable
+                include _partials/tabs
+
+            .tab-content
+                include _partials/quickstart
+                include _partials/fontawesome
+                include _partials/bootswatch
+                include _partials/legacy
+
+
+//- vim: ft=jade sw=4 sts=4 et:
