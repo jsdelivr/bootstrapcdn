@@ -1,6 +1,6 @@
 port: 3333
 
-theme: 1 # bootswatch.themes[n]
+theme: 10 # bootswatch.themes[n]
 
 authors:
 - Joshua Mervine
