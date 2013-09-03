@@ -1,0 +1,13 @@
+.hidden(id=name, style="padding-top:10px;")
+    .form-group
+        label(for='html') HTML
+        input.form-control(type='text', value='<script src="'+jsPath+'"></script>')
+    .form-group
+        label(for='jade')
+            a(href="http://jade-lang.com/") JADE
+        input.form-control(type='text', value='script(src="'+jsPath+'")')
+    .form-group
+        label(for='haml')
+            a(href="http://haml.info/") HAML
+        input.form-control(type='text', value='%script{:src=>"'+jsPath+'"}')
+//- vim: ft=jade sw=4 sts=4 et:

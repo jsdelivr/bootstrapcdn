@@ -26,4 +26,10 @@ script.
     function tryIt(n) {
         window.location.href = "/?theme="+n+(hash ? hash+hash_suffix : '');
     }
+
+    function toggleCode(ele,name) {
+        $('#'+name).toggleClass('hidden');
+        $(ele).find('b').toggleClass('icon-caret-down');
+        $(ele).find('b').toggleClass('icon-caret-up');
+    }
 //- vim: ft=jade sw=4 sts=4 et:

@@ -3,21 +3,24 @@
     center.well
         - for (var i = 0; i < config.bootswatch.themes.length; i++) {
             - var name = config.bootswatch.themes[i]
+            - var cssPath=config.bootswatch.bootstrap.replace('SWATCH_NAME', name).replace('SWATCH_VERSION', config.bootswatch.version)
             .row
                 .col-sm-0.col-md-2
                     .tryit
                         - if (i === helpers.theme.selected(config, theme))
-                            b Active!
+                            b.btn.btn-primary.btn.disabled Active!
                         - else
-                            a(href="javascript:tryIt("+i+")") Try it!
+                            a.btn.btn-primary.btn(href="javascript:tryIt("+i+")") Try it!
                 .col-sm-12.col-md-8
                     .bootswatch
                         a(href=config.bootswatch.link.replace('SWATCH_NAME', name))
                             img.bootswatch(src=config.bootswatch.image.replace('SWATCH_NAME', name))
-                        p
-                            input.input-lg(value=config.bootswatch.bootstrap
-                                                    .replace('SWATCH_NAME', name)
-                                                    .replace('SWATCH_VERSION', config.bootswatch.version))
+                        .input-group
+                            input.form-control(value=cssPath)
+                            .input-group-btn
+                                button.btn.btn-default(type="button", onclick="toggleCode(this,'"+name+"')")
+                                    b.icon-caret-down
+                        include csscode
                 .col-sm-0.col-md-2
 
         - }

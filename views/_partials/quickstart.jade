@@ -1,13 +1,26 @@
 #quickstart.tab-pane.active
     h2 Quickstart
     center.well
+        - var name = 'quickstartCSS'
+        - var cssPath = config.bootstrap[0].css_complete
         .label-container
             h3 Complete CSS
-        p
-            input.input-lg(value=config.bootstrap[0].css_complete)
+        .input-group
+            input.input-lg(value=cssPath)
+            .input-group-btn
+                button.btn.btn-lg(type="button", onclick="toggleCode(this,'"+name+"')")
+                    b.icon-caret-down
+        include csscode
+
+        - var name = 'quickstartJS'
+        - var jsPath = config.bootstrap[0].javascript
         .label-container
             h3 Complete JavaScript
-        p
-            input.input-lg(value=config.bootstrap[0].javascript)
+        .input-group
+            input.input-lg(value=jsPath)
+            .input-group-btn
+                button.btn.btn-lg(type="button", onclick="toggleCode(this,'"+name+"')")
+                    b.icon-caret-down
+        include jscode
     br
 //- vim: ft=jade sw=4 sts=4 et:

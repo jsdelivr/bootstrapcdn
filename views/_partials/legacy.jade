@@ -6,21 +6,39 @@
                 .label-container
                     h3= item.version
                 - if (item.css_complete)
+                    - var name = "css_complete_"+item.version.replace(/\./g,'_')
+                    - var cssPath = item.css_complete
                     .label-container
                         h5 Complete CSS
-                    p
-                        input.input-lg(value=item.css_complete)
+                    .input-group
+                        input.input-lg(value=cssPath)
+                        .input-group-btn
+                            button.btn.btn-lg(type="button", onclick="toggleCode(this,'"+name+"')")
+                                b.icon-caret-down
+                    include csscode
 
                 - if (item.javascript)
+                    - var name = "javascript_"+item.version.replace(/\./g,'_')
+                    - var jsPath = item.javascript
                     .label-container
                         h5 Complete JavaScript
-                    p
-                        input.input-lg(value=item.javascript)
+                    .input-group
+                        input.input-lg(value=jsPath)
+                        .input-group-btn
+                            button.btn.btn-lg(type="button", onclick="toggleCode(this,'"+name+"')")
+                                b.icon-caret-down
+                    include jscode
 
                 - if (item.css_no_icons)
+                    - var name = "css_no_icons_"+item.version.replace(/\./g,'_')
+                    - var cssPath = item.css_no_icons
                     .label-container
                         h5 Complete CSS (without Icons)
-                    p
-                        input.input-lg(value=item.css_no_icons)
+                    .input-group
+                        input.input-lg(value=cssPath)
+                        .input-group-btn
+                            button.btn.btn-lg(type="button", onclick="toggleCode(this,'"+name+"')")
+                                b.icon-caret-down
+                    include csscode
     br
 //- vim: ft=jade sw=4 sts=4 et:

@@ -1,13 +1,26 @@
 #fontawesome.tab-pane
     h2 Font Awesome
     center.well
+        - var name = 'fontawesomeCSS1'
+        - var cssPath = '//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css'
         .label-container
             h3 Awesome CSS
-        p
-            input.input-lg(value="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css")
+        .input-group
+            input.input-lg(value=cssPath)
+            .input-group-btn
+                button.btn.btn-lg(type="button", onclick="toggleCode(this,'"+name+"')")
+                    b.icon-caret-down
+        include csscode
+
+        - var name = 'fontawesomeCSS2'
+        - var cssPath = '//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.no-icons.min.css'
         .label-container
             h3 CSS (no Icons)
-        p
-            input.input-lg(value="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.no-icons.min.css")
+        .input-group
+            input.input-lg(value=cssPath)
+            .input-group-btn
+                button.btn.btn-lg(type="button", onclick="toggleCode(this,'"+name+"')")
+                    b.icon-caret-down
+        include csscode
     br
 //- vim: ft=jade sw=4 sts=4 et:
