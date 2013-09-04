@@ -58,6 +58,6 @@ Key Overview:
 To add new tweets to the "Mad Love" section, follow these steps:
 
 1. Copy the full `<blockquote>` HTML from the "Embed Tweet" source obtained via Twitter.
-2. Replace all double quotes (") with single quotes (').
-3. Wrap entire HTML block in double quotes (").
-4. Add to `_tweets.yml`, preceeded with a dash (-), which signifies an array item in YAML.
+2. Replace all double quotes (`"`) with single quotes (`'`).
+3. Wrap entire HTML block in double quotes (`"`).
+4. Add to `_tweets.yml`, preceeded with a dash (`-`), which signifies an array item in YAML.
