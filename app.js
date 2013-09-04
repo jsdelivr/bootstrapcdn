@@ -28,8 +28,9 @@ app.configure(function() {
 });
 
 // locals
-app.locals({ helpers: require('./lib/helpers') });
 app.locals({ config: config });
+app.locals({ helpers: require('./lib/helpers') });
+app.locals({ tweets: require('./_tweets.yml') });
 
 // middleware
 app.use(express.favicon(path.join(__dirname, config.favicon.ico)));

@@ -1,6 +1,9 @@
 extends layout
 
 block content
+    //-Don't want to run ranomizer twice.
+    - var randomTweets = helpers.randomTweets(tweets)
+
     include _partials/jumbotron
 
     .container
@@ -8,6 +11,6 @@ block content
             include _partials/tabs
 
         .col-md-3.visible-md.visible-lg
-            include _partials/mad_love
+            include _partials/tweets
 
 //- vim: ft=jade sw=4 sts=4 et:
