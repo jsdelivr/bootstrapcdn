@@ -11,9 +11,9 @@
                     .label-container
                         h5 Complete CSS
                     .input-group
-                        input.input-lg(value=cssPath)
+                        input.form-control(value=cssPath)
                         .input-group-btn
-                            button.btn.btn-lg(type="button", onclick="toggleCode(this,'"+name+"')")
+                            button.btn.btn-default(type="button", onclick="toggleCode(this,'"+name+"')")
                                 b.icon-caret-down
                     include csscode
 
@@ -23,9 +23,9 @@
                     .label-container
                         h5 Complete JavaScript
                     .input-group
-                        input.input-lg(value=jsPath)
+                        input.form-control(value=jsPath)
                         .input-group-btn
-                            button.btn.btn-lg(type="button", onclick="toggleCode(this,'"+name+"')")
+                            button.btn.btn-default(type="button", onclick="toggleCode(this,'"+name+"')")
                                 b.icon-caret-down
                     include jscode
 
@@ -35,9 +35,9 @@
                     .label-container
                         h5 Complete CSS (without Icons)
                     .input-group
-                        input.input-lg(value=cssPath)
+                        input.form-control(value=cssPath)
                         .input-group-btn
-                            button.btn.btn-lg(type="button", onclick="toggleCode(this,'"+name+"')")
+                            button.btn.btn-default(type="button", onclick="toggleCode(this,'"+name+"')")
                                 b.icon-caret-down
                     include csscode
     br
