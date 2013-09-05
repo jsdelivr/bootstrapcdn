@@ -10,13 +10,13 @@ run:
 	node app.js
 
 start:
-	NODE_ENV=production $(FOREVER) -p ./logs -l server.log --append --plain start app.js
+	NODE_ENV=production $(FOREVER) -m 4 -p ./logs -l server.log --append --plain start server.js
 
 stop:
-	$(FOREVER) stop app.js
+	$(FOREVER) stop server.js
 
 restart:
-	$(FOREVER) restart app.js
+	$(FOREVER) restart server.js
 
 status:
 	$(FOREVER) list

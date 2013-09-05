@@ -10,6 +10,7 @@
     "jade": "*",
     "js-yaml": "~2.1.0",
     "connect": "~2.8.7",
-    "forever": "~0.10.8"
+    "forever": "~0.10.8",
+    "dateformat": "~1.0.6-1.2.3"
   }
 }
