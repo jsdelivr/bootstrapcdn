@@ -62,3 +62,4 @@ cluster.on('exit', function (worker) {
 cluster.on('online', function (worker) {
     say('worker      => start with pid: ' + worker.process.pid + '.');
 });
+// vim: ft=javascript sw=4 sts=4 et:
