@@ -25,7 +25,7 @@ logs:
 	mkdir logs
 
 nginx/start: nginx.conf
-	sudo /usr/local/nginx/sbin/nginx -c /home/$(USER)/bootstrap-cdn/.nginx.conf
+	sudo /usr/local/nginx/sbin/nginx -c /home/$(USER)/bootstrap-cdn/nginx.conf
 
 nginx/stop:
 	sudo pkill -9 nginx
