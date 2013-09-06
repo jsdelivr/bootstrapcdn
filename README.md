@@ -36,6 +36,26 @@ make status
 tail -f ./logs/server.log
 ```
 
+##### Nginx
+
+```
+# generate nginx conf for your checkout and start nginx
+make nginx/start 
+
+# stop nginx
+make nginx/stop
+
+# restart (stop then start) nginx
+make nginx/restart
+
+# HUP nginx process to reload configs
+make nginx/reload
+
+
+# to regnerate nginx.conf
+rm nginx.conf
+```
+
 ### Configuration
 
 #### `_config.yml`
