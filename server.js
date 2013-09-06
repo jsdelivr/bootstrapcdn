@@ -7,7 +7,7 @@ var datefmt = require('dateformat');
 /**
  * Setup
  **/
-var workers = parseInt(process.env.CLUSTER_WORKERS||4, 10);
+var workers = parseInt(process.env.CLUSTER_WORKERS||2, 10);
 
 cluster.setupMaster({exec : "app.js"});
 
