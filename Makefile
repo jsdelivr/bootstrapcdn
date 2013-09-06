@@ -24,7 +24,7 @@ status:
 logs:
 	mkdir logs
 
-nginx/start: nginx.conf /var/log/nginx
+nginx/start: nginx.conf
 	sudo /usr/local/nginx/sbin/nginx -c /home/$(USER)/bootstrap-cdn/nginx.conf
 
 nginx/stop:
@@ -38,9 +38,6 @@ nginx/reload:
 
 nginx.conf:
 	sed -e "s/CURRENT_USER/$(USER)/g" .nginx.conf > nginx.conf
-
-/var/log/nginx:
-	sudo mkdir -p /var/log/nginx
 
 .PHONY:
 # vim: ft=make:
