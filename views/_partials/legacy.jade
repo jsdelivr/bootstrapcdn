@@ -1,8 +1,8 @@
 #legacy.tab-pane
     h2 Bootstrap Legacy
     - each item in config.bootstrap
-        center.well
-            - if (!item.current)
+        - if (!item.latest)
+            center.well
                 .label-container
                     h3= item.version
                 - if (item.css_complete)

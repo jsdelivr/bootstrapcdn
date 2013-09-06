@@ -17,11 +17,19 @@ html
 
         - if (config.javascript && config.javascript.before)
             - each js in config.javascript.before
-                script(src=js)
+                script(src=js, charset="utf-8")
 
         style.
             img.bootswatch {
                 width: 100%;
+            }
+            /* hack to fix firefox issue where tweet and blockquote
+             * where both showing up, little help anyone? */
+            blockquote.twitter-tweet {
+                visibility:hidden;
+                height: 0px;
+                margin: 5px;
+                padding: 0 0;
             }
             .tryit {
                 padding-top: 25px;
@@ -33,10 +41,12 @@ html
                 padding: 10px 0px 20px 0px;
             }
             .input-lg {
-                width: 100%; margin: 0
+                width: 100%;
+                margin: 0;
             }
             .jumbotron {
                 margin-top: -50px;
+                padding-bottom: 25px;
             }
             input.form-control {
                 color: #000 !important;
