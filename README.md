@@ -1,10 +1,8 @@
-# Bootstrap CDN
-
-Node.js Port of [github.com/netdna/bootstap-cdn](https://github.com/netdna/bootstap-cdn).
+# Bootstrap CDN [![Build Status](https://travis-ci.org/MaxCDN/bootstrap-cdn.png?branch=master)](https://travis-ci.org/MaxCDN/bootstrap-cdn)
 
 ### Requirements
 
-1. [Node.js](http://nodejs.org/) (tested on `0.10.17`+).
+1. [Node.js](http://nodejs.org/)
 
 ### Running
 
