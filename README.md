@@ -8,15 +8,21 @@ Node.js Port of [github.com/netdna/bootstap-cdn](https://github.com/netdna/boots
 
 ### Running
 
-##### Locally
+##### Development
 
 ```
-make setup run
+make setup test run
 ```
 
 ##### Demonized
 
 ```
+##
+# for the following make tasks, you can also run:
+#
+# npm <task name>
+##
+
 # before start or after npm update
 make setup
 
@@ -40,7 +46,7 @@ tail -f ./logs/server.log
 
 ```
 # generate nginx conf for your checkout and start nginx
-make nginx/start 
+make nginx/start
 
 # stop nginx
 make nginx/stop
