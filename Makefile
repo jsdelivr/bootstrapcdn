@@ -1,5 +1,8 @@
 FOREVER=./node_modules/.bin/forever
 
+test:
+	./node_modules/.bin/mocha ./tests/app_test.js -R spec
+
 setup: logs
 	npm install
 
