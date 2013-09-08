@@ -3,7 +3,13 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node app.js"
+    "test": "make test",
+    "setup": "makes setup",
+    "clean": "make clean",
+    "start": "make start",
+    "stop": "make stop",
+    "restart": "make restart",
+    "status": "make status"
   },
   "dependencies": {
     "express": "3.3.7",
@@ -12,5 +18,11 @@
     "connect": "~2.8.7",
     "forever": "~0.10.8",
     "dateformat": "~1.0.6-1.2.3"
+  },
+  "devDependencies": {
+    "mocha": "~1.12.1",
+    "expect.js": "~0.2.0",
+    "superagent": "~0.15.4",
+    "format": "~0.2.0"
   }
 }

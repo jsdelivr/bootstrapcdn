@@ -1,22 +1,26 @@
-# Bootstrap CDN
-
-Node.js Port of [github.com/netdna/bootstap-cdn](https://github.com/netdna/bootstap-cdn).
+# Bootstrap CDN [![Build Status](https://travis-ci.org/MaxCDN/bootstrap-cdn.png?branch=master)](https://travis-ci.org/MaxCDN/bootstrap-cdn)
 
 ### Requirements
 
-1. [Node.js](http://nodejs.org/) (tested on `0.10.17`+).
+1. [Node.js](http://nodejs.org/)
 
 ### Running
 
-##### Locally
+##### Development
 
 ```
-make setup run
+make setup test run
 ```
 
 ##### Demonized
 
 ```
+##
+# for the following make tasks, you can also run:
+#
+# npm <task name>
+##
+
 # before start or after npm update
 make setup
 
@@ -40,7 +44,7 @@ tail -f ./logs/server.log
 
 ```
 # generate nginx conf for your checkout and start nginx
-make nginx/start 
+make nginx/start
 
 # stop nginx
 make nginx/stop
