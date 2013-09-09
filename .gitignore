@@ -1,3 +1,6 @@
 /node_modules
 /logs
 /nginx.conf
+data/
+inc/
+reports/
