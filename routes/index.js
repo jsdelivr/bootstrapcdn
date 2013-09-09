@@ -31,10 +31,15 @@ function fetchOAuthResource(req, res, callback) {
                 callback(false);
             } else {
                 oa.getOAuthAccessToken(oauth_token, oauth_token_secret, function(error, oauth_access_token, oauth_access_token_secret, results2) {
-                    var data= "";
-                    oa.getProtectedResource(oauth.api, "GET", oauth_access_token, oauth_access_token_secret, function(error, data, response) {
-                        callback(data);
-                    });
+                    if(error) {
+                        console.trace(error);
+                        callback(false);
+                    } else {
+                        var data= "";
+                        oa.getProtectedResource(oauth.api, "GET", oauth_access_token, oauth_access_token_secret, function(error, data, response) {
+                            callback(data);
+                        });
+                    }
                 });
             }
         });
@@ -50,24 +55,20 @@ function popular(req, res) {
             res.send(500);
         } else {
             fetchOAuthResource(req,res,function(data) {
-                if (!data) {
-                    res.send(500);
-                } else {
-                    try {
-                        data = data.data.popularfiles;
-                        maxSize = data.sort(function(a,b) { return b.size-a.size; })[0].size
-                    } catch(e) {
-                        data = [];
-                        maxSize = 0;
-                    }
-                    res.render('popular', {
-                                    title: 'Bootstrap CDN',
-                                    theme: req.query.theme,
-                                    commaIt: commaIt,
-                                    data: data,
-                                    maxSize: maxSize
-                                });
-                            }
+                try {
+                    data = data.data.popularfiles;
+                    maxSize = data.sort(function(a,b) { return b.size-a.size; })[0].size
+                } catch(e) {
+                    data = [];
+                    maxSize = 0;
+                }
+                res.render('popular', {
+                                title: 'Bootstrap CDN',
+                                theme: req.query.theme,
+                                commaIt: commaIt,
+                                data: data,
+                                maxSize: maxSize
+                            });
             });
         }
     } else {
