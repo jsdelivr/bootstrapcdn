@@ -16,9 +16,9 @@ script.
     function tabAction(ele) {
         var selected = $(ele).attr('href');
         if (hash) {
-            document.location.href = document.location.href.replace(hash+hash_suffix, selected+hash_suffix);
+            document.location.href = "/"+selected+hash_suffix;
         } else {
-            document.location.href += selected+hash_suffix;
+            document.location.href = "/"+selected+hash_suffix;
         }
         hash = selected;
     }
