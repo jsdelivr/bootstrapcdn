@@ -1,0 +1,56 @@
+extends layout
+
+block content
+    .container
+        .col-sm-12.col-md-12
+            h2 Popular Files Overview
+            p Total requests per file and total bandwidth of popular files.
+
+            - if (data.length === 0)
+                h3 Error fetching stats data, please try again.
+            - else
+                table.table.table-striped.table-index
+                    thead
+                        tr
+                            th &nbsp;
+                            th URI
+                            th Hits (Requests)
+                            th &nbsp;
+                            th Bandwidth
+                            th &nbsp;
+                    tbody
+                        - for entry in data.sort(function(a,b) { return b.hit-a.hit; })
+                            - if (entry.hit > 1000)
+                                tr
+                                    td
+                                        - var ext = entry.uri.match(/\.[a-zA-Z]+$/)[0].replace(/^\./,'');
+                                        img(src="/images/reports/"+ext+".png", alt=ext, height="30", width="30")
+                                    td= entry.uri
+                                    td
+                                        .progress
+                                            - var hitProgress = ((entry.hit/data[0].hit)*100).toFixed(2);
+                                            .progress-bar(role="progressbar",
+                                                          aria-valuenow=hitProgress,
+                                                          aria-valuemin="0",
+                                                          aria-valuemax="100",
+                                                          style="width: "+hitProgress+"%")
+                                    td= commaIt(entry.hit,{addPrecision:false, thousandSeperator : ',', decimalSeperator : '.'})+" Requests"
+                                    td
+                                        .progress
+                                            - var sizeProgress = ((entry.size/maxSize)*100).toFixed(2);
+                                            .progress-bar(role="progressbar",
+                                                          aria-valuenow=sizeProgress,
+                                                          aria-valuemin="0",
+                                                          aria-valuemax="100",
+                                                          style="width: "+sizeProgress+"%")
+                                    td= (entry.size/1073741824).toFixed(2) + " GB"
+
+
+block last
+    script.
+        $(window).load(function() {
+            $('ul.nav.navbar-nav li').each(function() { $(this).removeClass('active'); });
+            $('li#stats').addClass('active');
+        });
+
+//- vim: ft=jade sw=4 sts=4 et:

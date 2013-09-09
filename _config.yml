@@ -18,6 +18,11 @@ google_analytics:
     domain_name: bootstrapcdn.com
 
 ####
+# Turn stats on or off.
+# - Use 'stub' to develop against test stub.
+stats: false
+
+####
 # Note: stylesheets and javascript will be loaded
 # in the order they are specified.
 stylesheets:

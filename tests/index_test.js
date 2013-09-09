@@ -8,7 +8,7 @@ var config = require('../_config.yml');
 process.env.PORT = config.port+1; // don't use configured port
 
 var app = require('../app.js');
-var hostname = format('http://localhost:%s/',process.env.PORT);
+var page = format('http://localhost:%s/',process.env.PORT);
 
 var tabs = [
     '#bootswatch',
@@ -20,7 +20,7 @@ var tabs = [
 
 var response;
 before(function(done) {
-    http.get(hostname, function(res) {
+    http.get(page, function(res) {
         response = res;
         response.body = '';
         res.on('data', function(chunk) {
@@ -32,7 +32,7 @@ before(function(done) {
     });
 });
 
-describe('app', function() {
+describe('index', function() {
     it('/ :: 200\'s', function(done) {
         assert(response);
         assert(200, response.status);

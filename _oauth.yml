@@ -1,0 +1,7 @@
+oauth:
+  request: https://rws.netdna.com/oauth/request_token
+  access: https://rws.netdna.com/oauth/access_token
+  key: KEY
+  secret: SECRET
+  api: https://rws.netdna.com/ALIAS/reports/popularfiles.json
+
