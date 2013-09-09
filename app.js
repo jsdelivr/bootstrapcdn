@@ -26,22 +26,38 @@ app.configure(function() {
     app.set('views', __dirname + '/views');
     app.set('view engine', 'jade');
     app.disable('x-powered-by');
+
+    // make config availabile in routes
+    app.use(function(req,res,next) {
+        req.config = config;
+        next();
+    });
+
+    // locals
+    app.locals({ config: config });
+    app.locals({ helpers: require('./lib/helpers') });
+    app.locals({ tweets: require('./_tweets.yml') });
+
+    // middleware
+    app.use(express.favicon(path.join(__dirname, config.favicon.ico)));
+    app.use(express.bodyParser());
+    app.use(express.methodOverride());
+    app.use(app.router);
+    app.use(express.static(path.join(__dirname, 'public')));
+
 });
-
-// locals
-app.locals({ config: config });
-app.locals({ helpers: require('./lib/helpers') });
-app.locals({ tweets: require('./_tweets.yml') });
-
-// middleware
-app.use(express.favicon(path.join(__dirname, config.favicon.ico)));
-app.use(express.bodyParser());
-app.use(express.methodOverride());
-app.use(app.router);
-app.use(express.static(path.join(__dirname, 'public')));
 
 // routes
 app.get('/', main.index);
+app.get('/stats/popular', main.stats.popular);
+
+// redirects
+app.get('/stats', function(req,res) {
+    res.redirect(301, '/stats/popular');
+});
+app.get('/stats.html', function(req,res) {
+    res.redirect(301, '/stats/popular');
+});
 
 // start
 http.createServer(app).listen(app.get('port'), function(){

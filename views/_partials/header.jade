@@ -20,6 +20,13 @@
                 a(data-toggle="tab", href="#madlove", onclick="tabAction(this)") Mad Love
 
         ul.nav.navbar-nav.pull-right.visible-md.visible-lg
+            - if (config.stats === true)
+                li#stats.dropdown
+                    a.dropdown-toggle(href="#", data-toggle="dropdown") Usage Statistics
+                        b.caret
+                    ul.dropdown-menu
+                        li
+                            a(href="/stats/popular") Popular Files
             li.dropdown
                 a.dropdown-toggle(href="#", data-toggle="dropdown") Resources&nbsp;
                     b.caret

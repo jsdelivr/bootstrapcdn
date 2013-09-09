@@ -17,7 +17,9 @@
     "js-yaml": "~2.1.0",
     "connect": "~2.8.7",
     "forever": "~0.10.8",
-    "dateformat": "~1.0.6-1.2.3"
+    "dateformat": "~1.0.6-1.2.3",
+    "oauth": "~0.9.10",
+    "comma-it": "0.0.5"
   },
   "devDependencies": {
     "mocha": "~1.12.1",
