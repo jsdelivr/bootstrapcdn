@@ -15,11 +15,7 @@ script.
 
     function tabAction(ele) {
         var selected = $(ele).attr('href');
-        if (hash) {
-            document.location.href = "/"+selected+hash_suffix;
-        } else {
-            document.location.href = "/"+selected+hash_suffix;
-        }
+        document.location.href = "/"+(document.location.search ? document.location.search : '')+selected+hash_suffix;
         hash = selected;
     }
 
