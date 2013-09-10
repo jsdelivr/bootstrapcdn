@@ -18,7 +18,7 @@ OAuth.prototype.getProtectedResource = function (_, _, _, _, cb) { cb(null, requ
 var app = require('../app.js');
 var host = format('http://localhost:%s',process.env.PORT);
 
-var response;
+var response = undefined;
 before(function(done) {
     http.get(host+'/stats/popular', function(res) {
         response = res;
@@ -36,7 +36,7 @@ describe('stats redirects', function() {
     it('/stats.html :: 301\'s', function(done) {
         http.get(host+'/stats.html', function(res) {
             assert(res);
-            assert(301, res.status);
+            assert(301 === res.statusCode);
             done();
         });
     });
@@ -44,7 +44,7 @@ describe('stats redirects', function() {
     it('/stats :: 301\'s', function(done) {
         http.get(host+'/stats', function(res) {
             assert(res);
-            assert(301, res.status);
+            assert(301 === res.statusCode);
             done();
         });
     });
@@ -53,7 +53,7 @@ describe('stats redirects', function() {
 describe('popular', function() {
     it('/stats/popular :: 200\'s', function(done) {
         assert(response);
-        assert(301, response.status);
+        assert(200 === response.statusCode);
         done();
     });
 

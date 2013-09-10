@@ -18,7 +18,7 @@ var tabs = [
     '#legacy'
 ];
 
-var response;
+var response = undefined;
 before(function(done) {
     http.get(page, function(res) {
         response = res;
@@ -35,7 +35,7 @@ before(function(done) {
 describe('index', function() {
     it('/ :: 200\'s', function(done) {
         assert(response);
-        assert(200, response.status);
+        assert(200 === response.statusCode);
         done();
     });
 
