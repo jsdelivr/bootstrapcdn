@@ -70,6 +70,7 @@ Key Overview:
 2. `theme`: Integer value of the array index from the `bootswatch` section below.
 3. `authors`: Array of Author Strings
 4. `description`: String containing the meta descript of the site.
+5. `stats`: Turn on status functionality. Requires `_oauth.yml` update with correct `key` and `security` tokens.
 5. `favicon`: Hash containing `ico` and `png` favicon paths (`ico` must be file system path, while `png` must be browser path).
 6. `google_analytics`: Hash containing GA `account_id` and `domain_name`.
 7. `stylesheets`: Array containing stylesheet files to be loaded at the top of the site.
