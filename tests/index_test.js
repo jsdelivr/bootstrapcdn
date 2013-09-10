@@ -18,7 +18,7 @@ var tabs = [
     '#legacy'
 ];
 
-var response = undefined;
+var response;
 before(function(done) {
     http.get(page, function(res) {
         response = res;
