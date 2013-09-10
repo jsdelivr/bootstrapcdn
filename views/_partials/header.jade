@@ -26,7 +26,7 @@
                         b.caret
                     ul.dropdown-menu
                         li
-                            a(href="/stats/popular") Popular Files
+                            a(href="/stats/popular"+(theme ? "?theme="+theme : "")) Popular Files
             li.dropdown
                 a.dropdown-toggle(href="#", data-toggle="dropdown") Resources&nbsp;
                     b.caret

@@ -20,7 +20,7 @@ google_analytics:
 ####
 # Turn stats on or off.
 # - Use 'stub' to develop against test stub.
-stats: false
+stats: true
 
 ####
 # Note: stylesheets and javascript will be loaded
