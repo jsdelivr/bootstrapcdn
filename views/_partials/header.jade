@@ -18,15 +18,19 @@
                 a(data-toggle="tab", href="#legacy", onclick="tabAction(this)") Legacy
             li.hidden-md.hidden-lg
                 a(data-toggle="tab", href="#madlove", onclick="tabAction(this)") Mad Love
+            - if (config.stats === true)
+                li.hidden-md.hidden-lg
+                    a(href="/stats/popular"+(theme ? "?theme="+theme : "")) Stats: Popular
 
         ul.nav.navbar-nav.pull-right.visible-md.visible-lg
             - if (config.stats === true)
-                li#stats.dropdown
+                li#stats.dropdown.visible-lg.visible-md.visible-sm.visible-xs
                     a.dropdown-toggle(href="#", data-toggle="dropdown") Usage Statistics
                         b.caret
                     ul.dropdown-menu
                         li
                             a(href="/stats/popular"+(theme ? "?theme="+theme : "")) Popular Files
+
             li.dropdown
                 a.dropdown-toggle(href="#", data-toggle="dropdown") Resources&nbsp;
                     b.caret
