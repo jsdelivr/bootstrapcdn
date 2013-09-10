@@ -18,11 +18,15 @@
                 a(data-toggle="tab", href="#legacy", onclick="tabAction(this)") Legacy
             li.hidden-md.hidden-lg
                 a(data-toggle="tab", href="#madlove", onclick="tabAction(this)") Mad Love
+            li.hidden-md.hidden-lg
+                a(href="/birthday"+(theme ? "?theme="+theme : "")) Birthday
             - if (config.stats === true)
                 li.hidden-md.hidden-lg
                     a(href="/stats/popular"+(theme ? "?theme="+theme : "")) Stats: Popular
 
         ul.nav.navbar-nav.pull-right.visible-md.visible-lg
+            li#birthday
+                a(href="/birthday"+(theme ? "?theme="+theme : "")) Birthday
             - if (config.stats === true)
                 li#stats.dropdown.visible-lg.visible-md.visible-sm.visible-xs
                     a.dropdown-toggle(href="#", data-toggle="dropdown") Usage Statistics

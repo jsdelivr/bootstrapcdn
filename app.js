@@ -2,7 +2,6 @@
 require('js-yaml');
 var express = require('express');
 var connect = require('connect');
-var main    = require('./routes');
 var http    = require('http');
 var path    = require('path');
 var app     = express();
@@ -48,8 +47,9 @@ app.configure(function() {
 });
 
 // routes
-app.get('/', main.index);
-app.get('/stats/popular', main.stats.popular);
+app.get('/',              require('./routes').index);
+app.get('/stats/popular', require('./routes/stats').popular);
+app.get('/birthday',      require('./routes/birthday').birthday);
 
 // redirects
 app.get('/stats', function(req,res) {
@@ -57,6 +57,9 @@ app.get('/stats', function(req,res) {
 });
 app.get('/stats.html', function(req,res) {
     res.redirect(301, '/stats/popular');
+});
+app.get('/birthday/1', function(req,res) {
+    res.redirect(301, '/birthday');
 });
 
 // start
