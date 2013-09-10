@@ -18,7 +18,7 @@ OAuth.prototype.getProtectedResource = function (_, _, _, _, cb) { cb(null, requ
 var app = require('../app.js');
 var host = format('http://localhost:%s',process.env.PORT);
 
-var response = undefined;
+var response;
 before(function(done) {
     http.get(host+'/stats/popular', function(res) {
         response = res;
