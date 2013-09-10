@@ -19,29 +19,24 @@ function index(req, res) {
     res.render('index', { title: 'Bootstrap CDN', theme: req.query.theme });
 }
 
-function fetchOAuthResource(req, res, callback) {
+function fetchOAuthResource(callback) {
     if (!oauth || !oa) {
         console.log('[ERROR] OAuth issues!');
-        res.send(500);
         callback(false);
     } else {
         oa.getOAuthRequestToken(function(error, oauth_token, oauth_token_secret, results){
-            if(error) {
-                console.trace(error);
-                callback(false);
-            } else {
-                oa.getOAuthAccessToken(oauth_token, oauth_token_secret, function(error, oauth_access_token, oauth_access_token_secret, results2) {
-                    if(error) {
-                        console.trace(error);
-                        callback(false);
-                    } else {
-                        var data= "";
-                        oa.getProtectedResource(oauth.api, "GET", oauth_access_token, oauth_access_token_secret, function(error, data, response) {
-                            callback(data);
-                        });
-                    }
+            if(error) { console.trace(error); }
+            oa.getOAuthAccessToken(oauth_token, oauth_token_secret, function(error, oauth_access_token, oauth_access_token_secret, results2) {
+                var data= "";
+                oa.getProtectedResource(oauth.api, "GET", oauth_access_token, oauth_access_token_secret, function(error, data, response) {
+                    if(error) { console.trace(error); }
+                    var parsed;
+                    try {
+                        parsed = JSON.parse(data);
+                    } catch(e) {}
+                    callback(parsed);
                 });
-            }
+            });
         });
     }
 }
@@ -54,7 +49,7 @@ function popular(req, res) {
             console.log('[ERROR] OAuth issues!');
             res.send(500);
         } else {
-            fetchOAuthResource(req,res,function(data) {
+            fetchOAuthResource(function(data) {
                 try {
                     data = data.data.popularfiles;
                     maxSize = data.sort(function(a,b) { return b.size-a.size; })[0].size
