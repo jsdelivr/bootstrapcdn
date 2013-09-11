@@ -34,7 +34,6 @@ nginx/stop:
 	sudo pkill -9 nginx
 
 nginx/restart: nginx/stop nginx/start
-	sudo pkill -9 nginx
 
 nginx/reload:
 	sudo pkill -HUP nginx
