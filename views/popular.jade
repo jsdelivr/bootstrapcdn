@@ -4,11 +4,12 @@ block content
     .container
         .col-sm-12.col-md-12
             h2 Popular Files Overview
-            p Total requests per file and total bandwidth of popular files.
-
             - if (data.length === 0)
                 h3 Error fetching stats data, please try again.
             - else
+                .well(style="padding-top:15px") Total requests per file and total bandwidth of popular files as of&nbsp;
+                        b= data[0].timestamp+"."
+
                 table.table.table-striped.table-index
                     thead
                         tr
