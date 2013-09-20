@@ -5,8 +5,8 @@
         - var cssPath = config.bootstrap[0].css_complete
         .label-container
             h3 Complete CSS
-        .input-group
-            input.input-lg(value=cssPath)
+        .input-group.input-group-lg
+            input.form-control(value=cssPath)
             .input-group-btn
                 button.btn.btn-lg(type="button", onclick="toggleCode(this,'"+name+"')")
                     b.icon-caret-down
@@ -16,8 +16,8 @@
         - var jsPath = config.bootstrap[0].javascript
         .label-container
             h3 Complete JavaScript
-        .input-group
-            input.input-lg(value=jsPath)
+        .input-group.input-group-lg
+            input.form-control(value=jsPath)
             .input-group-btn
                 button.btn.btn-lg(type="button", onclick="toggleCode(this,'"+name+"')")
                     b.icon-caret-down
