@@ -5,8 +5,8 @@
         - var cssPath = '//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css'
         .label-container
             h3 Awesome CSS
-        .input-group
-            input.input-lg(value=cssPath)
+        .input-group.input-group-lg
+            input.form-control(value=cssPath)
             .input-group-btn
                 button.btn.btn-lg(type="button", onclick="toggleCode(this,'"+name+"')")
                     b.icon-caret-down
@@ -16,8 +16,8 @@
         - var cssPath = '//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.no-icons.min.css'
         .label-container
             h3 CSS (no Icons)
-        .input-group
-            input.input-lg(value=cssPath)
+        .input-group.input-group-lg
+            input.form-control(value=cssPath)
             .input-group-btn
                 button.btn.btn-lg(type="button", onclick="toggleCode(this,'"+name+"')")
                     b.icon-caret-down
