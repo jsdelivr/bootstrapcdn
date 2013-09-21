@@ -4,10 +4,9 @@ var commaIt = require('comma-it').commaIt;
 var fs      = require('fs');
 
 function render(template, req, res, data) {
-    var maxSize = 0, timestamp;
+    var maxSize = 0;
     try {
         maxSize   = data.sort(function(a,b) { return b.size-a.size; })[0].size;
-        timestamp = data.sort(function(a,b) { return new Date(b.timestamp)-new Date(a.timestamp); })[0].timestamp;
     } catch (e) { }
     res.render(template, {
                     title: 'Bootstrap CDN',
@@ -15,7 +14,6 @@ function render(template, req, res, data) {
                     commaIt: commaIt,
                     data: data,
                     maxSize: maxSize,
-                    timestamp: timestamp
                 });
 }
 
