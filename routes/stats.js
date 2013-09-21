@@ -1,82 +1,34 @@
 require('js-yaml');
-var OAuth = require('oauth').OAuth;
+var oauth   = require('../lib/oauth');
 var commaIt = require('comma-it').commaIt;
+var fs      = require('fs');
 
-var oauth, oa;
-try {
-    oauth = require('../_oauth.yml').oauth;
-    oa    = new OAuth(oauth.request,
-                        oauth.access,
-                        oauth.key,
-                        oauth.secret,
-                        '1.0', null, 'HMAC-SHA1');
-} catch (e) {
-    console.trace(e);
-    console.log('ERROR: Copy _oauth.yml.sample to _oauth.yml and update values.');
-}
-
-function fetchOAuthResource(callback) {
-    if (!oauth || !oa) {
-        console.log('[ERROR] OAuth issues!');
-        callback(false);
-    } else {
-        oa.getOAuthRequestToken(function(error, oauth_token, oauth_token_secret, results){
-            if(error) { console.trace(error); }
-            oa.getOAuthAccessToken(oauth_token, oauth_token_secret, function(error, oauth_access_token, oauth_access_token_secret, results2) {
-                var data= "";
-                oa.getProtectedResource(oauth.api, "GET", oauth_access_token, oauth_access_token_secret, function(error, data, response) {
-                    if(error) { console.trace(error); }
-                    var parsed;
-                    try {
-                        parsed = JSON.parse(data);
-                    } catch(e) {}
-                    callback(parsed);
+function render(template, req, res, data) {
+    var maxSize = 0;
+    try {
+        maxSize = data.sort(function(a,b) { return b.size-a.size; })[0].size;
+    } catch (e) { }
+    res.render(template, {
+                    title: 'Bootstrap CDN',
+                    theme: req.query.theme,
+                    commaIt: commaIt,
+                    data: data,
+                    maxSize: maxSize
                 });
-            });
-        });
-    }
 }
 
 function popular(req, res) {
-    var data, maxSize;
-    if (req.config.stats !== "stub") {
-        data = '';
-        if (!oauth || !oa) {
-            console.log('[ERROR] OAuth issues!');
-            res.send(500);
-        } else {
-            fetchOAuthResource(function(data) {
-                try {
-                    data = data.data.popularfiles;
-                    maxSize = data.sort(function(a,b) { return b.size-a.size; })[0].size
-                } catch(e) {
-                    data = [];
-                    maxSize = 0;
-                }
-                res.render('popular', {
-                                title: 'Bootstrap CDN',
-                                theme: req.query.theme,
-                                commaIt: commaIt,
-                                data: data,
-                                maxSize: maxSize
-                            });
-            });
-        }
+    if (req.config.stats === "stub") {
+        oauth.fallback(null, '../tests/stubs/popular.json', function(data) {
+            render('popular', req, res, data);
+        });
     } else {
-        try {
-            data = require('../tests/stubs/popular.json').data.popularfiles;
-            maxSize = data.sort(function(a,b) { return b.size-a.size; })[0].size
-        } catch(e) {
-            data = [];
-            maxSize = 0;
-        }
-        res.render('popular', {
-                        title: 'Bootstrap CDN',
-                        theme: req.query.theme,
-                        commaIt: commaIt,
-                        data: data,
-                        maxSize: maxSize
-                    });
+        oauth.fetch('/tmp/.popular.json', function (data) {
+            render('popular', req, res, data);
+            if (data && data.length !== 0) {
+                fs.writeFile('/tmp/.popular.json', JSON.stringify({ data: { popularfiles: data } }, null, 2));
+            }
+        });
     }
 }
 
