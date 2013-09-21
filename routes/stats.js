@@ -4,16 +4,18 @@ var commaIt = require('comma-it').commaIt;
 var fs      = require('fs');
 
 function render(template, req, res, data) {
-    var maxSize = 0;
+    var maxSize = 0, timestamp;
     try {
-        maxSize = data.sort(function(a,b) { return b.size-a.size; })[0].size;
+        maxSize   = data.sort(function(a,b) { return b.size-a.size; })[0].size;
+        timestamp = data.sort(function(a,b) { return new Date(b.timestamp)-new Date(a.timestamp); })[0].timestamp;
     } catch (e) { }
     res.render(template, {
                     title: 'Bootstrap CDN',
                     theme: req.query.theme,
                     commaIt: commaIt,
                     data: data,
-                    maxSize: maxSize
+                    maxSize: maxSize,
+                    timestamp: timestamp
                 });
 }
 
