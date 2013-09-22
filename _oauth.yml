@@ -4,4 +4,4 @@ oauth:
   key: KEY
   secret: SECRET
   api: https://rws.netdna.com/ALIAS/reports/popularfiles.json
-
+  timeout: 500
