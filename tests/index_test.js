@@ -4,7 +4,7 @@ var http = require('http');
 var assert = require('assert');
 var format = require('format');
 
-var config = require('../_config.yml');
+var config = require('../config/_config.yml');
 process.env.PORT = config.port+1; // don't use configured port
 
 var app = require('../app.js');

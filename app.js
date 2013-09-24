@@ -11,7 +11,7 @@ var http    = require('http');
 var path    = require('path');
 var app     = express();
 
-var config  = require(path.join(__dirname, '_config.yml'));
+var config  = require(path.join(__dirname, 'config', '_config.yml'));
 
 // production
 app.configure('production', function(){
@@ -40,7 +40,7 @@ app.configure(function() {
     // locals
     app.locals({ config: config });
     app.locals({ helpers: require('./lib/helpers') });
-    app.locals({ tweets: require('./_tweets.yml') });
+    app.locals({ tweets: require('./config/_tweets.yml') });
 
     // middleware
     app.use(express.favicon(path.join(__dirname, config.favicon.ico)));
@@ -52,19 +52,16 @@ app.configure(function() {
 });
 
 // routes
-app.get('/',              require('./routes').index);
-app.get('/stats/popular', require('./routes/stats').popular);
-app.get('/birthday',      require('./routes/birthday').birthday);
+var extras = require('./routes/extras');
+app.get('/',                require('./routes').index);
+app.get('/extras/popular',  extras.popular);
+app.get('/extras/app',      extras.app);
+app.get('/extras/birthday', extras.birthday);
 
 // redirects
-app.get('/stats', function(req,res) {
-    res.redirect(301, '/stats/popular');
-});
-app.get('/stats.html', function(req,res) {
-    res.redirect(301, '/stats/popular');
-});
-app.get('/birthday/1', function(req,res) {
-    res.redirect(301, '/birthday');
+var redirects = require('./config/_redirects');
+Object.keys(redirects).forEach(function(requested) {
+    app.get(requested, function(req, res) { res.redirect(301, redirects[requested]); });
 });
 
 // start
