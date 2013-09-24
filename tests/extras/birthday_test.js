@@ -4,10 +4,10 @@ var http = require('http');
 var assert = require('assert');
 var format = require('format');
 
-var config = require('../_config.yml');
+var config = require('../../config/_config.yml');
 process.env.PORT = config.port+1; // don't use configured port
 
-var app = require('../app.js');
+var app = require('../../app.js');
 var host = format('http://localhost:%s',process.env.PORT);
 
 var tabs = [
@@ -20,23 +20,13 @@ var tabs = [
 
 var response;
 before(function(done) {
-    http.get(host+'/birthday', function(res) {
+    http.get(host+'/extras/birthday', function(res) {
         response = res;
         response.body = '';
         res.on('data', function(chunk) {
             response.body += chunk;
         });
         res.on('end', function() {
-            done();
-        });
-    });
-});
-
-describe('birthday redirect', function() {
-    it('/birthday/1 :: 301\'s', function(done) {
-        http.get(host+'/birthday/1', function(res) {
-            assert(res);
-            assert(301 === res.statusCode);
             done();
         });
     });
