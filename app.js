@@ -1,4 +1,9 @@
 // modules
+try {
+    require('graphdat'); // manually installed, not part of package.json
+} catch(e) {
+    console.log('[NOTE]: graphdat is not installed, given that it\'s an manually installed module and not part of package.json, we\'re ignoring error and continuing.');
+}
 require('js-yaml');
 var express = require('express');
 var connect = require('connect');
