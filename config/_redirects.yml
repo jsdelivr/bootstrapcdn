@@ -1,0 +1,5 @@
+'/stats'         : '/extras/popular'
+'/stats/popular' : '/extras/popular'
+'/stats.html'    : '/extras/popular'
+'/birthday'      : '/extras/birthday'
+'/birthday/1'    : '/extras/birthday'

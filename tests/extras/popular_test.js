@@ -4,7 +4,7 @@ var http = require('http');
 var assert = require('assert');
 var format = require('format');
 
-var config = require('../_config.yml');
+var config = require('../../config/_config.yml');
 process.env.PORT = config.port+1; // don't use configured port
 
 /***
@@ -13,14 +13,14 @@ process.env.PORT = config.port+1; // don't use configured port
 var OAuth = require('oauth').OAuth;
 OAuth.prototype.getOAuthRequestToken = function (cb) { cb(); };
 OAuth.prototype.getOAuthAccessToken  = function (_, _, cb) { cb(); };
-OAuth.prototype.getProtectedResource = function (_, _, _, _, cb) { cb(null, require('./stubs/popular.json'), null); };
+OAuth.prototype.getProtectedResource = function (_, _, _, _, cb) { cb(null, require('../stubs/popular.json'), null); };
 
-var app = require('../app.js');
+var app = require('../../app.js');
 var host = format('http://localhost:%s',process.env.PORT);
 
 var response;
 before(function(done) {
-    http.get(host+'/stats/popular', function(res) {
+    http.get(host+'/extras/popular', function(res) {
         response = res;
         response.body = '';
         res.on('data', function(chunk) {
@@ -32,26 +32,8 @@ before(function(done) {
     });
 });
 
-describe('stats redirects', function() {
-    it('/stats.html :: 301\'s', function(done) {
-        http.get(host+'/stats.html', function(res) {
-            assert(res);
-            assert(301 === res.statusCode);
-            done();
-        });
-    });
-
-    it('/stats :: 301\'s', function(done) {
-        http.get(host+'/stats', function(res) {
-            assert(res);
-            assert(301 === res.statusCode);
-            done();
-        });
-    });
-});
-
 describe('popular', function() {
-    it('/stats/popular :: 200\'s', function(done) {
+    it('/extras/popular :: 200\'s', function(done) {
         assert(response);
         assert(200 === response.statusCode);
         done();
