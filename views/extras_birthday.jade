@@ -1,8 +1,8 @@
 extends layout
 
 block content
-    iframe(src='http://embed.verite.co/timeline/?source=0AgzjZpa-s_3adFpEMVdJTU90X1F5WHJsV2k5YmZTdXc&font=Bevan-PotanoSans&maptype=toner&lang=en&height=650',
-           width='100%', height='650', frameborder='0', style="margin-top:-20px;")
+    iframe(src='http://embed.verite.co/timeline/?source=0AgzjZpa-s_3adFpEMVdJTU90X1F5WHJsV2k5YmZTdXc&font=Bevan-PotanoSans&maptype=toner&lang=en&height=550',
+           width='100%', height='550', frameborder='0', style="margin-top:-20px;")
     br
     p(style="padding-left:50px;") Powered by&nbsp;
         a(href="http://timeline.verite.co/", target="_blank") Timeline.JS
@@ -13,6 +13,7 @@ block last
     script.
         $(window).load(function() {
             $('ul.nav.navbar-nav li').each(function() { $(this).removeClass('active'); });
+            $('li#extras').addClass('active');
             $('li#birthday').addClass('active');
         });
 
