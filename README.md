@@ -62,7 +62,7 @@ rm nginx.conf
 
 ### Configuration
 
-#### `_config.yml`
+#### `config/_config.yml`
 
 Key Overview:
 
@@ -70,7 +70,7 @@ Key Overview:
 2. `theme`: Integer value of the array index from the `bootswatch` section below.
 3. `authors`: Array of Author Strings
 4. `description`: String containing the meta descript of the site.
-5. `stats`: Turn on status functionality. Requires `_oauth.yml` update with correct `key` and `security` tokens.
+5. `extras`: Turn on extras functionality. Requires `config/_oauth.yml` update with correct `key` and `security` tokens.
 5. `favicon`: Hash containing `ico` and `png` favicon paths (`ico` must be file system path, while `png` must be browser path).
 6. `google_analytics`: Hash containing GA `account_id` and `domain_name`.
 7. `stylesheets`: Array containing stylesheet files to be loaded at the top of the site.
@@ -78,7 +78,7 @@ Key Overview:
 9. `bootswatch`: Hash containing current Bootswatch meta data and themes.
 10. `bootstrap`: Array of Hashes containing Bootstrap meta data and pathing.
 
-#### `_tweets.yml`
+#### `config/_tweets.yml`
 
 To add new tweets to the "Mad Love" section, follow these steps:
 
@@ -86,3 +86,7 @@ To add new tweets to the "Mad Love" section, follow these steps:
 2. Replace all double quotes (`"`) with single quotes (`'`).
 3. Wrap entire HTML block in double quotes (`"`).
 4. Add to `_tweets.yml`, preceeded with a dash (`-`), which signifies an array item in YAML.
+
+#### `config/_oauth.yml`
+
+This is reserved for MaxCDN and NetDNA installation only at this time. Contact @jdorfman for more information.
