@@ -1,10 +1,8 @@
 var http = require('http');
 var assert = require('assert');
 
-
-// TODO: get three commented out paths to pass tests.
+// TODO: get two commented out paths to pass tests.
 var paths = [
-  //'http://www.bootstrapcdn.com',
   //'http://s3-us-west-1.amazonaws.com/bootstrap-cdn/public/index.html',
   //'http://s3-us-west-1.amazonaws.com/bootstrap-cdn/public/bootstrap/3.0.0/css/bootstrap.no-icons.min.css',
   'http://netdna.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css',
@@ -17,7 +15,7 @@ var paths = [
 ];
 
 
-// NOTE: headers with 'undefined' as value only check for existence, 
+// NOTE: headers with 'undefined' as value only check for existence,
 // headers with a real value ensure that value.
 var expectedHeaders = {
   date: undefined,
@@ -25,7 +23,6 @@ var expectedHeaders = {
   expires: undefined,
 
   connection: 'keep-alive',
-  server: 'NetDNA-cache/2.2',
   vary: 'Accept-Encoding',
 
   'content-type': undefined,
@@ -35,13 +32,65 @@ var expectedHeaders = {
 
   'x-amz-server-side-encryption': 'AES256',
   'accept-ranges': 'bytes',
-  'cache-control': 'max-age=604800',
   'access-control-allow-origin': '*',
-  'x-hello-human': 'You should work for us! Email: jdorfman+theheader@maxcdn.com or @MaxCDNDeveloper on Twitter'
+
+  // the following are set as undefined because www
+  // and assets (js/css) differ
+  server: undefined,
+  'x-hello-human': undefined, // because www and assets differ
+  'cache-control': undefined
+};
+
+// store headers as they're being verified
+var headers;
+
+// test to be run on each expected header
+var headerTest = function(head) {
+    it('has '+head, function(done) {
+        assert(headers.hasOwnProperty(head));
+
+        // for those expectedHeaders with values, verify the value
+        if (expectedHeaders[head]) {
+            assert(headers[head] === expectedHeaders[head]);
+        }
+        done();
+    });
 };
 
 describe('header verification', function() {
-    var headers;
+
+    describe('www.bootstrapcdn.com', function() {
+        before(function(done) {
+            http.get('http://www.bootstrapcdn.com', function(res) {
+                // body collection required for on 'end' event.
+                res.body = '';
+                res.on('data', function(chunk) { res.body += chunk; });
+                res.on('end', function() {
+                    headers = res.headers;
+                    done();
+                });
+            });
+        });
+
+        it('has headers', function(done) {
+            assert(headers);
+            done();
+        });
+
+        [ 'date',
+          'expires',
+          'server',
+          'connection',
+          'vary',
+          'content-type',
+          'x-powered-by',
+          'cache-control',
+          'x-hello-human',
+          'x-page-speed'
+        ].forEach(headerTest);
+
+    });
+
     paths.forEach(function(p) {
         describe(p, function() {
             before(function(done) {
@@ -61,19 +110,7 @@ describe('header verification', function() {
                 done();
             });
 
-            Object.keys(expectedHeaders).forEach(function(head) {
-                it('has '+head, function(done) {
-                    assert(headers.hasOwnProperty(head));
-
-                    // for those expectedHeaders with values, verify the value
-                    if (expectedHeaders[head]) {
-                        assert(headers[head] === expectedHeaders[head]);
-                        done();
-                    } else {
-                        done();
-                    }
-                });
-            });
+            Object.keys(expectedHeaders).forEach(headerTest);
         });
     });
 });
