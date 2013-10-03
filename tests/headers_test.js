@@ -1,6 +1,8 @@
 var http = require('http');
 var assert = require('assert');
 
+
+// TODO: get three commented out paths to pass tests.
 var paths = [
   //'http://www.bootstrapcdn.com',
   //'http://s3-us-west-1.amazonaws.com/bootstrap-cdn/public/index.html',
@@ -14,6 +16,9 @@ var paths = [
   'http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css'
 ];
 
+
+// NOTE: headers with 'undefined' as value only check for existence, 
+// headers with a real value ensure that value.
 var expectedHeaders = {
   date: undefined,
   etag: undefined,
