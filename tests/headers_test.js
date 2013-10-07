@@ -30,7 +30,7 @@ var expectedHeaders = {
   'last-modified': undefined,
   'x-cache': undefined,
 
-  'x-amz-server-side-encryption': 'AES256',
+  //'x-amz-server-side-encryption': 'AES256',
   'accept-ranges': 'bytes',
   'access-control-allow-origin': '*',
 
