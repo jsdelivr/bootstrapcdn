@@ -26,7 +26,7 @@ extras: true
 # Note: stylesheets and javascript will be loaded
 # in the order they are specified.
 stylesheets:
-- "//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css"
+- "//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.min.css"
 
 javascript:
     # scripts specified in the before group will be loaded
