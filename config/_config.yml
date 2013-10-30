@@ -69,8 +69,12 @@ bootswatch:
 # TODO: Perhaps move to a database (redis or mongo),
 # or in to it's own configuration file.
 bootstrap:
-    - version: "3.0.0"
+    - version: "3.0.1"
       latest: true
+      css_complete: "//netdna.bootstrapcdn.com/bootstrap/3.0.1/css/bootstrap.min.css"
+      javascript:  "//netdna.bootstrapcdn.com/bootstrap/3.0.1/js/bootstrap.min.js"
+
+    - version: "3.0.0"
       css_complete: "//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"
       javascript:  "//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"
 
