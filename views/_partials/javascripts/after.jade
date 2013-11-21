@@ -35,4 +35,18 @@ script.
         $(ele).find('b').toggleClass('icon-caret-down');
         $(ele).find('b').toggleClass('icon-caret-up');
     }
+    adroll_adv_id = "P2URKLNIJJHPJGQLX4X2FG";
+    adroll_pix_id = "WJFDYQ7CEZAXHPVFWBMMIY";
+    (function () {
+        var oldonload = window.onload;
+        window.onload = function(){
+        __adroll_loaded=true;
+        var scr = document.createElement("script");
+        var host = (("https:" == document.location.protocol) ? "https://s.adroll.com" : "http://a.adroll.com");
+        scr.setAttribute('async', 'true');
+        scr.type = "text/javascript";
+        scr.src = host + "/j/roundtrip.js";
+        ((document.getElementsByTagName('head') || [null])[0] ||
+        document.getElementsByTagName('script')[0].parentNode).appendChild(scr);
+        if(oldonload){oldonload()}}; }());
 //- vim: ft=jade sw=4 sts=4 et:
