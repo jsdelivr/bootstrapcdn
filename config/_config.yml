@@ -48,7 +48,7 @@ javascript:
 # the cosponding theme. SWATCH_VERSION will be replaced with
 # the version specified.
 bootswatch:
-    version: "3.0.1"
+    version: "3.0.2"
     link: "http://bootswatch.com/SWATCH_NAME/"
     image: "http://bootswatch.com/SWATCH_NAME/thumbnail.png"
     bootstrap: "//netdna.bootstrapcdn.com/bootswatch/SWATCH_VERSION/SWATCH_NAME/bootstrap.min.css"
@@ -64,6 +64,7 @@ bootswatch:
         - slate     # 8
         - spacelab  # 9
         - united    # 10
+        - yeti      # 11
 
 ####
 # TODO: Perhaps move to a database (redis or mongo),
