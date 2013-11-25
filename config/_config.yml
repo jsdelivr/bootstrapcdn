@@ -64,6 +64,7 @@ bootswatch:
         - slate     # 8
         - spacelab  # 9
         - united    # 10
+        - yeti      # 11
 
 ####
 # TODO: Perhaps move to a database (redis or mongo),
