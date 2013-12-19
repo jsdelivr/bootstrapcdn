@@ -2,8 +2,16 @@ script(src="//www.hellobar.com/hellobar.js")
 script.
     new HelloBar(34009,110807);
 
-style.
-    #hellobar-container { background-color: darkgray; }
+script.
+    (function(w, d) { 
+    var a = function() { 
+         var a = d.createElement('script'); a.type = 'text/javascript';
+         a.async = 'async'; a.src = '//' + ((w.location.protocol === 'https:') ? 's3.amazonaws.com/cdx-radar/' :
+    'radar.cedexis.com/') + '01-10251-radar10.min.js'; d.body.appendChild(a); };
+    if (w.addEventListener) { w.addEventListener('load', a, false); }
+    else if (w.attachEvent) { w.attachEvent('onload', a); }
+  }(window, document));
+
 
 script.
     $("input:text").focus(function(){
