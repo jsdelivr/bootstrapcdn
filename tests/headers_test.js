@@ -3,16 +3,35 @@ var assert = require('assert');
 
 // TODO: get two commented out paths to pass tests.
 var paths = [
-  //'http://s3-us-west-1.amazonaws.com/bootstrap-cdn/public/index.html',
-  //'http://s3-us-west-1.amazonaws.com/bootstrap-cdn/public/bootstrap/3.0.0/css/bootstrap.no-icons.min.css',
+  //Bootstrap
   'http://netdna.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css',
   'http://netdna.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js',
-  'http://netdna.bootstrapcdn.com/bootstrap/latest/css/bootstrap.no-icons.min.css',
+  'http://netdna.bootstrapcdn.com/bootstrap/latest/fonts/glyphicons-halflings-regular.woff',
+  'http://netdna.bootstrapcdn.com/bootstrap/latest/fonts/glyphicons-halflings-regular.ttf',
+  'http://netdna.bootstrapcdn.com/bootstrap/latest/fonts/glyphicons-halflings-regular.svg',
+  'http://netdna.bootstrapcdn.com/bootstrap/latest/fonts/glyphicons-halflings-regular.eot',
+  //Font Awesome
   'http://netdna.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css',
   'http://netdna.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css',
-  'http://netdna.bootstrapcdn.com/bootswatch/3.0.0/amelia/bootstrap.min.css',
-  'http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css'
+  //Bootswatch
+  'http://netdna.bootstrapcdn.com/bootswatch/latest/amelia/bootstrap.min.css',
+  'http://netdna.bootstrapcdn.com/bootswatch/latest/cerulean/bootstrap.min.css',
+  'http://netdna.bootstrapcdn.com/bootswatch/latest/cosmo/bootstrap.min.css',
+  'http://netdna.bootstrapcdn.com/bootswatch/latest/cyborg/bootstrap.min.css',
+  'http://netdna.bootstrapcdn.com/bootswatch/latest/journal/bootstrap.min.css',
+  'http://netdna.bootstrapcdn.com/bootswatch/latest/readable/bootstrap.min.css',
+  'http://netdna.bootstrapcdn.com/bootswatch/latest/simplex/bootstrap.min.css',
+  'http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css',
+  'http://netdna.bootstrapcdn.com/bootswatch/latest/spacelab/bootstrap.min.css',
+  'http://netdna.bootstrapcdn.com/bootswatch/latest/united/bootstrap.min.css',
+  'http://netdna.bootstrapcdn.com/bootswatch/latest/flatly/bootstrap.min.css',
+  'http://netdna.bootstrapcdn.com/bootswatch/latest/yeti/bootstrap.min.css',
+  'http://netdna.bootstrapcdn.com/bootswatch/latest/fonts/glyphicons-halflings-regular.woff',
+  'http://netdna.bootstrapcdn.com/bootswatch/latest/fonts/glyphicons-halflings-regular.ttf',
+  'http://netdna.bootstrapcdn.com/bootswatch/latest/fonts/glyphicons-halflings-regular.svg',
+  'http://netdna.bootstrapcdn.com/bootswatch/latest/fonts/glyphicons-halflings-regular.eot'
 ];
+
 
 
 // NOTE: headers with 'undefined' as value only check for existence,
