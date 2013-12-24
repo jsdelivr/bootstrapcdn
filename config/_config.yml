@@ -48,7 +48,7 @@ javascript:
 # the cosponding theme. SWATCH_VERSION will be replaced with
 # the version specified.
 bootswatch:
-    version: "3.0.2"
+    version: "3.0.3"
     link: "http://bootswatch.com/SWATCH_NAME/"
     image: "http://bootswatch.com/SWATCH_NAME/thumbnail.png"
     bootstrap: "//netdna.bootstrapcdn.com/bootswatch/SWATCH_VERSION/SWATCH_NAME/bootstrap.min.css"
