@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "express": "3.3.7",
-    "jade": "*",
+    "jade": "~0.35.0",
     "js-yaml": "~2.1.0",
     "connect": "~2.8.7",
     "forever": "~0.10.8",
