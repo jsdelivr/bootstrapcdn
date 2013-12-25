@@ -3,13 +3,12 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "clean": "make clean",
-    "restart": "make restart",
-    "setup": "makes setup",
-    "start": "make start",
-    "status": "make status",
-    "stop": "make stop",
-    "test": "make test"
+    "clean": "node make clean",
+    "restart": "node make restart",
+    "start": "node make start",
+    "status": "node make status",
+    "stop": "node make stop",
+    "test": "node make test"
   },
   "dependencies": {
     "comma-it": "~0.0.5",
@@ -25,6 +24,7 @@
     "expect.js": "~0.2.0",
     "format": "~0.2.1",
     "mocha": "~1.16.2",
+    "shelljs": "~0.2.6",
     "superagent": "~0.15.7"
   }
 }

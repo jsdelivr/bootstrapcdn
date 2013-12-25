@@ -9,7 +9,11 @@
 ##### Development
 
 ```
-make setup test run
+npm install
+```
+
+```
+node make test run
 ```
 
 ##### Demonized
@@ -21,20 +25,17 @@ make setup test run
 # npm <task name>
 ##
 
-# before start or after npm update
-make setup
-
 # start server
-make start
+node make start
 
 # stop server
-make stop
+node make stop
 
 # restart server
-make restart
+node make restart
 
 # server status
-make status
+node make status
 
 # view logs
 tail -f ./logs/server.log
@@ -44,17 +45,16 @@ tail -f ./logs/server.log
 
 ```
 # generate nginx conf for your checkout and start nginx
-make nginx/start
+node make nginx/start
 
 # stop nginx
-make nginx/stop
+node make nginx/stop
 
 # restart (stop then start) nginx
-make nginx/restart
+node make nginx/restart
 
 # HUP nginx process to reload configs
-make nginx/reload
-
+node make nginx/reload
 
 # to regnerate nginx.conf
 rm nginx.conf
@@ -90,4 +90,3 @@ To add new tweets to the "Mad Love" section, follow these steps:
 #### `config/_oauth.yml`
 
 This is reserved for MaxCDN and NetDNA installation only at this time. Contact @jdorfman for more information.
-
