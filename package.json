@@ -3,28 +3,28 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "test": "make test",
-    "setup": "makes setup",
     "clean": "make clean",
-    "start": "make start",
-    "stop": "make stop",
     "restart": "make restart",
-    "status": "make status"
+    "setup": "makes setup",
+    "start": "make start",
+    "status": "make status",
+    "stop": "make stop",
+    "test": "make test"
   },
   "dependencies": {
+    "comma-it": "0.0.5",
+    "connect": "~2.8.7",
+    "dateformat": "~1.0.6-1.2.3",
     "express": "3.3.7",
+    "forever": "~0.10.8",
     "jade": "~0.35.0",
     "js-yaml": "~2.1.0",
-    "connect": "~2.8.7",
-    "forever": "~0.10.8",
-    "dateformat": "~1.0.6-1.2.3",
-    "oauth": "jmervine/node-oauth",
-    "comma-it": "0.0.5"
+    "oauth": "jmervine/node-oauth"
   },
   "devDependencies": {
-    "mocha": "~1.12.1",
     "expect.js": "~0.2.0",
-    "superagent": "~0.15.4",
-    "format": "~0.2.0"
+    "format": "~0.2.0",
+    "mocha": "~1.12.1",
+    "superagent": "~0.15.4"
   }
 }
