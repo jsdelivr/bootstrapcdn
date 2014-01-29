@@ -1,8 +1,7 @@
-/node_modules
+.DS_Store
 /logs
 /nginx.conf
+/node_modules
 data/
 inc/
 reports/
-.DS_Store
-.DS_Store
