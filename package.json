@@ -3,13 +3,12 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "clean": "make clean",
-    "restart": "make restart",
-    "setup": "makes setup",
-    "start": "make start",
-    "status": "make status",
-    "stop": "make stop",
-    "test": "make test"
+    "run"     : "node app.js",
+    "setup"   : "npm install",
+    "start"   : "NODE_ENV=production forever -m 4 -p logs -l server.log --append --plain start server.js",
+    "status"  : "forever list",
+    "stop"    : "forever stop server.js",
+    "test"    : "mocha ./tests/*_test.js ./tests/**/*_test.js -R spec"
   },
   "dependencies": {
     "comma-it": "~0.0.5",
