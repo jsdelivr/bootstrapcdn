@@ -1,10 +1,8 @@
-FOREVER=./node_modules/.bin/forever
-
 test:
-	./node_modules/.bin/mocha ./tests/*_test.js ./tests/**/*_test.js -R spec
+	npm run test
 
 setup: logs
-	npm install
+	npm run setup
 
 clean:
 	rm -rf node_modules
@@ -13,16 +11,16 @@ run:
 	node app.js
 
 start:
-	NODE_ENV=production $(FOREVER) -m 4 -p ./logs -l server.log --append --plain start server.js
+	npm run start
 
 stop:
-	$(FOREVER) stop server.js
+	npm run stop
 
 restart:
-	$(FOREVER) restart server.js
+	npm run restart
 
 status:
-	$(FOREVER) list
+	npm run status
 
 logs:
 	mkdir logs
