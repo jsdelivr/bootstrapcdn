@@ -26,7 +26,7 @@ extras: true
 # Note: stylesheets and javascript will be loaded
 # in the order they are specified.
 stylesheets:
-- "//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.min.css"
+- "//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"
 
 javascript:
     # scripts specified in the before group will be loaded
@@ -36,13 +36,13 @@ javascript:
     # scripts specified in the after group will be loaded
     # as blocking scripts at the bottom of the page
     after:
-    - "//code.jquery.com/jquery-1.10.1.min.js"
+    - "//code.jquery.com/jquery-1.10.2.min.js"
     - "//platform.twitter.com/widgets.js"
-    - "//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"
+    - "//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"
 
 ####
 # TODO: Perhaps move to a database (redis or mongo),
-# or in to it's own configuration file.
+# or to its own configuration file.
 #
 # In the configs below, SWATCH_NAME will be replaced with
 # the cosponding theme. SWATCH_VERSION will be replaced with
@@ -68,7 +68,7 @@ bootswatch:
 
 ####
 # TODO: Perhaps move to a database (redis or mongo),
-# or in to it's own configuration file.
+# or to its own configuration file.
 bootstrap:
     - version: "3.0.3"
       latest: true
