@@ -8,10 +8,7 @@ authors:
 
 description: Bootstrap CDN
 
-favicon:
-    # ico must be filesystem path, not web path
-    ico: "public/images/favicon.ico"
-    png: "/images/favicon.png"
+favicon: "/images/favicon.ico"
 
 google_analytics:
     account_id: UA-32253110-1
