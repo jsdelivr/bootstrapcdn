@@ -36,7 +36,7 @@ javascript:
     # scripts specified in the after group will be loaded
     # as blocking scripts at the bottom of the page
     after:
-    - "//code.jquery.com/jquery-1.10.2.min.js"
+    - "//code.jquery.com/jquery-1.11.0.min.js"
     - "//platform.twitter.com/widgets.js"
     - "//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"
 
