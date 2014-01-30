@@ -24,18 +24,9 @@ blockquote.twitter-tweet {
     padding: 10px 0 20px 0;
 }
 
-.input-lg {
-    width: 100%;
-    margin: 0;
-}
-
 .jumbotron {
     margin-top: -50px;
     padding-bottom: 25px;
-}
-
-input.form-control {
-    color: #000 !important;
 }
 
 .hidden {
