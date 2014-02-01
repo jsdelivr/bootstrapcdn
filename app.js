@@ -43,7 +43,7 @@ app.configure(function() {
     app.locals({ tweets: require('./config/_tweets.yml') });
 
     // middleware
-    app.use(express.favicon(path.join(__dirname, config.favicon.ico)));
+    app.use(express.favicon(path.join(__dirname, 'public' + config.favicon)));
     app.use(express.bodyParser());
     app.use(express.methodOverride());
     app.use(app.router);

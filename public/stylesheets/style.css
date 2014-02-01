@@ -1,8 +1,53 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+/* hack to fix firefox issue where tweet and blockquote
+ * where both showing up, little help anyone? */
+blockquote.twitter-tweet {
+    visibility: hidden;
+    height: 0;
+    margin: 5px;
+    padding: 0;
 }
 
-a {
-  color: #00B7FF;
+.tryit {
+    padding-top: 25px;
+}
+
+.well {
+    margin-top: 20px;
+    padding-top: 0;
+}
+
+.well[id] {
+    padding-top: 10px;
+}
+
+.bootswatch {
+    padding: 10px 0 20px 0;
+}
+
+.jumbotron {
+    margin-top: -50px;
+    padding-bottom: 25px;
+}
+
+.hidden {
+    padding-top: 10px;
+}
+
+iframe {
+    border-width: 0;
+    overflow: hidden;
+}
+
+.iframe-extras {
+    margin-top: -20px;
+    width: 100%;
+    height: 550px;
+}
+
+footer .fa-maxcdn {
+    font-size: 36px;
+}
+
+.timeline-js {
+    padding-left: 50px;
 }
