@@ -1,6 +1,6 @@
 #bootswatch.tab-pane
     h2 Bootswatch
-    center.well
+    div.well.text-center
         - for (var i = 0; i < config.bootswatch.themes.length; i++) {
             - var name = config.bootswatch.themes[i]
             - var cssPath=config.bootswatch.bootstrap.replace('SWATCH_NAME', name).replace('SWATCH_VERSION', config.bootswatch.version)
@@ -14,7 +14,7 @@
                 .col-sm-12.col-md-8
                     .bootswatch
                         a(href=config.bootswatch.link.replace('SWATCH_NAME', name))
-                            img.bootswatch(src=config.bootswatch.image.replace('SWATCH_NAME', name))
+                            img.bootswatch.img-responsive(src=config.bootswatch.image.replace('SWATCH_NAME', name), alt=name + " thumbnail")
                         .input-group
                             input.form-control(value=cssPath)
                             .input-group-btn
