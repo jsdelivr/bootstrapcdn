@@ -3,12 +3,12 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "run"     : "node app.js",
-    "setup"   : "npm install",
-    "start"   : "NODE_ENV=production forever -m 4 -p logs -l server.log --append --plain start server.js",
-    "status"  : "forever list",
-    "stop"    : "forever stop server.js",
-    "test"    : "mocha ./tests/*_test.js ./tests/**/*_test.js -R spec"
+    "run": "node app.js",
+    "setup": "npm install",
+    "start": "NODE_ENV=production forever -m 4 -p logs -l server.log --append --plain start server.js",
+    "status": "forever list",
+    "stop": "forever stop server.js",
+    "test": "mocha ./tests/*_test.js ./tests/**/*_test.js -R spec"
   },
   "dependencies": {
     "comma-it": "~0.0.5",
@@ -18,7 +18,7 @@
     "forever": "~0.10.11",
     "jade": "~0.35.0",
     "js-yaml": "~2.1.3",
-    "oauth": "jmervine/node-oauth"
+    "maxcdn": "~0.1.0"
   },
   "devDependencies": {
     "expect.js": "~0.2.0",
