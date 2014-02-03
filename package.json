@@ -16,9 +16,9 @@
     "dateformat": "~1.0.7-1.2.3",
     "express": "~3.4.8",
     "forever": "~0.10.11",
+    "maxcdn": "~0.1.0",
     "jade": "~1.1.5",
-    "js-yaml": "~3.0.1",
-    "oauth": "jmervine/node-oauth"
+    "js-yaml": "~3.0.1"
   },
   "devDependencies": {
     "expect.js": "~0.2.0",
