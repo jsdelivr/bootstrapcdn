@@ -1,7 +1,64 @@
 require('js-yaml');
-var oauth   = require('../lib/oauth');
+var MaxCDN  = require('maxcdn');
 var commaIt = require('comma-it').commaIt;
 var fs      = require('fs');
+var maxConf = require('../config/_maxcdn.yml');
+var maxcdn  = new MaxCDN(maxConf.alias, maxConf.key, maxConf.secret);
+var popSave = "/tmp/.popular.json";
+
+// grab cached version if fetch fails
+function load(file, callback) {
+    var parsed = [];
+    fs.readFile(file, 'utf-8', function (err, data) {
+        if (err) {
+            console.trace(err);
+            callback(parsed);
+            return;
+        }
+
+        try {
+            parsed = JSON.parse(data).data.popularfiles;
+            console.log("Popular Files loaded from ", file);
+        } catch(e) {
+            console.trace(e);
+        }
+
+        callback(parsed);
+        return;
+    });
+}
+
+function save(file, data) {
+    fs.writeFile(file, "utf-8", function (err) {
+        if (err) {
+            console.trace(err);
+        } else {
+            console.log("Popular Files saved to", file);
+        }
+        return;
+    });
+    return;
+}
+
+function fetchAndSaveOrLoad(callback) {
+    maxcdn.get("reports/popularfiles.json", function (err, res) {
+        if (err) {
+            console.trace(err);
+            load(popSave, function (pop) {
+                callback(pop);
+                return;
+            });
+            return;
+        }
+
+        if (res && res.data && res.data.popularfiles && res.data.popularfiles.length !== 0) {
+            save(popSave, res);
+        }
+
+        callback(res.data.popularfiles);
+    });
+    return;
+}
 
 function render(template, req, res, data) {
     var maxSize = 0;
@@ -19,15 +76,12 @@ function render(template, req, res, data) {
 
 function popular(req, res) {
     if (req.config.stats === "stub") {
-        oauth.fallback(null, '../tests/stubs/popular.json', function(data) {
+        load("../tests/stubs/popular.json", function (data) {
             render('extras_popular', req, res, data);
         });
     } else {
-        oauth.fetch('/tmp/.popular.json', function (data) {
+        fetchAndSaveOrLoad(function (data) {
             render('extras_popular', req, res, data);
-            if (data && data.length !== 0) {
-                fs.writeFile('/tmp/.popular.json', JSON.stringify({ data: { popularfiles: data } }, null, 2));
-            }
         });
     }
 }
