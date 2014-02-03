@@ -8,12 +8,13 @@ var config = require('../../config/_config.yml');
 process.env.PORT = config.port+1; // don't use configured port
 
 /***
- * OAuth Stub
+ * MaxCDN Stub
  */
-var OAuth = require('oauth').OAuth;
-OAuth.prototype.getOAuthRequestToken = function (cb) { cb(); };
-OAuth.prototype.getOAuthAccessToken  = function (_, _, cb) { cb(); };
-OAuth.prototype.getProtectedResource = function (_, _, _, _, cb) { cb(null, require('../stubs/popular.json'), null); };
+var MaxCDN = require('maxcdn');
+MaxCDN.prototype.get = function (_, cb) {
+    cb(null, require('../stubs/popular.json'));
+    return;
+};
 
 var app = require('../../app.js');
 var host = format('http://localhost:%s',process.env.PORT);
