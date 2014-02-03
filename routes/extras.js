@@ -18,6 +18,7 @@ function load(file, callback) {
 
         try {
             parsed = JSON.parse(data).data.popularfiles;
+            console.log("Popular Files loaded from ", file);
         } catch(e) {
             console.trace(e);
         }
@@ -31,6 +32,8 @@ function save(file, data) {
     fs.writeFile(file, "utf-8", function (err) {
         if (err) {
             console.trace(err);
+        } else {
+            console.log("Popular Files saved to", file);
         }
         return;
     });
