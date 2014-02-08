@@ -71,7 +71,7 @@ Key Overview:
 3. `authors`: Array of Author Strings
 4. `description`: String containing the meta descript of the site.
 5. `extras`: Turn on extras functionality. Requires `config/_oauth.yml` update with correct `key` and `security` tokens.
-5. `favicon`: Hash containing `ico` and `png` favicon paths (`ico` must be file system path, while `png` must be browser path).
+5. `favicon`: Hash containing the favicon path.
 6. `google_analytics`: Hash containing GA `account_id` and `domain_name`.
 7. `stylesheets`: Array containing stylesheet files to be loaded at the top of the site.
 8. `javascripts`: Array containing javascript files to be loaded either `before` (at the top) or `after` (at the bottom) of the site.
