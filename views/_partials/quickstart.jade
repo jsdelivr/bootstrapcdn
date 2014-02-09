@@ -8,7 +8,7 @@
         .input-group.input-group-lg
             input.form-control(value=cssPath)
             .input-group-btn
-                button.btn.btn-lg(type="button", onclick="toggleCode(this,'"+name+"')")
+                button.btn.btn-default.btn-lg(type="button", onclick="toggleCode(this,'"+name+"')")
                     i.fa.fa-caret-down
         include csscode
 
@@ -19,7 +19,7 @@
         .input-group.input-group-lg
             input.form-control(value=jsPath)
             .input-group-btn
-                button.btn.btn-lg(type="button", onclick="toggleCode(this,'"+name+"')")
+                button.btn.btn-default.btn-lg(type="button", onclick="toggleCode(this,'"+name+"')")
                     i.fa.fa-caret-down
         include jscode
     br
