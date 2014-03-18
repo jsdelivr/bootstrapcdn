@@ -65,6 +65,7 @@ bootswatch:
         - superhero # 11
         - united    # 12
         - yeti      # 13
+        - darkly    # 14
 
 ####
 # TODO: Perhaps move to a database (redis or mongo),
