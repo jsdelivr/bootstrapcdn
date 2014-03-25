@@ -1,0 +1,390 @@
+{
+  "data": {
+    "popularfiles": [
+      {
+        "timestamp": "2014-01-03 00:00:00",
+        "bucket_id": "44703",
+        "uri": "/font-awesome/4.0.3/css/font-awesome.css",
+        "hit": "458090116",
+        "size": "1996434162970",
+        "vhost": "bootstrapcdn.jdorfman.netdna-cdn.com"
+      },
+      {
+        "timestamp": "2014-01-03 00:00:00",
+        "bucket_id": "44703",
+        "uri": "/font-awesome/3.2.1/css/font-awesome.css",
+        "hit": "455188190",
+        "size": "2695261949748",
+        "vhost": "bootstrapcdn.jdorfman.netdna-cdn.com"
+      },
+      {
+        "timestamp": "2014-01-03 00:00:00",
+        "bucket_id": "44703",
+        "uri": "/font-awesome/3.2.1/font/fontawesome-webfont.woff",
+        "hit": "447784572",
+        "size": "17432526735097",
+        "vhost": "bootstrapcdn.jdorfman.netdna-cdn.com"
+      },
+      {
+        "timestamp": "2014-01-03 00:00:00",
+        "bucket_id": "44703",
+        "uri": "/font-awesome/3.2.1/css/font-awesome.min.css",
+        "hit": "325187661",
+        "size": "1645819742682",
+        "vhost": "bootstrapcdn.jdorfman.netdna-cdn.com"
+      },
+      {
+        "timestamp": "2014-01-03 00:00:00",
+        "bucket_id": "44703",
+        "uri": "/font-awesome/4.0.3/fonts/fontawesome-webfont.woff",
+        "hit": "233944404",
+        "size": "8604896646692",
+        "vhost": "bootstrapcdn.jdorfman.netdna-cdn.com"
+      },
+      {
+        "timestamp": "2014-01-03 00:00:00",
+        "bucket_id": "44703",
+        "uri": "/twitter-bootstrap/2.3.2/js/bootstrap.min.js",
+        "hit": "192351606",
+        "size": "1545363360412",
+        "vhost": "bootstrapcdn.jdorfman.netdna-cdn.com"
+      },
+      {
+        "timestamp": "2014-01-03 00:00:00",
+        "bucket_id": "44703",
+        "uri": "/bootstrap/3.0.0/js/bootstrap.min.js",
+        "hit": "163385596",
+        "size": "1223091723192",
+        "vhost": "bootstrapcdn.jdorfman.netdna-cdn.com"
+      },
+      {
+        "timestamp": "2014-01-03 00:00:00",
+        "bucket_id": "44703",
+        "uri": "/bootstrap/3.0.0/css/bootstrap.min.css",
+        "hit": "146290077",
+        "size": "2874545006159",
+        "vhost": "bootstrapcdn.jdorfman.netdna-cdn.com"
+      },
+      {
+        "timestamp": "2014-01-03 00:00:00",
+        "bucket_id": "44703",
+        "uri": "/twitter-bootstrap/2.3.1/js/bootstrap.min.js",
+        "hit": "123444984",
+        "size": "847416198511",
+        "vhost": "bootstrapcdn.jdorfman.netdna-cdn.com"
+      },
+      {
+        "timestamp": "2014-01-03 00:00:00",
+        "bucket_id": "44703",
+        "uri": "/font-awesome/3.2.1/font/fontawesome-webfont.eot",
+        "hit": "121545135",
+        "size": "3643775032942",
+        "vhost": "bootstrapcdn.jdorfman.netdna-cdn.com"
+      },
+      {
+        "timestamp": "2014-01-03 00:00:00",
+        "bucket_id": "44703",
+        "uri": "/twitter-bootstrap/2.3.1/css/bootstrap.min.css",
+        "hit": "80367858",
+        "size": "1452731147448",
+        "vhost": "bootstrapcdn.jdorfman.netdna-cdn.com"
+      },
+      {
+        "timestamp": "2014-01-03 00:00:00",
+        "bucket_id": "44703",
+        "uri": "/bootstrap/3.0.3/js/bootstrap.min.js",
+        "hit": "77940796",
+        "size": "548336211049",
+        "vhost": "bootstrapcdn.jdorfman.netdna-cdn.com"
+      },
+      {
+        "timestamp": "2014-01-03 00:00:00",
+        "bucket_id": "44703",
+        "uri": "/twitter-bootstrap/2.3.1/img/glyphicons-halflings.png",
+        "hit": "69968593",
+        "size": "704099238872",
+        "vhost": "bootstrapcdn.jdorfman.netdna-cdn.com"
+      },
+      {
+        "timestamp": "2014-01-03 00:00:00",
+        "bucket_id": "44703",
+        "uri": "/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css",
+        "hit": "67751271",
+        "size": "1679596237994",
+        "vhost": "bootstrapcdn.jdorfman.netdna-cdn.com"
+      },
+      {
+        "timestamp": "2014-01-03 00:00:00",
+        "bucket_id": "44703",
+        "uri": "/bootstrap/3.0.3/css/bootstrap.min.css",
+        "hit": "62880537",
+        "size": "1186105664673",
+        "vhost": "bootstrapcdn.jdorfman.netdna-cdn.com"
+      },
+      {
+        "timestamp": "2014-01-03 00:00:00",
+        "bucket_id": "44703",
+        "uri": "/font-awesome/4.0.3/fonts/fontawesome-webfont.eot",
+        "hit": "46679486",
+        "size": "1431389649383",
+        "vhost": "bootstrapcdn.jdorfman.netdna-cdn.com"
+      },
+      {
+        "timestamp": "2014-01-03 00:00:00",
+        "bucket_id": "44703",
+        "uri": "/bootstrap/3.0.2/js/bootstrap.min.js",
+        "hit": "44730769",
+        "size": "331885679401",
+        "vhost": "bootstrapcdn.jdorfman.netdna-cdn.com"
+      },
+      {
+        "timestamp": "2014-01-03 00:00:00",
+        "bucket_id": "44703",
+        "uri": "/font-awesome/3.2.0/css/font-awesome.min.css",
+        "hit": "44531367",
+        "size": "228581819205",
+        "vhost": "bootstrapcdn.jdorfman.netdna-cdn.com"
+      },
+      {
+        "timestamp": "2014-01-03 00:00:00",
+        "bucket_id": "44703",
+        "uri": "/font-awesome/4.0.3/css/font-awesome.min.css",
+        "hit": "41223060",
+        "size": "158953790643",
+        "vhost": "bootstrapcdn.jdorfman.netdna-cdn.com"
+      },
+      {
+        "timestamp": "2014-01-03 00:00:00",
+        "bucket_id": "44703",
+        "uri": "/font-awesome/3.1.1/css/font-awesome.css",
+        "hit": "38670179",
+        "size": "197434832434",
+        "vhost": "bootstrapcdn.jdorfman.netdna-cdn.com"
+      },
+      {
+        "timestamp": "2014-01-03 00:00:00",
+        "bucket_id": "44703",
+        "uri": "/bootstrap/3.0.2/css/bootstrap.min.css",
+        "hit": "27939642",
+        "size": "547889918456",
+        "vhost": "bootstrapcdn.jdorfman.netdna-cdn.com"
+      },
+      {
+        "timestamp": "2014-01-03 00:00:00",
+        "bucket_id": "44703",
+        "uri": "/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css",
+        "hit": "26486516",
+        "size": "588636871363",
+        "vhost": "bootstrapcdn.jdorfman.netdna-cdn.com"
+      },
+      {
+        "timestamp": "2014-01-03 00:00:00",
+        "bucket_id": "44703",
+        "uri": "/font-awesome/4.0.1/css/font-awesome.css",
+        "hit": "26269744",
+        "size": "131673959476",
+        "vhost": "bootstrapcdn.jdorfman.netdna-cdn.com"
+      },
+      {
+        "timestamp": "2014-01-03 00:00:00",
+        "bucket_id": "44703",
+        "uri": "/twitter-bootstrap/2.3.2/css/bootstrap.min.css",
+        "hit": "24191037",
+        "size": "1291463134694",
+        "vhost": "bootstrapcdn.jdorfman.netdna-cdn.com"
+      },
+      {
+        "timestamp": "2014-01-03 00:00:00",
+        "bucket_id": "44703",
+        "uri": "/font-awesome/3.0.2/css/font-awesome.css",
+        "hit": "23946460",
+        "size": "98602584463",
+        "vhost": "bootstrapcdn.jdorfman.netdna-cdn.com"
+      },
+      {
+        "timestamp": "2014-01-03 00:00:00",
+        "bucket_id": "44703",
+        "uri": "/font-awesome/3.2.1/font/fontawesome-webfont.ttf",
+        "hit": "20449062",
+        "size": "1451261262495",
+        "vhost": "bootstrapcdn.jdorfman.netdna-cdn.com"
+      },
+      {
+        "timestamp": "2014-01-03 00:00:00",
+        "bucket_id": "44703",
+        "uri": "/bootstrap/3.0.0/fonts/glyphicons-halflings-regular.woff",
+        "hit": "18704903",
+        "size": "352869265071",
+        "vhost": "bootstrapcdn.jdorfman.netdna-cdn.com"
+      },
+      {
+        "timestamp": "2014-01-03 00:00:00",
+        "bucket_id": "44703",
+        "uri": "/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css",
+        "hit": "18641426",
+        "size": "437800020582",
+        "vhost": "bootstrapcdn.jdorfman.netdna-cdn.com"
+      },
+      {
+        "timestamp": "2014-01-03 00:00:00",
+        "bucket_id": "44703",
+        "uri": "/bootswatch/2.3.2/cerulean/bootstrap.min.css",
+        "hit": "14575856",
+        "size": "701076296153",
+        "vhost": "bootstrapcdn.jdorfman.netdna-cdn.com"
+      },
+      {
+        "timestamp": "2014-01-03 00:00:00",
+        "bucket_id": "44703",
+        "uri": "/font-awesome/3.2.0/font/fontawesome-webfont.woff",
+        "hit": "14106982",
+        "size": "563062177462",
+        "vhost": "bootstrapcdn.jdorfman.netdna-cdn.com"
+      },
+      {
+        "timestamp": "2014-01-12 00:00:00",
+        "bucket_id": "44703",
+        "uri": "/font-awesome/3.1.1/css/font-awesome.min.css",
+        "hit": "12096923",
+        "size": "66234514467",
+        "vhost": "bootstrapcdn.jdorfman.netdna-cdn.com"
+      },
+      {
+        "timestamp": "2014-01-03 00:00:00",
+        "bucket_id": "44703",
+        "uri": "/font-awesome/3.0.2/font/fontawesome-webfont.woff",
+        "hit": "10914400",
+        "size": "296056653313",
+        "vhost": "bootstrapcdn.jdorfman.netdna-cdn.com"
+      },
+      {
+        "timestamp": "2014-01-03 00:00:00",
+        "bucket_id": "44703",
+        "uri": "/font-awesome/3.1.1/font/fontawesome-webfont.woff",
+        "hit": "8004980",
+        "size": "251661863561",
+        "vhost": "bootstrapcdn.jdorfman.netdna-cdn.com"
+      },
+      {
+        "timestamp": "2014-01-09 00:00:00",
+        "bucket_id": "44703",
+        "uri": "/twitter-bootstrap/2.1.1/css/bootstrap-combined.min.css",
+        "hit": "6536259",
+        "size": "160697052896",
+        "vhost": "bootstrapcdn.jdorfman.netdna-cdn.com"
+      },
+      {
+        "timestamp": "2014-01-09 00:00:00",
+        "bucket_id": "44703",
+        "uri": "/twitter-bootstrap/2.1.1/js/bootstrap.min.js",
+        "hit": "6455484",
+        "size": "50495562332",
+        "vhost": "bootstrapcdn.jdorfman.netdna-cdn.com"
+      },
+      {
+        "timestamp": "2014-01-03 00:00:00",
+        "bucket_id": "44703",
+        "uri": "/font-awesome/4.0.1/fonts/fontawesome-webfont.woff",
+        "hit": "4505622",
+        "size": "186193214310",
+        "vhost": "bootstrapcdn.jdorfman.netdna-cdn.com"
+      },
+      {
+        "timestamp": "2014-01-25 00:00:00",
+        "bucket_id": "44703",
+        "uri": "/bootstrap/3.0.3/fonts/glyphicons-halflings-regular.woff",
+        "hit": "1920301",
+        "size": "43082779467",
+        "vhost": "bootstrapcdn.jdorfman.netdna-cdn.com"
+      },
+      {
+        "timestamp": "2014-01-08 00:00:00",
+        "bucket_id": "44703",
+        "uri": "/font-awesome/3.0/css/font-awesome.css",
+        "hit": "1143668",
+        "size": "2825723883",
+        "vhost": "bootstrapcdn.jdorfman.netdna-cdn.com"
+      },
+      {
+        "timestamp": "2014-01-28 00:00:00",
+        "bucket_id": "44703",
+        "uri": "/bootstrap/3.0.1/js/bootstrap.min.js",
+        "hit": "774296",
+        "size": "1216399181",
+        "vhost": "bootstrapcdn.jdorfman.netdna-cdn.com"
+      },
+      {
+        "timestamp": "2014-01-25 00:00:00",
+        "bucket_id": "44703",
+        "uri": "/bootswatch/3.0.0/cerulean/bootstrap.min.css",
+        "hit": "536264",
+        "size": "10360845173",
+        "vhost": "bootstrapcdn.jdorfman.netdna-cdn.com"
+      },
+      {
+        "timestamp": "2014-01-17 00:00:00",
+        "bucket_id": "44703",
+        "uri": "/bootstrap/2.3.2/js/bootstrap.min.js",
+        "hit": "345961",
+        "size": "346095518",
+        "vhost": "bootstrapcdn.jdorfman.netdna-cdn.com"
+      },
+      {
+        "timestamp": "2014-01-03 00:00:00",
+        "bucket_id": "44703",
+        "uri": "/bootstrap/3.0.2/fonts/glyphicons-halflings-regular.woff",
+        "hit": "251700",
+        "size": "5673302000",
+        "vhost": "bootstrapcdn.jdorfman.netdna-cdn.com"
+      },
+      {
+        "timestamp": "2014-01-04 00:00:00",
+        "bucket_id": "44703",
+        "uri": "/font-awesome/3.2.1/css/font-awesome-ie7.css",
+        "hit": "142397",
+        "size": "6572958",
+        "vhost": "bootstrapcdn.jdorfman.netdna-cdn.com"
+      },
+      {
+        "timestamp": "2014-01-05 00:00:00",
+        "bucket_id": "44703",
+        "uri": "/font-awesome/3.0/font/fontawesome-webfont.woff",
+        "hit": "138659",
+        "size": "2358022669",
+        "vhost": "bootstrapcdn.jdorfman.netdna-cdn.com"
+      },
+      {
+        "timestamp": "2014-01-13 00:00:00",
+        "bucket_id": "44703",
+        "uri": "/font-awesome/4.0.0/css/font-awesome.css",
+        "hit": "12576",
+        "size": "96031364",
+        "vhost": "bootstrapcdn.jdorfman.netdna-cdn.com"
+      },
+      {
+        "timestamp": "2014-01-09 00:00:00",
+        "bucket_id": "19464",
+        "uri": "/robots.txt",
+        "hit": "7",
+        "size": "4018",
+        "vhost": "justindorfmancom.jdorfman.netdna-cdn.com"
+      },
+      {
+        "timestamp": "2014-01-09 00:00:00",
+        "bucket_id": "19464",
+        "uri": "/",
+        "hit": "6",
+        "size": "296",
+        "vhost": "justindorfmancom.jdorfman.netdna-cdn.com"
+      },
+      {
+        "timestamp": "2014-01-11 00:00:00",
+        "bucket_id": "19464",
+        "uri": "/wp-content/uploads/2011/06/justindorfman-logo.png",
+        "hit": "5",
+        "size": "2870",
+        "vhost": "justindorfmancom.jdorfman.netdna-cdn.com"
+      }
+    ]
+  }
+}

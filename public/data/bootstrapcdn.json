@@ -1,5 +1,5 @@
 {
-  "timestamp": 0,
+  "timestamp": "2014-03-25T16:25:56.219Z",
   "bootstrap": {
     "3.1.1": {
       "css": "//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css",
@@ -8,6 +8,18 @@
     "3.1.0": {
       "css": "//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css",
       "js": "//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"
+    },
+    "3.0.3": {
+      "css": "//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css",
+      "js": "//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"
+    },
+    "3.0.2": {
+      "css": "//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css",
+      "js": "//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"
+    },
+    "3.0.1": {
+      "css": "//netdna.bootstrapcdn.com/bootstrap/3.0.1/css/bootstrap.min.css",
+      "js": "//netdna.bootstrapcdn.com/bootstrap/3.0.1/js/bootstrap.min.js"
     },
     "3.0.0": {
       "css": "//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css",
@@ -63,10 +75,10 @@
     }
   },
   "fontawesome": {
-    "3.2.1": "//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css",
-    "4.0.0": "//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css",
-    "4.0.1": "//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css",
-    "4.0.2": "//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css",
-    "4.0.3": "//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css"
+    "4.0.3": "//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css",
+    "4.0.2": "//netdna.bootstrapcdn.com/font-awesome/4.0.2/css/font-awesome.min.css",
+    "4.0.1": "//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.min.css",
+    "4.0.0": "//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.min.css",
+    "3.2.1": "//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css"
   }
 }
