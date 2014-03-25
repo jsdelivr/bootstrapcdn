@@ -1,0 +1,61 @@
+
+{
+  "timestamp": 0,
+  "bootstrap": {
+    "3.0.0": {
+      "css": "//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css",
+      "js": "//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"
+    },
+    "3.0.0-noicons": {
+      "css": "//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.no-icons.min.css",
+      "js": "//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"
+    },
+    "2.3.2": {
+      "css": "//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css",
+      "js": "//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"
+    },
+    "2.3.2-noicons": {
+      "css": "//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css",
+      "js": "//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"
+    },
+    "2.3.1": {
+      "css": "//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css",
+      "js": "//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"
+    },
+    "2.3.0": {
+      "css": "//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/css/bootstrap-combined.min.css",
+      "js": "//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/js/bootstrap.min.js"
+    },
+    "2.2.2": {
+      "css": "//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css",
+      "js": "//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js"
+    },
+    "2.2.2-noresponsible": {
+      "css": "//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap.min.nr.css",
+      "js": "//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js"
+    },
+    "2.2.1": {
+      "css": "//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/css/bootstrap-combined.min.css",
+      "js": "//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js"
+    },
+    "2.2.0": {
+      "css": "//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.0/css/bootstrap-combined.min.css",
+      "js": "//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.0/js/bootstrap.min.js"
+    },
+    "2.1.1": {
+      "css": "//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap-combined.min.css",
+      "js": "//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.1/js/bootstrap.min.js"
+    },
+    "2.1.0": {
+      "css": "//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.0/css/bootstrap-combined.min.css",
+      "js": "//netdna.bootstrapcdn.com/twitter-bootstrap/2.1.0/js/bootstrap.min.js"
+    },
+    "2.0.4": {
+      "css": "//netdna.bootstrapcdn.com/twitter-bootstrap/2.0.4/css/bootstrap-combined.min.css",
+      "js": "//netdna.bootstrapcdn.com/twitter-bootstrap/2.0.4/js/bootstrap.min.js"
+    }
+  },
+  "fontawesome": {
+    "3.2.1": "//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css"
+  }
+}
