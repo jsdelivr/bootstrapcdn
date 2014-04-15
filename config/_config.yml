@@ -96,9 +96,17 @@ bootstrap:
       css_complete: "//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"
       javascript:  "//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"
 
+    - version: "3.0.0-noicons"
+      css_complete: "//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.no-icons.min.css"
+      javascript:  "//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"
+
     - version: "2.3.2"
       css_complete: "//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css"
       css_no_icons: "//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css"
+      javascript:   "//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"
+
+    - version: "2.3.2-noicons"
+      css_complete: "//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css"
       javascript:   "//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"
 
     - version: "2.3.1"
@@ -112,6 +120,10 @@ bootstrap:
     - version: "2.2.2"
       css_complete: "//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css"
       css_no_icons: "//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap.min.nr.css"
+      javascript:   "//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js"
+
+    - version: "2.2.2-noresponsible"
+      css_complete: "//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap.min.nr.css"
       javascript:   "//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js"
 
     - version: "2.2.1"
@@ -133,5 +145,23 @@ bootstrap:
     - version: "2.0.4"
       css_complete: "//netdna.bootstrapcdn.com/twitter-bootstrap/2.0.4/css/bootstrap-combined.min.css"
       javascript:   "//netdna.bootstrapcdn.com/twitter-bootstrap/2.0.4/js/bootstrap.min.js"
+
+fontawesome:
+    - version: "4.0.3"
+      latest: true
+      css_complete: "//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"
+
+    - version: "4.0.2"
+      css_complete: "//netdna.bootstrapcdn.com/font-awesome/4.0.2/css/font-awesome.min.css"
+
+    - version: "4.0.1"
+      css_complete: "//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.min.css"
+
+    - version: "4.0.0"
+      css_complete: "//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.min.css"
+
+    - version: "3.2.1"
+      css_complete: "//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css"
+
 
 # vim: ft=yaml sw=4 sts=4 et:
