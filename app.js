@@ -47,14 +47,6 @@ app.configure(function() {
         next();
     });
 
-    // locals
-    app.locals({
-        config: config,
-        helpers: require('./lib/helpers'),
-        tweets: tweets,
-        commaIt: require('comma-it').commaIt
-    });
-
     // middleware
     app.use(express.favicon(path.join(__dirname, 'public' + config.favicon)));
     app.use(express.methodOverride());
@@ -62,6 +54,12 @@ app.configure(function() {
     app.use(express.static(path.join(__dirname, 'public')));
 
 });
+
+// locals
+app.locals.helpers = require('./lib/helpers');
+app.locals.commaIt = require('comma-it').commaIt;
+app.locals.config  = config;
+app.locals.tweets  = tweets;
 
 // routes
 var extras = require('./routes/extras');
