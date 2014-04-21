@@ -1,9 +1,11 @@
-require('js-yaml');
-var MaxCDN  = require('maxcdn');
-var commaIt = require('comma-it').commaIt;
+'use strict';
+
+var path    = require('path');
 var fs      = require('fs');
-var maxConf = require('../config/_maxcdn.yml');
-var maxcdn  = new MaxCDN(maxConf.alias, maxConf.key, maxConf.secret);
+var yaml    = require('js-yaml');
+var MaxCDN  = require('maxcdn');
+var config  = yaml.safeLoad(fs.readFileSync(path.join(__dirname, '..', 'config', '_maxcdn.yml'), 'utf8'));
+var maxcdn  = new MaxCDN(config.alias, config.key, config.secret);
 var popSave = "/tmp/.popular.json";
 
 // grab cached version if fetch fails
@@ -68,7 +70,6 @@ function render(template, req, res, data) {
     res.render(template, {
                     title: 'Bootstrap CDN',
                     theme: req.query.theme,
-                    commaIt: commaIt,
                     data: data,
                     maxSize: maxSize,
                 });
