@@ -34,10 +34,7 @@ block content
                                                           aria-valuemin="0",
                                                           aria-valuemax="100",
                                                           style="width: "+hitProgress+"%")
-                                    - if (commitIt) //- tmp fix for commaIt missing in test cases only... TODO: fix for real
-                                        td= commaIt(entry.hit,{addPrecision:false, thousandSeperator : ',', decimalSeperator : '.'})+" Requests"
-                                    - else
-                                        td entry.hit
+                                    td= commaIt(entry.hit, {addPrecision:false, thousandSeperator : ',', decimalSeperator : '.'})+" Requests"
                                     td
                                         .progress
                                             - var sizeProgress = ((entry.size/maxSize)*100).toFixed(2);
