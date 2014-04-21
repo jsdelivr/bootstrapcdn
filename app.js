@@ -1,17 +1,22 @@
+'use strict';
+
 // modules
 try {
     require('graphdat'); // manually installed, not part of package.json
 } catch(e) {
     console.log('[NOTE]: graphdat is not installed, given that it\'s an manually installed module and not part of package.json, we\'re ignoring error and continuing.');
 }
-require('js-yaml');
+
+var path    = require('path');
+var fs      = require('fs');
+var yaml    = require('js-yaml');
 var express = require('express');
 var connect = require('connect');
 var http    = require('http');
-var path    = require('path');
 var app     = express();
 
-var config  = require(path.join(__dirname, 'config', '_config.yml'));
+var config  = yaml.safeLoad(fs.readFileSync(path.join(__dirname, 'config', '_config.yml'), 'utf8'));
+var tweets  = yaml.safeLoad(fs.readFileSync(path.join(__dirname, 'config', '_tweets.yml'), 'utf8'));
 
 // production
 app.configure('production', function(){
@@ -35,7 +40,7 @@ app.configure(function() {
     app.use(function(req,res,next) {
         // make config availabile in routes
         req.config = config;
-        
+
         // overwrite default cache-control header
         // drop to 10 minutes
         res.setHeader("Cache-Control", "public, max-age=600");
@@ -43,13 +48,15 @@ app.configure(function() {
     });
 
     // locals
-    app.locals({ config: config });
-    app.locals({ helpers: require('./lib/helpers') });
-    app.locals({ tweets: require('./config/_tweets.yml') });
+    app.locals({
+        config: config,
+        helpers: require('./lib/helpers'),
+        tweets: tweets,
+        commaIt: require('comma-it').commaIt
+    });
 
     // middleware
     app.use(express.favicon(path.join(__dirname, 'public' + config.favicon)));
-    app.use(express.bodyParser());
     app.use(express.methodOverride());
     app.use(app.router);
     app.use(express.static(path.join(__dirname, 'public')));
