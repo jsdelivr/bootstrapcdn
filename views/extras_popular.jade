@@ -34,7 +34,7 @@ block content
                                                           aria-valuemin="0",
                                                           aria-valuemax="100",
                                                           style="width: "+hitProgress+"%")
-                                    td= commaIt(entry.hit,{addPrecision:false, thousandSeperator : ',', decimalSeperator : '.'})+" Requests"
+                                    td= commaIt(entry.hit, {addPrecision:false, thousandSeperator : ',', decimalSeperator : '.'})+" Requests"
                                     td
                                         .progress
                                             - var sizeProgress = ((entry.size/maxSize)*100).toFixed(2);

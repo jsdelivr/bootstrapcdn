@@ -1,3 +1,5 @@
+'use strict';
+
 var http = require('http');
 var assert = require('assert');
 
@@ -26,6 +28,7 @@ var paths = [
   'http://netdna.bootstrapcdn.com/bootswatch/latest/united/bootstrap.min.css',
   'http://netdna.bootstrapcdn.com/bootswatch/latest/flatly/bootstrap.min.css',
   'http://netdna.bootstrapcdn.com/bootswatch/latest/yeti/bootstrap.min.css',
+  'http://netdna.bootstrapcdn.com/bootswatch/latest/darkly/bootstrap.min.css',
   'http://netdna.bootstrapcdn.com/bootswatch/latest/fonts/glyphicons-halflings-regular.woff',
   'http://netdna.bootstrapcdn.com/bootswatch/latest/fonts/glyphicons-halflings-regular.ttf',
   'http://netdna.bootstrapcdn.com/bootswatch/latest/fonts/glyphicons-halflings-regular.svg',
