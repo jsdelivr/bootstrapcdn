@@ -39,5 +39,10 @@ nginx/reload:
 nginx.conf:
 	sed -e "s/CURRENT_USER/$(USER)/g" .nginx.conf > nginx.conf
 
+# Generate wp-plugin
+###
+wp-plugin: setup
+	node ./scripts/wp-plugin.js
+
 .PHONY:
 # vim: ft=make:
