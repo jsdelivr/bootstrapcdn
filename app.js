@@ -57,7 +57,7 @@ app.configure(function() {
 
 // locals
 app.locals.helpers = require('./lib/helpers');
-app.locals.commaIt = require('comma-it').commaIt;
+app.locals.commaIt = require('comma-it');
 app.locals.config  = config;
 app.locals.tweets  = tweets;
 
