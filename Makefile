@@ -33,10 +33,10 @@ nginx/stop:
 
 nginx/restart: nginx/stop nginx/start
 
-nginx/reload:
+nginx/reload: nginx.conf
 	sudo pkill -HUP nginx
 
-nginx.conf:
+nginx.conf: .PHONY
 	sed -e "s/CURRENT_USER/$(USER)/g" .nginx.conf > nginx.conf
 
 # Generate wp-plugin
