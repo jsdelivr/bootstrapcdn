@@ -14,11 +14,16 @@
     "comma-it": "~0.0.5",
     "connect": "~2.12.0",
     "dateformat": "~1.0.7-1.2.3",
-    "express": "^3.5.1",
     "forever": "~0.10.11",
     "maxcdn": "^0.1.4",
     "jade": "~1.1.5",
-    "js-yaml": "~3.0.1"
+    "js-yaml": "~3.0.1",
+    "morgan": "~1.0.1",
+    "express": "~4.2.0",
+    "serve-favicon": "~2.0.0",
+    "serve-static": "~1.1.0",
+    "errorhandler": "~1.0.1",
+    "method-override": "~1.0.0"
   },
   "devDependencies": {
     "expect.js": "~0.2.0",
