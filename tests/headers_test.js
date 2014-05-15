@@ -13,7 +13,7 @@ var paths = [
   'http://netdna.bootstrapcdn.com/bootstrap/latest/fonts/glyphicons-halflings-regular.svg',
   'http://netdna.bootstrapcdn.com/bootstrap/latest/fonts/glyphicons-halflings-regular.eot',
   //Font Awesome
-  'http://netdna.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css',
+  'http://netdna.bootstrapcdn.com/font-awesome/latest/css/font-awesome.css',
   'http://netdna.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css',
   //Bootswatch
   'http://netdna.bootstrapcdn.com/bootswatch/latest/amelia/bootstrap.min.css',
@@ -108,7 +108,7 @@ describe('header verification', function() {
           'x-powered-by',
           'cache-control',
           'x-hello-human',
-          'x-page-speed'
+          //'x-page-speed'
         ].forEach(headerTest);
 
     });
