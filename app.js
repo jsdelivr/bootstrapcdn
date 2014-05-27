@@ -13,7 +13,6 @@ var path    = require('path');
 var fs      = require('fs');
 var yaml    = require('js-yaml');
 var express = require('express');
-var connect = require('connect');
 var http    = require('http');
 var app     = express();
 
