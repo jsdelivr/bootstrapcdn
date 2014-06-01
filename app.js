@@ -22,7 +22,6 @@ var favicon        = require('serve-favicon');
 var logger         = require('morgan');
 var serveStatic    = require('serve-static');
 var errorHandler   = require('errorhandler');
-var methodOverride = require('method-override');
 
 var config  = yaml.safeLoad(fs.readFileSync(path.join(__dirname, 'config', '_config.yml'), 'utf8'));
 var tweets  = yaml.safeLoad(fs.readFileSync(path.join(__dirname, 'config', '_tweets.yml'), 'utf8'));
@@ -57,7 +56,6 @@ app.use(function(req,res,next) {
 
 // middleware
 app.use(favicon(path.join(__dirname, 'public' + config.favicon)));
-app.use(methodOverride());
 app.use(serveStatic(path.join(__dirname, 'public')));
 
 // locals
