@@ -13,7 +13,6 @@ var path    = require('path');
 var fs      = require('fs');
 var yaml    = require('js-yaml');
 var express = require('express');
-var connect = require('connect');
 var http    = require('http');
 var app     = express();
 
@@ -45,13 +44,16 @@ app.disable('x-powered-by');
 
 // in line middleware actions
 app.use(function(req,res,next) {
-    // make config availabile in routes
+    // make config available in routes
     req.config = config;
-
-    // overwrite default cache-control header
-    // drop to 10 minutes
-    res.setHeader("Cache-Control", "public, max-age=600");
     next();
+});
+
+app.use(function(req, res, next) {
+  // overwrite default cache-control header
+  // drop to 10 minutes
+  res.setHeader("Cache-Control", "public, max-age=600");
+  next();
 });
 
 // middleware
