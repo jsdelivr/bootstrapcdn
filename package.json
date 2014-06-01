@@ -22,8 +22,7 @@
     "express": "~4.2.0",
     "serve-favicon": "~2.0.0",
     "serve-static": "~1.1.0",
-    "errorhandler": "~1.0.1",
-    "method-override": "~1.0.0"
+    "errorhandler": "~1.0.1"
   },
   "devDependencies": {
     "expect.js": "~0.2.0",
