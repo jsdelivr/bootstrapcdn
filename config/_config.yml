@@ -49,7 +49,7 @@ bootswatch:
     version: "3.1.1"
     link: "http://bootswatch.com/SWATCH_NAME/"
     image: "http://bootswatch.com/SWATCH_NAME/thumbnail.png"
-    bootstrap: "//netdna.bootstrapcdn.com/bootswatch/SWATCH_VERSION/SWATCH_NAME/bootstrap.min.css"
+    bootstrap: "//maxcdn.bootstrapcdn.com/bootswatch/SWATCH_VERSION/SWATCH_NAME/bootstrap.min.css"
     themes:
         - amelia    # 0
         - cerulean  # 1
@@ -73,8 +73,8 @@ bootswatch:
 bootstrap:
     - version: "3.1.1"
       latest: true
-      css_complete: "//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"
-      javascript:  "//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"
+      css_complete: "//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"
+      javascript:  "//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"
 
     - version: "3.1.0"
       css_complete: "//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css"
@@ -149,7 +149,7 @@ bootstrap:
 fontawesome:
     - version: "4.1.0"
       latest: true
-      css_complete: "//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
+      css_complete: "//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
 
     - version: "4.0.3"
       css_complete: "//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"
