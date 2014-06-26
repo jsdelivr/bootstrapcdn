@@ -1,3 +1,5 @@
+'use strict';
+
 var http = require('http');
 var assert = require('assert');
 
@@ -11,7 +13,7 @@ var paths = [
   'http://netdna.bootstrapcdn.com/bootstrap/latest/fonts/glyphicons-halflings-regular.svg',
   'http://netdna.bootstrapcdn.com/bootstrap/latest/fonts/glyphicons-halflings-regular.eot',
   //Font Awesome
-  'http://netdna.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css',
+  'http://netdna.bootstrapcdn.com/font-awesome/latest/css/font-awesome.css',
   'http://netdna.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css',
   //Bootswatch
   'http://netdna.bootstrapcdn.com/bootswatch/latest/amelia/bootstrap.min.css',
@@ -26,6 +28,7 @@ var paths = [
   'http://netdna.bootstrapcdn.com/bootswatch/latest/united/bootstrap.min.css',
   'http://netdna.bootstrapcdn.com/bootswatch/latest/flatly/bootstrap.min.css',
   'http://netdna.bootstrapcdn.com/bootswatch/latest/yeti/bootstrap.min.css',
+  'http://netdna.bootstrapcdn.com/bootswatch/latest/darkly/bootstrap.min.css',
   'http://netdna.bootstrapcdn.com/bootswatch/latest/fonts/glyphicons-halflings-regular.woff',
   'http://netdna.bootstrapcdn.com/bootswatch/latest/fonts/glyphicons-halflings-regular.ttf',
   'http://netdna.bootstrapcdn.com/bootswatch/latest/fonts/glyphicons-halflings-regular.svg',
@@ -105,7 +108,7 @@ describe('header verification', function() {
           'x-powered-by',
           'cache-control',
           'x-hello-human',
-          'x-page-speed'
+          //'x-page-speed'
         ].forEach(headerTest);
 
     });
