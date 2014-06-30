@@ -1,6 +1,6 @@
 port: 3333
 
-theme: 12 # bootswatch.themes[n]
+theme: 13 # bootswatch.themes[n]
 
 authors:
 - Joshua Mervine
@@ -46,7 +46,7 @@ javascript:
 # the cosponding theme. SWATCH_VERSION will be replaced with
 # the version specified.
 bootswatch:
-    version: "3.1.1"
+    version: "3.2.0"
     link: "http://bootswatch.com/SWATCH_NAME/"
     image: "http://bootswatch.com/SWATCH_NAME/thumbnail.png"
     bootstrap: "//maxcdn.bootstrapcdn.com/bootswatch/SWATCH_VERSION/SWATCH_NAME/bootstrap.min.css"
@@ -55,17 +55,17 @@ bootswatch:
         - cerulean  # 1
         - cosmo     # 2
         - cyborg    # 3
-        - flatly    # 4
-        - journal   # 5
-        - lumen     # 6
-        - readable  # 7
-        - simplex   # 8
-        - slate     # 9
-        - spacelab  # 10
-        - superhero # 11
-        - united    # 12
-        - yeti      # 13
-        - darkly    # 14
+        - darkly    # 4
+        - flatly    # 5
+        - journal   # 6
+        - lumen     # 7
+        - readable  # 8
+        - simplex   # 9
+        - slate     # 10
+        - spacelab  # 11
+        - superhero # 12
+        - united    # 13
+        - yeti      # 14
 
 ####
 # TODO: Perhaps move to a database (redis or mongo),
