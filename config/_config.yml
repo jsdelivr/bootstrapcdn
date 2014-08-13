@@ -1,6 +1,6 @@
 port: 3333
 
-theme: 12 # bootswatch.themes[n]
+theme: 15 # bootswatch.themes[n]
 
 authors:
 - Joshua Mervine
@@ -23,7 +23,7 @@ extras: true
 # Note: stylesheets and javascript will be loaded
 # in the order they are specified.
 stylesheets:
-- "//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"
+- "//maxcdn.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"
 - "/stylesheets/style.css"
 
 javascript:
@@ -36,7 +36,7 @@ javascript:
     after:
     - "//code.jquery.com/jquery-1.11.0.min.js"
     - "//platform.twitter.com/widgets.js"
-    - "//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"
+    - "//maxcdn.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"
 
 ####
 # TODO: Perhaps move to a database (redis or mongo),
@@ -46,35 +46,41 @@ javascript:
 # the cosponding theme. SWATCH_VERSION will be replaced with
 # the version specified.
 bootswatch:
-    version: "3.1.1"
+    version: "3.2.0"
     link: "http://bootswatch.com/SWATCH_NAME/"
     image: "http://bootswatch.com/SWATCH_NAME/thumbnail.png"
-    bootstrap: "//netdna.bootstrapcdn.com/bootswatch/SWATCH_VERSION/SWATCH_NAME/bootstrap.min.css"
+    bootstrap: "//maxcdn.bootstrapcdn.com/bootswatch/SWATCH_VERSION/SWATCH_NAME/bootstrap.min.css"
     themes:
         - amelia    # 0
         - cerulean  # 1
         - cosmo     # 2
         - cyborg    # 3
-        - flatly    # 4
-        - journal   # 5
-        - lumen     # 6
-        - readable  # 7
-        - simplex   # 8
-        - slate     # 9
-        - spacelab  # 10
-        - superhero # 11
-        - united    # 12
-        - yeti      # 13
-        - darkly    # 14
+        - darkly    # 4
+        - flatly    # 5
+        - journal   # 6
+        - lumen     # 7
+        - paper     # 8
+        - readable  # 9
+        - sandstone # 10
+        - simplex   # 11
+        - slate     # 12
+        - spacelab  # 13
+        - superhero # 14
+        - united    # 15
+        - yeti      # 16
 
 ####
 # TODO: Perhaps move to a database (redis or mongo),
 # or to its own configuration file.
 bootstrap:
-    - version: "3.1.1"
+    - version: "3.2.0"
       latest: true
-      css_complete: "//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"
-      javascript:  "//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"
+      css_complete: "//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"
+      javascript:  "//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"
+
+    - version: "3.1.1"
+      css_complete: "//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"
+      javascript:  "//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"
 
     - version: "3.1.0"
       css_complete: "//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css"
@@ -149,7 +155,7 @@ bootstrap:
 fontawesome:
     - version: "4.1.0"
       latest: true
-      css_complete: "//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
+      css_complete: "//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
 
     - version: "4.0.3"
       css_complete: "//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"
