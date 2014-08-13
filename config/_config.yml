@@ -1,6 +1,6 @@
 port: 3333
 
-theme: 13 # bootswatch.themes[n]
+theme: 15 # bootswatch.themes[n]
 
 authors:
 - Joshua Mervine
@@ -59,13 +59,15 @@ bootswatch:
         - flatly    # 5
         - journal   # 6
         - lumen     # 7
-        - readable  # 8
-        - simplex   # 9
-        - slate     # 10
-        - spacelab  # 11
-        - superhero # 12
-        - united    # 13
-        - yeti      # 14
+        - paper     # 8
+        - readable  # 9
+        - sandstone # 10
+        - simplex   # 11
+        - slate     # 12
+        - spacelab  # 13
+        - superhero # 14
+        - united    # 15
+        - yeti      # 16
 
 ####
 # TODO: Perhaps move to a database (redis or mongo),
