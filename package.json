@@ -8,7 +8,8 @@
     "start": "NODE_ENV=production forever -m 4 -p logs -l server.log --append --plain start server.js",
     "status": "forever list",
     "stop": "forever stop server.js",
-    "test": "mocha --timeout 15000 ./tests/*_test.js ./tests/**/*_test.js -R spec"
+    "test": "mocha --timeout 15000 ./tests/*_test.js ./tests/**/*_test.js -R spec",
+    "test-nc": "mocha --no-colors --timeout 15000 ./tests/*_test.js ./tests/**/*_test.js -R spec"
   },
   "dependencies": {
     "comma-it": "~0.0.5",
@@ -27,6 +28,7 @@
     "expect.js": "~0.2.0",
     "format": "~0.2.1",
     "mocha": "~1.17.1",
+    "net-ping": "^1.1.11",
     "superagent": "~0.16.0"
   }
 }
