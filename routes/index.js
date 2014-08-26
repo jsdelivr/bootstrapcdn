@@ -1,7 +1,7 @@
 'use strict';
 
 function index(req, res) {
-    res.render('index', { title: 'Bootstrap CDN', theme: req.query.theme });
+    res.render('index', { title: 'Bootstrap CDN by MaxCDN', theme: req.query.theme });
 }
 
 module.exports = {
