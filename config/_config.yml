@@ -153,8 +153,11 @@ bootstrap:
       javascript:   "//netdna.bootstrapcdn.com/twitter-bootstrap/2.0.4/js/bootstrap.min.js"
 
 fontawesome:
-    - version: "4.1.0"
+    - version: "4.2.0"
       latest: true
+      css_complete: "//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
+
+    - version: "4.1.0"
       css_complete: "//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
 
     - version: "4.0.3"
