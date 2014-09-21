@@ -1,0 +1,37 @@
+ @font-face {
+  font-family: "Bootstrap stroke";
+  src:
+       url('../fonts/bootstrap-stroke.eot?#iefix&v=3.2.0') format('embedded-opentype'), 
+       url('../fonts/bootstrap-stroke.woff?v=3.2.0') format('woff'),
+       url('../fonts/bootstrap-stroke.ttf?v=3.2.0') format('truetype'), 
+       url('../fonts/bootstrap-stroke.svg#bootstrap-stroke?v=3.2.0') format("svg");
+ }
+
+.glyphicon {
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-family: 'Bootstrap stroke';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.glyphicon-plus-circle:before {
+  content: "\e401";
+}
+.glyphicon-minus-circle:before {
+  content: "\e402";
+}
+.glyphicon-question-circle:before {
+  content: "\e403";
+}
+.glyphicon-info-circle:before {
+  content: "\e404";
+}
+.glyphicon-exclamation-circle:before {
+  content: "\e405";
+}
