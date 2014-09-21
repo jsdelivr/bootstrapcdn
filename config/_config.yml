@@ -175,5 +175,9 @@ fontawesome:
     - version: "3.2.1"
       css_complete: "//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css"
 
+bootstrapstroke:
+    - version: "3.2.0"
+      latest: true
+      css_complete: "//maxcdn.bootstrapcdn.com/bootstrap-stroke/3.2.0/css/bootstrap_stroke.css"
 
 # vim: ft=yaml sw=4 sts=4 et:
