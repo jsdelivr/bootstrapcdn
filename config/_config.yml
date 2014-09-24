@@ -72,6 +72,11 @@ bootswatch:
 ####
 # TODO: Perhaps move to a database (redis or mongo),
 # or to its own configuration file.
+bootlint:
+    - version: "0.2.0"
+      latest: true
+      javascript:  "//maxcdn.bootstrapcdn.com/bootstrap/0.2.0/bootlint.min.js"
+
 bootstrap:
     - version: "3.2.0"
       latest: true

@@ -29,6 +29,7 @@
     "format": "~0.2.1",
     "mocha": "~1.17.1",
     "net-ping": "^1.1.11",
-    "superagent": "~0.16.0"
+    "superagent": "~0.16.0",
+    "uglify-js": "^2.4.15"
   }
 }
