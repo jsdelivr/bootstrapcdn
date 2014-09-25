@@ -75,7 +75,7 @@ bootswatch:
 bootlint:
     - version: "0.2.0"
       latest: true
-      javascript:  "//maxcdn.bootstrapcdn.com/bootstrap/0.2.0/bootlint.min.js"
+      javascript:  "//maxcdn.bootstrapcdn.com/bootlint/0.2.0/bootlint.min.js"
 
 bootstrap:
     - version: "3.2.0"
