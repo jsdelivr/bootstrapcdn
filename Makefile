@@ -44,5 +44,13 @@ nginx.conf: .PHONY
 wp-plugin: setup
 	node ./scripts/wp-plugin.js
 
+bootlint: setup
+	make start
+	@sleep 3
+	curl http://localhost:3333/ > lint.html
+	-./node_modules/.bin/bootlint lint.html
+	make stop
+	rm lint.html
+
 .PHONY:
 # vim: ft=make:

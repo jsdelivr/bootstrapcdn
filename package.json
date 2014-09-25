@@ -25,6 +25,7 @@
     "errorhandler": "~1.0.1"
   },
   "devDependencies": {
+    "bootlint": "^0.2.0",
     "expect.js": "~0.2.0",
     "format": "~0.2.1",
     "mocha": "~1.17.1",
