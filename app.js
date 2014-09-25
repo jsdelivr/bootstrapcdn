@@ -53,6 +53,10 @@ app.use(function(req, res, next) {
   // overwrite default cache-control header
   // drop to 10 minutes
   res.setHeader("Cache-Control", "public, max-age=600");
+
+  // enable bootlint where applicable
+  app.locals.bootlint = (req.query.bootlint && req.query.bootlint === 'true');
+
   next();
 });
 
