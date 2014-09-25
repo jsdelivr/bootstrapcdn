@@ -8,3 +8,4 @@ inc/
 reports/
 npm-debug.log
 .popular.json
+lint.html
