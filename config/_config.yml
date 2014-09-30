@@ -23,7 +23,7 @@ extras: true
 # Note: stylesheets and javascript will be loaded
 # in the order they are specified.
 stylesheets:
-- "//maxcdn.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"
+- "//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
 - "/stylesheets/style.css"
 
 javascript:
@@ -34,9 +34,9 @@ javascript:
     # scripts specified in the after group will be loaded
     # as blocking scripts at the bottom of the page
     after:
-    - "//code.jquery.com/jquery-1.11.0.min.js"
+    - "//code.jquery.com/jquery-1.11.1.min.js"
+    - "//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"
     - "//platform.twitter.com/widgets.js"
-    - "//maxcdn.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"
 
 ####
 # TODO: Perhaps move to a database (redis or mongo),
