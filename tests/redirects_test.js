@@ -10,11 +10,12 @@ var format = require('format');
 var config = yaml.safeLoad(fs.readFileSync(path.join(__dirname, '..', 'config', '_config.yml'), 'utf8'));
 process.env.PORT = config.port+1; // don't use configured port
 
-var app = require('../app.js');
-var host = format('http://localhost:%s',process.env.PORT);
+var app       = require('../app.js');
+var host      = format('http://localhost:%s',process.env.PORT);
+var redirects = yaml.safeLoad(fs.readFileSync(path.join(__dirname, '..', 'config', '_redirects.yml'), 'utf8'));
 
 describe('redirects', function() {
-    Object.keys(require('../config/_redirects')).forEach(function(requested) {
+    Object.keys(redirects).forEach(function(requested) {
         it(requested+' :: 301\'s', function(done) {
             http.get(host+requested, function(res) {
                 assert(res);
