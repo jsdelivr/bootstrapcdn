@@ -55,7 +55,12 @@ app.use(function(req, res, next) {
   res.setHeader("Cache-Control", "public, max-age=600");
 
   // enable bootlint where applicable
-  app.locals.bootlint = (req.query.bootlint && req.query.bootlint === 'true');
+  if (req.query.bootlint && req.query.bootlint === 'true') {
+      config.bootlint.forEach(function (bootlint) {
+          if (bootlint.latest === true)
+              app.locals.bootlint = bootlint.javascript;
+      });
+  }
 
   next();
 });
