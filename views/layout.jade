@@ -1,16 +1,15 @@
 doctype
 html
     head
-        title= title
-
         meta(charset='utf-8')
+        meta('http-equiv'='X-UA-Compatible' content='IE=edge')
         meta(name='viewport', content='width=device-width, initial-scale=1')
+        title=title
         meta(name='author', content=config.authors.join(', '))
         meta(name='description', content=(description || config.description))
         meta(name='globalsign-domain-verification' content='vJwh9ymdYQvKKoNsjOXy8GEoFDllB-6CS3whL8b9XH')
-        meta('http-equiv'='X-UA-Compatible' content='IE=edge')
 
-        link(rel='shortcut', href=config.favicon)
+        link(rel='shortcut icon', href=config.favicon)
 
         link(rel='stylesheet', href=helpers.theme.css(config, theme))
 
