@@ -1,11 +1,11 @@
 .DS_Store
+.popular.json
 .zedstate
-/logs
+/logs/
 /nginx.conf
-/node_modules
+/node_modules/
+/npm-debug.log
 data/
 inc/
 reports/
-npm-debug.log
-.popular.json
 lint.html
