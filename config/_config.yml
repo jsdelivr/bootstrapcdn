@@ -42,7 +42,7 @@ javascript:
 # or to its own configuration file.
 #
 # In the configs below, SWATCH_NAME will be replaced with
-# the cosponding theme. SWATCH_VERSION will be replaced with
+# the corresponding theme. SWATCH_VERSION will be replaced with
 # the version specified.
 bootswatch:
     version: "3.2.0"
