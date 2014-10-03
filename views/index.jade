@@ -1,7 +1,7 @@
 extends layout
 
 block content
-    //-Don't want to run ranomizer twice.
+    //-Don't want to run randomizer twice.
     - var randomTweets = helpers.randomTweets(tweets)
 
     include _partials/jumbotron
@@ -13,5 +13,8 @@ block content
 
             .col-md-3.visible-md.visible-lg
                 include _partials/tweets
+
+block last
+    script(async src="//platform.twitter.com/widgets.js")
 
 //- vim: ft=jade sw=4 sts=4 et:
