@@ -1,16 +1,15 @@
 doctype
 html
     head
-        title= title
-
         meta(charset='utf-8')
+        meta('http-equiv'='X-UA-Compatible' content='IE=edge')
         meta(name='viewport', content='width=device-width, initial-scale=1')
+        title=title
         meta(name='author', content=config.authors.join(', '))
         meta(name='description', content=(description || config.description))
         meta(name='globalsign-domain-verification' content='vJwh9ymdYQvKKoNsjOXy8GEoFDllB-6CS3whL8b9XH')
-        meta('http-equiv'='X-UA-Compatible' content='IE=edge')
 
-        link(rel='shortcut', href=config.favicon)
+        link(rel='shortcut icon', href=config.favicon)
 
         link(rel='stylesheet', href=helpers.theme.css(config, theme))
 
@@ -20,7 +19,7 @@ html
 
         - if (config.javascript && config.javascript.before)
             - each js in config.javascript.before
-                script(src=js, charset="utf-8")
+                script(src=js)
 
         block head
 
@@ -29,16 +28,14 @@ html
 
         block content
 
-        - if (config.google_analytics)
-            include _partials/javascripts/google_analytics
+        block last
 
         - if (config.javascript && config.javascript.after)
             - each js in config.javascript.after
                 script(src=js)
+        - if (config.google_analytics)
+            include _partials/javascripts/google_analytics
 
-        //-include _partials/footer
         include _partials/javascripts/after
-
-        block last
 
 //- vim: ft=jade sw=4 sts=4 et:
