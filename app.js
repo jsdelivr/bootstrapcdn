@@ -83,7 +83,7 @@ app.get('/extras/app',      extras.app);
 app.get('/extras/birthday', extras.birthday);
 
 // redirects
-var redirects = require('./config/_redirects');
+var redirects = yaml.safeLoad(fs.readFileSync(path.join(__dirname, 'config', '_redirects.yml'), 'utf8'));
 Object.keys(redirects).forEach(function(requested) {
     app.get(requested, function(req, res) { res.redirect(301, redirects[requested]); });
 });
