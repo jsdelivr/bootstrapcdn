@@ -10,41 +10,42 @@ block content
                 - else
                     p Total requests per file and total bandwidth of popular files.
 
-                    table.table.table-striped.table-hover
-                        thead
-                            tr
-                                th &nbsp;
-                                th URI
-                                th Hits (Requests)
-                                th &nbsp;
-                                th Bandwidth
-                                th &nbsp;
-                        tbody
-                            - for entry in data.sort(function(a,b) { return b.hit-a.hit; })
-                                - if (entry.hit > 1000)
-                                    tr
-                                        td
-                                            - var ext = entry.uri.match(/\.[a-zA-Z]+$/)[0].replace(/^\./,'');
-                                            img(src="/images/reports/"+ext+".png", alt=ext, width="30", height="30")
-                                        td= entry.uri
-                                        td
-                                            .progress
-                                                - var hitProgress = ((entry.hit/data[0].hit)*100).toFixed(2);
-                                                .progress-bar(role="progressbar",
-                                                              aria-valuenow=hitProgress,
-                                                              aria-valuemin="0",
-                                                              aria-valuemax="100",
-                                                              style="width: "+hitProgress+"%")
-                                        td= commaIt(entry.hit, {addPrecision:false, thousandSeperator : ',', decimalSeperator : '.'})+" Requests"
-                                        td
-                                            .progress
-                                                - var sizeProgress = ((entry.size/maxSize)*100).toFixed(2);
-                                                .progress-bar(role="progressbar",
-                                                              aria-valuenow=sizeProgress,
-                                                              aria-valuemin="0",
-                                                              aria-valuemax="100",
-                                                              style="width: "+sizeProgress+"%")
-                                        td= (entry.size/1073741824).toFixed(2) + " GB"
+                    .table-responsive
+                        table.table.table-striped.table-hover
+                            thead
+                                tr
+                                    th &nbsp;
+                                    th URI
+                                    th Hits (Requests)
+                                    th &nbsp;
+                                    th Bandwidth
+                                    th &nbsp;
+                            tbody
+                                - for entry in data.sort(function(a,b) { return b.hit-a.hit; })
+                                    - if (entry.hit > 1000)
+                                        tr
+                                            td
+                                                - var ext = entry.uri.match(/\.[a-zA-Z]+$/)[0].replace(/^\./,'');
+                                                img(src="/images/reports/"+ext+".png", alt=ext, width="30", height="30")
+                                            td= entry.uri
+                                            td
+                                                .progress
+                                                    - var hitProgress = ((entry.hit/data[0].hit)*100).toFixed(2);
+                                                    .progress-bar(role="progressbar",
+                                                                  aria-valuenow=hitProgress,
+                                                                  aria-valuemin="0",
+                                                                  aria-valuemax="100",
+                                                                  style="width: "+hitProgress+"%")
+                                            td= commaIt(entry.hit, {addPrecision:false, thousandSeperator : ',', decimalSeperator : '.'})+" Requests"
+                                            td
+                                                .progress
+                                                    - var sizeProgress = ((entry.size/maxSize)*100).toFixed(2);
+                                                    .progress-bar(role="progressbar",
+                                                                  aria-valuenow=sizeProgress,
+                                                                  aria-valuemin="0",
+                                                                  aria-valuemax="100",
+                                                                  style="width: "+sizeProgress+"%")
+                                            td= (entry.size/1073741824).toFixed(2) + " GB"
 
                 a(href="http://medialoot.com/") Icons by Medialoot.com
 
