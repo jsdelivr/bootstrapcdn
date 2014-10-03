@@ -25,22 +25,20 @@ var errorHandler   = require('errorhandler');
 var config  = yaml.safeLoad(fs.readFileSync(path.join(__dirname, 'config', '_config.yml'), 'utf8'));
 var tweets  = yaml.safeLoad(fs.readFileSync(path.join(__dirname, 'config', '_tweets.yml'), 'utf8'));
 
-// production
-if (env === 'production') {
-  app.use(logger());
-}
-
-// development
-if (env === 'development') {
-    app.use(logger('dev'));
-    app.use(errorHandler({ dumpExceptions: true, showStack: true }));
-}
-
 // all environments
 app.set('port', process.env.PORT || config.port || 3000);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
 app.disable('x-powered-by');
+
+// production
+if (env === 'production') {
+    app.use(logger());
+} else {
+    app.locals.pretty = true;
+    app.use(logger('dev'));
+    app.use(errorHandler({ dumpExceptions: true, showStack: true }));
+}
 
 // in line middleware actions
 app.use(function(req,res,next) {
