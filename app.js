@@ -4,7 +4,7 @@
 try {
     require('graphdat'); // manually installed, not part of package.json
 } catch(e) {
-    console.log('[NOTE]: graphdat is not installed, given that it\'s an manually installed module and not part of package.json, we\'re ignoring error and continuing.');
+    console.log('[NOTE]: graphdat is not installed, given that it\'s a manually installed module and not part of package.json, we\'re ignoring error and continuing.');
 }
 
 var env = process.env.NODE_ENV || 'development';
@@ -22,8 +22,8 @@ var logger         = require('morgan');
 var serveStatic    = require('serve-static');
 var errorHandler   = require('errorhandler');
 
-var config  = yaml.safeLoad(fs.readFileSync(path.join(__dirname, 'config', '_config.yml'), 'utf8'));
-var tweets  = yaml.safeLoad(fs.readFileSync(path.join(__dirname, 'config', '_tweets.yml'), 'utf8'));
+var config = yaml.safeLoad(fs.readFileSync(path.join(__dirname, 'config', '_config.yml'), 'utf8'));
+var tweets = yaml.safeLoad(fs.readFileSync(path.join(__dirname, 'config', '_tweets.yml'), 'utf8'));
 
 // production
 if (env === 'production') {
