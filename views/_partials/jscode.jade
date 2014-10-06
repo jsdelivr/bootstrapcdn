@@ -1,13 +1,13 @@
 .well.hidden(id=name)
     .form-group
-        label(for='html') HTML
-        input.form-control(type='text', value='<script src="'+jsPath+'"></script>')
+        label(for='haml_' + name) HTML
+        input.form-control(type='text', id='html_' + name, value='<script src="'+jsPath+'"></script>')
     .form-group
-        label(for='jade')
+        label(for='haml_' + name)
             a(href="http://jade-lang.com/") JADE
-        input.form-control(type='text', value='script(src="'+jsPath+'")')
+        input.form-control(type='text', id='jade_' + name, value='script(src="'+jsPath+'")')
     .form-group
-        label(for='haml')
+        label(for='haml_' + name)
             a(href="http://haml.info/") HAML
-        input.form-control(type='text', value='%script{:src=>"'+jsPath+'"}')
+        input.form-control(type='text', id='haml_' + name, value='%script{:src=>"'+jsPath+'"}')
 //- vim: ft=jade sw=4 sts=4 et:
