@@ -62,7 +62,7 @@ describe('popular', function() {
             var file = config.bootswatch.bootstrap
                                 .replace('SWATCH_NAME', theme)
                                 .replace('SWATCH_VERSION', config.bootstrap.version)
-                                .replace('//netdna.bootstrapcdn.com','');
+                                .replace('//maxcdn.bootstrapcdn.com','');
             it(format('-> %s',theme), function(done) {
                 assert(
                     response.body.indexOf(file)
@@ -75,10 +75,10 @@ describe('popular', function() {
     describe('contains bootstrap', function() {
         config.bootstrap.forEach(function(bootstrap) {
             it(format('-> %s',bootstrap.version), function(done) {
-                assert(response.body.indexOf(bootstrap.css_complete.replace('//netdna.bootstrapcdn.com','')));
-                assert(response.body.indexOf(bootstrap.javascript.replace('//netdna.bootstrapcdn.com','')));
+                assert(response.body.indexOf(bootstrap.css_complete.replace('//maxcdn.bootstrapcdn.com','')));
+                assert(response.body.indexOf(bootstrap.javascript.replace('//maxcdn.bootstrapcdn.com','')));
                 if (bootstrap.css_no_icons) {
-                    assert(response.body.indexOf(bootstrap.css_no_icons.replace('//netdna.bootstrapcdn.com','')));
+                    assert(response.body.indexOf(bootstrap.css_no_icons.replace('//maxcdn.bootstrapcdn.com','')));
                 }
                 done();
             });
