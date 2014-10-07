@@ -2,6 +2,8 @@
 
 require('shelljs/make');
 var path = require('path');
+var http = require('http');
+var fs   = require('fs');
 
 var rootDir = path.join(__dirname + '/');
 var FOREVER = path.join(__dirname, 'node_modules/.bin/forever');
@@ -71,6 +73,45 @@ var MOCHA = path.join(__dirname, 'node_modules/.bin/mocha');
         exec(FOREVER + ' list');
     };
 
+    //
+    // make wp-plugin
+    //
+    target['wp-plugin'] = function() {
+        echo('node ./scripts/wp-plugin.js');
+        exec('node ./scripts/wp-plugin.js');
+    };
+
+    //
+    // make bootlint
+    //
+    target.bootlint = function() {
+        echo('+ node make start');
+        target.start();
+
+        // sleep
+        setTimeout(function() {
+            var file = fs.createWriteStream("lint.html");
+
+            // okay, not really curl, but it communicates
+            echo('+ curl http://localhost:3333/ > ./lint.html');
+            var request = http.get("http://localhost:3333/", function(response) {
+              response.pipe(file);
+
+              response.on('end', function() {
+                  file.close();
+
+                  echo('+ bootlint ./lint.html');
+                  exec('./node_modules/.bin/bootlint ./lint.html');
+
+                  echo('+ node make stop');
+                  target.stop();
+
+                  //rm('link.html');
+              });
+            });
+        }, 2000);
+    };
+
 /*
  * Remains in Makefile
 nginx/start: nginx.conf
@@ -86,17 +127,6 @@ nginx/reload:
 
 nginx.conf:
 	sed -e "s/CURRENT_USER/$(USER)/g" .nginx.conf > nginx.conf
-
-wp-plugin: setup
-	node ./scripts/wp-plugin.js
-
-bootlint: setup
-	make start
-	@sleep 3
-	curl http://localhost:3333/ > lint.html
-	-./node_modules/.bin/bootlint lint.html
-	make stop
-	rm lint.html
 */
 
     //
