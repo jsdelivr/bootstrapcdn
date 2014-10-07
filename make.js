@@ -72,6 +72,7 @@ var MOCHA = path.join(__dirname, 'node_modules/.bin/mocha');
     };
 
 /*
+ * Remains in Makefile
 nginx/start: nginx.conf
 	sudo /usr/local/nginx/sbin/nginx -c /home/$(USER)/bootstrap-cdn/nginx.conf
 
@@ -112,7 +113,13 @@ bootlint: setup
     //
     target.help = function() {
         echo('Available targets:');
+        echo('  all         test and run');
         echo('  test        runs the tests');
+        echo('  test-nc     runs the tests w/o colors');
+        echo('  clean       cleanup working directory');
+        echo('  run         runs for development mode');
+        echo('  start       start application deamonized');
+        echo('  stop        stop application when deamonized');
         echo('  help        shows this help message');
     };
 
