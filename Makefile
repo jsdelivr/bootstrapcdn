@@ -32,8 +32,14 @@ status:
 help:
 	node make help
 
+bootlint: setup
+	node make bootlint
+
+wp-plugin: setup
+	node make wp-plugin
+
 ###
-# TODO: Consider moving the following tasks to 'make.js'
+# Tasks which remain in Makefile only.
 ###
 
 setup:
@@ -47,20 +53,8 @@ nginx/stop:
 
 nginx/restart: nginx/stop nginx/start
 
-nginx/reload:
+nginx/reload: nginx.conf
 	sudo pkill -HUP nginx
 
-nginx.conf:
+nginx.conf: .PHONY
 	sed -e "s/CURRENT_USER/$(USER)/g" .nginx.conf > nginx.conf
-
-wp-plugin: setup
-	node ./scripts/wp-plugin.js
-
-bootlint: setup
-	node make start
-	@sleep 3
-	curl http://localhost:3333/ > lint.html
-	-./node_modules/.bin/bootlint lint.html
-	node make stop
-	rm lint.html
-

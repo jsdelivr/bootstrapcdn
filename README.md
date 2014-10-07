@@ -6,6 +6,8 @@
 
 ## Running
 
+> When running basic `make` tasks, `make <task>` is supported for \*nix users and `node make <task>` is supported for Windows users.
+
 ### Development
 
 ```sh
@@ -13,7 +15,7 @@ npm install
 ```
 
 ```sh
-node make test run
+[node] make test run
 ```
 
 ### Demonized
@@ -42,6 +44,8 @@ tail -f ./logs/server.log
 ```
 
 ### Nginx
+
+Nginx tasks are only supported on \*nix platforms which support `make`.
 
 ```
 # generate nginx conf for your checkout and start nginx
