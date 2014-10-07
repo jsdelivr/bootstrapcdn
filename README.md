@@ -1,18 +1,22 @@
 # Bootstrap CDN [![Build Status](https://travis-ci.org/MaxCDN/bootstrap-cdn.png?branch=master)](https://travis-ci.org/MaxCDN/bootstrap-cdn)
 
-### Requirements
+## Requirements
 
 1. [Node.js](http://nodejs.org/)
 
-### Running
+## Running
 
-##### Development
+### Development
 
+```sh
+npm install
 ```
-make setup test run
+
+```sh
+node make test run
 ```
 
-##### Demonized
+### Demonized
 
 ```
 ##
@@ -21,48 +25,44 @@ make setup test run
 # npm <task name>
 ##
 
-# before start or after npm update
-make setup
-
 # start server
-make start
+node make start
 
 # stop server
-make stop
+node make stop
 
 # restart server
-make restart
+node make restart
 
 # server status
-make status
+node make status
 
 # view logs
 tail -f ./logs/server.log
 ```
 
-##### Nginx
+### Nginx
 
 ```
 # generate nginx conf for your checkout and start nginx
-make nginx/start
+node make nginx/start
 
 # stop nginx
-make nginx/stop
+node make nginx/stop
 
 # restart (stop then start) nginx
-make nginx/restart
+node make nginx/restart
 
 # HUP nginx process to reload configs
-make nginx/reload
-
+node make nginx/reload
 
 # to regnerate nginx.conf
 rm nginx.conf
 ```
 
-### Configuration
+## Configuration
 
-#### `config/_config.yml`
+### `config/_config.yml`
 
 Key Overview:
 
@@ -78,7 +78,7 @@ Key Overview:
 9. `bootswatch`: Hash containing current Bootswatch meta data and themes.
 10. `bootstrap`: Array of Hashes containing Bootstrap meta data and pathing.
 
-#### `config/_tweets.yml`
+### `config/_tweets.yml`
 
 To add new tweets to the "Mad Love" section, follow these steps:
 
@@ -87,7 +87,6 @@ To add new tweets to the "Mad Love" section, follow these steps:
 3. Wrap entire HTML block in double quotes (`"`).
 4. Add to `_tweets.yml`, preceeded with a dash (`-`), which signifies an array item in YAML.
 
-#### `config/_oauth.yml`
+### `config/_oauth.yml`
 
 This is reserved for MaxCDN and NetDNA installation only at this time. Contact @jdorfman for more information.
-
