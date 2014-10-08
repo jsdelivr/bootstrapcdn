@@ -25,12 +25,12 @@
     "serve-static": "^1.6.3"
   },
   "devDependencies": {
-    "bootlint": "^0.3.0",
+    "bootlint": "^0.4.0",
     "expect.js": "^0.3.1",
     "format": "^0.2.1",
     "mocha": "^1.21.4",
     "net-ping": "^1.1.11",
-    "superagent": "^0.19.1",
+    "superagent": "^0.20.0",
     "uglify-js": "^2.4.15"
   }
 }
