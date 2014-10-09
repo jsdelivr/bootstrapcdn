@@ -79,7 +79,8 @@ Key Overview:
 7. `stylesheets`: Array containing stylesheet files to be loaded at the top of the site.
 8. `javascripts`: Array containing javascript files to be loaded either `before` (at the top) or `after` (at the bottom) of the site.
 9. `bootswatch`: Hash containing current Bootswatch meta data and themes.
-10. `bootstrap`: Array of Hashes containing Bootstrap meta data and pathing.
+10. `bootlint`: Array of Hashes containing Bootlint meta data and pathing.
+11. `bootstrap`: Array of Hashes containing Bootstrap meta data and pathing.
 
 #### `config/_tweets.yml`
 
