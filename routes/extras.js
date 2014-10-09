@@ -76,8 +76,8 @@ function render(template, req, res, data) {
 }
 
 function popular(req, res) {
-    if (req.config.stats === "stub") {
-        load("../tests/stubs/popular.json", function (data) {
+    if (req.config.extras === "stub") {
+        load("tests/stubs/popular.json", function (data) {
             render('extras_popular', req, res, data);
         });
     } else {
