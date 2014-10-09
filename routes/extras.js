@@ -2,11 +2,12 @@
 
 var path    = require('path');
 var fs      = require('fs');
+var os      = require('os');
 var yaml    = require('js-yaml');
 var MaxCDN  = require('maxcdn');
 var config  = yaml.safeLoad(fs.readFileSync(path.join(__dirname, '..', 'config', '_maxcdn.yml'), 'utf8'));
 var maxcdn  = new MaxCDN(config.alias, config.key, config.secret);
-var popSave = "/tmp/.popular.json";
+var popSave = path.join(os.tmpdir(), ".popular.json");
 
 // grab cached version if fetch fails
 function load(file, callback) {
