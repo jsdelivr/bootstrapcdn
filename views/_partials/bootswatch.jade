@@ -5,24 +5,23 @@
             - var name = config.bootswatch.themes[i]
             - var cssPath=config.bootswatch.bootstrap.replace('SWATCH_NAME', name).replace('SWATCH_VERSION', config.bootswatch.version)
             .row
-                .col-sm-0.col-md-2
+                .col-md-2
                     .tryit
                         - if (i === helpers.theme.selected(config, theme))
                             b.btn.btn-primary.btn.disabled Active!
                         - else
-                            a.btn.btn-primary.btn(href="javascript:tryIt("+i+")") Try it!
+                            a.btn.btn-primary.btn(href="javascript:tryIt(" + i + ")") Try it!
                 .col-sm-12.col-md-8
                     .bootswatch
                         a(href=config.bootswatch.link.replace('SWATCH_NAME', name))
                             img.bootswatch.img-responsive(src=config.bootswatch.image.replace('SWATCH_NAME', name), alt=name + " thumbnail")
                         .input-group
-                            input.form-control(value=cssPath)
+                            input.form-control(type="text", value=cssPath)
                             .input-group-btn
-                                button.btn.btn-default(type="button", onclick="toggleCode(this,'"+name+"')")
+                                button.btn.btn-default(type="button", onclick="toggleCode(this,'" + name + "')")
                                     i.fa.fa-caret-down
                         include csscode
-                .col-sm-0.col-md-2
 
         - }
-    br
+
 //- vim: ft=jade sw=4 sts=4 et:
