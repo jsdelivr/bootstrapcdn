@@ -51,11 +51,12 @@ block content
 
         include _partials/footer
 block last
-    script.
-        $(window).load(function() {
-            $('ul.nav.navbar-nav li').each(function() { $(this).removeClass('active'); });
-            $('li#extras').addClass('active');
-            $('li#popular').addClass('active');
-        });
+    script
+        :uglify
+            $(window).load(function() {
+                $('ul.nav.navbar-nav li').each(function() { $(this).removeClass('active'); });
+                $('li#extras').addClass('active');
+                $('li#popular').addClass('active');
+            });
 
 //- vim: ft=jade sw=4 sts=4 et:
