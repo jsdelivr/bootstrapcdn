@@ -55,8 +55,14 @@ app.use(function(req, res, next) {
   // enable bootlint where applicable
   if (req.query.bootlint && req.query.bootlint === 'true') {
       config.bootlint.forEach(function (bootlint) {
-          if (bootlint.latest === true)
+          if (bootlint.latest === true) {
               app.locals.bootlint = bootlint.javascript;
+
+              if (env !== 'production') {
+                  app.locals.bootlint = app.locals.bootlint.replace('//maxcdn.bootstrapcdn.com', '');
+              }
+
+          }
       });
   }
 
