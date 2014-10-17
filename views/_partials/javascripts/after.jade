@@ -1,54 +1,59 @@
 script(src="//www.hellobar.com/hellobar.js")
-script.
-    new HelloBar(34009,110807);
+script
+    :uglify
+        new HelloBar(34009, 110807);
 
-script.
-    $("input:text").focus(function(){
-        $(this).select();
-        $(this).mouseup( function(a){ a.preventDefault(); })
-    });
+        $('input:text').focus(function() {
+            $(this).select();
+            $(this).mouseup( function(a) {
+                a.preventDefault();
+            });
+        });
 
-    var hash;
-    var hash_suffix = '_tab';
-    if (document.location.href.split('#')[1]) {
-        hash = '#'+document.location.href.split('#')[1].replace(hash_suffix,'');
-    }
-    if (hash) {
-        $('ul.nav.navbar-nav li a[href='+hash+']').tab('show');
-    }
+        var hash;
+        var hash_suffix = '_tab';
+        if (document.location.href.split('#')[1]) {
+            hash = '#' + document.location.href.split('#')[1].replace(hash_suffix, '');
+        }
+        if (hash) {
+            $('ul.nav.navbar-nav li a[href=' + hash + ']').tab('show');
+        }
 
-    function tabAction(ele) {
-        var selected = $(ele).attr('href');
-        document.location.href = "/"+(document.location.search ? document.location.search : '')+selected+hash_suffix;
-        hash = selected;
-    }
+        function tabAction(el) {
+            var selected = $(el).attr('href');
+            document.location.href = '/' + (document.location.search ? document.location.search : '') + selected + hash_suffix;
+            hash = selected;
+        }
 
-    function tryIt(n) {
-        window.location.href = "/?theme="+n+(hash ? hash+hash_suffix : '');
-    }
+        function tryIt(n) {
+            window.location.href = '/?theme=' + n + (hash ? hash + hash_suffix : '');
+        }
 
-    function toggleCode(ele,name) {
-        $('#'+name).toggleClass('hidden');
-        $(ele).find('b').toggleClass('icon-caret-down');
-        $(ele).find('b').toggleClass('icon-caret-up');
-    }
-    adroll_adv_id = "P2URKLNIJJHPJGQLX4X2FG";
-    adroll_pix_id = "WJFDYQ7CEZAXHPVFWBMMIY";
-    (function () {
-        var oldonload = window.onload;
-        window.onload = function(){
-        __adroll_loaded=true;
-        var scr = document.createElement("script");
-        var host = (("https:" == document.location.protocol) ? "https://s.adroll.com" : "http://a.adroll.com");
-        scr.setAttribute('async', 'true');
-        scr.type = "text/javascript";
-        scr.src = host + "/j/roundtrip.js";
-        ((document.getElementsByTagName('head') || [null])[0] ||
-        document.getElementsByTagName('script')[0].parentNode).appendChild(scr);
-        if(oldonload){oldonload()}}; }());
+        function toggleCode(el, name) {
+            $('#' + name).toggleClass('hidden');
+            $(el).find('b').toggleClass('icon-caret-down');
+            $(el).find('b').toggleClass('icon-caret-up');
+        }
+        adroll_adv_id = 'P2URKLNIJJHPJGQLX4X2FG';
+        adroll_pix_id = 'WJFDYQ7CEZAXHPVFWBMMIY';
+        (function () {
+            var oldonload = window.onload;
+            window.onload = function() {
+                __adroll_loaded = true;
+                var scr = document.createElement('script');
+                var host = (('https:' == document.location.protocol) ? 'https://s.adroll.com' : 'http://a.adroll.com');
+                scr.setAttribute('async', 'true');
+                scr.type = 'text/javascript';
+                scr.src = host + '/j/roundtrip.js';
+                ((document.getElementsByTagName('head') || [null])[0] ||
+                document.getElementsByTagName('script')[0].parentNode).appendChild(scr);
+                if (oldonload) {
+                    oldonload();
+                }
+            };
+        }());
 
-script.
-    (function(w, d) { var a = function() { var a = d.createElement('script'); a.type = 'text/javascript'; a.async = 'async'; a.src = '//' + ((w.location.protocol === 'https:') ? 's3.amazonaws.com/cdx-radar/' : 'radar.cedexis.com/') + '01-11475-radar10.min.js'; d.body.appendChild(a); }; if (w.addEventListener) { w.addEventListener('load', a, false); } else if (w.attachEvent) { w.attachEvent('onload', a); } }(window, document));
+        (function(w, d) { var a = function() { var a = d.createElement('script'); a.type = 'text/javascript'; a.async = 'async'; a.src = '//' + ((w.location.protocol === 'https:') ? 's3.amazonaws.com/cdx-radar/' : 'radar.cedexis.com/') + '01-11475-radar10.min.js'; d.body.appendChild(a); }; if (w.addEventListener) { w.addEventListener('load', a, false); } else if (w.attachEvent) { w.attachEvent('onload', a); } }(window, document));
 
 - if (bootlint)
     script(src=bootlint)
