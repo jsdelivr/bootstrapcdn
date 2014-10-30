@@ -81,6 +81,12 @@ var MOCHA = path.join(__dirname, 'node_modules/.bin/mocha');
         exec('node ./scripts/wp-plugin.js');
     };
 
+    target['purge-latest'] = function() {
+        // TODO: Make pure JS
+        echo('bash ./scripts/purge.sh');
+        exec('bash ./scripts/purge.sh');
+    };
+
     //
     // make bootlint
     //
