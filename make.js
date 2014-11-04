@@ -5,13 +5,12 @@ var path = require('path');
 var http = require('http');
 var fs   = require('fs');
 
-var rootDir = path.join(__dirname + '/');
 var FOREVER = path.join(__dirname, 'node_modules/.bin/forever');
 var MOCHA = path.join(__dirname, 'node_modules/.bin/mocha');
 
 
 (function() {
-    cd(rootDir);
+    cd(__dirname);
 
     //
     // make test
@@ -48,7 +47,7 @@ var MOCHA = path.join(__dirname, 'node_modules/.bin/mocha');
         if (!test('-e', 'logs')) {
             mkdir('logs');
         }
-        var NODE_ENV = 'production';
+        env.NODE_ENV = 'production';
         exec(FOREVER + ' -m 4 -p ./logs -l server.log --append --plain start server.js');
     };
 
