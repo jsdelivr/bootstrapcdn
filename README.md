@@ -35,7 +35,15 @@ The first is to use the stubbed version in the test framework, this can be done 
 extras: stub
 ```
 
-The second method would be to copy `tests/stubs/popular.json` to `/tmp/.popular.json` on Linux and Mac.
+The second method would be to copy `tests/stubs/popular.json` to your system's temp directory as `.popular.json` &ndash; e.g. `/tmp/.popular.json` on Linux and Mac.
+
+> If you're unsure of the location of the temp directory on your system, do the following:
+>
+> ```
+> $ node
+> > os.tmpdir()
+> '/tmp'
+> ```
 
 ### Demonized
 
