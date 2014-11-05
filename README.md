@@ -27,7 +27,6 @@ There are two ways of using local `popular.json` data.
 
 The first is to use the stubbed version in the test framework, this can be done by changing `config/_config.yml` and setting `extras` to `stub`...
 
-See: https://github.com/MaxCDN/bootstrap-cdn/blob/develop/routes/extras.js#L20
 ```yaml
 ####
 # Turn stats on or off.
