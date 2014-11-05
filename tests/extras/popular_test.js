@@ -8,7 +8,7 @@ var assert = require('assert');
 var format = require('format');
 
 var config = yaml.safeLoad(fs.readFileSync(path.join(__dirname, '..', '..', 'config', '_config.yml'), 'utf8'));
-process.env.PORT = config.port+1; // don't use configured port
+process.env.PORT = config.port + 1; // don't use configured port
 
 /***
  * MaxCDN Stub
@@ -19,12 +19,12 @@ MaxCDN.prototype.get = function (_, cb) {
     return;
 };
 
-var app = require('../../app.js');
+require('../../app.js');
 var host = format('http://localhost:%s',process.env.PORT);
 
 var response;
 before(function(done) {
-    http.get(host+'/extras/popular', function(res) {
+    http.get(host + '/extras/popular', function(res) {
         response = res;
         response.body = '';
         res.on('data', function(chunk) {
@@ -85,5 +85,3 @@ describe('popular', function() {
         });
     });
 });
-
-

@@ -87,7 +87,7 @@ var headers, status;
 
 // test to be run on each expected header
 var headerTest = function(head) {
-    it('has '+head, function(done) {
+    it('has ' + head, function(done) {
         assert(headers.hasOwnProperty(head));
 
         // for those expectedHeaders with values, verify the value
@@ -106,7 +106,7 @@ describe('functional tests', function () {
     describe('file verification', function() {
         domains.forEach(function(domain) {
             before(function(done) {
-                http.get('http://'+domain, function(res) {
+                http.get('http://' + domain, function(res) {
                     // body collection required for on 'end' event.
                     res.body = '';
                     res.on('data', function(chunk) { res.body += chunk; });
@@ -220,4 +220,3 @@ describe('functional tests', function () {
         });
     });
 });
-

@@ -27,7 +27,7 @@ var tweets = yaml.safeLoad(fs.readFileSync(path.join(__dirname, 'config', '_twee
 
 // all environments
 app.set('port', process.env.PORT || config.port || 3000);
-app.set('views', __dirname + '/views');
+app.set('views', path.join(__dirname, '/views'));
 app.set('view engine', 'jade');
 app.disable('x-powered-by');
 
@@ -41,7 +41,7 @@ if (env === 'production') {
 }
 
 // in line middleware actions
-app.use(function(req,res,next) {
+app.use(function(req, res, next) {
     // make config available in routes
     req.config = config;
     next();
