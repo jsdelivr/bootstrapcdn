@@ -31,7 +31,7 @@ function load(file, callback) {
     });
 }
 
-function save(file, data) {
+function save(file) {
     fs.writeFile(file, "utf-8", function (err) {
         if (err) {
             console.trace(err);
@@ -55,7 +55,7 @@ function fetchAndSaveOrLoad(callback) {
         }
 
         if (res && res.data && res.data.popularfiles && res.data.popularfiles.length !== 0) {
-            save(popSave, res);
+            save(popSave);
         }
 
         callback(res.data.popularfiles);
@@ -66,13 +66,13 @@ function fetchAndSaveOrLoad(callback) {
 function render(template, req, res, data) {
     var maxSize = 0;
     try {
-        maxSize   = data.sort(function(a,b) { return b.size-a.size; })[0].size;
+        maxSize   = data.sort(function(a, b) { return b.size - a.size; })[0].size;
     } catch (e) { }
     res.render(template, {
                     title: 'Bootstrap CDN',
                     theme: req.query.theme,
                     data: data,
-                    maxSize: maxSize,
+                    maxSize: maxSize
                 });
 }
 
