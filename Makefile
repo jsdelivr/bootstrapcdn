@@ -11,6 +11,8 @@ test:
 test-nc:
 	node make test-nc
 
+travis: test bootlint
+
 clean:
 	node make clean
 
@@ -32,7 +34,7 @@ status:
 help:
 	node make help
 
-bootlint: setup
+bootlint:
 	node make bootlint
 
 wp-plugin: setup
