@@ -33,7 +33,7 @@ app.disable('x-powered-by');
 
 // production
 if (env === 'production') {
-    app.use(logger());
+    app.use(logger('combined'));
 } else {
     app.locals.pretty = true;
     app.use(logger('dev'));
