@@ -9,15 +9,13 @@
 
 ## Running
 
-> When running basic `make` tasks, `make <task>` is supported for \*nix users and `node make <task>` is supported for Windows users.
+When running basic `make` tasks, `make <task>` is supported for \*nix users and `node make <task>` is supported for Windows users.
 
 ### Development
 
 ```sh
 npm install
-```
 
-```sh
 [node] make test run
 ```
 
@@ -37,13 +35,13 @@ extras: stub
 
 The second method would be to copy `tests/stubs/popular.json` to your system's temp directory as `.popular.json` &ndash; e.g. `/tmp/.popular.json` on Linux and Mac.
 
-> If you're unsure of the location of the temp directory on your system, do the following:
->
-> ```
-> $ node
-> > os.tmpdir()
-> '/tmp'
-> ```
+If you're unsure of the location of the temp directory on your system, do the following:
+
+```sh
+$ node
+> os.tmpdir()
+'/tmp'
+```
 
 ### Demonized
 
