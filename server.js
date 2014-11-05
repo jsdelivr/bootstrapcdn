@@ -10,7 +10,15 @@ var os = require('os');
 /**
  * Setup
  **/
-var numOfCores = os.cpus().length / 2;
+var env = process.env.NODE_ENV;
+var cores = os.cpus().length;
+var numOfCores;
+if (env === "production") {
+    numOfCores = cores === 1 ? cores : cores - 1;
+} else {
+    numOfCores = cores > 1 ? cores / 2 : cores;
+}
+
 var workers = parseInt(process.env.CLUSTER_WORKERS || numOfCores, 10);
 
 cluster.setupMaster({ exec : "app.js" });
@@ -39,7 +47,7 @@ setInterval(checkRestart, 2000);
 say("Master starting:");
 say("time        => " + datefmt(new Date(), "ddd, dd mmm yyyy hh:MM:ss Z"));
 say("pid         => " + process.pid);
-say("environment => " + process.env.NODE_ENV);
+say("environment => " + env);
 
 /**
  * Fork Workers
