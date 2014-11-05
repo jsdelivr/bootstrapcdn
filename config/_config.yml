@@ -1,6 +1,6 @@
 port: 3333
 
-theme: 15 # bootswatch.themes[n]
+theme: 14 # bootswatch.themes[n]
 
 authors:
 - Joshua Mervine
@@ -35,7 +35,7 @@ javascript:
     # as blocking scripts at the bottom of the page
     after:
     - "//code.jquery.com/jquery-1.11.1.min.js"
-    - "//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"
+    - "//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"
 
 ####
 # TODO: Perhaps move to a database (redis or mongo),
@@ -45,35 +45,37 @@ javascript:
 # the corresponding theme. SWATCH_VERSION will be replaced with
 # the version specified.
 bootswatch:
-    version: "3.2.0"
+    version: "3.3.0"
     link: "http://bootswatch.com/SWATCH_NAME/"
     image: "http://bootswatch.com/SWATCH_NAME/thumbnail.png"
     bootstrap: "//maxcdn.bootstrapcdn.com/bootswatch/SWATCH_VERSION/SWATCH_NAME/bootstrap.min.css"
     themes:
-        - amelia    # 0
-        - cerulean  # 1
-        - cosmo     # 2
-        - cyborg    # 3
-        - darkly    # 4
-        - flatly    # 5
-        - journal   # 6
-        - lumen     # 7
-        - paper     # 8
-        - readable  # 9
-        - sandstone # 10
-        - simplex   # 11
-        - slate     # 12
-        - spacelab  # 13
-        - superhero # 14
-        - united    # 15
-        - yeti      # 16
+        - cerulean  # 0
+        - cosmo     # 1
+        - cyborg    # 2
+        - darkly    # 3
+        - flatly    # 4
+        - journal   # 5
+        - lumen     # 6
+        - paper     # 7
+        - readable  # 8
+        - sandstone # 9
+        - simplex   # 10
+        - slate     # 11
+        - spacelab  # 12
+        - superhero # 13
+        - united    # 14
+        - yeti      # 15
 
 ####
 # TODO: Perhaps move to a database (redis or mongo),
 # or to its own configuration file.
 bootlint:
-    - version: "0.6.0"
+    - version: "0.7.0"
       latest: true
+      javascript:  "//maxcdn.bootstrapcdn.com/bootlint/0.7.0/bootlint.min.js"
+
+    - version: "0.6.0"
       javascript:  "//maxcdn.bootstrapcdn.com/bootlint/0.6.0/bootlint.min.js"
 
     - version: "0.5.0"

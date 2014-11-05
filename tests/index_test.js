@@ -8,10 +8,10 @@ var assert = require('assert');
 var format = require('format');
 
 var config = yaml.safeLoad(fs.readFileSync(path.join(__dirname, '..', 'config', '_config.yml'), 'utf8'));
-process.env.PORT = config.port+1; // don't use configured port
+process.env.PORT = config.port + 1; // don't use configured port
 
-var app = require('../app.js');
-var page = format('http://localhost:%s/',process.env.PORT);
+require('../app.js');
+var page = format('http://localhost:%s/', process.env.PORT);
 
 var tabs = [
     '#bootswatch',
@@ -38,7 +38,7 @@ before(function(done) {
 describe('index', function() {
     it('/ :: 200\'s', function(done) {
         assert(response);
-        assert(200 === response.statusCode);
+        assert(response.statusCode === 200);
         done();
     });
 
