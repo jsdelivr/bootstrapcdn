@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+'use strict';
+
 var fs   = require('fs');
 var yaml = require('js-yaml');
 var path = require('path');
@@ -34,4 +36,3 @@ fs.writeFile(
         console.log('regenerated bootstrapcdn.json');
     }
 );
-
