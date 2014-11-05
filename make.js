@@ -95,44 +95,65 @@ var MOCHA = path.join(__dirname, 'node_modules/.bin/mocha');
 
         // sleep
         setTimeout(function() {
-            var file = fs.createWriteStream("lint.html");
+            var output = 'lint.html';
+            var file = fs.createWriteStream(output);
 
             // okay, not really curl, but it communicates
-            echo('+ curl http://localhost:3333/ > ./lint.html');
+            echo('+ curl http://localhost:3333/ > ./' + output);
             var request = http.get("http://localhost:3333/", function(response) {
               response.pipe(file);
 
               response.on('end', function() {
                   file.close();
 
-                  echo('+ bootlint ./lint.html');
-                  exec('./node_modules/.bin/bootlint ./lint.html');
+                  echo('+ bootlint ./' + output);
+                  exec('./node_modules/.bin/bootlint ./' + output);
 
                   echo('+ node make stop');
                   target.stop();
 
-                  //rm('link.html');
+                  rm(output);
               });
             });
         }, 2000);
     };
 
-/*
- * Remains in Makefile
-nginx/start: nginx.conf
-	sudo /usr/local/nginx/sbin/nginx -c /home/$(USER)/bootstrap-cdn/nginx.conf
+    //
+    // make validator
+    //
+    target.validator = function() {
+        echo('+ node make start');
+        target.start();
 
-nginx/stop:
-	sudo pkill -9 nginx
+        // sleep
+        setTimeout(function() {
 
-nginx/restart: nginx/stop nginx/start
+            var output = 'index.html';
+            var file = fs.createWriteStream(output);
 
-nginx/reload:
-	sudo pkill -HUP nginx
+            // note; url version is failing due to a connection error, odd.
 
-nginx.conf:
-	sed -e "s/CURRENT_USER/$(USER)/g" .nginx.conf > nginx.conf
-*/
+            // okay, not really curl, but it communicates
+            echo('+ curl http://localhost:3333/ > ./' + output);
+            var request = http.get("http://localhost:3333/", function(response) {
+              response.pipe(file);
+
+              response.on('end', function() {
+                  file.close();
+
+                  echo('+ html-validator ./' + output);
+                  var res = exec('./node_modules/.bin/html-validator --file=' + output);
+
+                  echo('+ node make stop');
+                  target.stop();
+
+                  rm(output);
+
+                  if (res.output.indexOf('Error: ') !== -1) exit(1);
+              });
+            });
+        }, 2000);
+    };
 
     //
     // make all
