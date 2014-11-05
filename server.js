@@ -5,13 +5,15 @@
  **/
 var cluster = require('cluster');
 var datefmt = require('dateformat');
+var os = require('os');
 
 /**
  * Setup
  **/
-var workers = parseInt(process.env.CLUSTER_WORKERS || 2, 10);
+var numOfCores = os.cpus().length / 2;
+var workers = parseInt(process.env.CLUSTER_WORKERS || numOfCores, 10);
 
-cluster.setupMaster({exec : "app.js"});
+cluster.setupMaster({ exec : "app.js" });
 
 /**
  * Utilities
@@ -62,4 +64,5 @@ cluster.on('exit', function (worker) {
 cluster.on('online', function (worker) {
     say('worker      => start with pid: ' + worker.process.pid + '.');
 });
+
 // vim: ft=javascript sw=4 sts=4 et:
