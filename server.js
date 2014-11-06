@@ -12,14 +12,13 @@ var os = require('os');
  **/
 var env = process.env.NODE_ENV;
 var cores = os.cpus().length;
-var numOfCores;
 if (env === "production") {
-    numOfCores = cores === 1 ? cores : cores - 1;
+    cores = cores === 1 ? cores : cores - 1;
 } else {
-    numOfCores = cores > 1 ? cores / 2 : cores;
+    cores = cores > 1 ? cores / 2 : cores;
 }
 
-var workers = parseInt(process.env.CLUSTER_WORKERS || numOfCores, 10);
+var workers = parseInt(process.env.CLUSTER_WORKERS || cores, 10);
 
 cluster.setupMaster({ exec : "app.js" });
 
