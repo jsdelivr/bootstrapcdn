@@ -3,7 +3,9 @@
     div.well.text-center
         - for (var i = 0; i < config.bootswatch.themes.length; i++) {
             - var name = config.bootswatch.themes[i].toLowerCase()
+            - var domain = '//maxcdn.bootstrapcdn.com'
             - var cssPath=config.bootswatch.bootstrap.replace('SWATCH_NAME', name).replace('SWATCH_VERSION', config.bootswatch.version)
+            - cssPath = domain.concat(cssPath)
             .row
                 .col-md-2
                     .tryit
