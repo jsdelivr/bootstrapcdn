@@ -70,7 +70,7 @@ app.use(function(req, res, next) {
 });
 
 // middleware
-app.use(favicon(path.join(__dirname, 'public' + config.favicon)));
+app.use(favicon(path.join(__dirname, 'public', config.favicon), '7d'));
 app.use(serveStatic(path.join(__dirname, 'public')));
 
 // locals

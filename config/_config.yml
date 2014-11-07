@@ -8,7 +8,7 @@ authors:
 
 description: Bootstrap CDN
 
-favicon: "/images/favicon.ico"
+favicon: "/favicon.ico"
 
 google_analytics:
     account_id: UA-32253110-1
