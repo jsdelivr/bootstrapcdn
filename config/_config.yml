@@ -35,7 +35,7 @@ javascript:
     # as blocking scripts at the bottom of the page
     after:
     - "//code.jquery.com/jquery-1.11.1.min.js"
-    - "//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"
+    - "//maxcdn.bootstrapcdn.com/bootstrap/SWATCH_VERSION/js/bootstrap.min.js"
 
 ####
 # TODO: Perhaps move to a database (redis or mongo),
