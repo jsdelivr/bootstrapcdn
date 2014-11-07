@@ -34,6 +34,7 @@ html(lang="en")
 
         - if (config.javascript && config.javascript.after)
             - each js in config.javascript.after
+                - js=js.replace('SWATCH_VERSION', config.bootswatch.version)
                 script(src=js)
         - if (config.google_analytics)
             include _partials/javascripts/google_analytics
