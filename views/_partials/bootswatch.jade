@@ -2,7 +2,7 @@
     h2 Bootswatch
     div.well.text-center
         - for (var i = 0; i < config.bootswatch.themes.length; i++) {
-            - var name = config.bootswatch.themes[i]
+            - var name = config.bootswatch.themes[i].toLowerCase()
             - var cssPath=config.bootswatch.bootstrap.replace('SWATCH_NAME', name).replace('SWATCH_VERSION', config.bootswatch.version)
             .row
                 .col-md-2
