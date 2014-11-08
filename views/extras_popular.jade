@@ -4,9 +4,9 @@ block content
     .container
         .row
             .col-sm-12
-                h2 Popular Files Overview
+                h1 Popular Files Overview
                 - if (data.length === 0)
-                    h3 Error fetching stats data, please try again.
+                    p.text-danger Error fetching stats data, please try again.
                 - else
                     p Total requests per file and total bandwidth of popular files.
 
@@ -30,21 +30,25 @@ block content
                                             td= entry.uri
                                             td
                                                 .progress
-                                                    - var hitProgress = ((entry.hit/data[0].hit)*100).toFixed(2);
-                                                    .progress-bar(role="progressbar",
-                                                                  aria-valuenow=hitProgress,
-                                                                  aria-valuemin="0",
-                                                                  aria-valuemax="100",
-                                                                  style="width: " + hitProgress + "%")
-                                            td= commaIt(entry.hit, {addPrecision: false, thousandSeperator : ',', decimalSeperator : '.'}) + " Requests"
+                                                    - var hitProgress = ((entry.hit / data[0].hit) * 100).toFixed(2);
+                                                    .progress-bar(
+                                                        role="progressbar",
+                                                        aria-valuenow=hitProgress,
+                                                        aria-valuemin="0",
+                                                        aria-valuemax="100",
+                                                        style="width: " + hitProgress + "%")
+                                                        span.sr-only= hitProgress + "%"
+                                            td= commaIt(entry.hit, {addPrecision: false, thousandSeperator: ',', decimalSeperator: '.'}) + " Requests"
                                             td
                                                 .progress
                                                     - var sizeProgress = ((entry.size / maxSize) * 100).toFixed(2);
-                                                    .progress-bar(role="progressbar",
-                                                                  aria-valuenow=sizeProgress,
-                                                                  aria-valuemin="0",
-                                                                  aria-valuemax="100",
-                                                                  style="width: " + sizeProgress + "%")
+                                                    .progress-bar(
+                                                        role="progressbar",
+                                                        aria-valuenow=sizeProgress,
+                                                        aria-valuemin="0",
+                                                        aria-valuemax="100",
+                                                        style="width: " + sizeProgress + "%")
+                                                        span.sr-only= sizeProgress + " GB"
                                             td= (entry.size / 1073741824).toFixed(2) + " GB"
 
                 a(href="http://medialoot.com/") Icons by Medialoot.com
