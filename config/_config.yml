@@ -23,7 +23,7 @@ extras: true
 # Note: stylesheets and javascript will be loaded
 # in the order they are specified.
 stylesheets:
-- "//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
+- "/font-awesome/4.2.0/css/font-awesome.min.css"
 - "/stylesheets/style.css"
 
 javascript:
@@ -35,7 +35,7 @@ javascript:
     # as blocking scripts at the bottom of the page
     after:
     - "//code.jquery.com/jquery-1.11.1.min.js"
-    - "//maxcdn.bootstrapcdn.com/bootstrap/SWATCH_VERSION/js/bootstrap.min.js"
+    - "/twitter-bootstrap/SWATCH_VERSION/js/bootstrap.min.js"
 
 ####
 # TODO: Perhaps move to a database (redis or mongo),
@@ -48,7 +48,7 @@ bootswatch:
     version: "3.3.0"
     link: "http://bootswatch.com/SWATCH_NAME/"
     image: "http://bootswatch.com/SWATCH_NAME/thumbnail.png"
-    bootstrap: "//maxcdn.bootstrapcdn.com/bootswatch/SWATCH_VERSION/SWATCH_NAME/bootstrap.min.css"
+    bootstrap: "/bootswatch/SWATCH_VERSION/SWATCH_NAME/bootstrap.min.css"
     themes:
         - cerulean  # 0
         - cosmo     # 1
