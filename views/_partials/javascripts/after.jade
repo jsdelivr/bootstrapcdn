@@ -26,6 +26,14 @@ script
             hash = selected;
         }
 
+        $(function () {
+            $('.nav a').on('click', function () {
+                if ($('.navbar-toggle').css('display') !== 'none') {
+                    $('.navbar-toggle').trigger('click');
+                }
+            });
+        });
+
         function tryIt(n) {
             window.location.href = '/?theme=' + n + (hash ? hash + hashSuffix : '');
         }
