@@ -1,7 +1,7 @@
 #quickstart.tab-pane.active
     h2 Quick Start
     div.well.text-center
-        - var name = 'quickstartCSS'
+        - var name = 'quickstartCSS'.toLowerCase()
         - var cssPath = config.bootstrap[0].css_complete
         .label-container
             h3 Complete CSS
@@ -12,7 +12,7 @@
                     i.fa.fa-caret-down
         include csscode
 
-        - var name = 'quickstartJS'
+        - var name = 'quickstartJS'.toLowerCase()
         - var jsPath = config.bootstrap[0].javascript
         .label-container
             h3 Complete JavaScript
