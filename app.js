@@ -33,7 +33,7 @@ app.disable('x-powered-by');
 
 // production
 if (env === 'production') {
-    app.use(logger());
+    app.use(logger('combined'));
 } else {
     app.locals.pretty = true;
     app.use(logger('dev'));
@@ -48,29 +48,29 @@ app.use(function(req, res, next) {
 });
 
 app.use(function(req, res, next) {
-  // overwrite default cache-control header
-  // drop to 10 minutes
-  res.setHeader("Cache-Control", "public, max-age=600");
+    // overwrite default cache-control header
+    // drop to 10 minutes
+    res.setHeader("Cache-Control", "public, max-age=600");
 
-  // enable bootlint where applicable
-  if (req.query.bootlint && req.query.bootlint === 'true') {
-      config.bootlint.forEach(function (bootlint) {
-          if (bootlint.latest === true) {
-              app.locals.bootlint = bootlint.javascript;
+    // enable bootlint where applicable
+    if (req.query.bootlint && req.query.bootlint === 'true') {
+        config.bootlint.forEach(function (bootlint) {
+            if (bootlint.latest === true) {
+                app.locals.bootlint = bootlint.javascript;
 
-              if (env !== 'production') {
-                  app.locals.bootlint = app.locals.bootlint.replace('//maxcdn.bootstrapcdn.com', '');
-              }
+                if (env !== 'production') {
+                    app.locals.bootlint = app.locals.bootlint.replace('//maxcdn.bootstrapcdn.com', '');
+                }
 
-          }
-      });
-  }
+            }
+        });
+    }
 
-  next();
+    next();
 });
 
 // middleware
-app.use(favicon(path.join(__dirname, 'public' + config.favicon)));
+app.use(favicon(path.join(__dirname, 'public', config.favicon), '7d'));
 app.use(serveStatic(path.join(__dirname, 'public')));
 
 // locals
@@ -93,8 +93,8 @@ Object.keys(redirects).forEach(function(requested) {
 });
 
 // start
-http.createServer(app).listen(app.get('port'), function(){
-  console.log('Express server listening on port ' + app.get('port'));
+http.createServer(app).listen(app.get('port'), function() {
+    console.log('Express server listening on port ' + app.get('port'));
 });
 
 // vim: ft=javascript sw=4 sts=4 et:

@@ -7,6 +7,7 @@ var fs   = require('fs');
 
 var FOREVER = path.join(__dirname, 'node_modules/.bin/forever');
 var MOCHA = path.join(__dirname, 'node_modules/.bin/mocha');
+var BOOTLINT = path.join(__dirname, 'node_modules/.bin/bootlint');
 
 
 (function() {
@@ -22,7 +23,7 @@ var MOCHA = path.join(__dirname, 'node_modules/.bin/mocha');
     //
     // make test-nc
     //
-    target["test-nc"] = function() {
+    target['test-nc'] = function() {
         exec(MOCHA + ' --no-colors --timeout 15000 ./tests/*_test.js ./tests/**/*_test.js -R spec');
     };
 
@@ -95,19 +96,19 @@ var MOCHA = path.join(__dirname, 'node_modules/.bin/mocha');
 
         // sleep
         setTimeout(function() {
-            var output = 'lint.html';
+            var output = path.join(__dirname, 'lint.html');
             var file = fs.createWriteStream(output);
 
             // okay, not really curl, but it communicates
-            echo('+ curl http://localhost:3333/ > ./' + output);
-            var request = http.get("http://localhost:3333/", function(response) {
+            echo('+ curl http://localhost:3333/ > ' + output);
+            var request = http.get('http://localhost:3333/', function(response) {
               response.pipe(file);
 
               response.on('end', function() {
                   file.close();
 
-                  echo('+ bootlint ./' + output);
-                  exec('./node_modules/.bin/bootlint ./' + output);
+                  echo('+ bootlint ' + output);
+                  exec(BOOTLINT + ' ' + output);
 
                   echo('+ node make stop');
                   target.stop();
@@ -135,22 +136,24 @@ var MOCHA = path.join(__dirname, 'node_modules/.bin/mocha');
 
             // okay, not really curl, but it communicates
             echo('+ curl http://localhost:3333/ > ./' + output);
-            var request = http.get("http://localhost:3333/", function(response) {
-              response.pipe(file);
+            var request = http.get('http://localhost:3333/', function(response) {
+                response.pipe(file);
 
-              response.on('end', function() {
-                  file.close();
+                response.on('end', function() {
+                    file.close();
 
-                  echo('+ html-validator ./' + output);
-                  var res = exec('./node_modules/.bin/html-validator --file=' + output);
+                    echo('+ html-validator ./' + output);
+                    var res = exec('./node_modules/.bin/html-validator --file=' + output);
 
-                  echo('+ node make stop');
-                  target.stop();
+                    echo('+ node make stop');
+                    target.stop();
 
-                  rm(output);
+                    rm(output);
 
-                  if (res.output.indexOf('Error: ') !== -1) exit(1);
-              });
+                    if (res.output.indexOf('Error: ') !== -1) {
+                      exit(1);
+                    }
+                });
             });
         }, 2000);
     };
@@ -176,6 +179,7 @@ var MOCHA = path.join(__dirname, 'node_modules/.bin/mocha');
         echo('  run         runs for development mode');
         echo('  start       start application deamonized');
         echo('  stop        stop application when deamonized');
+        echo('  bootlint    run Bootlint locally');
         echo('  help        shows this help message');
     };
 
