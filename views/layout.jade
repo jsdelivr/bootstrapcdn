@@ -1,5 +1,5 @@
 doctype
-html
+html(lang="en")
     head
         meta(charset='utf-8')
         meta('http-equiv'='X-UA-Compatible' content='IE=edge')
@@ -28,12 +28,14 @@ html
         block head
 
     body
+        include _partials/ie-warning
         include _partials/header
 
         block content
 
         - if (config.javascript && config.javascript.after)
             - each js in config.javascript.after
+                - js=js.replace('SWATCH_VERSION', config.bootswatch.version)
                 script(src=js)
         - if (config.google_analytics)
             include _partials/javascripts/google_analytics
@@ -41,4 +43,5 @@ html
         include _partials/javascripts/after
 
         block last
+
 //- vim: ft=jade sw=4 sts=4 et:

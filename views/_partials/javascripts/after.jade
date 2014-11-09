@@ -11,9 +11,10 @@ script
         });
 
         var hash;
-        var hash_suffix = '_tab';
-        if (document.location.href.split('#')[1]) {
-            hash = '#' + document.location.href.split('#')[1].replace(hash_suffix, '');
+        var hashURLNext = document.location.href.split('#')[1];
+        var hashSuffix = '_tab';
+        if (hashURLNext) {
+            hash = '#' + hashURLNext.replace(hashSuffix, '');
         }
         if (hash) {
             $('ul.nav.navbar-nav li a[href=' + hash + ']').tab('show');
@@ -21,18 +22,18 @@ script
 
         function tabAction(el) {
             var selected = $(el).attr('href');
-            document.location.href = '/' + (document.location.search ? document.location.search : '') + selected + hash_suffix;
+            document.location.href = '/' + (document.location.search ? document.location.search : '') + selected + hashSuffix;
             hash = selected;
         }
 
         function tryIt(n) {
-            window.location.href = '/?theme=' + n + (hash ? hash + hash_suffix : '');
+            window.location.href = '/?theme=' + n + (hash ? hash + hashSuffix : '');
         }
 
         function toggleCode(el, name) {
             $('#' + name).toggleClass('hidden');
-            $(el).find('b').toggleClass('icon-caret-down');
-            $(el).find('b').toggleClass('icon-caret-up');
+            $(el).find('i').toggleClass('fa-caret-down');
+            $(el).find('i').toggleClass('fa-caret-up');
         }
         adroll_adv_id = 'P2URKLNIJJHPJGQLX4X2FG';
         adroll_pix_id = 'WJFDYQ7CEZAXHPVFWBMMIY';
@@ -54,6 +55,19 @@ script
         }());
 
         (function(w, d) { var a = function() { var a = d.createElement('script'); a.type = 'text/javascript'; a.async = 'async'; a.src = '//' + ((w.location.protocol === 'https:') ? 's3.amazonaws.com/cdx-radar/' : 'radar.cedexis.com/') + '01-11475-radar10.min.js'; d.body.appendChild(a); }; if (w.addEventListener) { w.addEventListener('load', a, false); } else if (w.attachEvent) { w.attachEvent('onload', a); } }(window, document));
+
+        $('.alert-dismissible').each(function() {
+            var $alert = $(this);
+            var alertNameLSProp = $alert.attr('data-alert-id');
+
+            if (localStorage.getItem(alertNameLSProp) === 'true') {
+                $alert.remove();
+            } else {
+                $alert.on('close.bs.alert', function() {
+                    localStorage.setItem(alertNameLSProp, true);
+                });
+            }
+        });
 
 - if (bootlint)
     script(src=bootlint)
