@@ -13,8 +13,8 @@ script
         var hash;
         var hashURLNext = document.location.href.split('#')[1];
         var hashSuffix = '_tab';
-        if (hashNext) {
-            hash = '#' + hashNext.replace(hashSuffix, '');
+        if (hashURLNext) {
+            hash = '#' + hashURLNext.replace(hashSuffix, '');
         }
         if (hash) {
             $('ul.nav.navbar-nav li a[href=' + hash + ']').tab('show');
