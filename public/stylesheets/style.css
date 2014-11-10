@@ -34,7 +34,7 @@ blockquote.twitter-tweet {
 }
 
 iframe {
-    border: 0;
+    border-width: 0;
     overflow: hidden;
 }
 
