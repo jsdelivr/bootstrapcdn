@@ -89,22 +89,24 @@ app.get('/extras/birthday', extras.birthday);
 
 var data; // only regenerated on restart
 app.get('/data/bootstrapcdn.json', function (req, res) {
-    data = data || {
-        timestamp: new Date(),
-        bootstrap: {},
-        fontawesome: {}
-    };
-
-    config.bootstrap.forEach(function(bootstrap) {
-        data.bootstrap[bootstrap.version] = {
-            css: bootstrap.css_complete,
-            js: bootstrap.javascript
+    if (typeof data === 'undefined') {
+        data = {
+            timestamp: new Date(),
+            bootstrap: {},
+            fontawesome: {}
         };
-    });
 
-    config.fontawesome.forEach(function(fontawesome) {
-        data.fontawesome[fontawesome.version] = fontawesome.css_complete;
-    });
+        config.bootstrap.forEach(function(bootstrap) {
+            data.bootstrap[bootstrap.version] = {
+                css: bootstrap.css_complete,
+                js: bootstrap.javascript
+            };
+        });
+
+        config.fontawesome.forEach(function(fontawesome) {
+            data.fontawesome[fontawesome.version] = fontawesome.css_complete;
+        });
+    }
 
     res.send(data);
 });
