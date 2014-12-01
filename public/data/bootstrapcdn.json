@@ -1,6 +1,14 @@
 {
-  "timestamp": "2014-10-03T06:57:01.443Z",
+  "timestamp": "2014-12-01T18:54:50.335Z",
   "bootstrap": {
+    "3.3.1": {
+      "css": "//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css",
+      "js": "//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"
+    },
+    "3.3.0": {
+      "css": "//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css",
+      "js": "//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"
+    },
     "3.2.0": {
       "css": "//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css",
       "js": "//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"
