@@ -81,10 +81,36 @@ app.locals.tweets  = tweets;
 
 // routes
 var extras = require('./routes/extras');
-app.get('/',                require('./routes').index);
+var routes = require('./routes');
+app.get('/',                routes.index);
 app.get('/extras/popular',  extras.popular);
 app.get('/extras/app',      extras.app);
 app.get('/extras/birthday', extras.birthday);
+
+var data; // only regenerated on restart
+app.get('/data/bootstrapcdn.json', function (req, res) {
+    if (typeof data === 'undefined') {
+        data = {
+            timestamp: new Date(),
+            bootstrap: {},
+            fontawesome: {}
+        };
+
+        config.bootstrap.forEach(function(bootstrap) {
+            data.bootstrap[bootstrap.version] = {
+                css: bootstrap.css_complete,
+                js: bootstrap.javascript
+            };
+        });
+
+        config.fontawesome.forEach(function(fontawesome) {
+            data.fontawesome[fontawesome.version] = fontawesome.css_complete;
+        });
+    }
+
+    res.send(data);
+});
+
 
 // redirects
 var redirects = yaml.safeLoad(fs.readFileSync(path.join(__dirname, 'config', '_redirects.yml'), 'utf8'));
