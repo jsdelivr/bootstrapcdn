@@ -19,4 +19,8 @@ mkdir public/bootlint/$version
 wget --quiet --output-document public/bootlint/$version/bootlint.js \
   https://raw.githubusercontent.com/twbs/bootlint/v$version/dist/browser/bootlint.js
 
+cd public/bootlint
+rm latest
+ln -s $version latest
+
 exec ./scripts/lint.sh $version
