@@ -23,4 +23,7 @@ cd public/bootlint
 rm latest
 ln -s $version latest
 
-exec ./scripts/lint.sh $version
+./scripts/lint.sh $version
+
+echo " "
+echo "Do not forget to updated config/_config.yml!"
