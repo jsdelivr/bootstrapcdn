@@ -58,7 +58,7 @@ describe('index', function() {
 
     describe('contains tabs', function() {
         tabs.forEach(function(tab) {
-            it(format('-> %s',tab), function(done) {
+            it(format('-> %s', tab), function(done) {
                 assert(response.body.indexOf(tab));
                 done();
             });
@@ -67,7 +67,7 @@ describe('index', function() {
 
     describe('contains bootswatch', function() {
         config.bootswatch.themes.forEach(function(theme) {
-            it(format('-> %s',theme), function(done) {
+            it(format('-> %s', theme), function(done) {
                 assert(
                     response.body.indexOf(config.bootswatch.bootstrap
                                             .replace('SWATCH_NAME', theme)
@@ -80,7 +80,7 @@ describe('index', function() {
 
     describe('contains bootstrap', function() {
         config.bootstrap.forEach(function(bootstrap) {
-            it(format('-> %s',bootstrap.version), function(done) {
+            it(format('-> %s', bootstrap.version), function(done) {
                 assert(response.body.indexOf(bootstrap.css_complete));
                 assert(response.body.indexOf(bootstrap.javascript));
                 if (bootstrap.css_no_icons) {
