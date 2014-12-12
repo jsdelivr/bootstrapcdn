@@ -20,6 +20,11 @@ blockquote.twitter-tweet {
     padding-top: 10px;
 }
 
+.well > .form-group > label {
+    font-size: 18px;
+    margin-top: 5px;
+}
+
 .bootswatch {
     padding: 10px 0 20px 0;
 }
