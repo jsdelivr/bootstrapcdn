@@ -31,6 +31,7 @@
     "format": "^0.2.1",
     "mocha": "^2.0.1",
     "net-ping": "^1.1.11",
+    "request": "^2.51.0",
     "shelljs": "^0.3.0",
     "superagent": "^0.21.0",
     "uglify-js": "^2.4.15"
