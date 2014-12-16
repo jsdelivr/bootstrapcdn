@@ -11,10 +11,9 @@ var config = yaml.safeLoad(fs.readFileSync(path.join(__dirname, '..', '..', 'con
 process.env.PORT = config.port + 1; // don't use configured port
 
 require('../../app.js');
-var host = format('http://localhost:%s',process.env.PORT);
-
-
+var host = format('http://localhost:%s', process.env.PORT);
 var response;
+
 before(function(done) {
     http.get(host + '/extras/app', function(res) {
         response = res;
