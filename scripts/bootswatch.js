@@ -4,7 +4,7 @@
 var yaml = require('js-yaml');
 var path = require('path');
 var fs = require('fs');
-var request = require('request');
+var request = require('sync-request');
 
 var version = process.argv[2];
 var basedir = path.join(__dirname, '..');
@@ -28,49 +28,53 @@ function errorCheck(err) {
     }
 }
 
-fs.mkdir(bootswatchDir, 0755, function(e) {
-    errorCheck(e);
-    console.log('Created: %s', bootswatchDir);
-    files.forEach(function(file) {
-        config.bootswatch.themes.forEach(function(theme) {
-            file = file.replace('%s', theme);
-            request(file, function(e, r, b) {
-                errorCheck(e);
+// Fails intentionally if bootswatchDir exists.
+fs.mkdirSync(bootswatchDir, 0755);
+console.log('Created: %s', bootswatchDir);
 
-                var targetDir = path.join(bootswatchDir, theme);
-                fs.mkdir(targetDir, 0755, function(e) {
-                    if (!e) console.log('  Created: %s', targetDir);
-                    var target = path.join(targetDir, path.basename(file));
-                    fs.writeFile(target, b, function(e) {
-                        errorCheck(e);
-                        console.log('    Saved: %s', target);
-                    });
-                });
-            });
-        });
-    });
+files.forEach(function(file) {
+    config.bootswatch.themes.forEach(function(theme) {
+        var source = file.replace('%s', theme);
+        var response = request('GET', source);
+        var body = response.getBody();
 
-    // Let's redownload known fonts as well...
-    //
-    // TODO: Revisit this, it's very fragile.
-    fs.mkdir(fontsDir, 0755, function(e) {
-        if (!e) console.log('  Created: %s', fontsDir);
-        [ 'glyphicons-halflings-regular.eot',
-            'glyphicons-halflings-regular.svg',
-            'glyphicons-halflings-regular.ttf',
-            'glyphicons-halflings-regular.woff'
-        ].forEach(function(font) {
-            fontPath = fonts.replace('%s', font);
-            request(fontPath, function(e, r, b) {
-                errorCheck(e);
-                var target = path.join(fontsDir, font);
-                fs.writeFile(target, b, function(e) {
-                    errorCheck(e);
-                    console.log('    Saved: %s', target);
-                });
-            });
-        });
+        if (response.statusCode !== 200) {
+            checkError(new Error("Non-success status code: " + response.statusCode));
+        }
+
+        var targetDir = path.join(bootswatchDir, theme);
+
+        try {
+            fs.mkdirSync(targetDir, 0755);
+            console.log('  Created: %s', targetDir);
+        } catch(e) {
+            /* ignore */
+            //console.log("Error:", e.message);
+        }
+
+        var target = path.join(targetDir, path.basename(file));
+        fs.writeFileSync(target, body);
+        console.log('    Saved: %s', target);
+        console.log('     From: %s', source);
     });
+});
+
+// TODO: Revisit this, it's very fragile.
+
+fs.mkdirSync(fontsDir, 0755);
+console.log('  Created: %s', fontsDir);
+[ 'glyphicons-halflings-regular.eot',
+    'glyphicons-halflings-regular.svg',
+    'glyphicons-halflings-regular.ttf',
+    'glyphicons-halflings-regular.woff'
+].forEach(function(font) {
+    fontPath = fonts.replace('%s', font);
+    var response = request('GET', fontPath);
+    var body = response.getBody();
+    var target = path.join(fontsDir, font);
+    fs.writeFileSync(target, body);
+    console.log('    Saved: %s', target);
+    console.log('     From: %s', fontPath);
 });
 
 process.on('exit', function (code) {
