@@ -1,7 +1,7 @@
 # Bootstrap CDN
 [![Build Status](https://travis-ci.org/MaxCDN/bootstrap-cdn.png?branch=master)](https://travis-ci.org/MaxCDN/bootstrap-cdn)
-[![Dependency Status](https://david-dm.org/MaxCDN/bootstrap-cdn.svg)](https://david-dm.org/MaxCDN/bootstrap-cdn)
-[![devDependency Status](https://david-dm.org/MaxCDN/bootstrap-cdn/dev-status.svg)](https://david-dm.org/MaxCDN/bootstrap-cdn#info=devDependencies)
+[![Dependency Status](https://david-dm.org/MaxCDN/bootstrap-cdn.svg?style=flat)](https://david-dm.org/MaxCDN/bootstrap-cdn)
+[![devDependency Status](https://david-dm.org/MaxCDN/bootstrap-cdn/dev-status.svg?style=flat)](https://david-dm.org/MaxCDN/bootstrap-cdn#info=devDependencies)
 
 ## Requirements
 

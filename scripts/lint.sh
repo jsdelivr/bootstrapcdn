@@ -2,7 +2,7 @@
 
 version=$1
 if ! test "$version"; then
-  echo "Valid bootlink version required."
+  echo "Valid Bootlint version required."
   exit 1
 fi
 
@@ -15,4 +15,3 @@ test -x ./node_modules/.bin/uglifyjs || npm install
 set -uex
 ./node_modules/.bin/uglifyjs public/bootlint/$version/bootlint.js \
   -o public/bootlint/$version/bootlint.min.js --comments all
-
