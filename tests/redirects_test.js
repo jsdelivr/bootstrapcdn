@@ -11,7 +11,7 @@ var config = yaml.safeLoad(fs.readFileSync(path.join(__dirname, '..', 'config', 
 process.env.PORT = config.port + 1; // don't use configured port
 
 require('../app.js');
-var host      = format('http://localhost:%s',process.env.PORT);
+var host      = format('http://localhost:%s', process.env.PORT);
 var redirects = yaml.safeLoad(fs.readFileSync(path.join(__dirname, '..', 'config', '_redirects.yml'), 'utf8'));
 
 describe('redirects', function() {
