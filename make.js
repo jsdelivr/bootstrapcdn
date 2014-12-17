@@ -8,6 +8,7 @@ var fs   = require('fs');
 var FOREVER = path.join(__dirname, 'node_modules/.bin/forever');
 var MOCHA = path.join(__dirname, 'node_modules/.bin/mocha');
 var BOOTLINT = path.join(__dirname, 'node_modules/.bin/bootlint');
+var VALIDATOR = path.join(__dirname, 'node_modules/.bin/html-validator');
 
 
 (function() {
@@ -49,7 +50,7 @@ var BOOTLINT = path.join(__dirname, 'node_modules/.bin/bootlint');
             mkdir('logs');
         }
         env.NODE_ENV = 'production';
-        exec(FOREVER + ' -m 4 -p ./logs -l server.log --append --plain start server.js');
+        exec(FOREVER + ' -m 4 -p ./logs -l server.log --append --plain start server.js', { async: true });
     };
 
     //
@@ -102,19 +103,19 @@ var BOOTLINT = path.join(__dirname, 'node_modules/.bin/bootlint');
             // okay, not really curl, but it communicates
             echo('+ curl http://localhost:3333/ > ' + output);
             var request = http.get('http://localhost:3333/', function(response) {
-              response.pipe(file);
+                response.pipe(file);
 
-              response.on('end', function() {
-                  file.close();
+                response.on('end', function() {
+                    file.close();
 
-                  echo('+ bootlint ' + output);
-                  exec(BOOTLINT + ' ' + output);
+                    echo('+ bootlint ' + output);
+                    exec(BOOTLINT + ' ' + output);
 
-                  echo('+ node make stop');
-                  target.stop();
+                    echo('+ node make stop');
+                    target.stop();
 
-                  rm(output);
-              });
+                    rm(output);
+                });
             });
         }, 2000);
     };
@@ -129,21 +130,21 @@ var BOOTLINT = path.join(__dirname, 'node_modules/.bin/bootlint');
         // sleep
         setTimeout(function() {
 
-            var output = 'index.html';
+            var output = path.join(__dirname, 'index.html');
             var file = fs.createWriteStream(output);
 
             // note; url version is failing due to a connection error, odd.
 
             // okay, not really curl, but it communicates
-            echo('+ curl http://localhost:3333/ > ./' + output);
+            echo('+ curl http://localhost:3333/ > ' + output);
             var request = http.get('http://localhost:3333/', function(response) {
                 response.pipe(file);
 
                 response.on('end', function() {
                     file.close();
 
-                    echo('+ html-validator ./' + output);
-                    var res = exec('./node_modules/.bin/html-validator --file=' + output);
+                    echo('+ html-validator ' + output);
+                    var res = exec(VALIDATOR + ' --file=' + output);
 
                     echo('+ node make stop');
                     target.stop();
@@ -151,7 +152,7 @@ var BOOTLINT = path.join(__dirname, 'node_modules/.bin/bootlint');
                     rm(output);
 
                     if (res.output.indexOf('Error: ') !== -1) {
-                      exit(1);
+                        exit(1);
                     }
                 });
             });

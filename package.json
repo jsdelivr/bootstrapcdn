@@ -33,6 +33,7 @@
     "net-ping": "^1.1.11",
     "shelljs": "^0.3.0",
     "superagent": "^0.21.0",
+    "sync-request": "^1.0.1",
     "uglify-js": "^2.4.15"
   }
 }

@@ -2,7 +2,7 @@
 
 version=$1
 if ! test "$version"; then
-  echo "Valid bootlink version required."
+  echo "Valid Bootlint version required."
   exit 1
 fi
 
@@ -26,4 +26,4 @@ ln -s $version latest
 ./scripts/lint.sh $version
 
 echo " "
-echo "Do not forget to updated config/_config.yml!"
+echo "Do not forget to update `config/_config.yml!`"
