@@ -1,5 +1,5 @@
 #!/bin/bash
-
+root=$(pwd)
 version=$1
 if ! test "$version"; then
   echo "Valid Bootlint version required."
@@ -23,7 +23,9 @@ cd public/bootlint
 rm latest
 ln -s $version latest
 
+cd $root
 ./scripts/lint.sh $version
 
+set +x
 echo " "
-echo "Do not forget to update `config/_config.yml!`"
+echo "Do not forget to update 'config/_config.yml!'"
