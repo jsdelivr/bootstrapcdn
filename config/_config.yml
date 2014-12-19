@@ -3,8 +3,8 @@ port: 3333
 theme: 14 # bootswatch.themes[n]
 
 authors:
-- Joshua Mervine
-- Justin Dorfman
+    - Joshua Mervine
+    - Justin Dorfman
 
 description: Bootstrap CDN
 
@@ -23,8 +23,8 @@ extras: true
 # Note: stylesheets and javascript will be loaded
 # in the order they are specified.
 stylesheets:
-- "//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
-- "/stylesheets/style.css"
+    - "//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
+    - "/stylesheets/style.css"
 
 javascript:
     # scripts specified in the before group will be loaded
@@ -34,8 +34,8 @@ javascript:
     # scripts specified in the after group will be loaded
     # as blocking scripts at the bottom of the page
     after:
-    - "//code.jquery.com/jquery-1.11.1.min.js"
-    - "//maxcdn.bootstrapcdn.com/bootstrap/SWATCH_VERSION/js/bootstrap.min.js"
+        - "//code.jquery.com/jquery-1.11.1.min.js"
+        - "//maxcdn.bootstrapcdn.com/bootstrap/SWATCH_VERSION/js/bootstrap.min.js"
 
 ####
 # TODO: Perhaps move to a database (redis or mongo),
@@ -100,43 +100,43 @@ bootstrap:
     - version: "3.3.1"
       latest: true
       css_complete: "//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"
-      javascript:  "//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"
+      javascript:   "//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"
 
     - version: "3.3.0"
       css_complete: "//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
-      javascript:  "//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"
+      javascript:   "//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"
 
     - version: "3.2.0"
       css_complete: "//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"
-      javascript:  "//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"
+      javascript:   "//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"
 
     - version: "3.1.1"
       css_complete: "//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"
-      javascript:  "//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"
+      javascript:   "//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"
 
     - version: "3.1.0"
       css_complete: "//maxcdn.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css"
-      javascript:  "//maxcdn.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"
+      javascript:   "//maxcdn.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"
 
     - version: "3.0.3"
       css_complete: "//maxcdn.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css"
-      javascript:  "//maxcdn.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"
+      javascript:   "//maxcdn.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"
 
     - version: "3.0.2"
       css_complete: "//maxcdn.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"
-      javascript:  "//maxcdn.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"
+      javascript:   "//maxcdn.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"
 
     - version: "3.0.1"
       css_complete: "//maxcdn.bootstrapcdn.com/bootstrap/3.0.1/css/bootstrap.min.css"
-      javascript:  "//maxcdn.bootstrapcdn.com/bootstrap/3.0.1/js/bootstrap.min.js"
+      javascript:   "//maxcdn.bootstrapcdn.com/bootstrap/3.0.1/js/bootstrap.min.js"
 
     - version: "3.0.0"
       css_complete: "//maxcdn.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"
-      javascript:  "//maxcdn.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"
+      javascript:   "//maxcdn.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"
 
     - version: "3.0.0-noicons"
       css_complete: "//maxcdn.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.no-icons.min.css"
-      javascript:  "//maxcdn.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"
+      javascript:   "//maxcdn.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"
 
     - version: "2.3.2"
       css_complete: "//maxcdn.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css"
