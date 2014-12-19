@@ -32,7 +32,6 @@ var paths = [
   '/font-awesome/latest/css/font-awesome.css',
   '/font-awesome/latest/css/font-awesome.min.css',
   //Bootswatch
-  '/bootswatch/latest/amelia/bootstrap.min.css',
   '/bootswatch/latest/cerulean/bootstrap.min.css',
   '/bootswatch/latest/cosmo/bootstrap.min.css',
   '/bootswatch/latest/cyborg/bootstrap.min.css',
