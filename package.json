@@ -12,28 +12,28 @@
     "test-nc": "node make test-nc"
   },
   "dependencies": {
-    "comma-it": "^0.0.6",
+    "comma-it": "^0.0.7",
     "dateformat": "^1.0.11",
     "errorhandler": "^1.3.0",
-    "express": "^4.10.4",
+    "express": "^4.10.6",
     "forever": "^0.13.0",
     "html-validator": "^0.0.8",
-    "jade": "^1.8.1",
-    "js-yaml": "^3.2.3",
+    "jade": "^1.8.2",
+    "js-yaml": "^3.2.4",
     "maxcdn": "^0.1.5",
     "morgan": "^1.5.0",
-    "serve-favicon": "^2.1.7",
+    "serve-favicon": "^2.2.0",
     "serve-static": "^1.7.1"
   },
   "devDependencies": {
     "bootlint": "^0.8.0",
     "expect.js": "^0.3.1",
     "format": "^0.2.1",
-    "mocha": "^2.0.1",
+    "mocha": "^2.1.0",
     "net-ping": "^1.1.11",
     "shelljs": "^0.3.0",
     "superagent": "^0.21.0",
-    "sync-request": "^1.0.1",
-    "uglify-js": "^2.4.15"
+    "sync-request": "^1.0.2",
+    "uglify-js": "^2.4.16"
   }
 }
