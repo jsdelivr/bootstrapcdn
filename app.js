@@ -50,7 +50,7 @@ app.use(function(req, res, next) {
 app.use(function(req, res, next) {
     // overwrite default cache-control header
     // drop to 10 minutes
-    res.setHeader("Cache-Control", "public, max-age=600");
+    res.setHeader('Cache-Control', 'public, max-age=600');
 
     // enable bootlint where applicable
     if (req.query.bootlint && req.query.bootlint === 'true') {
@@ -115,7 +115,9 @@ app.get('/data/bootstrapcdn.json', function (req, res) {
 // redirects
 var redirects = yaml.safeLoad(fs.readFileSync(path.join(__dirname, 'config', '_redirects.yml'), 'utf8'));
 Object.keys(redirects).forEach(function(requested) {
-    app.get(requested, function(req, res) { res.redirect(301, redirects[requested]); });
+    app.get(requested, function(req, res) {
+        res.redirect(301, redirects[requested]);
+    });
 });
 
 // start
