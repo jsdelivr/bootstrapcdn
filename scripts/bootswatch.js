@@ -39,7 +39,7 @@ files.forEach(function(file) {
         var body = response.getBody();
 
         if (response.statusCode !== 200) {
-            checkError(new Error("Non-success status code: " + response.statusCode));
+            errorCheck(new Error('Non-success status code: ' + response.statusCode));
         }
 
         var targetDir = path.join(bootswatchDir, theme);
@@ -49,7 +49,7 @@ files.forEach(function(file) {
             console.log('  Created: %s', targetDir);
         } catch(e) {
             /* ignore */
-            //console.log("Error:", e.message);
+            //console.log('Error:', e.message);
         }
 
         var target = path.join(targetDir, path.basename(file));
@@ -68,7 +68,7 @@ console.log('  Created: %s', fontsDir);
     'glyphicons-halflings-regular.ttf',
     'glyphicons-halflings-regular.woff'
 ].forEach(function(font) {
-    fontPath = fonts.replace('%s', font);
+    var fontPath = fonts.replace('%s', font);
     var response = request('GET', fontPath);
     var body = response.getBody();
     var target = path.join(fontsDir, font);
@@ -78,5 +78,7 @@ console.log('  Created: %s', fontsDir);
 });
 
 process.on('exit', function (code) {
-    if (code === 0) console.log('Don\'t forget to update symlink and config file!');
+    if (code === 0) {
+        console.log('Don\'t forget to update symlink and config file!');
+    }
 });
