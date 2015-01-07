@@ -37,11 +37,11 @@ before(function(done) {
 });
 
 describe('popular', function() {
-    //it('/extras/popular :: 200\'s', function(done) {
-        //assert(response);
-        //assert.equal(200, response.statusCode);
-        //done();
-    //});
+    /*it('/extras/popular :: 200\'s', function(done) {
+        assert(response);
+        assert.equal(200, response.statusCode);
+        done();
+    });*/
 
     it('contains authors', function(done) {
         config.authors.forEach(function(author) {
