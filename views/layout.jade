@@ -1,15 +1,14 @@
 doctype
-html
+html(lang="en")
     head
-        title= title
-
         meta(charset='utf-8')
+        meta('http-equiv'='X-UA-Compatible' content='IE=edge')
         meta(name='viewport', content='width=device-width, initial-scale=1')
+        title=title
         meta(name='author', content=config.authors.join(', '))
         meta(name='description', content=(description || config.description))
-        meta(name='globalsign-domain-verification' content='vJwh9ymdYQvKKoNsjOXy8GEoFDllB-6CS3whL8b9XH')
 
-        link(rel='shortcut', href=config.favicon)
+        link(rel='shortcut icon', href=config.favicon)
 
         link(rel='stylesheet', href=helpers.theme.css(config, theme))
 
@@ -19,23 +18,23 @@ html
 
         - if (config.javascript && config.javascript.before)
             - each js in config.javascript.before
-                script(src=js, charset="utf-8")
+                script(src=js)
 
         block head
 
     body
+        include _partials/ie-warning
         include _partials/header
 
         block content
 
+        - if (config.javascript && config.javascript.after)
+            - each js in config.javascript.after
+                - js=js.replace('SWATCH_VERSION', config.bootswatch.version)
+                script(src=js)
         - if (config.google_analytics)
             include _partials/javascripts/google_analytics
 
-        - if (config.javascript && config.javascript.after)
-            - each js in config.javascript.after
-                script(src=js)
-
-        //-include _partials/footer
         include _partials/javascripts/after
 
         block last

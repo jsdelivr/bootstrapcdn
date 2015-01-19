@@ -8,10 +8,10 @@ var assert = require('assert');
 var format = require('format');
 
 var config = yaml.safeLoad(fs.readFileSync(path.join(__dirname, '..', 'config', '_config.yml'), 'utf8'));
-process.env.PORT = config.port+1; // don't use configured port
+process.env.PORT = config.port + 1; // don't use configured port
 
-var app = require('../app.js');
-var page = format('http://localhost:%s/',process.env.PORT);
+require('../app.js');
+var page = format('http://localhost:%s/', process.env.PORT);
 
 var tabs = [
     '#bootswatch',
@@ -38,7 +38,7 @@ before(function(done) {
 describe('index', function() {
     it('/ :: 200\'s', function(done) {
         assert(response);
-        assert(200 === response.statusCode);
+        assert(response.statusCode === 200);
         done();
     });
 
@@ -58,7 +58,7 @@ describe('index', function() {
 
     describe('contains tabs', function() {
         tabs.forEach(function(tab) {
-            it(format('-> %s',tab), function(done) {
+            it(format('-> %s', tab), function(done) {
                 assert(response.body.indexOf(tab));
                 done();
             });
@@ -67,7 +67,7 @@ describe('index', function() {
 
     describe('contains bootswatch', function() {
         config.bootswatch.themes.forEach(function(theme) {
-            it(format('-> %s',theme), function(done) {
+            it(format('-> %s', theme), function(done) {
                 assert(
                     response.body.indexOf(config.bootswatch.bootstrap
                                             .replace('SWATCH_NAME', theme)
@@ -80,7 +80,7 @@ describe('index', function() {
 
     describe('contains bootstrap', function() {
         config.bootstrap.forEach(function(bootstrap) {
-            it(format('-> %s',bootstrap.version), function(done) {
+            it(format('-> %s', bootstrap.version), function(done) {
                 assert(response.body.indexOf(bootstrap.css_complete));
                 assert(response.body.indexOf(bootstrap.javascript));
                 if (bootstrap.css_no_icons) {
