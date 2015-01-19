@@ -12,7 +12,7 @@ var os = require('os');
  **/
 var env = process.env.NODE_ENV;
 var cores = os.cpus().length;
-if (env === "production") {
+if (env === 'production') {
     cores = cores === 1 ? cores : cores - 1;
 } else {
     cores = cores > 1 ? cores / 2 : cores;
@@ -20,7 +20,7 @@ if (env === "production") {
 
 var workers = parseInt(process.env.CLUSTER_WORKERS || cores, 10);
 
-cluster.setupMaster({ exec : "app.js" });
+cluster.setupMaster({ exec: 'app.js' });
 
 /**
  * Utilities
@@ -28,12 +28,12 @@ cluster.setupMaster({ exec : "app.js" });
 var restartCount = 0;
 
 function say(message) {
-    console.log("[SERVER] " + message);
+    console.log('[SERVER] ' + message);
 }
 
 function checkRestart() {
     if (restartCount >= 8) {
-        say("FATAL: Too many restarts in too short a time.");
+        say('FATAL: Too many restarts in too short a time.');
         process.exit(1);
     }
     restartCount = 0;
@@ -43,15 +43,15 @@ setInterval(checkRestart, 2000);
 /**
  * Startup Messaging
  **/
-say("Master starting:");
-say("time        => " + datefmt(new Date(), "ddd, dd mmm yyyy hh:MM:ss Z"));
-say("pid         => " + process.pid);
-say("environment => " + env);
+say('Master starting:');
+say('time        => ' + datefmt(new Date(), 'ddd, dd mmm yyyy hh:MM:ss Z'));
+say('pid         => ' + process.pid);
+say('environment => ' + env);
 
 /**
  * Fork Workers
  **/
-say("Workers starting:");
+say('Workers starting:');
 
 for (var i = 0; i < workers; i += 1) {
     cluster.fork();
