@@ -7,7 +7,7 @@ var yaml    = require('js-yaml');
 var MaxCDN  = require('maxcdn');
 var config  = yaml.safeLoad(fs.readFileSync(path.join(__dirname, '..', 'config', '_maxcdn.yml'), 'utf8'));
 var maxcdn  = new MaxCDN(config.alias, config.key, config.secret);
-var popSave = path.join(os.tmpdir(), ".popular.json");
+var popSave = path.join(os.tmpdir(), '.popular.json');
 
 // grab cached version if fetch fails
 function load(file, callback) {
@@ -21,7 +21,7 @@ function load(file, callback) {
 
         try {
             parsed = JSON.parse(data).data.popularfiles;
-            console.log("Popular Files loaded from ", file);
+            console.log('Popular Files loaded from ', file);
         } catch(e) {
             console.trace(e);
         }
@@ -32,11 +32,11 @@ function load(file, callback) {
 }
 
 function save(file) {
-    fs.writeFile(file, "utf-8", function (err) {
+    fs.writeFile(file, 'utf-8', function (err) {
         if (err) {
             console.trace(err);
         } else {
-            console.log("Popular Files saved to", file);
+            console.log('Popular Files saved to', file);
         }
         return;
     });
@@ -44,7 +44,7 @@ function save(file) {
 }
 
 function fetchAndSaveOrLoad(callback) {
-    maxcdn.get("reports/popularfiles.json", function (err, res) {
+    maxcdn.get('reports/popularfiles.json', function (err, res) {
         if (err) {
             console.trace(err);
             load(popSave, function (pop) {
@@ -66,7 +66,9 @@ function fetchAndSaveOrLoad(callback) {
 function render(template, req, res, data) {
     var maxSize = 0;
     try {
-        maxSize   = data.sort(function(a, b) { return b.size - a.size; })[0].size;
+        maxSize = data.sort(function(a, b) {
+                                return b.size - a.size;
+                            })[0].size;
     } catch (e) { }
     res.render(template, {
                     title: 'Bootstrap CDN',
@@ -77,8 +79,8 @@ function render(template, req, res, data) {
 }
 
 function popular(req, res) {
-    if (req.config.extras === "stub") {
-        load("tests/stubs/popular.json", function (data) {
+    if (req.config.extras === 'stub') {
+        load('tests/stubs/popular.json', function (data) {
             render('extras_popular', req, res, data);
         });
     } else {

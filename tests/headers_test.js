@@ -54,7 +54,6 @@ var paths = [
 ];
 
 
-
 // NOTE: headers with 'undefined' as value only check for existence,
 // headers with a real value ensure that value.
 var expectedHeaders = {
@@ -98,7 +97,7 @@ var headerTest = function(head) {
 };
 
 function validStatus(s) {
-    return (s === 200 || s === 304) || s;
+    return s === 200 || s === 304 || s;
 }
 
 describe('functional tests', function () {
@@ -108,7 +107,9 @@ describe('functional tests', function () {
                 http.get('http://' + domain, function(res) {
                     // body collection required for on 'end' event.
                     res.body = '';
-                    res.on('data', function(chunk) { res.body += chunk; });
+                    res.on('data', function(chunk) {
+                        res.body += chunk;
+                    });
                     res.on('end', function() {
                         headers = res.headers;
                         status  = res.statusCode;
@@ -125,7 +126,7 @@ describe('functional tests', function () {
 
                 it('returns valid status', function(done) {
                     var valid = validStatus(status);
-                    assert(valid === true, "Invalid status: " + valid);
+                    assert(valid === true, 'Invalid status: ' + valid);
                     done();
                 });
             });
@@ -136,7 +137,9 @@ describe('functional tests', function () {
                         http.get('http://' + domain + p, function(res) {
                             // body collection required for on 'end' event.
                             res.body = '';
-                            res.on('data', function(chunk) { res.body += chunk; });
+                            res.on('data', function(chunk) {
+                                res.body += chunk;
+                            });
                             res.on('end', function() {
                                 headers = res.headers;
                                 status  = res.statusCode;
@@ -152,7 +155,7 @@ describe('functional tests', function () {
 
                     it('returns valid status', function(done) {
                         var valid = validStatus(status);
-                        assert(valid === true, "Invalid status: " + valid);
+                        assert(valid === true, 'Invalid status: ' + valid);
                         done();
                     });
                 });
@@ -163,37 +166,37 @@ describe('functional tests', function () {
     describe('header verification', function() {
 
         // TODO: figure out exactly what headers should be here, if it matters
-        //describe(cdndomain, function() {
-            //before(function(done) {
-                //http.get('http://'+cdndomain, function(res) {
-                    //// body collection required for on 'end' event.
-                    //res.body = '';
-                    //res.on('data', function(chunk) { res.body += chunk; });
-                    //res.on('end', function() {
-                        //headers = res.headers;
-                        //done();
-                    //});
-                //});
-            //});
+        /*describe(cdndomain, function() {
+            before(function(done) {
+                http.get('http://'+cdndomain, function(res) {
+                    // body collection required for on 'end' event.
+                    res.body = '';
+                    res.on('data', function(chunk) { res.body += chunk; });
+                    res.on('end', function() {
+                        headers = res.headers;
+                        done();
+                    });
+                });
+            });
 
-            //it('has headers', function(done) {
-                //assert(headers);
-                //done();
-            //});
+            it('has headers', function(done) {
+                assert(headers);
+                done();
+            });
 
-            //[ 'date',
-              //'expires',
-              //'server',
-              //'connection',
-              //'vary',
-              //'content-type',
-              //'x-powered-by',
-              //'cache-control',
-              //'x-hello-human',
-              ////'x-page-speed'
-            //].forEach(headerTest);
+            [ 'date',
+              'expires',
+              'server',
+              'connection',
+              'vary',
+              'content-type',
+              'x-powered-by',
+              'cache-control',
+              'x-hello-human',
+              //'x-page-speed'
+            ].forEach(headerTest);
 
-        //});
+        });*/
 
         paths.forEach(function(p) {
             describe(cdndomain + p, function() {
@@ -201,7 +204,9 @@ describe('functional tests', function () {
                     http.get('http://' + cdndomain + p, function(res) {
                         // body collection required for on 'end' event.
                         res.body = '';
-                        res.on('data', function(chunk) { res.body += chunk; });
+                        res.on('data', function(chunk) {
+                            res.body += chunk;
+                        });
                         res.on('end', function() {
                             headers = res.headers;
                             done();
