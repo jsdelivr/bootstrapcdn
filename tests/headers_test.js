@@ -4,35 +4,53 @@ var http = require('http');
 var assert = require('assert');
 
 // TODO: get two commented out paths to pass tests.
+
+var domains = [
+    'www.bootstrapcdn.com',
+    'maxcdn.bootstrapcdn.com',
+
+    // TODO: should probably read port from config
+    // TODO2: I don't want localhost tests to run if local host is not available.
+    //        Also, if running localhost tests, I probably shouldn't run other domains,
+    //        as if I'm testing against localhost, then the other domains probably don't
+    //        have updated content.
+    // 'localhost:3333'
+];
+
+var cdndomain = 'maxcdn.bootstrapcdn.com';
+
+// TODO: should read bootswatch from config.
 var paths = [
   //Bootstrap
-  'http://netdna.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css',
-  'http://netdna.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js',
-  'http://netdna.bootstrapcdn.com/bootstrap/latest/fonts/glyphicons-halflings-regular.woff',
-  'http://netdna.bootstrapcdn.com/bootstrap/latest/fonts/glyphicons-halflings-regular.ttf',
-  'http://netdna.bootstrapcdn.com/bootstrap/latest/fonts/glyphicons-halflings-regular.svg',
-  'http://netdna.bootstrapcdn.com/bootstrap/latest/fonts/glyphicons-halflings-regular.eot',
+  '/bootstrap/latest/css/bootstrap.min.css',
+  '/bootstrap/latest/js/bootstrap.min.js',
+  '/bootstrap/latest/fonts/glyphicons-halflings-regular.woff',
+  '/bootstrap/latest/fonts/glyphicons-halflings-regular.ttf',
+  '/bootstrap/latest/fonts/glyphicons-halflings-regular.svg',
+  '/bootstrap/latest/fonts/glyphicons-halflings-regular.eot',
   //Font Awesome
-  'http://netdna.bootstrapcdn.com/font-awesome/latest/css/font-awesome.css',
-  'http://netdna.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css',
+  '/font-awesome/latest/css/font-awesome.css',
+  '/font-awesome/latest/css/font-awesome.min.css',
   //Bootswatch
-  'http://netdna.bootstrapcdn.com/bootswatch/latest/amelia/bootstrap.min.css',
-  'http://netdna.bootstrapcdn.com/bootswatch/latest/cerulean/bootstrap.min.css',
-  'http://netdna.bootstrapcdn.com/bootswatch/latest/cosmo/bootstrap.min.css',
-  'http://netdna.bootstrapcdn.com/bootswatch/latest/cyborg/bootstrap.min.css',
-  'http://netdna.bootstrapcdn.com/bootswatch/latest/journal/bootstrap.min.css',
-  'http://netdna.bootstrapcdn.com/bootswatch/latest/readable/bootstrap.min.css',
-  'http://netdna.bootstrapcdn.com/bootswatch/latest/simplex/bootstrap.min.css',
-  'http://netdna.bootstrapcdn.com/bootswatch/latest/slate/bootstrap.min.css',
-  'http://netdna.bootstrapcdn.com/bootswatch/latest/spacelab/bootstrap.min.css',
-  'http://netdna.bootstrapcdn.com/bootswatch/latest/united/bootstrap.min.css',
-  'http://netdna.bootstrapcdn.com/bootswatch/latest/flatly/bootstrap.min.css',
-  'http://netdna.bootstrapcdn.com/bootswatch/latest/yeti/bootstrap.min.css',
-  'http://netdna.bootstrapcdn.com/bootswatch/latest/darkly/bootstrap.min.css',
-  'http://netdna.bootstrapcdn.com/bootswatch/latest/fonts/glyphicons-halflings-regular.woff',
-  'http://netdna.bootstrapcdn.com/bootswatch/latest/fonts/glyphicons-halflings-regular.ttf',
-  'http://netdna.bootstrapcdn.com/bootswatch/latest/fonts/glyphicons-halflings-regular.svg',
-  'http://netdna.bootstrapcdn.com/bootswatch/latest/fonts/glyphicons-halflings-regular.eot'
+  '/bootswatch/latest/cerulean/bootstrap.min.css',
+  '/bootswatch/latest/cosmo/bootstrap.min.css',
+  '/bootswatch/latest/cyborg/bootstrap.min.css',
+  '/bootswatch/latest/journal/bootstrap.min.css',
+  '/bootswatch/latest/readable/bootstrap.min.css',
+  '/bootswatch/latest/simplex/bootstrap.min.css',
+  '/bootswatch/latest/slate/bootstrap.min.css',
+  '/bootswatch/latest/spacelab/bootstrap.min.css',
+  '/bootswatch/latest/united/bootstrap.min.css',
+  '/bootswatch/latest/flatly/bootstrap.min.css',
+  '/bootswatch/latest/yeti/bootstrap.min.css',
+  '/bootswatch/latest/darkly/bootstrap.min.css',
+  '/bootswatch/latest/paper/bootstrap.min.css',
+  '/bootswatch/latest/sandstone/bootstrap.min.css',
+
+  '/bootswatch/latest/fonts/glyphicons-halflings-regular.woff',
+  '/bootswatch/latest/fonts/glyphicons-halflings-regular.ttf',
+  '/bootswatch/latest/fonts/glyphicons-halflings-regular.svg',
+  '/bootswatch/latest/fonts/glyphicons-halflings-regular.eot'
 ];
 
 
@@ -64,11 +82,11 @@ var expectedHeaders = {
 };
 
 // store headers as they're being verified
-var headers;
+var headers, status;
 
 // test to be run on each expected header
 var headerTest = function(head) {
-    it('has '+head, function(done) {
+    it('has ' + head, function(done) {
         assert(headers.hasOwnProperty(head));
 
         // for those expectedHeaders with values, verify the value
@@ -79,60 +97,125 @@ var headerTest = function(head) {
     });
 };
 
-describe('header verification', function() {
+function validStatus(s) {
+    return (s === 200 || s === 304) || s;
+}
 
-    describe('www.bootstrapcdn.com', function() {
-        before(function(done) {
-            http.get('http://www.bootstrapcdn.com', function(res) {
-                // body collection required for on 'end' event.
-                res.body = '';
-                res.on('data', function(chunk) { res.body += chunk; });
-                res.on('end', function() {
-                    headers = res.headers;
-                    done();
-                });
-            });
-        });
-
-        it('has headers', function(done) {
-            assert(headers);
-            done();
-        });
-
-        [ 'date',
-          'expires',
-          'server',
-          'connection',
-          'vary',
-          'content-type',
-          'x-powered-by',
-          'cache-control',
-          'x-hello-human',
-          //'x-page-speed'
-        ].forEach(headerTest);
-
-    });
-
-    paths.forEach(function(p) {
-        describe(p, function() {
+describe('functional tests', function () {
+    describe('file verification', function() {
+        domains.forEach(function(domain) {
             before(function(done) {
-                http.get(p, function(res) {
+                http.get('http://' + domain, function(res) {
                     // body collection required for on 'end' event.
                     res.body = '';
                     res.on('data', function(chunk) { res.body += chunk; });
                     res.on('end', function() {
                         headers = res.headers;
+                        status  = res.statusCode;
                         done();
                     });
                 });
             });
 
-            it('has headers', function(done) {
-                assert(headers);
-                done();
+            describe(domain, function() {
+                it('has headers', function(done) {
+                    assert(headers);
+                    done();
+                });
+
+                it('returns valid status', function(done) {
+                    var valid = validStatus(status);
+                    assert(valid === true, "Invalid status: " + valid);
+                    done();
+                });
             });
 
-            Object.keys(expectedHeaders).forEach(headerTest);
+            paths.forEach(function(p) {
+                describe(domain + p, function() {
+                    before(function(done) {
+                        http.get('http://' + domain + p, function(res) {
+                            // body collection required for on 'end' event.
+                            res.body = '';
+                            res.on('data', function(chunk) { res.body += chunk; });
+                            res.on('end', function() {
+                                headers = res.headers;
+                                status  = res.statusCode;
+                                done();
+                            });
+                        });
+                    });
+
+                    it('has headers', function(done) {
+                        assert(headers);
+                        done();
+                    });
+
+                    it('returns valid status', function(done) {
+                        var valid = validStatus(status);
+                        assert(valid === true, "Invalid status: " + valid);
+                        done();
+                    });
+                });
+            });
+        });
+    });
+
+    describe('header verification', function() {
+
+        // TODO: figure out exactly what headers should be here, if it matters
+        //describe(cdndomain, function() {
+            //before(function(done) {
+                //http.get('http://'+cdndomain, function(res) {
+                    //// body collection required for on 'end' event.
+                    //res.body = '';
+                    //res.on('data', function(chunk) { res.body += chunk; });
+                    //res.on('end', function() {
+                        //headers = res.headers;
+                        //done();
+                    //});
+                //});
+            //});
+
+            //it('has headers', function(done) {
+                //assert(headers);
+                //done();
+            //});
+
+            //[ 'date',
+              //'expires',
+              //'server',
+              //'connection',
+              //'vary',
+              //'content-type',
+              //'x-powered-by',
+              //'cache-control',
+              //'x-hello-human',
+              ////'x-page-speed'
+            //].forEach(headerTest);
+
+        //});
+
+        paths.forEach(function(p) {
+            describe(cdndomain + p, function() {
+                before(function(done) {
+                    http.get('http://' + cdndomain + p, function(res) {
+                        // body collection required for on 'end' event.
+                        res.body = '';
+                        res.on('data', function(chunk) { res.body += chunk; });
+                        res.on('end', function() {
+                            headers = res.headers;
+                            done();
+                        });
+                    });
+                });
+
+                it('has headers', function(done) {
+                    assert(headers);
+                    done();
+                });
+
+                Object.keys(expectedHeaders).forEach(headerTest);
+            });
         });
     });
 });

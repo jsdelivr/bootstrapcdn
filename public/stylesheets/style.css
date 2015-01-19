@@ -34,7 +34,7 @@ blockquote.twitter-tweet {
 }
 
 iframe {
-    border-width: 0;
+    border: 0;
     overflow: hidden;
 }
 
@@ -42,10 +42,6 @@ iframe {
     margin-top: -20px;
     width: 100%;
     height: 550px;
-}
-
-footer .fa-maxcdn {
-    font-size: 36px;
 }
 
 .timeline-js {

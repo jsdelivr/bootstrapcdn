@@ -1,71 +1,76 @@
-.navbar.navbar-default.navbar-static-top
-    .navbar-header
-        button.navbar-toggle(type="button", data-toggle="collapse", data-target=".navbar-collapse")
-            span.icon-bar
-            span.icon-bar
-            span.icon-bar
-        a.navbar-brand(href="/") Bootstrap CDN
-    .navbar-collapse.collapse
-        ul.nav.navbar-nav
-            li.active
-                a(data-toggle="tab", href="#quickstart", onclick="tabAction(this)") Quick Start
-            li
-                a(data-toggle="tab", href="#fontawesome", onclick="tabAction(this)")
-                    i.fa.fa-flag
-                    span &nbsp;Font Awesome
-            li
-                a(data-toggle="tab", href="#bootswatch", onclick="tabAction(this)") Bootswatch
-            li
-                a(data-toggle="tab", href="#legacy", onclick="tabAction(this)") Legacy
-            li.hidden-sm.hidden-md.hidden-lg
-                a(data-toggle="tab", href="#madlove", onclick="tabAction(this)") Mad Love
-            li.hidden-sm.hidden-md.hidden-lg
-                a(href="/birthday"+(theme ? "?theme="+theme : "")) Birthday
-            - if (config.extras === true)
+.navbar.navbar-default.navbar-static-top(role="navigation")
+    .container-fluid
+        .navbar-header
+            button.navbar-toggle(type="button", data-toggle="collapse", data-target=".navbar-collapse")
+                span.sr-only Toggle navigation
+                span.icon-bar
+                span.icon-bar
+                span.icon-bar
+            a.navbar-brand(href="/" + (theme ? "?theme=" + theme : "")) Bootstrap CDN
+        .navbar-collapse.collapse
+            ul.nav.navbar-nav
+                li
+                    a(data-toggle="tab", href="#fontawesome", onclick="tabAction(this)")
+                        i.fa.fa-flag
+                        |  Font Awesome
+                li
+                    a(data-toggle="tab", href="#bootswatch", onclick="tabAction(this)") Bootswatch
+                li
+                    a(data-toggle="tab", href="#bootlint", onclick="tabAction(this)") Bootlint
+                li
+                    a(data-toggle="tab", href="#legacy", onclick="tabAction(this)") Legacy
                 li.hidden-sm.hidden-md.hidden-lg
-                    a(href="/extras/popular"+(theme ? "?theme="+theme : "")) Popular Files
+                    a(data-toggle="tab", href="#madlove", onclick="tabAction(this)") Mad Love
                 li.hidden-sm.hidden-md.hidden-lg
-                    a(href="/extras/app"+(theme ? "?theme="+theme : "")) App Server
+                    a(href="/birthday" + (theme ? "?theme=" + theme : "")) Birthday
+                - if (config.extras)
+                    li.hidden-sm.hidden-md.hidden-lg
+                        a(href="/extras/popular" + (theme ? "?theme=" + theme : "")) Popular Files
+                    li.hidden-sm.hidden-md.hidden-lg
+                        a(href="/extras/app" + (theme ? "?theme=" + theme : "")) App Server
 
-        ul.nav.navbar-nav.pull-right.visible-md.visible-lg.visible-sm
-            - if (config.extras === true)
-                li#extras.dropdown
-                    a.dropdown-toggle(href="#", data-toggle="dropdown") Extras
-                        b.caret
-                    ul.dropdown-menu
-                        li#popular
-                            a(href="/extras/popular"+(theme ? "?theme="+theme : "")) Popular Files
-                        li#app
-                            a(href="/extras/app"+(theme ? "?theme="+theme : "")) Application Server
+            ul.nav.navbar-nav.navbar-right.visible-md.visible-lg
+                - if (config.extras)
+                    li#extras.dropdown
+                        a.dropdown-toggle(href="#", data-toggle="dropdown") Extras&nbsp;
+                            i.fa.fa-caret-down
+                        ul.dropdown-menu(role="menu")
+                            li#popular
+                                a(href="/extras/popular" + (theme ? "?theme=" + theme : "")) Popular Files
+                            li#app
+                                a(href="/extras/app" + (theme ? "?theme=" + theme : "")) Application Server
+                            li#birthday
+                                a(href="/extras/birthday" + (theme ? "?theme=" + theme : "")) Birthday Timeline
+                            li
+                                a(href="http://status.bootstrapcdn.com/") Status Page
+
+                li.dropdown
+                    a.dropdown-toggle(href="#", data-toggle="dropdown") Resources&nbsp;
+                        i.fa.fa-caret-down
+                    ul.dropdown-menu.dropdown-menu-right(role="menu")
                         li
-                            a(href="http://status.bootstrapcdn.com/") Status Page
-                        li#birthday
-                            a(href="/extras/birthday"+(theme ? "?theme="+theme : "")) Birthday Timeline
-
-            li.dropdown
-                a.dropdown-toggle(href="#", data-toggle="dropdown") Resources&nbsp;
-                    b.caret
-                ul.dropdown-menu.dropdown-menu-right
-                    li
-                        a(href="http://github.com/netdna/bootstrap-cdn",
-                            onclick="_gaq.push(['_trackEvent', 'Jumbotron actions', 'Jumbotron links', 'GitHub project']);") GitHub project
-                    li
-                        a(href="http://wordpress.org/plugins/bootstrapcdn/",
-                            onclick="_gaq.push(['_trackEvent', 'Jumbotron actions', 'Jumbotron links', 'Wordpress Plugin']);") Wordpress Plugin
-                    li
-                        a(href="http://getbootstrap.com",
-                            onclick="_gaq.push(['_trackEvent', 'Navigation', 'Resources', 'Bootstrap']);") Bootstrap
-                    li
-                        a(href="http://expo.getbootstrap.com",
-                            onclick="_gaq.push(['_trackEvent', 'Navigation', 'Resources', 'Expo']);") Bootstrap Expo
-                    li
-                        a(href="http://fontawesome.io",
-                            onclick="_gaq.push(['_trackEvent', 'Navigation', 'Resources', 'Font Awesome']);") Font Awesome
-                    li
-                        a(href="http://bootswatch.com",
-                            onclick="_gaq.push(['_trackEvent', 'Navigation', 'Resources', 'Bootswatch']);") Bootswatch
-                    li
-                        a(href="http://glyphicons.com",
-                            onclick="_gaq.push(['_trackEvent', 'Navigation', 'Resources', 'Glyphicons']);") Glyphicons
+                            a(href="https://github.com/MaxCDN/bootstrap-cdn",
+                                onclick="_gaq.push(['_trackEvent', 'Jumbotron actions', 'Jumbotron links', 'GitHub project']);") GitHub project
+                        li
+                            a(href="http://wordpress.org/plugins/bootstrapcdn/",
+                                onclick="_gaq.push(['_trackEvent', 'Jumbotron actions', 'Jumbotron links', 'Wordpress Plugin']);") Wordpress Plugin
+                        li
+                            a(href="http://getbootstrap.com",
+                                onclick="_gaq.push(['_trackEvent', 'Navigation', 'Resources', 'Bootstrap']);") Bootstrap
+                        li
+                            a(href="http://expo.getbootstrap.com",
+                                onclick="_gaq.push(['_trackEvent', 'Navigation', 'Resources', 'Expo']);") Bootstrap Expo
+                        li
+                            a(href="http://fontawesome.io",
+                                onclick="_gaq.push(['_trackEvent', 'Navigation', 'Resources', 'Font Awesome']);") Font Awesome
+                        li
+                            a(href="http://bootswatch.com",
+                                onclick="_gaq.push(['_trackEvent', 'Navigation', 'Resources', 'Bootswatch']);") Bootswatch
+                        li
+                            a(href="https://github.com/twbs/bootlint"
+                                onclick="_gaq.push(['_trackEvent', 'Navigation', 'Resources', 'Bootlint']);") Bootlint
+                        li
+                            a(href="http://glyphicons.com",
+                                onclick="_gaq.push(['_trackEvent', 'Navigation', 'Resources', 'Glyphicons']);") Glyphicons
 
 //- vim: ft=jade sw=4 sts=4 et:

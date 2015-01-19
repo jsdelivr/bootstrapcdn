@@ -1,16 +1,16 @@
 #fontawesome.tab-pane
     h2 Font Awesome
     div.well.text-center
-        - var name = 'fontawesomeCSS1'
-        - var cssPath = '//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css'
+        - var name = 'fontawesomeCSS1'.toLowerCase()
+        //- TODO: cssPath should come from configs
+        - var cssPath = '//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'
         .label-container
-            h3 Awesome CSS
+            h3 Font Awesome CSS
         .input-group.input-group-lg
-            input.form-control(value=cssPath)
+            input.form-control(type="text", value=cssPath)
             .input-group-btn
-                button.btn.btn-default.btn-lg(type="button", onclick="toggleCode(this,'"+name+"')")
+                button.btn.btn-default.btn-lg(type="button", onclick="toggleCode(this,'" + name + "')")
                     i.fa.fa-caret-down
         include csscode
 
-    br
 //- vim: ft=jade sw=4 sts=4 et:

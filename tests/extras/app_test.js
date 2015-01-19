@@ -8,22 +8,14 @@ var assert = require('assert');
 var format = require('format');
 
 var config = yaml.safeLoad(fs.readFileSync(path.join(__dirname, '..', '..', 'config', '_config.yml'), 'utf8'));
-process.env.PORT = config.port+1; // don't use configured port
+process.env.PORT = config.port + 1; // don't use configured port
 
-var app = require('../../app.js');
-var host = format('http://localhost:%s',process.env.PORT);
-
-var tabs = [
-    '#bootswatch',
-    '#fontawesome',
-    '#quickstart',
-    '#madlove',
-    '#legacy'
-];
-
+require('../../app.js');
+var host = format('http://localhost:%s', process.env.PORT);
 var response;
+
 before(function(done) {
-    http.get(host+'/extras/app', function(res) {
+    http.get(host + '/extras/app', function(res) {
         response = res;
         response.body = '';
         res.on('data', function(chunk) {
@@ -38,7 +30,7 @@ before(function(done) {
 describe('extras/app', function() {
     it('/extras/app :: 200\'s', function(done) {
         assert(response);
-        assert(200 === response.statusCode);
+        assert(response.statusCode === 200);
         done();
     });
 

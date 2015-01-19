@@ -1,13 +1,14 @@
 .well.hidden(id=name)
     .form-group
-        label(for='html') HTML
-        input.form-control(type='text', value='<link href="'+cssPath+'" rel="stylesheet">')
+        label(for='html_' + name) HTML
+        input.form-control(type='text', id='html_' + name, value='<link href="' + cssPath + '" rel="stylesheet">')
     .form-group
-        label(for='jade')
-            a(href="http://jade-lang.com/") JADE
-        input.form-control(type='text', value='link(href="'+cssPath+'", rel="stylesheet")')
+        label(for='jade_' + name)
+            a(href="http://jade-lang.com/", target="_blank") Jade
+        input.form-control(type='text', id='jade_' + name, value='link(href="' + cssPath + '", rel="stylesheet")')
     .form-group
-        label(for='haml')
-            a(href="http://haml.info/") HAML
-        input.form-control(type='text', value='%link{:href=>"'+cssPath+'", :rel=>"stylesheet"}')
+        label(for='haml_' + name)
+            a(href="http://haml.info/", target="_blank") Haml
+        input.form-control(type='text', id='haml_' + name, value='%link{:href=>"' + cssPath + '", :rel=>"stylesheet"}')
+
 //- vim: ft=jade sw=4 sts=4 et:

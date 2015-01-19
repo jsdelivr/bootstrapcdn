@@ -8,7 +8,7 @@ var assert = require('assert');
 var format = require('format');
 
 var config = yaml.safeLoad(fs.readFileSync(path.join(__dirname, '..', '..', 'config', '_config.yml'), 'utf8'));
-process.env.PORT = config.port+1; // don't use configured port
+process.env.PORT = config.port + 1; // don't use configured port
 
 /***
  * MaxCDN Stub
@@ -19,12 +19,12 @@ MaxCDN.prototype.get = function (_, cb) {
     return;
 };
 
-var app = require('../../app.js');
-var host = format('http://localhost:%s',process.env.PORT);
-
+require('../../app.js');
+var host = format('http://localhost:%s', process.env.PORT);
 var response;
+
 before(function(done) {
-    http.get(host+'/extras/popular', function(res) {
+    http.get(host + '/extras/popular', function(res) {
         response = res;
         response.body = '';
         res.on('data', function(chunk) {
@@ -62,11 +62,9 @@ describe('popular', function() {
             var file = config.bootswatch.bootstrap
                                 .replace('SWATCH_NAME', theme)
                                 .replace('SWATCH_VERSION', config.bootstrap.version)
-                                .replace('//netdna.bootstrapcdn.com','');
-            it(format('-> %s',theme), function(done) {
-                assert(
-                    response.body.indexOf(file)
-                );
+                                .replace('//maxcdn.bootstrapcdn.com', '');
+            it(format('-> %s', theme), function(done) {
+                assert(response.body.indexOf(file));
                 done();
             });
         });
@@ -74,16 +72,14 @@ describe('popular', function() {
 
     describe('contains bootstrap', function() {
         config.bootstrap.forEach(function(bootstrap) {
-            it(format('-> %s',bootstrap.version), function(done) {
-                assert(response.body.indexOf(bootstrap.css_complete.replace('//netdna.bootstrapcdn.com','')));
-                assert(response.body.indexOf(bootstrap.javascript.replace('//netdna.bootstrapcdn.com','')));
+            it(format('-> %s', bootstrap.version), function(done) {
+                assert(response.body.indexOf(bootstrap.css_complete.replace('//maxcdn.bootstrapcdn.com', '')));
+                assert(response.body.indexOf(bootstrap.javascript.replace('//maxcdn.bootstrapcdn.com', '')));
                 if (bootstrap.css_no_icons) {
-                    assert(response.body.indexOf(bootstrap.css_no_icons.replace('//netdna.bootstrapcdn.com','')));
+                    assert(response.body.indexOf(bootstrap.css_no_icons.replace('//maxcdn.bootstrapcdn.com', '')));
                 }
                 done();
             });
         });
     });
 });
-
-
