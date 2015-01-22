@@ -2,8 +2,7 @@
     h2 Font Awesome
     div.well.text-center
         - var name = 'fontawesomeCSS1'.toLowerCase()
-        //- TODO: cssPath should come from configs
-        - var cssPath = '//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'
+        - var cssPath = config.fontawesome[0].css_complete
         - var id = name + '_form'
 
         .form-group
