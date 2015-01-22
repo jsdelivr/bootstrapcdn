@@ -3,13 +3,16 @@
     div.well.text-center
         - var name = 'bootlintJS'.toLowerCase()
         - var jsPath = config.bootlint[0].javascript
-        .label-container
-            h3 Complete JavaScript
-        .input-group.input-group-lg
-            input.form-control(type="text", value=jsPath)
-            .input-group-btn
-                button.btn.btn-default.btn-lg(type="button", onclick="toggleCode(this,'" + name + "')")
-                    i.fa.fa-caret-down
+        - var id = name + '_form'
+
+        .form-group
+            label(for=id) Complete JavaScript
+            .input-group.input-group-lg
+                input.form-control(type="text", id=id, value=jsPath)
+                .input-group-btn
+                    button.btn.btn-default.btn-lg(type="button", onclick="toggleCode(this,'" + name + "')")
+                        i.fa.fa-caret-down
+
         include jscode
 
 //- vim: ft=jade sw=4 sts=4 et:
