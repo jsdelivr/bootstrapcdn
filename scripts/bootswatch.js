@@ -66,7 +66,8 @@ console.log('  Created: %s', fontsDir);
 [ 'glyphicons-halflings-regular.eot',
     'glyphicons-halflings-regular.svg',
     'glyphicons-halflings-regular.ttf',
-    'glyphicons-halflings-regular.woff'
+    'glyphicons-halflings-regular.woff',
+    'glyphicons-halflings-regular.woff2'
 ].forEach(function(font) {
     var fontPath = fonts.replace('%s', font);
     var response = request('GET', fontPath);
