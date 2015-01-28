@@ -7,6 +7,11 @@ var fs = require('fs');
 var request = require('sync-request');
 
 var version = process.argv[2];
+if (!version) {
+    console.log('Please pass the Bootswatch version as an argument.');
+    process.exit(1);
+}
+
 var basedir = path.join(__dirname, '..');
 var bootswatchDir = path.join(basedir, 'public', 'bootswatch', version);
 var configFile = path.join(basedir, 'config', '_config.yml');
