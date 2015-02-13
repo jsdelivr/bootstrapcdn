@@ -40,17 +40,19 @@ if (env === 'production') {
     app.use(errorHandler({ dumpExceptions: true, showStack: true }));
 }
 
-// in line middleware actions
+app.use(require('compression')());
+
 app.use(function(req, res, next) {
     // make config available in routes
     req.config = config;
-    next();
-});
 
-app.use(function(req, res, next) {
-    // overwrite default cache-control header
-    // drop to 10 minutes
-    res.setHeader('Cache-Control', 'public, max-age=600');
+    // custom headers
+    res.setHeader('X-Powered-By', 'MaxCDN');
+    res.setHeader('X-Hello-Human', 'You must be bored. You should work for us. Email jdorfman+theheader@maxcdn.com or @jdorfman on the twitter.');
+    res.setHeader('Cache-Control', 'public, max-age=2592000');
+
+    var oneMonth = (30 * 24 * 60 * 60 * 1000);
+    res.setHeader('Expires', new Date(Date.now() + oneMonth).toUTCString());
 
     // enable bootlint where applicable
     if (req.query.bootlint && req.query.bootlint === 'true') {
