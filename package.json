@@ -23,7 +23,8 @@
     "maxcdn": "^0.1.5",
     "morgan": "^1.5.1",
     "serve-favicon": "^2.2.0",
-    "serve-static": "^1.8.1"
+    "serve-static": "^1.8.1",
+    "compression": "~1.4.0"
   },
   "devDependencies": {
     "bootlint": "^0.10.0",
