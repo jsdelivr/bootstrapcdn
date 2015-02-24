@@ -50,7 +50,7 @@ wp-plugin: setup
 setup:
 	npm run setup
 
-nginx/start: nginx.conf
+nginx/start:
 	sudo /usr/local/nginx/sbin/nginx -c /home/$(USER)/bootstrap-cdn/nginx.conf
 
 nginx/stop:

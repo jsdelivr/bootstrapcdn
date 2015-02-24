@@ -50,7 +50,7 @@ var VALIDATOR = path.join(__dirname, 'node_modules/.bin/html-validator');
             mkdir('logs');
         }
         env.NODE_ENV = 'production';
-        exec(FOREVER + ' -m 4 -p ./logs -l server.log --append --plain start server.js', { async: true });
+        exec(FOREVER + ' -p ./logs -l server.log --append --plain start server.js', { async: true });
     };
 
     //
