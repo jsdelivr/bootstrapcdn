@@ -27,7 +27,7 @@
     "compression": "~1.4.0"
   },
   "devDependencies": {
-    "bootlint": "^0.9.2",
+    "bootlint": "^0.10.0",
     "expect.js": "^0.3.1",
     "format": "^0.2.1",
     "mocha": "^2.1.0",
