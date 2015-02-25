@@ -61,5 +61,5 @@ nginx/restart: nginx/stop nginx/start
 nginx/reload: nginx.conf
 	sudo pkill -HUP nginx
 
-nginx.conf: .PHONY
+nginx.conf:
 	sed -e "s/CURRENT_USER/$(USER)/g" .nginx.conf > nginx.conf
