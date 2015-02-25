@@ -7,6 +7,11 @@ var fs = require('fs');
 var request = require('sync-request');
 
 var version = process.argv[2];
+if (!version) {
+    console.log('Please pass the Bootswatch version as an argument.');
+    process.exit(1);
+}
+
 var basedir = path.join(__dirname, '..');
 var bootswatchDir = path.join(basedir, 'public', 'bootswatch', version);
 var configFile = path.join(basedir, 'config', '_config.yml');
@@ -66,7 +71,8 @@ console.log('  Created: %s', fontsDir);
 [ 'glyphicons-halflings-regular.eot',
     'glyphicons-halflings-regular.svg',
     'glyphicons-halflings-regular.ttf',
-    'glyphicons-halflings-regular.woff'
+    'glyphicons-halflings-regular.woff',
+    'glyphicons-halflings-regular.woff2'
 ].forEach(function(font) {
     var fontPath = fonts.replace('%s', font);
     var response = request('GET', fontPath);

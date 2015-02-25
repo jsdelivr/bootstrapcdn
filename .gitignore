@@ -10,3 +10,4 @@ inc/
 reports/
 lint.html
 config/_maxcdn.yml
+shelljs_*
