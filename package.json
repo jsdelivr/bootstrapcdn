@@ -35,5 +35,8 @@
     "shelljs": "^0.3.0",
     "superagent": "^0.21.0",
     "uglify-js": "^2.4.16"
+  },
+  "engines": {
+    "node": ">= 0.10.0"
   }
 }
