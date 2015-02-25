@@ -82,6 +82,15 @@ var VALIDATOR = path.join(__dirname, 'node_modules/.bin/html-validator');
     };
 
     //
+    // make travis
+    //
+    target.travis = function() {
+        target.test();
+        target.bootlint();
+        target.validator();
+    };
+
+    //
     // make wp-plugin
     //
     target['wp-plugin'] = function() {
