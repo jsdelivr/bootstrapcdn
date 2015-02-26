@@ -4,7 +4,7 @@
 var yaml = require('js-yaml');
 var path = require('path');
 var fs = require('fs');
-var request = require('sync-request');
+var request = require('request');
 
 var version = process.argv[2];
 if (!version) {
@@ -40,27 +40,24 @@ console.log('Created: %s', bootswatchDir);
 files.forEach(function(file) {
     config.bootswatch.themes.forEach(function(theme) {
         var source = file.replace('%s', theme);
-        var response = request('GET', source);
-        var body = response.getBody();
+        request.get(source, function(err, res, body) {
+            if (res.statusCode !== 200) {
+                errorCheck(new Error('Non-success status code: ' + res.statusCode));
+            }
+            var targetDir = path.join(bootswatchDir, theme);
+            try {
+                fs.mkdirSync(targetDir, 0755);
+                console.log('  Created: %s', targetDir);
+            } catch(e) {
+                /* ignore */
+                //console.log('Error:', e.message);
+            }
 
-        if (response.statusCode !== 200) {
-            errorCheck(new Error('Non-success status code: ' + response.statusCode));
-        }
-
-        var targetDir = path.join(bootswatchDir, theme);
-
-        try {
-            fs.mkdirSync(targetDir, 0755);
-            console.log('  Created: %s', targetDir);
-        } catch(e) {
-            /* ignore */
-            //console.log('Error:', e.message);
-        }
-
-        var target = path.join(targetDir, path.basename(file));
-        fs.writeFileSync(target, body);
-        console.log('    Saved: %s', target);
-        console.log('     From: %s', source);
+            var target = path.join(targetDir, path.basename(file));
+            fs.writeFileSync(target, body);
+            console.log('    Saved: %s', target);
+            console.log('     From: %s', source);
+        });
     });
 });
 
@@ -75,12 +72,15 @@ console.log('  Created: %s', fontsDir);
     'glyphicons-halflings-regular.woff2'
 ].forEach(function(font) {
     var fontPath = fonts.replace('%s', font);
-    var response = request('GET', fontPath);
-    var body = response.getBody();
-    var target = path.join(fontsDir, font);
-    fs.writeFileSync(target, body);
-    console.log('    Saved: %s', target);
-    console.log('     From: %s', fontPath);
+    request.get(fontPath, function(err, res, body) {
+        if (res.statusCode !== 200) {
+            errorCheck(new Error('Non-success status code: ' + res.statusCode));
+        }
+        var target = path.join(fontsDir, font);
+        fs.writeFileSync(target, body);
+        console.log('    Saved: %s', target);
+        console.log('     From: %s', fontPath);
+    });
 });
 
 process.on('exit', function (code) {
