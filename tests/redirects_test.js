@@ -8,7 +8,7 @@ var assert = require('assert');
 var format = require('format');
 
 var config = yaml.safeLoad(fs.readFileSync(path.join(__dirname, '..', 'config', '_config.yml'), 'utf8'));
-process.env.PORT = config.port + 1; // don't use configured port
+process.env.PORT = (config.port < 3000 ? config.port + 3000 : config.port + 1); // don't use configured port
 
 require('../app.js');
 var host      = format('http://localhost:%s', process.env.PORT);
