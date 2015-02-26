@@ -93,6 +93,8 @@ var VALIDATOR = path.join(__dirname, 'node_modules/.bin/html-validator');
     //
     target.bootlint = function() {
         echo('+ node make start');
+        var port = 3080;
+        env.PORT = port;
         target.start();
 
         // sleep
@@ -101,8 +103,8 @@ var VALIDATOR = path.join(__dirname, 'node_modules/.bin/html-validator');
             var file = fs.createWriteStream(output);
 
             // okay, not really curl, but it communicates
-            echo('+ curl http://localhost:3333/ > ' + output);
-            var request = http.get('http://localhost:3333/', function(response) {
+            echo('+ curl http://localhost:'+port+'/ > ' + output);
+            var request = http.get('http://localhost:'+port+'/', function(response) {
                 response.pipe(file);
 
                 response.on('end', function() {
@@ -125,6 +127,8 @@ var VALIDATOR = path.join(__dirname, 'node_modules/.bin/html-validator');
     //
     target.validator = function() {
         echo('+ node make start');
+        var port = 3080;
+        env.PORT = port;
         target.start();
 
         // sleep
@@ -136,8 +140,8 @@ var VALIDATOR = path.join(__dirname, 'node_modules/.bin/html-validator');
             // note; url version is failing due to a connection error, odd.
 
             // okay, not really curl, but it communicates
-            echo('+ curl http://localhost:3333/ > ' + output);
-            var request = http.get('http://localhost:3333/', function(response) {
+            echo('+ curl http://localhost:'+port+'/ > ' + output);
+            var request = http.get('http://localhost:'+port+'/', function(response) {
                 response.pipe(file);
 
                 response.on('end', function() {
