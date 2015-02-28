@@ -10,22 +10,29 @@ var MOCHA = path.join(__dirname, 'node_modules/.bin/mocha');
 var BOOTLINT = path.join(__dirname, 'node_modules/.bin/bootlint');
 var VALIDATOR = path.join(__dirname, 'node_modules/.bin/html-validator');
 
-
 (function() {
     cd(__dirname);
+
+    function assert(result) {
+        if (result.code !== 0)
+            process.exit(result.code);
+    }
+    function assertExec(cmd) {
+        assert(exec(cmd));
+    }
 
     //
     // make test
     //
     target.test = function() {
-        exec(MOCHA + ' --timeout 15000 ./tests/*_test.js ./tests/**/*_test.js -R spec');
+        assertExec(MOCHA + ' --timeout 15000 ./tests/*_test.js ./tests/**/*_test.js -R spec');
     };
 
     //
     // make test-nc
     //
     target['test-nc'] = function() {
-        exec(MOCHA + ' --no-colors --timeout 15000 ./tests/*_test.js ./tests/**/*_test.js -R spec');
+        assertExec(MOCHA + ' --no-colors --timeout 15000 ./tests/*_test.js ./tests/**/*_test.js -R spec');
     };
 
     //
@@ -39,7 +46,7 @@ var VALIDATOR = path.join(__dirname, 'node_modules/.bin/html-validator');
     // make run
     //
     target.run = function() {
-        exec('node app.js');
+        assertExec('node app.js');
     };
 
     //
@@ -50,28 +57,28 @@ var VALIDATOR = path.join(__dirname, 'node_modules/.bin/html-validator');
             mkdir('logs');
         }
         env.NODE_ENV = 'production';
-        exec(FOREVER + ' -p ./logs -l server.log --append --plain start server.js', { async: true });
+        assertExec(FOREVER + ' -p ./logs -l server.log --append --plain start server.js', { async: true });
     };
 
     //
     // make stop
     //
     target.stop = function() {
-        exec(FOREVER + ' stop server.js');
+        assertExec(FOREVER + ' stop server.js');
     };
 
     //
     // make restart
     //
     target.restart = function() {
-        exec(FOREVER + ' restart server.js');
+        assertExec(FOREVER + ' restart server.js');
     };
 
     //
     // make status
     //
     target.status = function() {
-        exec(FOREVER + ' list');
+        assertExec(FOREVER + ' list');
     };
 
     //
@@ -79,13 +86,13 @@ var VALIDATOR = path.join(__dirname, 'node_modules/.bin/html-validator');
     //
     target['wp-plugin'] = function() {
         echo('node ./scripts/wp-plugin.js');
-        exec('node ./scripts/wp-plugin.js');
+        assertExec('node ./scripts/wp-plugin.js');
     };
 
     target['purge-latest'] = function() {
         // TODO: Make pure JS
         echo('bash ./scripts/purge.sh');
-        exec('bash ./scripts/purge.sh');
+        assertExec('bash ./scripts/purge.sh');
     };
 
     //
@@ -111,7 +118,7 @@ var VALIDATOR = path.join(__dirname, 'node_modules/.bin/html-validator');
                     file.close();
 
                     echo('+ bootlint ' + output);
-                    exec(BOOTLINT + ' ' + output);
+                    assertExec(BOOTLINT + ' ' + output);
 
                     echo('+ node make stop');
                     target.stop();
@@ -148,7 +155,7 @@ var VALIDATOR = path.join(__dirname, 'node_modules/.bin/html-validator');
                     file.close();
 
                     echo('+ html-validator ' + output);
-                    var res = exec(VALIDATOR + ' --file=' + output);
+                    var res = assertExec(VALIDATOR + ' --file=' + output);
 
                     echo('+ node make stop');
                     target.stop();
