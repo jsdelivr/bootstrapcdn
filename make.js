@@ -118,12 +118,13 @@ var VALIDATOR = path.join(__dirname, 'node_modules/.bin/html-validator');
                     file.close();
 
                     echo('+ bootlint ' + output);
-                    assertExec(BOOTLINT + ' ' + output);
+                    var res = exec(BOOTLINT + ' ' + output);
 
                     echo('+ node make stop');
                     target.stop();
 
                     rm(output);
+                    assert(res);
                 });
             });
         }, 2000);
@@ -155,16 +156,13 @@ var VALIDATOR = path.join(__dirname, 'node_modules/.bin/html-validator');
                     file.close();
 
                     echo('+ html-validator ' + output);
-                    var res = assertExec(VALIDATOR + ' --file=' + output);
+                    var res = exec(VALIDATOR + ' --file=' + output);
 
                     echo('+ node make stop');
                     target.stop();
 
                     rm(output);
-
-                    if (res.output.indexOf('Error: ') !== -1) {
-                        exit(1);
-                    }
+                    assert(res);
                 });
             });
         }, 2000);
