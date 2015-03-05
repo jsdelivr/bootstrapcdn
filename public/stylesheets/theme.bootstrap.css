@@ -97,14 +97,12 @@
 	cursor: not-allowed;
 	border: 1px solid #ccc;
 	border-radius: 4px;
-	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
+	box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset;
 	box-sizing: border-box;
-	-webkit-transition: height 0.1s ease;
-	-moz-transition: height 0.1s ease;
-	-o-transition: height 0.1s ease;
 	transition: height 0.1s ease;
+}
+.tablesorter-bootstrap .tablesorter-filter-row {
+	background: #efefef;
 }
 .tablesorter-bootstrap .tablesorter-filter-row td {
 	background: #efefef;
