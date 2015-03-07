@@ -58,8 +58,11 @@ nginx/stop:
 
 nginx/restart: nginx/stop nginx/start
 
-nginx/reload: nginx.conf
+nginx/reload: nginx/clean nginx.conf 
 	sudo pkill -HUP nginx
 
 nginx.conf:
 	sed -e "s/CURRENT_USER/$(USER)/g" .nginx.conf > nginx.conf
+
+nginx/clean:
+	rm nginx.conf
