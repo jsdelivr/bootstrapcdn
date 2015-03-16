@@ -10,22 +10,29 @@ var MOCHA = path.join(__dirname, 'node_modules/.bin/mocha');
 var BOOTLINT = path.join(__dirname, 'node_modules/.bin/bootlint');
 var VALIDATOR = path.join(__dirname, 'node_modules/.bin/html-validator');
 
-
 (function() {
     cd(__dirname);
+
+    function assert(result) {
+        if (result.code !== 0)
+            process.exit(result.code);
+    }
+    function assertExec(cmd) {
+        assert(exec(cmd));
+    }
 
     //
     // make test
     //
     target.test = function() {
-        exec(MOCHA + ' --timeout 15000 ./tests/*_test.js ./tests/**/*_test.js -R spec');
+        assertExec(MOCHA + ' --timeout 15000 ./tests/*_test.js ./tests/**/*_test.js -R spec');
     };
 
     //
     // make test-nc
     //
     target['test-nc'] = function() {
-        exec(MOCHA + ' --no-colors --timeout 15000 ./tests/*_test.js ./tests/**/*_test.js -R spec');
+        assertExec(MOCHA + ' --no-colors --timeout 15000 ./tests/*_test.js ./tests/**/*_test.js -R spec');
     };
 
     //
@@ -39,7 +46,7 @@ var VALIDATOR = path.join(__dirname, 'node_modules/.bin/html-validator');
     // make run
     //
     target.run = function() {
-        exec('node app.js');
+        assertExec('node app.js');
     };
 
     //
@@ -50,28 +57,37 @@ var VALIDATOR = path.join(__dirname, 'node_modules/.bin/html-validator');
             mkdir('logs');
         }
         env.NODE_ENV = 'production';
-        exec(FOREVER + ' -p ./logs -l server.log --append --plain start server.js', { async: true });
+        assertExec(FOREVER + ' -p ./logs -l server.log --append --plain start server.js', { async: true });
     };
 
     //
     // make stop
     //
     target.stop = function() {
-        exec(FOREVER + ' stop server.js');
+        assertExec(FOREVER + ' stop server.js');
     };
 
     //
     // make restart
     //
     target.restart = function() {
-        exec(FOREVER + ' restart server.js');
+        assertExec(FOREVER + ' restart server.js');
     };
 
     //
     // make status
     //
     target.status = function() {
-        exec(FOREVER + ' list');
+        assertExec(FOREVER + ' list');
+    };
+
+    //
+    // make travis
+    //
+    target.travis = function() {
+        target.test();
+        target.bootlint();
+        target.validator();
     };
 
     //
@@ -79,13 +95,13 @@ var VALIDATOR = path.join(__dirname, 'node_modules/.bin/html-validator');
     //
     target['wp-plugin'] = function() {
         echo('node ./scripts/wp-plugin.js');
-        exec('node ./scripts/wp-plugin.js');
+        assertExec('node ./scripts/wp-plugin.js');
     };
 
     target['purge-latest'] = function() {
         // TODO: Make pure JS
         echo('bash ./scripts/purge.sh');
-        exec('bash ./scripts/purge.sh');
+        assertExec('bash ./scripts/purge.sh');
     };
 
     //
@@ -93,6 +109,8 @@ var VALIDATOR = path.join(__dirname, 'node_modules/.bin/html-validator');
     //
     target.bootlint = function() {
         echo('+ node make start');
+        var port = 3080;
+        env.PORT = port;
         target.start();
 
         // sleep
@@ -101,20 +119,23 @@ var VALIDATOR = path.join(__dirname, 'node_modules/.bin/html-validator');
             var file = fs.createWriteStream(output);
 
             // okay, not really curl, but it communicates
-            echo('+ curl http://localhost:3333/ > ' + output);
-            var request = http.get('http://localhost:3333/', function(response) {
+            echo('+ curl http://localhost:'+port+'/ > ' + output);
+            var request = http.get('http://localhost:'+port+'/', function(response) {
                 response.pipe(file);
 
                 response.on('end', function() {
                     file.close();
 
                     echo('+ bootlint ' + output);
-                    exec(BOOTLINT + ' ' + output);
+
+                    // disabling version error's until bootswatch is updated to 3.3.4
+                    var res = exec(BOOTLINT + ' -d W013 ' + output);
 
                     echo('+ node make stop');
                     target.stop();
 
                     rm(output);
+                    assert(res);
                 });
             });
         }, 2000);
@@ -125,6 +146,8 @@ var VALIDATOR = path.join(__dirname, 'node_modules/.bin/html-validator');
     //
     target.validator = function() {
         echo('+ node make start');
+        var port = 3080;
+        env.PORT = port;
         target.start();
 
         // sleep
@@ -136,8 +159,8 @@ var VALIDATOR = path.join(__dirname, 'node_modules/.bin/html-validator');
             // note; url version is failing due to a connection error, odd.
 
             // okay, not really curl, but it communicates
-            echo('+ curl http://localhost:3333/ > ' + output);
-            var request = http.get('http://localhost:3333/', function(response) {
+            echo('+ curl http://localhost:'+port+'/ > ' + output);
+            var request = http.get('http://localhost:'+port+'/', function(response) {
                 response.pipe(file);
 
                 response.on('end', function() {
@@ -150,10 +173,7 @@ var VALIDATOR = path.join(__dirname, 'node_modules/.bin/html-validator');
                     target.stop();
 
                     rm(output);
-
-                    if (res.output.indexOf('Error: ') !== -1) {
-                        exit(1);
-                    }
+                    assert(res);
                 });
             });
         }, 2000);
