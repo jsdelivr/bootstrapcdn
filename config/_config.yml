@@ -23,7 +23,7 @@ extras: true
 # Note: stylesheets and javascript will be loaded
 # in the order they are specified.
 stylesheets:
-    - "//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
+    - "//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
     - "/stylesheets/style.css"
 
 javascript:
@@ -34,7 +34,7 @@ javascript:
     # scripts specified in the after group will be loaded
     # as blocking scripts at the bottom of the page
     after:
-        - "//code.jquery.com/jquery-1.11.1.min.js"
+        - "//code.jquery.com/jquery-1.11.2.min.js"
         - "//maxcdn.bootstrapcdn.com/bootstrap/SWATCH_VERSION/js/bootstrap.min.js"
 
 ####
@@ -71,8 +71,11 @@ bootswatch:
 # TODO: Perhaps move to a database (redis or mongo),
 # or to its own configuration file.
 bootlint:
-    - version: "0.11.0"
+    - version: "0.12.0"
       latest: true
+      javascript:  "//maxcdn.bootstrapcdn.com/bootlint/0.12.0/bootlint.min.js"
+
+    - version: "0.11.0"
       javascript:  "//maxcdn.bootstrapcdn.com/bootlint/0.11.0/bootlint.min.js"
 
     - version: "0.10.0"
