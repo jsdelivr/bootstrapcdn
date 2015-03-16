@@ -127,7 +127,9 @@ var VALIDATOR = path.join(__dirname, 'node_modules/.bin/html-validator');
                     file.close();
 
                     echo('+ bootlint ' + output);
-                    var res = exec(BOOTLINT + ' ' + output);
+
+                    // disabling version error's until bootswatch is updated to 3.3.4
+                    var res = exec(BOOTLINT + ' -d W013 ' + output);
 
                     echo('+ node make stop');
                     target.stop();

@@ -29,7 +29,7 @@
     "serve-static": "^1.9.1"
   },
   "devDependencies": {
-    "bootlint": "^0.11.0",
+    "bootlint": "^0.12.0",
     "expect.js": "^0.3.1",
     "format": "^0.2.1",
     "mocha": "^2.1.0",
