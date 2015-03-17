@@ -1,0 +1,41 @@
+{
+    "apps" : [{
+        "name"       : "bootstrap01",
+        "script"     : "app.js",
+        "log_file"   : "./logs/server.log",
+        "error_file" : "./logs/server-err.log",
+        "out_file"   : "./logs/server-out.log",
+        "pid_file"   : "./logs/server.pid",
+        "env": {
+            "COMMON_VARIABLE": "true",
+            "NODE_ENV": "production",
+            "PORT": 3331
+        }
+    },
+    {
+        "name"       : "bootstrap02",
+        "script"     : "app.js",
+        "log_file"   : "./logs/server.log",
+        "error_file" : "./logs/server-err.log",
+        "out_file"   : "./logs/server-out.log",
+        "pid_file"   : "./logs/server.pid",
+        "env": {
+            "COMMON_VARIABLE": "true",
+            "NODE_ENV": "production",
+            "PORT": 3332
+        }
+    },
+    {
+        "name"       : "bootstrap03",
+        "script"     : "app.js",
+        "log_file"   : "./logs/server.log",
+        "error_file" : "./logs/server-err.log",
+        "out_file"   : "./logs/server-out.log",
+        "pid_file"   : "./logs/server.pid",
+        "env": {
+            "COMMON_VARIABLE": "true",
+            "NODE_ENV": "production",
+            "PORT": 3333
+        }
+    }]
+}

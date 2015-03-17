@@ -1,4 +1,4 @@
-port: 3333
+port: 3330
 
 theme: 14 # bootswatch.themes[n]
 

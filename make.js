@@ -5,6 +5,7 @@ var path = require('path');
 var http = require('http');
 var fs   = require('fs');
 
+var PM2 = path.join(__dirname, 'node_modules/.bin/pm2');
 var FOREVER = path.join(__dirname, 'node_modules/.bin/forever');
 var MOCHA = path.join(__dirname, 'node_modules/.bin/mocha');
 var BOOTLINT = path.join(__dirname, 'node_modules/.bin/bootlint');
@@ -21,78 +22,88 @@ var VALIDATOR = path.join(__dirname, 'node_modules/.bin/html-validator');
         assert(exec(cmd));
     }
 
-    //
     // make test
-    //
     target.test = function() {
         assertExec(MOCHA + ' --timeout 15000 ./tests/*_test.js ./tests/**/*_test.js -R spec');
     };
 
-    //
     // make test-nc
-    //
     target['test-nc'] = function() {
         assertExec(MOCHA + ' --no-colors --timeout 15000 ./tests/*_test.js ./tests/**/*_test.js -R spec');
     };
 
-    //
     // make clean
-    //
     target.clean = function() {
         rm('-rf', 'node_modules');
     };
 
-    //
     // make run
-    //
     target.run = function() {
         assertExec('node app.js');
     };
 
-    //
-    // make start
-    //
-    target.start = function() {
+    target.log_dir = function() {
         if (!test('-e', 'logs')) {
             mkdir('logs');
         }
+    };
+
+    // make start
+    target.start = function() {
+        target.log_dir();
+        assertExec(PM2 + ' startOrRestart ./bootstrapcdn.json');
+    };
+
+    target['start-test-app'] = function() {
+        target.log_dir();
         env.NODE_ENV = 'production';
         assertExec(FOREVER + ' -p ./logs -l server.log --append --plain start server.js', { async: true });
     };
 
-    //
-    // make stop
-    //
-    target.stop = function() {
+    target['stop-test-app'] = function() {
         assertExec(FOREVER + ' stop server.js');
     };
 
-    //
+    // make reload
+    // - roll restart
+    target.reload = function() {
+        assertExec(PM2 + ' -s restart bootstrap01');
+        assertExec(PM2 + ' -s restart bootstrap02');
+        assertExec(PM2 + ' -s restart bootstrap03');
+        target.status();
+    };
+
     // make restart
-    //
-    target.restart = function() {
-        assertExec(FOREVER + ' restart server.js');
+    target.restart = target.start;
+
+    // stop
+    target.stop = function() {
+        assertExec(PM2 + ' delete ./bootstrapcdn.json');
     };
 
-    //
-    // make status
-    //
+    // logs
+    target.logs = function() {
+        assertExec(PM2 + ' logs');
+    };
+
     target.status = function() {
-        assertExec(FOREVER + ' list');
+        assertExec(PM2 + ' list');
     };
 
-    //
+    target.monit = function() {
+        assertExec(PM2 + ' monit');
+    }
+    target.monitor = target.monit;
+
+
     // make travis
-    //
     target.travis = function() {
         target.test();
         target.bootlint();
         target.validator();
     };
 
-    //
     // make wp-plugin
-    //
     target['wp-plugin'] = function() {
         echo('node ./scripts/wp-plugin.js');
         assertExec('node ./scripts/wp-plugin.js');
@@ -104,14 +115,12 @@ var VALIDATOR = path.join(__dirname, 'node_modules/.bin/html-validator');
         assertExec('bash ./scripts/purge.sh');
     };
 
-    //
     // make bootlint
-    //
     target.bootlint = function() {
-        echo('+ node make start');
         var port = 3080;
         env.PORT = port;
-        target.start();
+        echo('+ node make start-test-app');
+        target['start-test-app']();
 
         // sleep
         setTimeout(function() {
@@ -131,8 +140,8 @@ var VALIDATOR = path.join(__dirname, 'node_modules/.bin/html-validator');
                     // disabling version error's until bootswatch is updated to 3.3.4
                     var res = exec(BOOTLINT + ' -d W013 ' + output);
 
-                    echo('+ node make stop');
-                    target.stop();
+                    echo('+ node make stop-test-app');
+                    target['stop-test-app']();
 
                     rm(output);
                     assert(res);
@@ -141,14 +150,12 @@ var VALIDATOR = path.join(__dirname, 'node_modules/.bin/html-validator');
         }, 2000);
     };
 
-    //
     // make validator
-    //
     target.validator = function() {
-        echo('+ node make start');
         var port = 3080;
         env.PORT = port;
-        target.start();
+        echo('+ node make start-test-app');
+        target['start-test-app']();
 
         // sleep
         setTimeout(function() {
@@ -169,8 +176,8 @@ var VALIDATOR = path.join(__dirname, 'node_modules/.bin/html-validator');
                     echo('+ html-validator ' + output);
                     var res = exec(VALIDATOR + ' --file=' + output);
 
-                    echo('+ node make stop');
-                    target.stop();
+                    echo('+ node make stop-test-app');
+                    target['stop-test-app']();
 
                     rm(output);
                     assert(res);
@@ -179,28 +186,19 @@ var VALIDATOR = path.join(__dirname, 'node_modules/.bin/html-validator');
         }, 2000);
     };
 
-    //
-    // make all
-    //
-    target.all = function() {
-        target.test();
-        target.run();
-    };
-
-
-    //
     // make help
-    //
     target.help = function() {
         echo('Available targets:');
-        echo('  all         test and run');
         echo('  test        runs the tests');
         echo('  test-nc     runs the tests w/o colors');
         echo('  clean       cleanup working directory');
         echo('  run         runs for development mode');
         echo('  start       start application deamonized');
-        echo('  stop        stop application when deamonized');
+        echo('  stop        stop application deamonized');
+        echo('  status      list application processes');
+        echo('  monit       monitor application processes');
         echo('  bootlint    run Bootlint locally');
+        echo('  validator   run html validator locally');
         echo('  help        shows this help message');
     };
 
