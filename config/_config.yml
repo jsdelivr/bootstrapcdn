@@ -45,7 +45,7 @@ javascript:
 # the corresponding theme. SWATCH_VERSION will be replaced with
 # the version specified.
 bootswatch:
-    version: "3.3.2"
+    version: "3.3.4"
     link: "http://bootswatch.com/SWATCH_NAME/"
     image: "http://bootswatch.com/SWATCH_NAME/thumbnail.png"
     bootstrap: "//maxcdn.bootstrapcdn.com/bootswatch/SWATCH_VERSION/SWATCH_NAME/bootstrap.min.css"
