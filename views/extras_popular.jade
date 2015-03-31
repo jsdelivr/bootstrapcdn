@@ -28,7 +28,7 @@ block content
                                     - if (entry.hit > 1000)
                                         tr
                                             td
-                                                - var ext = entry.uri.match(/\.[a-zA-Z]+$/)[0].replace(/^\./, '');
+                                                - var ext = entry.uri.split('.')[entry.uri.split('.').length-1];
                                                 img(src="/images/reports/" + ext + ".png", alt=ext, width="30", height="30")
                                             td= entry.uri
                                             td
