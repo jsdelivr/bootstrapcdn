@@ -19,11 +19,11 @@ var configFile = path.join(basedir, 'config', '_config.yml');
 var config = yaml.safeLoad(fs.readFileSync(configFile));
 
 var files = [
-    'http://bootswatch.com/%s/bootstrap.min.css',
-    'http://bootswatch.com/%s/bootstrap.css'
+    'https://bootswatch.com/%s/bootstrap.min.css',
+    'https://bootswatch.com/%s/bootstrap.css'
 ];
 
-var fonts = 'http://bootswatch.com/fonts/%s';
+var fonts = 'https://bootswatch.com/fonts/%s';
 var fontsDir = path.join(bootswatchDir, 'fonts');
 
 function errorCheck(err) {
