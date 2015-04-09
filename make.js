@@ -5,7 +5,6 @@ var path = require('path');
 var http = require('http');
 var fs   = require('fs');
 
-var FOREVER = path.join(__dirname, 'node_modules/.bin/forever');
 var MOCHA = path.join(__dirname, 'node_modules/.bin/mocha');
 var BOOTLINT = path.join(__dirname, 'node_modules/.bin/bootlint');
 var VALIDATOR = path.join(__dirname, 'node_modules/.bin/html-validator');
@@ -47,38 +46,6 @@ var VALIDATOR = path.join(__dirname, 'node_modules/.bin/html-validator');
     //
     target.run = function() {
         assertExec('node app.js');
-    };
-
-    //
-    // make start
-    //
-    target.start = function() {
-        if (!test('-e', 'logs')) {
-            mkdir('logs');
-        }
-        env.NODE_ENV = 'production';
-        assertExec(FOREVER + ' -p ./logs -l server.log --append --plain start server.js', { async: true });
-    };
-
-    //
-    // make stop
-    //
-    target.stop = function() {
-        assertExec(FOREVER + ' stop server.js');
-    };
-
-    //
-    // make restart
-    //
-    target.restart = function() {
-        assertExec(FOREVER + ' restart server.js');
-    };
-
-    //
-    // make status
-    //
-    target.status = function() {
-        assertExec(FOREVER + ' list');
     };
 
     //
@@ -198,8 +165,6 @@ var VALIDATOR = path.join(__dirname, 'node_modules/.bin/html-validator');
         echo('  test-nc     runs the tests w/o colors');
         echo('  clean       cleanup working directory');
         echo('  run         runs for development mode');
-        echo('  start       start application deamonized');
-        echo('  stop        stop application when deamonized');
         echo('  bootlint    run Bootlint locally');
         echo('  help        shows this help message');
     };
