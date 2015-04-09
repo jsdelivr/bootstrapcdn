@@ -1,7 +1,10 @@
 language: node_js
 node_js:
-  - "0.10"
   - "0.12"
 script: make travis
 matrix:
   fast_finish: true
+notifications:
+  email:
+    - joshua@mervine.net
+    - bootstrap@maxcdn.com
