@@ -8,6 +8,7 @@ var fs   = require('fs');
 var MOCHA = path.join(__dirname, 'node_modules/.bin/mocha');
 var BOOTLINT = path.join(__dirname, 'node_modules/.bin/bootlint');
 var VALIDATOR = path.join(__dirname, 'node_modules/.bin/html-validator');
+var FOREVER = path.join(__dirname, 'node_modules/.bin/forever');
 
 (function() {
     cd(__dirname);
@@ -46,6 +47,14 @@ var VALIDATOR = path.join(__dirname, 'node_modules/.bin/html-validator');
     //
     target.run = function() {
         assertExec('node app.js');
+    };
+
+    // for integration tests
+    target.start = function() {
+        assertExec(FOREVER + ' --plain start app.js');
+    };
+    target.stop = function() {
+        assertExec(FOREVER + ' stop app.js');
     };
 
     //
