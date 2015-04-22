@@ -1,4 +1,4 @@
-script(src="//www.hellobar.com/hellobar.js")
+script(src="https://www.hellobar.com/hellobar.js")
 script
     :uglify
         new HelloBar(34009, 110807);
@@ -50,20 +50,17 @@ script
             window.onload = function() {
                 __adroll_loaded = true;
                 var scr = document.createElement('script');
-                var host = (('https:' == document.location.protocol) ? 'https://s.adroll.com' : 'http://a.adroll.com');
-                scr.setAttribute('async', 'true');
-                scr.type = 'text/javascript';
+                var host = 'https://s.adroll.com';
                 scr.src = host + '/j/roundtrip.js';
-                ((document.getElementsByTagName('head') || [null])[0] ||
-                document.getElementsByTagName('script')[0].parentNode).appendChild(scr);
+                document.scripts[0].parentNode.appendChild(scr);
                 if (oldonload) {
                     oldonload();
                 }
             };
         }());
 
-        (function(a,b,c,d,e){function f(){var a=b.createElement("script");a.async=!0;a.src="//radar.cedexis.com/1/10956/radar.js";b.body.appendChild(a)}/\bMSIE 6/i.test(a.navigator.userAgent)||(a[c]?a[c](e,f,!1):a[d]&&a[d]("on"+e,f))})(window,document,"addEventListener","attachEvent","load");
-        
+        (function(a,b,c,d,e){function f(){var a=b.createElement("script");a.async=!0;a.src="https://radar.cedexis.com/1/10956/radar.js";b.body.appendChild(a)}/\bMSIE 6/i.test(a.navigator.userAgent)||(a[c]?a[c](e,f,!1):a[d]&&a[d]("on"+e,f))})(window,document,"addEventListener","attachEvent","load");
+
         $('.alert-dismissible').each(function() {
             var $alert = $(this);
             var alertNameLSProp = $alert.attr('data-alert-id');
