@@ -79,157 +79,157 @@ bootlint:
       javascript:  "https://maxcdn.bootstrapcdn.com/bootlint/0.11.0/bootlint.min.js"
 
     - version: "0.10.0"
-      javascript:  "https://maxdcn.bootstrapcdn.com/bootlint/0.10.0/bootlint.min.js"
+      javascript:  "https://maxcdn.bootstrapcdn.com/bootlint/0.10.0/bootlint.min.js"
 
     - version: "0.9.1"
-      javascript:  "https://maxdcn.bootstrapcdn.com/bootlint/0.9.1/bootlint.min.js"
+      javascript:  "https://maxcdn.bootstrapcdn.com/bootlint/0.9.1/bootlint.min.js"
 
     - version: "0.9.0"
-      javascript:  "https://maxdcn.bootstrapcdn.com/bootlint/0.9.0/bootlint.min.js"
+      javascript:  "https://maxcdn.bootstrapcdn.com/bootlint/0.9.0/bootlint.min.js"
 
     - version: "0.8.0"
-      javascript:  "https://maxdcn.bootstrapcdn.com/bootlint/0.8.0/bootlint.min.js"
+      javascript:  "https://maxcdn.bootstrapcdn.com/bootlint/0.8.0/bootlint.min.js"
 
     - version: "0.7.0"
-      javascript:  "https://maxdcn.bootstrapcdn.com/bootlint/0.7.0/bootlint.min.js"
+      javascript:  "https://maxcdn.bootstrapcdn.com/bootlint/0.7.0/bootlint.min.js"
 
     - version: "0.6.0"
-      javascript:  "https://maxdcn.bootstrapcdn.com/bootlint/0.6.0/bootlint.min.js"
+      javascript:  "https://maxcdn.bootstrapcdn.com/bootlint/0.6.0/bootlint.min.js"
 
     - version: "0.5.0"
-      javascript:  "https://maxdcn.bootstrapcdn.com/bootlint/0.5.0/bootlint.min.js"
+      javascript:  "https://maxcdn.bootstrapcdn.com/bootlint/0.5.0/bootlint.min.js"
 
     - version: "0.4.0"
-      javascript:  "https://maxdcn.bootstrapcdn.com/bootlint/0.4.0/bootlint.min.js"
+      javascript:  "https://maxcdn.bootstrapcdn.com/bootlint/0.4.0/bootlint.min.js"
 
     - version: "0.3.0"
-      javascript:  "https://maxdcn.bootstrapcdn.com/bootlint/0.3.0/bootlint.min.js"
+      javascript:  "https://maxcdn.bootstrapcdn.com/bootlint/0.3.0/bootlint.min.js"
 
     - version: "0.2.0"
-      javascript:  "https://maxdcn.bootstrapcdn.com/bootlint/0.2.0/bootlint.min.js"
+      javascript:  "https://maxcdn.bootstrapcdn.com/bootlint/0.2.0/bootlint.min.js"
 
 bootstrap:
     - version: "3.3.4"
       latest: true
-      css_complete: "https://maxdcn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"
-      javascript:   "https://maxdcn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"
+      css_complete: "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"
+      javascript:   "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"
 
     - version: "3.3.2"
-      css_complete: "https://maxdcn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"
-      javascript:   "https://maxdcn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"
+      css_complete: "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"
+      javascript:   "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"
 
     - version: "3.3.1"
-      css_complete: "https://maxdcn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"
-      javascript:   "https://maxdcn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"
+      css_complete: "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"
+      javascript:   "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"
 
     - version: "3.3.0"
-      css_complete: "https://maxdcn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
-      javascript:   "https://maxdcn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"
+      css_complete: "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+      javascript:   "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"
 
     - version: "3.2.0"
-      css_complete: "https://maxdcn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"
-      javascript:   "https://maxdcn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"
+      css_complete: "https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"
+      javascript:   "https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"
 
     - version: "3.1.1"
-      css_complete: "https://maxdcn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"
-      javascript:   "https://maxdcn.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"
+      css_complete: "https://maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"
+      javascript:   "https://maxcdn.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"
 
     - version: "3.1.0"
-      css_complete: "https://maxdcn.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css"
-      javascript:   "https://maxdcn.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"
+      css_complete: "https://maxcdn.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css"
+      javascript:   "https://maxcdn.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"
 
     - version: "3.0.3"
-      css_complete: "https://maxdcn.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css"
-      javascript:   "https://maxdcn.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"
+      css_complete: "https://maxcdn.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css"
+      javascript:   "https://maxcdn.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"
 
     - version: "3.0.2"
-      css_complete: "https://maxdcn.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"
-      javascript:   "https://maxdcn.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"
+      css_complete: "https://maxcdn.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"
+      javascript:   "https://maxcdn.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"
 
     - version: "3.0.1"
-      css_complete: "https://maxdcn.bootstrapcdn.com/bootstrap/3.0.1/css/bootstrap.min.css"
-      javascript:   "https://maxdcn.bootstrapcdn.com/bootstrap/3.0.1/js/bootstrap.min.js"
+      css_complete: "https://maxcdn.bootstrapcdn.com/bootstrap/3.0.1/css/bootstrap.min.css"
+      javascript:   "https://maxcdn.bootstrapcdn.com/bootstrap/3.0.1/js/bootstrap.min.js"
 
     - version: "3.0.0"
-      css_complete: "https://maxdcn.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"
-      javascript:   "https://maxdcn.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"
+      css_complete: "https://maxcdn.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"
+      javascript:   "https://maxcdn.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"
 
     - version: "3.0.0-noicons"
-      css_complete: "https://maxdcn.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.no-icons.min.css"
-      javascript:   "https://maxdcn.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"
+      css_complete: "https://maxcdn.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.no-icons.min.css"
+      javascript:   "https://maxcdn.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"
 
     - version: "2.3.2"
-      css_complete: "https://maxdcn.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css"
-      css_no_icons: "https://maxdcn.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css"
-      javascript:   "https://maxdcn.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"
+      css_complete: "https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css"
+      css_no_icons: "https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css"
+      javascript:   "https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"
 
     - version: "2.3.2-noicons"
-      css_complete: "https://maxdcn.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css"
-      javascript:   "https://maxdcn.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"
+      css_complete: "https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css"
+      javascript:   "https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"
 
     - version: "2.3.1"
-      css_complete: "https://maxdcn.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css"
-      javascript:   "https://maxdcn.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"
+      css_complete: "https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css"
+      javascript:   "https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"
 
     - version: "2.3.0"
-      css_complete: "https://maxdcn.bootstrapcdn.com/twitter-bootstrap/2.3.0/css/bootstrap-combined.min.css"
-      javascript:   "https://maxdcn.bootstrapcdn.com/twitter-bootstrap/2.3.0/js/bootstrap.min.js"
+      css_complete: "https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.3.0/css/bootstrap-combined.min.css"
+      javascript:   "https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.3.0/js/bootstrap.min.js"
 
     - version: "2.2.2"
-      css_complete: "https://maxdcn.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css"
-      css_no_icons: "https://maxdcn.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap.min.nr.css"
-      javascript:   "https://maxdcn.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js"
+      css_complete: "https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css"
+      css_no_icons: "https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap.min.nr.css"
+      javascript:   "https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js"
 
     - version: "2.2.2-noresponsible"
-      css_complete: "https://maxdcn.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap.min.nr.css"
-      javascript:   "https://maxdcn.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js"
+      css_complete: "https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap.min.nr.css"
+      javascript:   "https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js"
 
     - version: "2.2.1"
-      css_complete: "https://maxdcn.bootstrapcdn.com/twitter-bootstrap/2.2.1/css/bootstrap-combined.min.css"
-      javascript:   "https://maxdcn.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js"
+      css_complete: "https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.2.1/css/bootstrap-combined.min.css"
+      javascript:   "https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js"
 
     - version: "2.2.0"
-      css_complete: "https://maxdcn.bootstrapcdn.com/twitter-bootstrap/2.2.0/css/bootstrap-combined.min.css"
-      javascript:   "https://maxdcn.bootstrapcdn.com/twitter-bootstrap/2.2.0/js/bootstrap.min.js"
+      css_complete: "https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.2.0/css/bootstrap-combined.min.css"
+      javascript:   "https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.2.0/js/bootstrap.min.js"
 
     - version: "2.1.1"
-      css_complete: "https://maxdcn.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap-combined.min.css"
-      javascript:   "https://maxdcn.bootstrapcdn.com/twitter-bootstrap/2.1.1/js/bootstrap.min.js"
+      css_complete: "https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap-combined.min.css"
+      javascript:   "https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.1.1/js/bootstrap.min.js"
 
     - version: "2.1.0"
-      css_complete: "https://maxdcn.bootstrapcdn.com/twitter-bootstrap/2.1.0/css/bootstrap-combined.min.css"
-      javascript:   "https://maxdcn.bootstrapcdn.com/twitter-bootstrap/2.1.0/js/bootstrap.min.js"
+      css_complete: "https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.1.0/css/bootstrap-combined.min.css"
+      javascript:   "https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.1.0/js/bootstrap.min.js"
 
     - version: "2.0.4"
-      css_complete: "https://maxdcn.bootstrapcdn.com/twitter-bootstrap/2.0.4/css/bootstrap-combined.min.css"
-      javascript:   "https://maxdcn.bootstrapcdn.com/twitter-bootstrap/2.0.4/js/bootstrap.min.js"
+      css_complete: "https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.0.4/css/bootstrap-combined.min.css"
+      javascript:   "https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.0.4/js/bootstrap.min.js"
 
 fontawesome:
 
     - version: "4.3.0"
       latest: true
-      css_complete: "https://maxdcn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
+      css_complete: "https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
 
     - version: "4.2.0"
-      css_complete: "https://maxdcn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
+      css_complete: "https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
 
     - version: "4.1.0"
-      css_complete: "https://maxdcn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
+      css_complete: "https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
 
     - version: "4.0.3"
-      css_complete: "https://maxdcn.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"
+      css_complete: "https://maxcdn.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"
 
     - version: "4.0.2"
-      css_complete: "https://maxdcn.bootstrapcdn.com/font-awesome/4.0.2/css/font-awesome.min.css"
+      css_complete: "https://maxcdn.bootstrapcdn.com/font-awesome/4.0.2/css/font-awesome.min.css"
 
     - version: "4.0.1"
-      css_complete: "https://maxdcn.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.min.css"
+      css_complete: "https://maxcdn.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.min.css"
 
     - version: "4.0.0"
-      css_complete: "https://maxdcn.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.min.css"
+      css_complete: "https://maxcdn.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.min.css"
 
     - version: "3.2.1"
-      css_complete: "https://maxdcn.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css"
+      css_complete: "https://maxcdn.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css"
 
 
 # vim: ft=yaml sw=4 sts=4 et:
