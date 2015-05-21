@@ -95,8 +95,8 @@ var FOREVER = path.join(__dirname, 'node_modules/.bin/forever');
             var file = fs.createWriteStream(output);
 
             // okay, not really curl, but it communicates
-            echo('+ curl http://localhost:'+port+'/ > ' + output);
-            var request = http.get('http://localhost:'+port+'/', function(response) {
+            echo('+ curl http://localhost:' + port + '/ > ' + output);
+            var request = http.get('http://localhost:' + port + '/', function(response) {
                 response.pipe(file);
 
                 response.on('end', function() {
@@ -135,8 +135,8 @@ var FOREVER = path.join(__dirname, 'node_modules/.bin/forever');
             // note; url version is failing due to a connection error, odd.
 
             // okay, not really curl, but it communicates
-            echo('+ curl http://localhost:'+port+'/ > ' + output);
-            var request = http.get('http://localhost:'+port+'/', function(response) {
+            echo('+ curl http://localhost:' + port + '/ > ' + output);
+            var request = http.get('http://localhost:' + port + '/', function(response) {
                 response.pipe(file);
 
                 response.on('end', function() {
