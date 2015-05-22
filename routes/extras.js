@@ -8,11 +8,11 @@ var MaxCDN  = require('maxcdn');
 
 var config  = yaml.safeLoad(fs.readFileSync(path.join(__dirname, '..', 'config', '_maxcdn.yml'), 'utf8'));
 
-var max_alias  = process.env.MAXCDN_ALIAS  || config.alias;
-var max_key    = process.env.MAXCDN_KEY    || config.key;
-var max_secret = process.env.MAXCDN_SECRET || config.secret;
+var maxAlias  = process.env.MAXCDN_ALIAS  || config.alias;
+var maxKey    = process.env.MAXCDN_KEY    || config.key;
+var maxSecret = process.env.MAXCDN_SECRET || config.secret;
 
-var maxcdn  = new MaxCDN(max_alias, max_key, max_secret);
+var maxcdn  = new MaxCDN(maxAlias, maxKey, maxSecret);
 var popSave = path.join(os.tmpdir(), '.popular.json');
 
 // grab cached version if fetch fails
