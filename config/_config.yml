@@ -109,8 +109,12 @@ bootlint:
       javascript:  "https://maxcdn.bootstrapcdn.com/bootlint/0.2.0/bootlint.min.js"
 
 bootstrap:
-    - version: "3.3.4"
+    - version: "3.3.5"
       latest: true
+      css_complete: "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
+      javascript:   "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"
+
+    - version: "3.3.4"
       css_complete: "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"
       javascript:   "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"
 
