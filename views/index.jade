@@ -1,18 +1,35 @@
 extends layout
 
 block content
-    //-Don't want to run randomizer twice.
-    - var randomTweets = helpers.randomTweets(tweets)
+    h2 Quick Start
+    div.well.text-center
+        - var name = 'quickstartCSS'.toLowerCase()
+        - var cssPath = config.bootstrap[0].css_complete
+        - var id = name + '_form'
 
-    include _partials/jumbotron
+        .form-group
+            label(for=id) Complete CSS
+            .input-group.input-group-lg
+                input.form-control(type="text", id=id, value=cssPath)
+                .input-group-btn
+                    button.btn.btn-default.btn-lg(type="button", onclick="toggleCode(this,'" + name + "')")
+                        i.fa.fa-caret-down
 
-    .container
-        .row
-            .col-sm-12.col-md-9
-                include _partials/tabs
+        include _partials/csscode
 
-            .col-md-3.visible-md.visible-lg
-                include _partials/tweets
+        - var name = 'quickstartJS'.toLowerCase()
+        - var jsPath = config.bootstrap[0].javascript
+        - var id = name + '_form'
+
+        .form-group
+            label(for=id) Complete JavaScript
+            .input-group.input-group-lg
+                input.form-control(type="text", id=id, value=jsPath)
+                .input-group-btn
+                    button.btn.btn-default.btn-lg(type="button", onclick="toggleCode(this,'" + name + "')")
+                        i.fa.fa-caret-down
+
+        include _partials/jscode
 
 block last
     script(async src="https://platform.twitter.com/widgets.js")
