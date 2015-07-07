@@ -10,40 +10,17 @@
         .navbar-collapse.collapse
             ul.nav.navbar-nav
                 li
-                    a(data-toggle="tab", href="#fontawesome", onclick="tabAction(this)")
+                    a(href="/fontawesome/")
                         i.fa.fa-flag
                         |  Font Awesome
                 li
-                    a(data-toggle="tab", href="#bootswatch", onclick="tabAction(this)") Bootswatch
+                    a(href="/bootswatch/") Bootswatch
                 li
-                    a(data-toggle="tab", href="#bootlint", onclick="tabAction(this)") Bootlint
+                    a(href="/bootlint/") Bootlint
                 li
-                    a(data-toggle="tab", href="#legacy", onclick="tabAction(this)") Legacy
-                li.hidden-sm.hidden-md.hidden-lg
-                    a(data-toggle="tab", href="#madlove", onclick="tabAction(this)") Mad Love
-                li.hidden-sm.hidden-md.hidden-lg
-                    a(href="/birthday" + (theme ? "?theme=" + theme : "")) Birthday
-                - if (config.extras)
-                    li.hidden-sm.hidden-md.hidden-lg
-                        a(href="/extras/popular" + (theme ? "?theme=" + theme : "")) Popular Files
-                    //-li.hidden-sm.hidden-md.hidden-lg
-                       //- a(href="/extras/app" + (theme ? "?theme=" + theme : "")) App Server
+                    a(href="/legacy/") Legacy
 
             ul.nav.navbar-nav.navbar-right.visible-md.visible-lg
-                - if (config.extras)
-                    li#extras.dropdown
-                        a.dropdown-toggle(href="#", data-toggle="dropdown") Extras&nbsp;
-                            i.fa.fa-caret-down
-                        ul.dropdown-menu(role="menu")
-                            li#popular
-                                a(href="/extras/popular" + (theme ? "?theme=" + theme : "")) Popular Files
-                            //-li#app
-                                //-a(href="/extras/app" + (theme ? "?theme=" + theme : "")) Application Server
-                            li#birthday
-                                a(href="/extras/birthday" + (theme ? "?theme=" + theme : "")) Birthday Timeline
-                            li
-                                a(href="http://status.bootstrapcdn.com/") Status Page
-
                 li.dropdown
                     a.dropdown-toggle(href="#", data-toggle="dropdown") Resources&nbsp;
                         i.fa.fa-caret-down
