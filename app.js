@@ -113,15 +113,6 @@ app.get('/data/bootstrapcdn.json', function (req, res) {
     res.send(data);
 });
 
-
-// redirects
-var redirects = yaml.safeLoad(fs.readFileSync(path.join(__dirname, 'config', '_redirects.yml'), 'utf8'));
-Object.keys(redirects).forEach(function(requested) {
-    app.get(requested, function(req, res) {
-        res.redirect(301, redirects[requested]);
-    });
-});
-
 // start
 http.createServer(app).listen(app.get('port'), function() {
     console.log('Express server listening on port ' + app.get('port'));
