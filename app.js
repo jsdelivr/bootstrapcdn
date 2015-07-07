@@ -82,12 +82,12 @@ app.locals.config  = config;
 app.locals.tweets  = tweets;
 
 // routes
-var extras = require('./routes/extras');
 var routes = require('./routes');
-app.get('/',                routes.index);
-app.get('/extras/popular',  extras.popular);
-app.get('/extras/app',      extras.app);
-app.get('/extras/birthday', extras.birthday);
+app.get('/fontawesome/', routes.fontawesome);
+app.get('/bootswatch/',  routes.bootswatch);
+app.get('/bootlint/',    routes.bootlint);
+app.get('/legacy/',      routes.legacy);
+app.get('/',             routes.index);
 
 var data; // only regenerated on restart
 app.get('/data/bootstrapcdn.json', function (req, res) {
