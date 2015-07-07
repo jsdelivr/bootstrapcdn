@@ -1,3 +1,4 @@
+- themeQs = theme ? '?theme='+theme : ''
 .navbar.navbar-default.navbar-static-top(role="navigation")
     .container-fluid
         .navbar-header
@@ -6,19 +7,19 @@
                 span.icon-bar
                 span.icon-bar
                 span.icon-bar
-            a.navbar-brand(href="/" + (theme ? "?theme=" + theme : "")) Bootstrap CDN
+            a.navbar-brand(href="/" + themeQs) Bootstrap CDN
         .navbar-collapse.collapse
             ul.nav.navbar-nav
                 li
-                    a(href="/fontawesome/")
+                    a(href="/fontawesome/" + themeQs)
                         i.fa.fa-flag
                         |  Font Awesome
                 li
-                    a(href="/bootswatch/") Bootswatch
+                    a(href="/bootswatch/" + themeQs) Bootswatch
                 li
-                    a(href="/bootlint/") Bootlint
+                    a(href="/bootlint/" + themeQs) Bootlint
                 li
-                    a(href="/legacy/") Legacy
+                    a(href="/legacy/" + themeQs) Legacy
 
             ul.nav.navbar-nav.navbar-right.visible-md.visible-lg
                 li.dropdown
