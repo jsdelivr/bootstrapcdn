@@ -1,4 +1,6 @@
-#legacy.tab-pane
+extends layout
+
+block content
     h2 Bootstrap Legacy
     - each item in config.bootstrap
         - if (!item.latest)
@@ -15,7 +17,7 @@
                         .input-group-btn
                             button.btn.btn-default(type="button", onclick="toggleCode(this,'" + name + "')")
                                 i.fa.fa-caret-down
-                    include csscode
+                    include _partials/csscode
 
                 - if (item.javascript)
                     - var name = "javascript_" + item.version.replace(/\./g, '_')
@@ -28,7 +30,7 @@
                         .input-group-btn
                             button.btn.btn-default(type="button", onclick="toggleCode(this,'" + name + "')")
                                 i.fa.fa-caret-down
-                    include jscode
+                    include _partials/jscode
 
                 - if (item.css_no_icons)
                     - var name = "css_no_icons_" + item.version.replace(/\./g, '_')
@@ -41,6 +43,6 @@
                         .input-group-btn
                             button.btn.btn-default(type="button", onclick="toggleCode(this,'" + name + "')")
                                 i.fa.fa-caret-down
-                    include csscode
+                    include _partials/csscode
 
 //- vim: ft=jade sw=4 sts=4 et:

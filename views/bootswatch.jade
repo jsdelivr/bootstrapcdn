@@ -1,4 +1,6 @@
-#bootswatch.tab-pane
+extends layout
+
+block content
     h2 Bootswatch
     div.well.text-center
         - for (var i = 0; i < config.bootswatch.themes.length; i++) {
@@ -20,7 +22,7 @@
                             .input-group-btn
                                 button.btn.btn-default(type="button", onclick="toggleCode(this,'" + name + "')")
                                     i.fa.fa-caret-down
-                        include csscode
+                        include _partials/csscode
 
         - }
 

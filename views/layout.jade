@@ -26,7 +26,20 @@ html(lang="en")
         include _partials/ie-warning
         include _partials/header
 
-        block content
+        //-Don't want to run randomizer twice.
+        - var randomTweets = helpers.randomTweets(tweets)
+
+        include _partials/jumbotron
+
+        .container
+            .row
+                .col-sm-12.col-md-9
+                    block content
+
+                    include _partials/footer
+
+                .col-md-3.visible-md.visible-lg
+                    include _partials/tweets
 
         - if (config.javascript && config.javascript.after)
             - each js in config.javascript.after
@@ -36,7 +49,5 @@ html(lang="en")
             include _partials/javascripts/google_analytics
 
         include _partials/javascripts/after
-
-        block last
 
 //- vim: ft=jade sw=4 sts=4 et:

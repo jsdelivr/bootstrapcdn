@@ -1,8 +1,5 @@
-script(src="https://www.hellobar.com/hellobar.js")
 script
     :uglify
-        new HelloBar(34009, 110807);
-
         $('input:text').focus(function() {
             $(this).select();
             $(this).mouseup( function(a) {
@@ -10,32 +7,8 @@ script
             });
         });
 
-        var hash;
-        var hashURLNext = document.location.href.split('#')[1];
-        var hashSuffix = '_tab';
-        if (hashURLNext) {
-            hash = '#' + hashURLNext.replace(hashSuffix, '');
-        }
-        if (hash) {
-            $('ul.nav.navbar-nav li a[href=' + hash + ']').tab('show');
-        }
-
-        function tabAction(el) {
-            var selected = $(el).attr('href');
-            document.location.href = '/' + (document.location.search ? document.location.search : '') + selected + hashSuffix;
-            hash = selected;
-        }
-
-        $(function () {
-            $('.nav a').on('click', function () {
-                if ($('.navbar-toggle').css('display') !== 'none') {
-                    $('.navbar-toggle').trigger('click');
-                }
-            });
-        });
-
         function tryIt(n) {
-            window.location.href = '/?theme=' + n + (hash ? hash + hashSuffix : '');
+            window.location.href = '/?theme=' + n;
         }
 
         function toggleCode(el, name) {
@@ -43,6 +16,7 @@ script
             $(el).find('i').toggleClass('fa-caret-down');
             $(el).find('i').toggleClass('fa-caret-up');
         }
+
         adroll_adv_id = 'P2URKLNIJJHPJGQLX4X2FG';
         adroll_pix_id = 'WJFDYQ7CEZAXHPVFWBMMIY';
         (function () {
@@ -74,7 +48,10 @@ script
             }
         });
 
+script(async src="https://platform.twitter.com/widgets.js")
+
 - if (bootlint)
     script(src=bootlint)
+
 
 //- vim: ft=jade sw=4 sts=4 et:
