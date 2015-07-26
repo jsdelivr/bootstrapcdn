@@ -2,6 +2,10 @@
     .form-group
         label(for='html_' + name) HTML
         input.form-control(type='text', id='html_' + name, value='<link href="' + cssPath + '" rel="stylesheet">')
+    - if (integrity)
+        .form-group
+            label(for='html_' + name) HTML with SRI
+            input.form-control(type='text', id='html_' + name, value='<link href="' + cssPath + '" rel="stylesheet" integrity="' + integrity + '" crossorigin="anonymous">')
     .form-group
         label(for='jade_' + name)
             a(href="http://jade-lang.com/", target="_blank") Jade

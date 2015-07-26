@@ -10,6 +10,7 @@ block content
                     - var name = "css_complete_" + item.version.replace(/\./g, '_')
                     - var id = name + '_form'
                     - var cssPath = item.css_complete
+                    - var integrity = item.css_integrity
                     .form-group
                         label(for=id) Complete CSS
                     .input-group
@@ -23,6 +24,7 @@ block content
                     - var name = "javascript_" + item.version.replace(/\./g, '_')
                     - var id = name + '_form'
                     - var jsPath = item.javascript
+                    - var integrity = item.javascript_integrity
                     .form-group
                         label(for=id) Complete JavaScript
                     .input-group
