@@ -5,6 +5,7 @@ block content
     div.well.text-center
         - var name = 'quickstartCSS'.toLowerCase()
         - var cssPath = config.bootstrap[0].css_complete
+        - var integrity = config.bootstrap[0].css_integrity
         - var id = name + '_form'
 
         .form-group
@@ -19,6 +20,7 @@ block content
 
         - var name = 'quickstartJS'.toLowerCase()
         - var jsPath = config.bootstrap[0].javascript
+        - var integrity = config.bootstrap[0].javascript_integrity
         - var id = name + '_form'
 
         .form-group
