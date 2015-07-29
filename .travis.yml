@@ -1,7 +1,7 @@
 language: node_js
 node_js:
   - "0.12"
-sudo: false
+sudo: true # turn off containers to support validator
 script: make travis
 matrix:
   fast_finish: true
