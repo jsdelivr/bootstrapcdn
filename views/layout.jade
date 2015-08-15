@@ -9,8 +9,7 @@ html(lang="en")
         meta(name='description', content=(description || config.description))
 
         link(rel='shortcut icon', href=config.favicon)
-
-        link(rel='stylesheet', href=helpers.theme.css(config, theme))
+        link(rel='stylesheet',    href=helpers.theme.stylesheet(config, theme))
 
         - if (config.stylesheets)
             - each css in config.stylesheets

@@ -161,6 +161,7 @@ bootstrap:
     stylesheet_sri: sha256-gFCk6OuYkmpzmcL3eL9q6vG+XltPwfPL+EHT8vac/TM= sha512-5CWMeEpHnKVOFFWKeidt866He6pjKMyWivCs705cCTfWjN4T8g+iSbTxu6j+rMg4slllEaNlhuKU793rETf5cg==
   - version: 2.3.2
     stylesheet: 'https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css'
+    css_no_icons: 'https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css'
     javascript: 'https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js'
     javascript_sri: sha256-fB1UC3A05HkOzoJiKFTB+/NPDUKX8xZ9kU+wndrmy0w= sha512-B5kWL4fSpqx5Ms7L4EH7MoTuZGY8F7ut/kOedQ52jU70qppzvME1NRKuCtqBNpjdjdg3KnU5RvMYuyZcqywtqg==
     stylesheet_sri: sha256-LW6TXOOSwZq31DeFL497cCvqAv7I2QGzxC/eF2S5cwA= sha512-3dYKkHDelxxaf4j8fXlVbNiNGd3IPo6yViEuhtGCzzGqXlVq7+cGov1U3M5QhfsxxZsE7WmjCRQIFqxVgoGx8w==
@@ -181,6 +182,7 @@ bootstrap:
     stylesheet_sri: sha256-nH1i7Gc6yG631UwAitgDN8uTArFlWiejSjIKaSwaJzA= sha512-OPps+skmID2RyHXJSo/suikKkySow53acYXnyToi+ULIWIA6Pqksgp3f7ByzYQUd0t4Y83pet2C790N6yX197w==
   - version: 2.2.2
     stylesheet: 'https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css'
+    css_no_icons: 'https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap.min.nr.css'
     javascript: 'https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js'
     javascript_sri: sha256-NMW3sFhkBQMiShGs2eXt16PRHW3RodBenLlxhV55iEk= sha512-rtzOS/8EQUrRPBIN//UBMUNO7N/R9aX8DBA5kM2kJouvdS/u8lcOx7dO4sde6qZP1aic7vkDPd6gyezhWX7cQg==
     stylesheet_sri: sha256-E0MevIJ5zWtD2bTpShN+WaL4SFVc+oKT2iBx2bmBSdg= sha512-+eYSB4MWHQFiwv5RUa+bno7ecAqWTAEIJcXxHmRtEzupcUSNP1UVrhPVRguAlDteT/AmSC1b0bNxEgFe+1SmEA==
