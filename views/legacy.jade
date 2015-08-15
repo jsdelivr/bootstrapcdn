@@ -6,45 +6,32 @@ block content
         - if (!item.latest)
             div.well.text-center
                 h2= item.version
-                - if (item.css_complete)
+                - if (item.stylesheet)
+                    - var file = item.stylesheet
+                    - var sri  = item.stylesheet_sri
                     - var name = "css_complete_" + item.version.replace(/\./g, '_')
-                    - var id = name + '_form'
-                    - var cssPath = item.css_complete
-                    - var integrity = item.css_integrity
+                    - var id   = name + '_form'
                     .form-group
                         label(for=id) Complete CSS
                     .input-group
-                        input.form-control(type="text", id=id, value=cssPath)
+                        input.form-control(type="text", id=id, value=file)
                         .input-group-btn
                             button.btn.btn-default(type="button", onclick="toggleCode(this,'" + name + "')")
                                 i.fa.fa-caret-down
                     include _partials/csscode
 
                 - if (item.javascript)
+                    - var file = item.javascript
+                    - var sri  = item.javascript_sri
                     - var name = "javascript_" + item.version.replace(/\./g, '_')
-                    - var id = name + '_form'
-                    - var jsPath = item.javascript
-                    - var integrity = item.javascript_integrity
+                    - var id   = name + '_form'
                     .form-group
                         label(for=id) Complete JavaScript
                     .input-group
-                        input.form-control(type="text", id=id, value=jsPath)
+                        input.form-control(type="text", id=id, value=file)
                         .input-group-btn
                             button.btn.btn-default(type="button", onclick="toggleCode(this,'" + name + "')")
                                 i.fa.fa-caret-down
                     include _partials/jscode
-
-                - if (item.css_no_icons)
-                    - var name = "css_no_icons_" + item.version.replace(/\./g, '_')
-                    - var id = name + '_form'
-                    - var cssPath = item.css_no_icons
-                    .form-group
-                        label(for=id) Complete CSS (without Icons)
-                    .input-group
-                        input.form-control(type="text", id=id, value=cssPath)
-                        .input-group-btn
-                            button.btn.btn-default(type="button", onclick="toggleCode(this,'" + name + "')")
-                                i.fa.fa-caret-down
-                    include _partials/csscode
 
 //- vim: ft=jade sw=4 sts=4 et:

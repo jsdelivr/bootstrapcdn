@@ -12,3 +12,4 @@ lint.html
 config/_maxcdn.yml
 shelljs_*
 *.log
+Dockme.yml
