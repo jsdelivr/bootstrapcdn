@@ -13,3 +13,4 @@ config/_maxcdn.yml
 shelljs_*
 *.log
 Dockme.yml
+/config/_config.yml.bak
