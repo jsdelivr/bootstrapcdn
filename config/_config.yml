@@ -215,8 +215,11 @@ bootstrap:
     javascript_sri: sha256-UZCNSET5j+afNIiGewL9lgXG9asgXEUTaampoHo+/WM= sha512-IHiG4SeiV3iRCAySAW597j66Pn6AjClHUXAzreLbJrGj/i+NZ80XIXR3vbGvQa1OQJkpCuqMraqBwp0x2LLuGA==
     stylesheet_sri: sha256-uQF1SuiI+Q1kVFZVfnPtXVYdLX18aGvEVJpppHu9FB8= sha512-VKST5syz/NVig4bnwlU49wNPfro91gtfzdIaqWEG5yp5ymN3t6g46iVm9kvhC5lkcVqWhvrwXmernTgLEmTpjg==
 fontawesome:
-  - version: 4.3.0
+  - version: 4.4.0
     latest: true
+    stylesheet: 'https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'
+    stylesheet_sri: sha256-k2/8zcNbxVIh5mnQ52A0r3a6jAgMGxFJFE2707UxGCk= sha512-ZV9KawG2Legkwp3nAlxLIVFudTauWuBpC10uEafMHYL0Sarrz5A7G79kXh5+5+woxQ5HM559XX2UZjMJ36Wplg==
+  - version: 4.3.0
     stylesheet: 'https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'
     stylesheet_sri: sha256-VBrFgheoreGl4pKmWgZh3J23pJrhNlSUOBek+8Z2Gv0= sha512-i8+QythOYyQke6XbStjt9T4yQHhhM+9Y9yTY1fOxoDQwsQpKMEpIoSQZ8mVomtnVCf9PBvoQDnKl06gGOOD19Q==
   - version: 4.2.0
