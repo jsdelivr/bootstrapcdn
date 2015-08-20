@@ -86,6 +86,7 @@ var routes = require('./routes');
 app.get('/fontawesome/', routes.fontawesome);
 app.get('/bootswatch/',  routes.bootswatch);
 app.get('/bootlint/',    routes.bootlint);
+app.get('/alpha/',       routes.alpha);
 app.get('/legacy/',      routes.legacy);
 app.get('/',             routes.index);
 

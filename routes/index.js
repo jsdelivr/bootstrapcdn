@@ -17,6 +17,10 @@ function bootlint(req, res) {
     res.render('bootlint', { title: TITLE, theme: req.query.theme });
 }
 
+function alpha(req, res) {
+    res.render('alpha', { title: TITLE, theme: req.query.theme });
+}
+
 function legacy(req, res) {
     res.render('legacy', { title: TITLE, theme: req.query.theme });
 }
@@ -26,6 +30,7 @@ module.exports = {
     fontawesome:   fontawesome,
     bootswatch:    bootswatch,
     bootlint:      bootlint,
+    alpha:         alpha,
     legacy:        legacy
 };
 
