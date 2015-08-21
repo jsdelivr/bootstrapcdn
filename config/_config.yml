@@ -217,8 +217,8 @@ bootstrap:
 bootstrap4:
   - version: 4-dev
     latest: true
-    stylesheet: 'https://maxcdn.bootstrapcdn.com/bootstrap/4-dev/css/bootstrap.min.css'
-    javascript: 'https://maxcdn.bootstrapcdn.com/bootstrap/4-dev/js/bootstrap.min.js'
+    stylesheet: 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/css/bootstrap.min.css'
+    javascript: 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/js/bootstrap.min.js'
     javascript_sri: sha256-+h0g0j7qusP72OZaLPCSZ5wjZLnoUUicoxbvrl14WxM= sha512-0z9zJIjxQaDVzlysxlaqkZ8L9jh8jZ2d54F3Dn36Y0a8C6eI/RFOME/tLCFJ42hfOxdclfa29lPSNCmX5ekxnw==
     stylesheet_sri: sha256-GHW2S7IZAQe8+YkyL99LyDj1zdWXSPOG+JZafCtKiSc= sha512-vxM32w6T7zJ83xOQ6FT4CEFnlasqmkcB0+ojgbI0N6ZtSxYvHmT7sX2icN07TqEqr5wdKwoLkmB8sAsGAjCJHg==
 fontawesome:
