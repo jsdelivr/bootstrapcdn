@@ -25,6 +25,14 @@ function digest(file) {
         exec('cat '  + file + ' | openssl dgst -sha512 -binary | openssl enc -base64 -A').toString();
 }
 
+function exists(file) {
+    var found = fs.existsSync(file);
+    if (!found) {
+        console.log("WARNING: %s not found", file);
+    }
+    return found;
+}
+
 // bootswatch
 var bootswatch = buildPath(config.bootswatch.bootstrap);
 for (var i = 0; i < config.bootswatch.themes.length; i++) {
@@ -32,7 +40,7 @@ for (var i = 0; i < config.bootswatch.themes.length; i++) {
     var file  = bootswatch.replace('SWATCH_VERSION', config.bootswatch.version)
                           .replace('SWATCH_NAME',    theme.name);
 
-    if (config.bootswatch.themes[i].sri === undefined) {
+    if (config.bootswatch.themes[i].sri === undefined && exists(file)) {
         config.bootswatch.themes[i].sri = digest(file);
     }
 }
@@ -42,31 +50,32 @@ for (var i = 0; i < config.bootlint.length; i++) {
     var bootlint = config.bootlint[i];
     var file     = buildPath(bootlint.javascript);
 
-    if (config.bootlint[i].javascript_sri === undefined) {
+    if (config.bootlint[i].javascript_sri === undefined && exists(file)) {
         config.bootlint[i].javascript_sri = digest(file);
     }
 }
 
-// bootstrap
-for (var i = 0; i < config.bootstrap.length; i++) {
-    var bootstrap = config.bootstrap[i];
+// bootstrap{4}
+['bootstrap','bootstrap4'].forEach(function(key) {
+    for (var i = 0; i < config[key].length; i++) {
+        var bootstrap  = config[key][i];
+        var javascript = buildPath(bootstrap.javascript);
+        if (config[key][i].javascript_sri === undefined && exists(javascript)) {
+            config[key][i].javascript_sri = digest(javascript);
+        }
 
-    var javascript = buildPath(bootstrap.javascript);
-    if (config.bootstrap[i].javascript_sri === undefined) {
-        config.bootstrap[i].javascript_sri = digest(javascript);
+        var stylesheet = buildPath(bootstrap.stylesheet);
+        if (config[key][i].stylesheet_sri === undefined && exists(stylesheet)) {
+            config[key][i].stylesheet_sri = digest(stylesheet);
+        }
     }
-
-    var stylesheet = buildPath(bootstrap.stylesheet);
-    if (config.bootstrap[i].stylesheet_sri === undefined) {
-        config.bootstrap[i].stylesheet_sri = digest(stylesheet);
-    }
-}
+});
 
 // fontawesome
 for (var i = 0; i < config.fontawesome.length; i++) {
     var stylesheet = buildPath(config.fontawesome[i].stylesheet);
 
-    if (config.fontawesome[i].stylesheet_sri === undefined) {
+    if (config.fontawesome[i].stylesheet_sri === undefined && exists(stylesheet)) {
         config.fontawesome[i].stylesheet_sri = digest(stylesheet);
     }
 }
