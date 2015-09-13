@@ -1,0 +1,18 @@
+extends layout
+
+block content
+    h2 Showcase
+    - each item in config.showcase
+        - if (!item.latest)
+            div.col-md-6.text-center
+                img(src=item.img class="img-responsive thumbnail")
+                h3= item.productName
+                | Libraries: 
+                = item.librariesUsed
+                br
+                br
+                a(href=item.url, class="btn btn-default", target="_blank") Visit Website
+                br
+                br
+                
+//- vim: ft=jade sw=4 sts=4 et:

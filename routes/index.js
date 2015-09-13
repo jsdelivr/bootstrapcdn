@@ -25,13 +25,18 @@ function legacy(req, res) {
     res.render('legacy', { title: TITLE, theme: req.query.theme });
 }
 
+function showcase(req, res) {
+  res.render('showcase', { title: TITLE, theme: req.query.theme })
+}
+
 module.exports = {
-    index:         index,
-    fontawesome:   fontawesome,
-    bootswatch:    bootswatch,
-    bootlint:      bootlint,
-    alpha:         alpha,
-    legacy:        legacy
+  index:         index,
+  fontawesome:   fontawesome,
+  bootswatch:    bootswatch,
+  bootlint:      bootlint,
+  alpha:         alpha,
+  legacy:        legacy,
+  showcase:      showcase
 };
 
 // vim: ft=javascript sw=4 sts=4 et:
