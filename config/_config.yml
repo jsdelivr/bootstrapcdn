@@ -250,3 +250,44 @@ fontawesome:
   - version: 3.2.1
     stylesheet: 'https://maxcdn.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css'
     stylesheet_sri: sha256-MmuZTsWcczT1IhH71aqQmja5jRcXy3mL/NOvjUy9tso= sha512-IJ+BZHGlT4K43sqBGUzJ90pcxfkREDVZPZxeexRigVL8rzdw/gyJIflDahMdNzBww4k0WxpyaWpC2PLQUWmMUQ==
+showcase:
+  - name: 'Microsoft Education'
+    img: /images/showcase/microsoft-education.png
+    lib: "Font Awesome 4.3.0"
+    url: 'http://www.microsoft.com/en-us/education/default.aspx'
+  - name: 'New York Post'
+    img: /images/showcase/new-york-post.png
+    lib: "Font Awesome 4.0.3"
+    url: 'http://nypost.com/'
+  - name: 'NBC News'
+    img: /images/showcase/nbc-news.png
+    lib: "Font Awesome 4.0.3"
+    url: 'http://www.nbcnews.com'
+  - name: 'EA Help'
+    img: /images/showcase/ea-help.png
+    lib: "Font Awesome 3.2.1"
+    url: 'https://help.ea.com/en/'
+  - name: 'Go Doc'
+    img: /images/showcase/godoc-org.png
+    lib: "Bootstrap 3.3.1"
+    url: 'http://godoc.org/'
+  - name: 'Mozilla Webmaker API'
+    img: /images/showcase/mozilla-webmaker.png
+    lib: 'Bootstrap 3.0.3'
+    url: 'https://api.webmaker.org/docs'
+  - name: 'New York University'
+    img: /images/showcase/nyu.png
+    lib: "Font Awesome 4.2.0"
+    url: 'http://www.nyu.edu/'
+  - name: 'Cracked'
+    img: /images/showcase/cracked.png
+    lib: "Bootstrap 3.3.2, Font Awesome 4.3.0"
+    url: 'http://www.cracked.com/'
+  - name: 'HP Support'
+    img: /images/showcase/hp-support.png
+    lib: "Font Awesome 4.1.0"
+    url: 'http://support.hp.com/us-en'
+  - name: 'Monster'
+    img: /images/showcase/monster.png
+    lib: "Font Awesome 4.2.0"
+    url: 'http://www.monster.com/'
