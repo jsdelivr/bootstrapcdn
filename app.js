@@ -88,6 +88,7 @@ app.get('/bootswatch/',  routes.bootswatch);
 app.get('/bootlint/',    routes.bootlint);
 app.get('/alpha/',       routes.alpha);
 app.get('/legacy/',      routes.legacy);
+app.get('/showcase/',    routes.showcase);
 app.get('/',             routes.index);
 
 var data; // only regenerated on restart
