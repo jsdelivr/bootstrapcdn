@@ -30,13 +30,13 @@ function showcase(req, res) {
 }
 
 module.exports = {
-  index:         index,
-  fontawesome:   fontawesome,
-  bootswatch:    bootswatch,
-  bootlint:      bootlint,
-  alpha:         alpha,
-  legacy:        legacy,
-  showcase:      showcase
+    index:         index,
+    fontawesome:   fontawesome,
+    bootswatch:    bootswatch,
+    bootlint:      bootlint,
+    alpha:         alpha,
+    legacy:        legacy,
+    showcase:      showcase
 };
 
 // vim: ft=javascript sw=4 sts=4 et:

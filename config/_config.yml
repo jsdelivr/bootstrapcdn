@@ -251,43 +251,43 @@ fontawesome:
     stylesheet: 'https://maxcdn.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css'
     stylesheet_sri: sha256-MmuZTsWcczT1IhH71aqQmja5jRcXy3mL/NOvjUy9tso= sha512-IJ+BZHGlT4K43sqBGUzJ90pcxfkREDVZPZxeexRigVL8rzdw/gyJIflDahMdNzBww4k0WxpyaWpC2PLQUWmMUQ==
 showcase:
-  - productName: 'Microsoft Education'
+  - name: 'Microsoft Education'
     img: /images/showcase/microsoft-education.png
-    librariesUsed: "Font Awesome 4.3.0"
+    lib: "Font Awesome 4.3.0"
     url: 'http://www.microsoft.com/en-us/education/default.aspx'
-  - productName: 'New York Post'
+  - name: 'New York Post'
     img: /images/showcase/new-york-post.png
-    librariesUsed: "Font Awesome 4.0.3"
+    lib: "Font Awesome 4.0.3"
     url: 'http://nypost.com/'
-  - productName: 'NBC News'
+  - name: 'NBC News'
     img: /images/showcase/nbc-news.png
-    librariesUsed: "Font Awesome 4.0.3"
+    lib: "Font Awesome 4.0.3"
     url: 'http://www.nbcnews.com'
-  - productName: 'EA Help'
+  - name: 'EA Help'
     img: /images/showcase/ea-help.png
-    librariesUsed: "Font Awesome 3.2.1"
+    lib: "Font Awesome 3.2.1"
     url: 'https://help.ea.com/en/'
-  - productName: 'Go Doc'
+  - name: 'Go Doc'
     img: /images/showcase/godoc-org.png
-    librariesUsed: "Bootstrap 3.3.1"
+    lib: "Bootstrap 3.3.1"
     url: 'http://godoc.org/'
-  - productName: 'Mozilla Webmaker API'
+  - name: 'Mozilla Webmaker API'
     img: /images/showcase/mozilla-webmaker.png
-    librariesUsed: 'Bootstrap 3.0.3'
+    lib: 'Bootstrap 3.0.3'
     url: 'https://api.webmaker.org/docs'
-  - productName: 'New York University'
+  - name: 'New York University'
     img: /images/showcase/nyu.png
-    librariesUsed: "Font Awesome 4.2.0"
+    lib: "Font Awesome 4.2.0"
     url: 'http://www.nyu.edu/'
-  - productName: 'Cracked'
+  - name: 'Cracked'
     img: /images/showcase/cracked.png
-    librariesUsed: "Bootstrap 3.3.2, Font Awesome 4.3.0"
+    lib: "Bootstrap 3.3.2, Font Awesome 4.3.0"
     url: 'http://www.cracked.com/'
-  - productName: 'HP Support'
+  - name: 'HP Support'
     img: /images/showcase/hp-support.png
-    librariesUsed: "Font Awesome 4.1.0"
+    lib: "Font Awesome 4.1.0"
     url: 'http://support.hp.com/us-en'
-  - productName: 'Monster'
+  - name: 'Monster'
     img: /images/showcase/monster.png
-    librariesUsed: "Font Awesome 4.2.0"
+    lib: "Font Awesome 4.2.0"
     url: 'http://www.monster.com/'
