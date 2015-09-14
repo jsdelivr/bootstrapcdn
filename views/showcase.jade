@@ -2,6 +2,7 @@ extends layout
 
 block content
     h2 Showcase
+    hr
     - each item in config.showcase
         - if (!item.latest)
             div.col-md-6.text-center

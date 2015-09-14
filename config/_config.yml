@@ -251,22 +251,30 @@ fontawesome:
     stylesheet: 'https://maxcdn.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css'
     stylesheet_sri: sha256-MmuZTsWcczT1IhH71aqQmja5jRcXy3mL/NOvjUy9tso= sha512-IJ+BZHGlT4K43sqBGUzJ90pcxfkREDVZPZxeexRigVL8rzdw/gyJIflDahMdNzBww4k0WxpyaWpC2PLQUWmMUQ==
 showcase:
-  - productName: 'Mozilla Webmaker API'
-    img: /images/showcase/mozilla-webmaker.png
-    librariesUsed: 'Bootstrap 3.0.3'
-    url: 'https://api.webmaker.org/docs'
+  - productName: 'Microsoft Education'
+    img: /images/showcase/microsoft-education.png
+    librariesUsed: "Font Awesome 4.3.0"
+    url: 'http://www.microsoft.com/en-us/education/default.aspx'
+  - productName: 'New York Post'
+    img: /images/showcase/new-york-post.png
+    librariesUsed: "Font Awesome 4.0.3"
+    url: 'http://nypost.com/'
   - productName: 'NBC News'
     img: /images/showcase/nbc-news.png
     librariesUsed: "Font Awesome 4.0.3"
     url: 'http://www.nbcnews.com'
-  - productName: 'Go Doc'
-    img: /images/showcase/godoc-org.png
-    librariesUsed: "Bootstrap 3.3.1"
-    url: 'http://godoc.org/'
   - productName: 'EA Help'
     img: /images/showcase/ea-help.png
     librariesUsed: "Font Awesome 3.2.1"
     url: 'https://help.ea.com/en/'
+  - productName: 'Go Doc'
+    img: /images/showcase/godoc-org.png
+    librariesUsed: "Bootstrap 3.3.1"
+    url: 'http://godoc.org/'
+  - productName: 'Mozilla Webmaker API'
+    img: /images/showcase/mozilla-webmaker.png
+    librariesUsed: 'Bootstrap 3.0.3'
+    url: 'https://api.webmaker.org/docs'
   - productName: 'New York University'
     img: /images/showcase/nyu.png
     librariesUsed: "Font Awesome 4.2.0"
@@ -283,7 +291,3 @@ showcase:
     img: /images/showcase/monster.png
     librariesUsed: "Font Awesome 4.2.0"
     url: 'http://www.monster.com/'
-  - productName: 'New York Post'
-    img: /images/showcase/new-york-post.png
-    librariesUsed: "Font Awesome 4.0.3"
-    url: 'http://nypost.com/'
