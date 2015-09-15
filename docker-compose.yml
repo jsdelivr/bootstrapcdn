@@ -1,0 +1,8 @@
+web:
+  image: heroku/nodejs
+  working_dir: /app/user
+  volumes:
+    - .:/app/user
+  command: npm run run
+  ports:
+    - "3000:3000"
