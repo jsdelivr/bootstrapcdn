@@ -83,13 +83,14 @@ app.locals.tweets  = tweets;
 
 // routes
 var routes = require('./routes');
-app.get('/fontawesome/', routes.fontawesome);
-app.get('/bootswatch/',  routes.bootswatch);
-app.get('/bootlint/',    routes.bootlint);
-app.get('/alpha/',       routes.alpha);
-app.get('/legacy/',      routes.legacy);
-app.get('/showcase/',    routes.showcase);
-app.get('/',             routes.index);
+app.get('/fontawesome/',  routes.fontawesome);
+app.get('/bootswatch/',   routes.bootswatch);
+app.get('/bootlint/',     routes.bootlint);
+app.get('/alpha/',        routes.alpha);
+app.get('/legacy/',       routes.legacy);
+app.get('/showcase/',     routes.showcase);
+app.get('/integrations/', routes.integrations);
+app.get('/',              routes.index);
 
 var data; // only regenerated on restart
 app.get('/data/bootstrapcdn.json', function (req, res) {

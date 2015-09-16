@@ -3,7 +3,7 @@ theme: 14
 authors:
   - Joshua Mervine
   - Justin Dorfman
-description: Bootstrap CDN
+description: BootstrapCDN
 favicon: /favicon.ico
 google_analytics:
   account_id: UA-32253110-1
@@ -291,3 +291,24 @@ showcase:
     img: /images/showcase/monster.png
     lib: "Font Awesome 4.2.0"
     url: 'http://www.monster.com/'
+integrations:
+  - name: 'Bootstrap 3 Snippets'
+    img: /images/integrations/atom-bootstrap3.png
+    plat: "Atom"
+    url: 'https://atom.io/packages/atom-bootstrap3'
+  - name: 'Bootstrap 3'
+    img: /images/integrations/drupal-bootstrap3.png
+    plat: "Drupal"
+    url: 'https://www.drupal.org/project/bootstrap'
+  - name: 'BootstrapCDN WP'
+    img: /images/integrations/bootstrapcdn-wp.png
+    plat: "WordPress"
+    url: 'https://wordpress.org/plugins/bootstrapcdn/'
+  - name: 'Bootstrap NBM'
+    img: /images/integrations/bootstrap-nbm.png
+    plat: "NetBeans"
+    url: 'http://davidsalter.com/2014/05/bootstrap-cdn-plugin-for-netbeans-release-1-1-0.html'
+  - name: 'Light Bootstrap Dashboard'
+    img: /images/integrations/light-bootstrap-dashboard.png
+    plat: "WebPlatform"
+    url: 'http://www.creative-tim.com/product/light-bootstrap-dashboard'

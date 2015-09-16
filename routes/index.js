@@ -1,6 +1,6 @@
 'use strict';
 
-var TITLE = 'Bootstrap CDN by MaxCDN';
+var TITLE = 'BootstrapCDN by MaxCDN';
 function index(req, res) {
     res.render('index', { title: TITLE, theme: req.query.theme });
 }
@@ -41,6 +41,22 @@ function showcase(req, res) {
     res.render('showcase', { title: TITLE, theme: req.query.theme, col1: col1, col2: col2 })
 }
 
+function integrations(req, res) {
+    var integrations = req.config.integrations;
+    var col1 = [];
+    var col2 = [];
+
+    for (var i = 0; i < integrations.length; i++) {
+        if (i % 2 === 0) {
+            col1.push(integrations[i]);
+        } else {
+            col2.push(integrations[i]);
+        }
+    }
+
+    res.render('integrations', { title: TITLE, theme: req.query.theme, col1: col1, col2: col2 })
+}
+
 module.exports = {
     index:         index,
     fontawesome:   fontawesome,
@@ -48,7 +64,8 @@ module.exports = {
     bootlint:      bootlint,
     alpha:         alpha,
     legacy:        legacy,
-    showcase:      showcase
+    showcase:      showcase,
+    integrations:  integrations
 };
 
 // vim: ft=javascript sw=4 sts=4 et:
