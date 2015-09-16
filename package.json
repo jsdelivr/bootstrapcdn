@@ -8,6 +8,7 @@
     "start": "node make start",
     "status": "node make status",
     "stop": "node make stop",
+    "restart": "node make restart",
     "test": "node make test",
     "test-nc": "node make test-nc"
   },
