@@ -26,7 +26,19 @@ function legacy(req, res) {
 }
 
 function showcase(req, res) {
-  res.render('showcase', { title: TITLE, theme: req.query.theme })
+    var showcase = req.config.showcase;
+    var col1 = [];
+    var col2 = [];
+
+    for (var i = 0; i < showcase.length; i++) {
+        if (i % 2 === 0) {
+            col1.push(showcase[i]);
+        } else {
+            col2.push(showcase[i]);
+        }
+    }
+
+    res.render('showcase', { title: TITLE, theme: req.query.theme, col1: col1, col2: col2 })
 }
 
 module.exports = {
