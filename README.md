@@ -5,6 +5,12 @@
 [![Dependency Status](https://david-dm.org/MaxCDN/bootstrap-cdn.svg)](https://david-dm.org/MaxCDN/bootstrap-cdn)
 [![devDependency Status](https://david-dm.org/MaxCDN/bootstrap-cdn/dev-status.svg)](https://david-dm.org/MaxCDN/bootstrap-cdn#info=devDependencies)
 
+
+## Deploy your own copy on Heroku
+
+[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+
+
 ## Requirements
 
 1. [Node.js](http://nodejs.org/)
