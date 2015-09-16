@@ -56,6 +56,10 @@ var FOREVER = path.join(__dirname, 'node_modules/.bin/forever');
     target.stop = function() {
         assertExec(FOREVER + ' stop app.js');
     };
+    target.restart = function() {
+        assertExec(FOREVER + ' stop app.js');
+        assertExec(FOREVER + ' --plain start app.js')
+    }
 
     //
     // make travis

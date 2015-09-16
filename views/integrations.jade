@@ -1,0 +1,16 @@
+extends layout
+
+block content
+    h2 Integrations
+    .row
+        .col-md-6.text-center
+            - each item in col1
+                include _partials/integrations.jade
+
+        .col-md-6.text-center
+            - each item in col2
+                include _partials/integrations.jade
+    .row
+        .col-md-12.text-center
+            a.btn.btn-primary.btn(href="https://github.com/MaxCDN/bootstrap-cdn/issues" target="_blank") Submit an Integration
+//- vim: ft=jade sw=4 sts=4 et:
