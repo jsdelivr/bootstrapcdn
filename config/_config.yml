@@ -300,15 +300,23 @@ integrations:
     img: /images/integrations/drupal-bootstrap3.png
     plat: "Drupal"
     url: 'https://www.drupal.org/project/bootstrap'
-  - name: 'BootstrapCDN WP'
-    img: /images/integrations/bootstrapcdn-wp.png
-    plat: "WordPress"
-    url: 'https://wordpress.org/plugins/bootstrapcdn/'
+  - name: 'Freight'
+    img: /images/integrations/sentry-freight.png
+    plat: "Python"
+    url: 'https://github.com/getsentry/freight'
   - name: 'Bootstrap NBM'
     img: /images/integrations/bootstrap-nbm.png
     plat: "NetBeans"
     url: 'http://davidsalter.com/2014/05/bootstrap-cdn-plugin-for-netbeans-release-1-1-0.html'
+  - name: 'BootstrapCDN WP'
+    img: /images/integrations/bootstrapcdn-wp.png
+    plat: "WordPress"
+    url: 'https://wordpress.org/plugins/bootstrapcdn/'
   - name: 'Light Bootstrap Dashboard'
     img: /images/integrations/light-bootstrap-dashboard.png
     plat: "WebPlatform"
     url: 'http://www.creative-tim.com/product/light-bootstrap-dashboard'
+  - name: 'Radix Theme'
+    img: /images/integrations/radix-theme-drupal.png
+    plat: "Drupal"
+    url: 'https://www.drupal.org/project/radix'
