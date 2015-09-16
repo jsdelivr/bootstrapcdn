@@ -2,15 +2,13 @@ extends layout
 
 block content
     h2 Showcase
-    .well.text-center
-        - each item in config.showcase
-            .row
-                .col-md-12.text-center
-                    br
-                    br
-                    img(src=item.img, class="img-responsive", style="margin: 0 auto")
-                    h3: a(href=item.url, target="_blank")=item.name
-                    | Libraries: 
-                    span=item.lib
+    .row
+        .col-md-6.text-center
+            - each item in col1
+                include _partials/showcase.jade
+
+        .col-md-6.text-center
+            - each item in col2
+                include _partials/showcase.jade
 
 //- vim: ft=jade sw=4 sts=4 et:
