@@ -1,0 +1,13 @@
+extends layout
+
+block content
+    h2 Integrations
+    .row
+        .col-md-6.text-center
+            - each item in col1
+                include _partials/integrations.jade
+
+        .col-md-6.text-center
+            - each item in col2
+                include _partials/integrations.jade
+//- vim: ft=jade sw=4 sts=4 et:

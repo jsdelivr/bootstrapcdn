@@ -7,7 +7,7 @@
                 span.icon-bar
                 span.icon-bar
                 span.icon-bar
-            a.navbar-brand(href="/" + themeQs) Bootstrap CDN
+            a.navbar-brand(href="/" + themeQs) BootstrapCDN
         .navbar-collapse.collapse
             ul.nav.navbar-nav
                 li: a(href="/fontawesome/" + themeQs): i.fa.fa-flag
@@ -15,11 +15,12 @@
                 li: a(href="/bootswatch/" + themeQs) Bootswatch
                 li: a(href="/bootlint/" + themeQs) Bootlint
                 li: a(href="/legacy/" + themeQs) Legacy
-                li: a(href="/showcase/" + themeQs) Showcase
-
-            ul.nav.navbar-nav.navbar-right.visible-md.visible-lg
                 li: a(href="/alpha/" + themeQs) Bootstrap4
                     sup ALPHA
+
+            ul.nav.navbar-nav.navbar-right.visible-md.visible-lg
+                li: a(href="/showcase/" + themeQs) Showcase
+                li: a(href="/integrations/" + themeQs) Integrations
                 li.dropdown
                     a.dropdown-toggle(href="#", data-toggle="dropdown") Resources&nbsp;
                         i.fa.fa-caret-down
