@@ -19,6 +19,7 @@
     "errorhandler": "^1.4.2",
     "express": "^4.13.3",
     "html-validator": "^1.0.0",
+    "html-validator-cli": "^1.1.0",
     "jade": "^1.11.0",
     "js-yaml": "^3.4.2",
     "maxcdn": "^0.1.6",
