@@ -320,3 +320,11 @@ integrations:
     img: /images/integrations/radix-theme-drupal.png
     plat: "Drupal"
     url: 'https://www.drupal.org/project/radix'
+  - name: 'Bootstrap 3 Sublime Plugin'
+    img: /images/integrations/bs3-sublime-plugin.png
+    plat: "Sublime"
+    url: 'https://github.com/JasonMortonNZ/bs3-sublime-plugin'
+  - name: 'Bootstrap 3 Jade Sublime Plugin'
+    img: /images/integrations/bs3-jade-sublime-plugin.png
+    plat: "Sublime"
+    url: 'https://github.com/rs459/bootstrap3-jade-sublime-plugin'
