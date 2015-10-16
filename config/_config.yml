@@ -291,6 +291,10 @@ showcase:
     img: /images/showcase/monster.png
     lib: "Font Awesome 4.2.0"
     url: 'http://www.monster.com/'
+  - name: 'New Relic'
+    img: /images/showcase/new-relic.png
+    lib: "Font Awesome 4.2.0"
+    url: 'http://www.newrelic.com/'
 integrations:
   - name: 'Bootstrap 3 Snippets'
     img: /images/integrations/atom-bootstrap3.png
