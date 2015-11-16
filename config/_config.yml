@@ -338,3 +338,14 @@ integrations:
     img: /images/integrations/bs3-jade-sublime-plugin.png
     plat: Sublime
     url: 'https://github.com/rs459/bootstrap3-jade-sublime-plugin'
+friends:
+  - name: ScaleScale
+    url: 'http://www.scalescale.com/'
+  - name: Bootstrap
+    url: 'http://www.getbootstrap.com/'
+  - name: Real Python
+    url: 'https://realpython.com/'
+  - name: nixCraft
+    url: 'http://www.cyberciti.biz/'
+  - name: Fonticons
+    url: 'https://fonticons.com/'
