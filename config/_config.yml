@@ -55,8 +55,14 @@ bootswatch:
     - name: yeti
       sri: sha256-gJ9rCvTS5xodBImuaUYf1WfbdDKq54HCPz9wk8spvGs= sha512-weqt+X3kGDDAW9V32W7bWc6aSNCMGNQsdOpfJJz/qD/Yhp+kNeR+YyvvWojJ+afETB31L0C4eO0pcygxfTgjgw==
 bootlint:
-  - version: 0.12.0
+  - version: 0.14.1
     latest: true
+    javascript: 'https://maxcdn.bootstrapcdn.com/bootlint/0.14.1/bootlint.min.js'
+    javascript_sri: sha256-v3EhyiVaaBLEIaEwwvllcn8saA8UzKmpZVf57HYd5JU= sha512-QKbeVSlESN1J1kBUQGUqIksBcRg/JtMAk3codgtDE0s0HEP/wrfflsJg3stJ0UrCPiH+tjFtTI1vQZSLwq8c9w==
+  - version: 0.13.0
+    javascript: 'https://maxcdn.bootstrapcdn.com/bootlint/0.13.0/bootlint.min.js'
+    javascript_sri: sha256-AB19w5CQQBb0PvKKmxSs8j1zqUrZKrH4cSkFs+W3xNY= sha512-J78O90Zg+ofInAouWErbJI1lt9RJ9XksxUpMoysM61Zn+//n4X6kavmXZP/YL4coo1m+4RInYY9I9wjGi6XTlQ==
+  - version: 0.12.0
     javascript: 'https://maxcdn.bootstrapcdn.com/bootlint/0.12.0/bootlint.min.js'
     javascript_sri: sha256-imvviqwdvPR88qL2v9HDQkJQDIzpTgi9YgOcBmY31dI= sha512-7Ug+d3JiGZkaTLpHiit5OgCuaWDU0zj1kEFIIZ5982nEay2k3VwTeJgCp0pE7NgtrWxPXYdhKcKlQFyQpSREvA==
   - version: 0.11.0
@@ -251,84 +257,84 @@ fontawesome:
     stylesheet: 'https://maxcdn.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css'
     stylesheet_sri: sha256-MmuZTsWcczT1IhH71aqQmja5jRcXy3mL/NOvjUy9tso= sha512-IJ+BZHGlT4K43sqBGUzJ90pcxfkREDVZPZxeexRigVL8rzdw/gyJIflDahMdNzBww4k0WxpyaWpC2PLQUWmMUQ==
 showcase:
-  - name: 'Microsoft Education'
+  - name: Microsoft Education
     img: /images/showcase/microsoft-education.png
-    lib: "Font Awesome 4.3.0"
+    lib: Font Awesome 4.3.0
     url: 'http://www.microsoft.com/en-us/education/default.aspx'
-  - name: 'New York Post'
+  - name: New York Post
     img: /images/showcase/new-york-post.png
-    lib: "Font Awesome 4.0.3"
+    lib: Font Awesome 4.0.3
     url: 'http://nypost.com/'
-  - name: 'NBC News'
+  - name: NBC News
     img: /images/showcase/nbc-news.png
-    lib: "Font Awesome 4.0.3"
+    lib: Font Awesome 4.0.3
     url: 'http://www.nbcnews.com'
-  - name: 'EA Help'
+  - name: EA Help
     img: /images/showcase/ea-help.png
-    lib: "Font Awesome 3.2.1"
+    lib: Font Awesome 3.2.1
     url: 'https://help.ea.com/en/'
-  - name: 'Go Doc'
+  - name: Go Doc
     img: /images/showcase/godoc-org.png
-    lib: "Bootstrap 3.3.1"
+    lib: Bootstrap 3.3.1
     url: 'http://godoc.org/'
-  - name: 'Mozilla Webmaker API'
+  - name: Mozilla Webmaker API
     img: /images/showcase/mozilla-webmaker.png
-    lib: 'Bootstrap 3.0.3'
+    lib: Bootstrap 3.0.3
     url: 'https://api.webmaker.org/docs'
-  - name: 'New York University'
+  - name: New York University
     img: /images/showcase/nyu.png
-    lib: "Font Awesome 4.2.0"
+    lib: Font Awesome 4.2.0
     url: 'http://www.nyu.edu/'
-  - name: 'Cracked'
+  - name: Cracked
     img: /images/showcase/cracked.png
-    lib: "Bootstrap 3.3.2, Font Awesome 4.3.0"
+    lib: 'Bootstrap 3.3.2, Font Awesome 4.3.0'
     url: 'http://www.cracked.com/'
-  - name: 'HP Support'
+  - name: HP Support
     img: /images/showcase/hp-support.png
-    lib: "Font Awesome 4.1.0"
+    lib: Font Awesome 4.1.0
     url: 'http://support.hp.com/us-en'
-  - name: 'Monster'
+  - name: Monster
     img: /images/showcase/monster.png
-    lib: "Font Awesome 4.2.0"
+    lib: Font Awesome 4.2.0
     url: 'http://www.monster.com/'
-  - name: 'New Relic'
+  - name: New Relic
     img: /images/showcase/new-relic.png
-    lib: "Font Awesome 4.2.0"
+    lib: Font Awesome 4.2.0
     url: 'http://www.newrelic.com/'
 integrations:
-  - name: 'Bootstrap 3 Snippets'
+  - name: Bootstrap 3 Snippets
     img: /images/integrations/atom-bootstrap3.png
-    plat: "Atom"
+    plat: Atom
     url: 'https://atom.io/packages/atom-bootstrap3'
-  - name: 'Bootstrap 3'
+  - name: Bootstrap 3
     img: /images/integrations/drupal-bootstrap3.png
-    plat: "Drupal"
+    plat: Drupal
     url: 'https://www.drupal.org/project/bootstrap'
-  - name: 'Freight'
+  - name: Freight
     img: /images/integrations/sentry-freight.png
-    plat: "Python"
+    plat: Python
     url: 'https://github.com/getsentry/freight'
-  - name: 'Bootstrap NBM'
+  - name: Bootstrap NBM
     img: /images/integrations/bootstrap-nbm.png
-    plat: "NetBeans"
+    plat: NetBeans
     url: 'http://davidsalter.com/2014/05/bootstrap-cdn-plugin-for-netbeans-release-1-1-0.html'
-  - name: 'BootstrapCDN WP'
+  - name: BootstrapCDN WP
     img: /images/integrations/bootstrapcdn-wp.png
-    plat: "WordPress"
+    plat: WordPress
     url: 'https://wordpress.org/plugins/bootstrapcdn/'
-  - name: 'Light Bootstrap Dashboard'
+  - name: Light Bootstrap Dashboard
     img: /images/integrations/light-bootstrap-dashboard.png
-    plat: "WebPlatform"
+    plat: WebPlatform
     url: 'http://www.creative-tim.com/product/light-bootstrap-dashboard'
-  - name: 'Radix Theme'
+  - name: Radix Theme
     img: /images/integrations/radix-theme-drupal.png
-    plat: "Drupal"
+    plat: Drupal
     url: 'https://www.drupal.org/project/radix'
-  - name: 'Bootstrap 3 Sublime Plugin'
+  - name: Bootstrap 3 Sublime Plugin
     img: /images/integrations/bs3-sublime-plugin.png
-    plat: "Sublime"
+    plat: Sublime
     url: 'https://github.com/JasonMortonNZ/bs3-sublime-plugin'
-  - name: 'Bootstrap 3 Jade Sublime Plugin'
+  - name: Bootstrap 3 Jade Sublime Plugin
     img: /images/integrations/bs3-jade-sublime-plugin.png
-    plat: "Sublime"
+    plat: Sublime
     url: 'https://github.com/rs459/bootstrap3-jade-sublime-plugin'
