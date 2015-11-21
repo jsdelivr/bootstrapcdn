@@ -26,18 +26,18 @@ var FOREVER = path.join(__dirname, 'node_modules/.bin/forever');
     //
     target.test = function() {
         // without integration tests
-        assertExec(MOCHA + ' --timeout 15000 -i -g "integration" -R spec');
+        assertExec(MOCHA + ' --timeout 15000 -i -g "integration" -R spec ./tests/');
     };
 
     target.suite = function() {
-        assertExec(MOCHA + ' --timeout 15000 -R spec');
+        assertExec(MOCHA + ' --timeout 15000 -R spec ./tests/');
     }
 
     //
     // make test-nc
     //
     target['test-nc'] = function() {
-        assertExec(MOCHA + ' --no-colors --timeout 15000 -R spec');
+        assertExec(MOCHA + ' --no-colors --timeout 15000 -R spec ./tests/');
     };
 
     //
