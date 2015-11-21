@@ -13,7 +13,7 @@ process.env.PORT = (config.port < 3000 ? config.port + 3000 : config.port + 1); 
 require('../app.js');
 var page = format('http://localhost:%s/', process.env.PORT);
 
-var tabs = [
+var cssIDs = [
     '#bootswatch',
     '#fontawesome',
     '#quickstart',
@@ -56,10 +56,10 @@ describe('index', function() {
         done();
     });
 
-    describe('contains tabs', function() {
-        tabs.forEach(function(tab) {
-            it(format('-> %s', tab), function(done) {
-                assert(response.body.indexOf(tab));
+    describe('contains css IDs', function() {
+        cssIDs.forEach(function(id) {
+            it(format('-> %s', id), function(done) {
+                assert(response.body.indexOf(id));
                 done();
             });
         });
@@ -67,7 +67,7 @@ describe('index', function() {
 
     describe('contains bootswatch', function() {
         config.bootswatch.themes.forEach(function(theme) {
-            it(format('-> %s', theme), function(done) {
+            it(format('-> %s', theme.name), function(done) {
                 assert(
                     response.body.indexOf(config.bootswatch.bootstrap
                                             .replace('SWATCH_NAME', theme)

@@ -25,14 +25,19 @@ var FOREVER = path.join(__dirname, 'node_modules/.bin/forever');
     // make test
     //
     target.test = function() {
-        assertExec(MOCHA + ' --timeout 15000 ./tests/*_test.js ./tests/**/*_test.js -R spec');
+        // without integration tests
+        assertExec(MOCHA + ' --timeout 15000 -i -g "integration" -R spec');
     };
+
+    target.suite = function() {
+        assertExec(MOCHA + ' --timeout 15000 -R spec');
+    }
 
     //
     // make test-nc
     //
     target['test-nc'] = function() {
-        assertExec(MOCHA + ' --no-colors --timeout 15000 ./tests/*_test.js ./tests/**/*_test.js -R spec');
+        assertExec(MOCHA + ' --no-colors --timeout 15000 -R spec');
     };
 
     //
@@ -65,7 +70,7 @@ var FOREVER = path.join(__dirname, 'node_modules/.bin/forever');
     // make travis
     //
     target.travis = function() {
-        target.test();
+        target.suite();
         target.bootlint();
         target.validator();
     };
