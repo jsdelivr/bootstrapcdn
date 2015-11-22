@@ -3,7 +3,6 @@ var fs     = require('fs');
 var yaml   = require('js-yaml');
 var assert = require('assert');
 var format = require('format');
-var http   = require('http');
 var encode = require('htmlencode').htmlEncode;
 
 function config() {
@@ -22,7 +21,8 @@ function assertResponse(response, code) {
     assert.equal(code, response.statusCode);
 }
 
-function preFetch(uri, cb) {
+function preFetch(uri, cb, http) {
+    http = (http === undefined ? require('http') : http);
     http.get(uri, function(res) {
         response = res;
         response.body = '';

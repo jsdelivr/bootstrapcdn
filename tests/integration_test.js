@@ -3,11 +3,12 @@
 var fs     = require('fs');
 var path   = require('path');
 var yaml   = require('js-yaml');
-var http   = require('https');
 var assert = require('assert');
 var mktemp = require('mktemp');
 var exec   = require('child_process').execSync;
-var config = yaml.safeLoad(fs.readFileSync(path.join(__dirname, '..', 'config', '_config.yml'), 'utf8'));
+
+var helpers = require(path.join(__dirname, 'test_helper.js'));
+var config  = helpers.config();
 
 var expectedHeaders = {
   date: undefined,
@@ -42,20 +43,10 @@ function request(uri, cb) {
     if (responses.hasOwnProperty(uri)) return cb(responses[uri]);
 
     // build memoized response
-    responses[uri] = {};
-    http.get(uri, function(res) {
-        var response = { headers: res.headers };
-        var body = '';
-
-        res.on('data', function(chunk) { body += chunk; });
-        res.on('end', function() {
-            response.body = body;
-
-            // store memoized
-            responses[uri] = response;
-            cb(response);
-        });
-    });
+    helpers.preFetch(uri, function(res) {
+        responses[uri] = res;
+        cb(res);
+    }, require('https'));
 }
 
 function assertSRI(uri, sri, done) {
