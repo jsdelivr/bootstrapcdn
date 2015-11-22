@@ -1,17 +1,11 @@
 'use strict';
 
-var path   = require('path');
-var fs     = require('fs');
-var yaml   = require('js-yaml');
-var http   = require('http');
-var assert = require('assert');
-var format = require('format');
-
-var config = yaml.safeLoad(fs.readFileSync(path.join(__dirname, '..', 'config', '_config.yml'), 'utf8'));
-process.env.PORT = (config.port < 3000 ? config.port + 3000 : config.port + 1); // don't use configured port
-
-require('../app.js');
-var page = format('http://localhost:%s/', process.env.PORT);
+var path    = require('path');
+var assert  = require('assert');
+var format  = require('format');
+var helpers = require(path.join(__dirname, 'test_helper.js'));
+var config  = helpers.config();
+var uri     = helpers.app(config);
 
 var cssIDs = [
     '#bootswatch',
@@ -23,22 +17,34 @@ var cssIDs = [
 
 var response;
 before(function(done) {
-    http.get(page, function(res) {
+    helpers.preFetch(uri, function (res) {
         response = res;
-        response.body = '';
-        res.on('data', function(chunk) {
-            response.body += chunk;
-        });
-        res.on('end', function() {
-            done();
-        });
+        done();
     });
 });
 
 describe('index', function() {
-    it('/ :: 200\'s', function(done) {
-        assert(response);
-        assert(response.statusCode === 200);
+    var latest = config.bootstrap[0];
+
+    describe('config', function () {
+        it('is latest', function (done) {
+            assert(latest.latest);
+            done();
+        });
+
+        it('has stylesheet integrity', function (done) {
+            assert(latest.stylesheet_sri !== undefined);
+            done();
+        });
+
+        it('has javascript integrity', function (done) {
+            assert(latest.javascript_sri !== undefined);
+            done();
+        });
+    });
+
+    it('works', function(done) {
+        helpers.assertResponse(response);
         done();
     });
 
@@ -56,36 +62,38 @@ describe('index', function() {
         done();
     });
 
-    describe('contains css IDs', function() {
-        cssIDs.forEach(function(id) {
-            it(format('-> %s', id), function(done) {
-                assert(response.body.indexOf(id));
+    it('has header', function (done) {
+        assert(response.body.indexOf("Quick Start"));
+        done();
+    });
+
+    describe('stylesheet', function () {
+        it('has uri', function (done) {
+            assert(response.body.indexOf(latest.stylesheet) > 0, 'expected "' + latest.stylesheet + '"');
+            done();
+        });
+
+        ['html', 'jade', 'haml'].forEach(function(fmt) {
+            it('has ' + fmt, function (done) {
+                var str = helpers.css[fmt](latest.stylesheet, latest.stylesheet_sri);
+                var pos = response.body.indexOf(str);
+                assert(pos > 0, "exected '" + str + "'");
                 done();
             });
         });
     });
 
-    describe('contains bootswatch', function() {
-        config.bootswatch.themes.forEach(function(theme) {
-            it(format('-> %s', theme.name), function(done) {
-                assert(
-                    response.body.indexOf(config.bootswatch.bootstrap
-                                            .replace('SWATCH_NAME', theme)
-                                            .replace('SWATCH_VERSION', config.bootstrap.version))
-                );
-                done();
-            });
+    describe('javascript', function () {
+        it('has javascript uri', function (done) {
+            assert(response.body.indexOf(latest.javascript));
+            done();
         });
-    });
 
-    describe('contains bootstrap', function() {
-        config.bootstrap.forEach(function(bootstrap) {
-            it(format('-> %s', bootstrap.version), function(done) {
-                assert(response.body.indexOf(bootstrap.css_complete));
-                assert(response.body.indexOf(bootstrap.javascript));
-                if (bootstrap.css_no_icons) {
-                    assert(response.body.indexOf(bootstrap.css_no_icons));
-                }
+        ['html', 'jade', 'haml'].forEach(function(fmt) {
+            it('has ' + fmt, function (done) {
+                var str = helpers.javascript[fmt](latest.javascript, latest.javascript_sri);
+                var pos = response.body.indexOf(str);
+                assert(pos > 0, "exected '" + str + "'");
                 done();
             });
         });
