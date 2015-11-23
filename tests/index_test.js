@@ -7,14 +7,6 @@ var helpers = require(path.join(__dirname, 'test_helper.js'));
 var config  = helpers.config();
 var uri     = helpers.app(config);
 
-var cssIDs = [
-    '#bootswatch',
-    '#fontawesome',
-    '#quickstart',
-    '#madlove',
-    '#legacy'
-];
-
 var response;
 before(function(done) {
     helpers.preFetch(uri, function (res) {
