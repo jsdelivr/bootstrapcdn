@@ -5,7 +5,7 @@ var assert  = require('assert');
 var format  = require('format');
 var helpers = require(path.join(__dirname, 'test_helper.js'));
 var config  = helpers.config();
-var uri     = helpers.app(config);
+var uri     = helpers.app(config, 'alpha');
 
 var response;
 before(function(done) {
@@ -15,8 +15,8 @@ before(function(done) {
     });
 });
 
-describe('index', function() {
-    var latest = config.bootstrap[0];
+describe('bootstrap4', function() {
+    var latest = config.bootstrap4[0];
 
     describe('config', function () {
         it('is latest', function (done) {
@@ -53,7 +53,12 @@ describe('index', function() {
     });
 
     it('has header', function (done) {
-        helpers.assertContains('<h2>Quick Start</h2>', response.body);
+        helpers.assertContains('<h2>Bootstrap 4 alpha</h2>', response.body);
+        done();
+    });
+
+    it('has notice', function (done) {
+        helpers.assertContains('Bootstrap 4 is currently in Alpha release and should be treated as such.', response.body);
         done();
     });
 
