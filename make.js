@@ -120,7 +120,10 @@ var FOREVER = path.join(__dirname, 'node_modules/.bin/forever');
                     target.stop();
 
                     rm(output);
-                    assert(res);
+
+                    if (res.output.indexOf("0 lint error(s) found") < 0) {
+                        process.exit(1);
+                    }
                 });
             });
         }, 2000);
@@ -158,7 +161,9 @@ var FOREVER = path.join(__dirname, 'node_modules/.bin/forever');
                     target.stop();
 
                     rm(output);
-                    assert(res);
+                    if (res.output.indexOf("Error:") >= 0) {
+                        process.exit(1);
+                    }
                 });
             });
         }, 2000);
