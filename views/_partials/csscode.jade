@@ -5,10 +5,10 @@
     .form-group
         label(for='jade_' + name)
             a(href="http://jade-lang.com/", target="_blank") Jade
-        input.form-control(type='text', id='jade_' + name, value='link(href="' + file + '", rel="stylesheet" integrity="' + sri + '" crossorigin="anonymous")')
+        input.form-control(type='text', id='jade_' + name, value='link(href="' + file + '", rel="stylesheet", integrity="' + sri + '", crossorigin="anonymous")')
     .form-group
         label(for='haml_' + name)
             a(href="http://haml.info/", target="_blank") Haml
-        input.form-control(type='text', id='haml_' + name, value='%link{href: "' + file + '", rel: "stylesheet", integrity: "' + sri + '" crossorigin: "anonymous"}')
+        input.form-control(type='text', id='haml_' + name, value='%link{href: "' + file + '", rel: "stylesheet", integrity: "' + sri + '", crossorigin: "anonymous"}')
 
 //- vim: ft=jade sw=4 sts=4 et:

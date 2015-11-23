@@ -169,7 +169,7 @@ bootstrap:
     stylesheet: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.no-icons.min.css'
     javascript: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js'
     javascript_sri: sha256-VNIbBnZ4TQyYO71Ak4mHcK3vqTLYm3LIr9iBg6GRcqc= sha512-LZ2DxwpD99xOV0FgvTSYhiu6oC9TX/j8LPRIeOVySMT6WgO3s436hYJaf6ztqJZKcELvGBWZPhou7lVq51JHYA==
-    stylesheet_sri: sha256-gFCk6OuYkmpzmcL3eL9q6vG+XltPwfPL+EHT8vac/TM= sha512-5CWMeEpHnKVOFFWKeidt866He6pjKMyWivCs705cCTfWjN4T8g+iSbTxu6j+rMg4slllEaNlhuKU793rETf5cg==
+    stylesheet_sri: sha256-HL2iGZi2Xgin6TYRTKvX93g9D1kN1u/dWMf6qLbnuao= sha512-Kn9ZT/hJ1Jk2JG6HRAN+/4y3mqBtP7DvOIWIKJYUPwfAS5tbBmnMOxESlgPgq4KQBKleNb7Krjxx2G4drA2tLw==
   - version: 2.3.2
     stylesheet: 'https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css'
     javascript: 'https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js'
