@@ -1,7 +1,7 @@
 .well.hidden(id=name)
     .form-group
         label(for='html_' + name) HTML
-        input.form-control(type='text', id='html_sri_' + name, value='<script src="' + file + '" integrity="' + sri + '" crossorigin="anonymous"></script>')
+        input.form-control(type='text', id='html_' + name, value='<script src="' + file + '" integrity="' + sri + '" crossorigin="anonymous"></script>')
     .form-group
         label(for='jade_' + name)
             a(href="http://jade-lang.com/", target="_blank") Jade
