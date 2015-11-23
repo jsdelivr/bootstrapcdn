@@ -25,14 +25,19 @@ var FOREVER = path.join(__dirname, 'node_modules/.bin/forever');
     // make test
     //
     target.test = function() {
-        assertExec(MOCHA + ' --timeout 15000 ./tests/*_test.js ./tests/**/*_test.js -R spec');
+        // without functional tests
+        assertExec(MOCHA + ' --timeout 15000 -i -g "functional" -R spec ./tests/');
     };
+
+    target.suite = function() {
+        assertExec(MOCHA + ' --timeout 15000 -R spec ./tests/');
+    }
 
     //
     // make test-nc
     //
     target['test-nc'] = function() {
-        assertExec(MOCHA + ' --no-colors --timeout 15000 ./tests/*_test.js ./tests/**/*_test.js -R spec');
+        assertExec(MOCHA + ' --no-colors --timeout 15000 -R spec ./tests/');
     };
 
     //
@@ -49,7 +54,7 @@ var FOREVER = path.join(__dirname, 'node_modules/.bin/forever');
         assertExec('node app.js');
     };
 
-    // for integration tests
+    // for functional tests
     target.start = function() {
         assertExec(FOREVER + ' --plain start app.js');
     };
@@ -65,7 +70,7 @@ var FOREVER = path.join(__dirname, 'node_modules/.bin/forever');
     // make travis
     //
     target.travis = function() {
-        target.test();
+        target.suite();
         target.bootlint();
         target.validator();
     };
@@ -115,7 +120,10 @@ var FOREVER = path.join(__dirname, 'node_modules/.bin/forever');
                     target.stop();
 
                     rm(output);
-                    assert(res);
+
+                    if (res.output.indexOf("0 lint error(s) found") < 0) {
+                        process.exit(1);
+                    }
                 });
             });
         }, 2000);
@@ -153,7 +161,9 @@ var FOREVER = path.join(__dirname, 'node_modules/.bin/forever');
                     target.stop();
 
                     rm(output);
-                    assert(res);
+                    if (res.output.indexOf("Error:") >= 0) {
+                        process.exit(1);
+                    }
                 });
             });
         }, 2000);
