@@ -99,8 +99,13 @@ bootlint:
     javascript: 'https://maxcdn.bootstrapcdn.com/bootlint/0.2.0/bootlint.min.js'
     javascript_sri: sha256-bPDJ1Mc1ufaz/IHV2srDJfe8iuQrO4Y9eWp7W7AjDe8= sha512-NtJrQz5MYuVO7WXAhvQMT7LPRISui+6Dt2f1xjFls3NOPN4CrOFiWkOOQ50ukzKA/v7WihnXHmwBQyAJzKzqEQ==
 bootstrap:
-  - version: 3.3.5
+  - version: 3.3.6
     latest: true
+    stylesheet: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'
+    javascript: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js'
+    stylesheet_sri: CHANGE-ME
+    javascript_sri: CHANGE-ME
+  - version: 3.3.5
     stylesheet: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'
     javascript: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'
     stylesheet_sri: sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc= sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==
@@ -228,8 +233,11 @@ bootstrap4:
     javascript_sri: sha256-+h0g0j7qusP72OZaLPCSZ5wjZLnoUUicoxbvrl14WxM= sha512-0z9zJIjxQaDVzlysxlaqkZ8L9jh8jZ2d54F3Dn36Y0a8C6eI/RFOME/tLCFJ42hfOxdclfa29lPSNCmX5ekxnw==
     stylesheet_sri: sha256-GHW2S7IZAQe8+YkyL99LyDj1zdWXSPOG+JZafCtKiSc= sha512-vxM32w6T7zJ83xOQ6FT4CEFnlasqmkcB0+ojgbI0N6ZtSxYvHmT7sX2icN07TqEqr5wdKwoLkmB8sAsGAjCJHg==
 fontawesome:
-  - version: 4.4.0
+  - version: 4.5.0
     latest: true
+    stylesheet: 'https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css'
+    stylesheet_sri: sha256-3dkvEK0WLHRJ7/Csr0BZjAWxERc5WH7bdeUya2aXxdU= sha512-+L4yy6FRcDGbXJ9mPG8MT/3UCDzwR9gPeyFNMCtInsol++5m3bk2bXWKdZjvybmohrAsn3Ua5x8gfLnbE1YkOg==
+  - version: 4.4.0
     stylesheet: 'https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'
     stylesheet_sri: sha256-k2/8zcNbxVIh5mnQ52A0r3a6jAgMGxFJFE2707UxGCk= sha512-ZV9KawG2Legkwp3nAlxLIVFudTauWuBpC10uEafMHYL0Sarrz5A7G79kXh5+5+woxQ5HM559XX2UZjMJ36Wplg==
   - version: 4.3.0
