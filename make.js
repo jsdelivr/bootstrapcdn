@@ -25,8 +25,8 @@ var FOREVER = path.join(__dirname, 'node_modules/.bin/forever');
     // make test
     //
     target.test = function() {
-        // without integration tests
-        assertExec(MOCHA + ' --timeout 15000 -i -g "integration" -R spec ./tests/');
+        // without functional tests
+        assertExec(MOCHA + ' --timeout 15000 -i -g "functional" -R spec ./tests/');
     };
 
     target.suite = function() {
@@ -54,7 +54,7 @@ var FOREVER = path.join(__dirname, 'node_modules/.bin/forever');
         assertExec('node app.js');
     };
 
-    // for integration tests
+    // for functional tests
     target.start = function() {
         assertExec(FOREVER + ' --plain start app.js');
     };

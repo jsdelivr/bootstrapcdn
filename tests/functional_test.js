@@ -82,7 +82,7 @@ function assertHeader(uri, expected, done) {
 }
 
 // bootswtch
-describe('integration', function () {
+describe('functional', function () {
     describe('bootstrap', function () {
         config.bootstrap.forEach(function(self) {
             describe(self.javascript, function () {

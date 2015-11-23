@@ -5,7 +5,7 @@ var assert  = require('assert');
 var helpers = require(path.join(__dirname, 'test_helper.js'));
 var config  = helpers.config();
 
-var uri = helpers.app(config, 'fontawesome');
+var uri = helpers.app(config, 'bootlint');
 var response;
 before(function(done) {
     helpers.preFetch(uri, function (res) {
@@ -14,8 +14,8 @@ before(function(done) {
     });
 });
 
-describe('fontawesome', function () {
-    var latest = config.fontawesome[0];
+describe('bootlint', function () {
+    var latest = config.bootlint[0];
     describe('config', function () {
         it('is latest', function (done) {
             assert(latest.latest);
@@ -23,7 +23,7 @@ describe('fontawesome', function () {
         });
 
         it('has integrity', function (done) {
-            assert(latest.stylesheet_sri !== undefined);
+            assert(latest.javascript_sri !== undefined);
             done();
         });
     });
@@ -46,18 +46,18 @@ describe('fontawesome', function () {
     });
 
     it('has header', function (done) {
-        helpers.assertContains('<h2>Font Awesome</h2>', response.body);
+        helpers.assertContains('<h2>Bootlint</h2>', response.body);
         done();
     });
 
-    it('has stylesheet', function (done) {
-        helpers.assertContains(latest.stylesheet, response.body);
+    it('has javascript', function (done) {
+        helpers.assertContains(latest.javascript, response.body);
         done();
     });
 
     ['html', 'jade', 'haml'].forEach(function(fmt) {
         it('has ' + fmt, function (done) {
-            var str = helpers.css[fmt](latest.stylesheet, latest.stylesheet_sri);
+            var str = helpers.javascript[fmt](latest.javascript, latest.javascript_sri);
             helpers.assertContains(str, response.body);
             done();
         });
