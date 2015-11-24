@@ -309,6 +309,18 @@ showcase:
     img: /images/showcase/new-relic.png
     lib: Font Awesome 4.2.0
     url: 'http://www.newrelic.com/'
+  - name: Onion Studios
+    img: /images/showcase/onion-studios.png
+    lib: Font Awesome 4.2.0
+    url: 'http://www.onionstudios.com'
+  - name: Nasdaq
+    img: /images/showcase/nasdaq.png
+    lib: Font Awesome 4.4.0
+    url: 'http://www.nasdaq.com'
+  - name: Creative Commons
+    img: /images/showcase/creative-commons.png
+    lib: Bootstrap 3.2.0
+    url: 'http://www.creativecommons.org'
 integrations:
   - name: Bootstrap 3 Snippets
     img: /images/integrations/atom-bootstrap3.png
