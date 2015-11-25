@@ -58,7 +58,7 @@ bootlint:
   - version: 0.14.2
     latest: true
     javascript: 'https://maxcdn.bootstrapcdn.com/bootlint/0.14.2/bootlint.min.js'
-    javascript_sri: sha256-v3EhyiVaaBLEIaEwwvllcn8saA8UzKmpZVf57HYd5JU= sha512-QKbeVSlESN1J1kBUQGUqIksBcRg/JtMAk3codgtDE0s0HEP/wrfflsJg3stJ0UrCPiH+tjFtTI1vQZSLwq8c9w==
+    javascript_sri: sha256-Fkjw8oamqofxU59inx0OSzLD4C+z+XgUFeUwECc2soQ= sha512-Tp3Zya7Pg7twy8VjsbO4B3Kp+WXoq6z5cDTa2IzCJI49s+vyHJo1msq1LjBFgkO6bMPMtud+EQJ6yg/6rBPt4g==
   - version: 0.14.1
     javascript: 'https://maxcdn.bootstrapcdn.com/bootlint/0.14.1/bootlint.min.js'
     javascript_sri: sha256-v3EhyiVaaBLEIaEwwvllcn8saA8UzKmpZVf57HYd5JU= sha512-QKbeVSlESN1J1kBUQGUqIksBcRg/JtMAk3codgtDE0s0HEP/wrfflsJg3stJ0UrCPiH+tjFtTI1vQZSLwq8c9w==
