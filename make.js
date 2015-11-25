@@ -30,7 +30,7 @@ var FOREVER = path.join(__dirname, 'node_modules/.bin/forever');
     };
 
     target.suite = function() {
-        assertExec(MOCHA + ' --timeout 15000 -R spec ./tests/');
+        assertExec(MOCHA + ' --timeout 15000 -R dot ./tests/');
     }
 
     //
