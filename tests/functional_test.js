@@ -6,6 +6,7 @@ var yaml   = require('js-yaml');
 var assert = require('assert');
 var mktemp = require('mktemp');
 var exec   = require('child_process').execSync;
+var walk   = require('fs-walk');
 
 var helpers = require(path.join(__dirname, 'test_helper.js'));
 var config  = helpers.config();
@@ -37,6 +38,21 @@ var expectedHeaders = {
   'cache-control': undefined
 };
 
+var expectedMimeTypes = {
+    less: 'text/css',
+    scss: 'text/css',
+    css:  'text/css',
+    js:   'application/x-javascript',
+
+    // fonts
+    eot:   'application/vnd.ms-fontobject',
+    svg:   'image/svg+xml',
+    ttf:   'application/x-font-ttf',
+    woff:  'application/font-woff',
+    woff2: 'application/font-woff2',
+    otf:   'application/x-font-otf'
+};
+
 var responses = {};
 function request(uri, cb) {
     // return memoized response
@@ -51,6 +67,7 @@ function request(uri, cb) {
 
 function assertSRI(uri, sri, done) {
     request(uri, function(response) {
+        assert.equal(200, response.statusCode);
         mktemp.createFile('/tmp/XXXXX.txt', function(err, tmp) {
             if (err) throw err;
             fs.writeFile(tmp, response.body, function(err) {
@@ -71,6 +88,7 @@ function assertSRI(uri, sri, done) {
 
 function assertHeader(uri, expected, done) {
     request(uri, function(response) {
+        assert.equal(200, response.statusCode);
         assert(response.headers.hasOwnProperty(expected));
 
         if (expectedHeaders[expected]) {
@@ -81,8 +99,17 @@ function assertHeader(uri, expected, done) {
     });
 }
 
+function assertMimeType(uri, ext, done) {
+    request(uri, function(response) {
+        assert.equal(200, response.statusCode);
+        assert.equal(expectedMimeTypes[ext], response.headers['content-type']);
+        done();
+    });
+}
+
 // bootswtch
 describe('functional', function () {
+
     describe('bootstrap', function () {
         config.bootstrap.forEach(function(self) {
             describe(self.javascript, function () {
@@ -186,6 +213,19 @@ describe('functional', function () {
 
                 it('has integrity', function(done) {
                     assertSRI(self.stylesheet, self.stylesheet_sri, done);
+                });
+            });
+        });
+
+        describe('content-types', function() {
+            walk.filesSync(path.join(__dirname, '..', 'public', 'font-awesome'), function (base, name) {
+                var ext = name.match(/[A-Za-z0-9]+$/)[0];
+                if (expectedMimeTypes[ext] === undefined) return;
+
+                var uri = 'https://maxcdn.bootstrapcdn.com/' + base.split("/public/")[1] + '/' + name;
+
+                it(uri, function (done) {
+                    assertMimeType(uri, ext, done);
                 });
             });
         });
