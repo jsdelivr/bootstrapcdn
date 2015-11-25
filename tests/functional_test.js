@@ -20,6 +20,7 @@ var expectedHeaders = {
   connection: undefined, // TODO: reseach why this is returning 'closed' for
                          // this test, but 'keep-alive' as expected via
                          // curl and browsers.
+
   vary: 'Accept-Encoding',
 
   'content-type': undefined,
@@ -38,24 +39,9 @@ var expectedHeaders = {
   'cache-control': undefined
 };
 
-var expectedMimeTypes = {
-    less: 'text/css',
-    scss: 'text/css',
-    css:  'text/css',
-    js:   'application/x-javascript',
-
-    // fonts
-    eot:   'application/vnd.ms-fontobject',
-    svg:   'image/svg+xml',
-    ttf:   'application/x-font-ttf',
-    woff:  'application/font-woff',
-    woff2: 'application/font-woff2',
-    otf:   'application/x-font-otf'
-};
-
 var responses = {};
 function request(uri, cb) {
-    // return memoized response
+    // return memoized response to avoid making the same http call twice
     if (responses.hasOwnProperty(uri)) return cb(responses[uri]);
 
     // build memoized response
@@ -95,14 +81,6 @@ function assertHeader(uri, expected, done) {
             assert.equal(response.headers[expected], expectedHeaders[expected]);
         }
 
-        done();
-    });
-}
-
-function assertMimeType(uri, ext, done) {
-    request(uri, function(response) {
-        assert.equal(200, response.statusCode);
-        assert.equal(expectedMimeTypes[ext], response.headers['content-type']);
         done();
     });
 }
@@ -216,18 +194,41 @@ describe('functional', function () {
                 });
             });
         });
+    });
 
-        describe('content-types', function() {
-            walk.filesSync(path.join(__dirname, '..', 'public', 'font-awesome'), function (base, name) {
-                var ext = name.match(/[A-Za-z0-9]+$/)[0];
-                if (expectedMimeTypes[ext] === undefined) return;
+    var whitelist = [
+        "bootlint",
+        "bootstrap",
+        "bootswatch",
+        "font-awesome",
+        "twitter-bootstrap",
+        "js"
+    ];
 
-                var uri = 'https://maxcdn.bootstrapcdn.com/' + base.split("/public/")[1] + '/' + name;
+    describe('public/**/*.*', function() {
+        walk.filesSync(path.join(__dirname, '..', 'public'), function (base, name) {
+            var root = base.split('/public/')[1];
 
-                it(uri, function (done) {
-                    assertMimeType(uri, ext, done);
+            // ensure file is in whitelisted directory
+            if (root === undefined || whitelist.indexOf(root.split(path.sep)[0]) === -1) return;
+
+            var uri = 'https://maxcdn.bootstrapcdn.com/' + root + '/' + name;
+            var ext = helpers.extension(name);
+
+            // ignore unknown / unsupported types
+            if (helpers.CONTENT_TYPE_MAP[ext] === undefined) return;
+
+            describe(uri, function() {
+                it('content-type', function(done) {
+                    request(uri, function(response) {
+                        assert.equal(200, response.statusCode, 'file missing or forbidden');
+
+                        helpers.assert.contentType(uri, response.headers['content-type']);
+                        done();
+                    });
                 });
             });
         });
     });
+
 });
