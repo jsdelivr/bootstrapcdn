@@ -55,8 +55,11 @@ bootswatch:
     - name: yeti
       sri: sha256-gJ9rCvTS5xodBImuaUYf1WfbdDKq54HCPz9wk8spvGs= sha512-weqt+X3kGDDAW9V32W7bWc6aSNCMGNQsdOpfJJz/qD/Yhp+kNeR+YyvvWojJ+afETB31L0C4eO0pcygxfTgjgw==
 bootlint:
-  - version: 0.14.1
+  - version: 0.14.2
     latest: true
+    javascript: 'https://maxcdn.bootstrapcdn.com/bootlint/0.14.2/bootlint.min.js'
+    javascript_sri: sha256-v3EhyiVaaBLEIaEwwvllcn8saA8UzKmpZVf57HYd5JU= sha512-QKbeVSlESN1J1kBUQGUqIksBcRg/JtMAk3codgtDE0s0HEP/wrfflsJg3stJ0UrCPiH+tjFtTI1vQZSLwq8c9w==
+  - version: 0.14.1
     javascript: 'https://maxcdn.bootstrapcdn.com/bootlint/0.14.1/bootlint.min.js'
     javascript_sri: sha256-v3EhyiVaaBLEIaEwwvllcn8saA8UzKmpZVf57HYd5JU= sha512-QKbeVSlESN1J1kBUQGUqIksBcRg/JtMAk3codgtDE0s0HEP/wrfflsJg3stJ0UrCPiH+tjFtTI1vQZSLwq8c9w==
   - version: 0.13.0
