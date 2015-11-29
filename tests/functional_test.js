@@ -212,7 +212,13 @@ describe('functional', function () {
             // ensure file is in whitelisted directory
             if (root === undefined || whitelist.indexOf(root.split(path.sep)[0]) === -1) return;
 
-            var uri = 'https://maxcdn.bootstrapcdn.com/' + root + '/' + name;
+            var domain = 'https://maxcdn.bootstrapcdn.com/';
+
+            if (process.env.TEST_S3 === 'true') {
+                domain = 'https://s3-us-west-1.amazonaws.com/bootstrap-cdn/public/';
+            }
+
+            var uri = domain + root + '/' + name;
             var ext = helpers.extension(name);
 
             // ignore unknown / unsupported types
