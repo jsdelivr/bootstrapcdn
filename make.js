@@ -35,15 +35,8 @@ var MOCHA_OPTS = ' --timeout 15000 --slow 1000';
     }
 
     target.functional = function() {
-        assertExec(MOCHA + MOCA_OPTS + ' -R dot ./tests/functional_test.js');
+        assertExec(MOCHA + MOCHA_OPTS + ' -R dot ./tests/functional_test.js');
     }
-
-    //
-    // make test-nc
-    //
-    target['test-nc'] = function() {
-        assertExec(MOCHA + MOCHA_OPTS + ' --no-colors -R spec ./tests/');
-    };
 
     //
     // make clean
@@ -189,8 +182,9 @@ var MOCHA_OPTS = ' --timeout 15000 --slow 1000';
     target.help = function() {
         echo('Available targets:');
         echo('  all         test and run');
-        echo('  test        runs the tests');
-        echo('  test-nc     runs the tests w/o colors');
+        echo('  test        runs unit tests');
+        echo('  functional  runs functional tests');
+        echo('  suite       runs unit and functional tests');
         echo('  clean       cleanup working directory');
         echo('  run         runs for development mode');
         echo('  bootlint    run Bootlint locally');
