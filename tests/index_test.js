@@ -36,37 +36,37 @@ describe('index', function() {
     });
 
     it('works', function(done) {
-        helpers.assertResponse(response);
+        helpers.assert.response(response);
         done();
     });
 
     it('contains authors', function(done) {
         config.authors.forEach(function(author) {
-            helpers.assertContains(author, response.body);
+            helpers.assert.contains(author, response.body);
         });
         done();
     });
 
     it('contains analytics', function(done) {
-        helpers.assertAnalytics(response, config);
+        helpers.assert.analytics(response, config);
         done();
     });
 
     it('has header', function (done) {
-        helpers.assertContains('<h2>Quick Start</h2>', response.body);
+        helpers.assert.contains('<h2>Quick Start</h2>', response.body);
         done();
     });
 
     describe('stylesheet', function () {
         it('has uri', function (done) {
-            helpers.assertContains(latest.stylesheet, response.body);
+            helpers.assert.contains(latest.stylesheet, response.body);
             done();
         });
 
         ['html', 'jade', 'haml'].forEach(function(fmt) {
             it('has ' + fmt, function (done) {
                 var str = helpers.css[fmt](latest.stylesheet, latest.stylesheet_sri);
-                helpers.assertContains(str, response.body);
+                helpers.assert.contains(str, response.body);
                 done();
             });
         });
@@ -74,14 +74,14 @@ describe('index', function() {
 
     describe('javascript', function () {
         it('has javascript uri', function (done) {
-            helpers.assertContains(latest.javascript, response.body);
+            helpers.assert.contains(latest.javascript, response.body);
             done();
         });
 
         ['html', 'jade', 'haml'].forEach(function(fmt) {
             it('has ' + fmt, function (done) {
                 var str = helpers.javascript[fmt](latest.javascript, latest.javascript_sri);
-                helpers.assertContains(str, response.body);
+                helpers.assert.contains(str, response.body);
                 done();
             });
         });

@@ -17,43 +17,43 @@ before(function(done) {
 
 describe('showcase', function() {
     it('works', function(done) {
-        helpers.assertResponse(response);
+        helpers.assert.response(response);
         done();
     });
 
     it('contains authors', function(done) {
         config.authors.forEach(function(author) {
-            helpers.assertContains(author, response.body);
+            helpers.assert.contains(author, response.body);
         });
         done();
     });
 
     it('contains analytics', function(done) {
-        helpers.assertAnalytics(response, config);
+        helpers.assert.analytics(response, config);
         done();
     });
 
     it('has header', function (done) {
-        helpers.assertContains('<h2>Showcase</h2>', response.body);
+        helpers.assert.contains('<h2>Showcase</h2>', response.body);
         done();
     });
 
     config.showcase.forEach(function (showcase) {
         describe(showcase.name, function() {
             it('has name', function(done) {
-                helpers.assertContains(showcase.name, response.body);
+                helpers.assert.contains(showcase.name, response.body);
                 done();
             });
             it('has image', function(done) {
-                helpers.assertContains(showcase.img, response.body);
+                helpers.assert.contains(showcase.img, response.body);
                 done();
             });
             it('has lib', function(done) {
-                helpers.assertContains(showcase.lib, response.body);
+                helpers.assert.contains(showcase.lib, response.body);
                 done();
             });
             it('has url', function(done) {
-                helpers.assertContains(showcase.url, response.body);
+                helpers.assert.contains(showcase.url, response.body);
                 done();
             });
         });

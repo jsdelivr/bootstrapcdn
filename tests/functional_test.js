@@ -6,6 +6,7 @@ var yaml   = require('js-yaml');
 var assert = require('assert');
 var mktemp = require('mktemp');
 var exec   = require('child_process').execSync;
+var walk   = require('fs-walk');
 
 var helpers = require(path.join(__dirname, 'test_helper.js'));
 var config  = helpers.config();
@@ -19,6 +20,7 @@ var expectedHeaders = {
   connection: undefined, // TODO: reseach why this is returning 'closed' for
                          // this test, but 'keep-alive' as expected via
                          // curl and browsers.
+
   vary: 'Accept-Encoding',
 
   'content-type': undefined,
@@ -39,7 +41,7 @@ var expectedHeaders = {
 
 var responses = {};
 function request(uri, cb) {
-    // return memoized response
+    // return memoized response to avoid making the same http call twice
     if (responses.hasOwnProperty(uri)) return cb(responses[uri]);
 
     // build memoized response
@@ -51,6 +53,7 @@ function request(uri, cb) {
 
 function assertSRI(uri, sri, done) {
     request(uri, function(response) {
+        assert.equal(200, response.statusCode);
         mktemp.createFile('/tmp/XXXXX.txt', function(err, tmp) {
             if (err) throw err;
             fs.writeFile(tmp, response.body, function(err) {
@@ -71,6 +74,7 @@ function assertSRI(uri, sri, done) {
 
 function assertHeader(uri, expected, done) {
     request(uri, function(response) {
+        assert.equal(200, response.statusCode);
         assert(response.headers.hasOwnProperty(expected));
 
         if (expectedHeaders[expected]) {
@@ -83,6 +87,7 @@ function assertHeader(uri, expected, done) {
 
 // bootswtch
 describe('functional', function () {
+
     describe('bootstrap', function () {
         config.bootstrap.forEach(function(self) {
             describe(self.javascript, function () {
@@ -190,4 +195,46 @@ describe('functional', function () {
             });
         });
     });
+
+    var whitelist = [
+        "bootlint",
+        "bootstrap",
+        "bootswatch",
+        "font-awesome",
+        "twitter-bootstrap",
+        "js"
+    ];
+
+    describe('public/**/*.*', function() {
+        walk.filesSync(path.join(__dirname, '..', 'public'), function (base, name) {
+            var root = base.split('/public/')[1];
+
+            // ensure file is in whitelisted directory
+            if (root === undefined || whitelist.indexOf(root.split(path.sep)[0]) === -1) return;
+
+            var domain = 'https://maxcdn.bootstrapcdn.com/';
+
+            if (process.env.TEST_S3 === 'true') {
+                domain = 'https://s3-us-west-1.amazonaws.com/bootstrap-cdn/public/';
+            }
+
+            var uri = domain + root + '/' + name;
+            var ext = helpers.extension(name);
+
+            // ignore unknown / unsupported types
+            if (helpers.CONTENT_TYPE_MAP[ext] === undefined) return;
+
+            describe(uri, function() {
+                it('content-type', function(done) {
+                    request(uri, function(response) {
+                        assert.equal(200, response.statusCode, 'file missing or forbidden');
+
+                        helpers.assert.contentType(uri, response.headers['content-type']);
+                        done();
+                    });
+                });
+            });
+        });
+    });
+
 });

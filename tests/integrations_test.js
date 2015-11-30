@@ -17,43 +17,43 @@ before(function(done) {
 
 describe('integrations', function() {
     it('works', function(done) {
-        helpers.assertResponse(response);
+        helpers.assert.response(response);
         done();
     });
 
     it('contains authors', function(done) {
         config.authors.forEach(function(author) {
-            helpers.assertContains(author, response.body);
+            helpers.assert.contains(author, response.body);
         });
         done();
     });
 
     it('contains analytics', function(done) {
-        helpers.assertAnalytics(response, config);
+        helpers.assert.analytics(response, config);
         done();
     });
 
     it('has header', function (done) {
-        helpers.assertContains('<h2>Integrations</h2>', response.body);
+        helpers.assert.contains('<h2>Integrations</h2>', response.body);
         done();
     });
 
     config.integrations.forEach(function (integration) {
         describe(integration.name, function() {
             it('has name', function(done) {
-                helpers.assertContains(integration.name, response.body);
+                helpers.assert.contains(integration.name, response.body);
                 done();
             });
             it('has image', function(done) {
-                helpers.assertContains(integration.img, response.body);
+                helpers.assert.contains(integration.img, response.body);
                 done();
             });
             it('has platform', function(done) {
-                helpers.assertContains(integration.plat, response.body);
+                helpers.assert.contains(integration.plat, response.body);
                 done();
             });
             it('has url', function(done) {
-                helpers.assertContains(integration.url, response.body);
+                helpers.assert.contains(integration.url, response.body);
                 done();
             });
         });
