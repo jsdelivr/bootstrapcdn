@@ -123,6 +123,12 @@ function jsHAML(uri, sri) {
     return encode("%script{src: \""+uri+"\", integrity: \""+sri+"\", crossorigin: \"anonymous\"}");
 }
 
+function domainCheck(uri) {
+    if (process.env.TEST_S3 === 'true') {
+        uri = uri.replace('https://maxcdn.bootstrapcdn.com/', 'https://s3-us-west-1.amazonaws.com/bootstrap-cdn/public/');
+    }
+    return uri;
+}
 
 module.exports = {
     config: config,
@@ -145,5 +151,6 @@ module.exports = {
         html: jsHTML,
         haml: jsHAML,
     },
-    CONTENT_TYPE_MAP: CONTENT_TYPE_MAP
+    CONTENT_TYPE_MAP: CONTENT_TYPE_MAP,
+    domainCheck: domainCheck
 };

@@ -73,16 +73,24 @@ function assertSRI(uri, sri, done) {
     });
 }
 
-function assertHeader(uri, expected, done) {
-    request(uri, function(response) {
-        assert.equal(200, response.statusCode);
-        assert(response.headers.hasOwnProperty(expected));
+var s3include = [ 'content-type' ];
+function assertHeader(uri, header) {
 
-        if (expectedHeaders[expected]) {
-            assert.equal(response.headers[expected], expectedHeaders[expected]);
-        }
+    if (process.env.TEST_S3 === 'true' && s3include.indexOf(header) === -1) {
+        return it.skip('has ' + header);
+    }
 
-        done();
+    it('has ' + header, function(done) {
+        request(uri, function(response) {
+            assert.equal(200, response.statusCode);
+            assert(response.headers.hasOwnProperty(header));
+
+            if (expectedHeaders[header]) {
+                assert.equal(response.headers[header], expectedHeaders[header]);
+            }
+
+            done();
+        });
     });
 }
 
@@ -91,27 +99,25 @@ describe('functional', function () {
 
     describe('bootstrap', function () {
         config.bootstrap.forEach(function(self) {
-            describe(self.javascript, function () {
+            describe(helpers.domainCheck(self.javascript), function () {
+                var uri = helpers.domainCheck(self.javascript);
                 Object.keys(expectedHeaders).forEach(function(header) {
-                    it('has ' + header, function(done) {
-                        assertHeader(self.javascript, header, done);
-                    });
+                    assertHeader(uri, header);
                 });
 
                 it('has integrity', function(done) {
-                    assertSRI(self.javascript, self.javascript_sri, done);
+                    assertSRI(uri, self.javascript_sri, done);
                 });
             });
 
-            describe(self.stylesheet, function () {
+            describe(helpers.domainCheck(self.stylesheet), function () {
+                var uri = helpers.domainCheck(self.stylesheet);
                 Object.keys(expectedHeaders).forEach(function(header) {
-                    it('has ' + header, function(done) {
-                        assertHeader(self.stylesheet, header, done);
-                    });
+                    assertHeader(uri, header);
                 });
 
                 it('has integrity', function(done) {
-                    assertSRI(self.stylesheet, self.stylesheet_sri, done);
+                    assertSRI(uri, self.stylesheet_sri, done);
                 });
             });
         });
@@ -119,15 +125,13 @@ describe('functional', function () {
 
     describe('bootswatch', function () {
         config.bootswatch.themes.forEach(function(theme) {
-            var uri = config.bootswatch.bootstrap
+            var uri = helpers.domainCheck(config.bootswatch.bootstrap
                 .replace("SWATCH_VERSION", config.bootswatch.version)
-                .replace("SWATCH_NAME", theme.name);
+                .replace("SWATCH_NAME", theme.name));
 
             describe(uri, function () {
                 Object.keys(expectedHeaders).forEach(function(header) {
-                    it('has ' + header, function(done) {
-                        assertHeader(uri, header, done);
-                    });
+                    assertHeader(uri, header);
                 });
 
                 it('has integrity', function(done) {
@@ -139,15 +143,14 @@ describe('functional', function () {
 
     describe('bootlint', function () {
         config.bootlint.forEach(function (self) {
-            describe(self.javascript, function () {
+            var uri = helpers.domainCheck(self.javascript);
+            describe(uri, function () {
                 Object.keys(expectedHeaders).forEach(function(header) {
-                    it('has ' + header, function(done) {
-                        assertHeader(self.javascript, header, done);
-                    });
+                    assertHeader(uri, header);
                 });
 
                 it('has integrity', function(done) {
-                    assertSRI(self.javascript, self.javascript_sri, done);
+                    assertSRI(uri, self.javascript_sri, done);
                 });
             });
         });
@@ -155,27 +158,25 @@ describe('functional', function () {
 
     describe('bootstrap4', function () {
         config.bootstrap4.forEach(function(self) {
-            describe(self.javascript, function () {
+            describe(helpers.domainCheck(self.javascript), function () {
+                var uri = helpers.domainCheck(self.javascript);
                 Object.keys(expectedHeaders).forEach(function(header) {
-                    it('has ' + header, function(done) {
-                        assertHeader(self.javascript, header, done);
-                    });
+                    assertHeader(uri, header);
                 });
 
                 it('has integrity', function(done) {
-                    assertSRI(self.javascript, self.javascript_sri, done);
+                    assertSRI(uri, self.javascript_sri, done);
                 });
             });
 
-            describe(self.javascript, function () {
+            describe(helpers.domainCheck(self.stylesheet), function () {
+                var uri = helpers.domainCheck(self.stylesheet);
                 Object.keys(expectedHeaders).forEach(function(header) {
-                    it('has ' + header, function(done) {
-                        assertHeader(self.stylesheet, header, done);
-                    });
+                    assertHeader(uri, header);
                 });
 
                 it('has integrity', function(done) {
-                    assertSRI(self.stylesheet, self.stylesheet_sri, done);
+                    assertSRI(uri, self.stylesheet_sri, done);
                 });
             });
         });
@@ -183,15 +184,14 @@ describe('functional', function () {
 
     describe('fontawesome', function () {
         config.fontawesome.forEach(function(self) {
-            describe(self.stylesheet, function () {
+            var uri = helpers.domainCheck(self.stylesheet);
+            describe(uri, function () {
                 Object.keys(expectedHeaders).forEach(function(header) {
-                    it('has ' + header, function(done) {
-                        assertHeader(self.stylesheet, header, done);
-                    });
+                    assertHeader(uri, header);
                 });
 
                 it('has integrity', function(done) {
-                    assertSRI(self.stylesheet, self.stylesheet_sri, done);
+                    assertSRI(uri, self.stylesheet_sri, done);
                 });
             });
         });
@@ -219,11 +219,7 @@ describe('functional', function () {
             // ensure file is in whitelisted directory
             if (root === undefined || whitelist.indexOf(root.split(path.sep)[0]) === -1) return;
 
-            var domain = 'https://maxcdn.bootstrapcdn.com/';
-
-            if (process.env.TEST_S3 === 'true') {
-                domain = 'https://s3-us-west-1.amazonaws.com/bootstrap-cdn/public/';
-            }
+            var domain = helpers.domainCheck('https://maxcdn.bootstrapcdn.com/');
 
             var uri = domain + root + '/' + name;
             var ext = helpers.extension(name);
