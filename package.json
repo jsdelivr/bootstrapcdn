@@ -13,6 +13,7 @@
     "test-nc": "node make test-nc"
   },
   "dependencies": {
+    "async": "^1.4.2",
     "comma-it": "^0.0.7",
     "compression": "^1.5.2",
     "dateformat": "^1.0.11",
