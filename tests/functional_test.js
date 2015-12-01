@@ -7,6 +7,7 @@ var assert = require('assert');
 var mktemp = require('mktemp');
 var exec   = require('child_process').execSync;
 var walk   = require('fs-walk');
+var async  = require('async');
 
 var helpers = require(path.join(__dirname, 'test_helper.js'));
 var config  = helpers.config();
@@ -196,16 +197,22 @@ describe('functional', function () {
         });
     });
 
-    var whitelist = [
-        "bootlint",
-        "bootstrap",
-        "bootswatch",
-        "font-awesome",
-        "twitter-bootstrap",
-        "js"
-    ];
-
     describe('public/**/*.*', function() {
+
+        /*
+         * Build File List
+         ****/
+        var whitelist = [
+            "bootlint",
+            "bootstrap",
+            "bootswatch",
+            "font-awesome",
+            "twitter-bootstrap",
+            "css",
+            "js"
+        ];
+
+        var publicURIs = [];
         walk.filesSync(path.join(__dirname, '..', 'public'), function (base, name) {
             var root = base.split('/public/')[1];
 
@@ -224,17 +231,25 @@ describe('functional', function () {
             // ignore unknown / unsupported types
             if (helpers.CONTENT_TYPE_MAP[ext] === undefined) return;
 
+            publicURIs.push(uri);
+        });
+
+        /*
+         * Run Tests
+         ****/
+        async.each(publicURIs, function(uri, callback) {
             describe(uri, function() {
                 it('content-type', function(done) {
                     request(uri, function(response) {
                         assert.equal(200, response.statusCode, 'file missing or forbidden');
 
                         helpers.assert.contentType(uri, response.headers['content-type']);
-                        done();
+                        done(); callback();
                     });
                 });
             });
         });
+
     });
 
 });
