@@ -35,7 +35,7 @@ var MOCHA_OPTS = ' --timeout 15000 --slow 1000';
     }
 
     target.functional = function() {
-        assertExec(MOCHA + MOCHA_OPTS + ' -R dot ./tests/functional_test.js');
+        assertExec(MOCHA + MOCHA_OPTS + ' -R tap ./tests/functional_test.js');
     }
 
     //
