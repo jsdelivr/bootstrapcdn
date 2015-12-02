@@ -76,7 +76,7 @@ function assertSRI(uri, sri, done) {
 var s3include = [ 'content-type' ];
 function assertHeader(uri, header) {
 
-    if (process.env.TEST_S3 === 'true' && s3include.indexOf(header) === -1) {
+    if (process.env.TEST_S3 !== undefined && s3include.indexOf(header) === -1) {
         return it.skip('has ' + header);
     }
 

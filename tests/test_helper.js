@@ -125,10 +125,9 @@ function jsHAML(uri, sri) {
 }
 
 function domainCheck(uri) {
-    if (process.env.TEST_S3 === 'true') {
-        uri = uri.replace('https://maxcdn.bootstrapcdn.com/', 'https://s3-us-west-1.amazonaws.com/bootstrap-cdn/public/');
-    }
-    return uri;
+    if (process.env.TEST_S3 === undefined) return uri;
+
+    return uri.replace('https://maxcdn.bootstrapcdn.com/', process.env.TEST_S3);
 }
 
 module.exports = {
