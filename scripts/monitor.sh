@@ -6,7 +6,8 @@ __dirname="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 # OPTIONAL w/ defaults:
 # any of these can be set
 MONITOR_BOOTSTRAP_VERSION=${MONITOR_BOOTSTRAP_VERSION-}
-MONITOR_SOURCE_PREFIX=${MONITOR_SOURCE_PREFIX-"https://maxcdn.bootstrapcdn.com"}
+MONITOR_PRIMARY_SOURCE=${MONITOR_PRIMARY_SOURCE-"https://maxcdn.bootstrapcdn.com"}
+MONITOR_SECONDARY_SOURCE=${MONITOR_SECONDARY_SOURCE-""}
 MONITOR_LOCAL_PREFIX=${MONITOR_LOCAL_PREFIX-"${__dirname}/../public"}
 PAGERDUTY_SERVICE_KEY=${PAGERDUTY_SERVICE_KEY-}
 PAGERDUTY_CLIENT_NAME=${PAGERDUTY_CLIENT_NAME-"bootstrap-cdn-monitor"}
@@ -30,7 +31,7 @@ warn() {
 }
 
 get_remote() {
-  echo "$(curl -s -X GET "${MONITOR_SOURCE_PREFIX}/$1")"
+  echo "$(curl -s -X GET "$1")"
 }
 
 get_local() {
@@ -59,25 +60,35 @@ pagerduty_report() {
 }
 
 verify() {
-  debug "Fetching $1"
-  local _remote="$(sum "$(get_remote "$1")")"
+  debug "Fetching $2/$1"
+  local _remote="$(sum "$(get_remote "$2/$1")")"
   debug "Reading $1"
   local  _local="$(sum "$(get_local  "$1")")"
 
   if [[ "$_remote" != "$_local" ]]; then
-    echo "in=scripts/monitor.sh check=failed on=$1 remote=$_remote local=$_local"
+    echo "in=scripts/monitor.sh check=failed on=$2/$1 remote=$_remote local=$_local"
     pagerduty_report "$1" "$_remote" "$_local"
   else
-    echo "in=scripts/monitor.sh check=passed on=$1"
+    echo "in=scripts/monitor.sh check=passed on=$2/$1"
   fi
 }
 
-verify "bootstrap/latest/js/bootstrap.js"
-verify "bootstrap/latest/js/bootstrap.min.js"
+verify "bootstrap/latest/js/bootstrap.js" "$MONITOR_PRIMARY_SOURCE"
+verify "bootstrap/latest/js/bootstrap.min.js" "$MONITOR_PRIMARY_SOURCE"
 
-if [[ ! -z "${MONITOR_BOOTSTRAP_VERSION}" ]]; then
-  verify "bootstrap/${MONITOR_BOOTSTRAP_VERSION}/js/bootstrap.js"
-  verify "bootstrap/${MONITOR_BOOTSTRAP_VERSION}/js/bootstrap.min.js"
+if [[ ! -z "$MONITOR_SECONDARY_SOURCE" ]]; then
+  verify "bootstrap/latest/js/bootstrap.js" "$MONITOR_SECONDARY_SOURCE"
+  verify "bootstrap/latest/js/bootstrap.min.js" "$MONITOR_SECONDARY_SOURCE"
+fi
+
+if [[ ! -z "$MONITOR_BOOTSTRAP_VERSION" ]]; then
+  verify "bootstrap/$MONITOR_BOOTSTRAP_VERSION/js/bootstrap.js" "$MONITOR_PRIMARY_SOURCE"
+  verify "bootstrap/$MONITOR_BOOTSTRAP_VERSION/js/bootstrap.min.js" "$MONITOR_PRIMARY_SOURCE"
+
+  if [[ ! -z "$MONITOR_SECONDARY_SOURCE" ]]; then
+    verify "bootstrap/latest/js/bootstrap.js" "$MONITOR_SECONDARY_SOURCE"
+    verify "bootstrap/latest/js/bootstrap.min.js" "$MONITOR_SECONDARY_SOURCE"
+  fi
 else
   warn "'MONITOR_BOOTSTRAP_VERSION' not set, skipping version specific checks"
 fi
