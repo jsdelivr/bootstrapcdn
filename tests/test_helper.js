@@ -27,17 +27,18 @@ function assertContentType(uri, content_type) {
     var ext  = extension(uri);
     var type = CONTENT_TYPE_MAP[ext];
 
-    if (Array.isArray(type)) {
-        if (process.env.TEST_STRICT === 'true') {
-            type = type[0];
-        } else {
-            return assert(type.indexOf(content_type) >= 0,
-                format('invalid content-type for "%s", expected one of "%s" but got "%s"',
-                       ext, type.join('", "'), content_type));
-        }
+    // Making TEST_STRICT=true default, pass TEST_STRICT=false to disable
+    // strict checking.
+
+    if (process.env.TEST_STRICT === 'false' && Array.isArray(type)) {
+        return assert(type.indexOf(content_type) >= 0,
+            format('invalid content-type for "%s", expected one of "%s" but got "%s"',
+                   ext, type.join('", "'), content_type));
     }
 
-    assert.equal(CONTENT_TYPE_MAP[ext], content_type,
+    type = Array.isArray(type) ? type[0] : type;
+
+    assert.equal(type, content_type,
         format('invalid content-type for "%s", expected "%s" but got "%s"',
                ext, type, content_type));
 }
@@ -123,6 +124,11 @@ function jsHAML(uri, sri) {
     return encode("%script{src: \""+uri+"\", integrity: \""+sri+"\", crossorigin: \"anonymous\"}");
 }
 
+function domainCheck(uri) {
+    if (process.env.TEST_S3 === undefined) return uri;
+
+    return uri.replace('https://maxcdn.bootstrapcdn.com/', process.env.TEST_S3);
+}
 
 module.exports = {
     config: config,
@@ -145,5 +151,6 @@ module.exports = {
         html: jsHTML,
         haml: jsHAML,
     },
-    CONTENT_TYPE_MAP: CONTENT_TYPE_MAP
+    CONTENT_TYPE_MAP: CONTENT_TYPE_MAP,
+    domainCheck: domainCheck
 };
