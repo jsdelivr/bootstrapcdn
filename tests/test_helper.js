@@ -10,7 +10,7 @@ var MaxCDN = require('maxcdn');
 process.env.MAXCDN_ALIAS      = 'alias';
 process.env.MAXCDN_API_KEY    = 'apikey';
 process.env.MAXCDN_API_SECRET = 'apisecret';
-process.env.CACHE_STORE       = path.join(__dirname, 'stubs', 'popular.json');
+process.env.CACHE_STORE       = path.join(__dirname, 'stubs', 'popular_response.json');
 
 // for array of types, first will be choosen when testing strictly
 var CONTENT_TYPE_MAP = {
@@ -112,7 +112,6 @@ function maxcdnStubGet(res, err) {
         callback(err, res);
     }
 }
-
 
 function cssHTML(uri, sri) {
     return encode("<link href=\""+uri+"\" rel=\"stylesheet\" integrity=\""+sri+"\" crossorigin=\"anonymous\">");

@@ -11,7 +11,7 @@ var uri     = helpers.app(config, 'popular');
 var response;
 before(function(done) {
     // default stub
-    helpers.maxcdnStubGet(JSON.parse(fs.readFileSync(process.env.CACHE_STORE)), undefined);
+    helpers.maxcdnStubGet(require(process.env.CACHE_STORE), undefined);
 
     helpers.preFetch(uri, function (res) {
         response = res;
