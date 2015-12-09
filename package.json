@@ -25,6 +25,7 @@
     "htmlencode": "0.0.4",
     "jade": "^1.11.0",
     "js-yaml": "^3.4.2",
+    "jstransformer-uglify-js": "^1.1.1",
     "maxcdn": "^0.1.6",
     "mktemp": "^0.4.0",
     "morgan": "^1.6.1",

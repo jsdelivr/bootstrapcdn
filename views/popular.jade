@@ -18,7 +18,7 @@ block content
                             thead
                                 tr
                                     th &nbsp;
-                                    th URI
+                                    th File
                                     th Hits (Requests)
                                     th.sorter-digit &nbsp;
                                     th Bandwidth
@@ -62,7 +62,7 @@ block last
     script(src="/javascripts/jquery.tablesorter.min.js")
     script(src="/javascripts/jquery.tablesorter.widgets.min.js")
     script
-        :uglify
+        :uglify-js
             $(window).load(function() {
                 $('ul.nav.navbar-nav li').each(function() { $(this).removeClass('active'); });
                 $('li#extras').addClass('active');

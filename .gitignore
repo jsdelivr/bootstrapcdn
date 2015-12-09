@@ -7,7 +7,7 @@
 /npm-debug.log
 data/
 inc/
-reports/
+/reports/
 lint.html
 config/_maxcdn.yml
 shelljs_*
