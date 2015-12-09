@@ -1,0 +1,114 @@
+extends layout
+
+block head
+    link(rel='stylesheet', href='/stylesheets/theme.bootstrap.css')
+
+block content
+    .container
+        .row
+            .col-sm-12
+                h1 Popular Files Overview
+                - if (data.length === 0)
+                    p.text-danger Error fetching stats data, please try again.
+                - else
+                    p Total requests per file and total bandwidth of popular files.
+
+                    .table-responsive
+                        table.table.table-striped.table-hover.populars-table
+                            thead
+                                tr
+                                    th &nbsp;
+                                    th URI
+                                    th Hits (Requests)
+                                    th.sorter-digit &nbsp;
+                                    th Bandwidth
+                                    th.sorter-digit &nbsp;
+                            tbody
+                                - for entry in data.sort(function(a,b) { return b.hit - a.hit; })
+                                    - if (entry.hit > 1000)
+                                        tr
+                                            td
+                                                - var ext = entry.uri.match(/\.[a-zA-Z0-9]+$/)[0].replace(/^\./, '');
+                                                img(src="/images/reports/" + ext + ".png", alt=ext, width="30", height="30")
+                                            td= entry.uri
+                                            td
+                                                .progress
+                                                    - var hitProgress = ((entry.hit / data[0].hit) * 100).toFixed(2);
+                                                    .progress-bar(
+                                                        role="progressbar",
+                                                        aria-valuenow=hitProgress,
+                                                        aria-valuemin="0",
+                                                        aria-valuemax="100",
+                                                        style="width: " + hitProgress + "%")
+                                                        span.sr-only= hitProgress + "%"
+                                            td= commaIt(entry.hit, {addPrecision: 0, thousandSeperator: ',', decimalSeperator: '.'}) + " Requests"
+                                            td
+                                                .progress
+                                                    - var sizeProgress = ((entry.size / maxSize) * 100).toFixed(2);
+                                                    .progress-bar(
+                                                        role="progressbar",
+                                                        aria-valuenow=sizeProgress,
+                                                        aria-valuemin="0",
+                                                        aria-valuemax="100",
+                                                        style="width: " + sizeProgress + "%")
+                                                        span.sr-only= sizeProgress + " GB"
+                                            td= (entry.size / 1073741824).toFixed(2) + " GB"
+
+                a(href="http://medialoot.com/") Icons by Medialoot.com
+
+        include _partials/footer
+
+block last
+    script(src="/javascripts/jquery.tablesorter.min.js")
+    script(src="/javascripts/jquery.tablesorter.widgets.min.js")
+    script
+        :uglify
+            $(window).load(function() {
+                $('ul.nav.navbar-nav li').each(function() { $(this).removeClass('active'); });
+                $('li#extras').addClass('active');
+                $('li#popular').addClass('active');
+            });
+            $(function() {
+
+                $.extend($.tablesorter.themes.bootstrap, {
+                    // these classes are added to the table. To see other table classes available,
+                    // look here: http://twitter.github.com/bootstrap/base-css.html#tables
+                    table      : 'table table-striped table-hover',
+                    caption    : 'caption',
+                    header     : 'bootstrap-header',                    // give the header a gradient background
+                    sortNone   : 'bootstrap-icon-unsorted',
+                    sortAsc    : 'glyphicon glyphicon-chevron-up',      // includes classes for Bootstrap v2 & v3
+                    sortDesc   : 'glyphicon glyphicon-chevron-down'     // includes classes for Bootstrap v2 & v3
+                });
+
+                // call the tablesorter plugin and apply the uitheme widget
+                $('.populars-table').tablesorter({
+                    // this will apply the bootstrap theme if 'uitheme' widget is included
+                    // the widgetOptions.uitheme is no longer required to be set
+                    theme : 'bootstrap',
+
+                    //widthFixed: true,
+
+                    headerTemplate : '{content} {icon}', // new in v2.7. Needed to add the bootstrap icon!
+
+                    // widget code contained in the jquery.tablesorter.widgets.js file
+                    widgets : [ 'uitheme' ],
+
+                    headers: {
+                        // Index is zero based
+                        0: {
+                            sorter: false
+                        },
+                        2: {
+                            sorter: false
+                        },
+                        4: {
+                            sorter: false
+                        }
+                    }
+                })
+
+            });
+
+
+//- vim: ft=jade sw=4 sts=4 et:

@@ -28,6 +28,7 @@
     "maxcdn": "^0.1.6",
     "mktemp": "^0.4.0",
     "morgan": "^1.6.1",
+    "redis": "^2.4.2",
     "request": "^2.64.0",
     "serve-favicon": "^2.3.0",
     "serve-static": "^1.10.0",

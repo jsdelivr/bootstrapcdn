@@ -90,6 +90,7 @@ app.get('/alpha/',        routes.alpha);
 app.get('/legacy/',       routes.legacy);
 app.get('/showcase/',     routes.showcase);
 app.get('/integrations/', routes.integrations);
+app.get('/popular',       routes.popular);
 app.get('/',              routes.index);
 
 var data; // only regenerated on restart

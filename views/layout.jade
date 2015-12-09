@@ -37,8 +37,9 @@ html(lang="en")
 
                     include _partials/footer
 
-                .col-md-3.visible-md.visible-lg
-                    include _partials/tweets
+                - if (madlove !== false)
+                    .col-md-3.visible-md.visible-lg
+                        include _partials/tweets
 
         - if (config.javascript && config.javascript.after)
             - each js in config.javascript.after
