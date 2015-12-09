@@ -1,8 +1,5 @@
 extends layout
 
-block head
-    link(rel='stylesheet', href='/stylesheets/theme.bootstrap.css')
-
 block content
     .container
         .row
@@ -24,6 +21,8 @@ block content
                                     th Bandwidth
                                     th.sorter-digit &nbsp;
                             tbody
+                                - var maxHits = helpers.calculateTotal(data, 'hit');
+                                - var maxSize = helpers.calculateTotal(data, 'size');
                                 - for entry in data.sort(function(a,b) { return b.hit - a.hit; })
                                     - if (entry.hit > 1000)
                                         tr
@@ -33,7 +32,7 @@ block content
                                             td= entry.uri
                                             td
                                                 .progress
-                                                    - var hitProgress = ((entry.hit / data[0].hit) * 100).toFixed(2);
+                                                    - var hitProgress = ((entry.hit / maxHits) * 100).toFixed(2);
                                                     .progress-bar(
                                                         role="progressbar",
                                                         aria-valuenow=hitProgress,
@@ -57,58 +56,5 @@ block content
                 a(href="http://medialoot.com/") Icons by Medialoot.com
 
         include _partials/footer
-
-block last
-    script(src="/javascripts/jquery.tablesorter.min.js")
-    script(src="/javascripts/jquery.tablesorter.widgets.min.js")
-    script
-        :uglify-js
-            $(window).load(function() {
-                $('ul.nav.navbar-nav li').each(function() { $(this).removeClass('active'); });
-                $('li#extras').addClass('active');
-                $('li#popular').addClass('active');
-            });
-            $(function() {
-
-                $.extend($.tablesorter.themes.bootstrap, {
-                    // these classes are added to the table. To see other table classes available,
-                    // look here: http://twitter.github.com/bootstrap/base-css.html#tables
-                    table      : 'table table-striped table-hover',
-                    caption    : 'caption',
-                    header     : 'bootstrap-header',                    // give the header a gradient background
-                    sortNone   : 'bootstrap-icon-unsorted',
-                    sortAsc    : 'glyphicon glyphicon-chevron-up',      // includes classes for Bootstrap v2 & v3
-                    sortDesc   : 'glyphicon glyphicon-chevron-down'     // includes classes for Bootstrap v2 & v3
-                });
-
-                // call the tablesorter plugin and apply the uitheme widget
-                $('.populars-table').tablesorter({
-                    // this will apply the bootstrap theme if 'uitheme' widget is included
-                    // the widgetOptions.uitheme is no longer required to be set
-                    theme : 'bootstrap',
-
-                    //widthFixed: true,
-
-                    headerTemplate : '{content} {icon}', // new in v2.7. Needed to add the bootstrap icon!
-
-                    // widget code contained in the jquery.tablesorter.widgets.js file
-                    widgets : [ 'uitheme' ],
-
-                    headers: {
-                        // Index is zero based
-                        0: {
-                            sorter: false
-                        },
-                        2: {
-                            sorter: false
-                        },
-                        4: {
-                            sorter: false
-                        }
-                    }
-                })
-
-            });
-
 
 //- vim: ft=jade sw=4 sts=4 et:
