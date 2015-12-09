@@ -77,7 +77,7 @@ app.use(serveStatic(path.join(__dirname, 'public')));
 
 // locals
 app.locals.helpers = require('./lib/helpers');
-app.locals.commaIt = require('comma-it');
+app.locals.numeral = require('numeral');
 app.locals.config  = config;
 app.locals.tweets  = tweets;
 

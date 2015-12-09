@@ -40,7 +40,7 @@ block content
                                                         aria-valuemax="100",
                                                         style="width: " + hitProgress + "%")
                                                         span.sr-only= hitProgress + "%"
-                                            td= commaIt(entry.hit, {addPrecision: 0, thousandSeperator: ',', decimalSeperator: '.'}) + " Requests"
+                                            td= numeral(entry.hit).format('0,0') + ' Requests'
                                             td
                                                 .progress
                                                     - var sizeProgress = ((entry.size / maxSize) * 100).toFixed(2);
@@ -51,7 +51,7 @@ block content
                                                         aria-valuemax="100",
                                                         style="width: " + sizeProgress + "%")
                                                         span.sr-only= sizeProgress + " GB"
-                                            td= (entry.size / 1073741824).toFixed(2) + " GB"
+                                            td= numeral(entry.size).format('0.00 b')
 
                 a(href="http://medialoot.com/") Icons by Medialoot.com
 
