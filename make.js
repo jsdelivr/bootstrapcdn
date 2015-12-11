@@ -5,10 +5,11 @@ var path = require('path');
 var http = require('http');
 var fs   = require('fs');
 
-var MOCHA = path.join(__dirname, 'node_modules/.bin/mocha');
-var BOOTLINT = path.join(__dirname, 'node_modules/.bin/bootlint');
-var VALIDATOR = path.join(__dirname, 'node_modules/.bin/html-validator');
-var FOREVER = path.join(__dirname, 'node_modules/.bin/forever');
+var MOCHA      = path.join(__dirname, 'node_modules/.bin/mocha');
+var BOOTLINT   = path.join(__dirname, 'node_modules/.bin/bootlint');
+var VALIDATOR  = path.join(__dirname, 'node_modules/.bin/html-validator');
+var FOREVER    = path.join(__dirname, 'node_modules/.bin/forever');
+var MOCHA_OPTS = ' --timeout 15000 --slow 1000';
 
 (function() {
     cd(__dirname);
@@ -26,19 +27,16 @@ var FOREVER = path.join(__dirname, 'node_modules/.bin/forever');
     //
     target.test = function() {
         // without functional tests
-        assertExec(MOCHA + ' --timeout 15000 -i -g "functional" -R spec ./tests/');
+        assertExec(MOCHA + MOCHA_OPTS + ' -i -g "functional" -R spec ./tests/');
     };
 
     target.suite = function() {
-        assertExec(MOCHA + ' --timeout 15000 -R dot ./tests/');
+        assertExec(MOCHA + MOCHA_OPTS + ' -R dot ./tests/');
     }
 
-    //
-    // make test-nc
-    //
-    target['test-nc'] = function() {
-        assertExec(MOCHA + ' --no-colors --timeout 15000 -R spec ./tests/');
-    };
+    target.functional = function() {
+        assertExec(MOCHA + MOCHA_OPTS + ' -R tap ./tests/functional_test.js');
+    }
 
     //
     // make clean
@@ -184,8 +182,9 @@ var FOREVER = path.join(__dirname, 'node_modules/.bin/forever');
     target.help = function() {
         echo('Available targets:');
         echo('  all         test and run');
-        echo('  test        runs the tests');
-        echo('  test-nc     runs the tests w/o colors');
+        echo('  test        runs unit tests');
+        echo('  functional  runs functional tests');
+        echo('  suite       runs unit and functional tests');
         echo('  clean       cleanup working directory');
         echo('  run         runs for development mode');
         echo('  bootlint    run Bootlint locally');

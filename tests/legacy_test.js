@@ -22,24 +22,24 @@ before(function(done) {
 
 describe('legacy', function () {
     it('works', function (done) {
-        helpers.assertResponse(response);
+        helpers.assert.response(response);
         done();
     });
 
     it('has header', function (done) {
-        helpers.assertContains('<h2>Bootstrap Legacy</h2>', response.body);
+        helpers.assert.contains('<h2>Bootstrap Legacy</h2>', response.body);
         done();
     });
 
     it('contains authors', function(done) {
         config.authors.forEach(function(author) {
-            helpers.assertContains(author, response.body);
+            helpers.assert.contains(author, response.body);
         });
         done();
     });
 
     it('contains analytics', function(done) {
-        helpers.assertAnalytics(response, config);
+        helpers.assert.analytics(response, config);
         done();
     });
 
@@ -62,13 +62,13 @@ describe('legacy', function () {
             ['html', 'jade', 'haml'].forEach(function(fmt) {
                 it('has javascript ' + fmt, function (done) {
                     var str = helpers.javascript[fmt](bootstrap.javascript, bootstrap.javascript_sri);
-                    helpers.assertContains(str, response.body);
+                    helpers.assert.contains(str, response.body);
                     done();
                 });
 
                 it('has stylesheet ' + fmt, function (done) {
                     var str = helpers.css[fmt](bootstrap.stylesheet, bootstrap.stylesheet_sri);
-                    helpers.assertContains(str, response.body);
+                    helpers.assert.contains(str, response.body);
                     done();
                 });
             });
