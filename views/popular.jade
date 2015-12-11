@@ -1,5 +1,8 @@
 extends layout
 
+block head
+    link(rel='stylesheet', href='/stylesheets/theme.bootstrap.min.css')
+
 block content
     .container
         .row
@@ -11,15 +14,18 @@ block content
                     p Total requests per file and total bandwidth of popular files.
 
                     .table-responsive
-                        table.table.table-striped.table-hover.populars-table
-                            thead
+                        table#popular-table.table
+                            thead.tablesorter-header
                                 tr
-                                    th &nbsp;
+                                    th.sorter-false &nbsp;
                                     th File
-                                    th Hits (Requests)
-                                    th.sorter-digit &nbsp;
-                                    th Bandwidth
-                                    th.sorter-digit &nbsp;
+                                        i.tablesorter-icon.pull-right
+                                    th.sorter-false Hits (Requests)
+                                    th.sorter-digit &nbsp; &nbsp;
+                                        i.tablesorter-icon.pull-right
+                                    th.sorter-false Bandwidth
+                                    th.sorter-digit &nbsp; &nbsp;
+                                        i.tablesorter-icon.pull-right
                             tbody
                                 - var maxHits = helpers.calculateTotal(data, 'hit');
                                 - var maxSize = helpers.calculateTotal(data, 'size');
@@ -56,5 +62,19 @@ block content
                 a(href="http://medialoot.com/") Icons by Medialoot.com
 
         include _partials/footer
+
+block last
+    script(src='/javascripts/jquery.tablesorter.combined.min.js')
+    script
+        :uglify-js
+            $('table#popular-table').ready(function() {
+                $('table#popular-table').tablesorter({
+                    theme         : 'bootstrap',
+                    widgets       : ['uitheme','zebra'],
+                    widgetOptions : { 
+                        zebra: ['even', 'odd']
+                    }
+                });
+            });
 
 //- vim: ft=jade sw=4 sts=4 et:
