@@ -70,7 +70,7 @@ var MOCHA_OPTS = ' --timeout 15000 --slow 1000';
     target.travis = function() {
         target.suite();
         target.bootlint();
-        target.validator();
+        //target.validator();
     };
 
     //
