@@ -14,7 +14,6 @@
   },
   "dependencies": {
     "async": "^1.4.2",
-    "comma-it": "^0.0.7",
     "compression": "^1.5.2",
     "dateformat": "^1.0.11",
     "errorhandler": "^1.4.2",
@@ -25,9 +24,12 @@
     "htmlencode": "0.0.4",
     "jade": "^1.11.0",
     "js-yaml": "^3.4.2",
+    "jstransformer-uglify-js": "^1.1.1",
     "maxcdn": "^0.1.6",
     "mktemp": "^0.4.0",
     "morgan": "^1.6.1",
+    "numeral": "^1.5.3",
+    "redis": "^2.4.2",
     "request": "^2.64.0",
     "serve-favicon": "^2.3.0",
     "serve-static": "^1.10.0",
@@ -41,7 +43,8 @@
     "format": "^0.2.1",
     "mocha": "^2.3.3",
     "superagent": "^1.4.0",
-    "uglify-js": "^2.4.24"
+    "uglify-js": "^2.4.24",
+    "uglifycss": "0.0.19"
   },
   "engines": {
     "node": ">= 0.10.0"

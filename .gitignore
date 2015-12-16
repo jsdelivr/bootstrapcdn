@@ -7,10 +7,11 @@
 /npm-debug.log
 data/
 inc/
-reports/
+/reports/
 lint.html
 config/_maxcdn.yml
 shelljs_*
 *.log
 Dockme.yml
 /config/_config.yml.bak
+/.env

@@ -77,7 +77,7 @@ app.use(serveStatic(path.join(__dirname, 'public')));
 
 // locals
 app.locals.helpers = require('./lib/helpers');
-app.locals.commaIt = require('comma-it');
+app.locals.numeral = require('numeral');
 app.locals.config  = config;
 app.locals.tweets  = tweets;
 
@@ -90,6 +90,7 @@ app.get('/alpha/',        routes.alpha);
 app.get('/legacy/',       routes.legacy);
 app.get('/showcase/',     routes.showcase);
 app.get('/integrations/', routes.integrations);
+app.get('/popular',       routes.popular);
 app.get('/',              routes.index);
 
 var data; // only regenerated on restart

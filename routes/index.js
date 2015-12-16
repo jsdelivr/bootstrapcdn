@@ -1,5 +1,8 @@
 'use strict';
 
+var path    = require('path');
+var maxcdn  = require(path.join(__dirname, '..', 'lib', 'maxcdn'));
+
 var TITLE = 'BootstrapCDN by MaxCDN';
 function index(req, res) {
     res.render('index', { title: TITLE, theme: req.query.theme });
@@ -23,6 +26,15 @@ function alpha(req, res) {
 
 function legacy(req, res) {
     res.render('legacy', { title: TITLE, theme: req.query.theme });
+}
+
+function popular(req, res) {
+    if (!maxcdn.isActive())
+        return res.status(503).send('Popular files are currently disabled.');
+
+    maxcdn.popularfiles(function(data) {
+        res.render('popular', { title: TITLE, theme: req.query.theme, data: data, madlove: false });
+    });
 }
 
 function showcase(req, res) {
@@ -65,6 +77,7 @@ module.exports = {
     alpha:         alpha,
     legacy:        legacy,
     showcase:      showcase,
+    popular:       popular,
     integrations:  integrations
 };
 

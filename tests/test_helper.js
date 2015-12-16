@@ -4,6 +4,13 @@ var yaml   = require('js-yaml');
 var assert = require('assert');
 var format = require('format');
 var encode = require('htmlencode').htmlEncode;
+var MaxCDN = require('maxcdn');
+
+// set environment defaults
+process.env.MAXCDN_ALIAS      = 'alias';
+process.env.MAXCDN_API_KEY    = 'apikey';
+process.env.MAXCDN_API_SECRET = 'apisecret';
+process.env.CACHE_STORE       = path.join(__dirname, 'stubs', 'popular_response.json');
 
 // for array of types, first will be choosen when testing strictly
 var CONTENT_TYPE_MAP = {
@@ -100,6 +107,13 @@ function preFetch(uri, cb, http) {
     });
 }
 
+// stub maxcdn.get
+function maxcdnStubGet(res, err) {
+    MaxCDN.prototype.get = function getStub(_, callback) {
+        callback(err, res);
+    }
+}
+
 function cssHTML(uri, sri) {
     return encode("<link href=\""+uri+"\" rel=\"stylesheet\" integrity=\""+sri+"\" crossorigin=\"anonymous\">");
 }
@@ -140,6 +154,7 @@ module.exports = {
         contentType: assertContentType
     },
     preFetch: preFetch,
+    maxcdnStubGet: maxcdnStubGet,
     extension: extension,
     css: {
         jade: cssJade,
