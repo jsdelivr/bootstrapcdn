@@ -39,12 +39,14 @@ console.log('Created: %s', bootswatchDir);
 
 files.forEach(function(file) {
     config.bootswatch.themes.forEach(function(theme) {
-        var source = file.replace('%s', theme);
+        var source = file.replace('%s', theme.name);
         request.get(source, function(err, res, body) {
             if (res.statusCode !== 200) {
-                errorCheck(new Error('Non-success status code: ' + res.statusCode));
+                console.log(source, 'not found');
+                return;
+                //errorCheck(new Error('Non-success status code: ' + res.statusCode));
             }
-            var targetDir = path.join(bootswatchDir, theme);
+            var targetDir = path.join(bootswatchDir, theme.name);
             try {
                 fs.mkdirSync(targetDir, 0755);
                 console.log('  Created: %s', targetDir);
