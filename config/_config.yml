@@ -17,7 +17,7 @@ javascript:
     - 'https://code.jquery.com/jquery-1.11.2.min.js'
     - 'https://maxcdn.bootstrapcdn.com/bootstrap/SWATCH_VERSION/js/bootstrap.min.js'
 bootswatch:
-  version: 3.3.5
+  version: 3.3.6
   link: 'http://bootswatch.com/SWATCH_NAME/'
   image: 'http://bootswatch.com/SWATCH_NAME/thumbnail.png'
   bootstrap: 'https://maxcdn.bootstrapcdn.com/bootswatch/SWATCH_VERSION/SWATCH_NAME/bootstrap.min.css'
