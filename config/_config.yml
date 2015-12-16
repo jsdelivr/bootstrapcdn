@@ -17,7 +17,7 @@ stylesheets:
     sri: sha256-OlSbjYBfrJGGd2zbT3qCsAZsPGxRwKOSGjqqfjF8aiY= sha512-1aDUINxj8c9UXJ76eIMAkG2/ofIjG8FBW4drgHUglwY/rGn+YWUtm8iSkrpAOtwZ9b9LEva02KPrTDx3M5ib3w==
 javascripts:
   jquery:
-    uri: https://code.jquery.com/jquery-1.11.2.min.js
+    uri: 'https://code.jquery.com/jquery-1.11.2.min.js'
     sri: sha256-Ls0pXSlb7AYs7evhd+VLnWsZ/AqEHcXBeMZUycz/CcA= sha512-eBrO3JneTOjVPZtDoVjGReqxsj39/WtXs8RCsRrMSjRODVsAZ9S3i7Fzq73tdfuRxBDytaWPcdQ4qmJm0EjZig==
 bootswatch:
   version: 3.3.6

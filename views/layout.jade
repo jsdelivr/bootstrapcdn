@@ -8,15 +8,14 @@ html(lang="en")
         meta(name='author', content=config.authors.join(', '))
         meta(name='description', content=(description || config.description))
 
-        link(rel='shortcut icon', href=config.favicon.uri, integrity=config.favicon.sri)
+        link(rel='shortcut icon', href=config.favicon.uri, integrity=config.favicon.sri, crossorigin="anonymous")
 
         - bootswatch = helpers.theme.fetch(config, theme);
-        link(rel='stylesheet', href=bootswatch.uri, integrity=bootswatch.sri)
+        link(rel='stylesheet', href=bootswatch.uri, integrity=bootswatch.sri, crossorigin="anonymous")
 
         - fontawesome = config.fontawesome.filter(function(o) { return o.latest; })[0];
-        link(rel='stylesheet', href=fontawesome.stylesheet, integrity=fontawesome.stylesheet_sri)
-
-        link(rel='stylesheet', href=config.stylesheets.style.uri, integrity=config.stylesheets.style.sri)
+        link(rel='stylesheet', href=fontawesome.stylesheet, integrity=fontawesome.stylesheet_sri, crossorigin="anonymous")
+        link(rel='stylesheet', href=config.stylesheets.style.uri, integrity=config.stylesheets.style.sri, crossorigin="anonymous")
 
         block head
 
@@ -44,10 +43,10 @@ html(lang="en")
                 - js=js.replace('SWATCH_VERSION', config.bootswatch.version)
                 script(src=js)
 
-        script(src=config.javascripts.jquery.uri, integrity=config.javascripts.jquery.sri)
+        script(src=config.javascripts.jquery.uri, integrity=config.javascripts.jquery.sri, crossorigin="anonymous")
 
         - bootstrap = config.bootstrap.filter(function(o) { return o.latest; })[0];
-        script(src=bootstrap.javascript, integrity=bootstrap.javascript_sri)
+        script(src=bootstrap.javascript, integrity=bootstrap.javascript_sri, crossorigin="anonymous")
 
         - if (config.google_analytics)
             include _partials/javascripts/google_analytics
