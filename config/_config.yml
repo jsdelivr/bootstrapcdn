@@ -4,18 +4,21 @@ authors:
   - Joshua Mervine
   - Justin Dorfman
 description: BootstrapCDN
-favicon: /favicon.ico
 google_analytics:
   account_id: UA-32253110-1
   domain_name: bootstrapcdn.com
 extras: false
+favicon:
+  uri: /favicon.ico
+  sri: sha256-VoYJz1KLl/hFU2Jh/C7VNdW1cbslCfKYzlLI9nydVYM= sha512-zagUgkNiFdummjGPvkF6yUSFXynFCpmBBoJH/jz6i/jH2C12ulwwSTmotwTLJwvXMzEHuET0eLHb72ITTPeZ0g==
 stylesheets:
-  - 'https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'
-  - /stylesheets/style.css
-javascript:
-  after:
-    - 'https://code.jquery.com/jquery-1.11.2.min.js'
-    - 'https://maxcdn.bootstrapcdn.com/bootstrap/SWATCH_VERSION/js/bootstrap.min.js'
+  style:
+    uri: /stylesheets/style.css
+    sri: sha256-OlSbjYBfrJGGd2zbT3qCsAZsPGxRwKOSGjqqfjF8aiY= sha512-1aDUINxj8c9UXJ76eIMAkG2/ofIjG8FBW4drgHUglwY/rGn+YWUtm8iSkrpAOtwZ9b9LEva02KPrTDx3M5ib3w==
+javascripts:
+  jquery:
+    uri: https://code.jquery.com/jquery-1.11.2.min.js
+    sri: sha256-Ls0pXSlb7AYs7evhd+VLnWsZ/AqEHcXBeMZUycz/CcA= sha512-eBrO3JneTOjVPZtDoVjGReqxsj39/WtXs8RCsRrMSjRODVsAZ9S3i7Fzq73tdfuRxBDytaWPcdQ4qmJm0EjZig==
 bootswatch:
   version: 3.3.6
   link: 'http://bootswatch.com/SWATCH_NAME/'
