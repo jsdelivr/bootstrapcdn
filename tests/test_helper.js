@@ -1,3 +1,4 @@
+var w3cjs  = require('w3cjs');
 var path   = require('path');
 var fs     = require('fs');
 var yaml   = require('js-yaml');
@@ -86,6 +87,32 @@ function assertAnalytics(response, config) {
     assertContains('https://www.google-analytics.com/analytics.js', response.body);
 }
 
+function assertValidHTML(body, done) {
+    w3cjs.validate({
+        input: body,
+        callback: function(res) {
+            var errors = res.messages.filter(function(message) {
+                var match = message.message.match(/^Attribute.+integrity.+at this point./);
+                if (message.type === 'error' && !match) return true;
+            });
+
+            if (errors.length > 0) {
+                // mocha always stops after the first assertion failure.
+                var err = errors[0];
+                assert(false,
+                       err.message + ' ['
+                       + err.lastLine + ':'
+                       + err.firstColumn + '] and '
+                       + (errors.length-1) + ' other errors.');
+            } else {
+                assert(true);
+            }
+
+            done();
+        }
+    });
+}
+
 function preFetch(uri, cb, http) {
     http = (http === undefined ? require('http') : http);
     http.get(uri, function(res) {
@@ -137,7 +164,8 @@ module.exports = {
         response:    assertResponse,
         contains:    assertContains,
         analytics:   assertAnalytics,
-        contentType: assertContentType
+        contentType: assertContentType,
+        validHTML:   assertValidHTML
     },
     preFetch: preFetch,
     extension: extension,

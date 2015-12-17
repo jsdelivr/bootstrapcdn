@@ -7,7 +7,6 @@ var fs   = require('fs');
 
 var MOCHA      = path.join(__dirname, 'node_modules/.bin/mocha');
 var BOOTLINT   = path.join(__dirname, 'node_modules/.bin/bootlint');
-var VALIDATOR  = path.join(__dirname, 'node_modules/.bin/html-validator');
 var FOREVER    = path.join(__dirname, 'node_modules/.bin/forever');
 var MOCHA_OPTS = ' --timeout 15000 --slow 1000';
 
@@ -70,7 +69,6 @@ var MOCHA_OPTS = ' --timeout 15000 --slow 1000';
     target.travis = function() {
         target.suite();
         target.bootlint();
-        //target.validator();
     };
 
     //
@@ -120,46 +118,6 @@ var MOCHA_OPTS = ' --timeout 15000 --slow 1000';
                     rm(output);
 
                     if (res.output.indexOf("0 lint error(s) found") < 0) {
-                        process.exit(1);
-                    }
-                });
-            });
-        }, 2000);
-    };
-
-    //
-    // make validator
-    //
-    target.validator = function() {
-        echo('+ node make start');
-        var port = 3080;
-        env.PORT = port;
-        target.start();
-
-        // sleep
-        setTimeout(function() {
-
-            var output = path.join(__dirname, 'index.html');
-            var file = fs.createWriteStream(output);
-
-            // note; url version is failing due to a connection error, odd.
-
-            // okay, not really curl, but it communicates
-            echo('+ curl http://localhost:' + port + '/ > ' + output);
-            var request = http.get('http://localhost:' + port + '/', function(response) {
-                response.pipe(file);
-
-                response.on('end', function() {
-                    file.close();
-
-                    echo('+ html-validator ' + output);
-                    var res = exec(VALIDATOR + ' --file=' + output);
-
-                    echo('+ node make stop');
-                    target.stop();
-
-                    rm(output);
-                    if (res.output.indexOf("Error:") >= 0) {
                         process.exit(1);
                     }
                 });
