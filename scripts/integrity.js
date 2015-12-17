@@ -40,7 +40,7 @@ for (var i = 0; i < config.bootswatch.themes.length; i++) {
     var file  = bootswatch.replace('SWATCH_VERSION', config.bootswatch.version)
                           .replace('SWATCH_NAME',    theme.name);
 
-    if (config.bootswatch.themes[i].sri === undefined && exists(file)) {
+    if (exists(file)) { // always regen
         config.bootswatch.themes[i].sri = digest(file);
     }
 }
