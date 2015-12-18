@@ -41,7 +41,7 @@ describe('index', function() {
     });
 
     it('valid html', function(done) {
-        helpers.assert.validHTML(response.body, done);
+        helpers.assert.validHTML(response, done);
     });
 
     it('contains authors', function(done) {

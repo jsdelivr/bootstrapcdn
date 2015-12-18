@@ -8,7 +8,7 @@ var fs   = require('fs');
 var MOCHA      = path.join(__dirname, 'node_modules/.bin/mocha');
 var BOOTLINT   = path.join(__dirname, 'node_modules/.bin/bootlint');
 var FOREVER    = path.join(__dirname, 'node_modules/.bin/forever');
-var MOCHA_OPTS = ' --timeout 15000 --slow 1000';
+var MOCHA_OPTS = ' --timeout 15000 --slow 500';
 
 (function() {
     cd(__dirname);

@@ -1,10 +1,10 @@
-var w3cjs  = require('w3cjs');
-var path   = require('path');
-var fs     = require('fs');
-var yaml   = require('js-yaml');
-var assert = require('assert');
-var format = require('format');
-var encode = require('htmlencode').htmlEncode;
+var validator = require('html-validator');
+var path      = require('path');
+var fs        = require('fs');
+var yaml      = require('js-yaml');
+var assert    = require('assert');
+var format    = require('format');
+var encode    = require('htmlencode').htmlEncode;
 
 // for array of types, first will be choosen when testing strictly
 var CONTENT_TYPE_MAP = {
@@ -87,29 +87,34 @@ function assertAnalytics(response, config) {
     assertContains('https://www.google-analytics.com/analytics.js', response.body);
 }
 
-function assertValidHTML(body, done) {
-    w3cjs.validate({
-        input: body,
-        callback: function(res) {
-            var errors = res.messages.filter(function(message) {
-                var match = message.message.match(/^Attribute.+integrity.+at this point./);
-                if (message.type === 'error' && !match) return true;
+function assertValidHTML(response, done) {
+    var options = {
+        data: response.body,
+        format: 'text'
+    };
+
+    validator(options, function(err, data) {
+        if (err) console.trace(err);
+
+        var errors = data.split("\n")
+            .filter(function(e) {
+                if (e.match(/^Error:/))
+                    return true;
+                return false;
+            })
+            .filter(function(e) {
+                if (e.match(/^Error: Attribute.+integrity.+at this point./))
+                    return false;
+                return true;
             });
 
-            if (errors.length > 0) {
-                // mocha always stops after the first assertion failure.
-                var err = errors[0];
-                assert(false,
-                       err.message + ' ['
-                       + err.lastLine + ':'
-                       + err.firstColumn + '] and '
-                       + (errors.length-1) + ' other errors.');
-            } else {
-                assert(true);
-            }
-
-            done();
+        if (errors.length > 0) {
+            var sep = "\n\t - ";
+            assert(false, sep + errors.join(sep));
+        } else {
+            assert(true);
         }
+        done();
     });
 }
 
