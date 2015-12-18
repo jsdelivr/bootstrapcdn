@@ -5,11 +5,11 @@ var path   = require('path');
 var yaml   = require('js-yaml');
 var assert = require('assert');
 var mktemp = require('mktemp');
-var exec   = require('child_process').execSync;
 var walk   = require('fs-walk');
 var async  = require('async');
 
-var helpers = require(path.join(__dirname, 'test_helper.js'));
+var digest  = require(path.join(__dirname, '..', 'lib', 'helpers')).sri.digest;
+var helpers = require(path.join(__dirname, 'test_helper'));
 var config  = helpers.config();
 
 var expectedHeaders = {
@@ -55,21 +55,10 @@ function request(uri, cb) {
 function assertSRI(uri, sri, done) {
     request(uri, function(response) {
         assert.equal(200, response.statusCode);
-        mktemp.createFile('/tmp/XXXXX.txt', function(err, tmp) {
-            if (err) throw err;
-            fs.writeFile(tmp, response.body, function(err) {
-                if (err) throw err;
 
-                var sri256 = exec('cat '+tmp+' | openssl dgst -sha256 -binary | openssl enc -base64 -A').toString();
-                var sri512 = exec('cat '+tmp+' | openssl dgst -sha512 -binary | openssl enc -base64 -A').toString();
-                fs.unlinkSync(tmp);
-
-                var expected = 'sha256-'+sri256+' sha512-'+sri512;
-
-                assert.equal(expected, sri);
-                done();
-            });
-        });
+        var expected = digest(response.body, true);
+        assert.equal(expected, sri);
+        done();
     });
 }
 

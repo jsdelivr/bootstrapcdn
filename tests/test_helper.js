@@ -1,9 +1,10 @@
-var path   = require('path');
-var fs     = require('fs');
-var yaml   = require('js-yaml');
-var assert = require('assert');
-var format = require('format');
-var encode = require('htmlencode').htmlEncode;
+var validator = require('html-validator');
+var path      = require('path');
+var fs        = require('fs');
+var yaml      = require('js-yaml');
+var assert    = require('assert');
+var format    = require('format');
+var encode    = require('htmlencode').htmlEncode;
 
 // for array of types, first will be choosen when testing strictly
 var CONTENT_TYPE_MAP = {
@@ -86,6 +87,37 @@ function assertAnalytics(response, config) {
     assertContains('https://www.google-analytics.com/analytics.js', response.body);
 }
 
+function assertValidHTML(response, done) {
+    var options = {
+        data: response.body,
+        format: 'text'
+    };
+
+    validator(options, function(err, data) {
+        if (err) console.trace(err);
+
+        var errors = data.split("\n")
+            .filter(function(e) {
+                if (e.match(/^Error:/))
+                    return true;
+                return false;
+            })
+            .filter(function(e) {
+                if (e.match(/^Error: Attribute.+integrity.+at this point./))
+                    return false;
+                return true;
+            });
+
+        if (errors.length > 0) {
+            var sep = "\n\t - ";
+            assert(false, sep + errors.join(sep));
+        } else {
+            assert(true);
+        }
+        done();
+    });
+}
+
 function preFetch(uri, cb, http) {
     http = (http === undefined ? require('http') : http);
     http.get(uri, function(res) {
@@ -137,7 +169,8 @@ module.exports = {
         response:    assertResponse,
         contains:    assertContains,
         analytics:   assertAnalytics,
-        contentType: assertContentType
+        contentType: assertContentType,
+        validHTML:   assertValidHTML
     },
     preFetch: preFetch,
     extension: extension,
