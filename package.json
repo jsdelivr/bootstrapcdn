@@ -30,7 +30,8 @@
     "request": "^2.64.0",
     "serve-favicon": "^2.3.0",
     "serve-static": "^1.10.0",
-    "shelljs": "^0.5.3"
+    "shelljs": "^0.5.3",
+    "sri-toolbox": "^0.2.0"
   },
   "devDependencies": {
     "bootlint": "^0.12.0",

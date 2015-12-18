@@ -1,11 +1,8 @@
 'use strict';
-var exec = require('child_process').execSync;
+var path   = require('path');
+var digest = require(path.join(__dirname, '..', 'lib', 'helpers')).sri.digest;
 
 function digest(file) {
-    return 'sha256-' +
-        exec('cat '  + file + ' | openssl dgst -sha256 -binary | openssl enc -base64 -A').toString()  +
-        ' sha512-'   +
-        exec('cat '  + file + ' | openssl dgst -sha512 -binary | openssl enc -base64 -A').toString();
 }
 
 if (process.argv[1] == __filename) {
