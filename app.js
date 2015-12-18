@@ -56,23 +56,17 @@ app.use(function(req, res, next) {
 
     // enable bootlint where applicable
     if (req.query.bootlint && req.query.bootlint === 'true') {
-        config.bootlint.forEach(function (bootlint) {
-            if (bootlint.latest === true) {
-                app.locals.bootlint = bootlint.javascript;
-
-                if (env !== 'production') {
-                    app.locals.bootlint = app.locals.bootlint.replace('//maxcdn.bootstrapcdn.com', '');
-                }
-
-            }
-        });
+        app.locals.bootlint = config.bootlint.filter(function(o) { return o.latest; })[0];
+        if (env !== 'production') {
+            app.locals.bootlint.javascript = app.locals.bootlint.javascript.replace('https://maxcdn.bootstrapcdn.com', '');
+        }
     }
 
     next();
 });
 
 // middleware
-app.use(favicon(path.join(__dirname, 'public', config.favicon), '7d'));
+app.use(favicon(path.join(__dirname, 'public', config.favicon.uri), '7d'));
 app.use(serveStatic(path.join(__dirname, 'public')));
 
 // locals
