@@ -287,6 +287,10 @@ showcase:
     img: /images/showcase/ea-help.png
     lib: Font Awesome 3.2.1
     url: 'https://help.ea.com/en/'
+  - name: Stanford University
+    img: /images/showcase/stanford.png
+    lib: Font Awesome 4.3.0
+    url: 'http://www.stanford.edu/'
   - name: Go Doc
     img: /images/showcase/godoc-org.png
     lib: Bootstrap 3.3.1

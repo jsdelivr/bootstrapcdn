@@ -1,10 +1,11 @@
 #!/usr/bin/env node
 // Hacking this together for now, perhaps revisit and clean up.
 
-var yaml = require('js-yaml');
-var path = require('path');
-var fs = require('fs');
+var yaml    = require('js-yaml');
+var path    = require('path');
+var fs      = require('fs');
 var request = require('request');
+var digest  = require(path.join(__dirname, '..', 'lib', 'helpers')).sri.digest;
 
 var version = process.argv[2];
 if (!version) {
@@ -19,11 +20,11 @@ var configFile = path.join(basedir, 'config', '_config.yml');
 var config = yaml.safeLoad(fs.readFileSync(configFile));
 
 var files = [
-    'https://bootswatch.com/%s/bootstrap.min.css',
-    'https://bootswatch.com/%s/bootstrap.css'
+    'https://www.bootswatch.com/%s/bootstrap.min.css',
+    'https://www.bootswatch.com/%s/bootstrap.css'
 ];
 
-var fonts = 'https://bootswatch.com/fonts/%s';
+var fonts = 'https://www.bootswatch.com/fonts/%s';
 var fontsDir = path.join(bootswatchDir, 'fonts');
 
 function errorCheck(err) {
@@ -74,15 +75,21 @@ console.log('  Created: %s', fontsDir);
     'glyphicons-halflings-regular.woff2'
 ].forEach(function(font) {
     var fontPath = fonts.replace('%s', font);
-    request.get(fontPath, function(err, res, body) {
-        if (res.statusCode !== 200) {
-            errorCheck(new Error('Non-success status code: ' + res.statusCode));
-        }
-        var target = path.join(fontsDir, font);
-        fs.writeFileSync(target, body);
-        console.log('    Saved: %s', target);
-        console.log('     From: %s', fontPath);
-    });
+    var target = path.join(fontsDir, font);
+
+    request
+        .get(fontPath)
+        .on('response', function(res) {
+            if (res.statusCode !== 200) {
+                errorCheck(new Error('Non-success status code: ' + res.statusCode));
+            }
+            console.log('    Saved: %s', target);
+            console.log('     From: %s', fontPath);
+        })
+        .on('error', function(err) {
+            console.trace(err);
+        })
+        .pipe(fs.createWriteStream(target));
 });
 
 process.on('exit', function (code) {
