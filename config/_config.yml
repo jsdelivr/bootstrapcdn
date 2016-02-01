@@ -368,6 +368,10 @@ integrations:
     img: /images/integrations/bs3-jade-sublime-plugin.png
     plat: Sublime
     url: 'https://github.com/rs459/bootstrap3-jade-sublime-plugin'
+  - name: Bootstrap Editor and Builder
+    img: /images/integrations/bootply.png
+    plat: Bootply
+    url: 'http://www.bootply.com/'
 friends:
   - name: ScaleScale
     url: 'http://www.scalescale.com/'
