@@ -30,7 +30,7 @@ var expectedHeaders = {
   'x-cache': undefined,
 
   //'x-amz-server-side-encryption': 'AES256',
-  'accept-ranges': 'bytes',
+  'accept-ranges': undefined,
   'access-control-allow-origin': '*',
 
   // the following are set as undefined because www

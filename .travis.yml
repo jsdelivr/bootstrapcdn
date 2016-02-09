@@ -2,8 +2,8 @@ language: node_js
 node_js:
   - "5.1"
 script: make travis
-#matrix:
-  #fast_finish: true
+matrix:
+  fast_finish: true
 notifications:
   email:
     - joshua@mervine.net
