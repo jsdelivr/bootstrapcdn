@@ -17,10 +17,11 @@ var http    = require('http');
 var app     = express();
 
 // middleware
-var favicon        = require('serve-favicon');
-var logger         = require('morgan');
-var serveStatic    = require('serve-static');
-var errorHandler   = require('errorhandler');
+var favicon      = require('serve-favicon');
+var logger       = require('morgan');
+var serveStatic  = require('serve-static');
+var errorHandler = require('errorhandler');
+var enforce      = require('express-sslify');
 
 var config = yaml.safeLoad(fs.readFileSync(path.join(__dirname, 'config', '_config.yml'), 'utf8'));
 var tweets = yaml.safeLoad(fs.readFileSync(path.join(__dirname, 'config', '_tweets.yml'), 'utf8'));
@@ -34,6 +35,7 @@ app.disable('x-powered-by');
 // production
 if (env === 'production') {
     app.use(logger('combined'));
+    app.use(enforce.HTTPS({ trustProtoHeader: true }));
 } else {
     app.locals.pretty = true;
     app.use(logger('dev'));
