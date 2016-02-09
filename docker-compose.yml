@@ -4,5 +4,7 @@ web:
   volumes:
     - .:/app/user
   command: npm run run
+  environment:
+    - PORT=3000
   ports:
     - "3000:3000"
