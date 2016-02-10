@@ -48,6 +48,10 @@ script
             }
         });
 
+        (function(){
+            $('a[href="'+ window.top.location.pathname +'"]').parent().addClass('active');
+        })();
+
 script(async src="https://platform.twitter.com/widgets.js")
 
 - if (bootlint)
