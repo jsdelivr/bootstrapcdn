@@ -42,7 +42,7 @@ for (var i = 0; i < config.bootlint.length; i++) {
     var bootlint = config.bootlint[i];
     var file     = buildPath(bootlint.javascript);
 
-    if (config.bootlint[i].javascript_sri === undefined && exists(file)) {
+    if (exists(file)) { // always regen
         config.bootlint[i].javascript_sri = sri.digest(file);
     }
 }
@@ -52,12 +52,12 @@ for (var i = 0; i < config.bootlint.length; i++) {
     for (var i = 0; i < config[key].length; i++) {
         var bootstrap  = config[key][i];
         var javascript = buildPath(bootstrap.javascript);
-        if (config[key][i].javascript_sri === undefined && exists(javascript)) {
+        if (exists(javascript)) {
             config[key][i].javascript_sri = sri.digest(javascript);
         }
 
         var stylesheet = buildPath(bootstrap.stylesheet);
-        if (config[key][i].stylesheet_sri === undefined && exists(stylesheet)) {
+        if (exists(stylesheet)) {
             config[key][i].stylesheet_sri = sri.digest(stylesheet);
         }
     }
@@ -67,7 +67,7 @@ for (var i = 0; i < config.bootlint.length; i++) {
 for (var i = 0; i < config.fontawesome.length; i++) {
     var stylesheet = buildPath(config.fontawesome[i].stylesheet);
 
-    if (config.fontawesome[i].stylesheet_sri === undefined && exists(stylesheet)) {
+    if (exists(stylesheet)) {
         config.fontawesome[i].stylesheet_sri = sri.digest(stylesheet);
     }
 }

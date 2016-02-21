@@ -26,250 +26,250 @@ bootswatch:
   bootstrap: 'https://maxcdn.bootstrapcdn.com/bootswatch/SWATCH_VERSION/SWATCH_NAME/bootstrap.min.css'
   themes:
     - name: cerulean
-      sri: sha256-Ucf/ylcKTNevYP6l7VNUhGLDRZPQs1+LsbbxuzMxUJM= sha512-FW2XqnqMwERwg0LplG7D64h8zA1BsxvxrDseWpHLq8Dg8kOBmLs19XNa9oAajN/ToJRRklfDJ398sOU+7LcjZA==
+      sri: sha384-fUMURLTdEcpeYHly3PAwggI3l2UvdHNg/I+8LRph7hLDcAZm77YfDx3Tjum9d3vK
     - name: cosmo
-      sri: sha256-Whc+9091keLVBxbyK4U697hqB4bcED+6LC64E9GuJkk= sha512-9PPlANXApnRCz1LMx2LPWwRfOKkWjQvH98q2lkxEG6/r6YVoQ+F48btbiuOpDsWHjpZrCfcGrPoVenVl69V09A==
+      sri: sha384-OiWEn8WwtH+084y4yW2YhhH6z/qTSecHZuk/eiWtnvLtU+Z8lpDsmhOKkex6YARr
     - name: cyborg
-      sri: sha256-P5gS9tfR0S0WBWIsn0OUp1YR2pcYMGwgfwjxX3AqncA= sha512-Jwcua5M3o+swptQ5w8vJxSuiFjfuTG0mwkJAQ/XMoT8dLVr7ZyhiLxEZPwuDSTtQEl22wYbdfQAlGxd7otaCJw==
+      sri: sha384-uSbimwRPo7PKyTL6azsx1CcBce/X9Qg+wX1MAjNV1gAkSXYveZbZeMMyJghdsSol
     - name: darkly
-      sri: sha256-KC5lAzGRWwscU0sTmXtd8ka5mt7Vk8a0L5JqOhwA28s= sha512-+f2l7T69JKgnn0+Lc8P0WpM4J34GfEIInTI+iLOQWekcR9KxXE1epKQkwzFIZ7mf12jQlCryh2HfZqS8GcpR8Q==
+      sri: sha384-kVo/Eh0sv7ZdiwZK32nRsp1FrDT3sLRLx3zVpSSTI9UdO5H02LJNLBg5F1gwvKg0
     - name: flatly
-      sri: sha256-Av2lUNJFz7FqxLquvIFyxyCQA/VHUFna3onVy+5jUBM= sha512-zyqATyziDoUzMiMR8EAD3c5Ye55I2V3K7GcmJDHbL49cXzFQCEA6flSKqxEzwxXqq73/M4A0jKFFJ/ysEhbExQ==
+      sri: sha384-XYCjB+hFAjSbgf9yKUgbysEjaVLOXhCgATTEBpCqT1R3jvG5LGRAK5ZIyRbH5vpX
     - name: journal
-      sri: sha256-fHWoqb8bPKjLiC7AuV6qy/lt0hrzfwM0ciyAu7Haf5w= sha512-3t2GeiCRNeKhZnUaUMygGiLKZzb/vPhvfw3y1Rt2FCwKuRaLVrOCTpavIYsZ4xqM52mbO7M93NaXbm/9dOA2Og==
+      sri: sha384-r/qnS4YZBLuBSKeVc+sM4eUYUiJMFhkHfx1nwlErHhTd+NgeJlN/NiiTd6jbKJzm
     - name: lumen
-      sri: sha256-QSktus/KATft+5BD6tKvAwzSxP75hHX0SrIjYto471M= sha512-787L1W8XyGQkqtvQigyUGnPxsRudYU2fEunzUP5c59Z3m4pKl1YaBGTcdhfxOfBvqTmJFmb6GDgm0iQRVWOvLQ==
+      sri: sha384-mvYjhBJXQ9VlNETV/xXShy849GsBHnKzVVudnMOcWUVM/6Nd2ksj8VNng5f8ylyX
     - name: paper
-      sri: sha256-ZSKfhECi0yCEmGVAuQLWTHtJEn2vBNPexEWsJCIC/Nc= sha512-b+mSnD4QXw1uYwkgJ3d0XxoMXo+ZKHJNTNNFIddJ0IazcwKvKYtIlWADZ1JEREJzxUG428sfCw7qDuswAFcrOQ==
+      sri: sha384-2mX2PSpkRSXLQzmNzH3gwK6srb06+OfbDlYjbog8LQuALYJjuQ3+Yzy2JIWNV9rW
     - name: readable
-      sri: sha256-1ROOYEu5qE1d8KD4rRwaA0SiMa6HgZbi8wfdUq2Y4KY= sha512-OF8N9v4J29doCMzg5g0dJ6uz/bnqOaMGz1XFy15YomHPsHAhg52BKTqqi6n7n/Fid2V9CZu2SkyEwivsoUTH7Q==
+      sri: sha384-/x/+iIbAU4qS3UecK7KIjLZdUilKKCjUFVdwFx8ba7S/WvxbrYeQuKEt0n/HWqTx
     - name: sandstone
-      sri: sha256-oqtj+Pkh1c3dgdH6V9qoS7qwhOy2UZfyVK0qGLa9dCc= sha512-izanB/WZ07hzSPmLkdq82m5xS7EH/qDMgl5aWR37EII+rJOi5c6ouJ3PYnrw6K+DWQcnMZ+nO1NqDr6SBKLBDg==
+      sri: sha384-QqZs0aSOGFan3GWVdP4PyCBp6icaF/4n8Q+wsmZUTiiVIqE4r4tFYcb8Osf+8y45
     - name: simplex
-      sri: sha256-rgHoMgF45/9e2kvxfvR0KarwQNw5CRqgxbrthGpeUuc= sha512-CGGV53FSdrXrjyGCNk04p+xuna3CbE33n773A0EEmqtcN8W3NaFsR0vSQcbll5dpSS90d3i2Zh3jFX/j46hzJA==
+      sri: sha384-/Ib5WUYOh/fqe9wT9MDBX+VgUWQuUf8oDH3yuR9Kr+6Y5ejq92KR8LEuCbRiGZpG
     - name: slate
-      sri: sha256-purz3wKA8uL+3JryAuYkSkIZL1CHBSzJ2UwvxAOmYmM= sha512-ge9yLSNqO8D9q8z+kLuUnluXxJTVKdLCwzYBS9rZ3eDW7oJK+mLjRsQa4995TpGINC4GWYi4S2ocDssunh1q3g==
+      sri: sha384-X9JiR5BtXUXiV6R3XuMyVGefFyy+18PHpBwaMfteb/vd2RrK6Gt4KPenkQyWLxCC
     - name: spacelab
-      sri: sha256-Ms+D/LmYu22BlovNARzPeE+n0PSOreOjj3aCsoHqi9o= sha512-OIJ6pwbyFgZ1r01HjgmF0MCHZstQ4L7n6nye+G2q/z8vvzG5On8s6fSFp3OkOVsYj+tVRNmWi8PYKTU3Fd4B7g==
+      sri: sha384-PpvUDg6Tgcp6nh5chOo8teebMjoOXeU/PVfbPIRL4dymXdX1LuGS8ZpBUUqjDZ0d
     - name: superhero
-      sri: sha256-AbCXzDgd7Vj/2JrsXgjrLdYZ92AgN262cXvQr4tAQa4= sha512-cA2CLCEXBR7hnXGgSNa+TaQ7WT2zW1IVm6uCLcu3ebHNhy+VIudw9kwgHlcL57wCiiXLZ1x7yT5Mv3QkDO2XZA==
+      sri: sha384-88w0u/oucDSTE30ETLLIobzhT+bQ6CSsiqQyLZpwHvve89eqUA9F2Db6ST6jGRLx
     - name: united
-      sri: sha256-mKuwI+x5TH/8YJ3N3ZHLGK0+IMRL4bZ1Me+2ylaxrwY= sha512-ltZkxhZ59a1sQYi1uob1y0iNgfeEoS8ouAdSyKMCLXDNcbNaSWM2vTpGOqmaVtri+qENaJ3YWANjGjjGX9ij8A==
+      sri: sha384-0UBL8wxZ28kqJ8w8N8RUV0odBG5w8D/Y+rb+o7hr2F3dS9twlAE8S7VUtVSRe5cc
     - name: yeti
-      sri: sha256-daEYF2SGTkiPl4cmxH06AOMnZ+Hb8wBpvs7DqvceszY= sha512-xmSDqcgDrroCG8Sp/p0IArjjB3lO0m0Yde0tm1mOFD4BwmsvZnVNfHgw7icU6q4ScrTCQKCokxnYMy/hUUfGrg==
+      sri: sha384-yxFy3Tt84CcGRj9UI7RA25hoUMpUPoFzcdPtK3hBdNgEGnh9FdKgMVM+lbAZTKN2
 bootlint:
   - version: 0.14.2
     latest: true
     javascript: 'https://maxcdn.bootstrapcdn.com/bootlint/0.14.2/bootlint.min.js'
-    javascript_sri: sha256-Fkjw8oamqofxU59inx0OSzLD4C+z+XgUFeUwECc2soQ= sha512-Tp3Zya7Pg7twy8VjsbO4B3Kp+WXoq6z5cDTa2IzCJI49s+vyHJo1msq1LjBFgkO6bMPMtud+EQJ6yg/6rBPt4g==
+    javascript_sri: sha384-M9T3JVTBbDUeEzC8X6JJbfV/mwsN/NrkiJ9NW1FQqOsgIeBoE/ep1oUZ/NJAx5Wq
   - version: 0.14.1
     javascript: 'https://maxcdn.bootstrapcdn.com/bootlint/0.14.1/bootlint.min.js'
-    javascript_sri: sha256-v3EhyiVaaBLEIaEwwvllcn8saA8UzKmpZVf57HYd5JU= sha512-QKbeVSlESN1J1kBUQGUqIksBcRg/JtMAk3codgtDE0s0HEP/wrfflsJg3stJ0UrCPiH+tjFtTI1vQZSLwq8c9w==
+    javascript_sri: sha384-qgQVqgt0YhETDMkMl9u6BlGY7wp2TOiesOJYFrnA2y9Od0QS5iMYTHPimN93NXTy
   - version: 0.13.0
     javascript: 'https://maxcdn.bootstrapcdn.com/bootlint/0.13.0/bootlint.min.js'
-    javascript_sri: sha256-AB19w5CQQBb0PvKKmxSs8j1zqUrZKrH4cSkFs+W3xNY= sha512-J78O90Zg+ofInAouWErbJI1lt9RJ9XksxUpMoysM61Zn+//n4X6kavmXZP/YL4coo1m+4RInYY9I9wjGi6XTlQ==
+    javascript_sri: sha384-DBdpB+iO0G5Y+X9ADO2nMWoddxHD5jsWepAgPesWL2FH+A/wHpRR3yAbWWszHpLX
   - version: 0.12.0
     javascript: 'https://maxcdn.bootstrapcdn.com/bootlint/0.12.0/bootlint.min.js'
-    javascript_sri: sha256-imvviqwdvPR88qL2v9HDQkJQDIzpTgi9YgOcBmY31dI= sha512-7Ug+d3JiGZkaTLpHiit5OgCuaWDU0zj1kEFIIZ5982nEay2k3VwTeJgCp0pE7NgtrWxPXYdhKcKlQFyQpSREvA==
+    javascript_sri: sha384-1jcsuf+1UFKNV1t9pXx6oRvd+eXpPPE/XnMClmtzRBqHJVCVPGt4wX/cE+Sqgg80
   - version: 0.11.0
     javascript: 'https://maxcdn.bootstrapcdn.com/bootlint/0.11.0/bootlint.min.js'
-    javascript_sri: sha256-4g1t9h4RrDfjKqEye4bMItNarivrWX79OJy5hQJmbDo= sha512-PNPXRjgXCBZj52uxUA3+o8gnD4bnRTvh/2GHH/SlJ6Z97GbE/lJ4EncrQyRpD48r/hT4wlq4q4brUmi05JBVIw==
+    javascript_sri: sha384-AJz4ln5TYd49SrHSmb9F7ItndcBACE6dCpjhxGGcfFcxvR6/y13tRHAkt29HV/8i
   - version: 0.10.0
     javascript: 'https://maxcdn.bootstrapcdn.com/bootlint/0.10.0/bootlint.min.js'
-    javascript_sri: sha256-u0eo9xOSbrsyK8+M8wonEltWSsc0TlAp9FreY7i4z/g= sha512-c0pwMk88RJllpFIxKL53d2d79QF3bz4UAaNAyn5RwS8sxUb7QpfBL57S4mz0AlL+d/XMHIhlF8rpk+r83ArC9Q==
+    javascript_sri: sha384-2YqHZGwqe7pc9usE1mCeZPUzz7/4bPLtJwQEMuziwOr6QugPiXKQg0oLgUTXLJtD
   - version: 0.9.1
     javascript: 'https://maxcdn.bootstrapcdn.com/bootlint/0.9.1/bootlint.min.js'
-    javascript_sri: sha256-kYOe6E5Bmfkwcm6guS/OvOz5e11MoMwZGsRsQ6VmvPE= sha512-lN0mAYqZoU1CgzUtAAp9x9cwcqZqMg2hoq3Kshq/2bKUCmVFmOPkfwRCub+rvDEbeCYdS62eY6nVajmotCz5lg==
+    javascript_sri: sha384-998k92uHTyBhKjEGOCKXJuwedDeVmjtt5jYBepKtPRFZHTGu2VWW4VkbN28mcQyb
   - version: 0.9.0
     javascript: 'https://maxcdn.bootstrapcdn.com/bootlint/0.9.0/bootlint.min.js'
-    javascript_sri: sha256-AUlbpiMyhbXOXqr/xPMX8/Y6vPtturCls4ldgo9b7xg= sha512-a4EKtAhDbNAsyPizE+OgvE6ESdG/QwE7Dl6UStBkKtuiqh1wueHjnCmScnTq0zAqflDq2YpXsoVNhWhyY8IduQ==
+    javascript_sri: sha384-FtQ9Gx167qty/p7CQTr1cUYBv0i775HpZzzuDl1asR6ypQGb1YtORKwXqMX/RRSI
   - version: 0.8.0
     javascript: 'https://maxcdn.bootstrapcdn.com/bootlint/0.8.0/bootlint.min.js'
-    javascript_sri: sha256-AvcjHnn3CG+yG6Ps8dHEAHA1/tvWq0a9I/ihjQ2jRF4= sha512-A2nd3p9bDjz+fEGQTuWiuJM3iCYrVdjMy24hqIcgnBsbLPi2as9m5Jhj4bkcpwEPg0Ww1sbpOXp88/a7E0bfSA==
+    javascript_sri: sha384-09L43hQYxT5LQKI+hTCTlX0kJUwFLgyc313RFlTUtiDYm4cmMiWXr+lcaox3RcMv
   - version: 0.7.0
     javascript: 'https://maxcdn.bootstrapcdn.com/bootlint/0.7.0/bootlint.min.js'
-    javascript_sri: sha256-ESFh4v6yvezU1CxsP10QkohMnMXsxqq/LpbhdwjVylE= sha512-eLnzLrIkcwX6j6hzM8OkVOPtg2GxQBJ8olra3yzo2GBrtmvudt6CTIJUQ5V6gRiVK3oQncSbTnfIf6s54Zrjvg==
+    javascript_sri: sha384-0xrYfOvsWWtbZ2t8sSy8q0JTm2F8HO1RyS1jaR0QRcRvTWie9wjjFDqB59ljEv0k
   - version: 0.6.0
     javascript: 'https://maxcdn.bootstrapcdn.com/bootlint/0.6.0/bootlint.min.js'
-    javascript_sri: sha256-AP+EtouU/WvCVBHUxeFk1emTZHHxUg9v0Ajag7SGFnU= sha512-txxpaJTiq3MSQrXaaisA77B4IKQ6QRnsRL/21IZrX7ZuT6NRYlA6lToJmxlh/XNw0wt9W+dHOAYyBp1rro02sQ==
+    javascript_sri: sha384-eu/yhK03nIQsALdbggIARvl6HUkgS43+I/hT6T9qnSxYUrwOLu3Ptm+GXV2rPBgh
   - version: 0.5.0
     javascript: 'https://maxcdn.bootstrapcdn.com/bootlint/0.5.0/bootlint.min.js'
-    javascript_sri: sha256-D/KJ7hmTKxl6nCKPXHAw/qNVwawqMgRVvGz+6WenORk= sha512-fHyJRj4jUCML6XnyVR9wT5EddE7Tn651JK/RKtPOcyNUSPsy4zYLXDec+/WpJcDo2kqR9pFKdKa/2n6IEWz2Uw==
+    javascript_sri: sha384-e44mBP/gkEQv5fSULP0ws+JpvpUf+oHIgY72paLCQ8M5YDcw5WZDEbLs+LGTjQ9M
   - version: 0.4.0
     javascript: 'https://maxcdn.bootstrapcdn.com/bootlint/0.4.0/bootlint.min.js'
-    javascript_sri: sha256-BXtGeCsUdrCX4fg4IqlpbQ3rHveP/vQa6fYGayNi0c0= sha512-m97zRcePF6CoMrYtfo/L/Fl2iij8icFkderBe5JTeIBX5VAh4EU6lCXg0ZLmHRMncZnBwEbgbGX00KPjWtK0ng==
+    javascript_sri: sha384-VfNLWkzKgfP+mdvAwj9KnfqV2dQ0JUDE9QTdWm1FJSvFWZLbnURKQBgYo48SCHLa
   - version: 0.3.0
     javascript: 'https://maxcdn.bootstrapcdn.com/bootlint/0.3.0/bootlint.min.js'
-    javascript_sri: sha256-GsGMBEDM+VSBowXesGXEhmEgAgvjERwyi0XigIywcY0= sha512-qM4gBBWkzDdsVOVz2xCPdjIr08AggJwf5GTak2tv5HEJE/DZLZYV6Ab5T5e9s/t2PAds31V88eMuyMjlaoLSzA==
+    javascript_sri: sha384-LXgXH+lnevRC9AW/CECTR/av9hKSw+RM+5mrO7wcUD3ZEsIaRUfPjD/Dmdr68BUY
   - version: 0.2.0
     javascript: 'https://maxcdn.bootstrapcdn.com/bootlint/0.2.0/bootlint.min.js'
-    javascript_sri: sha256-bPDJ1Mc1ufaz/IHV2srDJfe8iuQrO4Y9eWp7W7AjDe8= sha512-NtJrQz5MYuVO7WXAhvQMT7LPRISui+6Dt2f1xjFls3NOPN4CrOFiWkOOQ50ukzKA/v7WihnXHmwBQyAJzKzqEQ==
+    javascript_sri: sha384-N718vWBr20Ow4pkt9DQSltsE3BoJMYEmm7d5EWgRJkzh9lhxIjnC5SjZzjjmORvH
 bootstrap:
   - version: 3.3.6
     latest: true
     stylesheet: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'
     javascript: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js'
-    javascript_sri: sha256-KXn5puMvxCw+dAYznun+drMdG1IFl3agK0p/pqT9KAo= sha512-2e8qq0ETcfWRI4HJBzQiA3UoyFk6tbNyG+qSaIBZLyW9Xf3sWZHN/lxe9fTh1U45DpPf07yj94KsUHHWe4Yk1A==
-    stylesheet_sri: sha256-7s5uDGW3AHqw6xtJmNNtr+OBRJUlgkNJEo78P4b0yRw= sha512-nNo+yCHEyn0smMxSswnf/OnX6/KwJuZTlNZBjauKhTK0c+zT+q5JOCx0UFhXQ6rJR9jg6Es8gPuD2uZcYDLqSw==
+    javascript_sri: sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS
+    stylesheet_sri: sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7
   - version: 3.3.5
     stylesheet: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'
     javascript: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'
-    stylesheet_sri: sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc= sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==
-    javascript_sri: sha256-Sk3nkD6mLTMOF0EOpNtsIry+s1CsaqQC1rVLTAy+0yc= sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==
+    stylesheet_sri: sha384-pdapHxIh7EYuwy6K7iE41uXVxGCXY0sAjBzaElYGJUrzwodck3Lx6IE2lA0rFREo
+    javascript_sri: sha384-pPttEvTHTuUJ9L2kCoMnNqCRcaMPMVMsWVO+RLaaaYDmfSP5//dP6eKRusbPcqhZ
   - version: 3.3.4
     stylesheet: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css'
     javascript: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js'
-    javascript_sri: sha256-1f0XPQDZczkAg04OEIPehrUy4EixXAQgulwtsGI2RLg= sha512-4YpZWXNqnO72e0Da95ZMUZxnjWgLvajSx2eSgfXTSaKGyZuWyiTnqOZM6YfTctdK4S2nJVxgbM/iesE6NbWj0g==
-    stylesheet_sri: sha256-8EtRe6XWoFEEhWiaPkLawAD1FkD9cbmGgEy6F46uQqU= sha512-/5KWJw2mvMO2ZM5fndVxUQmpVPqaxZyYRTMrXtrprsyQ2zM0o0NMjU02I8ZJXeBPtrmrPO4IAyCCRsydG0BJoQ==
+    javascript_sri: sha384-EKxMxgJ+EnnZ5yB3ygGPe1lXaPvlAzKFXU+wW7kO9Bn9ZCgFRrc3wWtCnsDHbemf
+    stylesheet_sri: sha384-604wwakM23pEysLJAhja8Lm42IIwYrJ0dEAqzFsj9pJ/P5buiujjywArgPCi8eoz
   - version: 3.3.2
     stylesheet: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css'
     javascript: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js'
-    javascript_sri: sha256-yO7sg/6L9lXu7aKRRm0mh3BDbd5OPkBBaoXQXTiT6JI= sha512-AthmoOeufPNt1aNOMYiHopEQKnT7y15IeG0cfoYPFD7vrvCGQIIMv2KHZ+n3mRQQSH2D1k1C58bnBH4ywNvsdQ==
-    stylesheet_sri: sha256-0xvvRQ7me2T5twv99B/k4AxlQ4cFzB+7SOpgJtOl1pc= sha512-FWzWGvyU7ueo21SbhoCnq6YwJfDsjPEa9G+SmLRHTDfYj0MzYEuHFlfsVBWQlgmCd2HsjHKeQYV9ul/S464XfQ==
+    javascript_sri: sha384-4Kp4aQ6UNeqsJ/ithPcxYnnIGt/QJJ64J9QtfDAJZUTaePAIPm9aaBdu7Gw84oGs
+    stylesheet_sri: sha384-Tfj13fqQQqqzQFuaZ81WDzmmOU610WeS08VMuHmElK5oI2f7NwojuL6VupYXR/jK
   - version: 3.3.1
     stylesheet: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'
     javascript: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js'
-    javascript_sri: sha256-+XG5Aa655VsH1HKv7gm9WuBRWeERnb0W2ZPkc1Zef8A= sha512-49i8j9WLCsHZ/ERPIfLa2U3v3lNq8qrbas52iuC8qfnJJ0FhsHb8VGztF08jzHSVqMUEmrAL4Zx19jEOkase3A==
-    stylesheet_sri: sha256-1pnzA5kM6b19fJfpvTytakbs8lMvR1zyKuWCEyN4Ibk= sha512-M+9COOQBWJw9hsTwsbTTJakQFcGAew8iPFyvpVYrPMdYFRu674D1/gowRKud6bjHQj81SbfCcKaS8LeYI5+Tzg==
+    javascript_sri: sha384-Nud2SriDt2fZ+u85IBC48Yn9p+l4AGlapnX1EGA2KrnZjYJx8sxKnw/CIxc1wU1B
+    stylesheet_sri: sha384-8+rznmq/k0KZkJlZhnuPEVkbRD7tA0wcFEjY48dajGWn3Xc1MasJwS8/tJ7OEsKW
   - version: 3.3.0
     stylesheet: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css'
     javascript: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js'
-    javascript_sri: sha256-SECBv+bHbXdhDrcabnEgb+UwTWLAN/BYtANZIZIGkwY= sha512-nBe/MAVnca0bCImmi2/WzJoGCgaUOMVDtTXFXUcxuLuFLUc3FGdOx8LR28WxgocUumd4Db5k5Ppjqz1M1Ijy1A==
-    stylesheet_sri: sha256-lrEmQXRHqcXUFfBuAOLmNyJIyYV/X/YLZHf4xvVcRJo= sha512-SgMx4umLagm9ctwfuw66X5M/nLu7gTZrh8gYKfzxgHQBxQeIelAG2hyfnjveLfkuRProaaw55KKPCFlIulOzjQ==
+    javascript_sri: sha384-jspctxrQmizRroXAKjoWWOOhkG3aZesspL7dmISSX5+p1LfXftbGQocYmzOsv9wx
+    stylesheet_sri: sha384-dT8WZNLW+WmnMquYY8GD+px5+PPMy/Rz1pZTBuLQv7EfAZG0xhipTd08JFVCf8bp
   - version: 3.2.0
     stylesheet: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'
     javascript: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js'
-    javascript_sri: sha256-JMwpUzWY+WKCPEIpvCgEh2RqJ6QqlSV8Md4bmxjzcQ8= sha512-PxtG6eoPtr5QdgWieDr0Bsa0+IXe2qRAG/8gSw/pBWZWcXQRAhWU4lEumKTjmOMjgmen3q/robV+RD3sqwR36g==
-    stylesheet_sri: sha256-tf1yN1B2PrtzH5Ih5BPn1k1Y1RktwEDkIpLtPczMpzI= sha512-cp9JSDyi0CDCvBfFKYLWXevb3r8hRv5JxcxLkUq/LEtAmOg7X0yzR3p0x/g+S3aWcZw18mhxsCXyelKWmXgzzg==
+    javascript_sri: sha384-VI5+XuguQ/l3kUhh4knz7Hxptx47wpQbVRDnp8v7Vvuhzwn1PEYb/uvtH6KLxv6d
+    stylesheet_sri: sha384-Ej0hUpn6wbrOTJtRExp8jvboBagaz+Or6E9zzWT+gHCQuuZQQVZUcbmhXQzSG17s
   - version: 3.1.1
     stylesheet: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css'
     javascript: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js'
-    javascript_sri: sha256-iY0FoX8s/FEg3c26R6iFw3jAtGbzDwcA5QJ1fiS0A6E= sha512-vO2Z2TMWFHV2Qyc0QaK4khEDOClJqw5RDzhsRT7CojWdo5aA2KFp5ry+dTGETq9fWYVg8NEz0/o6n2x1ArFI3w==
-    stylesheet_sri: sha256-6VA0SGkrc43SYPvX98q/LhHwm2APqX5us6Vuulsafps= sha512-BX/R0uUd8EXbPa29QfrCsxg5xPZR+JfM0k6K6zFiygTje1CXfxHclrUKJblO4lJeorJTmGJ4jjj0NjbQtbTRkg==
+    javascript_sri: sha384-oFMgcGzKX7GaHtF4hx14KbxdsGjyfHK6m1comHjI1FH6g4m6qYre+4cnZbwaYbHD
+    stylesheet_sri: sha384-7tY7Dc2Q8WQTKGz2Fa0vC4dWQo07N4mJjKvHfIGnxuC4vPqFGFQppd9b3NWpf18/
   - version: 3.1.0
     stylesheet: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css'
     javascript: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js'
-    javascript_sri: sha256-A783Hjykc5z+a+ph8BJrfLuU5HE+lwZR+azVrLPZ45k= sha512-ZcSe9wnTqZw/YStrDL1FFDDP/GCvfAYJ8y10Z7wYERPswtWAHorWzJNUgrfVmVDiIDwJHp3xL/yCoy7EqdbYTg==
-    stylesheet_sri: sha256-EcdK7VCRHVTARFX+HZwE9CxfbPQ4qUl2+JDyXypZ9pk= sha512-ecYLBGh5iQPKkdBijp+tVHMkFR2N2XfbsE83/9nFM/qwSLsjAPGRl7z+jpAWj5Enw2s4NS+9hHb/VxhP1CUYjQ==
+    javascript_sri: sha384-7pPmvaV7JjM/wsobVyDu9o+X6ETgKe/Yp7VfxVr7OiOEnkvzsQB8LfBqMXnbTIht
+    stylesheet_sri: sha384-GYBZMlEOunzhR/VZ6XhlOir+4wC0SyDpSIotW0oxJizkK/V2czMG1GvOmuRiNUNP
   - version: 3.0.3
     stylesheet: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css'
     javascript: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js'
-    javascript_sri: sha256-/B2U9Q3Tgi4eU8uWr08EDSrYtce5hLrl6E78dkGs+to= sha512-vO6PFSXNczuXHhdvGbOIXm67ZQlaRFjp4Wh+ARLfqPT1bVlmO1kyGrB1+7c2clk58XnsD/Cye9EJubT5B8BCgQ==
-    stylesheet_sri: sha256-RqLeNi9U48mIzIyfv2j+EgGMiuQv4RUJp0f1LxeDRGY= sha512-OGEqg3WzzTepW16E0a9vF4cqgSJK13Y795hk5pyAXyb9hftBZ3q6DiqXsSHmuCWTkNuq8jt09erCDfkXYCdxDw==
+    javascript_sri: sha384-s1ITto93iSMDxlp/79qhWHi+LsIi9Gx6yL+cOKDuymvihkfol83TYbLbOw+W/wv4
+    stylesheet_sri: sha384-IS73LIqjtYesmURkDE9MXKbXqYA8rvKEp/ghicjem7Vc3mGRdQRptJSz60tvrB6+
   - version: 3.0.2
     stylesheet: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css'
     javascript: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js'
-    javascript_sri: sha256-E9npzkBhxrZIdosJo20ACnv7qWnUVwzzKfk47eao85M= sha512-W8ycLBPqocJZbinDno6mq7cF+m88ALasCumLMkni7q/qVsFnyR6YGJKH/4vUKfnQyfe92rFY1ffgA4GXPJqrMg==
-    stylesheet_sri: sha256-HjsFM2lE3IJXUCrzudBjvWYpXHma/prhNo7d+0224lA= sha512-/FM/eOMbt34nhpkaxKE7hrOty4r0hCwHB1zP350HyRUbG3nWGQdrplaNosKFakVyFLQWFdj4q+O17sw0EKaAxA==
+    javascript_sri: sha384-DKoN2gpE9Yt/u0fuNvcJBn4n7wjnKFKjg4+Iz4ORs52lUc0Qp++smhHtWwHeapVW
+    stylesheet_sri: sha384-eumbg33EfHRpbzLIm0lGs0JresLNj7c+5beuRW4d11/vF3Wv3YYmuudfOwMsCmp5
   - version: 3.0.1
     stylesheet: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.0.1/css/bootstrap.min.css'
     javascript: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.0.1/js/bootstrap.min.js'
-    javascript_sri: sha256-PkYLIYOb9JVDrqxiYmkRTlvEkJKlFtfpTafbruWCv9Y= sha512-cvEGHVEJtyBz7T/vAUMGtuRGYrYlG7KvoekhOHnDPdwsig6XPd0PNjR6NG/YPgKx92IruZlIiLFdjHXzUiTaow==
-    stylesheet_sri: sha256-zve1EiMVs/DoSrFTnNaQ4z5FvBPdXwlLAs7sjwhpZFU= sha512-PbOoZASJfgB8tp130M6n+WGTgmF3VFsKh20UfGUteUQUR2hYk4djjx/IRZByJaoiYzfV2C25v2VEOQve9ReizA==
+    javascript_sri: sha384-v8HX8SQTySTjAPEOaAUfPj9Gjk/7LIdxELgikx0A/paeRU2yNSrHNeA1zGkKgOiS
+    stylesheet_sri: sha384-LPhngNOCBL/UBSMVU9FgFJvedMM7pf3l3s+DDyYV/gqd+D2+NEn5a2Uf18B0MBMv
   - version: 3.0.0
     stylesheet: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css'
     javascript: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js'
-    javascript_sri: sha256-VNIbBnZ4TQyYO71Ak4mHcK3vqTLYm3LIr9iBg6GRcqc= sha512-LZ2DxwpD99xOV0FgvTSYhiu6oC9TX/j8LPRIeOVySMT6WgO3s436hYJaf6ztqJZKcELvGBWZPhou7lVq51JHYA==
-    stylesheet_sri: sha256-HL2iGZi2Xgin6TYRTKvX93g9D1kN1u/dWMf6qLbnuao= sha512-Kn9ZT/hJ1Jk2JG6HRAN+/4y3mqBtP7DvOIWIKJYUPwfAS5tbBmnMOxESlgPgq4KQBKleNb7Krjxx2G4drA2tLw==
+    javascript_sri: sha384-Zzs5x1/YUvlxpCu06c197tRCubLCMA7pCoHbZeoZuz/oEgYD6NVmvLzDSKYBoc3J
+    stylesheet_sri: sha384-dkTxiR4Mv8i0ubTj0fsgTCmhYmOtrc0o6rdrEO6hDZs9cAifak0Y2VVL2cecWHLQ
   - version: 3.0.0-noicons
     stylesheet: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.no-icons.min.css'
     javascript: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js'
-    javascript_sri: sha256-VNIbBnZ4TQyYO71Ak4mHcK3vqTLYm3LIr9iBg6GRcqc= sha512-LZ2DxwpD99xOV0FgvTSYhiu6oC9TX/j8LPRIeOVySMT6WgO3s436hYJaf6ztqJZKcELvGBWZPhou7lVq51JHYA==
-    stylesheet_sri: sha256-HL2iGZi2Xgin6TYRTKvX93g9D1kN1u/dWMf6qLbnuao= sha512-Kn9ZT/hJ1Jk2JG6HRAN+/4y3mqBtP7DvOIWIKJYUPwfAS5tbBmnMOxESlgPgq4KQBKleNb7Krjxx2G4drA2tLw==
+    javascript_sri: sha384-Zzs5x1/YUvlxpCu06c197tRCubLCMA7pCoHbZeoZuz/oEgYD6NVmvLzDSKYBoc3J
+    stylesheet_sri: sha384-dkTxiR4Mv8i0ubTj0fsgTCmhYmOtrc0o6rdrEO6hDZs9cAifak0Y2VVL2cecWHLQ
   - version: 2.3.2
     stylesheet: 'https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css'
     javascript: 'https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js'
-    javascript_sri: sha256-fB1UC3A05HkOzoJiKFTB+/NPDUKX8xZ9kU+wndrmy0w= sha512-B5kWL4fSpqx5Ms7L4EH7MoTuZGY8F7ut/kOedQ52jU70qppzvME1NRKuCtqBNpjdjdg3KnU5RvMYuyZcqywtqg==
-    stylesheet_sri: sha256-LW6TXOOSwZq31DeFL497cCvqAv7I2QGzxC/eF2S5cwA= sha512-3dYKkHDelxxaf4j8fXlVbNiNGd3IPo6yViEuhtGCzzGqXlVq7+cGov1U3M5QhfsxxZsE7WmjCRQIFqxVgoGx8w==
+    javascript_sri: sha384-vOWIrgFbxIPzY09VArRHMsxned7WiY6hzIPtAIIeTFuii9y3Cr6HE6fcHXy5CFhc
+    stylesheet_sri: sha384-4FeI0trTH/PCsLWrGCD1mScoFu9Jf2NdknFdFoJhXZFwsvzZ3Bo5sAh7+zL8Xgnd
   - version: 2.3.2-noicons
     stylesheet: 'https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css'
     javascript: 'https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js'
-    javascript_sri: sha256-fB1UC3A05HkOzoJiKFTB+/NPDUKX8xZ9kU+wndrmy0w= sha512-B5kWL4fSpqx5Ms7L4EH7MoTuZGY8F7ut/kOedQ52jU70qppzvME1NRKuCtqBNpjdjdg3KnU5RvMYuyZcqywtqg==
-    stylesheet_sri: sha256-dach9vRn/NqYCAWT8xi3j/MVWOgi0oPUc8q9OtDUmyQ= sha512-IkMWX59KQTB/5B4ekNxBVpwIo6JpLo1Hcru+J/HzolLafUgkSPxzGx2AN8LGymfVhrXMCLeyse7QL2hsvrkNVw==
+    javascript_sri: sha384-vOWIrgFbxIPzY09VArRHMsxned7WiY6hzIPtAIIeTFuii9y3Cr6HE6fcHXy5CFhc
+    stylesheet_sri: sha384-nITPVmSN/64KqhfcWtEJQwuzHIHqSgbSPmp74MISiB8zab+d6ThLyqTpw8bYMBqY
   - version: 2.3.1
     stylesheet: 'https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css'
     javascript: 'https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js'
-    javascript_sri: sha256-Yc44VMEwFdgJsWwTJecHJZ4F1063pLlY0uls+JLXVX0= sha512-GwNqxJ4+kjC3LhFCebVhS0OYR1WYlcDVsPhPA9mGerYmGQfuXviyU08FV5G+EJcskEOERXPQdgRmLx4KpCPrQQ==
-    stylesheet_sri: sha256-lz6dIl9AFbisH52JXbUX0xyzK0lqb+vKNP0oBs6gRU4= sha512-kiejghtKWrXgG2w19Jot1K8uqHHLAmIOd9VzQu6414zJIxiRfCobDvLKSWHeGQvmER9MRM2ovXwMlR+mcTCZ6Q==
+    javascript_sri: sha384-c9p7VJz4n41pctsFNm0SJNtxs1tEtVpbHd6KlMj1gRb5G3hVejCHUMwu+jfyRnNK
+    stylesheet_sri: sha384-AfZ+8dl93QPpFmy0Q1kFwfwG1NBplh51QAw7oZCXARa9KWcl9Xx/7vk16PCDna/T
   - version: 2.3.0
     stylesheet: 'https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.3.0/css/bootstrap-combined.min.css'
     javascript: 'https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.3.0/js/bootstrap.min.js'
-    javascript_sri: sha256-lyTRnO/wUOULDxrNLETBI+V37cy+MS7AUt8cd+qQ63c= sha512-HYFM4+/+hZptHxvj1EYD0I9RqqnVBRPOWvKMIe2UY2pJTK9eWfuDei2mHs5FE64t70X8toLoWZHmDKwezVBQTg==
-    stylesheet_sri: sha256-nH1i7Gc6yG631UwAitgDN8uTArFlWiejSjIKaSwaJzA= sha512-OPps+skmID2RyHXJSo/suikKkySow53acYXnyToi+ULIWIA6Pqksgp3f7ByzYQUd0t4Y83pet2C790N6yX197w==
+    javascript_sri: sha384-aUC8DaWA3aOpC7vk8W8jXtUafWxpUqKoxscempkyBcP8giruBvcooYNAKt8ZlbLo
+    stylesheet_sri: sha384-j4yX2PowqrVy4Ogwr6u4kWzszBjcwPSvEjXy5oAODYFpI/KZCiVl8hRTGAJULguo
   - version: 2.2.2
     stylesheet: 'https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css'
     javascript: 'https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js'
-    javascript_sri: sha256-NMW3sFhkBQMiShGs2eXt16PRHW3RodBenLlxhV55iEk= sha512-rtzOS/8EQUrRPBIN//UBMUNO7N/R9aX8DBA5kM2kJouvdS/u8lcOx7dO4sde6qZP1aic7vkDPd6gyezhWX7cQg==
-    stylesheet_sri: sha256-E0MevIJ5zWtD2bTpShN+WaL4SFVc+oKT2iBx2bmBSdg= sha512-+eYSB4MWHQFiwv5RUa+bno7ecAqWTAEIJcXxHmRtEzupcUSNP1UVrhPVRguAlDteT/AmSC1b0bNxEgFe+1SmEA==
+    javascript_sri: sha384-e0kRLAUzZF/GpUULwXoniNHgUSfqSx0Xg5mdnYeD4W3PGOPxsX8j6pPeCGxWp0Ul
+    stylesheet_sri: sha384-br15D1xki2uxso2Jd5k/aDmd7daYX3Ur17nGlEj4cSCYVaurBnBDfUXA+uKk7hUG
   - version: 2.2.2-noresponsible
     stylesheet: 'https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap.min.nr.css'
     javascript: 'https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js'
-    javascript_sri: sha256-NMW3sFhkBQMiShGs2eXt16PRHW3RodBenLlxhV55iEk= sha512-rtzOS/8EQUrRPBIN//UBMUNO7N/R9aX8DBA5kM2kJouvdS/u8lcOx7dO4sde6qZP1aic7vkDPd6gyezhWX7cQg==
-    stylesheet_sri: sha256-cDLwz4Bs0hPh1LWuW4D0SWRVF50mZ/5Z0005vKU76D0= sha512-Cj92IdAYak/5fVxacDehocdjMeCSOu375sXeI/BMPCeRzl8lGjQ/F4sD8kXR0jQ00fz8vQoTOg4emyP8ZaFQow==
+    javascript_sri: sha384-e0kRLAUzZF/GpUULwXoniNHgUSfqSx0Xg5mdnYeD4W3PGOPxsX8j6pPeCGxWp0Ul
+    stylesheet_sri: sha384-YdMhjk0LNUOdsF1AiNOR4GXZxEEUy8d6DAcT7bo/Pl5RUw2zbSDxe8RhWoyV1S+0
   - version: 2.2.1
     stylesheet: 'https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.2.1/css/bootstrap-combined.min.css'
     javascript: 'https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js'
-    javascript_sri: sha256-Cm6OL8Xcf6JVGeZlZ8potqRM/tUiA3t1CB0cC6F6J7Q= sha512-xKeftpPV8JYswq5QmCuMokpr+kNela2XToy3Jg99D8W+z/xhBAELyTKQsI1IJlt1sXNr6Epv2UV/6n2rcJb4cA==
-    stylesheet_sri: sha256-bWbLY+WTVRVCnczvjqXCmCGyfcKQHKioRTKW1WB+y54= sha512-FLiZmTh2haC9E+Vuprmw3RruGZH0HmPn3rJJyQKym7RFx6kiZKgnVuYJDM12mbJ6zutGR679qV0UAkbnGjIfvQ==
+    javascript_sri: sha384-qJ8AGIuPqPo4I2zhyRYO6vQaJrGBbTpIiXGihDsGpfMCHJD0IKH0gkPQToGD5ek3
+    stylesheet_sri: sha384-SxD9NhT6x7xbJZq3DchEPXL/Go+GKOxlfipD1Y+5v4WFOnsU6MNTmzRe9oPoXwCA
   - version: 2.2.0
     stylesheet: 'https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.2.0/css/bootstrap-combined.min.css'
     javascript: 'https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.2.0/js/bootstrap.min.js'
-    javascript_sri: sha256-1m3mj3nlFRs4e5269udNpwneZfAc2MXUblrRB76gH9Y= sha512-Xtds1pjNIEy9gBZgTLPVKQIBUWm/9kvISsVeBE19cAz+Fxc7x1v53Y0R4zj9Ybk9Lhu3WMDT9RKfUNgYVsU4jw==
-    stylesheet_sri: sha256-TAzXnPLBL5EmYZ3vUqbMIqxrQ61GE7XaUZaa6EKq6c8= sha512-WY0/DyrqrjCbqsDO/fSFTpNP7nNrquhp4iY2yYig8GFzgIS42CkIJZUG8orKEocY1EARUYmzGrNN+aQyMRhzpw==
+    javascript_sri: sha384-tq2l1Z48uwiIMDmueFNbFz/v2HjHbDDIaVhXH4qhRU99PosO4Rm1WjwKOkXmwWJY
+    stylesheet_sri: sha384-2MqdmrQ8pl9PeLkJ5NcUtr55S/rzeGRJ6VigvGOZ2e9jKeyA5uQfNF1A6MnBd95x
   - version: 2.1.1
     stylesheet: 'https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap-combined.min.css'
     javascript: 'https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.1.1/js/bootstrap.min.js'
-    javascript_sri: sha256-hkP0VI5W+vj073XZgjCUxN1dt29n/ZPyp4ali9owvls= sha512-zCW3AMr/O+DydgWWH4mTEntoCgEMyal7bUwTtKScZJHd0ID2TUaktsfNYiH/EhaLe/zEPiSiDF8IurYV3yMepA==
-    stylesheet_sri: sha256-xJxmQ8hA9tfjtCyRW7ShZje2h7B/a+OmPgkQlT2n13A= sha512-foyKOdNFoQKNHfMbRKQtyoz2fzM1FJTy7mGgwnZzQs+KDvEavyrYOUtzcpmWnzqBMqH9ew6AuEAq/NOnHuIRJw==
+    javascript_sri: sha384-v2XCZ4x+SDQreGSr5HtkSOzDeIzE4K5aqWp3xcskLxq7Y5S76C4sqh/MEurBY1fz
+    stylesheet_sri: sha384-Cnxb+E2mrhv+pAvYnCOpd6HecV+JYAqrZFWwhuURK4EhHf3A4ALFYOpsbtLTdkPT
   - version: 2.1.0
     stylesheet: 'https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.1.0/css/bootstrap-combined.min.css'
     javascript: 'https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.1.0/js/bootstrap.min.js'
-    javascript_sri: sha256-AW4gwEUJepMgm/zgVDEfla6t7m1vqpYMb8vL8mTffME= sha512-O7zfzW35CgX9f/HtdmBoAayypfue8B+WfErTyWY8IDIMp+EBZmbXTdmy20ZrK1JpHaNoGHhEUMHAPayGD6LC1g==
-    stylesheet_sri: sha256-t1GrXhCjtH9TnsIGjBDpE+IOSUaItxC3X5dULjRKZCM= sha512-ZbcO/hwSP0V8+1pU1BAlECKSFEhKL20A8jiSlqZH6oVz2q+IkRU1g4CKXtDPXdQU5I723DkKqN2gm7cTlMQoeQ==
+    javascript_sri: sha384-SiZElk5uhDW0J6QmBKDDd6IjV9oUcvQ1uoy9kB+G3a8icLOwjNovKjAC1fHwo22V
+    stylesheet_sri: sha384-EAs/2xIodeYnc03rJToARHvNHFcPHv+Gndif5gelxOUVUM440UC9/rJdovM84FlL
   - version: 2.0.4
     stylesheet: 'https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.0.4/css/bootstrap-combined.min.css'
     javascript: 'https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.0.4/js/bootstrap.min.js'
-    javascript_sri: sha256-UZCNSET5j+afNIiGewL9lgXG9asgXEUTaampoHo+/WM= sha512-IHiG4SeiV3iRCAySAW597j66Pn6AjClHUXAzreLbJrGj/i+NZ80XIXR3vbGvQa1OQJkpCuqMraqBwp0x2LLuGA==
-    stylesheet_sri: sha256-uQF1SuiI+Q1kVFZVfnPtXVYdLX18aGvEVJpppHu9FB8= sha512-VKST5syz/NVig4bnwlU49wNPfro91gtfzdIaqWEG5yp5ymN3t6g46iVm9kvhC5lkcVqWhvrwXmernTgLEmTpjg==
+    javascript_sri: sha384-2sVosMIQw67h8RBCTmE20BSl9j66nWwbH+2W/CKr8celILSNnEfJnJv2PKCdet3I
+    stylesheet_sri: sha384-G87n9a15LEsz+OvKCr10ldEbckfbCpr2gjYnZgCiKiwH0p/If1QkSURCTzubbt19
 bootstrap4:
   - version: 4-dev
     latest: true
     stylesheet: 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css'
     javascript: 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js'
-    javascript_sri: sha256-GMscmjNs6MbZvXG2HRjP3MpdOGmXv078SRgH7M723Mc= sha512-1wnhBRtA+POGVA0yREk2RlDbJEdkNvMuRBGjT1FCI5wXmpiQHZWDIB8MpANBWM/GKSPDgCA/7HTrAIFgv70/Jw==
-    stylesheet_sri: sha256-xWeRKjzyg6bep9D1AsHzUPEWHbWMzlRc84Z0aG+tyms= sha512-mGIRU0bcPaVjr7BceESkC37zD6sEccxE+RJyQABbbKNe83Y68+PyPM5nrE1zvbQZkSHDCJEtnAcodbhlq2/EkQ==
+    javascript_sri: sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7
+    stylesheet_sri: sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd
 fontawesome:
   - version: 4.5.0
     latest: true
     stylesheet: 'https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css'
-    stylesheet_sri: sha256-3dkvEK0WLHRJ7/Csr0BZjAWxERc5WH7bdeUya2aXxdU= sha512-+L4yy6FRcDGbXJ9mPG8MT/3UCDzwR9gPeyFNMCtInsol++5m3bk2bXWKdZjvybmohrAsn3Ua5x8gfLnbE1YkOg==
+    stylesheet_sri: sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+
   - version: 4.4.0
     stylesheet: 'https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'
-    stylesheet_sri: sha256-k2/8zcNbxVIh5mnQ52A0r3a6jAgMGxFJFE2707UxGCk= sha512-ZV9KawG2Legkwp3nAlxLIVFudTauWuBpC10uEafMHYL0Sarrz5A7G79kXh5+5+woxQ5HM559XX2UZjMJ36Wplg==
+    stylesheet_sri: sha384-MI32KR77SgI9QAPUs+6R7leEOwtop70UsjEtFEezfKnMjXWx15NENsZpfDgq8m8S
   - version: 4.3.0
     stylesheet: 'https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'
-    stylesheet_sri: sha256-VBrFgheoreGl4pKmWgZh3J23pJrhNlSUOBek+8Z2Gv0= sha512-i8+QythOYyQke6XbStjt9T4yQHhhM+9Y9yTY1fOxoDQwsQpKMEpIoSQZ8mVomtnVCf9PBvoQDnKl06gGOOD19Q==
+    stylesheet_sri: sha384-yNuQMX46Gcak2eQsUzmBYgJ3eBeWYNKhnjyiBqLd1vvtE9kuMtgw6bjwN8J0JauQ
   - version: 4.2.0
     stylesheet: 'https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'
-    stylesheet_sri: sha256-D7G7ynNkbo4rk8gujYshlkexPUtEDEjjOCkLmmhbjeE= sha512-5kzQwP+NMBwPa9n+YJNDYtznvoWvV8nD4ccZ5C+HhM9we8kCW1j9HzQabe6ydJDj+oFkrtnMdmBTI6YCVEyCIA==
+    stylesheet_sri: sha384-CmLV3WR+cw/TcN50vJSYAs2EAzhDD77tQvGcmoZ1KEzxtpl2K5xkrpFz9N2H9ClN
   - version: 4.1.0
     stylesheet: 'https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css'
-    stylesheet_sri: sha256-t2kyTgkh+fZJYRET5l9Sjrrl4UDain5jxdbqe8ejO8A= sha512-77kidyGDJGWWmJ0MVO0CRp+6nRgZRK67frUVBRvnL1zCcmcw9FkCQxpDHq52SebW+KWTAnnuX0Qk2/MQWogWoQ==
+    stylesheet_sri: sha384-X7L1bhgb36bF1iFvaqvhgpaGpayKM+vXNNYRlF89BFA5s3vi1qZ8EX9086RlZjy1
   - version: 4.0.3
     stylesheet: 'https://maxcdn.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css'
-    stylesheet_sri: sha256-sSwc2BH1TRG/3LXiNec5NKi4p6her7hSkRf5pbtkzPg= sha512-PIAUVU8u1vAd0Sz1sS1bFE5F1YjGqm/scQJ+VIUJL9kNa8jtAWFUDMu5vynXPDprRRBqHrE8KKEsjA7z22J1FA==
+    stylesheet_sri: sha384-UMpQFQdby6sZ3T16Qz0uq+QsAA7AhfgfMhkZdFOjY8D5kfgRaU2RKE6wHNEo7062
   - version: 4.0.2
     stylesheet: 'https://maxcdn.bootstrapcdn.com/font-awesome/4.0.2/css/font-awesome.min.css'
-    stylesheet_sri: sha256-jeXUP9NSVl2aGgaFJsmLoTZK58B0WvBRt3SiqqCyCek= sha512-YgECeaX64EiXmgxPQZ88zsywLJBLNfuY1IpQiR6OXyLpEgLPXZq2JnfnTaHaAZ+1ADF3PzI2I8ma/ixR1jJUMg==
+    stylesheet_sri: sha384-5dQsFPHX9TfyZXy1AFBBv3gLnd1YI5OSKtFBaxfXLcPFSV5AjjLtS6FD4D8e7I/R
   - version: 4.0.1
     stylesheet: 'https://maxcdn.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.min.css'
-    stylesheet_sri: sha256-4lfwbcbn8WJ/woPG8ewcMmhy5wN/o58Pe2fkKc/kPDQ= sha512-H/zVLBHVS8ZRNSR8wrNZrGFpuHDyN6+p6uaADRefLS4yZYRxfF4049g1GhT+gDExFRB5Kf9jeGr8vueDsyBhhA==
+    stylesheet_sri: sha384-Sny7En3GKRrKIzzbFN1VJGA/wVVLmWH8/GeE7eBSe0M83a3WGyRCbh0VyljhaOKT
   - version: 4.0.0
     stylesheet: 'https://maxcdn.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.min.css'
-    stylesheet_sri: sha256-fhWmpLsbRLY5xcogEY/DTY2aUDu5sd1Y/vxj9XtJMAQ= sha512-FEQLazq9ecqLN5T6wWq26hCZf7kPqUbFC9vsHNbXMJtSZZWAcbJspT+/NEAQkBfFReZ8r9QlA9JHaAuo28MTJA==
+    stylesheet_sri: sha384-zFzXNZnkXgOSk/hRVQNKFU1ZqC9h18Ge1sp4XCwupvrh3zLMRHclbusmMKTznUnX
   - version: 3.2.1
     stylesheet: 'https://maxcdn.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css'
-    stylesheet_sri: sha256-MmuZTsWcczT1IhH71aqQmja5jRcXy3mL/NOvjUy9tso= sha512-IJ+BZHGlT4K43sqBGUzJ90pcxfkREDVZPZxeexRigVL8rzdw/gyJIflDahMdNzBww4k0WxpyaWpC2PLQUWmMUQ==
+    stylesheet_sri: sha384-5WSMKsEjlK1hO/E+0ERtEmsujy8NFgEb15UOB5phg+1xk2zTO0Dd71qJ+7yD1QFN
 showcase:
   - name: Microsoft Education
     img: /images/showcase/microsoft-education.png
