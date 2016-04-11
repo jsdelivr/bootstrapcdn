@@ -239,8 +239,11 @@ bootstrap4:
     javascript_sri: sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7
     stylesheet_sri: sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd
 fontawesome:
-  - version: 4.5.0
+  - version: 4.6.0
     latest: true
+    stylesheet: 'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css'
+    stylesheet_sri: sha384-I6JCnqxMbC2DuiHjsoCiLa15NVbKRf8/ooANRLsXD87zD2dVqzlz6Oqjvj470ztk
+  - version: 4.5.0
     stylesheet: 'https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css'
     stylesheet_sri: sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+
   - version: 4.4.0
@@ -331,6 +334,10 @@ showcase:
     img: /images/showcase/creative-commons.png
     lib: Bootstrap 3.2.0
     url: 'http://www.creativecommons.org'
+  - name: Udacity
+    img: /images/showcase/udacity.png
+    lib: Bootstrap 3.0.0
+    url: 'https://www.udacity.com/course/website-performance-optimization--ud884'
 integrations:
   - name: Bootstrap 3 Snippets
     img: /images/integrations/atom-bootstrap3.png
