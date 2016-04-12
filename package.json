@@ -25,6 +25,7 @@
     "htmlencode": "0.0.4",
     "jade": "^1.11.0",
     "js-yaml": "^3.4.2",
+    "jstransformer-uglify-js": "^1.1.1",
     "maxcdn": "^0.1.6",
     "mktemp": "^0.4.0",
     "morgan": "^1.6.1",
@@ -35,13 +36,13 @@
     "sri-toolbox": "^0.2.0"
   },
   "devDependencies": {
-    "bootlint": "^0.12.0",
+    "bootlint": "^0.14.2",
     "expect.js": "^0.3.1",
     "forever": "^0.15.1",
     "format": "^0.2.1",
     "mocha": "^2.3.3",
     "superagent": "^1.4.0",
-    "uglify-js": "^2.4.24"
+    "uglify-js": "^2.6.2"
   },
   "engines": {
     "node": "5.1"
