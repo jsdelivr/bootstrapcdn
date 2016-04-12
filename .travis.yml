@@ -1,7 +1,11 @@
+env:
+  - MAKE_TASK=test
+  - MAKE_TASK=functional
+  - MAKE_TASK=bootlint
 language: node_js
 node_js:
   - "5.1"
-script: make travis
+script: "make $MAKE_TASK"
 matrix:
   fast_finish: true
 notifications:
