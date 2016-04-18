@@ -386,6 +386,10 @@ integrations:
     img: /images/integrations/bootply.png
     plat: Bootply
     url: 'http://www.bootply.com/'
+  - name: React-Bootstrap
+    img: /images/integrations/react-bootstrap.png
+    plat: React
+    url: 'https://react-bootstrap.github.io/'
 friends:
   - name: ScaleScale
     url: 'http://www.scalescale.com/'
