@@ -342,7 +342,7 @@ showcase:
     lib: Bootstrap 3.0.0
     url: 'https://www.udacity.com/course/website-performance-optimization--ud884'
   - name: AdRoll
-    img: /images/showcase/adroll.png
+    img: /images/showcase/llorda.png
     lib: Font Awesome 4.5.0
     url: 'https://help.adroll.com/hc/en-us'
 integrations:
