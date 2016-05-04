@@ -94,6 +94,6 @@ console.log('  Created: %s', fontsDir);
 
 process.on('exit', function (code) {
     if (code === 0) {
-        console.log('Don\'t forget to update symlink and config file!');
+        console.log('Don\'t forget to update the symlink and config file!');
     }
 });

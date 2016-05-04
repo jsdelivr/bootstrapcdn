@@ -239,8 +239,11 @@ bootstrap4:
     javascript_sri: sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7
     stylesheet_sri: sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd
 fontawesome:
-  - version: 4.6.1
+  - version: 4.6.2
     latest: true
+    stylesheet: 'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css'
+    stylesheet_sri: sha384-aNUYGqSUL9wG/vP7+cWZ5QOM4gsQou3sBfWRr/8S3R1Lv0rysEmnwsRKMbhiQX/O
+  - version: 4.6.1
     stylesheet: 'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css'
     stylesheet_sri: sha384-hQpvDQiCJaD2H465dQfA717v7lu5qHWtDbWNPvaTJ0ID5xnPUlVXnKzq7b8YUkbN
   - version: 4.6.0
@@ -342,7 +345,7 @@ showcase:
     lib: Bootstrap 3.0.0
     url: 'https://www.udacity.com/course/website-performance-optimization--ud884'
   - name: AdRoll
-    img: /images/showcase/adroll.png
+    img: /images/showcase/llorda.png
     lib: Font Awesome 4.5.0
     url: 'https://help.adroll.com/hc/en-us'
 integrations:
