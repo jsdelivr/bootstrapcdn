@@ -1,7 +1,7 @@
 'use strict';
 
 function appendLocals(req, res) {
-    res.locals.fullUrl = req.protocol + '://' + req.hostname + req.path;
+    res.locals.fullUrl = 'https://' + req.hostname + req.path;
 
     return res;
 }
