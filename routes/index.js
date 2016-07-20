@@ -1,7 +1,12 @@
 'use strict';
 
 function appendLocals(req, res) {
-    res.locals.fullUrl = 'https://' + req.hostname + req.path;
+    var proto = req.get('x-forwarded-proto');
+
+    if (proto === undefined)
+        proto = req.protocol;
+
+    res.locals.fullUrl = proto + '://' + req.hostname + req.path;
 
     return res;
 }
