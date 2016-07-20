@@ -30,6 +30,7 @@ var tweets = yaml.safeLoad(fs.readFileSync(path.join(__dirname, 'config', '_twee
 app.set('port', process.env.PORT || config.port || 3000);
 app.set('views', path.join(__dirname, '/views'));
 app.set('view engine', 'jade');
+
 app.disable('x-powered-by');
 
 // production
