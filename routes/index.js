@@ -1,31 +1,45 @@
 'use strict';
 
+function appendLocals(req, res) {
+    res.locals.fullUrl = req.protocol + '://' + req.hostname + req.path;
+
+    return res;
+}
+
 var TITLE = 'BootstrapCDN by MaxCDN';
 function index(req, res) {
+    res = appendLocals(req, res);
     res.render('index', { title: TITLE, theme: req.query.theme });
 }
 
 function fontawesome(req, res) {
+    res = appendLocals(req, res);
     res.render('fontawesome', { title: TITLE, theme: req.query.theme });
 }
 
 function bootswatch(req, res) {
+    res = appendLocals(req, res);
     res.render('bootswatch', { title: TITLE, theme: req.query.theme });
 }
 
 function bootlint(req, res) {
+    res = appendLocals(req, res);
     res.render('bootlint', { title: TITLE, theme: req.query.theme });
 }
 
 function alpha(req, res) {
+    res = appendLocals(req, res);
     res.render('alpha', { title: TITLE, theme: req.query.theme });
 }
 
 function legacy(req, res) {
+    res = appendLocals(req, res);
     res.render('legacy', { title: TITLE, theme: req.query.theme });
 }
 
 function showcase(req, res) {
+    res = appendLocals(req, res);
+
     var showcase = req.config.showcase;
     var col1 = [];
     var col2 = [];
@@ -42,6 +56,8 @@ function showcase(req, res) {
 }
 
 function integrations(req, res) {
+    res = appendLocals(req, res);
+
     var integrations = req.config.integrations;
     var col1 = [];
     var col2 = [];
