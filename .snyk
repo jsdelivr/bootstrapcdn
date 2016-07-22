@@ -4,3 +4,6 @@ patch:
   'npm:uglify-js:20151024':
     - jade > transformers > uglify-js:
         patched: '2016-07-22T02:21:06.619Z'
+  'npm:uglify-js:20150824':
+    - jade > transformers > uglify-js:
+        patched: '2016-07-22T16:14:44.714Z'
