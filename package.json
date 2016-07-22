@@ -10,7 +10,9 @@
     "stop": "node make stop",
     "restart": "node make restart",
     "test": "node make test",
-    "test-nc": "node make test-nc"
+    "test-nc": "node make test-nc",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
     "async": "^1.4.2",
@@ -33,7 +35,8 @@
     "serve-favicon": "^2.3.0",
     "serve-static": "^1.10.0",
     "shelljs": "^0.5.3",
-    "sri-toolbox": "^0.2.0"
+    "sri-toolbox": "^0.2.0",
+    "snyk": "^1.17.1"
   },
   "devDependencies": {
     "bootlint": "^0.14.2",
@@ -46,5 +49,6 @@
   },
   "engines": {
     "node": "5.1"
-  }
+  },
+  "snyk": true
 }

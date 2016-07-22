@@ -1,0 +1,6 @@
+version: v1.5.0
+ignore: {}
+patch:
+  'npm:uglify-js:20151024':
+    - jade > transformers > uglify-js:
+        patched: '2016-07-22T02:21:06.619Z'
