@@ -9,7 +9,7 @@
     "status": "node make status",
     "stop": "node make stop",
     "restart": "node make restart",
-    "test": "node make test",
+    "test": "snyk test && node make test",
     "test-nc": "node make test-nc",
     "snyk-protect": "snyk protect",
     "prepublish": "npm run snyk-protect"
@@ -19,7 +19,7 @@
     "comma-it": "^0.0.7",
     "compression": "^1.5.2",
     "dateformat": "^1.0.11",
-    "errorhandler": "^1.4.2",
+    "errorhandler": "^1.4.3",
     "express": "^4.13.3",
     "express-sslify": "^1.0.1",
     "fs-walk": "0.0.1",
@@ -35,8 +35,8 @@
     "serve-favicon": "^2.3.0",
     "serve-static": "^1.10.0",
     "shelljs": "^0.5.3",
-    "sri-toolbox": "^0.2.0",
-    "snyk": "^1.17.1"
+    "snyk": "^1.17.1",
+    "sri-toolbox": "^0.2.0"
   },
   "devDependencies": {
     "bootlint": "^0.14.2",
