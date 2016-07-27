@@ -5,12 +5,7 @@ var assert  = require('assert');
 var helpers = require(path.join(__dirname, 'test_helper.js'));
 var config  = helpers.config();
 
-function format(str, name) {
-    return str.replace("SWATCH_NAME", name)
-                .replace("SWATCH_VERSION", config.bootswatch.version);
-}
-
-var uri      = helpers.app(config, 'legacy');
+var uri     = helpers.app(config, 'legacy');
 var response = {};
 
 before(function(done) {
@@ -45,7 +40,9 @@ describe('legacy', function () {
 
 
     config.bootstrap.forEach(function (bootstrap) {
-        if (bootstrap.latest === true) return;
+        if (bootstrap.latest === true) {
+            return;
+        }
 
         describe(bootstrap.version, function () {
             describe('config', function () {

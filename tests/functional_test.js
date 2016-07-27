@@ -1,10 +1,7 @@
 'use strict';
 
-var fs     = require('fs');
 var path   = require('path');
-var yaml   = require('js-yaml');
 var assert = require('assert');
-var mktemp = require('mktemp');
 var walk   = require('fs-walk');
 var async  = require('async');
 
@@ -13,37 +10,39 @@ var helpers = require(path.join(__dirname, 'test_helper'));
 var config  = helpers.config();
 
 var expectedHeaders = {
-  date: undefined,
-  etag: undefined,
-  expires: undefined,
+    date: undefined,
+    etag: undefined,
+    expires: undefined,
 
-  //connection: 'keep-alive',
-  connection: undefined, // TODO: reseach why this is returning 'closed' for
+  // connection: 'keep-alive',
+    connection: undefined, // TODO: reseach why this is returning 'closed' for
                          // this test, but 'keep-alive' as expected via
                          // curl and browsers.
 
-  vary: 'Accept-Encoding',
+    vary: 'Accept-Encoding',
 
-  'content-type': undefined,
-  'content-length': undefined,
-  'last-modified': undefined,
-  'x-cache': undefined,
+    'content-type': undefined,
+    'content-length': undefined,
+    'last-modified': undefined,
+    'x-cache': undefined,
 
-  //'x-amz-server-side-encryption': 'AES256',
-  'accept-ranges': undefined,
-  'access-control-allow-origin': '*',
+  // 'x-amz-server-side-encryption': 'AES256',
+    'accept-ranges': undefined,
+    'access-control-allow-origin': '*',
 
   // the following are set as undefined because www
   // and assets (js/css) differ
-  server: undefined,
-  'x-hello-human': undefined, // because www and assets differ
-  'cache-control': undefined
+    server: undefined,
+    'x-hello-human': undefined, // because www and assets differ
+    'cache-control': undefined
 };
 
 var responses = {};
 function request(uri, cb) {
     // return memoized response to avoid making the same http call twice
-    if (responses.hasOwnProperty(uri)) return cb(responses[uri]);
+    if (responses.hasOwnProperty(uri)) {
+        return cb(responses[uri]);
+    }
 
     // build memoized response
     helpers.preFetch(uri, function(res) {
@@ -115,8 +114,8 @@ describe('functional', function () {
     describe('bootswatch', function () {
         config.bootswatch.themes.forEach(function(theme) {
             var uri = helpers.domainCheck(config.bootswatch.bootstrap
-                .replace("SWATCH_VERSION", config.bootswatch.version)
-                .replace("SWATCH_NAME", theme.name));
+                .replace('SWATCH_VERSION', config.bootswatch.version)
+                .replace('SWATCH_NAME', theme.name));
 
             describe(uri, function () {
                 Object.keys(expectedHeaders).forEach(function(header) {
@@ -192,13 +191,13 @@ describe('functional', function () {
          * Build File List
          ****/
         var whitelist = [
-            "bootlint",
-            "bootstrap",
-            "bootswatch",
-            "font-awesome",
-            "twitter-bootstrap",
-            "css",
-            "js"
+            'bootlint',
+            'bootstrap',
+            'bootswatch',
+            'font-awesome',
+            'twitter-bootstrap',
+            'css',
+            'js'
         ];
 
         var publicURIs = [];
@@ -206,7 +205,9 @@ describe('functional', function () {
             var root = base.split('/public/')[1];
 
             // ensure file is in whitelisted directory
-            if (root === undefined || whitelist.indexOf(root.split(path.sep)[0]) === -1) return;
+            if (root === undefined || whitelist.indexOf(root.split(path.sep)[0]) === -1) {
+                return;
+            }
 
             var domain = helpers.domainCheck('https://maxcdn.bootstrapcdn.com/');
 
@@ -214,7 +215,9 @@ describe('functional', function () {
             var ext = helpers.extension(name);
 
             // ignore unknown / unsupported types
-            if (helpers.CONTENT_TYPE_MAP[ext] === undefined) return;
+            if (helpers.CONTENT_TYPE_MAP[ext] === undefined) {
+                return;
+            }
 
             publicURIs.push(uri);
         });
@@ -229,7 +232,8 @@ describe('functional', function () {
                         assert.equal(200, response.statusCode, 'file missing or forbidden');
 
                         helpers.assert.contentType(uri, response.headers['content-type']);
-                        done(); callback();
+                        done();
+                        callback();
                     });
                 });
             });

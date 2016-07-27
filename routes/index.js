@@ -3,8 +3,9 @@
 function appendLocals(req, res) {
     var proto = req.get('x-forwarded-proto');
 
-    if (proto === undefined)
+    if (proto === undefined) {
         proto = req.protocol;
+    }
 
     res.locals.fullUrl = proto + '://' + req.hostname + req.path;
 
@@ -57,7 +58,7 @@ function showcase(req, res) {
         }
     }
 
-    res.render('showcase', { title: TITLE, theme: req.query.theme, col1: col1, col2: col2 })
+    res.render('showcase', { title: TITLE, theme: req.query.theme, col1: col1, col2: col2 });
 }
 
 function integrations(req, res) {
@@ -75,7 +76,7 @@ function integrations(req, res) {
         }
     }
 
-    res.render('integrations', { title: TITLE, theme: req.query.theme, col1: col1, col2: col2 })
+    res.render('integrations', { title: TITLE, theme: req.query.theme, col1: col1, col2: col2 });
 }
 
 module.exports = {

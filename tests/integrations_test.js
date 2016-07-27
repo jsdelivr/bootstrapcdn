@@ -1,8 +1,6 @@
 'use strict';
 
 var path    = require('path');
-var assert  = require('assert');
-var format  = require('format');
 var helpers = require(path.join(__dirname, 'test_helper.js'));
 var config  = helpers.config();
 var uri     = helpers.app(config, 'integrations');
