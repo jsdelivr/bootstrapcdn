@@ -11,7 +11,7 @@ html(lang="en")
 
         link(rel='canonical', href=fullUrl)
 
-        link(rel='shortcut icon', href=config.favicon.uri, integrity=config.favicon.sri, crossorigin="anonymous")
+        link(rel='shortcut icon', href=config.favicon.uri)
 
         - bootswatch = helpers.theme.fetch(config, theme);
         link(rel='stylesheet', href=bootswatch.uri, integrity=bootswatch.sri, crossorigin="anonymous")
