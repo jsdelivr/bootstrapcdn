@@ -1,4 +1,7 @@
 #!/usr/bin/env node
+
+'use strict';
+
 var path = require('path');
 var yaml = require('js-yaml');
 var fs   = require('fs');
@@ -14,13 +17,13 @@ fs.createReadStream(configFile)
 
 function buildPath(d) {
     return path.join(basedir, 'public',
-        d.replace('https://maxcdn.bootstrapcdn.com/',''));
+        d.replace('https://maxcdn.bootstrapcdn.com/', ''));
 }
 
 function exists(file) {
     var found = fs.existsSync(file);
     if (!found) {
-        console.log("WARNING: %s not found", file);
+        console.log('WARNING: %s not found', file);
     }
     return found;
 }
@@ -48,7 +51,7 @@ for (var i = 0; i < config.bootlint.length; i++) {
 }
 
 // bootstrap{4}
-['bootstrap','bootstrap4'].forEach(function(key) {
+['bootstrap', 'bootstrap4'].forEach(function(key) {
     for (var i = 0; i < config[key].length; i++) {
         var bootstrap  = config[key][i];
         var javascript = buildPath(bootstrap.javascript);

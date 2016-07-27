@@ -14,8 +14,9 @@ var MOCHA_OPTS = ' --timeout 15000 --slow 500';
     cd(__dirname);
 
     function assert(result) {
-        if (result.code !== 0)
+        if (result.code !== 0) {
             process.exit(result.code);
+        }
     }
     function assertExec(cmd) {
         assert(exec(cmd));
@@ -31,11 +32,11 @@ var MOCHA_OPTS = ' --timeout 15000 --slow 500';
 
     target.suite = function() {
         assertExec(MOCHA + MOCHA_OPTS + ' -R dot ./tests/');
-    }
+    };
 
     target.functional = function() {
         assertExec(MOCHA + MOCHA_OPTS + ' -R tap ./tests/functional_test.js');
-    }
+    };
 
     //
     // make clean
@@ -60,8 +61,8 @@ var MOCHA_OPTS = ' --timeout 15000 --slow 500';
     };
     target.restart = function() {
         assertExec(FOREVER + ' stop app.js');
-        assertExec(FOREVER + ' --plain start app.js')
-    }
+        assertExec(FOREVER + ' --plain start app.js');
+    };
 
     //
     // make travis
@@ -117,7 +118,7 @@ var MOCHA_OPTS = ' --timeout 15000 --slow 500';
 
                     rm(output);
 
-                    if (res.output.indexOf("0 lint error(s) found") < 0) {
+                    if (res.output.indexOf('0 lint error(s) found') < 0) {
                         process.exit(1);
                     }
                 });

@@ -3,7 +3,7 @@
 // modules
 try {
     require('graphdat'); // manually installed, not part of package.json
-} catch(e) {
+} catch (e) {
     console.log('[NOTE]: graphdat is not installed, given that it\'s a manually installed module and not part of package.json, we\'re ignoring error and continuing.');
 }
 
