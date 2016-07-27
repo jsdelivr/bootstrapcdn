@@ -10,7 +10,6 @@ google_analytics:
 extras: false
 favicon:
   uri: /favicon.ico
-  sri: sha256-VoYJz1KLl/hFU2Jh/C7VNdW1cbslCfKYzlLI9nydVYM= sha512-zagUgkNiFdummjGPvkF6yUSFXynFCpmBBoJH/jz6i/jH2C12ulwwSTmotwTLJwvXMzEHuET0eLHb72ITTPeZ0g==
 stylesheets:
   style:
     uri: /stylesheets/style.css
