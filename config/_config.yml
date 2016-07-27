@@ -14,7 +14,7 @@ favicon:
 stylesheets:
   style:
     uri: /stylesheets/style.css
-    sri: sha256-OlSbjYBfrJGGd2zbT3qCsAZsPGxRwKOSGjqqfjF8aiY= sha512-1aDUINxj8c9UXJ76eIMAkG2/ofIjG8FBW4drgHUglwY/rGn+YWUtm8iSkrpAOtwZ9b9LEva02KPrTDx3M5ib3w==
+    sri: sha384-Hp4W0rZuGv3wWe7zJ2e1G/1/6sfDQI44YJ6lKrz+atPau51Jhz5UOGlFzYNZ0NqU
 javascripts:
   jquery:
     uri: 'https://code.jquery.com/jquery-1.11.2.min.js'
