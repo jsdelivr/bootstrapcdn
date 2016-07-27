@@ -118,7 +118,7 @@ var MOCHA_OPTS = ' --timeout 15000 --slow 500';
 
                     rm(output);
 
-                    if (res.output.indexOf('0 lint error(s) found') < 0) {
+                    if (res.stdout.indexOf("0 lint error(s) found") < 0) {
                         process.exit(1);
                     }
                 });
