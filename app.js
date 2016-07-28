@@ -29,7 +29,7 @@ var tweets = yaml.safeLoad(fs.readFileSync(path.join(__dirname, 'config', '_twee
 // all environments
 app.set('port', process.env.PORT || config.port || 3000);
 app.set('views', path.join(__dirname, '/views'));
-app.set('view engine', 'jade');
+app.set('view engine', 'pug');
 
 app.disable('x-powered-by');
 

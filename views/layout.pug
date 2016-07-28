@@ -42,7 +42,7 @@ html(lang="en")
                     include _partials/tweets
 
         - if (config.javascript && config.javascript.after)
-            - each js in config.javascript.after
+            each js in config.javascript.after
                 - js=js.replace('SWATCH_VERSION', config.bootswatch.version)
                 script(src=js)
 

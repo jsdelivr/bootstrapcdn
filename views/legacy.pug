@@ -2,7 +2,7 @@ extends layout
 
 block content
     h2 Bootstrap Legacy
-    - each item in config.bootstrap
+    each item in config.bootstrap
         - if (!item.latest)
             div.well
                 h2= item.version
