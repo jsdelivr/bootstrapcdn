@@ -4,7 +4,7 @@ block content
     h2 Bootstrap Legacy
     - each item in config.bootstrap
         - if (!item.latest)
-            div.well.text-center
+            div.well
                 h2= item.version
                 - if (item.stylesheet)
                     - var file = item.stylesheet

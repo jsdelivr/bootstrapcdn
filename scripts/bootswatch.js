@@ -1,11 +1,12 @@
 #!/usr/bin/env node
 // Hacking this together for now, perhaps revisit and clean up.
 
+//'use strict';
+
 var yaml    = require('js-yaml');
 var path    = require('path');
 var fs      = require('fs');
 var request = require('request');
-var digest  = require(path.join(__dirname, '..', 'lib', 'helpers')).sri.digest;
 
 var version = process.argv[2];
 if (!version) {
@@ -51,7 +52,7 @@ files.forEach(function(file) {
             try {
                 fs.mkdirSync(targetDir, 0755);
                 console.log('  Created: %s', targetDir);
-            } catch(e) {
+            } catch (e) {
                 /* ignore */
                 //console.log('Error:', e.message);
             }

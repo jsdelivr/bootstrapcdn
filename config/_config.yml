@@ -10,19 +10,18 @@ google_analytics:
 extras: false
 favicon:
   uri: /favicon.ico
-  sri: sha256-VoYJz1KLl/hFU2Jh/C7VNdW1cbslCfKYzlLI9nydVYM= sha512-zagUgkNiFdummjGPvkF6yUSFXynFCpmBBoJH/jz6i/jH2C12ulwwSTmotwTLJwvXMzEHuET0eLHb72ITTPeZ0g==
 stylesheets:
   style:
     uri: /stylesheets/style.css
-    sri: sha256-OlSbjYBfrJGGd2zbT3qCsAZsPGxRwKOSGjqqfjF8aiY= sha512-1aDUINxj8c9UXJ76eIMAkG2/ofIjG8FBW4drgHUglwY/rGn+YWUtm8iSkrpAOtwZ9b9LEva02KPrTDx3M5ib3w==
+    sri: sha384-mILSigz0QmYfY5TwW0zZm0iPfRYQVppRAbQT1ZuXCXGTovuHHBOdbwWnFQgBInPi
 javascripts:
   jquery:
     uri: 'https://code.jquery.com/jquery-1.11.2.min.js'
-    sri: sha256-Ls0pXSlb7AYs7evhd+VLnWsZ/AqEHcXBeMZUycz/CcA= sha512-eBrO3JneTOjVPZtDoVjGReqxsj39/WtXs8RCsRrMSjRODVsAZ9S3i7Fzq73tdfuRxBDytaWPcdQ4qmJm0EjZig==
+    sri: sha384-Pn+PczAsODRZ2PiGg0IheRROpP7lXO1NTIjiPo6cca8TliBvaeil42fobhzvZd74
 bootswatch:
   version: 3.3.6
-  link: 'http://bootswatch.com/SWATCH_NAME/'
-  image: 'http://bootswatch.com/SWATCH_NAME/thumbnail.png'
+  link: 'https://bootswatch.com/SWATCH_NAME/'
+  image: 'https://bootswatch.com/SWATCH_NAME/thumbnail.png'
   bootstrap: 'https://maxcdn.bootstrapcdn.com/bootswatch/SWATCH_VERSION/SWATCH_NAME/bootstrap.min.css'
   themes:
     - name: cerulean
@@ -299,7 +298,7 @@ showcase:
   - name: NBC News
     img: /images/showcase/nbc-news.png
     lib: Font Awesome 4.0.3
-    url: 'http://www.nbcnews.com'
+    url: 'http://www.nbcnews.com/'
   - name: EA Help
     img: /images/showcase/ea-help.png
     lib: Font Awesome 3.2.1
@@ -335,19 +334,19 @@ showcase:
   - name: New Relic
     img: /images/showcase/new-relic.png
     lib: Font Awesome 4.2.0
-    url: 'http://www.newrelic.com/'
+    url: 'https://newrelic.com/'
   - name: Onion Studios
     img: /images/showcase/onion-studios.png
     lib: Font Awesome 4.2.0
-    url: 'http://www.onionstudios.com'
+    url: 'http://www.onionstudios.com/'
   - name: Nasdaq
     img: /images/showcase/nasdaq.png
     lib: Font Awesome 4.4.0
-    url: 'http://www.nasdaq.com'
+    url: 'http://www.nasdaq.com/'
   - name: Creative Commons
     img: /images/showcase/creative-commons.png
     lib: Bootstrap 3.2.0
-    url: 'http://www.creativecommons.org'
+    url: 'https://creativecommons.org/'
   - name: Udacity
     img: /images/showcase/udacity.png
     lib: Bootstrap 3.0.0
@@ -403,12 +402,12 @@ integrations:
     url: 'https://react-bootstrap.github.io/'
 friends:
   - name: ScaleScale
-    url: 'http://www.scalescale.com/'
+    url: 'https://www.scalescale.com/'
   - name: Bootstrap
-    url: 'http://www.getbootstrap.com/'
+    url: 'https://www.getbootstrap.com/'
   - name: Real Python
     url: 'https://realpython.com/'
   - name: nixCraft
     url: 'http://www.cyberciti.biz/'
-  - name: Fonticons
-    url: 'https://fonticons.com/'
+  - name: Fort Awesome
+    url: 'https://fortawesome.com/'

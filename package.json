@@ -9,34 +9,33 @@
     "status": "node make status",
     "stop": "node make stop",
     "restart": "node make restart",
-    "test": "node make test",
+    "test": "snyk test && node make test",
     "test-nc": "node make test-nc",
     "snyk-protect": "snyk protect",
     "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
-    "async": "^1.4.2",
+    "async": "^2.0.1",
     "comma-it": "^0.0.7",
     "compression": "^1.5.2",
     "dateformat": "^1.0.11",
-    "errorhandler": "^1.4.2",
+    "errorhandler": "^1.4.3",
     "express": "^4.13.3",
     "express-sslify": "^1.0.1",
     "fs-walk": "0.0.1",
-    "html-validator": "^1.0.0",
     "htmlencode": "0.0.4",
+    "html-validator": "^1.0.0",
     "jade": "^1.11.0",
-    "js-yaml": "^3.4.2",
     "jstransformer-uglify-js": "^1.1.1",
-    "maxcdn": "^0.1.6",
-    "mktemp": "^0.4.0",
+    "js-yaml": "^3.4.2",
+    "maxcdn": "^0.2.0",
     "morgan": "^1.6.1",
     "request": "^2.64.0",
     "serve-favicon": "^2.3.0",
     "serve-static": "^1.10.0",
-    "shelljs": "^0.5.3",
-    "sri-toolbox": "^0.2.0",
-    "snyk": "^1.17.1"
+    "shelljs": "^0.7.2",
+    "snyk": "^1.17.1",
+    "sri-toolbox": "^0.2.0"
   },
   "devDependencies": {
     "bootlint": "^0.14.2",
@@ -44,11 +43,11 @@
     "forever": "^0.15.1",
     "format": "^0.2.1",
     "mocha": "^2.3.3",
-    "superagent": "^1.4.0",
+    "superagent": "^2.1.0",
     "uglify-js": "^2.6.2"
   },
   "engines": {
-    "node": "5.1"
+    "node": "4.x"
   },
   "snyk": true
 }

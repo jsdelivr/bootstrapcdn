@@ -6,8 +6,8 @@ var helpers = require(path.join(__dirname, 'test_helper.js'));
 var config  = helpers.config();
 
 function format(str, name) {
-    return str.replace("SWATCH_NAME", name)
-                .replace("SWATCH_VERSION", config.bootswatch.version);
+    return str.replace('SWATCH_NAME', name)
+                .replace('SWATCH_VERSION', config.bootswatch.version);
 }
 
 var uri      = helpers.app(config, 'bootswatch');
@@ -45,7 +45,7 @@ describe('bootswatch', function () {
 
     config.bootswatch.themes.forEach(function (theme) {
         var name  = theme.name;
-        var image = format(config.bootswatch.image,     theme.name);
+        var image = format(config.bootswatch.image, theme.name);
         var uri   = format(config.bootswatch.bootstrap, theme.name);
         var sri   = theme.sri;
 

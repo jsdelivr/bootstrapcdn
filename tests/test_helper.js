@@ -1,3 +1,5 @@
+'use strict';
+
 var validator = require('html-validator');
 var path      = require('path');
 var fs        = require('fs');
@@ -6,12 +8,14 @@ var assert    = require('assert');
 var format    = require('format');
 var encode    = require('htmlencode').htmlEncode;
 
+var response;
+
 // for array of types, first will be choosen when testing strictly
 var CONTENT_TYPE_MAP = {
     css:  'text/css',
     js:   ['application/javascript',
             'text/javascript',
-            'application/x-javascript' ],
+            'application/x-javascript'],
 
     // fonts
     eot:   'application/vnd.ms-fontobject',
@@ -53,9 +57,9 @@ function config() {
 }
 
 function cleanEndpoint(endpoint) {
-    endpoint = (endpoint === undefined ? '/' : endpoint);
-    endpoint = (endpoint[0] !== '/' ? '/'+endpoint : endpoint);
-    endpoint = (endpoint[endpoint.length-1] !== '/' ? endpoint+'/' : endpoint);
+    endpoint = endpoint === undefined ? '/' : endpoint;
+    endpoint = endpoint[0] !== '/' ? '/'+endpoint : endpoint;
+    endpoint = endpoint[endpoint.length-1] !== '/' ? endpoint+'/' : endpoint;
 
     return endpoint;
 }
@@ -64,7 +68,7 @@ function app(config, endpoint) {
     endpoint = cleanEndpoint(endpoint);
 
     // don't use configured port
-    process.env.PORT = (config.port < 3000 ? config.port + 3000 : config.port + 1);
+    process.env.PORT = config.port < 3000 ? config.port + 3000 : config.port + 1;
 
     // load app
     require('../app.js');
@@ -94,22 +98,26 @@ function assertValidHTML(response, done) {
     };
 
     validator(options, function(err, data) {
-        if (err) console.trace(err);
+        if (err) {
+            console.trace(err);
+        }
 
-        var errors = data.split("\n")
+        var errors = data.split('\n')
             .filter(function(e) {
-                if (e.match(/^Error:/))
+                if (e.match(/^Error:/)) {
                     return true;
+                }
                 return false;
             })
             .filter(function(e) {
-                if (e.match(/^Error: Attribute.+integrity.+at this point./))
+                if (e.match(/^Error: Attribute.+integrity.+at this point./)) {
                     return false;
+                }
                 return true;
             });
 
         if (errors.length > 0) {
-            var sep = "\n\t - ";
+            var sep = '\n\t - ';
             assert(false, sep + errors.join(sep));
         } else {
             assert(true);
@@ -133,31 +141,33 @@ function preFetch(uri, cb, http) {
 }
 
 function cssHTML(uri, sri) {
-    return encode("<link href=\""+uri+"\" rel=\"stylesheet\" integrity=\""+sri+"\" crossorigin=\"anonymous\">");
+    return encode('<link href="' + uri + '" rel="stylesheet" integrity="' + sri + '" crossorigin="anonymous">');
 }
 
 function cssJade(uri, sri) {
-    return encode("link(href=\""+uri+"\", rel=\"stylesheet\", integrity=\""+sri+"\", crossorigin=\"anonymous\")");
+    return encode('link(href="' + uri + '", rel="stylesheet", integrity="' + sri + '", crossorigin="anonymous")');
 }
 
 function cssHAML(uri, sri) {
-    return encode("%link{href: \""+uri+"\", rel: \"stylesheet\", integrity: \""+sri+"\", crossorigin: \"anonymous\"}");
+    return encode('%link{href: "' + uri + '", rel: "stylesheet", integrity: "' + sri + '", crossorigin: "anonymous"}');
 }
 
 function jsHTML(uri, sri) {
-    return encode("<script src=\""+uri+"\" integrity=\""+sri+"\" crossorigin=\"anonymous\"></script>");
+    return encode('<script src="' + uri + '" integrity="' + sri + '" crossorigin="anonymous"></script>');
 }
 
 function jsJade(uri, sri) {
-    return encode("script(src=\""+uri+"\", integrity=\""+sri+"\", crossorigin=\"anonymous\")");
+    return encode('script(src="' + uri + '", integrity="' + sri + '", crossorigin="anonymous")');
 }
 
 function jsHAML(uri, sri) {
-    return encode("%script{src: \""+uri+"\", integrity: \""+sri+"\", crossorigin: \"anonymous\"}");
+    return encode('%script{src: "' + uri + '", integrity: "' + sri + '", crossorigin: "anonymous"}');
 }
 
 function domainCheck(uri) {
-    if (process.env.TEST_S3 === undefined) return uri;
+    if (process.env.TEST_S3 === undefined) {
+        return uri;
+    }
 
     return uri.replace('https://maxcdn.bootstrapcdn.com/', process.env.TEST_S3);
 }
@@ -177,12 +187,12 @@ module.exports = {
     css: {
         jade: cssJade,
         html: cssHTML,
-        haml: cssHAML,
+        haml: cssHAML
     },
     javascript: {
         jade: jsJade,
         html: jsHTML,
-        haml: jsHAML,
+        haml: jsHAML
     },
     CONTENT_TYPE_MAP: CONTENT_TYPE_MAP,
     domainCheck: domainCheck
