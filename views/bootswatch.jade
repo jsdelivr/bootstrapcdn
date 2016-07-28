@@ -2,7 +2,7 @@ extends layout
 
 block content
     h2 Bootswatch
-    div.well.text-center
+    div.well
         - for (var i = 0; i < config.bootswatch.themes.length; i++) {
             - var name = config.bootswatch.themes[i].name.toLowerCase()
             - var sri  = config.bootswatch.themes[i].sri
