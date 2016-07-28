@@ -13,7 +13,7 @@ favicon:
 stylesheets:
   style:
     uri: /stylesheets/style.css
-    sri: sha384-Hp4W0rZuGv3wWe7zJ2e1G/1/6sfDQI44YJ6lKrz+atPau51Jhz5UOGlFzYNZ0NqU
+    sri: sha384-mILSigz0QmYfY5TwW0zZm0iPfRYQVppRAbQT1ZuXCXGTovuHHBOdbwWnFQgBInPi
 javascripts:
   jquery:
     uri: 'https://code.jquery.com/jquery-1.11.2.min.js'
