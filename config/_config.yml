@@ -298,7 +298,7 @@ showcase:
   - name: NBC News
     img: /images/showcase/nbc-news.png
     lib: Font Awesome 4.0.3
-    url: 'http://www.nbcnews.com'
+    url: 'http://www.nbcnews.com/'
   - name: EA Help
     img: /images/showcase/ea-help.png
     lib: Font Awesome 3.2.1
@@ -334,19 +334,19 @@ showcase:
   - name: New Relic
     img: /images/showcase/new-relic.png
     lib: Font Awesome 4.2.0
-    url: 'http://www.newrelic.com/'
+    url: 'https://newrelic.com/'
   - name: Onion Studios
     img: /images/showcase/onion-studios.png
     lib: Font Awesome 4.2.0
-    url: 'http://www.onionstudios.com'
+    url: 'http://www.onionstudios.com/'
   - name: Nasdaq
     img: /images/showcase/nasdaq.png
     lib: Font Awesome 4.4.0
-    url: 'http://www.nasdaq.com'
+    url: 'http://www.nasdaq.com/'
   - name: Creative Commons
     img: /images/showcase/creative-commons.png
     lib: Bootstrap 3.2.0
-    url: 'http://www.creativecommons.org'
+    url: 'https://creativecommons.org/'
   - name: Udacity
     img: /images/showcase/udacity.png
     lib: Bootstrap 3.0.0
@@ -402,9 +402,9 @@ integrations:
     url: 'https://react-bootstrap.github.io/'
 friends:
   - name: ScaleScale
-    url: 'http://www.scalescale.com/'
+    url: 'https://www.scalescale.com/'
   - name: Bootstrap
-    url: 'http://www.getbootstrap.com/'
+    url: 'https://www.getbootstrap.com/'
   - name: Real Python
     url: 'https://realpython.com/'
   - name: nixCraft

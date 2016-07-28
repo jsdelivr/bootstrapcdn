@@ -13,7 +13,7 @@
 
 ## Requirements
 
-1. [Node.js](http://nodejs.org/)
+1. [Node.js](https://nodejs.org/)
 
 ## Running
 
