@@ -11,9 +11,9 @@ block content
                 .col-md-2
                     .tryit
                         - if (i === helpers.theme.selected(config, theme))
-                            a.btn.btn-primary.disabled(href="#") Active!
+                            button.btn.btn-primary(type="button", disabled) Active!
                         - else
-                            a.btn.btn-primary(href="javascript:tryIt(" + i + ")") Try it!
+                            button.btn.btn-primary(type="button", onclick="tryIt(" + i + ")") Try it!
                 .col-sm-12.col-md-8
                     .bootswatch
                         a(href=config.bootswatch.link.replace('SWATCH_NAME', name))
