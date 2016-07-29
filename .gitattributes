@@ -1,4 +1,4 @@
 # Enforce Unix newlines
 
-public/stylesheets/*.css    text eol=lf
-public/javascripts/*.js     text eol=lf
+public/assets/css/*.css     text eol=lf
+public/assets/js/*.js       text eol=lf
