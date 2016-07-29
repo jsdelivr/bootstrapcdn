@@ -18,7 +18,11 @@ var MOCHA_OPTS = ' --timeout 15000 --slow 500';
             process.exit(result.code);
         }
     }
-    function assertExec(cmd) {
+    function assertExec(cmd, options) {
+        if (options) {
+            assert(exec(cmd, options));
+        }
+
         assert(exec(cmd));
     }
 
@@ -54,7 +58,13 @@ var MOCHA_OPTS = ' --timeout 15000 --slow 500';
 
     // for functional tests
     target.start = function() {
-        assertExec(FOREVER + ' --plain start app.js');
+        var env = process.env;
+
+        if (!env.NODE_ENV) {
+            env.NODE_ENV = 'production';
+        }
+
+        assertExec(FOREVER + ' --plain start app.js', { env: env });
     };
     target.stop = function() {
         assertExec(FOREVER + ' stop app.js');
