@@ -1,0 +1,14 @@
+extends layout
+
+block content
+    h2 Showcase
+    .row
+        .col-md-6.text-center
+            each item in col1
+                include _partials/showcase.pug
+
+        .col-md-6.text-center
+            each item in col2
+                include _partials/showcase.pug
+
+//- vim: ft=jade sw=4 sts=4 et:
