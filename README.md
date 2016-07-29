@@ -50,7 +50,7 @@ node make restart
 node make status
 
 # view logs
-tail -f ./logs/server.log
+node ./node_modules/.bin/forever logs app.js
 ```
 
 ## Configuration
