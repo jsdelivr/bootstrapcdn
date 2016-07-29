@@ -27,29 +27,6 @@ npm install
 [node] make test run
 ```
 
-#### Stubbing "Popular Files"
-
-There are two ways of using local `popular.json` data.
-
-The first is to use the stubbed version in the test framework, this can be done by changing `config/_config.yml` and setting `extras` to `stub`...
-
-```yaml
-####
-# Turn stats on or off.
-# - Use 'stub' to develop against test stub.
-# extras: true
-extras: stub
-```
-
-The second method would be to copy `tests/stubs/popular.json` to your system's temp directory as `.popular.json` &ndash; e.g. `/tmp/.popular.json` on Linux and Mac.
-
-If you're unsure of the location of the temp directory on your system, do the following:
-
-```sh
-$ node
-> os.tmpdir()
-'/tmp'
-```
 
 ### Demonized
 
@@ -74,27 +51,6 @@ node make status
 
 # view logs
 tail -f ./logs/server.log
-```
-
-### Nginx
-
-Nginx tasks are only supported on \*nix platforms which support `make`.
-
-```
-# generate nginx conf for your checkout and start nginx
-node make nginx/start
-
-# stop nginx
-node make nginx/stop
-
-# restart (stop then start) nginx
-node make nginx/restart
-
-# HUP nginx process to reload configs
-node make nginx/reload
-
-# to regnerate nginx.conf
-rm nginx.conf
 ```
 
 ## Configuration
