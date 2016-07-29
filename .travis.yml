@@ -1,10 +1,21 @@
+git:
+  depth: 10
+
 language: node_js
+
 node_js:
   - "4"
-script: make travis
+
+script: node make travis
+
 matrix:
   fast_finish: true
+
 notifications:
   email:
     - joshua@mervine.net
     - bootstrap@maxcdn.com
+
+cache:
+  directories:
+    - node_modules
