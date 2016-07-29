@@ -50,14 +50,6 @@ app.use(function(req, res, next) {
     var oneMonth = 30 * 24 * 60 * 60 * 1000;
     res.setHeader('Expires', new Date(Date.now() + oneMonth).toUTCString());
 
-    // enable bootlint where applicable
-    if (req.query.bootlint && req.query.bootlint === 'true') {
-        app.locals.bootlint = config.bootlint.filter(function(o) { return o.latest; })[0];
-        if (env !== 'production') {
-            app.locals.bootlint.javascript = app.locals.bootlint.javascript.replace('https://maxcdn.bootstrapcdn.com', '');
-        }
-    }
-
     next();
 });
 
