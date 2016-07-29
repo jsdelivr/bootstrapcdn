@@ -1,12 +1,5 @@
 'use strict';
 
-// modules
-try {
-    require('graphdat'); // manually installed, not part of package.json
-} catch (e) {
-    console.log('[NOTE]: graphdat is not installed, given that it\'s a manually installed module and not part of package.json, we\'re ignoring error and continuing.');
-}
-
 var env = process.env.NODE_ENV || 'development';
 
 var path    = require('path');
