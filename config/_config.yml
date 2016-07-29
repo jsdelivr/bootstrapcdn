@@ -7,7 +7,6 @@ description: BootstrapCDN
 google_analytics:
   account_id: UA-32253110-1
   domain_name: bootstrapcdn.com
-extras: false
 favicon:
   uri: /favicon.ico
 stylesheets:

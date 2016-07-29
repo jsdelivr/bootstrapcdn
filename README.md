@@ -62,8 +62,7 @@ Key Overview:
 1. `port`: Integer value of the Node application port.
 2. `theme`: Integer value of the array index from the `bootswatch` section below.
 3. `authors`: Array of Author Strings
-4. `description`: String containing the meta descript of the site.
-5. `extras`: Turn on extras functionality. Requires `config/_oauth.yml` update with correct `key` and `security` tokens.
+4. `description`: String containing the meta description of the site.
 5. `favicon`: Hash containing the favicon path.
 6. `google_analytics`: Hash containing GA `account_id` and `domain_name`.
 7. `stylesheets`: Array containing stylesheet files to be loaded at the top of the site.
@@ -84,4 +83,3 @@ To add new tweets to the "Mad Love" section, follow these steps:
 ### `config/_oauth.yml`
 
 This is reserved for MaxCDN and NetDNA installation only at this time. Contact @jdorfman for more information.
-
