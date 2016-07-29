@@ -14,14 +14,19 @@ var MOCHA_OPTS = ' --timeout 15000 --slow 500';
 (function() {
     cd(__dirname);
 
-    function assert(result) {
-        if (result.code !== 0) {
-            process.exit(result.code);
+    var ignoreFailure = function() {};
+    var handleFailure = function(code) {
+        process.exit(code);
+    };
+
+    // map default execute with desired error handling
+    var assertExec = function(cmd, options) {
+        if (options) {
+            exec(cmd, options, handleFailure);
         }
-    }
-    function assertExec(cmd) {
-        assert(exec(cmd));
-    }
+
+        exec(cmd, handleFailure);
+    };
 
     //
     // make test
@@ -54,15 +59,28 @@ var MOCHA_OPTS = ' --timeout 15000 --slow 500';
     };
 
     // for functional tests
-    target.start = function() {
-        assertExec(FOREVER + ' --plain start app.js');
+    target.start = function(callback) {
+        var env = process.env;
+
+        if (!env.NODE_ENV) {
+            env.NODE_ENV = 'production';
+        }
+
+        exec(FOREVER + ' start --plain app.js', { env: env });
     };
+
     target.stop = function() {
         assertExec(FOREVER + ' stop app.js');
     };
+
+    target.tryStop = function() {
+        // use remapped default exec behavior from shelljs to ignore failures
+        exec(FOREVER + ' stop app.js', ignoreFailure);
+    };
+
     target.restart = function() {
-        assertExec(FOREVER + ' stop app.js');
-        assertExec(FOREVER + ' --plain start app.js');
+        target.tryStop();
+        target.start();
     };
 
     //
@@ -123,27 +141,20 @@ var MOCHA_OPTS = ' --timeout 15000 --slow 500';
 
                     response.on('end', function() {
                         file.close();
-
                         outputs.push(output);
-
                         callback();
                     });
                 });
-            }, function(err) {
-                echo('+ node make stop');
-                try {
-                    // it's okay if this fails
-                    target.stop();
-                } catch (e) { }
+            }, function() {
+                echo('+ node make tryStop');
+                target.tryStop();
 
                 echo('+ bootlint ' + outputs.join('\\\n\t'));
 
                 // disabling version error's until bootswatch is updated to 3.3.4
-                exec(BOOTLINT + ' -d W013 ' + outputs.join(' '), function(code, stdout) {
+                exec(BOOTLINT + ' -d W013 ' + outputs.join(' '), function(code) {
                     rm(outputs);
-                    if (code !== 0) {
-                        process.exit(code);
-                    }
+                    handleFailure(code);
                 });
             });
         }, 2000);

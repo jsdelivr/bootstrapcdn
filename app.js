@@ -26,11 +26,19 @@ app.set('view engine', 'pug');
 
 app.disable('x-powered-by');
 
-// production
 if (env === 'production') {
+    // production
     app.use(logger('combined'));
-    app.use(enforce.HTTPS({ trustProtoHeader: true }));
+
+    if (process.env.FORCE_SSL === 'true') {
+        // Because this is (always) going to break local, I'm requiring a secondary
+        // environment variable to be enabled to activate it. This is required in
+        // app.json to ensure that it's always set when building out the app on
+        // Heroku.
+        app.use(enforce.HTTPS({ trustProtoHeader: true }));
+    }
 } else {
+    // development
     app.locals.pretty = true;
     app.use(logger('dev'));
     app.use(errorHandler({ dumpExceptions: true, showStack: true }));
