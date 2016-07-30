@@ -1,9 +1,11 @@
 hr
 br
 a(href=item.url, target="_blank")
-    img.img-responsive.thumbnail.center-block(src=item.img, alt=item.name)
+    != helpers.cacheBuster.img(item.img, { alt: item.name, class: "img-responsive thumbnail center-block" })
 h3
     a(href=item.url, target="_blank")=item.name
 | Platform: 
 span=item.plat
 br
+
+//- vim: ft=pug sw=4 sts=4 et:

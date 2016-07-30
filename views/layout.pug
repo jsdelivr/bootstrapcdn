@@ -18,7 +18,8 @@ html(lang="en")
 
         - fontawesome = config.fontawesome.filter(function(o) { return o.latest; })[0];
         link(rel='stylesheet', href=fontawesome.stylesheet, integrity=fontawesome.stylesheet_sri, crossorigin="anonymous")
-        link(rel='stylesheet', href=config.stylesheets.style.uri, integrity=config.stylesheets.style.sri, crossorigin="anonymous")
+
+        != helpers.cacheBuster.css(config.stylesheets.style.uri, config.stylesheets.style.sri)
 
         block head
 
