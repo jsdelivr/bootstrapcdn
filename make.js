@@ -1,9 +1,10 @@
 'use strict';
 
 require('shelljs/make');
-var path = require('path');
-var http = require('http');
-var fs   = require('fs');
+var path  = require('path');
+var http  = require('http');
+var fs    = require('fs');
+var async = require('async');
 
 var MOCHA      = path.join(__dirname, 'node_modules/.bin/mocha');
 var BOOTLINT   = path.join(__dirname, 'node_modules/.bin/bootlint');
@@ -18,7 +19,11 @@ var MOCHA_OPTS = ' --timeout 15000 --slow 500';
             process.exit(result.code);
         }
     }
-    function assertExec(cmd) {
+    function assertExec(cmd, options) {
+        if (options) {
+            assert(exec(cmd, options));
+        }
+
         assert(exec(cmd));
     }
 
@@ -54,7 +59,13 @@ var MOCHA_OPTS = ' --timeout 15000 --slow 500';
 
     // for functional tests
     target.start = function() {
-        assertExec(FOREVER + ' --plain start app.js');
+        var env = process.env;
+
+        if (!env.NODE_ENV) {
+            env.NODE_ENV = 'production';
+        }
+
+        assertExec(FOREVER + ' --plain start app.js', { env: env });
     };
     target.stop = function() {
         assertExec(FOREVER + ' stop app.js');
@@ -95,33 +106,55 @@ var MOCHA_OPTS = ' --timeout 15000 --slow 500';
         env.PORT = port;
         target.start();
 
+        var pages = [ '', 'fontawesome', 'bootswatch', 'bootlint', 'legacy',
+            'showcase', 'integrations' ];
+
         // sleep
         setTimeout(function() {
-            var output = path.join(__dirname, 'lint.html');
-            var file = fs.createWriteStream(output);
+            async.eachSeries(pages, function(page, callback) {
+                var url = 'http://localhost:' + port + '/' + page + (page !== '' ? '/' : '');
 
-            // okay, not really curl, but it communicates
-            echo('+ curl http://localhost:' + port + '/ > ' + output);
-            var request = http.get('http://localhost:' + port + '/', function(response) {
-                response.pipe(file);
+                if (page !== '') {
+                    page += '_';
+                }
 
-                response.on('end', function() {
-                    file.close();
+                var output = path.join(__dirname, page + 'lint.html');
+                var file = fs.createWriteStream(output);
 
-                    echo('+ bootlint ' + output);
+                // okay, not really curl, but it communicates
+                echo('------------------------------------------------');
+                echo('+ curl ' + url + ' > ' + output);
+                echo('+ bootlint ' + output);
 
-                    // disabling version error's until bootswatch is updated to 3.3.4
-                    var res = exec(BOOTLINT + ' -d W013 ' + output);
+                var request = http.get(url, function(response) {
+                    response.pipe(file);
 
-                    echo('+ node make stop');
-                    target.stop();
+                    response.on('end', function() {
+                        file.close();
 
-                    rm(output);
+                        // disabling version error's until bootswatch is updated to 3.3.4
+                        var res = exec(BOOTLINT + ' -d W013 ' + output);
 
-                    if (res.stdout.indexOf("0 lint error(s) found") < 0) {
-                        process.exit(1);
-                    }
+                        rm(output);
+
+                        if (res.stdout.indexOf("0 lint error(s) found") < 0) {
+                            return callback(url + ' failed!');
+                        }
+
+                        callback();
+                    });
                 });
+            }, function(err) {
+                echo('+ node make stop');
+                try {
+                    // it's okay if this fails
+                    target.stop();
+                } catch (e) { }
+
+                if (err) {
+                    console.log(' ');
+                    console.log('An endpoint failed bootlint!');
+                }
             });
         }, 2000);
     };

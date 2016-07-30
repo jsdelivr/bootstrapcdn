@@ -1,6 +1,11 @@
 {
-  "name":"bootstrap-cdn",
-  "scripts":{},
-  "env":{},
-  "addons":[]
+    "name":"bootstrap-cdn",
+    "scripts":{},
+    "env":{
+        "FORCE_SSL": {
+            "description": "Force SSL redirection",
+            "value": "true"
+        }
+    },
+    "addons":[]
 }
