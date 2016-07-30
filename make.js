@@ -124,7 +124,10 @@ var MOCHA_OPTS = ' --timeout 15000 --slow 500';
                     var res = exec(BOOTLINT + ' -d W013 ' + output);
 
                     echo('+ node make stop');
-                    target.stop();
+                    try {
+                        // it's okay if this fails
+                        target.stop();
+                    } catch (e) { }
 
                     rm(output);
 
