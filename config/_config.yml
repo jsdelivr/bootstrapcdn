@@ -222,7 +222,7 @@ bootstrap:
   - version: 2.1.1
     stylesheet: 'https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap-combined.min.css'
     javascript: 'https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.1.1/js/bootstrap.min.js'
-    javascript_sri: sha384-v2XCZ4x+SDQreGSr5HtkSOzDeIzE4K5aqWp3xcskLxq7Y5S76C4sqh/MEurBY1fz
+    javascript_sri: sha384-gYjuefvjBnMR9aV2JTKd0GeQnxj+mKMBirUgIH+rBsMaUe1iAC8UtOnqPrZV8s2V
     stylesheet_sri: sha384-Cnxb+E2mrhv+pAvYnCOpd6HecV+JYAqrZFWwhuURK4EhHf3A4ALFYOpsbtLTdkPT
   - version: 2.1.0
     stylesheet: 'https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.1.0/css/bootstrap-combined.min.css'
