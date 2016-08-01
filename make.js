@@ -94,6 +94,7 @@ var MOCHA_OPTS = ' --timeout 15000 --slow 500';
         echo('+ node make start');
         var port = 3080;
         env.PORT = port;
+        env.NODE_ENV = 'development';
         target.start();
 
         var pages = [ '', 'fontawesome', 'bootswatch', 'bootlint', 'legacy',
