@@ -99,8 +99,11 @@ var MOCHA_OPTS = ' --timeout 15000 --slow 500';
         var pages = [ '', 'fontawesome', 'bootswatch', 'bootlint', 'legacy',
             'showcase', 'integrations' ];
 
+        var outputs = [];
+
         // sleep
         setTimeout(function() {
+            echo('------------------------------------------------');
             async.eachSeries(pages, function(page, callback) {
                 var url = 'http://localhost:' + port + '/' + page + (page !== '' ? '/' : '');
 
@@ -112,9 +115,7 @@ var MOCHA_OPTS = ' --timeout 15000 --slow 500';
                 var file = fs.createWriteStream(output);
 
                 // okay, not really curl, but it communicates
-                echo('------------------------------------------------');
                 echo('+ curl ' + url + ' > ' + output);
-                echo('+ bootlint ' + output);
 
                 var request = http.get(url, function(response) {
                     response.pipe(file);
@@ -122,14 +123,7 @@ var MOCHA_OPTS = ' --timeout 15000 --slow 500';
                     response.on('end', function() {
                         file.close();
 
-                        // disabling version error's until bootswatch is updated to 3.3.4
-                        var res = exec(BOOTLINT + ' -d W013 ' + output);
-
-                        rm(output);
-
-                        if (res.output.indexOf("0 lint error(s) found") < 0) {
-                            return callback(url + ' failed!');
-                        }
+                        outputs.push(output);
 
                         callback();
                     });
@@ -141,9 +135,17 @@ var MOCHA_OPTS = ' --timeout 15000 --slow 500';
                     target.stop();
                 } catch (e) { }
 
-                if (err) {
+                echo('+ bootlint ' + outputs.join('\\\n\t'));
+
+                // disabling version error's until bootswatch is updated to 3.3.4
+                var res = exec(BOOTLINT + ' -d W013 ' + outputs.join(' '));
+
+                rm(outputs);
+
+                if (res.output.indexOf('0 lint error(s) found') < 0) {
                     console.log(' ');
                     console.log('An endpoint failed bootlint!');
+                    process.exit(1);
                 }
             });
         }, 2000);
