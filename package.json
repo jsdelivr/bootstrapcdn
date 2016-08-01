@@ -33,7 +33,7 @@
     "request": "^2.64.0",
     "serve-favicon": "^2.3.0",
     "serve-static": "^1.10.0",
-    "shelljs": "^0.7.2",
+    "shelljs": "^0.5.3",
     "snyk": "^1.17.1",
     "sri-toolbox": "^0.2.0"
   },
@@ -42,7 +42,7 @@
     "expect.js": "^0.3.1",
     "forever": "^0.15.1",
     "format": "^0.2.1",
-    "mocha": "^2.3.3",
+    "mocha": "^3.0.0",
     "superagent": "^2.1.0",
     "uglify-js": "^2.6.2"
   },
