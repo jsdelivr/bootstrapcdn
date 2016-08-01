@@ -2,8 +2,8 @@
 
 [![Join the chat at https://gitter.im/MaxCDN/bootstrap-cdn](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/MaxCDN/bootstrap-cdn)
 [![Build Status](https://travis-ci.org/MaxCDN/bootstrap-cdn.svg?branch=master)](https://travis-ci.org/MaxCDN/bootstrap-cdn)
-[![Dependency Status](https://david-dm.org/MaxCDN/bootstrap-cdn.svg)](https://david-dm.org/MaxCDN/bootstrap-cdn)
-[![devDependency Status](https://david-dm.org/MaxCDN/bootstrap-cdn/dev-status.svg)](https://david-dm.org/MaxCDN/bootstrap-cdn#info=devDependencies)
+[![dependencies Status](https://david-dm.org/MaxCDN/bootstrap-cdn/status.svg)](https://david-dm.org/MaxCDN/bootstrap-cdn)
+[![devDependencies Status](https://david-dm.org/MaxCDN/bootstrap-cdn/dev-status.svg)](https://david-dm.org/MaxCDN/bootstrap-cdn?type=dev)
 
 
 ## Deploy your own copy on Heroku
