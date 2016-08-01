@@ -127,7 +127,7 @@ var MOCHA_OPTS = ' --timeout 15000 --slow 500';
 
                         rm(output);
 
-                        if (res.stdout.indexOf("0 lint error(s) found") < 0) {
+                        if (res.output.indexOf("0 lint error(s) found") < 0) {
                             return callback(url + ' failed!');
                         }
 
