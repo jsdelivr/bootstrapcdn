@@ -7,12 +7,11 @@ description: BootstrapCDN
 google_analytics:
   account_id: UA-32253110-1
   domain_name: bootstrapcdn.com
-extras: false
 favicon:
   uri: /favicon.ico
 stylesheets:
   style:
-    uri: /stylesheets/style.css
+    uri: /assets/css/style.css
     sri: sha384-mILSigz0QmYfY5TwW0zZm0iPfRYQVppRAbQT1ZuXCXGTovuHHBOdbwWnFQgBInPi
 javascripts:
   jquery:
@@ -223,7 +222,7 @@ bootstrap:
   - version: 2.1.1
     stylesheet: 'https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap-combined.min.css'
     javascript: 'https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.1.1/js/bootstrap.min.js'
-    javascript_sri: sha384-v2XCZ4x+SDQreGSr5HtkSOzDeIzE4K5aqWp3xcskLxq7Y5S76C4sqh/MEurBY1fz
+    javascript_sri: sha384-gYjuefvjBnMR9aV2JTKd0GeQnxj+mKMBirUgIH+rBsMaUe1iAC8UtOnqPrZV8s2V
     stylesheet_sri: sha384-Cnxb+E2mrhv+pAvYnCOpd6HecV+JYAqrZFWwhuURK4EhHf3A4ALFYOpsbtLTdkPT
   - version: 2.1.0
     stylesheet: 'https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.1.0/css/bootstrap-combined.min.css'
@@ -288,116 +287,116 @@ fontawesome:
     stylesheet_sri: sha384-5WSMKsEjlK1hO/E+0ERtEmsujy8NFgEb15UOB5phg+1xk2zTO0Dd71qJ+7yD1QFN
 showcase:
   - name: Microsoft Education
-    img: /images/showcase/microsoft-education.png
+    img: /assets/img/showcase/microsoft-education.png
     lib: Font Awesome 4.3.0
     url: 'http://www.microsoft.com/en-us/education/default.aspx'
   - name: New York Post
-    img: /images/showcase/new-york-post.png
+    img: /assets/img/showcase/new-york-post.png
     lib: Font Awesome 4.0.3
     url: 'http://nypost.com/'
   - name: NBC News
-    img: /images/showcase/nbc-news.png
+    img: /assets/img/showcase/nbc-news.png
     lib: Font Awesome 4.0.3
     url: 'http://www.nbcnews.com/'
   - name: EA Help
-    img: /images/showcase/ea-help.png
+    img: /assets/img/showcase/ea-help.png
     lib: Font Awesome 3.2.1
     url: 'https://help.ea.com/en/'
   - name: Stanford University
-    img: /images/showcase/stanford.png
+    img: /assets/img/showcase/stanford.png
     lib: Font Awesome 4.3.0
     url: 'http://www.stanford.edu/'
   - name: Go Doc
-    img: /images/showcase/godoc-org.png
+    img: /assets/img/showcase/godoc-org.png
     lib: Bootstrap 3.3.1
     url: 'http://godoc.org/'
   - name: Mozilla Webmaker API
-    img: /images/showcase/mozilla-webmaker.png
+    img: /assets/img/showcase/mozilla-webmaker.png
     lib: Bootstrap 3.0.3
     url: 'https://api.webmaker.org/docs'
   - name: New York University
-    img: /images/showcase/nyu.png
+    img: /assets/img/showcase/nyu.png
     lib: Font Awesome 4.2.0
     url: 'http://www.nyu.edu/'
   - name: Cracked
-    img: /images/showcase/cracked.png
+    img: /assets/img/showcase/cracked.png
     lib: 'Bootstrap 3.3.2, Font Awesome 4.3.0'
     url: 'http://www.cracked.com/'
   - name: HP Support
-    img: /images/showcase/hp-support.png
+    img: /assets/img/showcase/hp-support.png
     lib: Font Awesome 4.1.0
     url: 'http://support.hp.com/us-en'
   - name: Monster
-    img: /images/showcase/monster.png
+    img: /assets/img/showcase/monster.png
     lib: Font Awesome 4.2.0
     url: 'http://www.monster.com/'
   - name: New Relic
-    img: /images/showcase/new-relic.png
+    img: /assets/img/showcase/new-relic.png
     lib: Font Awesome 4.2.0
     url: 'https://newrelic.com/'
   - name: Onion Studios
-    img: /images/showcase/onion-studios.png
+    img: /assets/img/showcase/onion-studios.png
     lib: Font Awesome 4.2.0
     url: 'http://www.onionstudios.com/'
   - name: Nasdaq
-    img: /images/showcase/nasdaq.png
+    img: /assets/img/showcase/nasdaq.png
     lib: Font Awesome 4.4.0
     url: 'http://www.nasdaq.com/'
   - name: Creative Commons
-    img: /images/showcase/creative-commons.png
+    img: /assets/img/showcase/creative-commons.png
     lib: Bootstrap 3.2.0
     url: 'https://creativecommons.org/'
   - name: Udacity
-    img: /images/showcase/udacity.png
+    img: /assets/img/showcase/udacity.png
     lib: Bootstrap 3.0.0
     url: 'https://www.udacity.com/course/website-performance-optimization--ud884'
   - name: AdRoll
-    img: /images/showcase/llorda.png
+    img: /assets/img/showcase/llorda.png
     lib: Font Awesome 4.5.0
     url: 'https://help.adroll.com/hc/en-us'
 integrations:
   - name: Bootstrap 3 Snippets
-    img: /images/integrations/atom-bootstrap3.png
+    img: /assets/img/integrations/atom-bootstrap3.png
     plat: Atom
     url: 'https://atom.io/packages/atom-bootstrap3'
   - name: Bootstrap 3
-    img: /images/integrations/drupal-bootstrap3.png
+    img: /assets/img/integrations/drupal-bootstrap3.png
     plat: Drupal
     url: 'https://www.drupal.org/project/bootstrap'
   - name: Freight
-    img: /images/integrations/sentry-freight.png
+    img: /assets/img/integrations/sentry-freight.png
     plat: Python
     url: 'https://github.com/getsentry/freight'
   - name: Bootstrap NBM
-    img: /images/integrations/bootstrap-nbm.png
+    img: /assets/img/integrations/bootstrap-nbm.png
     plat: NetBeans
     url: 'http://davidsalter.com/2014/05/bootstrap-cdn-plugin-for-netbeans-release-1-1-0.html'
   - name: BootstrapCDN WP
-    img: /images/integrations/bootstrapcdn-wp.png
+    img: /assets/img/integrations/bootstrapcdn-wp.png
     plat: WordPress
     url: 'https://wordpress.org/plugins/bootstrapcdn/'
   - name: Light Bootstrap Dashboard
-    img: /images/integrations/light-bootstrap-dashboard.png
+    img: /assets/img/integrations/light-bootstrap-dashboard.png
     plat: WebPlatform
     url: 'http://www.creative-tim.com/product/light-bootstrap-dashboard'
   - name: Radix Theme
-    img: /images/integrations/radix-theme-drupal.png
+    img: /assets/img/integrations/radix-theme-drupal.png
     plat: Drupal
     url: 'https://www.drupal.org/project/radix'
   - name: Bootstrap 3 Sublime Plugin
-    img: /images/integrations/bs3-sublime-plugin.png
+    img: /assets/img/integrations/bs3-sublime-plugin.png
     plat: Sublime
     url: 'https://github.com/JasonMortonNZ/bs3-sublime-plugin'
   - name: Bootstrap 3 Jade Sublime Plugin
-    img: /images/integrations/bs3-jade-sublime-plugin.png
+    img: /assets/img/integrations/bs3-jade-sublime-plugin.png
     plat: Sublime
     url: 'https://github.com/rs459/bootstrap3-jade-sublime-plugin'
   - name: Bootstrap Editor and Builder
-    img: /images/integrations/bootply.png
+    img: /assets/img/integrations/bootply.png
     plat: Bootply
     url: 'http://www.bootply.com/'
   - name: React-Bootstrap
-    img: /images/integrations/react-bootstrap.png
+    img: /assets/img/integrations/react-bootstrap.png
     plat: React
     url: 'https://react-bootstrap.github.io/'
 friends:

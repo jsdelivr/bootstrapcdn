@@ -2,8 +2,8 @@
 
 [![Join the chat at https://gitter.im/MaxCDN/bootstrap-cdn](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/MaxCDN/bootstrap-cdn)
 [![Build Status](https://travis-ci.org/MaxCDN/bootstrap-cdn.svg?branch=master)](https://travis-ci.org/MaxCDN/bootstrap-cdn)
-[![Dependency Status](https://david-dm.org/MaxCDN/bootstrap-cdn.svg)](https://david-dm.org/MaxCDN/bootstrap-cdn)
-[![devDependency Status](https://david-dm.org/MaxCDN/bootstrap-cdn/dev-status.svg)](https://david-dm.org/MaxCDN/bootstrap-cdn#info=devDependencies)
+[![dependencies Status](https://david-dm.org/MaxCDN/bootstrap-cdn/status.svg)](https://david-dm.org/MaxCDN/bootstrap-cdn)
+[![devDependencies Status](https://david-dm.org/MaxCDN/bootstrap-cdn/dev-status.svg)](https://david-dm.org/MaxCDN/bootstrap-cdn?type=dev)
 
 
 ## Deploy your own copy on Heroku
@@ -27,29 +27,6 @@ npm install
 [node] make test run
 ```
 
-#### Stubbing "Popular Files"
-
-There are two ways of using local `popular.json` data.
-
-The first is to use the stubbed version in the test framework, this can be done by changing `config/_config.yml` and setting `extras` to `stub`...
-
-```yaml
-####
-# Turn stats on or off.
-# - Use 'stub' to develop against test stub.
-# extras: true
-extras: stub
-```
-
-The second method would be to copy `tests/stubs/popular.json` to your system's temp directory as `.popular.json` &ndash; e.g. `/tmp/.popular.json` on Linux and Mac.
-
-If you're unsure of the location of the temp directory on your system, do the following:
-
-```sh
-$ node
-> os.tmpdir()
-'/tmp'
-```
 
 ### Demonized
 
@@ -73,28 +50,7 @@ node make restart
 node make status
 
 # view logs
-tail -f ./logs/server.log
-```
-
-### Nginx
-
-Nginx tasks are only supported on \*nix platforms which support `make`.
-
-```
-# generate nginx conf for your checkout and start nginx
-node make nginx/start
-
-# stop nginx
-node make nginx/stop
-
-# restart (stop then start) nginx
-node make nginx/restart
-
-# HUP nginx process to reload configs
-node make nginx/reload
-
-# to regnerate nginx.conf
-rm nginx.conf
+node ./node_modules/.bin/forever logs app.js
 ```
 
 ## Configuration
@@ -106,8 +62,7 @@ Key Overview:
 1. `port`: Integer value of the Node application port.
 2. `theme`: Integer value of the array index from the `bootswatch` section below.
 3. `authors`: Array of Author Strings
-4. `description`: String containing the meta descript of the site.
-5. `extras`: Turn on extras functionality. Requires `config/_oauth.yml` update with correct `key` and `security` tokens.
+4. `description`: String containing the meta description of the site.
 5. `favicon`: Hash containing the favicon path.
 6. `google_analytics`: Hash containing GA `account_id` and `domain_name`.
 7. `stylesheets`: Array containing stylesheet files to be loaded at the top of the site.
@@ -128,4 +83,3 @@ To add new tweets to the "Mad Love" section, follow these steps:
 ### `config/_oauth.yml`
 
 This is reserved for MaxCDN and NetDNA installation only at this time. Contact @jdorfman for more information.
-

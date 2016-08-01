@@ -108,12 +108,6 @@ function assertValidHTML(response, done) {
                     return true;
                 }
                 return false;
-            })
-            .filter(function(e) {
-                if (e.match(/^Error: Attribute.+integrity.+at this point./)) {
-                    return false;
-                }
-                return true;
             });
 
         if (errors.length > 0) {
