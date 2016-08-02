@@ -139,15 +139,12 @@ var MOCHA_OPTS = ' --timeout 15000 --slow 500';
                 echo('+ bootlint ' + outputs.join('\\\n\t'));
 
                 // disabling version error's until bootswatch is updated to 3.3.4
-                var res = exec(BOOTLINT + ' -d W013 ' + outputs.join(' '));
-
-                rm(outputs);
-
-                if (res.output.indexOf('0 lint error(s) found') < 0) {
-                    console.log(' ');
-                    console.log('An endpoint failed bootlint!');
-                    process.exit(1);
-                }
+                exec(BOOTLINT + ' -d W013 ' + outputs.join(' '), function(code, stdout) {
+                    rm(outputs);
+                    if (code !== 0) {
+                        process.exit(code);
+                    }
+                });
             });
         }, 2000);
     };
