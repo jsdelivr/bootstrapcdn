@@ -1,7 +1,7 @@
 hr
 br
 a(href=item.url, target="_blank")
-    != helpers.cacheBuster.img(item.img, { alt: item.name, class: "img-responsive thumbnail center-block" })
+    img.img-responsive.thumbnail.center-block(src=helpers.buster(item.img), alt=item.name)
 h3
     a(href=item.url, target="_blank")=item.name
 | Libraries: 

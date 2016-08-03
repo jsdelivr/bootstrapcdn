@@ -19,7 +19,9 @@ html(lang="en")
         - fontawesome = config.fontawesome.filter(function(o) { return o.latest; })[0];
         link(rel='stylesheet', href=fontawesome.stylesheet, integrity=fontawesome.stylesheet_sri, crossorigin="anonymous")
 
-        != helpers.cacheBuster.css(config.stylesheets.style.uri, config.stylesheets.style.sri)
+        link(rel='stylesheet',
+            href=helpers.buster(config.stylesheets.style.uri, config.stylesheets.style.sri),
+            integrity=config.stylesheets.style.sri, crossorigin="anonymous")
 
         block head
 
