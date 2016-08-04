@@ -14,18 +14,14 @@ var MOCHA_OPTS = ' --timeout 15000 --slow 500';
 (function() {
     cd(__dirname);
 
-    var ignoreFailure = function() {};
-    var handleFailure = function(code) {
-        process.exit(code);
-    };
-
-    // map default execute with desired error handling
     var assertExec = function(cmd, options) {
-        if (options) {
-            exec(cmd, options, handleFailure);
+        var res = options ? exec(cmd, options) : exec(cmd);
+
+        if (res.code != 0) {
+            process.exit(res.code);
         }
 
-        exec(cmd, handleFailure);
+        return res;
     };
 
     //
@@ -74,8 +70,8 @@ var MOCHA_OPTS = ' --timeout 15000 --slow 500';
     };
 
     target.tryStop = function() {
-        // use remapped default exec behavior from shelljs to ignore failures
-        exec(FOREVER + ' stop app.js', ignoreFailure);
+        // ignore errors with noop function
+        exec(FOREVER + ' stop app.js', function() {});
     };
 
     target.restart = function() {
@@ -154,7 +150,9 @@ var MOCHA_OPTS = ' --timeout 15000 --slow 500';
                 // disabling version error's until bootswatch is updated to 3.3.4
                 exec(BOOTLINT + ' -d W013 ' + outputs.join(' '), function(code) {
                     rm(outputs);
-                    handleFailure(code);
+                    if (code !== 0) {
+                        process.exit(code);
+                    }
                 });
             });
         }, 2000);
