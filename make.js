@@ -1,9 +1,10 @@
 'use strict';
 
 require('shelljs/make');
-var path = require('path');
-var http = require('http');
-var fs   = require('fs');
+var path  = require('path');
+var http  = require('http');
+var fs    = require('fs');
+var async = require('async');
 
 var MOCHA      = path.join(__dirname, 'node_modules/.bin/mocha');
 var BOOTLINT   = path.join(__dirname, 'node_modules/.bin/bootlint');
@@ -13,14 +14,19 @@ var MOCHA_OPTS = ' --timeout 15000 --slow 500';
 (function() {
     cd(__dirname);
 
-    function assert(result) {
-        if (result.code !== 0) {
-            process.exit(result.code);
+    var ignoreFailure = function() {};
+    var handleFailure = function(code) {
+        process.exit(code);
+    };
+
+    // map default execute with desired error handling
+    var assertExec = function(cmd, options) {
+        if (options) {
+            exec(cmd, options, handleFailure);
         }
-    }
-    function assertExec(cmd) {
-        assert(exec(cmd));
-    }
+
+        exec(cmd, handleFailure);
+    };
 
     //
     // make test
@@ -53,15 +59,28 @@ var MOCHA_OPTS = ' --timeout 15000 --slow 500';
     };
 
     // for functional tests
-    target.start = function() {
-        assertExec(FOREVER + ' --plain start app.js');
+    target.start = function(callback) {
+        var env = process.env;
+
+        if (!env.NODE_ENV) {
+            env.NODE_ENV = 'production';
+        }
+
+        exec(FOREVER + ' start --plain app.js', { env: env });
     };
+
     target.stop = function() {
         assertExec(FOREVER + ' stop app.js');
     };
+
+    target.tryStop = function() {
+        // use remapped default exec behavior from shelljs to ignore failures
+        exec(FOREVER + ' stop app.js', ignoreFailure);
+    };
+
     target.restart = function() {
-        assertExec(FOREVER + ' stop app.js');
-        assertExec(FOREVER + ' --plain start app.js');
+        target.tryStop();
+        target.start();
     };
 
     //
@@ -93,34 +112,49 @@ var MOCHA_OPTS = ' --timeout 15000 --slow 500';
         echo('+ node make start');
         var port = 3080;
         env.PORT = port;
+        env.NODE_ENV = 'development';
         target.start();
+
+        var pages = [ '', 'fontawesome', 'bootswatch', 'bootlint', 'legacy',
+            'showcase', 'integrations' ];
+
+        var outputs = [];
 
         // sleep
         setTimeout(function() {
-            var output = path.join(__dirname, 'lint.html');
-            var file = fs.createWriteStream(output);
+            echo('------------------------------------------------');
+            async.eachSeries(pages, function(page, callback) {
+                var url = 'http://localhost:' + port + '/' + page + (page !== '' ? '/' : '');
 
-            // okay, not really curl, but it communicates
-            echo('+ curl http://localhost:' + port + '/ > ' + output);
-            var request = http.get('http://localhost:' + port + '/', function(response) {
-                response.pipe(file);
+                if (page !== '') {
+                    page += '_';
+                }
 
-                response.on('end', function() {
-                    file.close();
+                var output = path.join(__dirname, page + 'lint.html');
+                var file = fs.createWriteStream(output);
 
-                    echo('+ bootlint ' + output);
+                // okay, not really curl, but it communicates
+                echo('+ curl ' + url + ' > ' + output);
 
-                    // disabling version error's until bootswatch is updated to 3.3.4
-                    var res = exec(BOOTLINT + ' -d W013 ' + output);
+                var request = http.get(url, function(response) {
+                    response.pipe(file);
 
-                    echo('+ node make stop');
-                    target.stop();
+                    response.on('end', function() {
+                        file.close();
+                        outputs.push(output);
+                        callback();
+                    });
+                });
+            }, function() {
+                echo('+ node make tryStop');
+                target.tryStop();
 
-                    rm(output);
+                echo('+ bootlint ' + outputs.join('\\\n\t'));
 
-                    if (res.output.indexOf('0 lint error(s) found') < 0) {
-                        process.exit(1);
-                    }
+                // disabling version error's until bootswatch is updated to 3.3.4
+                exec(BOOTLINT + ' -d W013 ' + outputs.join(' '), function(code) {
+                    rm(outputs);
+                    handleFailure(code);
                 });
             });
         }, 2000);

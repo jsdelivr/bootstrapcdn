@@ -7,7 +7,7 @@ html(lang="en")
         meta(name='author', content=config.authors.join(', '))
         meta(name='description', content=(description || config.description))
 
-        title=title
+        title!=displayTitle(title)
 
         link(rel='canonical', href=fullUrl)
 
@@ -18,7 +18,10 @@ html(lang="en")
 
         - fontawesome = config.fontawesome.filter(function(o) { return o.latest; })[0];
         link(rel='stylesheet', href=fontawesome.stylesheet, integrity=fontawesome.stylesheet_sri, crossorigin="anonymous")
-        link(rel='stylesheet', href=config.stylesheets.style.uri, integrity=config.stylesheets.style.sri, crossorigin="anonymous")
+
+        link(rel='stylesheet',
+            href=helpers.buster(config.stylesheets.style.uri),
+            integrity=config.stylesheets.style.sri, crossorigin="anonymous")
 
         block head
 
@@ -56,4 +59,4 @@ html(lang="en")
 
         include _partials/javascripts/after
 
-//- vim: ft=jade sw=4 sts=4 et:
+//- vim: ft=pug sw=4 sts=4 et:
