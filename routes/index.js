@@ -1,5 +1,7 @@
 'use strict';
 
+var TITLE = 'BootstrapCDN by MaxCDN';
+
 function appendLocals(req, res) {
     var proto = req.get('x-forwarded-proto');
 
@@ -9,38 +11,43 @@ function appendLocals(req, res) {
 
     res.locals.fullUrl = proto + '://' + req.hostname + req.path;
 
+    res.locals.theme = req.query.theme;
+
+    res.locals.displayTitle = function(pageTitle) {
+        return pageTitle + ' &middot; ' + TITLE;
+    };
+
     return res;
 }
 
-var TITLE = 'BootstrapCDN by MaxCDN';
 function index(req, res) {
     res = appendLocals(req, res);
-    res.render('index', { title: TITLE, theme: req.query.theme });
+    res.render('index', { title: 'Quick Start' });
 }
 
 function fontawesome(req, res) {
     res = appendLocals(req, res);
-    res.render('fontawesome', { title: TITLE, theme: req.query.theme });
+    res.render('fontawesome', { title: 'Font Awesome' });
 }
 
 function bootswatch(req, res) {
     res = appendLocals(req, res);
-    res.render('bootswatch', { title: TITLE, theme: req.query.theme });
+    res.render('bootswatch', { title: 'Bootswatch' });
 }
 
 function bootlint(req, res) {
     res = appendLocals(req, res);
-    res.render('bootlint', { title: TITLE, theme: req.query.theme });
+    res.render('bootlint', { title: 'Bootlint' });
 }
 
 function alpha(req, res) {
     res = appendLocals(req, res);
-    res.render('alpha', { title: TITLE, theme: req.query.theme });
+    res.render('alpha', { title: 'Bootstrap 4 alpha' });
 }
 
 function legacy(req, res) {
     res = appendLocals(req, res);
-    res.render('legacy', { title: TITLE, theme: req.query.theme });
+    res.render('legacy', { title: 'Bootstrap Legacy' });
 }
 
 function showcase(req, res) {
@@ -58,7 +65,7 @@ function showcase(req, res) {
         }
     }
 
-    res.render('showcase', { title: TITLE, theme: req.query.theme, col1: col1, col2: col2 });
+    res.render('showcase', { title: 'Showcase', col1: col1, col2: col2 });
 }
 
 function integrations(req, res) {
@@ -76,7 +83,7 @@ function integrations(req, res) {
         }
     }
 
-    res.render('integrations', { title: TITLE, theme: req.query.theme, col1: col1, col2: col2 });
+    res.render('integrations', { title: 'Integrations', col1: col1, col2: col2 });
 }
 
 module.exports = {

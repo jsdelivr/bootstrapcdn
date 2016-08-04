@@ -7,7 +7,7 @@ html(lang="en")
         meta(name='author', content=config.authors.join(', '))
         meta(name='description', content=(description || config.description))
 
-        title=title
+        title!=displayTitle(title)
 
         link(rel='canonical', href=fullUrl)
 
