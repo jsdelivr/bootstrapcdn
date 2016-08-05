@@ -17,7 +17,7 @@ block content
                         input.form-control(type="text", id=id, value=file)
                         .input-group-btn
                             button.btn.btn-default(type="button", onclick="toggleCode(this,'" + name + "')")
-                                i.fa.fa-caret-down
+                                span.caret
                     include _partials/csscode
 
                 - if (item.javascript)
@@ -31,7 +31,7 @@ block content
                         input.form-control(type="text", id=id, value=file)
                         .input-group-btn
                             button.btn.btn-default(type="button", onclick="toggleCode(this,'" + name + "')")
-                                i.fa.fa-caret-down
+                                span.caret
                     include _partials/jscode
 
 //- vim: ft=pug sw=4 sts=4 et:
