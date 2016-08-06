@@ -16,8 +16,9 @@ fs.createReadStream(configFile)
     .pipe(fs.createWriteStream(configFile + '.bak'));
 
 function buildPath(d) {
-    return path.join(basedir, 'public',
-        d.replace('https://maxcdn.bootstrapcdn.com/', ''));
+    d = d.replace('/bootstrap/', '/twitter-bootstrap/')
+         .replace('https://maxcdn.bootstrapcdn.com/', '')
+    return path.join(basedir, 'public', d);
 }
 
 function exists(file) {
@@ -35,7 +36,7 @@ for (var i = 0; i < config.bootswatch.themes.length; i++) {
     var file  = bootswatch.replace('SWATCH_VERSION', config.bootswatch.version)
                           .replace('SWATCH_NAME',    theme.name);
 
-    if (exists(file)) { // always regen
+    if (exists(file)) { // always regenerate
         config.bootswatch.themes[i].sri = sri.digest(file);
     }
 }
@@ -45,7 +46,7 @@ for (var i = 0; i < config.bootlint.length; i++) {
     var bootlint = config.bootlint[i];
     var file     = buildPath(bootlint.javascript);
 
-    if (exists(file)) { // always regen
+    if (exists(file)) { // always regenerate
         config.bootlint[i].javascript_sri = sri.digest(file);
     }
 }
@@ -55,11 +56,12 @@ for (var i = 0; i < config.bootlint.length; i++) {
     for (var i = 0; i < config[key].length; i++) {
         var bootstrap  = config[key][i];
         var javascript = buildPath(bootstrap.javascript);
+        var stylesheet = buildPath(bootstrap.stylesheet);
+
         if (exists(javascript)) {
             config[key][i].javascript_sri = sri.digest(javascript);
         }
 
-        var stylesheet = buildPath(bootstrap.stylesheet);
         if (exists(stylesheet)) {
             config[key][i].stylesheet_sri = sri.digest(stylesheet);
         }
@@ -75,4 +77,4 @@ for (var i = 0; i < config.fontawesome.length; i++) {
     }
 }
 
-fs.writeFileSync(configFile, yaml.dump(config));
+fs.writeFileSync(configFile, yaml.dump(config, { lineWidth: 110 }));
