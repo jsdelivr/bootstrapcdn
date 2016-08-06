@@ -44,7 +44,12 @@ if (env === 'production') {
     app.use(errorHandler({ dumpExceptions: true, showStack: true }));
 }
 
+// middleware
 app.use(require('compression')());
+app.set('etag', false);
+
+app.use(favicon(path.join(__dirname, 'public', config.favicon.uri), '7d'));
+app.use(serveStatic(path.join(__dirname, 'public'), { maxAge: '30d' }));
 
 app.use(function(req, res, next) {
     // make config available in routes
@@ -53,17 +58,10 @@ app.use(function(req, res, next) {
     // custom headers
     res.setHeader('X-Powered-By', 'MaxCDN');
     res.setHeader('X-Hello-Human', 'You must be bored. You should work for us. Email jdorfman+theheader@maxcdn.com or @jdorfman on the twitter.');
-    res.setHeader('Cache-Control', 'public, max-age=2592000');
-
-    var oneMonth = 30 * 24 * 60 * 60 * 1000;
-    res.setHeader('Expires', new Date(Date.now() + oneMonth).toUTCString());
+    res.setHeader('Cache-Control', 'public, max-age=3600');
 
     next();
 });
-
-// middleware
-app.use(favicon(path.join(__dirname, 'public', config.favicon.uri), '7d'));
-app.use(serveStatic(path.join(__dirname, 'public')));
 
 // locals
 app.locals.helpers = require('./lib/helpers');
