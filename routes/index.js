@@ -1,6 +1,10 @@
 'use strict';
 
+var path   = require('path');
+var digest = require(path.join(__dirname, '..', 'lib', 'helpers')).sri.digest;
+
 var TITLE = 'BootstrapCDN by MaxCDN';
+var SRI_CACHE = {};
 
 function appendLocals(req, res) {
     var proto = req.get('x-forwarded-proto');
@@ -15,6 +19,14 @@ function appendLocals(req, res) {
 
     res.locals.displayTitle = function(pageTitle) {
         return pageTitle + ' &middot; ' + TITLE;
+    };
+
+    res.locals.generateSRI = function (file) {
+        if (SRI_CACHE[file] === undefined) {
+            SRI_CACHE[file] = digest(path.join(__dirname, '..', 'public', file));
+        }
+
+        return SRI_CACHE[file];
     };
 
     return res;
