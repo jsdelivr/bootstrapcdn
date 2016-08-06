@@ -2,12 +2,13 @@
 
 var env = process.env.NODE_ENV || 'development';
 
-var path    = require('path');
-var fs      = require('fs');
-var yaml    = require('js-yaml');
-var express = require('express');
-var http    = require('http');
-var app     = express();
+var path        = require('path');
+var fs          = require('fs');
+var yaml        = require('js-yaml');
+var express     = require('express');
+var http        = require('http');
+var compression = require('compression');
+var app         = express();
 
 // middleware
 var logger       = require('morgan');
@@ -44,19 +45,28 @@ if (env === 'production') {
 }
 
 // middleware
-app.use(require('compression')());
+app.use(compression());
 app.set('etag', false);
 
-app.use(serveStatic(path.join(__dirname, 'public'), { maxAge: '30d' }));
+app.use(serveStatic(path.join(__dirname, 'public'), { maxAge: '30d', lastModified: true, etag: false }));
 
 app.use(function(req, res, next) {
+    var oneHourToSec = 60 * 60;
+    var oneHourToMilliSec = 60 * 60 * 1000;
+
     // make config available in routes
     req.config = config;
 
     // custom headers
     res.setHeader('X-Powered-By', 'MaxCDN');
     res.setHeader('X-Hello-Human', 'You must be bored. You should work for us. Email jdorfman+theheader@maxcdn.com or @jdorfman on the twitter.');
-    res.setHeader('Cache-Control', 'public, max-age=3600');
+    res.setHeader('Cache-Control', 'public, max-age=' + oneHourToSec);
+    res.setHeader('Expires', new Date(Date.now() + oneHourToMilliSec).toUTCString());
+    res.setHeader('Last-Modified', new Date().toUTCString());
+    res.setHeader('Accept-Ranges', 'bytes');
+    res.setHeader('X-Content-Type-Options', 'nosniff');
+    res.setHeader('X-Frame-Options', 'DENY');
+    res.setHeader('X-XSS-Protection', '1; mode=block');
 
     next();
 });
