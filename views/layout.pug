@@ -52,11 +52,11 @@ html(lang="en")
         script(src=bootstrap.javascript, integrity=bootstrap.javascript_sri,
             crossorigin="anonymous")
 
+        script(src=helpers.buster(config.javascripts.main.uri),
+            integrity=config.javascripts.main.sri, crossorigin="anonymous")
+
         - if (config.google_analytics)
             include _partials/javascripts/google_analytics
-
-        script(helpers.buster(config.javascripts.main.uri),
-            integrity=config.javascripts.main.sri)
 
         script(async src="https://platform.twitter.com/widgets.js")
 
