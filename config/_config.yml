@@ -59,49 +59,49 @@ bootlint:
   - version: 0.14.2
     latest: true
     javascript: 'https://maxcdn.bootstrapcdn.com/bootlint/0.14.2/bootlint.min.js'
-    javascript_sri: sha384-M9T3JVTBbDUeEzC8X6JJbfV/mwsN/NrkiJ9NW1FQqOsgIeBoE/ep1oUZ/NJAx5Wq
+    javascript_sri: sha384-JaIVjIvdXc3Gg0Gm1bHjU7MigRNNEOeT0gWdiFJUv+BnE/C/OQ7j8OUuoSsCMlhK
   - version: 0.14.1
     javascript: 'https://maxcdn.bootstrapcdn.com/bootlint/0.14.1/bootlint.min.js'
-    javascript_sri: sha384-qgQVqgt0YhETDMkMl9u6BlGY7wp2TOiesOJYFrnA2y9Od0QS5iMYTHPimN93NXTy
+    javascript_sri: sha384-FKlkbRb9LQxleRRwIyIYl5TCWdCrTkYWi8a3yzwRyu/3TqLwuHsaUn3ZAOZcLJv0
   - version: 0.13.0
     javascript: 'https://maxcdn.bootstrapcdn.com/bootlint/0.13.0/bootlint.min.js'
-    javascript_sri: sha384-DBdpB+iO0G5Y+X9ADO2nMWoddxHD5jsWepAgPesWL2FH+A/wHpRR3yAbWWszHpLX
+    javascript_sri: sha384-4aNwwKDa4tijVBuyvOrZAX7g8mrESQ+CLWJOKBfM4fvJ7GNE42Td3yI6mGAqwTSU
   - version: 0.12.0
     javascript: 'https://maxcdn.bootstrapcdn.com/bootlint/0.12.0/bootlint.min.js'
-    javascript_sri: sha384-1jcsuf+1UFKNV1t9pXx6oRvd+eXpPPE/XnMClmtzRBqHJVCVPGt4wX/cE+Sqgg80
+    javascript_sri: sha384-kGY1GazC1SpLw0Gs+XK/Yv0s4DPWGrlOALeixkEyCvfMWgzq36HGBYrD8PF577QW
   - version: 0.11.0
     javascript: 'https://maxcdn.bootstrapcdn.com/bootlint/0.11.0/bootlint.min.js'
-    javascript_sri: sha384-AJz4ln5TYd49SrHSmb9F7ItndcBACE6dCpjhxGGcfFcxvR6/y13tRHAkt29HV/8i
+    javascript_sri: sha384-K15+Bv/1FFoRLg2XTuJoY8tI34nLYDC4m3Nawz62qO3yzUoovFiD1Xyjt2pwjpmI
   - version: 0.10.0
     javascript: 'https://maxcdn.bootstrapcdn.com/bootlint/0.10.0/bootlint.min.js'
-    javascript_sri: sha384-2YqHZGwqe7pc9usE1mCeZPUzz7/4bPLtJwQEMuziwOr6QugPiXKQg0oLgUTXLJtD
+    javascript_sri: sha384-t1QF780Unj08H1IpWnLOLV9YciuBXXtZRcv5r4FzWlD4jYL7Us39JIGIycusg9EQ
   - version: 0.9.1
     javascript: 'https://maxcdn.bootstrapcdn.com/bootlint/0.9.1/bootlint.min.js'
-    javascript_sri: sha384-998k92uHTyBhKjEGOCKXJuwedDeVmjtt5jYBepKtPRFZHTGu2VWW4VkbN28mcQyb
+    javascript_sri: sha384-ODJ5ki4myJicza2RnOq12DDemJmCutJfT3laz+gAGY002X/zu75bSgld5EPsvBgY
   - version: 0.9.0
     javascript: 'https://maxcdn.bootstrapcdn.com/bootlint/0.9.0/bootlint.min.js'
-    javascript_sri: sha384-FtQ9Gx167qty/p7CQTr1cUYBv0i775HpZzzuDl1asR6ypQGb1YtORKwXqMX/RRSI
+    javascript_sri: sha384-xIQgeRKKMrDkH9lmucifnUh7u/dUNx9m3tgo5poZpomoDnocitLHVcN5OQbYKhzs
   - version: 0.8.0
     javascript: 'https://maxcdn.bootstrapcdn.com/bootlint/0.8.0/bootlint.min.js'
-    javascript_sri: sha384-09L43hQYxT5LQKI+hTCTlX0kJUwFLgyc313RFlTUtiDYm4cmMiWXr+lcaox3RcMv
+    javascript_sri: sha384-FqBMuQnBIPJbxafXCgyYNh+itbgQUyRXjxsjGiDGnL/Xsds+XPrMTP7pEN5od4J+
   - version: 0.7.0
     javascript: 'https://maxcdn.bootstrapcdn.com/bootlint/0.7.0/bootlint.min.js'
-    javascript_sri: sha384-0xrYfOvsWWtbZ2t8sSy8q0JTm2F8HO1RyS1jaR0QRcRvTWie9wjjFDqB59ljEv0k
+    javascript_sri: sha384-/ZLL965j8wZF4JpweIAsnKzc21OZ6SAMP3ycNC5hVW+ffh8N21zzLuDUQXG/1LIu
   - version: 0.6.0
     javascript: 'https://maxcdn.bootstrapcdn.com/bootlint/0.6.0/bootlint.min.js'
-    javascript_sri: sha384-eu/yhK03nIQsALdbggIARvl6HUkgS43+I/hT6T9qnSxYUrwOLu3Ptm+GXV2rPBgh
+    javascript_sri: sha384-gOhGxmIs4Bi6JbVKQsZhEwTe6/4vWeu5ZqWz3l/J+8DG6etGc+e0WQESgII0Mw9z
   - version: 0.5.0
     javascript: 'https://maxcdn.bootstrapcdn.com/bootlint/0.5.0/bootlint.min.js'
-    javascript_sri: sha384-e44mBP/gkEQv5fSULP0ws+JpvpUf+oHIgY72paLCQ8M5YDcw5WZDEbLs+LGTjQ9M
+    javascript_sri: sha384-V6wdx8u94iCd+fqO6qeqgmo9SyihQcpAO8GOfhIoA1m7MKphCVGXh3Jq++nrG7l0
   - version: 0.4.0
     javascript: 'https://maxcdn.bootstrapcdn.com/bootlint/0.4.0/bootlint.min.js'
-    javascript_sri: sha384-VfNLWkzKgfP+mdvAwj9KnfqV2dQ0JUDE9QTdWm1FJSvFWZLbnURKQBgYo48SCHLa
+    javascript_sri: sha384-GNIbSLYe/n++7a0qCo97FWQXuqn2U8VkdH8+Bbvj5Qhzf70Uo4KcDVnqrfbGcQkL
   - version: 0.3.0
     javascript: 'https://maxcdn.bootstrapcdn.com/bootlint/0.3.0/bootlint.min.js'
-    javascript_sri: sha384-LXgXH+lnevRC9AW/CECTR/av9hKSw+RM+5mrO7wcUD3ZEsIaRUfPjD/Dmdr68BUY
+    javascript_sri: sha384-ZoVuAFOi/5k+zh+KdFuM5VGlE8Jo3RNWpjU+w/nqCBWWD6VIpJ+vGH6OzRuXD41A
   - version: 0.2.0
     javascript: 'https://maxcdn.bootstrapcdn.com/bootlint/0.2.0/bootlint.min.js'
-    javascript_sri: sha384-N718vWBr20Ow4pkt9DQSltsE3BoJMYEmm7d5EWgRJkzh9lhxIjnC5SjZzjjmORvH
+    javascript_sri: sha384-P39EUhpQ3yuurCYqhv/i3svCv2kIZYJQIbPMU7s4JY11FYLs1u8YrkiDZmYFEfjx
 bootstrap:
   - version: 3.3.7
     latest: true
