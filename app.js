@@ -15,6 +15,7 @@ var logger       = require('morgan');
 var serveStatic  = require('serve-static');
 var errorHandler = require('errorhandler');
 var enforce      = require('express-sslify');
+var minify       = require('express-minify');
 
 var config = yaml.safeLoad(fs.readFileSync(path.join(__dirname, 'config', '_config.yml'), 'utf8'));
 var tweets = yaml.safeLoad(fs.readFileSync(path.join(__dirname, 'config', '_tweets.yml'), 'utf8'));
@@ -45,6 +46,7 @@ if (env === 'production') {
 }
 
 // middleware
+app.use(minify());
 app.use(compression());
 app.set('etag', false);
 
