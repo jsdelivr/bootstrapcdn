@@ -63,13 +63,12 @@ Key Overview:
 2. `theme`: Integer value of the array index from the `bootswatch` section below.
 3. `authors`: Array of Author Strings
 4. `description`: String containing the meta description of the site.
-5. `favicon`: Hash containing the favicon path.
-6. `google_analytics`: Hash containing GA `account_id` and `domain_name`.
-7. `stylesheets`: Array containing stylesheet files to be loaded at the top of the site.
-8. `javascripts`: Array containing javascript files to be loaded either `before` (at the top) or `after` (at the bottom) of the site.
-9. `bootswatch`: Hash containing current Bootswatch meta data and themes.
-10. `bootlint`: Array of Hashes containing Bootlint meta data and pathing.
-11. `bootstrap`: Array of Hashes containing Bootstrap meta data and pathing.
+5. `google_analytics`: Hash containing GA `account_id` and `domain_name`.
+6. `stylesheets`: Array containing stylesheet files to be loaded at the top of the site.
+7. `javascripts`: Array containing javascript files to be loaded either `before` (at the top) or `after` (at the bottom) of the site.
+8. `bootswatch`: Hash containing current Bootswatch meta data and themes.
+9. `bootlint`: Array of Hashes containing Bootlint meta data and pathing.
+10. `bootstrap`: Array of Hashes containing Bootstrap meta data and pathing.
 
 ### `config/_tweets.yml`
 
