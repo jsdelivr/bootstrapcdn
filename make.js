@@ -1,3 +1,5 @@
+/* eslint-env shelljs */
+
 'use strict';
 
 require('shelljs/make');

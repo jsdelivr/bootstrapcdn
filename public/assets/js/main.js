@@ -1,3 +1,6 @@
+/* eslint-env browser */
+/* exported tryIt, toggleCode */
+
 $('input:text').focus(function() {
     $(this).select();
     $(this).mouseup( function(a) {
