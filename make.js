@@ -74,7 +74,9 @@ var MOCHA_OPTS = ' --timeout 15000 --slow 500';
 
     target.tryStop = function () {
         // ignore errors with noop function
-        exec(FOREVER + ' stop app.js', function () {});
+        exec(FOREVER + ' stop app.js', function () {
+            return true;
+        });
     };
 
     target.restart = function () {

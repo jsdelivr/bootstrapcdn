@@ -1,3 +1,5 @@
+/* eslint global-require: 0 */
+
 'use strict';
 
 var fs        = require('fs');
@@ -40,16 +42,16 @@ function assertContentType(uri, contentType) {
     // strict checking.
 
     if (process.env.TEST_STRICT === 'false' && Array.isArray(type)) {
-        return assert(type.indexOf(contentType) >= 0,
+        assert(type.indexOf(contentType) >= 0,
             format('invalid content-type for "%s", expected one of "%s" but got "%s"',
                    ext, type.join('", "'), contentType));
+    } else {
+        type = Array.isArray(type) ? type[0] : type;
+
+        assert.equal(type, contentType,
+            format('invalid content-type for "%s", expected "%s" but got "%s"',
+                ext, type, contentType));
     }
-
-    type = Array.isArray(type) ? type[0] : type;
-
-    assert.equal(type, contentType,
-        format('invalid content-type for "%s", expected "%s" but got "%s"',
-               ext, type, contentType));
 }
 
 function config() {

@@ -45,14 +45,21 @@ if (env === 'production') {
     // development
     app.locals.pretty = true;
     app.use(logger('dev'));
-    app.use(errorHandler({ dumpExceptions: true, showStack: true }));
+    app.use(errorHandler({
+        dumpExceptions: true,
+        showStack: true
+    }));
 }
 
 // middleware
 app.use(compression());
 app.set('etag', false);
 
-app.use(serveStatic(path.join(__dirname, 'public'), { maxAge: '30d', lastModified: true, etag: false }));
+app.use(serveStatic(path.join(__dirname, 'public'), {
+    maxAge: '30d',
+    lastModified: true,
+    etag: false
+}));
 
 app.use(function (req, res, next) {
     var oneHourToSec = 60 * 60;

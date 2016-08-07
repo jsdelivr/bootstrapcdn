@@ -51,6 +51,11 @@ files.forEach(function(file) {
         var source = file.replace('%s', theme.name);
 
         request.get(source, function(err, res, body) {
+            if (err) {
+                console.log(err);
+                process.exit(1);
+            }
+
             if (res.statusCode !== 200) {
                 console.log(source, 'not found');
                 return;

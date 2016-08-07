@@ -77,7 +77,11 @@ function showcase(req, res) {
         }
     }
 
-    res.render('showcase', { title: 'Showcase', col1: col1, col2: col2 });
+    res.render('showcase', {
+        title: 'Showcase',
+        col1: col1,
+        col2: col2
+    });
 }
 
 function integrations(req, res) {
@@ -95,7 +99,11 @@ function integrations(req, res) {
         }
     }
 
-    res.render('integrations', { title: 'Integrations', col1: col1, col2: col2 });
+    res.render('integrations', {
+        title: 'Integrations',
+        col1: col1,
+        col2: col2
+    });
 }
 
 module.exports = {

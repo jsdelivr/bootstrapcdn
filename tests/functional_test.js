@@ -1,9 +1,12 @@
+/* eslint no-undefined: 0 */
+
 'use strict';
 
 var path      = require('path');
 var assert    = require('assert');
 var walk      = require('fs-walk');
 var async     = require('async');
+var https     = require('https');
 
 var digest    = require(path.join(__dirname, '..', 'lib', 'helpers')).sri.digest;
 var helpers   = require(path.join(__dirname, 'test_helper'));
@@ -47,12 +50,13 @@ function request(uri, cb) {
         return cb(responses[uri]);
     }
 
-        // build memoized response
-        helpers.preFetch(uri, function (res) {
-            responses[uri] = res;
-            cb(res);
-        }, require('https'));
-    }
+    // build memoized response
+    return helpers.preFetch(uri, function (res) {
+        responses[uri] = res;
+        cb(res);
+    }, https);
+
+}
 
 function assertSRI(uri, sri, done) {
     request(uri, function (response) {
@@ -69,9 +73,8 @@ var s3include = ['content-type'];
 
 function assertHeader(uri, header) {
     if (typeof process.env.TEST_S3 !== 'undefined' && s3include.indexOf(header) === -1) {
-        return it.skip('has ' + header);
-    }
-
+        it.skip('has ' + header);
+    } else {
         it('has ' + header, function (done) {
             request(uri, function (response) {
                 assert.equal(200, response.statusCode);
@@ -85,6 +88,7 @@ function assertHeader(uri, header) {
             });
         });
     }
+}
 
 // bootswatch
 describe('functional', function () {
