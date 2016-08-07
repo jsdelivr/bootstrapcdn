@@ -1,19 +1,19 @@
 'use strict';
 
-var validator = require('html-validator');
-var path      = require('path');
 var fs        = require('fs');
-var yaml      = require('js-yaml');
+var path      = require('path');
 var assert    = require('assert');
+var yaml      = require('js-yaml');
 var format    = require('format');
 var encode    = require('htmlencode').htmlEncode;
+var validator = require('html-validator');
 
-var response;
+var response  = {};
 
 // for array of types, first will be choosen when testing strictly
 var CONTENT_TYPE_MAP = {
-    css:  'text/css',
-    js:   ['application/javascript',
+    css:   'text/css',
+    js:    ['application/javascript',
             'text/javascript',
             'application/x-javascript'],
 
@@ -28,7 +28,11 @@ var CONTENT_TYPE_MAP = {
     otf:   'application/x-font-otf'
 };
 
-function assertContentType(uri, content_type) {
+function extension(str) {
+    return str.match(/[A-Za-z0-9]+$/)[0];
+}
+
+function assertContentType(uri, contentType) {
     var ext  = extension(uri);
     var type = CONTENT_TYPE_MAP[ext];
 
@@ -36,20 +40,16 @@ function assertContentType(uri, content_type) {
     // strict checking.
 
     if (process.env.TEST_STRICT === 'false' && Array.isArray(type)) {
-        return assert(type.indexOf(content_type) >= 0,
+        return assert(type.indexOf(contentType) >= 0,
             format('invalid content-type for "%s", expected one of "%s" but got "%s"',
-                   ext, type.join('", "'), content_type));
+                   ext, type.join('", "'), contentType));
     }
 
     type = Array.isArray(type) ? type[0] : type;
 
-    assert.equal(type, content_type,
+    assert.equal(type, contentType,
         format('invalid content-type for "%s", expected "%s" but got "%s"',
-               ext, type, content_type));
-}
-
-function extension(str) {
-    return str.match(/[A-Za-z0-9]+$/)[0];
+               ext, type, contentType));
 }
 
 function config() {
@@ -57,9 +57,9 @@ function config() {
 }
 
 function cleanEndpoint(endpoint) {
-    endpoint = endpoint === undefined ? '/' : endpoint;
-    endpoint = endpoint[0] !== '/' ? '/'+endpoint : endpoint;
-    endpoint = endpoint[endpoint.length-1] !== '/' ? endpoint+'/' : endpoint;
+    endpoint = typeof endpoint === 'undefined' ? '/' : endpoint;
+    endpoint = endpoint[0] === '/' ? endpoint : '/' + endpoint;
+    endpoint = endpoint[endpoint.length - 1] === '/' ? endpoint : endpoint + '/';
 
     return endpoint;
 }
@@ -76,7 +76,7 @@ function app(config, endpoint) {
 }
 
 function assertResponse(response, code) {
-    code = (code == undefined ? 200 : code);
+    code = typeof code === 'undefined' ? 200 : code;
     assert(response);
     assert.equal(code, response.statusCode);
 }
@@ -97,13 +97,13 @@ function assertValidHTML(response, done) {
         format: 'text'
     };
 
-    validator(options, function(err, data) {
+    validator(options, function (err, data) {
         if (err) {
             console.trace(err);
         }
 
         var errors = data.split('\n')
-            .filter(function(e) {
+            .filter(function (e) {
                 if (e.match(/^Error:/)) {
                     return true;
                 }
@@ -112,6 +112,7 @@ function assertValidHTML(response, done) {
 
         if (errors.length > 0) {
             var sep = '\n\t - ';
+
             assert(false, sep + errors.join(sep));
         } else {
             assert(true);
@@ -121,14 +122,15 @@ function assertValidHTML(response, done) {
 }
 
 function preFetch(uri, cb, http) {
-    http = (http === undefined ? require('http') : http);
-    http.get(uri, function(res) {
+    http = typeof http === 'undefined' ? require('http') : http;
+
+    http.get(uri, function (res) {
         response = res;
         response.body = '';
-        res.on('data', function(chunk) {
+        res.on('data', function (chunk) {
             response.body += chunk;
         });
-        res.on('end', function() {
+        res.on('end', function () {
             cb(response);
         });
     });
@@ -159,7 +161,7 @@ function jsHAML(uri, sri) {
 }
 
 function domainCheck(uri) {
-    if (process.env.TEST_S3 === undefined) {
+    if (typeof process.env.TEST_S3 === 'undefined') {
         return uri;
     }
 

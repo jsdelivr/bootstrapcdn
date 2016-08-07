@@ -1,7 +1,6 @@
 #!/usr/bin/env node
-// Hacking this together for now, perhaps revisit and clean up.
 
-//'use strict';
+'use strict';
 
 var yaml    = require('js-yaml');
 var path    = require('path');
@@ -9,14 +8,15 @@ var fs      = require('fs');
 var request = require('request');
 
 var version = process.argv[2];
+
 if (!version) {
     console.log('Please pass the Bootswatch version as an argument.');
     process.exit(1);
 }
 
-var basedir = path.join(__dirname, '..');
+var basedir       = path.join(__dirname, '..');
 var bootswatchDir = path.join(basedir, 'public', 'bootswatch', version);
-var configFile = path.join(basedir, 'config', '_config.yml');
+var configFile    = path.join(basedir, 'config', '_config.yml');
 
 var config = yaml.safeLoad(fs.readFileSync(configFile));
 
@@ -25,7 +25,7 @@ var files = [
     'https://www.bootswatch.com/%s/bootstrap.css'
 ];
 
-var fonts = 'https://www.bootswatch.com/fonts/%s';
+var fonts    = 'https://www.bootswatch.com/fonts/%s';
 var fontsDir = path.join(bootswatchDir, 'fonts');
 
 function errorCheck(err) {
@@ -35,48 +35,49 @@ function errorCheck(err) {
     }
 }
 
-// Fails intentionally if bootswatchDir exists.
-fs.mkdirSync(bootswatchDir, 0755);
-console.log('Created: %s', bootswatchDir);
+function checkDirSync(dir) {
+    try {
+        fs.statSync(dir);
+    } catch (e) {
+        fs.mkdirSync(dir);
+        console.log('Created: %s', dir);
+    }
+}
+
+checkDirSync(bootswatchDir);
 
 files.forEach(function(file) {
     config.bootswatch.themes.forEach(function(theme) {
         var source = file.replace('%s', theme.name);
+
         request.get(source, function(err, res, body) {
             if (res.statusCode !== 200) {
                 console.log(source, 'not found');
                 return;
-                //errorCheck(new Error('Non-success status code: ' + res.statusCode));
             }
             var targetDir = path.join(bootswatchDir, theme.name);
-            try {
-                fs.mkdirSync(targetDir, 0755);
-                console.log('  Created: %s', targetDir);
-            } catch (e) {
-                /* ignore */
-                //console.log('Error:', e.message);
-            }
+
+            checkDirSync(targetDir);
 
             var target = path.join(targetDir, path.basename(file));
+
             fs.writeFileSync(target, body);
-            console.log('    Saved: %s', target);
-            console.log('     From: %s', source);
+            console.log('  Saved: %s', target);
+            console.log('    From: %s', source);
         });
     });
 });
 
-// TODO: Revisit this, it's very fragile.
+checkDirSync(fontsDir);
 
-fs.mkdirSync(fontsDir, 0755);
-console.log('  Created: %s', fontsDir);
-[ 'glyphicons-halflings-regular.eot',
+['glyphicons-halflings-regular.eot',
     'glyphicons-halflings-regular.svg',
     'glyphicons-halflings-regular.ttf',
     'glyphicons-halflings-regular.woff',
     'glyphicons-halflings-regular.woff2'
 ].forEach(function(font) {
     var fontPath = fonts.replace('%s', font);
-    var target = path.join(fontsDir, font);
+    var target   = path.join(fontsDir, font);
 
     request
         .get(fontPath)
@@ -84,8 +85,8 @@ console.log('  Created: %s', fontsDir);
             if (res.statusCode !== 200) {
                 errorCheck(new Error('Non-success status code: ' + res.statusCode));
             }
-            console.log('    Saved: %s', target);
-            console.log('     From: %s', fontPath);
+            console.log('  Saved: %s', target);
+            console.log('    From: %s', fontPath);
         })
         .on('error', function(err) {
             console.trace(err);

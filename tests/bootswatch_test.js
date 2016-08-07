@@ -1,19 +1,19 @@
 'use strict';
 
-var path    = require('path');
-var assert  = require('assert');
-var helpers = require(path.join(__dirname, 'test_helper.js'));
-var config  = helpers.config();
+var path     = require('path');
+var assert   = require('assert');
+
+var helpers  = require(path.join(__dirname, 'test_helper.js'));
+var config   = helpers.config();
+var uri      = helpers.app(config, 'bootswatch');
+var response = {};
 
 function format(str, name) {
     return str.replace('SWATCH_NAME', name)
                 .replace('SWATCH_VERSION', config.bootswatch.version);
 }
 
-var uri      = helpers.app(config, 'bootswatch');
-var response = {};
-
-before(function(done) {
+before(function (done) {
     helpers.preFetch(uri, function (res) {
         response = res;
         done();
@@ -31,14 +31,14 @@ describe('bootswatch', function () {
         done();
     });
 
-    it('contains authors', function(done) {
-        config.authors.forEach(function(author) {
+    it('contains authors', function (done) {
+        config.authors.forEach(function (author) {
             helpers.assert.contains(author, response.body);
         });
         done();
     });
 
-    it('contains analytics', function(done) {
+    it('contains analytics', function (done) {
         helpers.assert.analytics(response, config);
         done();
     });
@@ -52,7 +52,7 @@ describe('bootswatch', function () {
         describe(name, function () {
             describe('config', function () {
                 it('has integrity', function (done) {
-                    assert(sri !== undefined);
+                    assert(typeof sri !== 'undefined');
                     done();
                 });
             });
@@ -62,9 +62,10 @@ describe('bootswatch', function () {
                 done();
             });
 
-            ['html', 'jade', 'haml'].forEach(function(fmt) {
+            ['html', 'jade', 'haml'].forEach(function (fmt) {
                 it('has ' + fmt, function (done) {
                     var str = helpers.css[fmt](uri, sri);
+
                     helpers.assert.contains(str, response.body);
                     done();
                 });

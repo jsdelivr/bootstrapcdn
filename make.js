@@ -8,56 +8,57 @@ var http  = require('http');
 var fs    = require('fs');
 var async = require('async');
 
-var MOCHA      = path.join(__dirname, 'node_modules/.bin/mocha');
-var BOOTLINT   = path.join(__dirname, 'node_modules/.bin/bootlint');
-var FOREVER    = path.join(__dirname, 'node_modules/.bin/forever');
+var MOCHA    = path.join(__dirname, 'node_modules/.bin/mocha');
+var BOOTLINT = path.join(__dirname, 'node_modules/.bin/bootlint');
+var FOREVER  = path.join(__dirname, 'node_modules/.bin/forever');
+
 var MOCHA_OPTS = ' --timeout 15000 --slow 500';
 
-(function() {
+(function () {
     cd(__dirname);
 
-    var assertExec = function(cmd, options) {
+    function assertExec (cmd, options) {
         var res = options ? exec(cmd, options) : exec(cmd);
 
-        if (res.code != 0) {
+        if (res.code !== 0) {
             process.exit(res.code);
         }
 
         return res;
-    };
+    }
 
     //
     // make test
     //
-    target.test = function() {
+    target.test = function () {
         // without functional tests
         assertExec(MOCHA + MOCHA_OPTS + ' -i -g "functional" -R spec ./tests/');
     };
 
-    target.suite = function() {
+    target.suite = function () {
         assertExec(MOCHA + MOCHA_OPTS + ' -R dot ./tests/');
     };
 
-    target.functional = function() {
+    target.functional = function () {
         assertExec(MOCHA + MOCHA_OPTS + ' -R tap ./tests/functional_test.js');
     };
 
     //
     // make clean
     //
-    target.clean = function() {
+    target.clean = function () {
         rm('-rf', 'node_modules');
     };
 
     //
     // make run
     //
-    target.run = function() {
+    target.run = function () {
         assertExec('node app.js');
     };
 
     // for functional tests
-    target.start = function(callback) {
+    target.start = function () {
         var env = process.env;
 
         if (!env.NODE_ENV) {
@@ -67,16 +68,16 @@ var MOCHA_OPTS = ' --timeout 15000 --slow 500';
         exec(FOREVER + ' start --plain app.js', { env: env });
     };
 
-    target.stop = function() {
+    target.stop = function () {
         assertExec(FOREVER + ' stop app.js');
     };
 
-    target.tryStop = function() {
+    target.tryStop = function () {
         // ignore errors with noop function
-        exec(FOREVER + ' stop app.js', function() {});
+        exec(FOREVER + ' stop app.js', function () {});
     };
 
-    target.restart = function() {
+    target.restart = function () {
         target.tryStop();
         target.start();
     };
@@ -84,7 +85,7 @@ var MOCHA_OPTS = ' --timeout 15000 --slow 500';
     //
     // make travis
     //
-    target.travis = function() {
+    target.travis = function () {
         target.suite();
         target.bootlint();
     };
@@ -92,12 +93,12 @@ var MOCHA_OPTS = ' --timeout 15000 --slow 500';
     //
     // make wp-plugin
     //
-    target['wp-plugin'] = function() {
+    target['wp-plugin'] = function () {
         echo('node ./scripts/wp-plugin.js');
         assertExec('node ./scripts/wp-plugin.js');
     };
 
-    target['purge-latest'] = function() {
+    target['purge-latest'] = function () {
         // TODO: Make pure JS
         echo('bash ./scripts/purge.sh');
         assertExec('bash ./scripts/purge.sh');
@@ -106,23 +107,24 @@ var MOCHA_OPTS = ' --timeout 15000 --slow 500';
     //
     // make bootlint
     //
-    target.bootlint = function() {
+    target.bootlint = function () {
         echo('+ node make start');
         var port = 3080;
+
         env.PORT = port;
         env.NODE_ENV = 'development';
         target.start();
 
-        var pages = [ '', 'fontawesome', 'bootswatch', 'bootlint', 'legacy',
-            'showcase', 'integrations' ];
+        var pages = ['', 'fontawesome', 'bootswatch', 'bootlint', 'legacy',
+            'showcase', 'integrations'];
 
         var outputs = [];
 
         // sleep
-        setTimeout(function() {
+        setTimeout(function () {
             echo('------------------------------------------------');
-            async.eachSeries(pages, function(page, callback) {
-                var url = 'http://localhost:' + port + '/' + page + (page !== '' ? '/' : '');
+            async.eachSeries(pages, function (page, callback) {
+                var url = 'http://localhost:' + port + '/' + page + (page === '' ? '' : '/');
 
                 if (page !== '') {
                     page += '_';
@@ -134,23 +136,23 @@ var MOCHA_OPTS = ' --timeout 15000 --slow 500';
                 // okay, not really curl, but it communicates
                 echo('+ curl ' + url + ' > ' + output);
 
-                var request = http.get(url, function(response) {
+                http.get(url, function (response) {
                     response.pipe(file);
 
-                    response.on('end', function() {
+                    response.on('end', function () {
                         file.close();
                         outputs.push(output);
                         callback();
                     });
                 });
-            }, function() {
+            }, function () {
                 echo('+ node make tryStop');
                 target.tryStop();
 
                 echo('+ bootlint ' + outputs.join('\\\n\t'));
 
                 // disabling version error's until bootswatch is updated to 3.3.4
-                exec(BOOTLINT + ' -d W013 ' + outputs.join(' '), function(code) {
+                exec(BOOTLINT + ' -d W013 ' + outputs.join(' '), function (code) {
                     rm(outputs);
                     if (code !== 0) {
                         process.exit(code);
@@ -163,16 +165,15 @@ var MOCHA_OPTS = ' --timeout 15000 --slow 500';
     //
     // make all
     //
-    target.all = function() {
+    target.all = function () {
         target.test();
         target.run();
     };
 
-
     //
     // make help
     //
-    target.help = function() {
+    target.help = function () {
         echo('Available targets:');
         echo('  all         test and run');
         echo('  test        runs unit tests');
@@ -183,5 +184,4 @@ var MOCHA_OPTS = ' --timeout 15000 --slow 500';
         echo('  bootlint    run Bootlint locally');
         echo('  help        shows this help message');
     };
-
-}());
+})();
