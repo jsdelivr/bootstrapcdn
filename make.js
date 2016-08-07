@@ -9,6 +9,7 @@ var fs    = require('fs');
 var async = require('async');
 
 var MOCHA    = path.join(__dirname, 'node_modules/.bin/mocha');
+var ESLINT   = path.join(__dirname, 'node_modules/.bin/eslint');
 var BOOTLINT = path.join(__dirname, 'node_modules/.bin/bootlint');
 var FOREVER  = path.join(__dirname, 'node_modules/.bin/forever');
 
@@ -37,6 +38,17 @@ var MOCHA_OPTS = ' --timeout 15000 --slow 500';
 
     target.suite = function () {
         assertExec(MOCHA + MOCHA_OPTS + ' -R dot ./tests/');
+    };
+
+    target.eslint = function () {
+        echo('+ eslint lib public/assets/js/ routes scripts tests *.js');
+
+        assertExec(ESLINT + ' lib public/assets/js/ routes scripts tests *.js');
+    };
+
+    target.lint = function () {
+        target.eslint();
+        target.bootlint();
     };
 
     target.functional = function () {
@@ -88,8 +100,8 @@ var MOCHA_OPTS = ' --timeout 15000 --slow 500';
     // make travis
     //
     target.travis = function () {
+        target.lint();
         target.suite();
-        target.bootlint();
     };
 
     //
@@ -183,7 +195,10 @@ var MOCHA_OPTS = ' --timeout 15000 --slow 500';
         echo('  suite       runs unit and functional tests');
         echo('  clean       cleanup working directory');
         echo('  run         runs for development mode');
+        echo('  lint        lint all the things');
+        echo('  eslint      run eslint');
         echo('  bootlint    run Bootlint locally');
+        echo('  travis      run travs-ci checks');
         echo('  help        shows this help message');
     };
 })();

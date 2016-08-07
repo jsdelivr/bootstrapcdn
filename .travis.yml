@@ -6,7 +6,7 @@ language: node_js
 node_js:
   - "4"
 
-script: npm run lint && node make travis
+script: node make travis
 
 matrix:
   fast_finish: true

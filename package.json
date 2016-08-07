@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "lint": "eslint lib public/assets/js/ routes scripts tests *.js",
+    "eslint": "node make eslint",
+    "lint": "node make lint",
     "prepublish": "npm run snyk-protect",
     "restart": "node make restart",
     "run": "node make run",
