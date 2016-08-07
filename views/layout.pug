@@ -22,7 +22,8 @@ html(lang="en")
 
         link(rel='stylesheet',
             href=helpers.buster(config.stylesheets.style.uri),
-            integrity=config.stylesheets.style.sri, crossorigin="anonymous")
+            integrity=generateSRI(config.stylesheets.style.uri),
+            crossorigin="anonymous")
 
         block head
 
@@ -53,7 +54,8 @@ html(lang="en")
             crossorigin="anonymous")
 
         script(src=helpers.buster(config.javascripts.main.uri),
-            integrity=config.javascripts.main.sri, crossorigin="anonymous")
+            integrity=generateSRI(config.javascripts.main.uri),
+            crossorigin="anonymous")
 
         - if (config.google_analytics)
             include _partials/javascripts/google_analytics

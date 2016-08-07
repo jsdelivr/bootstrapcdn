@@ -10,14 +10,12 @@ google_analytics:
 stylesheets:
   style:
     uri: /assets/css/style.css
-    sri: sha384-mILSigz0QmYfY5TwW0zZm0iPfRYQVppRAbQT1ZuXCXGTovuHHBOdbwWnFQgBInPi
 javascripts:
   jquery:
     uri: 'https://code.jquery.com/jquery-1.11.2.min.js'
     sri: sha384-Pn+PczAsODRZ2PiGg0IheRROpP7lXO1NTIjiPo6cca8TliBvaeil42fobhzvZd74
   main:
     uri: /assets/js/main.js
-    sri: sha384-mIq0aF41Px++F6wIx1fI46cw3QL1Fg5WLJAJAC7KFntJioJcgIvrQP7bRQ+6ukLQ
 bootswatch:
   version: 3.3.7
   link: 'https://bootswatch.com/SWATCH_NAME/'
