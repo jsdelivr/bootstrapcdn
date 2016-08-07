@@ -14,7 +14,8 @@ html(lang="en")
         link(rel='shortcut icon', href='/favicon.ico')
 
         - bootswatch = helpers.theme.fetch(config, theme);
-        link(rel='stylesheet', href=bootswatch.uri, integrity=bootswatch.sri, crossorigin="anonymous")
+        link(rel='stylesheet', href=bootswatch.uri, integrity=bootswatch.sri,
+            crossorigin="anonymous")
 
         - fontawesome = config.fontawesome.filter(function(o) { return o.latest; })[0];
         link(rel='stylesheet', href=fontawesome.stylesheet, integrity=fontawesome.stylesheet_sri, crossorigin="anonymous")
@@ -44,19 +45,19 @@ html(lang="en")
                 .col-md-3.visible-md.visible-lg
                     include _partials/tweets
 
-        - if (config.javascript && config.javascript.after)
-            each js in config.javascript.after
-                - js=js.replace('SWATCH_VERSION', config.bootswatch.version)
-                script(src=js)
-
-        script(src=config.javascripts.jquery.uri, integrity=config.javascripts.jquery.sri, crossorigin="anonymous")
+        script(src=config.javascripts.jquery.uri,
+            integrity=config.javascripts.jquery.sri, crossorigin="anonymous")
 
         - bootstrap = config.bootstrap.filter(function(o) { return o.latest; })[0];
-        script(src=bootstrap.javascript, integrity=bootstrap.javascript_sri, crossorigin="anonymous")
+        script(src=bootstrap.javascript, integrity=bootstrap.javascript_sri,
+            crossorigin="anonymous")
+
+        script(src=helpers.buster(config.javascripts.main.uri),
+            integrity=config.javascripts.main.sri, crossorigin="anonymous")
 
         - if (config.google_analytics)
             include _partials/javascripts/google_analytics
 
-        include _partials/javascripts/after
+        script(async src="https://platform.twitter.com/widgets.js")
 
 //- vim: ft=pug sw=4 sts=4 et:

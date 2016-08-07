@@ -20,7 +20,6 @@
     "errorhandler": "^1.4.3",
     "express": "^4.13.3",
     "express-sslify": "^1.0.1",
-    "jstransformer-uglify-js": "^1.1.1",
     "js-yaml": "^3.4.2",
     "morgan": "^1.6.1",
     "pug": "^2.0.0-beta4",
