@@ -8,6 +8,7 @@ var http        = require('http');
 var express     = require('express');
 var yaml        = require('js-yaml');
 var compression = require('compression');
+var sitemap     = require('express-sitemap');
 
 var app = express();
 
@@ -120,6 +121,22 @@ app.get('/data/bootstrapcdn.json', function (req, res) {
     }
 
     res.send(data);
+});
+
+var map = sitemap({
+    generate: app,
+    cache: 60000,       // enable 1m cache
+    route: {            // custom route
+        '/data/bootstrapcdn.json': {
+            hide: true  // exclude this route from xml and txt
+        }
+    }
+});
+
+app.get('/sitemap.xml', function(req, res) {    // send XML map
+    map.XMLtoWeb(res);
+}).get('/robots.txt', function(req, res) {      // send TXT map
+    map.TXTtoWeb(res);
 });
 
 // start

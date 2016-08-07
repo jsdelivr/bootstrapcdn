@@ -21,6 +21,7 @@
     "compression": "^1.5.2",
     "errorhandler": "^1.4.3",
     "express": "^4.13.3",
+    "express-sitemap": "^1.6.3",
     "express-sslify": "^1.0.1",
     "js-yaml": "^3.4.2",
     "morgan": "^1.6.1",
