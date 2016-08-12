@@ -3,7 +3,7 @@
 (function() {
     'use strict';
     window.tryIt = function (n) {
-        window.location.href = '/bootswatch/?theme=' + n;
+        window.location.search = 'theme=' + n;
     };
 
     window.toggleCode = function (el, name) {
@@ -36,7 +36,16 @@
     });
 
     (function() {
-        $('a[href="' + window.top.location.pathname + '"]').parent().addClass('active');
+        var pathname = window.location.pathname;
+
+        if (pathname === '/') {
+            return;
+        }
+
+        $('.nav > li > a[href^="' + pathname + '"]')
+            .parent()
+            .addClass('active');
+
     })();
 })();
 
