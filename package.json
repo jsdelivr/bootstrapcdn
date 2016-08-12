@@ -20,6 +20,7 @@
     "compression": "^1.6.2",
     "errorhandler": "^1.4.3",
     "express": "^4.14.0",
+    "express-minify": "^0.2.0",
     "express-sitemap": "^1.6.5",
     "express-sslify": "^1.1.0",
     "helmet": "^3.1.0",
