@@ -36,7 +36,16 @@
     });
 
     (function() {
-        $('a[href="' + window.top.location.pathname + '"]').parent().addClass('active');
+        var pathname = window.location.pathname;
+
+        if (pathname === '/') {
+            return;
+        }
+
+        $('.nav > li > a[href^="' + pathname + '"]')
+            .parent()
+            .addClass('active');
+
     })();
 })();
 
