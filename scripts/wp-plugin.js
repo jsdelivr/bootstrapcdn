@@ -2,9 +2,9 @@
 
 'use strict';
 
-var fs   = require('fs');
-var yaml = require('js-yaml');
-var path = require('path');
+var fs     = require('fs');
+var path   = require('path');
+var yaml   = require('js-yaml');
 var config = yaml.safeLoad(fs.readFileSync(path.resolve(__dirname, '..', 'config', '_config.yml'), 'utf8'));
 
 var data = {
@@ -13,21 +13,21 @@ var data = {
     fontawesome: {}
 };
 
-config.bootstrap.forEach(function(bootstrap) {
+config.bootstrap.forEach(function (bootstrap) {
     data.bootstrap[bootstrap.version] = {
         css: bootstrap.css_complete,
-        js: bootstrap.javascript
+        js:  bootstrap.javascript
     };
 });
 
-config.fontawesome.forEach(function(fontawesome) {
+config.fontawesome.forEach(function (fontawesome) {
     data.fontawesome[fontawesome.version] = fontawesome.css_complete;
 });
 
 fs.writeFile(
     path.resolve(__dirname, '..', 'public', 'data', 'bootstrapcdn.json'),
     JSON.stringify(data, null, 2),
-    function(err) {
+    function (err) {
         if (err) {
             console.error('an error occured creating bootstrapcdn.json');
             console.trace(err);

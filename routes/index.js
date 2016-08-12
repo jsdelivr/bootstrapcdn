@@ -1,15 +1,15 @@
 'use strict';
 
-var path   = require('path');
-var digest = require(path.join(__dirname, '..', 'lib', 'helpers')).sri.digest;
+var path      = require('path');
+var digest    = require(path.join(__dirname, '..', 'lib', 'helpers')).sri.digest;
 
-var TITLE = 'BootstrapCDN by MaxCDN';
+var TITLE     = 'BootstrapCDN by MaxCDN';
 var SRI_CACHE = {};
 
 function appendLocals(req, res) {
     var proto = req.get('x-forwarded-proto');
 
-    if (proto === undefined) {
+    if (typeof proto === 'undefined') {
         proto = req.protocol;
     }
 
@@ -17,12 +17,12 @@ function appendLocals(req, res) {
 
     res.locals.theme = req.query.theme;
 
-    res.locals.displayTitle = function(pageTitle) {
+    res.locals.displayTitle = function (pageTitle) {
         return pageTitle + ' &middot; ' + TITLE;
     };
 
     res.locals.generateSRI = function (file) {
-        if (SRI_CACHE[file] === undefined) {
+        if (typeof SRI_CACHE[file] === 'undefined') {
             SRI_CACHE[file] = digest(path.join(__dirname, '..', 'public', file));
         }
 
@@ -77,7 +77,11 @@ function showcase(req, res) {
         }
     }
 
-    res.render('showcase', { title: 'Showcase', col1: col1, col2: col2 });
+    res.render('showcase', {
+        title: 'Showcase',
+        col1: col1,
+        col2: col2
+    });
 }
 
 function integrations(req, res) {
@@ -95,18 +99,22 @@ function integrations(req, res) {
         }
     }
 
-    res.render('integrations', { title: 'Integrations', col1: col1, col2: col2 });
+    res.render('integrations', {
+        title: 'Integrations',
+        col1: col1,
+        col2: col2
+    });
 }
 
 module.exports = {
-    index:         index,
-    fontawesome:   fontawesome,
-    bootswatch:    bootswatch,
-    bootlint:      bootlint,
-    alpha:         alpha,
-    legacy:        legacy,
-    showcase:      showcase,
-    integrations:  integrations
+    index:        index,
+    fontawesome:  fontawesome,
+    bootswatch:   bootswatch,
+    bootlint:     bootlint,
+    alpha:        alpha,
+    legacy:       legacy,
+    showcase:     showcase,
+    integrations: integrations
 };
 
 // vim: ft=javascript sw=4 sts=4 et:

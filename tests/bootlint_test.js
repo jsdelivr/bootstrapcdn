@@ -1,13 +1,14 @@
 'use strict';
 
-var path    = require('path');
-var assert  = require('assert');
-var helpers = require(path.join(__dirname, 'test_helper.js'));
-var config  = helpers.config();
+var path     = require('path');
+var assert   = require('assert');
 
-var uri = helpers.app(config, 'bootlint');
-var response;
-before(function(done) {
+var helpers  = require(path.join(__dirname, 'test_helper.js'));
+var config   = helpers.config();
+var uri      = helpers.app(config, 'bootlint');
+var response = {};
+
+before(function (done) {
     helpers.preFetch(uri, function (res) {
         response = res;
         done();
@@ -16,6 +17,7 @@ before(function(done) {
 
 describe('bootlint', function () {
     var latest = config.bootlint[0];
+
     describe('config', function () {
         it('is latest', function (done) {
             assert(latest.latest);
@@ -23,7 +25,7 @@ describe('bootlint', function () {
         });
 
         it('has integrity', function (done) {
-            assert(latest.javascript_sri !== undefined);
+            assert(typeof latest.javascriptSri !== 'undefined');
             done();
         });
     });
@@ -33,14 +35,14 @@ describe('bootlint', function () {
         done();
     });
 
-    it('contains authors', function(done) {
-        config.authors.forEach(function(author) {
+    it('contains authors', function (done) {
+        config.authors.forEach(function (author) {
             helpers.assert.contains(author, response.body);
         });
         done();
     });
 
-    it('contains analytics', function(done) {
+    it('contains analytics', function (done) {
         helpers.assert.analytics(response, config);
         done();
     });
@@ -55,9 +57,10 @@ describe('bootlint', function () {
         done();
     });
 
-    ['html', 'jade', 'haml'].forEach(function(fmt) {
+    ['html', 'jade', 'haml'].forEach(function (fmt) {
         it('has ' + fmt, function (done) {
-            var str = helpers.javascript[fmt](latest.javascript, latest.javascript_sri);
+            var str = helpers.javascript[fmt](latest.javascript, latest.javascriptSri);
+
             helpers.assert.contains(str, response.body);
             done();
         });

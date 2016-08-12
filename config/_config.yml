@@ -58,232 +58,232 @@ bootlint:
   - version: 0.14.2
     latest: true
     javascript: 'https://maxcdn.bootstrapcdn.com/bootlint/0.14.2/bootlint.min.js'
-    javascript_sri: sha384-JaIVjIvdXc3Gg0Gm1bHjU7MigRNNEOeT0gWdiFJUv+BnE/C/OQ7j8OUuoSsCMlhK
+    javascriptSri: sha384-JaIVjIvdXc3Gg0Gm1bHjU7MigRNNEOeT0gWdiFJUv+BnE/C/OQ7j8OUuoSsCMlhK
   - version: 0.14.1
     javascript: 'https://maxcdn.bootstrapcdn.com/bootlint/0.14.1/bootlint.min.js'
-    javascript_sri: sha384-FKlkbRb9LQxleRRwIyIYl5TCWdCrTkYWi8a3yzwRyu/3TqLwuHsaUn3ZAOZcLJv0
+    javascriptSri: sha384-FKlkbRb9LQxleRRwIyIYl5TCWdCrTkYWi8a3yzwRyu/3TqLwuHsaUn3ZAOZcLJv0
   - version: 0.13.0
     javascript: 'https://maxcdn.bootstrapcdn.com/bootlint/0.13.0/bootlint.min.js'
-    javascript_sri: sha384-4aNwwKDa4tijVBuyvOrZAX7g8mrESQ+CLWJOKBfM4fvJ7GNE42Td3yI6mGAqwTSU
+    javascriptSri: sha384-4aNwwKDa4tijVBuyvOrZAX7g8mrESQ+CLWJOKBfM4fvJ7GNE42Td3yI6mGAqwTSU
   - version: 0.12.0
     javascript: 'https://maxcdn.bootstrapcdn.com/bootlint/0.12.0/bootlint.min.js'
-    javascript_sri: sha384-kGY1GazC1SpLw0Gs+XK/Yv0s4DPWGrlOALeixkEyCvfMWgzq36HGBYrD8PF577QW
+    javascriptSri: sha384-kGY1GazC1SpLw0Gs+XK/Yv0s4DPWGrlOALeixkEyCvfMWgzq36HGBYrD8PF577QW
   - version: 0.11.0
     javascript: 'https://maxcdn.bootstrapcdn.com/bootlint/0.11.0/bootlint.min.js'
-    javascript_sri: sha384-K15+Bv/1FFoRLg2XTuJoY8tI34nLYDC4m3Nawz62qO3yzUoovFiD1Xyjt2pwjpmI
+    javascriptSri: sha384-K15+Bv/1FFoRLg2XTuJoY8tI34nLYDC4m3Nawz62qO3yzUoovFiD1Xyjt2pwjpmI
   - version: 0.10.0
     javascript: 'https://maxcdn.bootstrapcdn.com/bootlint/0.10.0/bootlint.min.js'
-    javascript_sri: sha384-t1QF780Unj08H1IpWnLOLV9YciuBXXtZRcv5r4FzWlD4jYL7Us39JIGIycusg9EQ
+    javascriptSri: sha384-t1QF780Unj08H1IpWnLOLV9YciuBXXtZRcv5r4FzWlD4jYL7Us39JIGIycusg9EQ
   - version: 0.9.1
     javascript: 'https://maxcdn.bootstrapcdn.com/bootlint/0.9.1/bootlint.min.js'
-    javascript_sri: sha384-ODJ5ki4myJicza2RnOq12DDemJmCutJfT3laz+gAGY002X/zu75bSgld5EPsvBgY
+    javascriptSri: sha384-ODJ5ki4myJicza2RnOq12DDemJmCutJfT3laz+gAGY002X/zu75bSgld5EPsvBgY
   - version: 0.9.0
     javascript: 'https://maxcdn.bootstrapcdn.com/bootlint/0.9.0/bootlint.min.js'
-    javascript_sri: sha384-xIQgeRKKMrDkH9lmucifnUh7u/dUNx9m3tgo5poZpomoDnocitLHVcN5OQbYKhzs
+    javascriptSri: sha384-xIQgeRKKMrDkH9lmucifnUh7u/dUNx9m3tgo5poZpomoDnocitLHVcN5OQbYKhzs
   - version: 0.8.0
     javascript: 'https://maxcdn.bootstrapcdn.com/bootlint/0.8.0/bootlint.min.js'
-    javascript_sri: sha384-FqBMuQnBIPJbxafXCgyYNh+itbgQUyRXjxsjGiDGnL/Xsds+XPrMTP7pEN5od4J+
+    javascriptSri: sha384-FqBMuQnBIPJbxafXCgyYNh+itbgQUyRXjxsjGiDGnL/Xsds+XPrMTP7pEN5od4J+
   - version: 0.7.0
     javascript: 'https://maxcdn.bootstrapcdn.com/bootlint/0.7.0/bootlint.min.js'
-    javascript_sri: sha384-/ZLL965j8wZF4JpweIAsnKzc21OZ6SAMP3ycNC5hVW+ffh8N21zzLuDUQXG/1LIu
+    javascriptSri: sha384-/ZLL965j8wZF4JpweIAsnKzc21OZ6SAMP3ycNC5hVW+ffh8N21zzLuDUQXG/1LIu
   - version: 0.6.0
     javascript: 'https://maxcdn.bootstrapcdn.com/bootlint/0.6.0/bootlint.min.js'
-    javascript_sri: sha384-gOhGxmIs4Bi6JbVKQsZhEwTe6/4vWeu5ZqWz3l/J+8DG6etGc+e0WQESgII0Mw9z
+    javascriptSri: sha384-gOhGxmIs4Bi6JbVKQsZhEwTe6/4vWeu5ZqWz3l/J+8DG6etGc+e0WQESgII0Mw9z
   - version: 0.5.0
     javascript: 'https://maxcdn.bootstrapcdn.com/bootlint/0.5.0/bootlint.min.js'
-    javascript_sri: sha384-V6wdx8u94iCd+fqO6qeqgmo9SyihQcpAO8GOfhIoA1m7MKphCVGXh3Jq++nrG7l0
+    javascriptSri: sha384-V6wdx8u94iCd+fqO6qeqgmo9SyihQcpAO8GOfhIoA1m7MKphCVGXh3Jq++nrG7l0
   - version: 0.4.0
     javascript: 'https://maxcdn.bootstrapcdn.com/bootlint/0.4.0/bootlint.min.js'
-    javascript_sri: sha384-GNIbSLYe/n++7a0qCo97FWQXuqn2U8VkdH8+Bbvj5Qhzf70Uo4KcDVnqrfbGcQkL
+    javascriptSri: sha384-GNIbSLYe/n++7a0qCo97FWQXuqn2U8VkdH8+Bbvj5Qhzf70Uo4KcDVnqrfbGcQkL
   - version: 0.3.0
     javascript: 'https://maxcdn.bootstrapcdn.com/bootlint/0.3.0/bootlint.min.js'
-    javascript_sri: sha384-ZoVuAFOi/5k+zh+KdFuM5VGlE8Jo3RNWpjU+w/nqCBWWD6VIpJ+vGH6OzRuXD41A
+    javascriptSri: sha384-ZoVuAFOi/5k+zh+KdFuM5VGlE8Jo3RNWpjU+w/nqCBWWD6VIpJ+vGH6OzRuXD41A
   - version: 0.2.0
     javascript: 'https://maxcdn.bootstrapcdn.com/bootlint/0.2.0/bootlint.min.js'
-    javascript_sri: sha384-P39EUhpQ3yuurCYqhv/i3svCv2kIZYJQIbPMU7s4JY11FYLs1u8YrkiDZmYFEfjx
+    javascriptSri: sha384-P39EUhpQ3yuurCYqhv/i3svCv2kIZYJQIbPMU7s4JY11FYLs1u8YrkiDZmYFEfjx
 bootstrap:
   - version: 3.3.7
     latest: true
     stylesheet: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'
     javascript: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'
-    javascript_sri: sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa
-    stylesheet_sri: sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u
+    javascriptSri: sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa
+    stylesheetSri: sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u
   - version: 3.3.6
     stylesheet: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'
     javascript: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js'
-    javascript_sri: sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS
-    stylesheet_sri: sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7
+    javascriptSri: sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS
+    stylesheetSri: sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7
   - version: 3.3.5
     stylesheet: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'
     javascript: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'
-    stylesheet_sri: sha384-pdapHxIh7EYuwy6K7iE41uXVxGCXY0sAjBzaElYGJUrzwodck3Lx6IE2lA0rFREo
-    javascript_sri: sha384-pPttEvTHTuUJ9L2kCoMnNqCRcaMPMVMsWVO+RLaaaYDmfSP5//dP6eKRusbPcqhZ
+    stylesheetSri: sha384-pdapHxIh7EYuwy6K7iE41uXVxGCXY0sAjBzaElYGJUrzwodck3Lx6IE2lA0rFREo
+    javascriptSri: sha384-pPttEvTHTuUJ9L2kCoMnNqCRcaMPMVMsWVO+RLaaaYDmfSP5//dP6eKRusbPcqhZ
   - version: 3.3.4
     stylesheet: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css'
     javascript: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js'
-    javascript_sri: sha384-EKxMxgJ+EnnZ5yB3ygGPe1lXaPvlAzKFXU+wW7kO9Bn9ZCgFRrc3wWtCnsDHbemf
-    stylesheet_sri: sha384-604wwakM23pEysLJAhja8Lm42IIwYrJ0dEAqzFsj9pJ/P5buiujjywArgPCi8eoz
+    javascriptSri: sha384-EKxMxgJ+EnnZ5yB3ygGPe1lXaPvlAzKFXU+wW7kO9Bn9ZCgFRrc3wWtCnsDHbemf
+    stylesheetSri: sha384-604wwakM23pEysLJAhja8Lm42IIwYrJ0dEAqzFsj9pJ/P5buiujjywArgPCi8eoz
   - version: 3.3.2
     stylesheet: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css'
     javascript: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js'
-    javascript_sri: sha384-4Kp4aQ6UNeqsJ/ithPcxYnnIGt/QJJ64J9QtfDAJZUTaePAIPm9aaBdu7Gw84oGs
-    stylesheet_sri: sha384-Tfj13fqQQqqzQFuaZ81WDzmmOU610WeS08VMuHmElK5oI2f7NwojuL6VupYXR/jK
+    javascriptSri: sha384-4Kp4aQ6UNeqsJ/ithPcxYnnIGt/QJJ64J9QtfDAJZUTaePAIPm9aaBdu7Gw84oGs
+    stylesheetSri: sha384-Tfj13fqQQqqzQFuaZ81WDzmmOU610WeS08VMuHmElK5oI2f7NwojuL6VupYXR/jK
   - version: 3.3.1
     stylesheet: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'
     javascript: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js'
-    javascript_sri: sha384-Nud2SriDt2fZ+u85IBC48Yn9p+l4AGlapnX1EGA2KrnZjYJx8sxKnw/CIxc1wU1B
-    stylesheet_sri: sha384-8+rznmq/k0KZkJlZhnuPEVkbRD7tA0wcFEjY48dajGWn3Xc1MasJwS8/tJ7OEsKW
+    javascriptSri: sha384-Nud2SriDt2fZ+u85IBC48Yn9p+l4AGlapnX1EGA2KrnZjYJx8sxKnw/CIxc1wU1B
+    stylesheetSri: sha384-8+rznmq/k0KZkJlZhnuPEVkbRD7tA0wcFEjY48dajGWn3Xc1MasJwS8/tJ7OEsKW
   - version: 3.3.0
     stylesheet: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css'
     javascript: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js'
-    javascript_sri: sha384-jspctxrQmizRroXAKjoWWOOhkG3aZesspL7dmISSX5+p1LfXftbGQocYmzOsv9wx
-    stylesheet_sri: sha384-dT8WZNLW+WmnMquYY8GD+px5+PPMy/Rz1pZTBuLQv7EfAZG0xhipTd08JFVCf8bp
+    javascriptSri: sha384-jspctxrQmizRroXAKjoWWOOhkG3aZesspL7dmISSX5+p1LfXftbGQocYmzOsv9wx
+    stylesheetSri: sha384-dT8WZNLW+WmnMquYY8GD+px5+PPMy/Rz1pZTBuLQv7EfAZG0xhipTd08JFVCf8bp
   - version: 3.2.0
     stylesheet: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'
     javascript: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js'
-    javascript_sri: sha384-VI5+XuguQ/l3kUhh4knz7Hxptx47wpQbVRDnp8v7Vvuhzwn1PEYb/uvtH6KLxv6d
-    stylesheet_sri: sha384-Ej0hUpn6wbrOTJtRExp8jvboBagaz+Or6E9zzWT+gHCQuuZQQVZUcbmhXQzSG17s
+    javascriptSri: sha384-VI5+XuguQ/l3kUhh4knz7Hxptx47wpQbVRDnp8v7Vvuhzwn1PEYb/uvtH6KLxv6d
+    stylesheetSri: sha384-Ej0hUpn6wbrOTJtRExp8jvboBagaz+Or6E9zzWT+gHCQuuZQQVZUcbmhXQzSG17s
   - version: 3.1.1
     stylesheet: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css'
     javascript: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js'
-    javascript_sri: sha384-oFMgcGzKX7GaHtF4hx14KbxdsGjyfHK6m1comHjI1FH6g4m6qYre+4cnZbwaYbHD
-    stylesheet_sri: sha384-7tY7Dc2Q8WQTKGz2Fa0vC4dWQo07N4mJjKvHfIGnxuC4vPqFGFQppd9b3NWpf18/
+    javascriptSri: sha384-oFMgcGzKX7GaHtF4hx14KbxdsGjyfHK6m1comHjI1FH6g4m6qYre+4cnZbwaYbHD
+    stylesheetSri: sha384-7tY7Dc2Q8WQTKGz2Fa0vC4dWQo07N4mJjKvHfIGnxuC4vPqFGFQppd9b3NWpf18/
   - version: 3.1.0
     stylesheet: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css'
     javascript: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js'
-    javascript_sri: sha384-7pPmvaV7JjM/wsobVyDu9o+X6ETgKe/Yp7VfxVr7OiOEnkvzsQB8LfBqMXnbTIht
-    stylesheet_sri: sha384-GYBZMlEOunzhR/VZ6XhlOir+4wC0SyDpSIotW0oxJizkK/V2czMG1GvOmuRiNUNP
+    javascriptSri: sha384-7pPmvaV7JjM/wsobVyDu9o+X6ETgKe/Yp7VfxVr7OiOEnkvzsQB8LfBqMXnbTIht
+    stylesheetSri: sha384-GYBZMlEOunzhR/VZ6XhlOir+4wC0SyDpSIotW0oxJizkK/V2czMG1GvOmuRiNUNP
   - version: 3.0.3
     stylesheet: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css'
     javascript: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js'
-    javascript_sri: sha384-s1ITto93iSMDxlp/79qhWHi+LsIi9Gx6yL+cOKDuymvihkfol83TYbLbOw+W/wv4
-    stylesheet_sri: sha384-IS73LIqjtYesmURkDE9MXKbXqYA8rvKEp/ghicjem7Vc3mGRdQRptJSz60tvrB6+
+    javascriptSri: sha384-s1ITto93iSMDxlp/79qhWHi+LsIi9Gx6yL+cOKDuymvihkfol83TYbLbOw+W/wv4
+    stylesheetSri: sha384-IS73LIqjtYesmURkDE9MXKbXqYA8rvKEp/ghicjem7Vc3mGRdQRptJSz60tvrB6+
   - version: 3.0.2
     stylesheet: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css'
     javascript: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js'
-    javascript_sri: sha384-DKoN2gpE9Yt/u0fuNvcJBn4n7wjnKFKjg4+Iz4ORs52lUc0Qp++smhHtWwHeapVW
-    stylesheet_sri: sha384-eumbg33EfHRpbzLIm0lGs0JresLNj7c+5beuRW4d11/vF3Wv3YYmuudfOwMsCmp5
+    javascriptSri: sha384-DKoN2gpE9Yt/u0fuNvcJBn4n7wjnKFKjg4+Iz4ORs52lUc0Qp++smhHtWwHeapVW
+    stylesheetSri: sha384-eumbg33EfHRpbzLIm0lGs0JresLNj7c+5beuRW4d11/vF3Wv3YYmuudfOwMsCmp5
   - version: 3.0.1
     stylesheet: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.0.1/css/bootstrap.min.css'
     javascript: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.0.1/js/bootstrap.min.js'
-    javascript_sri: sha384-v8HX8SQTySTjAPEOaAUfPj9Gjk/7LIdxELgikx0A/paeRU2yNSrHNeA1zGkKgOiS
-    stylesheet_sri: sha384-LPhngNOCBL/UBSMVU9FgFJvedMM7pf3l3s+DDyYV/gqd+D2+NEn5a2Uf18B0MBMv
+    javascriptSri: sha384-v8HX8SQTySTjAPEOaAUfPj9Gjk/7LIdxELgikx0A/paeRU2yNSrHNeA1zGkKgOiS
+    stylesheetSri: sha384-LPhngNOCBL/UBSMVU9FgFJvedMM7pf3l3s+DDyYV/gqd+D2+NEn5a2Uf18B0MBMv
   - version: 3.0.0
     stylesheet: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css'
     javascript: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js'
-    javascript_sri: sha384-Zzs5x1/YUvlxpCu06c197tRCubLCMA7pCoHbZeoZuz/oEgYD6NVmvLzDSKYBoc3J
-    stylesheet_sri: sha384-dkTxiR4Mv8i0ubTj0fsgTCmhYmOtrc0o6rdrEO6hDZs9cAifak0Y2VVL2cecWHLQ
+    javascriptSri: sha384-Zzs5x1/YUvlxpCu06c197tRCubLCMA7pCoHbZeoZuz/oEgYD6NVmvLzDSKYBoc3J
+    stylesheetSri: sha384-dkTxiR4Mv8i0ubTj0fsgTCmhYmOtrc0o6rdrEO6hDZs9cAifak0Y2VVL2cecWHLQ
   - version: 3.0.0-noicons
     stylesheet: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.no-icons.min.css'
     javascript: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js'
-    javascript_sri: sha384-Zzs5x1/YUvlxpCu06c197tRCubLCMA7pCoHbZeoZuz/oEgYD6NVmvLzDSKYBoc3J
-    stylesheet_sri: sha384-dkTxiR4Mv8i0ubTj0fsgTCmhYmOtrc0o6rdrEO6hDZs9cAifak0Y2VVL2cecWHLQ
+    javascriptSri: sha384-Zzs5x1/YUvlxpCu06c197tRCubLCMA7pCoHbZeoZuz/oEgYD6NVmvLzDSKYBoc3J
+    stylesheetSri: sha384-dkTxiR4Mv8i0ubTj0fsgTCmhYmOtrc0o6rdrEO6hDZs9cAifak0Y2VVL2cecWHLQ
   - version: 2.3.2
     stylesheet: 'https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css'
     javascript: 'https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js'
-    javascript_sri: sha384-vOWIrgFbxIPzY09VArRHMsxned7WiY6hzIPtAIIeTFuii9y3Cr6HE6fcHXy5CFhc
-    stylesheet_sri: sha384-4FeI0trTH/PCsLWrGCD1mScoFu9Jf2NdknFdFoJhXZFwsvzZ3Bo5sAh7+zL8Xgnd
+    javascriptSri: sha384-vOWIrgFbxIPzY09VArRHMsxned7WiY6hzIPtAIIeTFuii9y3Cr6HE6fcHXy5CFhc
+    stylesheetSri: sha384-4FeI0trTH/PCsLWrGCD1mScoFu9Jf2NdknFdFoJhXZFwsvzZ3Bo5sAh7+zL8Xgnd
   - version: 2.3.2-noicons
     stylesheet: 'https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css'
     javascript: 'https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js'
-    javascript_sri: sha384-vOWIrgFbxIPzY09VArRHMsxned7WiY6hzIPtAIIeTFuii9y3Cr6HE6fcHXy5CFhc
-    stylesheet_sri: sha384-nITPVmSN/64KqhfcWtEJQwuzHIHqSgbSPmp74MISiB8zab+d6ThLyqTpw8bYMBqY
+    javascriptSri: sha384-vOWIrgFbxIPzY09VArRHMsxned7WiY6hzIPtAIIeTFuii9y3Cr6HE6fcHXy5CFhc
+    stylesheetSri: sha384-nITPVmSN/64KqhfcWtEJQwuzHIHqSgbSPmp74MISiB8zab+d6ThLyqTpw8bYMBqY
   - version: 2.3.1
     stylesheet: 'https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css'
     javascript: 'https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js'
-    javascript_sri: sha384-c9p7VJz4n41pctsFNm0SJNtxs1tEtVpbHd6KlMj1gRb5G3hVejCHUMwu+jfyRnNK
-    stylesheet_sri: sha384-AfZ+8dl93QPpFmy0Q1kFwfwG1NBplh51QAw7oZCXARa9KWcl9Xx/7vk16PCDna/T
+    javascriptSri: sha384-c9p7VJz4n41pctsFNm0SJNtxs1tEtVpbHd6KlMj1gRb5G3hVejCHUMwu+jfyRnNK
+    stylesheetSri: sha384-AfZ+8dl93QPpFmy0Q1kFwfwG1NBplh51QAw7oZCXARa9KWcl9Xx/7vk16PCDna/T
   - version: 2.3.0
     stylesheet: 'https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.3.0/css/bootstrap-combined.min.css'
     javascript: 'https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.3.0/js/bootstrap.min.js'
-    javascript_sri: sha384-aUC8DaWA3aOpC7vk8W8jXtUafWxpUqKoxscempkyBcP8giruBvcooYNAKt8ZlbLo
-    stylesheet_sri: sha384-j4yX2PowqrVy4Ogwr6u4kWzszBjcwPSvEjXy5oAODYFpI/KZCiVl8hRTGAJULguo
+    javascriptSri: sha384-aUC8DaWA3aOpC7vk8W8jXtUafWxpUqKoxscempkyBcP8giruBvcooYNAKt8ZlbLo
+    stylesheetSri: sha384-j4yX2PowqrVy4Ogwr6u4kWzszBjcwPSvEjXy5oAODYFpI/KZCiVl8hRTGAJULguo
   - version: 2.2.2
     stylesheet: 'https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css'
     javascript: 'https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js'
-    javascript_sri: sha384-e0kRLAUzZF/GpUULwXoniNHgUSfqSx0Xg5mdnYeD4W3PGOPxsX8j6pPeCGxWp0Ul
-    stylesheet_sri: sha384-br15D1xki2uxso2Jd5k/aDmd7daYX3Ur17nGlEj4cSCYVaurBnBDfUXA+uKk7hUG
+    javascriptSri: sha384-e0kRLAUzZF/GpUULwXoniNHgUSfqSx0Xg5mdnYeD4W3PGOPxsX8j6pPeCGxWp0Ul
+    stylesheetSri: sha384-br15D1xki2uxso2Jd5k/aDmd7daYX3Ur17nGlEj4cSCYVaurBnBDfUXA+uKk7hUG
   - version: 2.2.2-noresponsible
     stylesheet: 'https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap.min.nr.css'
     javascript: 'https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js'
-    javascript_sri: sha384-e0kRLAUzZF/GpUULwXoniNHgUSfqSx0Xg5mdnYeD4W3PGOPxsX8j6pPeCGxWp0Ul
-    stylesheet_sri: sha384-YdMhjk0LNUOdsF1AiNOR4GXZxEEUy8d6DAcT7bo/Pl5RUw2zbSDxe8RhWoyV1S+0
+    javascriptSri: sha384-e0kRLAUzZF/GpUULwXoniNHgUSfqSx0Xg5mdnYeD4W3PGOPxsX8j6pPeCGxWp0Ul
+    stylesheetSri: sha384-YdMhjk0LNUOdsF1AiNOR4GXZxEEUy8d6DAcT7bo/Pl5RUw2zbSDxe8RhWoyV1S+0
   - version: 2.2.1
     stylesheet: 'https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.2.1/css/bootstrap-combined.min.css'
     javascript: 'https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js'
-    javascript_sri: sha384-qJ8AGIuPqPo4I2zhyRYO6vQaJrGBbTpIiXGihDsGpfMCHJD0IKH0gkPQToGD5ek3
-    stylesheet_sri: sha384-SxD9NhT6x7xbJZq3DchEPXL/Go+GKOxlfipD1Y+5v4WFOnsU6MNTmzRe9oPoXwCA
+    javascriptSri: sha384-qJ8AGIuPqPo4I2zhyRYO6vQaJrGBbTpIiXGihDsGpfMCHJD0IKH0gkPQToGD5ek3
+    stylesheetSri: sha384-SxD9NhT6x7xbJZq3DchEPXL/Go+GKOxlfipD1Y+5v4WFOnsU6MNTmzRe9oPoXwCA
   - version: 2.2.0
     stylesheet: 'https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.2.0/css/bootstrap-combined.min.css'
     javascript: 'https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.2.0/js/bootstrap.min.js'
-    javascript_sri: sha384-tq2l1Z48uwiIMDmueFNbFz/v2HjHbDDIaVhXH4qhRU99PosO4Rm1WjwKOkXmwWJY
-    stylesheet_sri: sha384-2MqdmrQ8pl9PeLkJ5NcUtr55S/rzeGRJ6VigvGOZ2e9jKeyA5uQfNF1A6MnBd95x
+    javascriptSri: sha384-tq2l1Z48uwiIMDmueFNbFz/v2HjHbDDIaVhXH4qhRU99PosO4Rm1WjwKOkXmwWJY
+    stylesheetSri: sha384-2MqdmrQ8pl9PeLkJ5NcUtr55S/rzeGRJ6VigvGOZ2e9jKeyA5uQfNF1A6MnBd95x
   - version: 2.1.1
     stylesheet: 'https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap-combined.min.css'
     javascript: 'https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.1.1/js/bootstrap.min.js'
-    javascript_sri: sha384-gYjuefvjBnMR9aV2JTKd0GeQnxj+mKMBirUgIH+rBsMaUe1iAC8UtOnqPrZV8s2V
-    stylesheet_sri: sha384-Cnxb+E2mrhv+pAvYnCOpd6HecV+JYAqrZFWwhuURK4EhHf3A4ALFYOpsbtLTdkPT
+    javascriptSri: sha384-gYjuefvjBnMR9aV2JTKd0GeQnxj+mKMBirUgIH+rBsMaUe1iAC8UtOnqPrZV8s2V
+    stylesheetSri: sha384-Cnxb+E2mrhv+pAvYnCOpd6HecV+JYAqrZFWwhuURK4EhHf3A4ALFYOpsbtLTdkPT
   - version: 2.1.0
     stylesheet: 'https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.1.0/css/bootstrap-combined.min.css'
     javascript: 'https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.1.0/js/bootstrap.min.js'
-    javascript_sri: sha384-SiZElk5uhDW0J6QmBKDDd6IjV9oUcvQ1uoy9kB+G3a8icLOwjNovKjAC1fHwo22V
-    stylesheet_sri: sha384-EAs/2xIodeYnc03rJToARHvNHFcPHv+Gndif5gelxOUVUM440UC9/rJdovM84FlL
+    javascriptSri: sha384-SiZElk5uhDW0J6QmBKDDd6IjV9oUcvQ1uoy9kB+G3a8icLOwjNovKjAC1fHwo22V
+    stylesheetSri: sha384-EAs/2xIodeYnc03rJToARHvNHFcPHv+Gndif5gelxOUVUM440UC9/rJdovM84FlL
   - version: 2.0.4
     stylesheet: 'https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.0.4/css/bootstrap-combined.min.css'
     javascript: 'https://maxcdn.bootstrapcdn.com/twitter-bootstrap/2.0.4/js/bootstrap.min.js'
-    javascript_sri: sha384-2sVosMIQw67h8RBCTmE20BSl9j66nWwbH+2W/CKr8celILSNnEfJnJv2PKCdet3I
-    stylesheet_sri: sha384-G87n9a15LEsz+OvKCr10ldEbckfbCpr2gjYnZgCiKiwH0p/If1QkSURCTzubbt19
+    javascriptSri: sha384-2sVosMIQw67h8RBCTmE20BSl9j66nWwbH+2W/CKr8celILSNnEfJnJv2PKCdet3I
+    stylesheetSri: sha384-G87n9a15LEsz+OvKCr10ldEbckfbCpr2gjYnZgCiKiwH0p/If1QkSURCTzubbt19
 bootstrap4:
   - version: 4-dev
     latest: true
     stylesheet: 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css'
     javascript: 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js'
-    javascript_sri: sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7
-    stylesheet_sri: sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd
+    javascriptSri: sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7
+    stylesheetSri: sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd
 fontawesome:
   - version: 4.6.3
     latest: true
     stylesheet: 'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css'
-    stylesheet_sri: sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1
+    stylesheetSri: sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1
   - version: 4.6.2
     stylesheet: 'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css'
-    stylesheet_sri: sha384-aNUYGqSUL9wG/vP7+cWZ5QOM4gsQou3sBfWRr/8S3R1Lv0rysEmnwsRKMbhiQX/O
+    stylesheetSri: sha384-aNUYGqSUL9wG/vP7+cWZ5QOM4gsQou3sBfWRr/8S3R1Lv0rysEmnwsRKMbhiQX/O
   - version: 4.6.1
     stylesheet: 'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css'
-    stylesheet_sri: sha384-hQpvDQiCJaD2H465dQfA717v7lu5qHWtDbWNPvaTJ0ID5xnPUlVXnKzq7b8YUkbN
+    stylesheetSri: sha384-hQpvDQiCJaD2H465dQfA717v7lu5qHWtDbWNPvaTJ0ID5xnPUlVXnKzq7b8YUkbN
   - version: 4.6.0
     stylesheet: 'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css'
-    stylesheet_sri: sha384-I6JCnqxMbC2DuiHjsoCiLa15NVbKRf8/ooANRLsXD87zD2dVqzlz6Oqjvj470ztk
+    stylesheetSri: sha384-I6JCnqxMbC2DuiHjsoCiLa15NVbKRf8/ooANRLsXD87zD2dVqzlz6Oqjvj470ztk
   - version: 4.5.0
     stylesheet: 'https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css'
-    stylesheet_sri: sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+
+    stylesheetSri: sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+
   - version: 4.4.0
     stylesheet: 'https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'
-    stylesheet_sri: sha384-MI32KR77SgI9QAPUs+6R7leEOwtop70UsjEtFEezfKnMjXWx15NENsZpfDgq8m8S
+    stylesheetSri: sha384-MI32KR77SgI9QAPUs+6R7leEOwtop70UsjEtFEezfKnMjXWx15NENsZpfDgq8m8S
   - version: 4.3.0
     stylesheet: 'https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'
-    stylesheet_sri: sha384-yNuQMX46Gcak2eQsUzmBYgJ3eBeWYNKhnjyiBqLd1vvtE9kuMtgw6bjwN8J0JauQ
+    stylesheetSri: sha384-yNuQMX46Gcak2eQsUzmBYgJ3eBeWYNKhnjyiBqLd1vvtE9kuMtgw6bjwN8J0JauQ
   - version: 4.2.0
     stylesheet: 'https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'
-    stylesheet_sri: sha384-CmLV3WR+cw/TcN50vJSYAs2EAzhDD77tQvGcmoZ1KEzxtpl2K5xkrpFz9N2H9ClN
+    stylesheetSri: sha384-CmLV3WR+cw/TcN50vJSYAs2EAzhDD77tQvGcmoZ1KEzxtpl2K5xkrpFz9N2H9ClN
   - version: 4.1.0
     stylesheet: 'https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css'
-    stylesheet_sri: sha384-X7L1bhgb36bF1iFvaqvhgpaGpayKM+vXNNYRlF89BFA5s3vi1qZ8EX9086RlZjy1
+    stylesheetSri: sha384-X7L1bhgb36bF1iFvaqvhgpaGpayKM+vXNNYRlF89BFA5s3vi1qZ8EX9086RlZjy1
   - version: 4.0.3
     stylesheet: 'https://maxcdn.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css'
-    stylesheet_sri: sha384-UMpQFQdby6sZ3T16Qz0uq+QsAA7AhfgfMhkZdFOjY8D5kfgRaU2RKE6wHNEo7062
+    stylesheetSri: sha384-UMpQFQdby6sZ3T16Qz0uq+QsAA7AhfgfMhkZdFOjY8D5kfgRaU2RKE6wHNEo7062
   - version: 4.0.2
     stylesheet: 'https://maxcdn.bootstrapcdn.com/font-awesome/4.0.2/css/font-awesome.min.css'
-    stylesheet_sri: sha384-5dQsFPHX9TfyZXy1AFBBv3gLnd1YI5OSKtFBaxfXLcPFSV5AjjLtS6FD4D8e7I/R
+    stylesheetSri: sha384-5dQsFPHX9TfyZXy1AFBBv3gLnd1YI5OSKtFBaxfXLcPFSV5AjjLtS6FD4D8e7I/R
   - version: 4.0.1
     stylesheet: 'https://maxcdn.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.min.css'
-    stylesheet_sri: sha384-Sny7En3GKRrKIzzbFN1VJGA/wVVLmWH8/GeE7eBSe0M83a3WGyRCbh0VyljhaOKT
+    stylesheetSri: sha384-Sny7En3GKRrKIzzbFN1VJGA/wVVLmWH8/GeE7eBSe0M83a3WGyRCbh0VyljhaOKT
   - version: 4.0.0
     stylesheet: 'https://maxcdn.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.min.css'
-    stylesheet_sri: sha384-zFzXNZnkXgOSk/hRVQNKFU1ZqC9h18Ge1sp4XCwupvrh3zLMRHclbusmMKTznUnX
+    stylesheetSri: sha384-zFzXNZnkXgOSk/hRVQNKFU1ZqC9h18Ge1sp4XCwupvrh3zLMRHclbusmMKTznUnX
   - version: 3.2.1
     stylesheet: 'https://maxcdn.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css'
-    stylesheet_sri: sha384-5WSMKsEjlK1hO/E+0ERtEmsujy8NFgEb15UOB5phg+1xk2zTO0Dd71qJ+7yD1QFN
+    stylesheetSri: sha384-5WSMKsEjlK1hO/E+0ERtEmsujy8NFgEb15UOB5phg+1xk2zTO0Dd71qJ+7yD1QFN
 showcase:
   - name: Microsoft Education
     img: /assets/img/showcase/microsoft-education.png

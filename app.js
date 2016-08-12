@@ -4,11 +4,12 @@ var env = process.env.NODE_ENV || 'development';
 
 var path        = require('path');
 var fs          = require('fs');
-var yaml        = require('js-yaml');
-var express     = require('express');
 var http        = require('http');
+var express     = require('express');
+var yaml        = require('js-yaml');
 var compression = require('compression');
-var app         = express();
+
+var app = express();
 
 // middleware
 var logger       = require('morgan');
@@ -16,8 +17,11 @@ var serveStatic  = require('serve-static');
 var errorHandler = require('errorhandler');
 var enforce      = require('express-sslify');
 
-var config = yaml.safeLoad(fs.readFileSync(path.join(__dirname, 'config', '_config.yml'), 'utf8'));
-var tweets = yaml.safeLoad(fs.readFileSync(path.join(__dirname, 'config', '_tweets.yml'), 'utf8'));
+var helpers      = require('./lib/helpers');
+var routes       = require('./routes');
+
+var config       = yaml.safeLoad(fs.readFileSync(path.join(__dirname, 'config', '_config.yml'), 'utf8'));
+var tweets       = yaml.safeLoad(fs.readFileSync(path.join(__dirname, 'config', '_tweets.yml'), 'utf8'));
 
 // all environments
 app.set('port', process.env.PORT || config.port || 3000);
@@ -41,16 +45,23 @@ if (env === 'production') {
     // development
     app.locals.pretty = true;
     app.use(logger('dev'));
-    app.use(errorHandler({ dumpExceptions: true, showStack: true }));
+    app.use(errorHandler({
+        dumpExceptions: true,
+        showStack: true
+    }));
 }
 
 // middleware
 app.use(compression());
 app.set('etag', false);
 
-app.use(serveStatic(path.join(__dirname, 'public'), { maxAge: '30d', lastModified: true, etag: false }));
+app.use(serveStatic(path.join(__dirname, 'public'), {
+    maxAge: '30d',
+    lastModified: true,
+    etag: false
+}));
 
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
     var oneHourToSec = 60 * 60;
     var oneHourToMilliSec = 60 * 60 * 1000;
 
@@ -72,22 +83,22 @@ app.use(function(req, res, next) {
 });
 
 // locals
-app.locals.helpers = require('./lib/helpers');
-app.locals.config  = config;
-app.locals.tweets  = tweets;
+app.locals.helpers = helpers;
+app.locals.config = config;
+app.locals.tweets = tweets;
 
 // routes
-var routes = require('./routes');
-app.get('/fontawesome/',  routes.fontawesome);
-app.get('/bootswatch/',   routes.bootswatch);
-app.get('/bootlint/',     routes.bootlint);
-app.get('/alpha/',        routes.alpha);
-app.get('/legacy/',       routes.legacy);
-app.get('/showcase/',     routes.showcase);
+app.get('/fontawesome/', routes.fontawesome);
+app.get('/bootswatch/', routes.bootswatch);
+app.get('/bootlint/', routes.bootlint);
+app.get('/alpha/', routes.alpha);
+app.get('/legacy/', routes.legacy);
+app.get('/showcase/', routes.showcase);
 app.get('/integrations/', routes.integrations);
-app.get('/',              routes.index);
+app.get('/', routes.index);
 
-var data; // only regenerated on restart
+var data = {}; // only regenerated on restart
+
 app.get('/data/bootstrapcdn.json', function (req, res) {
     if (typeof data === 'undefined') {
         data = {
@@ -96,14 +107,14 @@ app.get('/data/bootstrapcdn.json', function (req, res) {
             fontawesome: {}
         };
 
-        config.bootstrap.forEach(function(bootstrap) {
+        config.bootstrap.forEach(function (bootstrap) {
             data.bootstrap[bootstrap.version] = {
                 css: bootstrap.css_complete,
                 js: bootstrap.javascript
             };
         });
 
-        config.fontawesome.forEach(function(fontawesome) {
+        config.fontawesome.forEach(function (fontawesome) {
             data.fontawesome[fontawesome.version] = fontawesome.css_complete;
         });
     }
@@ -112,7 +123,7 @@ app.get('/data/bootstrapcdn.json', function (req, res) {
 });
 
 // start
-http.createServer(app).listen(app.get('port'), function() {
+http.createServer(app).listen(app.get('port'), function () {
     console.log('Express server listening on port ' + app.get('port'));
 });
 

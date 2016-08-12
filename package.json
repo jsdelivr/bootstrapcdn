@@ -3,16 +3,18 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
+    "eslint": "node make eslint",
+    "lint": "node make lint",
+    "prepublish": "npm run snyk-protect",
+    "restart": "node make restart",
     "run": "node make run",
     "setup": "npm install",
+    "snyk-protect": "snyk protect",
     "start": "node make start",
     "status": "node make status",
     "stop": "node make stop",
-    "restart": "node make restart",
     "test": "snyk test && node make test",
-    "test-nc": "node make test-nc",
-    "snyk-protect": "snyk protect",
-    "prepublish": "npm run snyk-protect"
+    "test-nc": "node make test-nc"
   },
   "dependencies": {
     "async": "^2.0.1",
@@ -30,11 +32,12 @@
   },
   "devDependencies": {
     "bootlint": "^0.14.2",
+    "eslint": "^3.2.2",
     "forever": "^0.15.1",
     "format": "^0.2.1",
     "fs-walk": "^0.0.1",
-    "htmlencode": "^0.0.4",
     "html-validator": "^1.0.0",
+    "htmlencode": "^0.0.4",
     "mocha": "^3.0.0",
     "request": "^2.64.0",
     "uglify-js": "^2.6.2"

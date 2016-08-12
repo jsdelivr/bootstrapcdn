@@ -18,7 +18,7 @@ html(lang="en")
             crossorigin="anonymous")
 
         - fontawesome = config.fontawesome.filter(function(o) { return o.latest; })[0];
-        link(rel='stylesheet', href=fontawesome.stylesheet, integrity=fontawesome.stylesheet_sri, crossorigin="anonymous")
+        link(rel='stylesheet', href=fontawesome.stylesheet, integrity=fontawesome.stylesheetSri, crossorigin="anonymous")
 
         link(rel='stylesheet',
             href=helpers.buster(config.stylesheets.style.uri),
@@ -50,7 +50,7 @@ html(lang="en")
             integrity=config.javascripts.jquery.sri, crossorigin="anonymous")
 
         - bootstrap = config.bootstrap.filter(function(o) { return o.latest; })[0];
-        script(src=bootstrap.javascript, integrity=bootstrap.javascript_sri,
+        script(src=bootstrap.javascript, integrity=bootstrap.javascriptSri,
             crossorigin="anonymous")
 
         script(src=helpers.buster(config.javascripts.main.uri),
