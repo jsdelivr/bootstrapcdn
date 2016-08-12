@@ -3,7 +3,7 @@
 (function() {
     'use strict';
     window.tryIt = function (n) {
-        window.location.href = '/bootswatch/?theme=' + n;
+        window.location.search = 'theme=' + n;
     };
 
     window.toggleCode = function (el, name) {
