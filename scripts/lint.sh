@@ -18,7 +18,7 @@ pushd public/bootlint/$version
 
 set -uex
 $root/node_modules/.bin/uglifyjs bootlint.js -o bootlint.min.js \
-  --compress --mangle --source-map bootlint.min.js.map \
+  --compress --source-map bootlint.min.js.map \
   --comments "/(?:^!|@(?:license|preserve|cc_on))/"
 
 popd
