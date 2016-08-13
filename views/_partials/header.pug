@@ -10,16 +10,22 @@
             a.navbar-brand(href="/" + themeQs) BootstrapCDN
         .navbar-collapse.collapse
             ul.nav.navbar-nav
-                li: a(href="/fontawesome/" + themeQs)
-                  i.fa.fa-flag
-                  | &nbsp;Font Awesome
-                li: a(href="/bootswatch/" + themeQs) Bootswatch
-                li: a(href="/bootlint/" + themeQs) Bootlint
-                li: a(href="/legacy/" + themeQs) Legacy
+                li(class=(title === 'Font Awesome' ? 'active' : ''))
+                    a(href="/fontawesome/" + themeQs)
+                      i.fa.fa-flag
+                      | &nbsp;Font Awesome
+                li(class=(title === 'Bootswatch' ? 'active' : ''))
+                    a(href="/bootswatch/" + themeQs) Bootswatch
+                li(class=(title === 'Bootlint' ? 'active' : ''))
+                    a(href="/bootlint/" + themeQs) Bootlint
+                li(class=(title === 'Bootstrap Legacy' ? 'active' : ''))
+                    a(href="/legacy/" + themeQs) Legacy
 
             ul.nav.navbar-nav.navbar-right
-                li: a(href="/showcase/" + themeQs) Showcase
-                li: a(href="/integrations/" + themeQs) Integrations
+                li(class=(title === 'Showcase' ? 'active' : ''))
+                    a(href="/showcase/" + themeQs) Showcase
+                li(class=(title === 'Integrations' ? 'active' : ''))
+                    a(href="/integrations/" + themeQs) Integrations
                 li.dropdown
                     a.dropdown-toggle(href="#", data-toggle="dropdown") Resources&nbsp;
                         i.fa.fa-caret-down
