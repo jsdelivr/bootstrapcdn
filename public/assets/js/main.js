@@ -1,41 +1,31 @@
-/* eslint-env browser */
-
 (function() {
     'use strict';
+
     window.tryIt = function (n) {
         window.location.search = 'theme=' + n;
     };
 
-    window.toggleCode = function (el, name) {
-        $('#' + name).toggleClass('hidden');
-        $(el).find('i').toggleClass('fa-caret-down');
-        $(el).find('i').toggleClass('fa-caret-up');
-    };
-})();
+    /* eslint func-style: 0 */
+    (function(win, doc) {
+        var init = function() {
+            var script = doc.createElement('script');
 
-(function() {
-    'use strict';
-    $('input:text').focus(function() {
-        $(this).select();
-        $(this).mouseup(function(a) {
-            a.preventDefault();
-        });
-    });
+            script.type = 'text/javascript';
 
-    $('.alert-dismissible').each(function() {
-        var $alert = $(this);
-        var alertNameLSProp = $alert.attr('data-alert-id');
+            if (typeof script.setAttribute !== 'undefined') {
+                script.setAttribute('async', 'async');
+            }
 
-        if (localStorage.getItem(alertNameLSProp) === 'true') {
-            $alert.remove();
-        } else {
-            $alert.on('close.bs.alert', function() {
-                localStorage.setItem(alertNameLSProp, true);
-            });
+            script.src = '//' + (win.location.protocol === 'https:' ? 's3.amazonaws.com/cdx-radar/' : 'radar.cedexis.com/') + '01-10956-radar10.min.js';
+            doc.body.appendChild(script);
+        };
+
+        if (win.addEventListener) {
+            win.addEventListener('load', init, false);
+        } else if (win.attachEvent) {
+            win.attachEvent('onload', init);
         }
-    });
-})();
 
-/* eslint-disable */
-(function(e,t){var n=function(){var n=t.createElement("script");n.type="text/javascript";if(undefined!==n.setAttribute){n.setAttribute("async","async")}n.src="//"+(e.location.protocol==="https:"?"s3.amazonaws.com/cdx-radar/":"radar.cedexis.com/")+"01-10956-radar10.min.js";t.body.appendChild(n)};if(e.addEventListener){e.addEventListener("load",n,false)}else if(e.attachEvent){e.attachEvent("onload",n)}})(window,document)
-/* eslint-enable */
+    })(window, document);
+
+})();

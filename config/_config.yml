@@ -16,6 +16,8 @@ javascripts:
     sri: sha384-uZ2OkdfFeYRaX81T8ZKlaMt5UJ7DkMwO8z95CYTpAtu9t6W7FaHvsa3xvalfNrnn
   main:
     uri: /assets/js/main.js
+  jquery_pack:
+    uri: /assets/js/jquery-pack.js
 bootswatch:
   version: 3.3.7
   link: 'https://bootswatch.com/SWATCH_NAME/'

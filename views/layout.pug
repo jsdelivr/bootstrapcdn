@@ -59,7 +59,11 @@ html(lang='en')
         script(src=bootstrap.javascript, integrity=bootstrap.javascriptSri,
             crossorigin='anonymous')
 
-        script(src=helpers.buster(config.javascripts.main.uri),
+        script(src=helpers.buster(config.javascripts.jquery_pack.uri),
+            integrity=generateSRI(config.javascripts.jquery_pack.uri),
+            crossorigin='anonymous')
+
+        script(async src=helpers.buster(config.javascripts.main.uri),
             integrity=generateSRI(config.javascripts.main.uri),
             crossorigin='anonymous')
 
