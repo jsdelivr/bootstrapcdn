@@ -21,9 +21,4 @@
         }
     });
 
-    window.toggleCode = function (el, name) {
-        $('#' + name).toggleClass('hidden');
-        $(el).find('span').toggleClass('caret-open');
-    };
-
 })(jQuery);
