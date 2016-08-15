@@ -12,8 +12,8 @@ stylesheets:
     uri: /assets/css/style.css
 javascripts:
   jquery:
-    uri: 'https://code.jquery.com/jquery-1.11.2.min.js'
-    sri: sha384-Pn+PczAsODRZ2PiGg0IheRROpP7lXO1NTIjiPo6cca8TliBvaeil42fobhzvZd74
+    uri: 'https://code.jquery.com/jquery-3.1.0.slim.min.js'
+    sri: sha384-uZ2OkdfFeYRaX81T8ZKlaMt5UJ7DkMwO8z95CYTpAtu9t6W7FaHvsa3xvalfNrnn
   main:
     uri: /assets/js/main.js
 bootswatch:
