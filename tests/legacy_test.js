@@ -1,14 +1,14 @@
 'use strict';
 
-var path    = require('path');
-var assert  = require('assert');
-var helpers = require(path.join(__dirname, 'test_helper.js'));
-var config  = helpers.config();
+var path     = require('path');
+var assert   = require('assert');
 
-var uri     = helpers.app(config, 'legacy');
+var helpers  = require(path.join(__dirname, 'test_helper.js'));
+var config   = helpers.config();
+var uri      = helpers.app(config, 'legacy');
 var response = {};
 
-before(function(done) {
+before(function (done) {
     helpers.preFetch(uri, function (res) {
         response = res;
         done();
@@ -26,18 +26,17 @@ describe('legacy', function () {
         done();
     });
 
-    it('contains authors', function(done) {
-        config.authors.forEach(function(author) {
+    it('contains authors', function (done) {
+        config.authors.forEach(function (author) {
             helpers.assert.contains(author, response.body);
         });
         done();
     });
 
-    it('contains analytics', function(done) {
+    it('contains analytics', function (done) {
         helpers.assert.analytics(response, config);
         done();
     });
-
 
     config.bootstrap.forEach(function (bootstrap) {
         if (bootstrap.latest === true) {
@@ -47,24 +46,26 @@ describe('legacy', function () {
         describe(bootstrap.version, function () {
             describe('config', function () {
                 it('has javascript integrity', function (done) {
-                    assert(bootstrap.javascript_sri !== undefined);
+                    assert(typeof bootstrap.javascriptSri !== 'undefined');
                     done();
                 });
                 it('has stylesheet integrity', function (done) {
-                    assert(bootstrap.stylesheet_sri !== undefined);
+                    assert(typeof bootstrap.stylesheetSri !== 'undefined');
                     done();
                 });
             });
 
-            ['html', 'jade', 'haml'].forEach(function(fmt) {
+            ['html', 'jade', 'haml'].forEach(function (fmt) {
                 it('has javascript ' + fmt, function (done) {
-                    var str = helpers.javascript[fmt](bootstrap.javascript, bootstrap.javascript_sri);
+                    var str = helpers.javascript[fmt](bootstrap.javascript, bootstrap.javascriptSri);
+
                     helpers.assert.contains(str, response.body);
                     done();
                 });
 
                 it('has stylesheet ' + fmt, function (done) {
-                    var str = helpers.css[fmt](bootstrap.stylesheet, bootstrap.stylesheet_sri);
+                    var str = helpers.css[fmt](bootstrap.stylesheet, bootstrap.stylesheetSri);
+
                     helpers.assert.contains(str, response.body);
                     done();
                 });

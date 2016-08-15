@@ -1,6 +1,8 @@
 #!/bin/bash
 
+root=$(pwd)
 version=$1
+
 if ! test "$version"; then
   echo "Valid Bootlint version required."
   exit 1
@@ -12,6 +14,11 @@ version=`echo $version | sed 's/^v//'`
 # ensure
 test -x ./node_modules/.bin/uglifyjs || npm install
 
+pushd public/bootlint/$version
+
 set -uex
-./node_modules/.bin/uglifyjs public/bootlint/$version/bootlint.js \
-  -o public/bootlint/$version/bootlint.min.js --comments all
+$root/node_modules/.bin/uglifyjs bootlint.js -o bootlint.min.js \
+  --compress --source-map bootlint.min.js.map \
+  --comments "/(?:^!|@(?:license|preserve|cc_on))/"
+
+popd

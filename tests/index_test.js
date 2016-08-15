@@ -1,20 +1,21 @@
 'use strict';
 
-var path    = require('path');
-var assert  = require('assert');
-var helpers = require(path.join(__dirname, 'test_helper.js'));
-var config  = helpers.config();
-var uri     = helpers.app(config);
+var path     = require('path');
+var assert   = require('assert');
 
-var response;
-before(function(done) {
+var helpers  = require(path.join(__dirname, 'test_helper.js'));
+var config   = helpers.config();
+var uri      = helpers.app(config);
+var response = {};
+
+before(function (done) {
     helpers.preFetch(uri, function (res) {
         response = res;
         done();
     });
 });
 
-describe('index', function() {
+describe('index', function () {
     var latest = config.bootstrap[0];
 
     describe('config', function () {
@@ -24,33 +25,33 @@ describe('index', function() {
         });
 
         it('has stylesheet integrity', function (done) {
-            assert(latest.stylesheet_sri !== undefined);
+            assert(typeof latest.stylesheetSri !== 'undefined');
             done();
         });
 
         it('has javascript integrity', function (done) {
-            assert(latest.javascript_sri !== undefined);
+            assert(typeof latest.javascriptSri !== 'undefined');
             done();
         });
     });
 
-    it('works', function(done) {
+    it('works', function (done) {
         helpers.assert.response(response);
         done();
     });
 
-    it('valid html', function(done) {
+    it('valid html', function (done) {
         helpers.assert.validHTML(response, done);
     });
 
-    it('contains authors', function(done) {
-        config.authors.forEach(function(author) {
+    it('contains authors', function (done) {
+        config.authors.forEach(function (author) {
             helpers.assert.contains(author, response.body);
         });
         done();
     });
 
-    it('contains analytics', function(done) {
+    it('contains analytics', function (done) {
         helpers.assert.analytics(response, config);
         done();
     });
@@ -66,9 +67,10 @@ describe('index', function() {
             done();
         });
 
-        ['html', 'jade', 'haml'].forEach(function(fmt) {
+        ['html', 'jade', 'haml'].forEach(function (fmt) {
             it('has ' + fmt, function (done) {
-                var str = helpers.css[fmt](latest.stylesheet, latest.stylesheet_sri);
+                var str = helpers.css[fmt](latest.stylesheet, latest.stylesheetSri);
+
                 helpers.assert.contains(str, response.body);
                 done();
             });
@@ -81,9 +83,10 @@ describe('index', function() {
             done();
         });
 
-        ['html', 'jade', 'haml'].forEach(function(fmt) {
+        ['html', 'jade', 'haml'].forEach(function (fmt) {
             it('has ' + fmt, function (done) {
-                var str = helpers.javascript[fmt](latest.javascript, latest.javascript_sri);
+                var str = helpers.javascript[fmt](latest.javascript, latest.javascriptSri);
+
                 helpers.assert.contains(str, response.body);
                 done();
             });

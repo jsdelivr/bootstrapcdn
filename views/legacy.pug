@@ -8,7 +8,7 @@ block content
                 h2= item.version
                 - if (item.stylesheet)
                     - var file = item.stylesheet
-                    - var sri  = item.stylesheet_sri
+                    - var sri  = item.stylesheetSri
                     - var name = "css_complete_" + item.version.replace(/\./g, '_')
                     - var id   = name + '_form'
                     .form-group
@@ -22,7 +22,7 @@ block content
 
                 - if (item.javascript)
                     - var file = item.javascript
-                    - var sri  = item.javascript_sri
+                    - var sri  = item.javascriptSri
                     - var name = "javascript_" + item.version.replace(/\./g, '_')
                     - var id   = name + '_form'
                     .form-group
