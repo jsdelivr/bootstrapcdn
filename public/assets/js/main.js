@@ -34,19 +34,6 @@
             });
         }
     });
-
-    (function() {
-        var pathname = window.location.pathname;
-
-        if (pathname === '/') {
-            return;
-        }
-
-        $('.nav > li > a[href^="' + pathname + '"]')
-            .parent()
-            .addClass('active');
-
-    })();
 })();
 
 /* eslint-disable */
