@@ -1,9 +1,9 @@
 # Bootstrap CDN
 
 [![Follow BootstrapCDN on Twitter](https://img.shields.io/badge/twitter-@getBootstrapCDN-55acee.svg?style=flat-square)](https://twitter.com/getbootstrapcdn)
-[![Build Status](https://travis-ci.org/MaxCDN/bootstrap-cdn.svg?branch=master)](https://travis-ci.org/MaxCDN/bootstrap-cdn)
-[![dependencies Status](https://david-dm.org/MaxCDN/bootstrap-cdn/status.svg)](https://david-dm.org/MaxCDN/bootstrap-cdn)
-[![devDependencies Status](https://david-dm.org/MaxCDN/bootstrap-cdn/dev-status.svg)](https://david-dm.org/MaxCDN/bootstrap-cdn?type=dev)
+[![Linux Build Status](https://img.shields.io/travis/MaxCDN/bootstrap-cdn/develop.svg?label=Linux%20build&style=flat-square)](https://travis-ci.org/MaxCDN/bootstrap-cdn)
+[![dependencies Status](https://img.shields.io/david/MaxCDN/bootstrap-cdn.svg?style=flat-square)](https://david-dm.org/MaxCDN/bootstrap-cdn)
+[![devDependencies Status](https://img.shields.io/david/dev/MaxCDN/bootstrap-cdn.svg?style=flat-square)](https://david-dm.org/MaxCDN/bootstrap-cdn?type=dev)
 
 
 ## Deploy your own copy on Heroku
