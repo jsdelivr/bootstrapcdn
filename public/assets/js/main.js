@@ -46,6 +46,21 @@
         }
     };
 
+    (function () {
+        var el = document.querySelectorAll('input[type="text"');
+
+        if (el) {
+            for (var i = 0, len = el.length; i < len; i++) {
+                el[i].addEventListener('focus', function() {
+                    this.select();
+                });
+                el[i].addEventListener('mouseup', function(a) {
+                    a.preventDefault();
+                });
+            }
+        }
+    })();
+
     /* eslint func-style: 0 */
     (function(win, doc) {
         var init = function() {
