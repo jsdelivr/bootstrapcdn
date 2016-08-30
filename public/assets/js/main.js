@@ -37,5 +37,5 @@
 })();
 
 /* eslint-disable */
-(function(a,b,c,d,e){function f(){var a=b.createElement("script");a.async=!0;a.src="https://radar.cedexis.com/1/10956/radar.js";b.body.appendChild(a)}/\bMSIE 6/i.test(a.navigator.userAgent)||(a[c]?a[c](e,f,!1):a[d]&&a[d]("on"+e,f))})(window,document,"addEventListener","attachEvent","load");
+(function(e,t){var n=function(){var n=t.createElement("script");n.type="text/javascript";if(undefined!==n.setAttribute){n.setAttribute("async","async")}n.src="//"+(e.location.protocol==="https:"?"s3.amazonaws.com/cdx-radar/":"radar.cedexis.com/")+"01-10956-radar10.min.js";t.body.appendChild(n)};if(e.addEventListener){e.addEventListener("load",n,false)}else if(e.attachEvent){e.attachEvent("onload",n)}})(window,document)
 /* eslint-enable */
