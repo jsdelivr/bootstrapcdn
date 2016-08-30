@@ -69,21 +69,7 @@ app.use(function (req, res, next) {
     // make config available in routes
     req.config = config;
 
-    var CSP = 'default-src \'none\'; ' +
-              'script-src \'self\' \'unsafe-inline\' \'unsafe-eval\' maxcdn.bootstrapcdn.com ' +
-              'www.google-analytics.com code.jquery.com platform.twitter.com ' +
-              'cdn.syndication.twimg.com api.github.com radar.cedexis.com s3.amazonaws.com/cdx-radar/; ' +
-              'style-src \'self\' \'unsafe-inline\' maxcdn.bootstrapcdn.com fonts.googleapis.com platform.twitter.com; ' +
-              'img-src \'self\' data: www.google-analytics.com bootswatch.com syndication.twitter.com pbs.twimg.com ' +
-              'platform.twitter.com analytics.twitter.com; ' +
-              'font-src \'self\' maxcdn.bootstrapcdn.com fonts.gstatic.com; ' +
-              'child-src \'self\' platform.twitter.com syndication.twitter.com ghbtns.com; ' +
-              'manifest-src \'self\'; ' +
-              'connect-src *.init.cedexis-radar.net radar.cedexis.com rpt.cedexis.com; ' +
-              'report-uri https://d063bdf998559129f041de1efd2b41a5.report-uri.io/r/default/csp/enforce';
-
     // custom headers
-    res.setHeader('Content-Security-Policy', CSP);
     res.setHeader('X-Powered-By', 'MaxCDN');
     res.setHeader('X-Hello-Human', 'You must be bored. You should work for us. Email jdorfman+theheader@maxcdn.com or @jdorfman on the twitter.');
     res.setHeader('Cache-Control', 'public, max-age=' + oneHourToSec);
