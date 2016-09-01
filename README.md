@@ -70,15 +70,6 @@ Key Overview:
 9. `bootlint`: Array of hashes containing Bootlint meta data and pathing.
 10. `bootstrap`: Array of hashes containing Bootstrap meta data and pathing.
 
-### `config/_tweets.yml`
-
-To add new tweets to the "Mad Love" section, follow these steps:
-
-1. Copy the full `<blockquote>` HTML from the "Embed Tweet" source obtained via Twitter.
-2. Replace all double quotes (`"`) with single quotes (`'`).
-3. Wrap entire HTML block in double quotes (`"`).
-4. Add to `_tweets.yml`, preceeded with a dash (`-`), which signifies an array item in YAML.
-
 ### `config/_oauth.yml`
 
 This is reserved for MaxCDN and NetDNA installation only at this time.
