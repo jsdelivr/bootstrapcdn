@@ -26,6 +26,13 @@
     padding-bottom: 25px;
 }
 
+@media (min-width: 768px) {
+    li .twitter-follow-button,
+    li .twitter-share-button {
+        margin: 0 18px;
+    }
+}
+
 iframe {
     border: 0;
     overflow: hidden;
