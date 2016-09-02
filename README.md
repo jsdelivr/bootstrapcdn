@@ -70,8 +70,3 @@ Key Overview:
 8. `bootswatch`: Hash containing current Bootswatch meta data and themes.
 9. `bootlint`: Array of hashes containing Bootlint meta data and pathing.
 10. `bootstrap`: Array of hashes containing Bootstrap meta data and pathing.
-
-### `config/_oauth.yml`
-
-This is reserved for MaxCDN and NetDNA installation only at this time.
-Contact [@jdorfman](https://github.com/jdorfman) for more information.
