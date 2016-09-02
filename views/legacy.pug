@@ -16,7 +16,7 @@ block content
                     .input-group
                         input.form-control(type="text", id=id, value=file)
                         .input-group-btn
-                            button.btn.btn-default(type="button", onclick="toggleCode(this,'" + name + "')")
+                            button.btn.btn-default(type="button", data-el=name)
                                 span.caret
                     include _partials/csscode
 
@@ -30,7 +30,7 @@ block content
                     .input-group
                         input.form-control(type="text", id=id, value=file)
                         .input-group-btn
-                            button.btn.btn-default(type="button", onclick="toggleCode(this,'" + name + "')")
+                            button.btn.btn-default(type="button", data-el=name)
                                 span.caret
                     include _partials/jscode
 

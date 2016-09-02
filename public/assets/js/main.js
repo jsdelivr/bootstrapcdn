@@ -1,19 +1,25 @@
 (function() {
     'use strict';
 
-    window.tryIt = function (n) {
-        window.location.search = 'theme=' + n;
-    };
+    (function () {
+        var el = document.querySelectorAll('.input-group-btn > button');
 
-    window.toggleCode = function (el, name) {
-        var wellContainer = document.querySelector('#' + name);
-        var btnIcon = el.querySelector('span');
+        function toggleCode (index) {
+            var name = el[index].getAttribute('data-el');
+            var btnIcon = el[index].querySelector('span');
 
-        if (wellContainer) {
-            wellContainer.classList.toggle('hidden');
-            btnIcon.classList.toggle('caret-open');
+            el[index].addEventListener('click', function() {
+                document.getElementById(name).classList.toggle('hidden');
+                btnIcon.classList.toggle('caret-open');
+            });
         }
-    };
+
+        if (el) {
+            for (var i = 0, len = el.length; i < len; i++) {
+                toggleCode(i);
+            }
+        }
+    })();
 
     (function () {
         var el = document.querySelectorAll('input[type="text"');
