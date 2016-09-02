@@ -1,40 +1,44 @@
 doctype
-html(lang="en")
+html(lang='en')
     head
         meta(charset='utf-8')
         meta('http-equiv'='X-UA-Compatible' content='IE=edge')
         meta(name='viewport', content='width=device-width, initial-scale=1')
         meta(name='author', content=config.authors.join(', '))
         meta(name='description', content=(description || config.description))
-        
+
         meta(name='google-site-verification', content='GoWOPbhuU3D9P-yDUxKl1RLuR_vqJIdP_smWw51Wmdc')
 
         title!=displayTitle(title)
 
         link(rel='canonical', href=fullUrl)
 
-        link(rel='shortcut icon', href='/favicon.ico')
+        link(rel='apple-touch-icon', sizes='180x180', href='/assets/img/favicons/apple-touch-icon.png')
+        link(rel='icon', type='image/png', href='/assets/img/favicons/favicon-32x32.png', sizes='32x32')
+        link(rel='icon', type='image/png', href='/assets/img/favicons/favicon-16x16.png', sizes='16x16')
+        link(rel='manifest', href='/assets/img/favicons/manifest.json')
+        link(rel='mask-icon', href='/assets/img/favicons/safari-pinned-tab.svg', color='#f47421')
+        link(rel='shortcut icon', href='/assets/img/favicons/favicon.ico')
+        meta(name='msapplication-config', content='/assets/img/favicons/browserconfig.xml')
+        meta(name='theme-color', content='#f47421')
 
         - bootswatch = helpers.theme.fetch(config, theme);
         link(rel='stylesheet', href=bootswatch.uri, integrity=bootswatch.sri,
-            crossorigin="anonymous")
+            crossorigin='anonymous')
 
         - fontawesome = config.fontawesome.filter(function(o) { return o.latest; })[0];
-        link(rel='stylesheet', href=fontawesome.stylesheet, integrity=fontawesome.stylesheetSri, crossorigin="anonymous")
+        link(rel='stylesheet', href=fontawesome.stylesheet, integrity=fontawesome.stylesheetSri, crossorigin='anonymous')
 
         link(rel='stylesheet',
             href=helpers.buster(config.stylesheets.style.uri),
             integrity=generateSRI(config.stylesheets.style.uri),
-            crossorigin="anonymous")
+            crossorigin='anonymous')
 
         block head
 
     body
         include _partials/ie-warning
         include _partials/header
-
-        //-Don't want to run randomizer twice.
-        - var randomTweets = helpers.randomTweets(tweets)
 
         include _partials/jumbotron
 
@@ -49,19 +53,21 @@ html(lang="en")
                     include _partials/tweets
 
         script(src=config.javascripts.jquery.uri,
-            integrity=config.javascripts.jquery.sri, crossorigin="anonymous")
+            integrity=config.javascripts.jquery.sri, crossorigin='anonymous')
 
         - bootstrap = config.bootstrap.filter(function(o) { return o.latest; })[0];
         script(src=bootstrap.javascript, integrity=bootstrap.javascriptSri,
-            crossorigin="anonymous")
+            crossorigin='anonymous')
 
-        script(src=helpers.buster(config.javascripts.main.uri),
+        script(src=helpers.buster(config.javascripts.jquery_pack.uri),
+            integrity=generateSRI(config.javascripts.jquery_pack.uri),
+            crossorigin='anonymous')
+
+        script(async src=helpers.buster(config.javascripts.main.uri),
             integrity=generateSRI(config.javascripts.main.uri),
-            crossorigin="anonymous")
+            crossorigin='anonymous')
 
         - if (config.google_analytics)
             include _partials/javascripts/google_analytics
-
-        script(async src="https://platform.twitter.com/widgets.js")
 
 //- vim: ft=pug sw=4 sts=4 et:

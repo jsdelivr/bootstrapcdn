@@ -22,7 +22,6 @@ var helpers      = require('./lib/helpers');
 var routes       = require('./routes');
 
 var config       = yaml.safeLoad(fs.readFileSync(path.join(__dirname, 'config', '_config.yml'), 'utf8'));
-var tweets       = yaml.safeLoad(fs.readFileSync(path.join(__dirname, 'config', '_tweets.yml'), 'utf8'));
 
 // all environments
 app.set('port', process.env.PORT || config.port || 3000);
@@ -86,7 +85,6 @@ app.use(function (req, res, next) {
 // locals
 app.locals.helpers = helpers;
 app.locals.config = config;
-app.locals.tweets = tweets;
 
 // routes
 app.get('/fontawesome/', routes.fontawesome);

@@ -1,12 +1,3 @@
-/* hack to fix firefox issue where tweet and blockquote
- * where both showing up, little help anyone? */
-blockquote.twitter-tweet {
-    visibility: hidden;
-    height: 0;
-    margin: 5px;
-    padding: 0;
-}
-
 .tryit {
     padding-top: 25px;
 }
@@ -35,17 +26,14 @@ blockquote.twitter-tweet {
     padding-bottom: 25px;
 }
 
-.hidden {
-    padding-top: 10px;
+@media (min-width: 768px) {
+    li .twitter-follow-button,
+    li .twitter-share-button {
+        margin: 0 18px;
+    }
 }
 
 iframe {
     border: 0;
     overflow: hidden;
-}
-
-.iframe-extras {
-    margin-top: -20px;
-    width: 100%;
-    height: 550px;
 }
