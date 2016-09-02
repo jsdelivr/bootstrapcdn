@@ -27,11 +27,6 @@ describe('integrations', function () {
         done();
     });
 
-    it('contains analytics', function (done) {
-        helpers.assert.analytics(response, config);
-        done();
-    });
-
     it('has header', function (done) {
         helpers.assert.contains('<h2>Integrations</h2>', response.body);
         done();

@@ -42,11 +42,6 @@ describe('bootlint', function () {
         done();
     });
 
-    it('contains analytics', function (done) {
-        helpers.assert.analytics(response, config);
-        done();
-    });
-
     it('has header', function (done) {
         helpers.assert.contains('<h2>Bootlint</h2>', response.body);
         done();

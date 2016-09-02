@@ -33,11 +33,6 @@ describe('legacy', function () {
         done();
     });
 
-    it('contains analytics', function (done) {
-        helpers.assert.analytics(response, config);
-        done();
-    });
-
     config.bootstrap.forEach(function (bootstrap) {
         if (bootstrap.latest === true) {
             return;

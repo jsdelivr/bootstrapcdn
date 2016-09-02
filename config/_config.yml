@@ -4,9 +4,6 @@ authors:
   - Joshua Mervine
   - Justin Dorfman
 description: BootstrapCDN
-google_analytics:
-  account_id: UA-32253110-1
-  domain_name: bootstrapcdn.com
 stylesheets:
   style:
     uri: /assets/css/style.css

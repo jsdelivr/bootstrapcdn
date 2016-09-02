@@ -87,12 +87,6 @@ function assertContains(needle, haystack) {
     assert(haystack.indexOf(needle) > 0);
 }
 
-function assertAnalytics(response, config) {
-    assertContains(config.google_analytics.account_id, response.body);
-    assertContains(config.google_analytics.domain_name, response.body);
-    assertContains('https://www.google-analytics.com/analytics.js', response.body);
-}
-
 function assertValidHTML(response, done) {
     var options = {
         data: response.body,
@@ -183,7 +177,6 @@ module.exports = {
     assert: {
         response:    assertResponse,
         contains:    assertContains,
-        analytics:   assertAnalytics,
         contentType: assertContentType,
         validHTML:   assertValidHTML
     },
