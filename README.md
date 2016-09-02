@@ -2,6 +2,7 @@
 
 [![Follow BootstrapCDN on Twitter](https://img.shields.io/badge/twitter-@getBootstrapCDN-55acee.svg?style=flat-square)](https://twitter.com/getbootstrapcdn)
 [![Linux Build Status](https://img.shields.io/travis/MaxCDN/bootstrap-cdn/develop.svg?label=Linux%20build&style=flat-square)](https://travis-ci.org/MaxCDN/bootstrap-cdn)
+[![Windows Build status](https://img.shields.io/appveyor/ci/jdorfman/bootstrap-cdn/develop.svg?label=Windows%20build&style=flat-square)](https://ci.appveyor.com/project/jdorfman/bootstrap-cdn)
 [![dependencies Status](https://img.shields.io/david/MaxCDN/bootstrap-cdn.svg?style=flat-square)](https://david-dm.org/MaxCDN/bootstrap-cdn)
 [![devDependencies Status](https://img.shields.io/david/dev/MaxCDN/bootstrap-cdn.svg?style=flat-square)](https://david-dm.org/MaxCDN/bootstrap-cdn?type=dev)
 

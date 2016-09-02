@@ -5,7 +5,6 @@
   "scripts": {
     "eslint": "node make eslint",
     "lint": "node make lint",
-    "prepublish": "npm run snyk-protect",
     "restart": "node make restart",
     "run": "node make run",
     "setup": "npm install",
@@ -13,7 +12,7 @@
     "start": "node make start",
     "status": "node make status",
     "stop": "node make stop",
-    "test": "snyk test && node make test",
+    "test": "node make test",
     "test-nc": "node make test-nc"
   },
   "dependencies": {

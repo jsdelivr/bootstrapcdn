@@ -1,0 +1,25 @@
+version: "{build}"
+
+clone_depth: 10
+
+environment:
+  matrix:
+    - platform: "x86"
+
+install:
+  - ps: Install-Product node "4" $env:platform
+  - npm config set spin false
+  - npm install
+
+build: off
+
+test_script:
+  - node -v
+  - npm -v
+  - node make travis
+
+matrix:
+  fast_finish: true
+
+cache:
+  - 'node_modules -> appveyor.yml,package.json'
