@@ -90,7 +90,6 @@ function assertHeader(uri, header) {
     }
 }
 
-// bootswatch
 describe('functional', function () {
     describe('bootstrap', function () {
         config.bootstrap.forEach(function (self) {
@@ -215,7 +214,7 @@ describe('functional', function () {
         var publicURIs = [];
 
         walk.filesSync(path.join(__dirname, '..', 'public'), function (base, name) {
-            var root = base.split('/public/')[1];
+            var root = process.platform === 'win32' ? base.split('\\public\\')[1] : base.split('/public/')[1];
 
             // ensure file is in whitelisted directory
             if (typeof root === 'undefined' || whitelist.indexOf(root.split(path.sep)[0]) === -1) {
