@@ -36,33 +36,13 @@
         }
     })();
 
-// Helper function for `classList.toggle`.
-    // When we stop supporting IE < 10,
-    // we can just use `classList.toggle` directly
-    window.toggleClass = function (el, classStr) {
-        if (el.classList) {
-            el.classList.toggle(classStr);
-        } else {
-            var classes = el.className.split(' ');
-            var existingIndex = classes.indexOf(classStr);
-
-            if (existingIndex >= 0) {
-                classes.splice(existingIndex, 1);
-            } else {
-                classes.push(classStr);
-            }
-
-            el.className = classes.join(' ');
-        }
-    };
-
     window.toggleCode = function (el, name) {
         var wellContainer = document.querySelector('#' + name);
         var btnIcon = el.querySelector('span');
 
         if (wellContainer) {
-            window.toggleClass(wellContainer, 'hidden');
-            window.toggleClass(btnIcon, 'caret-open');
+            wellContainer.classList.toggle('hidden');
+            btnIcon.classList.toggle('caret-open');
         }
     };
 
