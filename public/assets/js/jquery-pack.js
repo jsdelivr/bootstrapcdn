@@ -23,8 +23,7 @@
 
     window.toggleCode = function (el, name) {
         $('#' + name).toggleClass('hidden');
-        $(el).find('i').toggleClass('fa-caret-down');
-        $(el).find('i').toggleClass('fa-caret-up');
+        $(el).find('span').toggleClass('caret-open');
     };
 
 })(jQuery);

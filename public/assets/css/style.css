@@ -37,3 +37,10 @@ iframe {
     border: 0;
     overflow: hidden;
 }
+
+.caret-open {
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
