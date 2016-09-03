@@ -5,6 +5,31 @@
         window.location.search = 'theme=' + n;
     };
 
+    window.toggleCode = function (el, name) {
+        var wellContainer = document.querySelector('#' + name);
+        var btnIcon = el.querySelector('span');
+
+        if (wellContainer) {
+            wellContainer.classList.toggle('hidden');
+            btnIcon.classList.toggle('caret-open');
+        }
+    };
+
+    (function () {
+        var el = document.querySelectorAll('input[type="text"');
+
+        if (el) {
+            for (var i = 0, len = el.length; i < len; i++) {
+                el[i].addEventListener('focus', function() {
+                    this.select();
+                });
+                el[i].addEventListener('mouseup', function(a) {
+                    a.preventDefault();
+                });
+            }
+        }
+    })();
+
     /* eslint func-style: 0 */
     (function(win, doc) {
         var init = function() {

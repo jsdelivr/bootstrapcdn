@@ -37,7 +37,6 @@ html(lang='en')
         block head
 
     body
-        include _partials/ie-warning
         include _partials/header
 
         include _partials/jumbotron
@@ -57,10 +56,6 @@ html(lang='en')
 
         - bootstrap = config.bootstrap.filter(function(o) { return o.latest; })[0];
         script(src=bootstrap.javascript, integrity=bootstrap.javascriptSri,
-            crossorigin='anonymous')
-
-        script(src=helpers.buster(config.javascripts.jquery_pack.uri),
-            integrity=generateSRI(config.javascripts.jquery_pack.uri),
             crossorigin='anonymous')
 
         script(async src=helpers.buster(config.javascripts.main.uri),
