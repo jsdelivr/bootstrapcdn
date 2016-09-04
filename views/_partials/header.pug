@@ -1,4 +1,4 @@
-- themeQs = theme ? '?theme='+theme : ''
+- themeQs = theme ? '?theme=' + theme : ''
 .navbar.navbar-default.navbar-static-top(role="navigation")
     .container-fluid
         .navbar-header
@@ -32,27 +32,43 @@
                     ul.dropdown-menu.dropdown-menu-right(role="menu")
                         li
                             a(href="https://github.com/MaxCDN/bootstrap-cdn",
-                                onclick="_gaq.push(['_trackEvent', 'Jumbotron actions', 'Jumbotron links', 'GitHub project']);") GitHub project
+                                data-ga-category='Jumbotron actions',
+                                data-ga-action='Jumbotron links',
+                                data-ga-label='GitHub project') GitHub project
                         li
                             a(href="https://wordpress.org/plugins/bootstrapcdn/",
-                                onclick="_gaq.push(['_trackEvent', 'Jumbotron actions', 'Jumbotron links', 'WordPress Plugin']);") WordPress Plugin
+                                data-ga-category='Jumbotron actions',
+                                data-ga-action='Jumbotron links',
+                                data-ga-label='WordPress Plugin') WordPress Plugin
                         li
                             a(href="http://getbootstrap.com/",
-                                onclick="_gaq.push(['_trackEvent', 'Navigation', 'Resources', 'Bootstrap']);") Bootstrap
+                                data-ga-category='Navigation',
+                                data-ga-action='Resources',
+                                data-ga-label='Bootstrap') Bootstrap
                         li
                             a(href="http://expo.getbootstrap.com/",
-                                onclick="_gaq.push(['_trackEvent', 'Navigation', 'Resources', 'Expo']);") Bootstrap Expo
+                                data-ga-category='Navigation',
+                                data-ga-action='Resources',
+                                data-ga-label='Expo') Bootstrap Expo
                         li
                             a(href="http://fontawesome.io/",
-                                onclick="_gaq.push(['_trackEvent', 'Navigation', 'Resources', 'Font Awesome']);") Font Awesome
+                                data-ga-category='Navigation',
+                                data-ga-action='Resources',
+                                data-ga-label='Font Awesome') Font Awesome
                         li
                             a(href="http://bootswatch.com/",
-                                onclick="_gaq.push(['_trackEvent', 'Navigation', 'Resources', 'Bootswatch']);") Bootswatch
+                                data-ga-category='Navigation',
+                                data-ga-action='Resources',
+                                data-ga-label='Bootswatch') Bootswatch
                         li
                             a(href="https://github.com/twbs/bootlint"
-                                onclick="_gaq.push(['_trackEvent', 'Navigation', 'Resources', 'Bootlint']);") Bootlint
+                                data-ga-category='Navigation',
+                                data-ga-action='Resources',
+                                data-ga-label='Bootlint') Bootlint
                         li
                             a(href="https://glyphicons.com/",
-                                onclick="_gaq.push(['_trackEvent', 'Navigation', 'Resources', 'Glyphicons']);") Glyphicons
+                                data-ga-category='Navigation',
+                                data-ga-action='Resources',
+                                data-ga-label='Glyphicons') Glyphicons
 
 //- vim: ft=pug sw=4 sts=4 et:
