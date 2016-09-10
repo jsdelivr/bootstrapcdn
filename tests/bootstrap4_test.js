@@ -47,11 +47,6 @@ describe('bootstrap4', function () {
         done();
     });
 
-    it('contains analytics', function (done) {
-        helpers.assert.analytics(response, config);
-        done();
-    });
-
     it('has header', function (done) {
         helpers.assert.contains('<h2>Bootstrap 4 alpha</h2>', response.body);
         done();
