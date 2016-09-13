@@ -38,11 +38,6 @@ describe('bootswatch', function () {
         done();
     });
 
-    it('contains analytics', function (done) {
-        helpers.assert.analytics(response, config);
-        done();
-    });
-
     config.bootswatch.themes.forEach(function (theme) {
         var name  = theme.name;
         var image = format(config.bootswatch.image, theme.name);

@@ -4,9 +4,6 @@ authors:
   - Joshua Mervine
   - Justin Dorfman
 description: BootstrapCDN
-google_analytics:
-  account_id: UA-32253110-1
-  domain_name: bootstrapcdn.com
 stylesheets:
   style:
     uri: /assets/css/style.css
@@ -16,8 +13,6 @@ javascripts:
     sri: sha384-uZ2OkdfFeYRaX81T8ZKlaMt5UJ7DkMwO8z95CYTpAtu9t6W7FaHvsa3xvalfNrnn
   main:
     uri: /assets/js/main.js
-  jquery_pack:
-    uri: /assets/js/jquery-pack.js
 bootswatch:
   version: 3.3.7
   link: 'https://bootswatch.com/SWATCH_NAME/'
@@ -405,8 +400,8 @@ friends:
     url: 'https://www.scalescale.com/'
   - name: Bootstrap
     url: 'https://www.getbootstrap.com/'
-  - name: Real Python
-    url: 'https://realpython.com/'
+  - name: Sticker Mule
+    url: 'https://www.stickermule.com/'
   - name: nixCraft
     url: 'http://www.cyberciti.biz/'
   - name: Fort Awesome

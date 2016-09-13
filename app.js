@@ -17,6 +17,7 @@ var logger       = require('morgan');
 var serveStatic  = require('serve-static');
 var errorHandler = require('errorhandler');
 var enforce      = require('express-sslify');
+var csp          = require('express-csp');
 
 var helpers      = require('./lib/helpers');
 var routes       = require('./routes');
@@ -80,6 +81,26 @@ app.use(function (req, res, next) {
     res.setHeader('X-XSS-Protection', '1; mode=block');
 
     next();
+});
+
+csp.extend(app, {
+    policy: {
+        directives: {
+            'default-src': ['\'none\''],
+            'script-src': ['\'self\'', '\'unsafe-inline\'', '\'unsafe-eval\'', 'maxcdn.bootstrapcdn.com', 'www.google-analytics.com', 'code.jquery.com',
+                           'platform.twitter.com', 'cdn.syndication.twimg.com', 'api.github.com', 'radar.cedexis.com', 's3.amazonaws.com/cdx-radar/'],
+            'style-src': ['\'self\'', '\'unsafe-inline\'', 'maxcdn.bootstrapcdn.com', 'fonts.googleapis.com', 'platform.twitter.com'],
+            'img-src': ['\'self\'', 'data:', 'www.google-analytics.com', 'bootswatch.com', 'syndication.twitter.com',
+                        'pbs.twimg.com', 'platform.twitter.com', 'analytics.twitter.com'],
+            'font-src': ['\'self\'', 'maxcdn.bootstrapcdn.com', 'fonts.gstatic.com'],
+            'manifest-src': ['\'self\''],
+            'child-src': ['\'self\'', 'platform.twitter.com', 'syndication.twitter.com', 'ghbtns.com'],
+            'connect-src': ['*.init.cedexis-radar.net radar.cedexis.com rpt.cedexis.com'],
+            'report-uri': ['https://d063bdf998559129f041de1efd2b41a5.report-uri.io/r/default/csp/enforce']
+        },
+        useScriptNonce: false,
+        useStyleNonce: false
+    }
 });
 
 // locals

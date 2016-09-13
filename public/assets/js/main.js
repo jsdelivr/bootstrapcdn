@@ -1,9 +1,40 @@
 (function() {
     'use strict';
 
-    window.tryIt = function (n) {
-        window.location.search = 'theme=' + n;
-    };
+    (function () {
+        var el = document.querySelectorAll('.input-group-btn > button');
+
+        function toggleCode (index) {
+            var name = el[index].getAttribute('data-el');
+            var btnIcon = el[index].querySelector('span');
+
+            el[index].addEventListener('click', function() {
+                document.getElementById(name).classList.toggle('hidden');
+                btnIcon.classList.toggle('caret-open');
+            });
+        }
+
+        if (el) {
+            for (var i = 0, len = el.length; i < len; i++) {
+                toggleCode(i);
+            }
+        }
+    })();
+
+    (function () {
+        var el = document.querySelectorAll('input[type="text"');
+
+        if (el) {
+            for (var i = 0, len = el.length; i < len; i++) {
+                el[i].addEventListener('focus', function() {
+                    this.select();
+                });
+                el[i].addEventListener('mouseup', function(a) {
+                    a.preventDefault();
+                });
+            }
+        }
+    })();
 
     /* eslint func-style: 0 */
     (function(win, doc) {
@@ -45,6 +76,15 @@
 
         return t;
     }(document, "script", "twitter-wjs"));
+
+
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-32253110-1', 'bootstrapcdn.com');
+    ga('send', 'pageview');
     /* eslint-enable */
 
 })();

@@ -37,7 +37,6 @@ html(lang='en')
         block head
 
     body
-        include _partials/ie-warning
         include _partials/header
 
         include _partials/jumbotron
@@ -59,15 +58,8 @@ html(lang='en')
         script(src=bootstrap.javascript, integrity=bootstrap.javascriptSri,
             crossorigin='anonymous')
 
-        script(src=helpers.buster(config.javascripts.jquery_pack.uri),
-            integrity=generateSRI(config.javascripts.jquery_pack.uri),
-            crossorigin='anonymous')
-
         script(async src=helpers.buster(config.javascripts.main.uri),
             integrity=generateSRI(config.javascripts.main.uri),
             crossorigin='anonymous')
-
-        - if (config.google_analytics)
-            include _partials/javascripts/google_analytics
 
 //- vim: ft=pug sw=4 sts=4 et:

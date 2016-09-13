@@ -64,14 +64,8 @@ Key Overview:
 2. `theme`: Integer value of the array index from the `bootswatch` section below.
 3. `authors`: Array of author Strings
 4. `description`: String containing the meta description of the site.
-5. `google_analytics`: Hash containing GA `account_id` and `domain_name`.
-6. `stylesheets`: Array containing stylesheet files to be loaded at the top of the site.
-7. `javascripts`: Array containing JavaScript files to be loaded either `before` (at the top) or `after` (at the bottom) of the site.
-8. `bootswatch`: Hash containing current Bootswatch meta data and themes.
-9. `bootlint`: Array of hashes containing Bootlint meta data and pathing.
-10. `bootstrap`: Array of hashes containing Bootstrap meta data and pathing.
-
-### `config/_oauth.yml`
-
-This is reserved for MaxCDN and NetDNA installation only at this time.
-Contact [@jdorfman](https://github.com/jdorfman) for more information.
+5. `stylesheets`: Array containing stylesheet files to be loaded at the top of the site.
+6. `javascripts`: Array containing JavaScript files to be loaded either `before` (at the top) or `after` (at the bottom) of the site.
+7. `bootswatch`: Hash containing current Bootswatch meta data and themes.
+8. `bootlint`: Array of hashes containing Bootlint meta data and pathing.
+9. `bootstrap`: Array of hashes containing Bootstrap meta data and pathing.
