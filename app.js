@@ -91,7 +91,7 @@ csp.extend(app, {
                            'platform.twitter.com', 'cdn.syndication.twimg.com', 'api.github.com', 'radar.cedexis.com', 's3.amazonaws.com/cdx-radar/'],
             'style-src': ['\'self\'', '\'unsafe-inline\'', 'maxcdn.bootstrapcdn.com', 'fonts.googleapis.com', 'platform.twitter.com'],
             'img-src': ['\'self\'', 'data:', 'www.google-analytics.com', 'bootswatch.com', 'syndication.twitter.com',
-                        'pbs.twimg.com', 'platform.twitter.com', 'analytics.twitter.com'],
+                        'pbs.twimg.com', 'platform.twitter.com', 'analytics.twitter.com', 'stats.g.doubleclick.net'],
             'font-src': ['\'self\'', 'maxcdn.bootstrapcdn.com', 'fonts.gstatic.com'],
             'manifest-src': ['\'self\''],
             'child-src': ['\'self\'', 'platform.twitter.com', 'syndication.twitter.com', 'ghbtns.com'],
