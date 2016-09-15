@@ -17,7 +17,7 @@ var logger       = require('morgan');
 var serveStatic  = require('serve-static');
 var errorHandler = require('errorhandler');
 var enforce      = require('express-sslify');
-var csp          = require('express-csp');
+var helmet       = require('helmet');
 
 var helpers      = require('./lib/helpers');
 var routes       = require('./routes');
@@ -71,78 +71,100 @@ app.use(function (req, res, next) {
 
     // custom headers
     res.setHeader('X-Powered-By', 'MaxCDN');
-    res.setHeader('X-Hello-Human', 'You must be bored. You should work for us. Email jdorfman+theheader@maxcdn.com or @jdorfman on the twitter.');
+    res.setHeader('X-Hello-Human', 'You must be bored. You should work for us. Email jdorfman+theheader@maxcdn.com or @jdorfman on Twitter.');
     res.setHeader('Cache-Control', 'public, max-age=' + oneHourToSec);
     res.setHeader('Expires', new Date(Date.now() + oneHourToMilliSec).toUTCString());
     res.setHeader('Last-Modified', new Date().toUTCString());
-    res.setHeader('Strict-Transport-Security', 'max-age=16070400; includeSubDomains; preload');
     res.setHeader('Accept-Ranges', 'bytes');
-    res.setHeader('X-Content-Type-Options', 'nosniff');
-    res.setHeader('X-Frame-Options', 'DENY');
-    res.setHeader('X-XSS-Protection', '1; mode=block');
 
     next();
 });
 
-csp.extend(app, {
-    policy: {
-        directives: {
-            'default-src': ['\'none\''],
-            'script-src': [
-                '\'self\'',
-                '\'unsafe-inline\'',
-                'maxcdn.bootstrapcdn.com',
-                'www.google-analytics.com',
-                'code.jquery.com',
-                'platform.twitter.com',
-                'cdn.syndication.twimg.com',
-                'api.github.com'
-            ],
-            'style-src': [
-                '\'self\'',
-                '\'unsafe-inline\'',
-                'maxcdn.bootstrapcdn.com',
-                'fonts.googleapis.com',
-                'platform.twitter.com'
-            ],
-            'img-src': [
-                '\'self\'',
-                'data:',
-                'www.google-analytics.com',
-                'bootswatch.com',
-                'syndication.twitter.com',
-                'pbs.twimg.com',
-                'platform.twitter.com',
-                'analytics.twitter.com',
-                'stats.g.doubleclick.net'
-            ],
-            'font-src': [
-                '\'self\'',
-                'maxcdn.bootstrapcdn.com',
-                'fonts.gstatic.com'
-            ],
-            'manifest-src': ['\'self\''],
-            'frame-src': [
-                '\'self\'',
-                'platform.twitter.com',
-                'syndication.twitter.com',
-                'ghbtns.com'
-            ],
-            'child-src': [
-                '\'self\'',
-                'platform.twitter.com',
-                'syndication.twitter.com',
-                'ghbtns.com'
-            ],
-            'report-uri': [
-                'https://d063bdf998559129f041de1efd2b41a5.report-uri.io/r/default/csp/enforce'
-            ]
-        },
-        useScriptNonce: false,
-        useStyleNonce: false
+app.use(helmet({
+    dnsPrefetchControl: false,
+    frameguard: {
+        action: 'deny'
     }
-});
+}));
 
+app.use(helmet.hsts({
+    force: true,
+    includeSubdomains: true,
+    maxAge: 10886400,
+    preload: true
+}));
+
+app.use(helmet.contentSecurityPolicy({
+    directives: {
+        defaultSrc: ['\'none\''],
+        scriptSrc: [
+            '\'self\'',
+            '\'unsafe-inline\'',
+            'maxcdn.bootstrapcdn.com',
+            'www.google-analytics.com',
+            'code.jquery.com',
+            'platform.twitter.com',
+            'cdn.syndication.twimg.com',
+            'api.github.com'
+        ],
+        styleSrc: [
+            '\'self\'',
+            '\'unsafe-inline\'',
+            'maxcdn.bootstrapcdn.com',
+            'fonts.googleapis.com',
+            'platform.twitter.com'
+        ],
+        imgSrc: [
+            '\'self\'',
+            'data:',
+            'www.google-analytics.com',
+            'bootswatch.com',
+            'syndication.twitter.com',
+            'pbs.twimg.com',
+            'platform.twitter.com',
+            'analytics.twitter.com',
+            'stats.g.doubleclick.net'
+        ],
+        fontSrc: [
+            '\'self\'',
+            'maxcdn.bootstrapcdn.com',
+            'fonts.gstatic.com'
+        ],
+        manifestSrc: ['\'self\''],
+        frameSrc: [
+            '\'self\'',
+            'platform.twitter.com',
+            'syndication.twitter.com',
+            'ghbtns.com'
+        ],
+        childSrc: [
+            '\'self\'',
+            'platform.twitter.com',
+            'syndication.twitter.com',
+            'ghbtns.com'
+        ],
+        reportUri: [
+            'https://d063bdf998559129f041de1efd2b41a5.report-uri.io/r/default/csp/enforce'
+        ]
+    },
+
+    // Set to true if you only want browsers to report errors, not block them
+    reportOnly: false,
+
+    // Set to true if you want to blindly set all headers: Content-Security-Policy,
+    // X-WebKit-CSP, and X-Content-Security-Policy.
+    setAllHeaders: false,
+
+    // Set to true if you want to disable CSP on Android where it can be buggy.
+    disableAndroid: false,
+
+    // Set to false if you want to completely disable any user-agent sniffing.
+    // This may make the headers less compatible but it will be much faster.
+    // This defaults to `true`.
+    browserSniff: true,
+
+    loose: true
+}));
 
 // locals
 app.locals.helpers = helpers;
