@@ -75,6 +75,7 @@ app.use(function (req, res, next) {
     res.setHeader('Cache-Control', 'public, max-age=' + oneHourToSec);
     res.setHeader('Expires', new Date(Date.now() + oneHourToMilliSec).toUTCString());
     res.setHeader('Last-Modified', new Date().toUTCString());
+    res.setHeader('Strict-Transport-Security', 'max-age=16070400; includeSubDomains; preload');
     res.setHeader('Accept-Ranges', 'bytes');
     res.setHeader('X-Content-Type-Options', 'nosniff');
     res.setHeader('X-Frame-Options', 'DENY');
