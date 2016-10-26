@@ -7,7 +7,7 @@ environment:
     - platform: "x86"
 
 install:
-  - ps: Install-Product node "4" $env:platform
+  - ps: Install-Product node "6" $env:platform
   - npm config set spin false
   - npm install
 
