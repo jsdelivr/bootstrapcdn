@@ -1,9 +1,9 @@
 web:
-  image: node:4
+  image: node:6
   working_dir: /app/user
   volumes:
     - .:/app/user
-  command: npm run run
+  command: node make run
   environment:
     - PORT=3333
   ports:

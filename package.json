@@ -44,7 +44,7 @@
     "uglify-js": "^2.6.2"
   },
   "engines": {
-    "node": "4.x"
+    "node": "6.x"
   },
   "snyk": true
 }
