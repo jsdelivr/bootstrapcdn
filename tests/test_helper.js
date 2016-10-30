@@ -185,12 +185,12 @@ module.exports = {
     preFetch: preFetch,
     extension: extension,
     css: {
-        jade: cssJade,
+        pug:  cssJade,
         html: cssHTML,
         haml: cssHAML
     },
     javascript: {
-        jade: jsJade,
+        pug:  jsJade,
         html: jsHTML,
         haml: jsHAML
     },

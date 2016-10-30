@@ -50,7 +50,7 @@ describe('legacy', function () {
                 });
             });
 
-            ['html', 'jade', 'haml'].forEach(function (fmt) {
+            ['html', 'pug', 'haml'].forEach(function (fmt) {
                 it('has javascript ' + fmt, function (done) {
                     var str = helpers.javascript[fmt](bootstrap.javascript, bootstrap.javascriptSri);
 
