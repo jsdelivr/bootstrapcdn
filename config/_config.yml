@@ -231,12 +231,12 @@ bootstrap:
     javascriptSri: sha384-2sVosMIQw67h8RBCTmE20BSl9j66nWwbH+2W/CKr8celILSNnEfJnJv2PKCdet3I
     stylesheetSri: sha384-G87n9a15LEsz+OvKCr10ldEbckfbCpr2gjYnZgCiKiwH0p/If1QkSURCTzubbt19
 bootstrap4:
-  - version: 4-dev
+  - version: 4.0.0-alpha.5
     latest: true
-    stylesheet: 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css'
-    javascript: 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js'
-    javascriptSri: sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7
-    stylesheetSri: sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd
+    stylesheet: 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css'
+    javascript: 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js'
+    javascriptSri: sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK
+    stylesheetSri: sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi
 fontawesome:
   - version: 4.7.0
     latest: true
