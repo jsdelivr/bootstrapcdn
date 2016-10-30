@@ -14,20 +14,22 @@ var response  = {};
 
 // for array of types, first will be chosen when testing strictly
 var CONTENT_TYPE_MAP = {
-    css:   'text/css',
-    js:    ['application/javascript',
-            'text/javascript',
-            'application/x-javascript'],
+    css: 'text/css',
+    js: ['application/javascript',
+        'text/javascript',
+        'application/x-javascript'
+    ],
 
     // fonts
-    eot:   'application/vnd.ms-fontobject',
-    svg:   'image/svg+xml',
-    ttf:   ['application/x-font-ttf',
-            'font/ttf'],
+    eot: 'application/vnd.ms-fontobject',
+    svg: 'image/svg+xml',
+    ttf: ['application/x-font-ttf',
+        'font/ttf'
+    ],
 
-    woff:  'application/font-woff',
+    woff: 'application/font-woff',
     woff2: 'application/font-woff2',
-    otf:   'application/x-font-otf'
+    otf: 'application/x-font-otf'
 };
 
 function extension(str) {
