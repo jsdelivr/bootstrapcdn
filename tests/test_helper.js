@@ -12,7 +12,7 @@ var validator = require('html-validator');
 
 var response  = {};
 
-// for array of types, first will be choosen when testing strictly
+// for array of types, first will be chosen when testing strictly
 var CONTENT_TYPE_MAP = {
     css:   'text/css',
     js:    ['application/javascript',
