@@ -57,7 +57,7 @@ describe('bootswatch', function () {
                 done();
             });
 
-            ['html', 'jade', 'haml'].forEach(function (fmt) {
+            ['html', 'pug', 'haml'].forEach(function (fmt) {
                 it('has ' + fmt, function (done) {
                     var str = helpers.css[fmt](uri, sri);
 
