@@ -1,6 +1,0 @@
-version: v1.5.2
-ignore:
-  'npm:uglify-js:20150824':
-    - jade > transformers > uglify-js:
-        reason: None given
-        expires: '2016-08-21T14:59:19.371Z'

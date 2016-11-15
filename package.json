@@ -12,7 +12,7 @@
     "start": "node make start",
     "status": "node make status",
     "stop": "node make stop",
-    "test": "node make test",
+    "test": "snyk test && node make test",
     "test-nc": "node make test-nc"
   },
   "dependencies": {
