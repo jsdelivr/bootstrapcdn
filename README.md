@@ -5,7 +5,7 @@
 [![Windows Build status](https://img.shields.io/appveyor/ci/jdorfman/bootstrap-cdn/develop.svg?label=Windows%20build&style=flat-square)](https://ci.appveyor.com/project/jdorfman/bootstrap-cdn)
 [![dependencies Status](https://img.shields.io/david/MaxCDN/bootstrap-cdn.svg?style=flat-square)](https://david-dm.org/MaxCDN/bootstrap-cdn)
 [![devDependencies Status](https://img.shields.io/david/dev/MaxCDN/bootstrap-cdn.svg?style=flat-square)](https://david-dm.org/MaxCDN/bootstrap-cdn?type=dev)
-
+[![Known Vulnerabilities](https://snyk.io/test/github/MaxCDN/bootstrap-cdn/195530b7ee73fda617b47f7d2839e5da8707b334/badge.svg)](https://snyk.io/test/github/MaxCDN/bootstrap-cdn/195530b7ee73fda617b47f7d2839e5da8707b334)
 
 ## Deploy your own copy on Heroku
 
