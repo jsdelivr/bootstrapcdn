@@ -92,8 +92,7 @@ csp.extend(app, {
                 '\'unsafe-eval\'', 'maxcdn.bootstrapcdn.com',
                 'www.google-analytics.com', 'code.jquery.com',
                 'platform.twitter.com', 'cdn.syndication.twimg.com',
-                'api.github.com', 'radar.cedexis.com',
-                's3.amazonaws.com/cdx-radar/'
+                'api.github.com'
             ],
             'style-src': ['\'self\'', '\'unsafe-inline\'',
                 'maxcdn.bootstrapcdn.com', 'fonts.googleapis.com',
@@ -110,9 +109,6 @@ csp.extend(app, {
             'manifest-src': ['\'self\''],
             'child-src': ['\'self\'', 'platform.twitter.com',
                 'syndication.twitter.com', 'ghbtns.com'
-            ],
-            'connect-src': [
-                '*.init.cedexis-radar.net radar.cedexis.com rpt.cedexis.com'
             ],
             'report-uri': [
                 'https://d063bdf998559129f041de1efd2b41a5.report-uri.io/r/default/csp/enforce'
