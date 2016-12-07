@@ -9,8 +9,8 @@ stylesheets:
     uri: /assets/css/style.css
 javascripts:
   jquery:
-    uri: 'https://code.jquery.com/jquery-3.1.0.slim.min.js'
-    sri: sha384-uZ2OkdfFeYRaX81T8ZKlaMt5UJ7DkMwO8z95CYTpAtu9t6W7FaHvsa3xvalfNrnn
+    uri: 'https://code.jquery.com/jquery-3.1.1.slim.min.js'
+    sri: sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n
   main:
     uri: /assets/js/main.js
 bootswatch:
