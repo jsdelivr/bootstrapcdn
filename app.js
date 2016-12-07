@@ -13,6 +13,7 @@ var sitemap     = require('express-sitemap');
 var app = express();
 
 // middleware
+var favicon      = require('serve-favicon');
 var logger       = require('morgan');
 var serveStatic  = require('serve-static');
 var errorHandler = require('errorhandler');
@@ -55,6 +56,8 @@ if (env === 'production') {
 // middleware
 app.use(compression());
 app.set('etag', false);
+
+app.use(favicon(path.join(__dirname, 'public', config.favicon.uri), '7d'));
 
 app.use(serveStatic(path.join(__dirname, 'public'), {
     maxAge: '30d',

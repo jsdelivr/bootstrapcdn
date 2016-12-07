@@ -26,6 +26,7 @@
     "js-yaml": "^3.6.1",
     "morgan": "^1.7.0",
     "pug": "^2.0.0-beta6",
+    "serve-favicon": "^2.3.2",
     "serve-static": "^1.11.1",
     "shelljs": "^0.5.3",
     "snyk": "^1.19.1",
