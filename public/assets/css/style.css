@@ -23,14 +23,17 @@
 
 .jumbotron {
     margin-top: -50px;
-    padding-bottom: 25px;
+    padding-bottom: 34px;
+    text-align: center;
 }
 
-@media (min-width: 768px) {
-    li .twitter-follow-button,
-    li .twitter-share-button {
-        margin: 0 18px;
-    }
+.social {
+    height: 25px;
+    text-align: center;
+}
+
+.social .list-inline > li {
+    vertical-align: middle;
 }
 
 iframe {
@@ -38,9 +41,22 @@ iframe {
     overflow: hidden;
 }
 
+#ghbtns-badge {
+    display: inline-block;
+    width: 110px;
+    height: 20px;
+}
+
 .caret-open {
     -webkit-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     -o-transform: rotate(180deg);
     transform: rotate(180deg);
+}
+
+@media (min-width: 768px) {
+    li .twitter-follow-button,
+    li .twitter-share-button {
+        margin: 0 18px;
+    }
 }

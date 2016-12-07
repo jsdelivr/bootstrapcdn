@@ -36,25 +36,55 @@
         }
     })();
 
+
+    (function() {
+        function loadGhbtns() {
+            var iframeEl = document.createElement('iframe');
+
+            iframeEl.setAttribute('src', 'https://ghbtns.com/github-btn.html?user=MaxCDN&repo=bootstrap-cdn&type=watch&count=true');
+            iframeEl.title = 'Star on GitHub';
+            iframeEl.style.width = '110px';
+            iframeEl.style.height = '20px';
+
+            document.getElementById('ghbtns-badge').appendChild(iframeEl);
+        }
+
+        /* eslint-disable */
+        function loadTwitter() {
+            window.twttr = (function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0],
+                    t = window.twttr || {};
+                if (d.getElementById(id)) return t;
+                js = d.createElement(s);
+                js.id = id;
+                js.src = 'https://platform.twitter.com/widgets.js';
+                fjs.parentNode.insertBefore(js, fjs);
+
+                t._e = [];
+                t.ready = function(f) {
+                    t._e.push(f);
+                };
+
+                return t;
+            }(document, 'script', 'twitter-wjs'));
+        }
+        /* eslint-enable */
+
+        function onLoad() {
+            loadGhbtns();
+            loadTwitter();
+        }
+
+        if (window.addEventListener) {
+            window.addEventListener('load', onLoad, false);
+        } else if (window.attachEvent) {
+            window.attachEvent('onload', onLoad);
+        } else {
+            window.onload = onLoad;
+        }
+    })();
+
     /* eslint-disable */
-    window.twttr = (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0],
-            t = window.twttr || {};
-        if (d.getElementById(id)) return t;
-        js = d.createElement(s);
-        js.id = id;
-        js.src = "https://platform.twitter.com/widgets.js";
-        fjs.parentNode.insertBefore(js, fjs);
-
-        t._e = [];
-        t.ready = function(f) {
-            t._e.push(f);
-        };
-
-        return t;
-    }(document, "script", "twitter-wjs"));
-
-
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
     m=s.getElementsByTagName(o)[0];a.src=g;m.parentNode.insertBefore(a,m)
