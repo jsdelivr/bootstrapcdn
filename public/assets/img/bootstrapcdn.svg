@@ -10,7 +10,7 @@
 	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
 	 x="0px" y="0px" width="200px" height="200px" viewBox="0 0 200 200" enable-background="new 0 0 200 200" xml:space="preserve">
 <g>
-	<path fill="#F47421" d="M200,183.004c0,9.387-8.141,16.996-18.182,16.996H18.182C8.141,200,0,192.391,0,183.004V17.044
+	<path fill="#00AFEC" d="M200,183.004c0,9.387-8.141,16.996-18.182,16.996H18.182C8.141,200,0,192.391,0,183.004V17.044
 		C0,7.657,8.141,0.048,18.182,0.048h163.637C191.859,0.048,200,7.657,200,17.044V183.004z"/>
 	<g>
 		<g>
