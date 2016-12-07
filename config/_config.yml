@@ -4,6 +4,8 @@ authors:
   - Joshua Mervine
   - Justin Dorfman
 description: BootstrapCDN
+favicon:
+  uri: /assets/img/favicons/favicon.ico
 stylesheets:
   style:
     uri: /assets/css/style.css
