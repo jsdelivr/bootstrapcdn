@@ -32,6 +32,10 @@
     text-align: center;
 }
 
+.social .list-inline > li {
+    vertical-align: middle;
+}
+
 iframe {
     border: 0;
     overflow: hidden;
