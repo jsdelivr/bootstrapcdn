@@ -88,27 +88,51 @@ csp.extend(app, {
     policy: {
         directives: {
             'default-src': ['\'none\''],
-            'script-src': ['\'self\'', '\'unsafe-inline\'',
-                '\'unsafe-eval\'', 'maxcdn.bootstrapcdn.com',
-                'www.google-analytics.com', 'code.jquery.com',
-                'platform.twitter.com', 'cdn.syndication.twimg.com',
+            'script-src': [
+                '\'self\'',
+                '\'unsafe-inline\'',
+                'maxcdn.bootstrapcdn.com',
+                'www.google-analytics.com',
+                'code.jquery.com',
+                'platform.twitter.com',
+                'cdn.syndication.twimg.com',
                 'api.github.com'
             ],
-            'style-src': ['\'self\'', '\'unsafe-inline\'',
-                'maxcdn.bootstrapcdn.com', 'fonts.googleapis.com',
+            'style-src': [
+                '\'self\'',
+                '\'unsafe-inline\'',
+                'maxcdn.bootstrapcdn.com',
+                'fonts.googleapis.com',
                 'platform.twitter.com'
             ],
-            'img-src': ['\'self\'', 'data:', 'www.google-analytics.com',
-                'bootswatch.com', 'syndication.twitter.com',
-                'pbs.twimg.com', 'platform.twitter.com',
-                'analytics.twitter.com', 'stats.g.doubleclick.net'
+            'img-src': [
+                '\'self\'',
+                'data:',
+                'www.google-analytics.com',
+                'bootswatch.com',
+                'syndication.twitter.com',
+                'pbs.twimg.com',
+                'platform.twitter.com',
+                'analytics.twitter.com',
+                'stats.g.doubleclick.net'
             ],
-            'font-src': ['\'self\'', 'maxcdn.bootstrapcdn.com',
+            'font-src': [
+                '\'self\'',
+                'maxcdn.bootstrapcdn.com',
                 'fonts.gstatic.com'
             ],
             'manifest-src': ['\'self\''],
-            'child-src': ['\'self\'', 'platform.twitter.com',
-                'syndication.twitter.com', 'ghbtns.com'
+            'frame-src': [
+                '\'self\'',
+                'platform.twitter.com',
+                'syndication.twitter.com',
+                'ghbtns.com'
+            ],
+            'child-src': [
+                '\'self\'',
+                'platform.twitter.com',
+                'syndication.twitter.com',
+                'ghbtns.com'
             ],
             'report-uri': [
                 'https://d063bdf998559129f041de1efd2b41a5.report-uri.io/r/default/csp/enforce'
