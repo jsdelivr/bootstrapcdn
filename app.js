@@ -102,7 +102,6 @@ app.use(helmet.contentSecurityPolicy({
         defaultSrc: ['\'none\''],
         scriptSrc: [
             '\'self\'',
-            '\'unsafe-inline\'',
             'maxcdn.bootstrapcdn.com',
             'www.google-analytics.com',
             'code.jquery.com',
