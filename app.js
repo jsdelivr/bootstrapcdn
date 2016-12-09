@@ -2,28 +2,28 @@
 
 var env = process.env.NODE_ENV || 'development';
 
-var path        = require('path');
-var fs          = require('fs');
-var http        = require('http');
-var express     = require('express');
-var yaml        = require('js-yaml');
-var compression = require('compression');
-var sitemap     = require('express-sitemap');
-
-var app = express();
+var path         = require('path');
+var fs           = require('fs');
+var http         = require('http');
+var express      = require('express');
+var yaml         = require('js-yaml');
+var uuid         = require('uuid');
 
 // middleware
+var compression  = require('compression');
 var favicon      = require('serve-favicon');
 var logger       = require('morgan');
 var serveStatic  = require('serve-static');
 var errorHandler = require('errorhandler');
 var enforce      = require('express-sslify');
+var sitemap      = require('express-sitemap');
 var helmet       = require('helmet');
 
 var helpers      = require('./lib/helpers');
 var routes       = require('./routes');
 
 var config       = yaml.safeLoad(fs.readFileSync(path.join(__dirname, 'config', '_config.yml'), 'utf8'));
+var app          = express();
 
 // all environments
 app.set('port', process.env.PORT || config.port || 3000);
@@ -80,6 +80,8 @@ app.use(function (req, res, next) {
     res.setHeader('Last-Modified', new Date().toUTCString());
     res.setHeader('Accept-Ranges', 'bytes');
 
+    res.locals.nonce = new Buffer(uuid.v4()).toString('base64');
+
     next();
 });
 
@@ -102,12 +104,16 @@ app.use(helmet.contentSecurityPolicy({
         defaultSrc: ['\'none\''],
         scriptSrc: [
             '\'self\'',
+            '\'unsafe-inline\'',
             'maxcdn.bootstrapcdn.com',
             'www.google-analytics.com',
             'code.jquery.com',
             'platform.twitter.com',
-            'cdn.syndication.twimg.com',
-            'api.github.com'
+            'cdn.syndication.twimg.com/timeline/',
+            'api.github.com',
+            function (req, res) {
+                return '\'nonce-' + res.locals.nonce + '\'';
+            }
         ],
         styleSrc: [
             '\'self\'',
@@ -171,6 +177,7 @@ app.use(helmet.contentSecurityPolicy({
 // locals
 app.locals.helpers = helpers;
 app.locals.config = config;
+app.locals.basedir = path.join(__dirname, 'public');
 
 // routes
 app.get('/fontawesome/', routes.fontawesome);
