@@ -69,3 +69,30 @@ footer p {
         margin: 0 18px;
     }
 }
+
+
+@font-face {
+    font-family: 'FontAwesome';
+    src: url('/assets/fonts/fontawesome-custom-4.7.0.woff') format('woff'),
+         url('/assets/fonts/fontawesome-custom-4.7.0.ttf') format('truetype'),
+         url('/assets/fonts/fontawesome-custom-4.7.0.svg#fontawesomeregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+.fa {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.fa-3x {
+    font-size: 3em;
+}
+.fa-flag:before {
+    content: "\f024";
+}
+.fa-maxcdn:before {
+    content: "\f136";
+}

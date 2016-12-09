@@ -50,9 +50,6 @@ html(lang='en', prefix='og: http://ogp.me/ns#', itemscope, itemtype='http://sche
         link(rel='stylesheet', href=bootswatch.uri, integrity=bootswatch.sri,
             crossorigin='anonymous')
 
-        - fontawesome = config.fontawesome.filter(function(o) { return o.latest; })[0];
-        link(rel='stylesheet', href=fontawesome.stylesheet, integrity=fontawesome.stylesheetSri, crossorigin='anonymous')
-
         if process.env.NODE_ENV == 'production'
             style
                 include:clean-css /assets/css/style.css
