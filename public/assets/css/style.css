@@ -96,3 +96,9 @@ footer p {
 .fa-maxcdn:before {
     content: "\f136";
 }
+
+
+.fa-flag {
+    margin-right: 3px;
+    vertical-align: middle;
+}
