@@ -1,10 +1,11 @@
-(function() {
+(function mainJS() {
     'use strict';
 
-    (function () {
-        var el = document.querySelectorAll('.input-group-btn > button');
+    (function toggleInputCaret() {
+        var selector = '.input-group-btn > button';
+        var el = document.querySelectorAll(selector);
 
-        function toggleCode (index) {
+        function toggleCode(index) {
             var name = el[index].getAttribute('data-el');
             var btnIcon = el[index].querySelector('span');
 
@@ -14,30 +15,27 @@
             });
         }
 
-        if (el) {
-            for (var i = 0, len = el.length; i < len; i++) {
-                toggleCode(i);
-            }
+        for (var i = 0, len = el.length; i < len; i++) {
+            toggleCode(i);
         }
     })();
 
-    (function () {
-        var el = document.querySelectorAll('input[type="text"');
+    (function selectInputContent() {
+        var selector = 'input[type="text"]';
+        var el = document.querySelectorAll(selector);
 
-        if (el) {
-            for (var i = 0, len = el.length; i < len; i++) {
-                el[i].addEventListener('focus', function() {
-                    this.select();
-                });
-                el[i].addEventListener('mouseup', function(a) {
-                    a.preventDefault();
-                });
-            }
+        for (var i = 0, len = el.length; i < len; i++) {
+            el[i].addEventListener('focus', function() {
+                this.select();
+            });
+            el[i].addEventListener('mouseup', function (event) {
+                event.preventDefault();
+            });
         }
     })();
 
 
-    (function() {
+    (function loadScripts() {
         function loadGhbtns() {
             var iframeEl = document.createElement('iframe');
 
@@ -50,7 +48,7 @@
         }
 
         /* eslint-disable */
-        function loadTwitter() {
+        function loadTwitterScript() {
             window.twttr = (function(d, s, id) {
                 var js, fjs = d.getElementsByTagName(s)[0],
                     t = window.twttr || {};
@@ -72,20 +70,14 @@
 
         function onLoad() {
             loadGhbtns();
-            loadTwitter();
+            loadTwitterScript();
         }
 
-        if (window.addEventListener) {
-            window.addEventListener('load', onLoad, false);
-        } else if (window.attachEvent) {
-            window.attachEvent('onload', onLoad);
-        } else {
-            window.onload = onLoad;
-        }
+        window.addEventListener('load', onLoad, false);
     })();
 
 
-    (function () {
+    (function googleAnalytics() {
         function gaEvent(e) {
             if (typeof e.target !== 'undefined') {
                 var action = e.target.getAttribute('data-ga-action');
@@ -108,13 +100,7 @@
         ga('create', 'UA-32253110-1', 'bootstrapcdn.com');
         ga('send', 'pageview');
 
-        if (window.addEventListener) {
-            window.addEventListener('click', gaEvent, false);
-        } else if (window.attachEvent) {
-            window.attachEvent('click', gaEvent);
-        } else {
-            window.onclick = gaEvent;
-        }
+        window.addEventListener('click', gaEvent, false);
         /* eslint-enable */
     })();
 
