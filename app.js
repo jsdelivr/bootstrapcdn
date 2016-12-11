@@ -95,7 +95,7 @@ app.use(helmet({
 app.use(helmet.hsts({
     force: true,
     includeSubdomains: true,
-    maxAge: 10886400,
+    maxAge: 63072000,   // 2 years
     preload: true
 }));
 
