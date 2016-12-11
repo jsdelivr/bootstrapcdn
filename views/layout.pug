@@ -29,10 +29,12 @@ html(lang='en')
         - fontawesome = config.fontawesome.filter(function(o) { return o.latest; })[0];
         link(rel='stylesheet', href=fontawesome.stylesheet, integrity=fontawesome.stylesheetSri, crossorigin='anonymous')
 
-        link(rel='stylesheet',
-            href=helpers.buster(config.stylesheets.style.uri),
-            integrity=generateSRI(config.stylesheets.style.uri),
-            crossorigin='anonymous')
+        if process.env.NODE_ENV == 'production'
+            style
+                include:clean-css /assets/css/style.css
+        else
+            style
+                include /assets/css/style.css
 
         block head
 
@@ -58,8 +60,11 @@ html(lang='en')
         script(src=bootstrap.javascript, integrity=bootstrap.javascriptSri,
             crossorigin='anonymous')
 
-        script(async src=helpers.buster(config.javascripts.main.uri),
-            integrity=generateSRI(config.javascripts.main.uri),
-            crossorigin='anonymous')
+        if process.env.NODE_ENV == 'production'
+            script(nonce=nonce)
+                include:uglify-js /assets/js/main.js
+        else
+            script(nonce=nonce)
+                include /assets/js/main.js
 
 //- vim: ft=pug sw=4 sts=4 et:
