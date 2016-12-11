@@ -11,7 +11,6 @@
 
 [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
-
 ## Requirements
 
 1. [Node.js](https://nodejs.org/)
@@ -28,16 +27,9 @@ npm install
 node make test run
 ```
 
-
 ### Demonized
 
 ```shell
-##
-# for the following make tasks, you can also run:
-#
-# npm run <task name>
-##
-
 # start server
 node make start
 
