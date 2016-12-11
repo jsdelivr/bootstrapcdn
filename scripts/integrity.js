@@ -2,11 +2,11 @@
 
 'use strict';
 
-var fs   = require('fs');
-var path = require('path');
-var yaml = require('js-yaml');
+var fs         = require('fs');
+var path       = require('path');
+var yaml       = require('js-yaml');
 
-var sri  = require(path.join(__dirname, 'sri'));
+var sri        = require(path.join(__dirname, 'sri'));
 
 var basedir    = path.join(__dirname, '..');
 var configFile = path.join(basedir, 'config', '_config.yml');
