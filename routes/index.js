@@ -21,6 +21,16 @@ function appendLocals(req, res) {
         return pageTitle + ' &middot; ' + TITLE;
     };
 
+    res.locals.bodyClass = function (pageTitle) {
+        // Remove whitespace from title
+        var str = pageTitle.replace(' ', '');
+
+        // Make the first letter lowercase
+        str = str.charAt(0).toLowerCase() + str.slice(1);
+
+        return 'page-' + str;
+    };
+
     res.locals.generateSRI = function (file) {
         if (typeof SRI_CACHE[file] === 'undefined') {
             SRI_CACHE[file] = digest(path.join(__dirname, '..', 'public', file));
