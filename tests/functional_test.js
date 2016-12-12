@@ -26,9 +26,7 @@ var expectedHeaders = {
     'vary': 'Accept-Encoding',
 
     'content-type': undefined,
-
-    // Disabling temporarily until we figure out why this disappeared.
-    // 'content-length': undefined,
+    'content-length': undefined,
 
     'last-modified': undefined,
     'x-cache': undefined,
