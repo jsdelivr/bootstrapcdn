@@ -1,15 +1,18 @@
 doctype
-html(lang='en')
+html(lang='en', prefix='og: http://ogp.me/ns#', itemscope, itemtype='http://schema.org/WebPage')
     head
         meta(charset='utf-8')
         meta('http-equiv'='X-UA-Compatible' content='IE=edge')
         meta(name='viewport', content='width=device-width, initial-scale=1')
         meta(name='author', content=config.authors.join(', '))
-        meta(name='description', content=(description || config.description))
-
         meta(name='google-site-verification', content='GoWOPbhuU3D9P-yDUxKl1RLuR_vqJIdP_smWw51Wmdc')
 
-        title!=displayTitle(title)
+        - var description = description || config.description;
+        - var pageTitle = displayTitle(title);
+
+        meta(name='description', content=description)
+
+        title!=pageTitle
 
         link(rel='canonical', href=fullUrl)
 
@@ -23,6 +26,25 @@ html(lang='en')
         link(rel='shortcut icon', href='/assets/img/favicons/favicon.ico')
         meta(name='msapplication-config', content='/assets/img/favicons/browserconfig.xml')
         meta(name='theme-color', content='#222222')
+
+        meta(property='og:title', content!=pageTitle)
+        meta(property='og:type', content='website')
+        meta(property='og:description', content=description)
+        meta(property='og:url', content=siteUrl)
+        meta(property='og:image', content=siteUrl.replace(/^https:/, 'http:') + '/assets/img/favicons/android-chrome-512x512.png')
+        meta(property='og:image:secure_url', content=siteUrl + '/assets/img/favicons/android-chrome-512x512.png')
+        meta(property='og:image:type', content='image/png')
+        meta(property='og:image:width', content='512')
+        meta(property='og:image:height', content='512')
+
+        meta(name='twitter:card', content='summary_large_image')
+        meta(name='twitter:creator', content='@getbootstrapcdn')
+        meta(name='twitter:site', content='@getbootstrapcdn')
+        meta(name='twitter:title', content!=pageTitle)
+
+        meta(itemprop='name', content='BootstrapCDN')
+        meta(itemprop='description', content=description)
+        meta(itemprop='image', content='/assets/img/favicons/android-chrome-512x512.png')
 
         - bootswatch = helpers.theme.fetch(config, theme);
         link(rel='stylesheet', href=bootswatch.uri, integrity=bootswatch.sri,
