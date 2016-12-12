@@ -80,7 +80,7 @@ app.use(function (req, res, next) {
     res.setHeader('Last-Modified', new Date().toUTCString());
     res.setHeader('Accept-Ranges', 'bytes');
 
-    res.locals.nonce = new Buffer(uuid.v4()).toString('base64');
+    res.locals.nonce = Buffer.from(uuid.v4(), 'utf-8').toString('base64');
 
     next();
 });
