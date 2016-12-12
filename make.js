@@ -91,6 +91,13 @@ target.travis = function () {
     target.suite();
 };
 
+target.appveyor = function () {
+    target.lint();
+
+    // without functional tests
+    assertExec(MOCHA + MOCHA_OPTS + ' -i -g "functional" -R dot ./tests/');
+};
+
 target['wp-plugin'] = function () {
     echo('node ./scripts/wp-plugin.js');
     assertExec('node ./scripts/wp-plugin.js');
@@ -183,3 +190,5 @@ target.help = function () {
     echo('  travis      run Travis CI checks');
     echo('  help        shows this help message');
 };
+
+// vim: ft=javascript sw=4 sts=4 et:
