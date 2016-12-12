@@ -15,6 +15,8 @@ function appendLocals(req, res) {
 
     res.locals.fullUrl = proto + '://' + req.hostname + req.path;
 
+    res.locals.siteUrl = proto + '://' + req.hostname;
+
     res.locals.theme = req.query.theme;
 
     res.locals.displayTitle = function (pageTitle) {
