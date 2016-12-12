@@ -3,17 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "eslint": "node make eslint",
-    "lint": "node make lint",
-    "restart": "node make restart",
-    "run": "node make run",
-    "setup": "npm install",
     "snyk-protect": "snyk protect",
-    "start": "node make start",
-    "status": "node make status",
-    "stop": "node make stop",
-    "test": "snyk test && node make test",
-    "test-nc": "node make test-nc"
+    "test": "snyk test && node make test"
   },
   "dependencies": {
     "async": "^2.1.2",
