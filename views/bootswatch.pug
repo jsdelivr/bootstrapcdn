@@ -11,17 +11,17 @@ block content
                 .col-md-2
                     .tryit
                         - if (i === helpers.theme.selected(config, theme))
-                            button.btn.btn-primary(type="button", disabled) Active!
+                            button.btn.btn-primary(type='button', disabled) Active!
                         - else
-                            a.btn.btn-primary(role="button", href="?theme=" + i) Try it!
+                            a.btn.btn-primary(role='button', href='?theme=' + i) Try it!
                 .col-sm-12.col-md-8
                     .bootswatch
                         a(href=config.bootswatch.link.replace('SWATCH_NAME', name))
-                            img.bootswatch.img-responsive(src=config.bootswatch.image.replace('SWATCH_NAME', name), alt=name + " thumbnail")
+                            img.bootswatch.img-responsive(src=config.bootswatch.image.replace('SWATCH_NAME', name), alt=name + ' thumbnail')
                         .input-group
-                            input.form-control(type="text", value=file)
+                            input.form-control(type='text', value=file)
                             .input-group-btn
-                                button.btn.btn-default(type="button", data-el=name)
+                                button.btn.btn-default(type='button', data-el=name)
                                     span.caret
                         include _partials/csscode
 

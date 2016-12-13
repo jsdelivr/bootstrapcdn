@@ -1,7 +1,7 @@
 extends layout
 
 block content
-    h2= title
+    h2=title
     .well
         - var name = 'quickstartCSS'.toLowerCase()
         - var file = config.bootstrap[0].stylesheet
@@ -11,9 +11,9 @@ block content
         .form-group
             label(for=id) Complete CSS
             .input-group.input-group-lg
-                input.form-control(type="text", id=id, value=file)
+                input.form-control(type='text', id=id, value=file)
                 .input-group-btn
-                    button.btn.btn-default.btn-lg(type="button", data-el=name)
+                    button.btn.btn-default.btn-lg(type='button', data-el=name)
                         span.caret
 
         include _partials/csscode
@@ -26,13 +26,13 @@ block content
         .form-group
             label(for=id) Complete JavaScript
             .input-group.input-group-lg
-                input.form-control(type="text", id=id, value=file)
+                input.form-control(type='text', id=id, value=file)
                 .input-group-btn
-                    button.btn.btn-default.btn-lg(type="button", data-el=name)
+                    button.btn.btn-default.btn-lg(type='button', data-el=name)
                         span.caret
 
         include _partials/jscode
         p
-            a(href="https://www.maxcdn.com/blog/bootstrapcdn-subresource-integrity/", target="_blank") Why BootstrapCDN believes in Subresource Integrity (SRI)
+            a(href='https://www.maxcdn.com/blog/bootstrapcdn-subresource-integrity/', target='_blank') Why BootstrapCDN believes in Subresource Integrity (SRI)
 
 //- vim: ft=pug sw=4 sts=4 et:
