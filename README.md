@@ -55,9 +55,8 @@ Key Overview:
 1. `port`: Integer value of the Node application port.
 2. `theme`: Integer value of the array index from the `bootswatch` section below.
 3. `authors`: Array of author Strings
-4. `description`: String containing the meta description of the site.
-5. `stylesheets`: Array containing stylesheet files to be loaded at the top of the site.
-6. `javascripts`: Array containing JavaScript files to be loaded either `before` (at the top) or `after` (at the bottom) of the site.
-7. `bootswatch`: Hash containing current Bootswatch meta data and themes.
-8. `bootlint`: Array of hashes containing Bootlint meta data and pathing.
-9. `bootstrap`: Array of hashes containing Bootstrap meta data and pathing.
+4. `description`: String containing the default meta description of the site.
+5. `javascripts`: Array containing JavaScript files to be loaded.
+6. `bootswatch`: Hash containing current Bootswatch meta data and themes.
+7. `bootlint`: Array of hashes containing Bootlint meta data and paths.
+8. `bootstrap`: Array of hashes containing Bootstrap meta data and paths.
