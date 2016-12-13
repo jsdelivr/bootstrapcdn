@@ -1,3 +1,5 @@
+/* global Clipboard:true */
+
 (function mainJS() {
     'use strict';
 
@@ -18,6 +20,26 @@
         for (var i = 0, len = el.length; i < len; i++) {
             toggleCode(i);
         }
+    })();
+
+    (function copyToClipboard() {
+        var selector = 'input[type="text"]';
+        var el = document.querySelectorAll(selector);
+
+        [].forEach.call(el, function (e) {
+            e.insertAdjacentHTML('afterend', '<span class="btn-clipboard" title="Copy to clipboard" data-clipboard-btn></span>');
+        });
+
+        var clipboardSnippets = new Clipboard('[data-clipboard-btn]', {
+            target: function (trigger) {
+                return trigger.previousElementSibling;
+            }
+        });
+
+        clipboardSnippets.on('success', function (e) {
+            e.clearSelection();
+        });
+
     })();
 
     (function selectInputContent() {
