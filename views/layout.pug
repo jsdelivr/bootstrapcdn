@@ -31,11 +31,11 @@ html(lang='en', prefix='og: http://ogp.me/ns#', itemscope, itemtype='http://sche
         meta(property='og:type', content='website')
         meta(property='og:description', content=description)
         meta(property='og:url', content=siteUrl)
-        meta(property='og:image', content=siteUrl.replace(/^https:/, 'http:') + '/assets/img/favicons/android-chrome-512x512.png')
-        meta(property='og:image:secure_url', content=siteUrl + '/assets/img/favicons/android-chrome-512x512.png')
+        meta(property='og:image', content=siteUrl.replace(/^https:/, 'http:') + '/assets/img/og.png')
+        meta(property='og:image:secure_url', content=siteUrl + '/assets/img/og.png')
         meta(property='og:image:type', content='image/png')
-        meta(property='og:image:width', content='512')
-        meta(property='og:image:height', content='512')
+        meta(property='og:image:width', content='256')
+        meta(property='og:image:height', content='256')
 
         meta(name='twitter:card', content='summary_large_image')
         meta(name='twitter:creator', content='@getbootstrapcdn')
@@ -44,7 +44,7 @@ html(lang='en', prefix='og: http://ogp.me/ns#', itemscope, itemtype='http://sche
 
         meta(itemprop='name', content='BootstrapCDN')
         meta(itemprop='description', content=description)
-        meta(itemprop='image', content='/assets/img/favicons/android-chrome-512x512.png')
+        meta(itemprop='image', content='/assets/img/og.png')
 
         - bootswatch = helpers.theme.fetch(config, theme);
         link(rel='stylesheet', href=bootswatch.uri, integrity=bootswatch.sri,
