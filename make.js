@@ -12,6 +12,7 @@ var async      = require('async');
 var MOCHA      = path.join(__dirname, 'node_modules/.bin/mocha');
 var ESLINT     = path.join(__dirname, 'node_modules/.bin/eslint');
 var BOOTLINT   = path.join(__dirname, 'node_modules/.bin/bootlint');
+var PUGLINT    = path.join(__dirname, 'node_modules/.bin/pug-lint');
 var FOREVER    = path.join(__dirname, 'node_modules/.bin/forever');
 
 var MOCHA_OPTS = ' --timeout 15000 --slow 500';
@@ -42,8 +43,14 @@ target.eslint = function () {
     assertExec(ESLINT + ' lib public/assets/js/ routes scripts tests *.js');
 };
 
+target.puglint = function () {
+    echo('+ puglint .');
+    assertExec(PUGLINT + ' .');
+};
+
 target.lint = function () {
     target.eslint();
+    target.puglint();
     target.bootlint();
 };
 
@@ -186,8 +193,10 @@ target.help = function () {
     echo('  run         runs for development mode');
     echo('  lint        lint all the things');
     echo('  eslint      run eslint');
-    echo('  bootlint    run Bootlint locally');
+    echo('  bootlint    run Bootlint');
+    echo('  puglint     run pug-lint');
     echo('  travis      run Travis CI checks');
+    echo('  appveyor    run AppVeyor CI checks');
     echo('  help        shows this help message');
 };
 
