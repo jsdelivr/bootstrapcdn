@@ -40,10 +40,6 @@ describe('index', () => {
         done();
     });
 
-    it('valid html', (done) => {
-        helpers.assert.validHTML(response, done);
-    });
-
     it('contains authors', (done) => {
         config.authors.forEach((author) => {
             helpers.assert.contains(author, response.body);

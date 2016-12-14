@@ -10,7 +10,6 @@ const assert    = require('assert');
 const yaml      = require('js-yaml');
 const format    = require('format');
 const encode    = require('htmlencode').htmlEncode;
-const validator = require('html-validator');
 
 let response  = {};
 
@@ -89,48 +88,6 @@ function assertContains(needle, haystack) {
     assert(haystack.indexOf(needle) > 0);
 }
 
-function assertValidHTML(response, done) {
-    const options = {
-        data: response.body,
-        format: 'text'
-    };
-
-    validator(options, (err, data) => {
-        if (err) {
-            console.trace(err);
-        }
-
-        const errors = data.split('\n')
-            .filter((e) => {
-                if (e.match(/^Error:/)) {
-                    return true;
-                }
-                return false;
-            })
-            .filter((e) => {
-                const ignores = [];
-
-                for (let i = 0, len = ignores.length; i < len; i++) {
-                    if (e.match(ignores[i])) {
-                        console.log(`\n>> (IGNORED) ${e}`);
-                        return false;
-                    }
-                }
-                console.error(`\n>> ${e}\n`);
-                return true;
-            });
-
-        if (errors.length > 0) {
-            const sep = '\n\t - ';
-
-            assert(false, sep + errors.join(sep));
-        } else {
-            assert(true);
-        }
-        done();
-    });
-}
-
 function preFetch(uri, cb, http = require('http')) {
     http.get(uri, (res) => {
         response = res;
@@ -180,8 +137,7 @@ module.exports = {
     assert: {
         response:    assertResponse,
         contains:    assertContains,
-        contentType: assertContentType,
-        validHTML:   assertValidHTML
+        contentType: assertContentType
     },
     preFetch,
     extension,

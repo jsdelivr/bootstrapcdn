@@ -6,6 +6,7 @@ config/_config.yml.bak
 config/_maxcdn.yml
 Dockme.yml
 lint.html
+*_lint.html
 npm-debug.log
 shelljs_*
 data/
