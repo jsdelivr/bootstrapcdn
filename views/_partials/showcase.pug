@@ -1,9 +1,9 @@
 hr
 br
-a(href=item.url, target='_blank')
+a(href=item.url, target='_blank', rel='noopener noreferrer')
     img.img-responsive.thumbnail.center-block(src=helpers.buster(item.img), alt=item.name + ' Screenshot', width='443', height='289')
 h3
-    a(href=item.url, target='_blank')=item.name
+    a(href=item.url, target='_blank', rel='noopener noreferrer')=item.name
 | Libraries: 
 span=item.lib
 br
