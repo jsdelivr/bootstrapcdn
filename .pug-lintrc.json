@@ -1,0 +1,35 @@
+{
+    "excludeFiles": ["node_modules/**", "public/**"],
+    "disallowAttributeInterpolation": true,
+    "disallowBlockExpansion": true,
+    "disallowClassAttributeWithStaticValue": true,
+    "disallowDuplicateAttributes": true,
+    "disallowHtmlText": true,
+    "disallowIdAttributeWithStaticValue": true,
+    "disallowLegacyMixinCall": true,
+    "disallowMultipleLineBreaks": true,
+    "disallowSpaceAfterCodeOperator": [
+        "!=",
+        "="
+    ],
+    "disallowSpacesInsideAttributeBrackets": true,
+    "requireClassLiterals": true,
+    "requireClassLiteralsBeforeAttributes": true,
+    "requireLineFeedAtFileEnd": true,
+    "requireLowerCaseAttributes": true,
+    "requireLowerCaseTags": true,
+    "requireSpecificAttributes": [
+        {
+            "img": [
+                "alt"
+            ]
+        }
+    ],
+    "requireStrictEqualityOperators": true,
+    "validateAttributeQuoteMarks": "'",
+    "validateDivTags": true,
+    "validateIndentation": 4,
+    "validateLineBreaks": "LF",
+    "validateSelfClosingTags": true,
+    "validateTemplateString": true
+}

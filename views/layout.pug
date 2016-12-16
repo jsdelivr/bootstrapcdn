@@ -2,7 +2,7 @@ doctype
 html(lang='en', prefix='og: http://ogp.me/ns#', itemscope, itemtype='http://schema.org/WebPage')
     head
         meta(charset='utf-8')
-        meta('http-equiv'='X-UA-Compatible' content='IE=edge')
+        meta('http-equiv'='X-UA-Compatible', content='IE=edge')
         meta(name='viewport', content='width=device-width, initial-scale=1')
         meta(name='author', content=config.authors.join(', '))
         meta(name='google-site-verification', content='GoWOPbhuU3D9P-yDUxKl1RLuR_vqJIdP_smWw51Wmdc')
@@ -50,7 +50,7 @@ html(lang='en', prefix='og: http://ogp.me/ns#', itemscope, itemtype='http://sche
         link(rel='stylesheet', href=bootswatch.uri, integrity=bootswatch.sri,
             crossorigin='anonymous')
 
-        if process.env.NODE_ENV == 'production'
+        if process.env.NODE_ENV === 'production'
             style
                 include:clean-css /assets/css/style.css
         else
@@ -81,7 +81,7 @@ html(lang='en', prefix='og: http://ogp.me/ns#', itemscope, itemtype='http://sche
         script(src=bootstrap.javascript, integrity=bootstrap.javascriptSri,
             crossorigin='anonymous')
 
-        if process.env.NODE_ENV == 'production'
+        if process.env.NODE_ENV === 'production'
             script(nonce=nonce)
                 include:uglify-js /assets/js/main.js
         else

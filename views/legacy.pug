@@ -5,32 +5,32 @@ block content
     each item in config.bootstrap
         - if (!item.latest)
             .well
-                h2= item.version
+                h2=item.version
                 - if (item.stylesheet)
                     - var file = item.stylesheet
                     - var sri  = item.stylesheetSri
-                    - var name = "css_complete_" + item.version.replace(/\./g, '_')
+                    - var name = 'css_complete_' + item.version.replace(/\./g, '_')
                     - var id   = name + '_form'
                     .form-group
                         label(for=id) Complete CSS
                     .input-group
-                        input.form-control(type="text", id=id, value=file)
+                        input.form-control(type='text', id=id, value=file)
                         .input-group-btn
-                            button.btn.btn-default(type="button", data-el=name)
+                            button.btn.btn-default(type='button', data-el=name)
                                 span.caret
                     include _partials/csscode
 
                 - if (item.javascript)
                     - var file = item.javascript
                     - var sri  = item.javascriptSri
-                    - var name = "javascript_" + item.version.replace(/\./g, '_')
+                    - var name = 'javascript_' + item.version.replace(/\./g, '_')
                     - var id   = name + '_form'
                     .form-group
                         label(for=id) Complete JavaScript
                     .input-group
-                        input.form-control(type="text", id=id, value=file)
+                        input.form-control(type='text', id=id, value=file)
                         .input-group-btn
-                            button.btn.btn-default(type="button", data-el=name)
+                            button.btn.btn-default(type='button', data-el=name)
                                 span.caret
                     include _partials/jscode
 
