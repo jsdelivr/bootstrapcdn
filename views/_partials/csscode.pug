@@ -4,11 +4,11 @@
         input.form-control(type='text', id='html_' + name, value='<link href="' + file + '" rel="stylesheet" integrity="' + sri + '" crossorigin="anonymous">')
     .form-group
         label(for='jade_' + name)
-            a(href='https://pugjs.org/', target='_blank') Pug
+            a(href='https://pugjs.org/', target='_blank', rel='noopener noreferrer') Pug
         input.form-control(type='text', id='jade_' + name, value='link(href="' + file + '", rel="stylesheet", integrity="' + sri + '", crossorigin="anonymous")')
     .form-group
         label(for='haml_' + name)
-            a(href='http://haml.info/', target='_blank') Haml
+            a(href='http://haml.info/', target='_blank', rel='noopener noreferrer') Haml
         input.form-control(type='text', id='haml_' + name, value='%link{href: "' + file + '", rel: "stylesheet", integrity: "' + sri + '", crossorigin: "anonymous"}')
 
 //- vim: ft=pug sw=4 sts=4 et:
