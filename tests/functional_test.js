@@ -31,14 +31,13 @@ var expectedHeaders = {
     'last-modified': undefined,
     'x-cache': undefined,
 
-    // 'x-amz-server-side-encryption': 'AES256',
     'accept-ranges': undefined,
     'access-control-allow-origin': '*',
 
     // the following are set as undefined because www
     // and assets (js/css) differ
     'server': undefined,
-    'x-hello-human': undefined, // because www and assets differ
+    'x-hello-human': undefined,
     'cache-control': undefined
 };
 
