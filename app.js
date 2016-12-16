@@ -135,7 +135,6 @@ app.use(helmet.contentSecurityPolicy({
         ],
         fontSrc: [
             '\'self\'',
-            'maxcdn.bootstrapcdn.com',
             'fonts.gstatic.com'
         ],
         manifestSrc: ['\'self\''],
