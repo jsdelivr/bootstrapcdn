@@ -1,4 +1,3 @@
-/* eslint-env jquery */
 /* global Clipboard:true */
 
 (function mainJS() {
@@ -165,9 +164,4 @@
     window.addEventListener('DOMContentLoaded', init, false);
 
     window.addEventListener('resize', initTwitterTimeline, false);
-
-    $(function () {
-        $('.ads-info-toggler').popover();
-    });
-
 })();
