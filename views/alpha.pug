@@ -31,7 +31,7 @@ block content
                     button.btn.btn-default.btn-lg(type='button', data-el=name)
                         span.caret
 
-        include _partials/csscode
+        include _partials/csscode.pug
 
         - var name = 'alphaJS'.toLowerCase()
         - var file = config.bootstrap4[0].javascript
@@ -46,6 +46,6 @@ block content
                     button.btn.btn-default.btn-lg(type='button', data-el=name)
                         span.caret
 
-        include _partials/jscode
+        include _partials/jscode.pug
 
 //- vim: ft=pug sw=4 sts=4 et:

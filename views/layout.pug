@@ -60,19 +60,19 @@ html(lang='en', prefix='og: http://ogp.me/ns#', itemscope, itemtype='http://sche
         block head
 
     body(class=bodyClass(title))
-        include _partials/header
+        include _partials/header.pug
 
-        include _partials/jumbotron
+        include _partials/jumbotron.pug
 
         .container
             .row
                 .col-sm-12.col-md-9
                     block content
 
-                    include _partials/footer
+                    include _partials/footer.pug
 
                 .col-md-3.visible-md.visible-lg
-                    include _partials/tweets
+                    include _partials/tweets.pug
 
         script(src=config.javascripts.jquery.uri,
             integrity=config.javascripts.jquery.sri, crossorigin='anonymous')
