@@ -120,6 +120,7 @@ app.use(helmet.contentSecurityPolicy({
             '\'unsafe-inline\'',
             'maxcdn.bootstrapcdn.com',
             'fonts.googleapis.com',
+            '*.twimg.com',
             'platform.twitter.com'
         ],
         imgSrc: [
@@ -128,7 +129,7 @@ app.use(helmet.contentSecurityPolicy({
             'www.google-analytics.com',
             'bootswatch.com',
             'syndication.twitter.com',
-            'pbs.twimg.com',
+            '*.twimg.com',
             'platform.twitter.com',
             'analytics.twitter.com',
             'stats.g.doubleclick.net'
