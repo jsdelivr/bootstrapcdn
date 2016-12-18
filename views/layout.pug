@@ -74,7 +74,7 @@ html(lang='en', prefix='og: http://ogp.me/ns#', itemscope, itemtype='http://sche
                 .col-md-3.visible-md.visible-lg
                     .row
                         .col-sm-12
-                            a.twitter-timeline(href='https://twitter.com/getBootstrapCDN/timelines/770731482377621505', data-height='525', data-partner='tweetdeck') Mad Love - Curated tweets by getBootstrapCDN
+                            a.twitter-timeline(href='https://twitter.com/getBootstrapCDN/timelines/770731482377621505', data-height='525', data-partner='tweetdeck', data-no-instant) Mad Love - Curated tweets by getBootstrapCDN
 
         script(src=config.javascripts.jquery.uri,
             integrity=config.javascripts.jquery.sri, crossorigin='anonymous')
@@ -84,10 +84,12 @@ html(lang='en', prefix='og: http://ogp.me/ns#', itemscope, itemtype='http://sche
             crossorigin='anonymous')
 
         if process.env.NODE_ENV === 'production'
-            script(nonce=nonce)
+            script(nonce=nonce, data-no-instant)
+                include:uglify-js /assets/js/vendor/instantclick.min.js
                 include:uglify-js /assets/js/main.js
         else
-            script(nonce=nonce)
+            script(nonce=nonce, data-no-instant)
+                include /assets/js/vendor/instantclick.min.js
                 include /assets/js/main.js
 
 //- vim: ft=pug sw=4 sts=4 et:
