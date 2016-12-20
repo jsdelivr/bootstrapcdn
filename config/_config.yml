@@ -351,6 +351,10 @@ showcase:
     img: /assets/img/showcase/llorda.png
     lib: Font Awesome 4.5.0
     url: 'https://help.adroll.com/hc/en-us'
+  - name: Kubernetes Bootcamp
+    img: /assets/img/showcase/kubernetes-bootcamp.png
+    lib: Font Awesome 4.5.0
+    url: 'https://kubernetesbootcamp.github.io/kubernetes-bootcamp/'
 integrations:
   - name: Bootstrap 3 Snippets
     img: /assets/img/integrations/atom-bootstrap3.png
