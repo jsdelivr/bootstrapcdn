@@ -136,9 +136,9 @@ app.use(helmet.contentSecurityPolicy({
         ],
         fontSrc: [
             '\'self\'',
+            'maxcdn.bootstrapcdn.com',
             'fonts.gstatic.com'
         ],
-        manifestSrc: ['\'self\''],
         frameSrc: [
             '\'self\'',
             'platform.twitter.com',
@@ -151,6 +151,7 @@ app.use(helmet.contentSecurityPolicy({
             'syndication.twitter.com',
             'ghbtns.com'
         ],
+        manifestSrc: ['\'self\''],
         reportUri: [
             'https://d063bdf998559129f041de1efd2b41a5.report-uri.io/r/default/csp/enforce'
         ]
