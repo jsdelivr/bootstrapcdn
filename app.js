@@ -66,17 +66,13 @@ app.use(serveStatic(path.join(__dirname, 'public'), {
 }));
 
 app.use(function (req, res, next) {
-    var oneHourToSec = 60 * 60;
-    var oneHourToMilliSec = 60 * 60 * 1000;
-
     // make config available in routes
     req.config = config;
 
     // custom headers
     res.setHeader('X-Powered-By', 'MaxCDN');
     res.setHeader('X-Hello-Human', 'You must be bored. You should work for us. Email jdorfman+theheader@maxcdn.com or @jdorfman on Twitter.');
-    res.setHeader('Cache-Control', 'public, max-age=' + oneHourToSec);
-    res.setHeader('Expires', new Date(Date.now() + oneHourToMilliSec).toUTCString());
+    res.setHeader('Cache-Control', 'public, max-age=0');
     res.setHeader('Last-Modified', new Date().toUTCString());
     res.setHeader('Accept-Ranges', 'bytes');
 
