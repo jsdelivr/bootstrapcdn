@@ -108,10 +108,18 @@ function assertValidHTML(response, done) {
                 return false;
             })
             .filter(function(e) {
-                console.log('>> e:', e);
-                if (e.match(/^Error: Attribute.+color.+not allowed on element.+link.+at this point./)) {
-                    return false;
+                var ignores = [
+                    /^Error: Attribute.+color.+not allowed on element.+link.+at this point./,
+                    /^Error: A.+link.+element with a.+sizes.+attribute must have a.+rel.+attribute that contains the value.+icon.+./
+                ];
+
+                for (var i = 0, len = ignores.length; i < len; i++) {
+                    if (e.match(ignores[i])) {
+                        console.log('\n>> (IGNORED) ' + e);
+                        return false;
+                    }
                 }
+                console.error('\n>> ' + e + '\n');
                 return true;
             });
 
