@@ -66,7 +66,7 @@ function bootlint(req, res) {
 
 function alpha(req, res) {
     res = appendLocals(req, res);
-    res.render('alpha', { title: 'Bootstrap 4 alpha' });
+    res.render('alpha', { title: 'Bootstrap 4 Alpha' });
 }
 
 function legacy(req, res) {
