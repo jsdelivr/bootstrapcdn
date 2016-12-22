@@ -1,14 +1,17 @@
 .well.hidden(id=name)
     .form-group
-        label(for='html_' + name) HTML
-        input.form-control(type='text', id='html_' + name, value='<script src="' + file + '" integrity="' + sri + '" crossorigin="anonymous"></script>')
+        - var id = 'html_' + name
+        label(for=id) HTML
+        input.form-control(id=id, type='text', value='<script src="' + file + '" integrity="' + sri + '" crossorigin="anonymous"></script>')
     .form-group
-        label(for='jade_' + name)
+        - var id = 'jade_' + name
+        label(for=id)
             a(href='https://pugjs.org/', target='_blank', rel='noopener') Pug
-        input.form-control(type='text', id='jade_' + name, value='script(src="' + file + '", integrity="' + sri + '", crossorigin="anonymous")')
+        input.form-control(id=id, type='text', value='script(src="' + file + '", integrity="' + sri + '", crossorigin="anonymous")')
     .form-group
-        label(for='haml_' + name)
+        - var id = 'haml_' + name
+        label(for=id)
             a(href='http://haml.info/', target='_blank', rel='noopener') Haml
-        input.form-control(type='text', id='haml_' + name, value='%script{src: "' + file + '", integrity: "' + sri + '", crossorigin: "anonymous"}')
+        input.form-control(id=id, type='text', value='%script{src: "' + file + '", integrity: "' + sri + '", crossorigin: "anonymous"}')
 
 //- vim: ft=pug sw=4 sts=4 et:
