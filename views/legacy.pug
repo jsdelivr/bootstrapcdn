@@ -11,10 +11,11 @@ block content
                     - var sri  = item.stylesheetSri
                     - var name = 'css_complete_' + item.version.replace(/\./g, '_')
                     - var id   = name + '_form'
+
                     .form-group
                         label(for=id) Complete CSS
                     .input-group
-                        input.form-control(type='text', id=id, value=file)
+                        input.form-control(id=id, type='text', value=file)
                         .input-group-btn
                             button.btn.btn-default(type='button', data-el=name)
                                 span.caret
@@ -25,10 +26,11 @@ block content
                     - var sri  = item.javascriptSri
                     - var name = 'javascript_' + item.version.replace(/\./g, '_')
                     - var id   = name + '_form'
+
                     .form-group
                         label(for=id) Complete JavaScript
                     .input-group
-                        input.form-control(type='text', id=id, value=file)
+                        input.form-control(id=id, type='text', value=file)
                         .input-group-btn
                             button.btn.btn-default(type='button', data-el=name)
                                 span.caret
