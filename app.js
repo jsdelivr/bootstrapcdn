@@ -152,9 +152,7 @@ app.use(helmet.contentSecurityPolicy({
             'ghbtns.com'
         ],
         manifestSrc: ['\'self\''],
-        reportUri: [
-            'https://d063bdf998559129f041de1efd2b41a5.report-uri.io/r/default/csp/enforce'
-        ]
+        reportUri: 'https://d063bdf998559129f041de1efd2b41a5.report-uri.io/r/default/csp/enforce'
     },
 
     // Set to true if you only want browsers to report errors, not block them
@@ -170,9 +168,7 @@ app.use(helmet.contentSecurityPolicy({
     // Set to false if you want to completely disable any user-agent sniffing.
     // This may make the headers less compatible but it will be much faster.
     // This defaults to `true`.
-    browserSniff: true,
-
-    loose: true
+    browserSniff: true
 }));
 
 // locals
