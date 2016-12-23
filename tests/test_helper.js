@@ -109,8 +109,7 @@ function assertValidHTML(response, done) {
             })
             .filter(function(e) {
                 var ignores = [
-                    /^Error: Attribute.+color.+not allowed on element.+link.+at this point./,
-                    /^Error: A.+link.+element with a.+sizes.+attribute must have a.+rel.+attribute that contains the value.+icon.+./
+                    /^Error: Attribute.+color.+not allowed on element.+link.+at this point./
                 ];
 
                 for (var i = 0, len = ignores.length; i < len; i++) {
