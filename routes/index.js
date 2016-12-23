@@ -20,7 +20,7 @@ function appendLocals(req, res) {
     res.locals.theme = req.query.theme;
 
     res.locals.displayTitle = function (pageTitle) {
-        return pageTitle + ' &middot; ' + TITLE;
+        return pageTitle + ' · ' + TITLE;
     };
 
     res.locals.bodyClass = function (pageTitle) {
