@@ -73,7 +73,7 @@
             loadTwitterScript();
         }
 
-        window.addEventListener('load', onLoad, false);
+        window.addEventListener('DOMContentLoaded', onLoad, false);
     })();
 
 
