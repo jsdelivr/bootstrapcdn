@@ -1,3 +1,6 @@
 env:
     browser: true
     node: false
+
+globals:
+    InstantClick: true

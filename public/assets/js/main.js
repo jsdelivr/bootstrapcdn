@@ -71,6 +71,7 @@
         function onLoad() {
             loadGhbtns();
             loadTwitterScript();
+            InstantClick.init();
         }
 
         window.addEventListener('load', onLoad, false);

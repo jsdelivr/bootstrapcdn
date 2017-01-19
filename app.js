@@ -135,6 +135,7 @@ app.use(helmet.contentSecurityPolicy({
             'maxcdn.bootstrapcdn.com',
             'fonts.gstatic.com'
         ],
+        connectSrc: ['\'self\''],
         frameSrc: [
             '\'self\'',
             'platform.twitter.com',
