@@ -78,18 +78,21 @@ html(lang='en', prefix='og: http://ogp.me/ns#', itemscope, itemtype='http://sche
                         .col-sm-12
                             a.twitter-timeline(href='https://twitter.com/getBootstrapCDN/timelines/770731482377621505', data-height='525', data-partner='tweetdeck') Mad Love - Curated tweets by getBootstrapCDN
 
-        script(src=config.javascripts.jquery.uri,
-            integrity=config.javascripts.jquery.sri, crossorigin='anonymous')
+                - bootstrap = config.bootstrap.filter(function(o) { return o.latest; })[0];
 
-        - bootstrap = config.bootstrap.filter(function(o) { return o.latest; })[0];
-        script(src=bootstrap.javascript, integrity=bootstrap.javascriptSri,
-            crossorigin='anonymous')
+                if process.env.NODE_ENV === 'production'
+                    script(nonce=nonce)
+                        include:uglify-js /assets/js/vendor/loadjs.js
+                        include:uglify-js /assets/js/main.js
+                else
+                    script(nonce=nonce)
+                        include /assets/js/vendor/loadjs.js
+                        include /assets/js/main.js
 
-        if process.env.NODE_ENV === 'production'
-            script(nonce=nonce)
-                include:uglify-js /assets/js/main.js
-        else
-            script(nonce=nonce)
-                include /assets/js/main.js
+                script(nonce=nonce).
+                    loadjs(['#{config.javascripts.jquery.uri}', '#{bootstrap.javascript}'], {
+                        async: false,
+                        numRetries: 3
+                    });
 
 //- vim: ft=pug sw=4 sts=4 et:
