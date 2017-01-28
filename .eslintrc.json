@@ -28,8 +28,8 @@
         ],
         "consistent-return": "error",
         "consistent-this": [
-            "error",
-            "this"
+            "off",
+            "self"
         ],
         "curly": "error",
         "default-case": "error",
@@ -251,7 +251,7 @@
             "always"
         ],
         "spaced-comment": [
-            "error",
+            "off",
             "always"
         ],
         "space-infix-ops": "error",

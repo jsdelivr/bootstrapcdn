@@ -22,38 +22,54 @@
         }
     })();
 
-    (function copyToClipboard() {
+    (function selectTextCopyToClipboard() {
         var selector = 'input[type="text"]';
         var el = document.querySelectorAll(selector);
-
-        [].forEach.call(el, function (e) {
-            e.insertAdjacentHTML('afterend', '<span class="btn-clipboard" title="Copy to clipboard" data-clipboard-btn></span>');
-        });
-
-        var clipboardSnippets = new Clipboard('[data-clipboard-btn]', {
-            target: function (trigger) {
-                return trigger.previousElementSibling;
-            }
-        });
-
-        clipboardSnippets.on('success', function (e) {
-            e.clearSelection();
-        });
-
-    })();
-
-    (function selectInputContent() {
-        var selector = 'input[type="text"]';
-        var el = document.querySelectorAll(selector);
+        var origHelpBlockText = 'Click to copy';
 
         for (var i = 0, len = el.length; i < len; i++) {
-            el[i].addEventListener('focus', function() {
+            el[i].addEventListener('focus', function(e) {
+                e.preventDefault();
                 this.select();
-            });
-            el[i].addEventListener('mouseup', function (event) {
-                event.preventDefault();
-            });
+
+                var clipboardSnippets = new Clipboard(this, {
+                    target: function (trigger) {
+                        return trigger;
+                    }
+                });
+
+                clipboardSnippets.on('success', function (e) {
+                    var helpBlock = {};
+                    var parentNextSibling = e.trigger.parentElement.nextElementSibling;
+
+                    if (parentNextSibling &&
+                        parentNextSibling.nodeName.toLowerCase() === 'span') {
+                        helpBlock = parentNextSibling;
+                    } else {
+                        helpBlock = e.trigger.nextElementSibling;
+                    }
+
+                    helpBlock.innerHTML = 'Copied text to clipboard';
+                });
+
+            }, true);
+
+            el[i].addEventListener('blur', function(e) {
+                var helpBlock = {};
+                var parentNextSibling = this.parentElement.nextElementSibling;
+
+                if (parentNextSibling &&
+                    parentNextSibling.nodeName.toLowerCase() === 'span') {
+                    helpBlock = parentNextSibling;
+                } else {
+                    helpBlock = this.nextElementSibling;
+                }
+
+                e.preventDefault();
+                helpBlock.innerHTML = origHelpBlockText;
+            }, true);
         }
+
     })();
 
 
