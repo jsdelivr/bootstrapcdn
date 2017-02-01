@@ -1,2 +1,3 @@
 /.git/
 /node_modules/
+/public/assets/js/clipboard.min.js
