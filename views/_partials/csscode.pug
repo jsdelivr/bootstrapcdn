@@ -3,15 +3,18 @@
         - var id = 'html_' + name
         label(for=id) HTML
         input.form-control(id=id, type='text', value='<link href="' + file + '" rel="stylesheet" integrity="' + sri + '" crossorigin="anonymous">')
+        span.help-block Click to copy
     .form-group
         - var id = 'jade_' + name
         label(for=id)
             a(href='https://pugjs.org/', target='_blank', rel='noopener') Pug
         input.form-control(id=id, type='text', value='link(href="' + file + '", rel="stylesheet", integrity="' + sri + '", crossorigin="anonymous")')
+        span.help-block Click to copy
     .form-group
         - var id = 'haml_' + name
         label(for=id)
             a(href='http://haml.info/', target='_blank', rel='noopener') Haml
         input.form-control(id=id, type='text', value='%link{href: "' + file + '", rel: "stylesheet", integrity: "' + sri + '", crossorigin: "anonymous"}')
+        span.help-block Click to copy
 
 //- vim: ft=pug sw=4 sts=4 et:
