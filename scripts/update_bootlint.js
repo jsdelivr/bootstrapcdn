@@ -41,8 +41,9 @@ https.get('https://raw.githubusercontent.com/twbs/bootlint/v' + version + '/dist
     mkdir(bootlintDir);
     pushd(bootlintDir);
 
-    var targetFile = path.join(bootlintDir, 'bootlint.js');
-    var targetMinFile = path.join(bootlintDir, 'bootlint.min.js');
+    var targetFile = 'bootlint.js';
+    var targetMinFile = 'bootlint.min.js';
+    var targetSourceMapFile = 'bootlint.min.js.map';
     var file = fs.createWriteStream(targetFile);
 
     res.pipe(file);
@@ -51,7 +52,7 @@ https.get('https://raw.githubusercontent.com/twbs/bootlint/v' + version + '/dist
         file.close();
 
         exec(UGLIFYJS + ' ' + targetFile + ' -o ' + targetMinFile +
-          ' --compress --source-map ' + targetMinFile + '.map' +
+          ' --compress --source-map ' + targetSourceMapFile +
           ' --comments "/(?:^!|@(?:license|preserve|cc_on))/"');
 
         cd('..');
