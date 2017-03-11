@@ -1,3 +1,8 @@
 /.git/
 /node_modules/
 /public/assets/js/clipboard.min.js
+/public/bootlint/
+/public/bootswatch/
+/public/html5shiv/
+/public/js/
+/public/twitter-bootstrap/

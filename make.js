@@ -39,8 +39,8 @@ target.suite = function () {
 };
 
 target.eslint = function () {
-    echo('+ eslint lib public/assets/js/ routes scripts tests *.js');
-    assertExec(ESLINT + ' lib public/assets/js/ routes scripts tests *.js');
+    echo('+ eslint .');
+    assertExec(ESLINT + ' .');
 };
 
 target.puglint = function () {
