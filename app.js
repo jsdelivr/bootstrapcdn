@@ -98,6 +98,7 @@ app.use(helmet.hsts({
 app.use(helmet.contentSecurityPolicy({
     directives: {
         defaultSrc: ['\'none\''],
+        baseUri: ['\'self\''],
         scriptSrc: [
             '\'self\'',
             '\'unsafe-inline\'',
