@@ -8,6 +8,9 @@
     "rules": {
         "array-bracket-spacing": "error",
         "array-callback-return": "error",
+        "arrow-body-style": ["error", "as-needed"],
+        "arrow-parens": ["error", "always"],
+        "arrow-spacing": "error",
         "block-scoped-var": "error",
         "block-spacing": "error",
         "brace-style": [
@@ -171,9 +174,11 @@
         "no-useless-constructor": "error",
         "no-useless-escape": "error",
         "no-useless-rename": "error",
+        "no-var": "error",
         "no-void": "error",
         "no-whitespace-before-property": "error",
         "no-with": "error",
+        "object-shorthand": "error",
         "object-curly-newline": [
             "off",
             {
@@ -202,6 +207,11 @@
             "error",
             "after"
         ],
+        "prefer-arrow-callback": "error",
+        "prefer-const": "error",
+        "prefer-destructuring": "off",
+        "prefer-spread": "error",
+        "prefer-template": "error",
         "quote-props": [
             "error",
             "consistent"
@@ -211,11 +221,13 @@
             "single"
         ],
         "radix": "error",
+        "rest-spread-spacing": ["error", "never"],
         "semi": [
             "error",
             "always"
         ],
         "semi-spacing": "error",
+        "sort-imports": "error",
         "space-before-blocks": [
             "error",
             "always"
@@ -231,6 +243,8 @@
         ],
         "space-unary-ops": "error",
         "strict": "error",
+        "symbol-description": "error",
+        "template-curly-spacing": "error",
         "unicode-bom": [
             "error",
             "never"

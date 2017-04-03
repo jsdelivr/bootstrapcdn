@@ -17,7 +17,7 @@ before((done) => {
 });
 
 describe('bootlint', () => {
-    let latest = config.bootlint[0];
+    const latest = config.bootlint[0];
 
     describe('config', () => {
         it('is latest', (done) => {
@@ -54,7 +54,7 @@ describe('bootlint', () => {
     });
 
     ['html', 'pug', 'haml'].forEach((fmt) => {
-        it('has ' + fmt, (done) => {
+        it(`has ${fmt}`, (done) => {
             const str = helpers.javascript[fmt](latest.javascript, latest.javascriptSri);
 
             helpers.assert.contains(str, response.body);

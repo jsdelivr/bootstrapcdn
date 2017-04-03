@@ -4,7 +4,7 @@ const path      = require('path');
 const digest    = require(path.join(__dirname, '..', 'lib', 'helpers')).sri.digest;
 const TITLE     = 'BootstrapCDN by MaxCDN';
 
-let SRI_CACHE = {};
+const SRI_CACHE = {};
 
 function appendLocals(req, res) {
     let proto = req.get('x-forwarded-proto');
@@ -13,15 +13,13 @@ function appendLocals(req, res) {
         proto = req.protocol;
     }
 
-    res.locals.fullUrl = proto + '://' + req.hostname + req.path;
+    res.locals.fullUrl = `${proto}://${req.hostname}${req.path}`;
 
-    res.locals.siteUrl = proto + '://' + req.hostname;
+    res.locals.siteUrl = `${proto}://${req.hostname}`;
 
     res.locals.theme = req.query.theme;
 
-    res.locals.displayTitle = (title) => {
-        return title + ' · ' + TITLE;
-    };
+    res.locals.displayTitle = (title) => `${title} · ${TITLE}`;
 
     res.locals.bodyClass = (title) => {
         // Remove whitespace from title
@@ -33,7 +31,7 @@ function appendLocals(req, res) {
         return `page-${str}`;
     };
 
-    res.locals.generateSRI = function (file) {
+    res.locals.generateSRI = (file) => {
         if (typeof SRI_CACHE[file] === 'undefined') {
             SRI_CACHE[file] = digest(path.join(__dirname, '..', 'public', file));
         }
@@ -79,8 +77,8 @@ function showcase(req, res) {
 
     const showcase = req.config.showcase;
 
-    let col1 = [];
-    let col2 = [];
+    const col1 = [];
+    const col2 = [];
 
     for (let i = 0; i < showcase.length; i++) {
         if (i % 2 === 0) {
@@ -92,8 +90,8 @@ function showcase(req, res) {
 
     res.render('showcase', {
         title: 'Showcase',
-        col1: col1,
-        col2: col2
+        col1,
+        col2
     });
 }
 
@@ -102,8 +100,8 @@ function integrations(req, res) {
 
     const integrations = req.config.integrations;
 
-    let col1 = [];
-    let col2 = [];
+    const col1 = [];
+    const col2 = [];
 
     for (let i = 0; i < integrations.length; i++) {
         if (i % 2 === 0) {
@@ -115,20 +113,20 @@ function integrations(req, res) {
 
     res.render('integrations', {
         title: 'Integrations',
-        col1: col1,
-        col2: col2
+        col1,
+        col2
     });
 }
 
 module.exports = {
-    index:        index,
-    fontawesome:  fontawesome,
-    bootswatch:   bootswatch,
-    bootlint:     bootlint,
-    alpha:        alpha,
-    legacy:       legacy,
-    showcase:     showcase,
-    integrations: integrations
+    index,
+    fontawesome,
+    bootswatch,
+    bootlint,
+    alpha,
+    legacy,
+    showcase,
+    integrations
 };
 
 // vim: ft=javascript sw=4 sts=4 et:

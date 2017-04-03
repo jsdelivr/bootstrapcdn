@@ -39,12 +39,12 @@ target.suite = () => {
 
 target.eslint = () => {
     echo('+ eslint .');
-    assertExec(ESLINT + ' .');
+    assertExec(`${ESLINT} .`);
 };
 
 target.puglint = () => {
     echo('+ puglint .');
-    assertExec(PUGLINT + ' .');
+    assertExec(`${PUGLINT} .`);
 };
 
 target.lint = () => {
@@ -57,23 +57,23 @@ target.functional = () => {
     assertExec(`${MOCHA}${MOCHA_OPTS} -R tap ./tests/functional_test.js`);
 };
 
-target.clean = function () {
+target.clean = () => {
     rm('-rf', 'node_modules');
 };
 
-target.run = function () {
+target.run = () => {
     assertExec('node app.js');
 };
 
 // for functional tests
-target.start = function () {
+target.start = () => {
     const env = process.env;
 
     if (!env.NODE_ENV) {
         env.NODE_ENV = 'production';
     }
 
-    exec(`${FOREVER} start --plain app.js`, { env: env });
+    exec(`${FOREVER} start --plain app.js`, { env });
 };
 
 target.stop = () => {
@@ -131,7 +131,7 @@ target.bootlint = () => {
         'integrations'
     ];
 
-    let outputs = [];
+    const outputs = [];
 
     // sleep
     setTimeout(() => {
@@ -143,7 +143,7 @@ target.bootlint = () => {
                 page += '_';
             }
 
-            const output = path.join(__dirname, page + 'lint.html');
+            const output = path.join(__dirname, `${page}lint.html`);
             const file = fs.createWriteStream(output);
 
             // okay, not really curl, but it communicates

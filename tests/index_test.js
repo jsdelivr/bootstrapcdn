@@ -63,7 +63,7 @@ describe('index', () => {
         });
 
         ['html', 'pug', 'haml'].forEach((fmt) => {
-            it('has ' + fmt, (done) => {
+            it(`has ${fmt}`, (done) => {
                 const str = helpers.css[fmt](latest.stylesheet, latest.stylesheetSri);
 
                 helpers.assert.contains(str, response.body);
@@ -79,7 +79,7 @@ describe('index', () => {
         });
 
         ['html', 'pug', 'haml'].forEach((fmt) => {
-            it('has ' + fmt, function (done) {
+            it(`has ${fmt}`, (done) => {
                 const str = helpers.javascript[fmt](latest.javascript, latest.javascriptSri);
 
                 helpers.assert.contains(str, response.body);

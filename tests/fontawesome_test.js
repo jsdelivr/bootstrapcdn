@@ -53,8 +53,8 @@ describe('fontawesome', () => {
     });
 
     ['html', 'pug', 'haml'].forEach((fmt) => {
-        it('has ' + fmt, (done) => {
-            var str = helpers.css[fmt](latest.stylesheet, latest.stylesheetSri);
+        it(`has ${fmt}`, (done) => {
+            const str = helpers.css[fmt](latest.stylesheet, latest.stylesheetSri);
 
             helpers.assert.contains(str, response.body);
             done();

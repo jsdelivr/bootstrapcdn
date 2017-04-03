@@ -17,7 +17,7 @@ before((done) => {
 });
 
 describe('bootstrap4', () => {
-    let latest = config.bootstrap4[0];
+    const latest = config.bootstrap4[0];
 
     describe('config', () => {
         it('is latest', (done) => {
@@ -65,8 +65,8 @@ describe('bootstrap4', () => {
         });
 
         ['html', 'pug', 'haml'].forEach((fmt) => {
-            it('has ' + fmt, (done) => {
-                let str = helpers.css[fmt](latest.stylesheet, latest.stylesheetSri);
+            it(`has ${fmt}`, (done) => {
+                const str = helpers.css[fmt](latest.stylesheet, latest.stylesheetSri);
 
                 helpers.assert.contains(str, response.body);
                 done();
@@ -81,8 +81,8 @@ describe('bootstrap4', () => {
         });
 
         ['html', 'pug', 'haml'].forEach((fmt) => {
-            it('has ' + fmt, (done) => {
-                let str = helpers.javascript[fmt](latest.javascript, latest.javascriptSri);
+            it(`has ${fmt}`, (done) => {
+                const str = helpers.javascript[fmt](latest.javascript, latest.javascriptSri);
 
                 helpers.assert.contains(str, response.body);
                 done();

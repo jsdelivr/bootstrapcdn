@@ -43,7 +43,7 @@ function assertContentType(uri, contentType) {
     // strict checking.
 
     if (process.env.TEST_STRICT === 'false' && Array.isArray(type)) {
-        assert(type.indexOf(contentType) >= 0,
+        assert(type.includes(contentType),
             format('invalid content-type for "%s", expected one of "%s" but got "%s"',
                    ext, type.join('", "'), contentType));
     } else {
@@ -59,10 +59,9 @@ function config() {
     return yaml.safeLoad(fs.readFileSync(path.join(__dirname, '..', 'config', '_config.yml'), 'utf8'));
 }
 
-function cleanEndpoint(endpoint) {
-    endpoint = typeof endpoint === 'undefined' ? '/' : endpoint;
-    endpoint = endpoint[0] === '/' ? endpoint : '/' + endpoint;
-    endpoint = endpoint[endpoint.length - 1] === '/' ? endpoint : endpoint + '/';
+function cleanEndpoint(endpoint = '/') {
+    endpoint = endpoint[0] === '/' ? endpoint : `/${endpoint}`;
+    endpoint = endpoint[endpoint.length - 1] === '/' ? endpoint : `${endpoint}/`;
 
     return endpoint;
 }
@@ -78,8 +77,7 @@ function app(config, endpoint) {
     return format('http://localhost:%s%s', process.env.PORT, endpoint);
 }
 
-function assertResponse(response, code) {
-    code = typeof code === 'undefined' ? 200 : code;
+function assertResponse(response, code = 200) {
     assert(response);
     assert.equal(code, response.statusCode);
 }
@@ -113,16 +111,16 @@ function assertValidHTML(response, done) {
 
                 for (let i = 0, len = ignores.length; i < len; i++) {
                     if (e.match(ignores[i])) {
-                        console.log('\n>> (IGNORED) ' + e);
+                        console.log(`\n>> (IGNORED) ${e}`);
                         return false;
                     }
                 }
-                console.error('\n>> ' + e + '\n');
+                console.error(`\n>> ${e}\n`);
                 return true;
             });
 
         if (errors.length > 0) {
-            let sep = '\n\t - ';
+            const sep = '\n\t - ';
 
             assert(false, sep + errors.join(sep));
         } else {
@@ -132,9 +130,7 @@ function assertValidHTML(response, done) {
     });
 }
 
-function preFetch(uri, cb, http) {
-    http = typeof http === 'undefined' ? require('http') : http;
-
+function preFetch(uri, cb, http = require('http')) {
     http.get(uri, (res) => {
         response = res;
         response.body = '';
@@ -178,16 +174,16 @@ function domainCheck(uri) {
 }
 
 module.exports = {
-    config: config,
-    app: app,
+    config,
+    app,
     assert: {
         response:    assertResponse,
         contains:    assertContains,
         contentType: assertContentType,
         validHTML:   assertValidHTML
     },
-    preFetch: preFetch,
-    extension: extension,
+    preFetch,
+    extension,
     css: {
         pug:  cssJade,
         html: cssHTML,
@@ -198,6 +194,6 @@ module.exports = {
         html: jsHTML,
         haml: jsHAML
     },
-    CONTENT_TYPE_MAP: CONTENT_TYPE_MAP,
-    domainCheck: domainCheck
+    CONTENT_TYPE_MAP,
+    domainCheck
 };

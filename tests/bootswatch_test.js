@@ -58,7 +58,7 @@ describe('bootswatch', () => {
             });
 
             ['html', 'pug', 'haml'].forEach((fmt) => {
-                it('has ' + fmt, (done) => {
+                it(`has ${fmt}`, (done) => {
                     const str = helpers.css[fmt](uri, sri);
 
                     helpers.assert.contains(str, response.body);

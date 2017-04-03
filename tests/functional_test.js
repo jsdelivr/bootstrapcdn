@@ -38,7 +38,7 @@ const expectedHeaders = {
     'cache-control': undefined
 };
 
-let responses = {};
+const responses = {};
 
 function request(uri, cb) {
     // return memoized response to avoid making the same http call twice
@@ -68,10 +68,10 @@ function assertSRI(uri, sri, done) {
 const s3include = ['content-type'];
 
 function assertHeader(uri, header) {
-    if (typeof process.env.TEST_S3 !== 'undefined' && s3include.indexOf(header) === -1) {
-        it.skip('has ' + header);
+    if (typeof process.env.TEST_S3 !== 'undefined' && !s3include.includes(header)) {
+        it.skip(`has ${header}`);
     } else {
-        it('has ' + header, (done) => {
+        it(`has ${header}`, (done) => {
             request(uri, (response) => {
                 assert.equal(200, response.statusCode);
                 assert(response.headers.hasOwnProperty(header));
@@ -158,7 +158,7 @@ describe('functional', () => {
                     assertHeader(uri, header);
                 });
 
-                it('has integrity', function (done) {
+                it('has integrity', (done) => {
                     assertSRI(uri, self.javascriptSri, done);
                 });
             });
@@ -207,18 +207,18 @@ describe('functional', () => {
             'js'
         ];
 
-        let publicURIs = [];
+        const publicURIs = [];
 
         walk.filesSync(path.join(__dirname, '..', 'public'), (base, name) => {
             const root = process.platform === 'win32' ? base.split('\\public\\')[1] : base.split('/public/')[1];
 
             // ensure file is in whitelisted directory
-            if (typeof root === 'undefined' || whitelist.indexOf(root.split(path.sep)[0]) === -1) {
+            if (typeof root === 'undefined' || !whitelist.includes(root.split(path.sep)[0])) {
                 return;
             }
 
             const domain = helpers.domainCheck('https://maxcdn.bootstrapcdn.com/');
-            const uri = domain + root + '/' + name;
+            const uri = `${domain + root}/${name}`;
             const ext = helpers.extension(name);
 
             // ignore unknown / unsupported types

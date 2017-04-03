@@ -108,7 +108,7 @@ app.use(helmet.contentSecurityPolicy({
             'platform.twitter.com',
             'cdn.syndication.twimg.com/timeline/',
             'api.github.com',
-            (req, res) => '\'nonce-' + res.locals.nonce + '\''
+            (req, res) => `'nonce-${res.locals.nonce}'`
         ],
         styleSrc: [
             '\'self\'',
@@ -237,6 +237,6 @@ if (env === 'production') {
 app.get('/robots.txt', (req, res) => map.TXTtoWeb(res));
 
 // start
-http.createServer(app).listen(app.get('port'), () => console.log('Express server listening on port ' + app.get('port')));
+http.createServer(app).listen(app.get('port'), () => console.log(`Express server listening on port ${app.get('port')}`));
 
 // vim: ft=javascript sw=4 sts=4 et:

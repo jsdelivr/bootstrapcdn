@@ -51,14 +51,14 @@ describe('legacy', () => {
             });
 
             ['html', 'pug', 'haml'].forEach((fmt) => {
-                it('has javascript ' + fmt, (done) => {
+                it(`has javascript ${fmt}`, (done) => {
                     const str = helpers.javascript[fmt](bootstrap.javascript, bootstrap.javascriptSri);
 
                     helpers.assert.contains(str, response.body);
                     done();
                 });
 
-                it('has stylesheet ' + fmt, (done) => {
+                it(`has stylesheet ${fmt}`, (done) => {
                     const str = helpers.css[fmt](bootstrap.stylesheet, bootstrap.stylesheetSri);
 
                     helpers.assert.contains(str, response.body);
