@@ -1,19 +1,18 @@
 /* eslint global-require: 0 */
-
 'use strict';
 
-var fs        = require('fs');
-var path      = require('path');
-var assert    = require('assert');
-var yaml      = require('js-yaml');
-var format    = require('format');
-var encode    = require('htmlencode').htmlEncode;
-var validator = require('html-validator');
+const fs        = require('fs');
+const path      = require('path');
+const assert    = require('assert');
+const yaml      = require('js-yaml');
+const format    = require('format');
+const encode    = require('htmlencode').htmlEncode;
+const validator = require('html-validator');
 
-var response  = {};
+let response  = {};
 
 // for array of types, first will be chosen when testing strictly
-var CONTENT_TYPE_MAP = {
+const CONTENT_TYPE_MAP = {
     css: 'text/css',
     js: ['application/javascript',
         'text/javascript',
@@ -37,8 +36,8 @@ function extension(str) {
 }
 
 function assertContentType(uri, contentType) {
-    var ext  = extension(uri);
-    var type = CONTENT_TYPE_MAP[ext];
+    const ext  = extension(uri);
+    let type = CONTENT_TYPE_MAP[ext];
 
     // Making TEST_STRICT=true default, pass TEST_STRICT=false to disable
     // strict checking.
@@ -90,29 +89,29 @@ function assertContains(needle, haystack) {
 }
 
 function assertValidHTML(response, done) {
-    var options = {
+    const options = {
         data: response.body,
         format: 'text'
     };
 
-    validator(options, function (err, data) {
+    validator(options, (err, data) => {
         if (err) {
             console.trace(err);
         }
 
-        var errors = data.split('\n')
-            .filter(function (e) {
+        const errors = data.split('\n')
+            .filter((e) => {
                 if (e.match(/^Error:/)) {
                     return true;
                 }
                 return false;
             })
-            .filter(function(e) {
-                var ignores = [
+            .filter((e) => {
+                const ignores = [
                     /^Error: Attribute.+color.+not allowed on element.+link.+at this point./
                 ];
 
-                for (var i = 0, len = ignores.length; i < len; i++) {
+                for (let i = 0, len = ignores.length; i < len; i++) {
                     if (e.match(ignores[i])) {
                         console.log('\n>> (IGNORED) ' + e);
                         return false;
@@ -123,7 +122,7 @@ function assertValidHTML(response, done) {
             });
 
         if (errors.length > 0) {
-            var sep = '\n\t - ';
+            let sep = '\n\t - ';
 
             assert(false, sep + errors.join(sep));
         } else {
@@ -136,40 +135,38 @@ function assertValidHTML(response, done) {
 function preFetch(uri, cb, http) {
     http = typeof http === 'undefined' ? require('http') : http;
 
-    http.get(uri, function (res) {
+    http.get(uri, (res) => {
         response = res;
         response.body = '';
-        res.on('data', function (chunk) {
+        res.on('data', (chunk) => {
             response.body += chunk;
         });
-        res.on('end', function () {
-            cb(response);
-        });
+        res.on('end', () => cb(response));
     });
 }
 
 function cssHTML(uri, sri) {
-    return encode('<link href="' + uri + '" rel="stylesheet" integrity="' + sri + '" crossorigin="anonymous">');
+    return encode(`<link href="${uri}" rel="stylesheet" integrity="${sri}" crossorigin="anonymous">`);
 }
 
 function cssJade(uri, sri) {
-    return encode('link(href="' + uri + '", rel="stylesheet", integrity="' + sri + '", crossorigin="anonymous")');
+    return encode(`link(href="${uri}", rel="stylesheet", integrity="${sri}", crossorigin="anonymous")`);
 }
 
 function cssHAML(uri, sri) {
-    return encode('%link{href: "' + uri + '", rel: "stylesheet", integrity: "' + sri + '", crossorigin: "anonymous"}');
+    return encode(`%link{href: "${uri}", rel: "stylesheet", integrity: "${sri}", crossorigin: "anonymous"}`);
 }
 
 function jsHTML(uri, sri) {
-    return encode('<script src="' + uri + '" integrity="' + sri + '" crossorigin="anonymous"></script>');
+    return encode(`<script src="${uri}" integrity="${sri}" crossorigin="anonymous"></script>`);
 }
 
 function jsJade(uri, sri) {
-    return encode('script(src="' + uri + '", integrity="' + sri + '", crossorigin="anonymous")');
+    return encode(`script(src="${uri}", integrity="${sri}", crossorigin="anonymous")`);
 }
 
 function jsHAML(uri, sri) {
-    return encode('%script{src: "' + uri + '", integrity: "' + sri + '", crossorigin: "anonymous"}');
+    return encode(`%script{src: "${uri}", integrity: "${sri}", crossorigin: "anonymous"}`);
 }
 
 function domainCheck(uri) {

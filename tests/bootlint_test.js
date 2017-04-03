@@ -1,60 +1,61 @@
 'use strict';
 
-var path     = require('path');
-var assert   = require('assert');
+const path     = require('path');
+const assert   = require('assert');
 
-var helpers  = require(path.join(__dirname, 'test_helper.js'));
-var config   = helpers.config();
-var uri      = helpers.app(config, 'bootlint');
-var response = {};
+const helpers  = require(path.join(__dirname, 'test_helper.js'));
+const config   = helpers.config();
+const uri      = helpers.app(config, 'bootlint');
 
-before(function (done) {
-    helpers.preFetch(uri, function (res) {
+let response = {};
+
+before((done) => {
+    helpers.preFetch(uri, (res) => {
         response = res;
         done();
     });
 });
 
-describe('bootlint', function () {
-    var latest = config.bootlint[0];
+describe('bootlint', () => {
+    let latest = config.bootlint[0];
 
-    describe('config', function () {
-        it('is latest', function (done) {
+    describe('config', () => {
+        it('is latest', (done) => {
             assert(latest.latest);
             done();
         });
 
-        it('has integrity', function (done) {
+        it('has integrity', (done) => {
             assert(typeof latest.javascriptSri !== 'undefined');
             done();
         });
     });
 
-    it('works', function (done) {
+    it('works', (done) => {
         helpers.assert.response(response);
         done();
     });
 
-    it('contains authors', function (done) {
-        config.authors.forEach(function (author) {
+    it('contains authors', (done) => {
+        config.authors.forEach((author) => {
             helpers.assert.contains(author, response.body);
         });
         done();
     });
 
-    it('has header', function (done) {
+    it('has header', (done) => {
         helpers.assert.contains('<h2>Bootlint</h2>', response.body);
         done();
     });
 
-    it('has javascript', function (done) {
+    it('has javascript', (done) => {
         helpers.assert.contains(latest.javascript, response.body);
         done();
     });
 
-    ['html', 'pug', 'haml'].forEach(function (fmt) {
-        it('has ' + fmt, function (done) {
-            var str = helpers.javascript[fmt](latest.javascript, latest.javascriptSri);
+    ['html', 'pug', 'haml'].forEach((fmt) => {
+        it('has ' + fmt, (done) => {
+            const str = helpers.javascript[fmt](latest.javascript, latest.javascriptSri);
 
             helpers.assert.contains(str, response.body);
             done();

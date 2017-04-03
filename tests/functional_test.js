@@ -1,19 +1,16 @@
 /* eslint no-undefined: 0 */
-
 'use strict';
 
-var path      = require('path');
-var assert    = require('assert');
-var walk      = require('fs-walk');
-var async     = require('async');
-var https     = require('https');
+const path      = require('path');
+const assert    = require('assert');
+const walk      = require('fs-walk');
+const async     = require('async');
+const https     = require('https');
+const digest    = require(path.join(__dirname, '..', 'lib', 'helpers')).sri.digest;
+const helpers   = require(path.join(__dirname, 'test_helper'));
+const config    = helpers.config();
 
-var digest    = require(path.join(__dirname, '..', 'lib', 'helpers')).sri.digest;
-var helpers   = require(path.join(__dirname, 'test_helper'));
-var config    = helpers.config();
-var responses = {};
-
-var expectedHeaders = {
+const expectedHeaders = {
     'date': undefined,
     'etag': undefined,
     'expires': undefined,
@@ -41,6 +38,8 @@ var expectedHeaders = {
     'cache-control': undefined
 };
 
+let responses = {};
+
 function request(uri, cb) {
     // return memoized response to avoid making the same http call twice
     if (responses.hasOwnProperty(uri)) {
@@ -48,7 +47,7 @@ function request(uri, cb) {
     }
 
     // build memoized response
-    return helpers.preFetch(uri, function (res) {
+    return helpers.preFetch(uri, (res) => {
         responses[uri] = res;
         cb(res);
     }, https);
@@ -56,24 +55,24 @@ function request(uri, cb) {
 }
 
 function assertSRI(uri, sri, done) {
-    request(uri, function (response) {
+    request(uri, (response) => {
         assert.equal(200, response.statusCode);
 
-        var expected = digest(response.body, true);
+        const expected = digest(response.body, true);
 
         assert.equal(expected, sri);
         done();
     });
 }
 
-var s3include = ['content-type'];
+const s3include = ['content-type'];
 
 function assertHeader(uri, header) {
     if (typeof process.env.TEST_S3 !== 'undefined' && s3include.indexOf(header) === -1) {
         it.skip('has ' + header);
     } else {
-        it('has ' + header, function (done) {
-            request(uri, function (response) {
+        it('has ' + header, (done) => {
+            request(uri, (response) => {
                 assert.equal(200, response.statusCode);
                 assert(response.headers.hasOwnProperty(header));
 
@@ -87,59 +86,75 @@ function assertHeader(uri, header) {
     }
 }
 
-describe('functional', function () {
-    describe('bootstrap', function () {
-        config.bootstrap.forEach(function (self) {
-            describe(helpers.domainCheck(self.javascript), function () {
-                var uri = helpers.domainCheck(self.javascript);
+describe('functional', () => {
+    describe('bootstrap', () => {
+        config.bootstrap.forEach((self) => {
+            describe(helpers.domainCheck(self.javascript), () => {
+                const uri = helpers.domainCheck(self.javascript);
 
-                Object.keys(expectedHeaders).forEach(function (header) {
+                Object.keys(expectedHeaders).forEach((header) => {
                     assertHeader(uri, header);
                 });
 
-                it('has integrity', function (done) {
+                it('has integrity', (done) => {
                     assertSRI(uri, self.javascriptSri, done);
                 });
             });
 
-            describe(helpers.domainCheck(self.stylesheet), function () {
-                var uri = helpers.domainCheck(self.stylesheet);
+            describe(helpers.domainCheck(self.stylesheet), () => {
+                const uri = helpers.domainCheck(self.stylesheet);
 
-                Object.keys(expectedHeaders).forEach(function (header) {
+                Object.keys(expectedHeaders).forEach((header) => {
                     assertHeader(uri, header);
                 });
 
-                it('has integrity', function (done) {
+                it('has integrity', (done) => {
                     assertSRI(uri, self.stylesheetSri, done);
                 });
             });
         });
     });
 
-    describe('bootswatch', function () {
-        config.bootswatch.themes.forEach(function (theme) {
-            var uri = helpers.domainCheck(config.bootswatch.bootstrap
+    describe('bootswatch', () => {
+        config.bootswatch.themes.forEach((theme) => {
+            const uri = helpers.domainCheck(config.bootswatch.bootstrap
                 .replace('SWATCH_VERSION', config.bootswatch.version)
                 .replace('SWATCH_NAME', theme.name));
 
-            describe(uri, function () {
-                Object.keys(expectedHeaders).forEach(function (header) {
+            describe(uri, () => {
+                Object.keys(expectedHeaders).forEach((header) => {
                     assertHeader(uri, header);
                 });
 
-                it('has integrity', function (done) {
+                it('has integrity', (done) => {
                     assertSRI(uri, theme.sri, done);
                 });
             });
         });
     });
 
-    describe('bootlint', function () {
-        config.bootlint.forEach(function (self) {
-            var uri = helpers.domainCheck(self.javascript);
+    describe('bootlint', () => {
+        config.bootlint.forEach((self) => {
+            const uri = helpers.domainCheck(self.javascript);
 
-            describe(uri, function () {
-                Object.keys(expectedHeaders).forEach(function (header) {
+            describe(uri, () => {
+                Object.keys(expectedHeaders).forEach((header) => {
+                    assertHeader(uri, header);
+                });
+
+                it('has integrity', (done) => {
+                    assertSRI(uri, self.javascriptSri, done);
+                });
+            });
+        });
+    });
+
+    describe('bootstrap4', () => {
+        config.bootstrap4.forEach((self) => {
+            describe(helpers.domainCheck(self.javascript), () => {
+                const uri = helpers.domainCheck(self.javascript);
+
+                Object.keys(expectedHeaders).forEach((header) => {
                     assertHeader(uri, header);
                 });
 
@@ -147,58 +162,42 @@ describe('functional', function () {
                     assertSRI(uri, self.javascriptSri, done);
                 });
             });
-        });
-    });
 
-    describe('bootstrap4', function () {
-        config.bootstrap4.forEach(function (self) {
-            describe(helpers.domainCheck(self.javascript), function () {
-                var uri = helpers.domainCheck(self.javascript);
+            describe(helpers.domainCheck(self.stylesheet), () => {
+                const uri = helpers.domainCheck(self.stylesheet);
 
-                Object.keys(expectedHeaders).forEach(function (header) {
+                Object.keys(expectedHeaders).forEach((header) => {
                     assertHeader(uri, header);
                 });
 
-                it('has integrity', function (done) {
-                    assertSRI(uri, self.javascriptSri, done);
-                });
-            });
-
-            describe(helpers.domainCheck(self.stylesheet), function () {
-                var uri = helpers.domainCheck(self.stylesheet);
-
-                Object.keys(expectedHeaders).forEach(function (header) {
-                    assertHeader(uri, header);
-                });
-
-                it('has integrity', function (done) {
+                it('has integrity', (done) => {
                     assertSRI(uri, self.stylesheetSri, done);
                 });
             });
         });
     });
 
-    describe('fontawesome', function () {
-        config.fontawesome.forEach(function (self) {
-            var uri = helpers.domainCheck(self.stylesheet);
+    describe('fontawesome', () => {
+        config.fontawesome.forEach((self) => {
+            const uri = helpers.domainCheck(self.stylesheet);
 
-            describe(uri, function () {
-                Object.keys(expectedHeaders).forEach(function (header) {
+            describe(uri, () => {
+                Object.keys(expectedHeaders).forEach((header) => {
                     assertHeader(uri, header);
                 });
 
-                it('has integrity', function (done) {
+                it('has integrity', (done) => {
                     assertSRI(uri, self.stylesheetSri, done);
                 });
             });
         });
     });
 
-    describe('public/**/*.*', function () {
+    describe('public/**/*.*', () => {
         /*
          * Build File List
          ****/
-        var whitelist = [
+        const whitelist = [
             'bootlint',
             'bootstrap',
             'bootswatch',
@@ -208,19 +207,19 @@ describe('functional', function () {
             'js'
         ];
 
-        var publicURIs = [];
+        let publicURIs = [];
 
-        walk.filesSync(path.join(__dirname, '..', 'public'), function (base, name) {
-            var root = process.platform === 'win32' ? base.split('\\public\\')[1] : base.split('/public/')[1];
+        walk.filesSync(path.join(__dirname, '..', 'public'), (base, name) => {
+            const root = process.platform === 'win32' ? base.split('\\public\\')[1] : base.split('/public/')[1];
 
             // ensure file is in whitelisted directory
             if (typeof root === 'undefined' || whitelist.indexOf(root.split(path.sep)[0]) === -1) {
                 return;
             }
 
-            var domain = helpers.domainCheck('https://maxcdn.bootstrapcdn.com/');
-            var uri = domain + root + '/' + name;
-            var ext = helpers.extension(name);
+            const domain = helpers.domainCheck('https://maxcdn.bootstrapcdn.com/');
+            const uri = domain + root + '/' + name;
+            const ext = helpers.extension(name);
 
             // ignore unknown / unsupported types
             if (typeof helpers.CONTENT_TYPE_MAP[ext] === 'undefined') {
@@ -233,10 +232,10 @@ describe('functional', function () {
         /*
          * Run Tests
          ****/
-        async.each(publicURIs, function (uri, callback) {
-            describe(uri, function () {
-                it('content-type', function (done) {
-                    request(uri, function (response) {
+        async.each(publicURIs, (uri, callback) => {
+            describe(uri, () => {
+                it('content-type', (done) => {
+                    request(uri, (response) => {
                         assert.equal(200, response.statusCode, 'file missing or forbidden');
 
                         helpers.assert.contentType(uri, response.headers['content-type']);

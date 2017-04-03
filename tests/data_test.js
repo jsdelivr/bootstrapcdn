@@ -1,42 +1,41 @@
 'use strict';
 
-var path   = require('path');
-var fs     = require('fs');
-var http   = require('http');
-var assert = require('assert');
-var yaml   = require('js-yaml');
-var format = require('format');
+const path   = require('path');
+const fs     = require('fs');
+const http   = require('http');
+const assert = require('assert');
+const yaml   = require('js-yaml');
+const format = require('format');
 
-var config = yaml.safeLoad(fs.readFileSync(path.join(__dirname, '..', 'config', '_config.yml'), 'utf8'));
+const config = yaml.safeLoad(fs.readFileSync(path.join(__dirname, '..', 'config', '_config.yml'), 'utf8'));
 
 process.env.PORT = config.port < 3000 ? config.port + 3000 : config.port + 1;   // don't use configured port
 
 require('../app.js');
 
-var page     = format('http://localhost:%s/data/bootstrapcdn.json', process.env.PORT);
-var response = {};
+const page = format('http://localhost:%s/data/bootstrapcdn.json', process.env.PORT);
 
-before(function (done) {
-    http.get(page, function (res) {
+let response = {};
+
+before((done) => {
+    http.get(page, (res) => {
         response = res;
         response.body = '';
-        res.on('data', function (chunk) {
+        res.on('data', (chunk) => {
             response.body += chunk;
         });
-        res.on('end', function () {
-            done();
-        });
+        res.on('end', () => done());
     });
 });
 
-describe('data', function () {
-    it('/data/bootstrapcdn.json :: 200\'s', function (done) {
+describe('data', () => {
+    it('/data/bootstrapcdn.json :: 200\'s', (done) => {
         assert(response);
         assert(response.statusCode === 200);
         done();
     });
 
-    it('is json', function (done) {
+    it('is json', (done) => {
         assert(JSON.parse(response.body));
         done();
     });

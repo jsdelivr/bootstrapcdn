@@ -1,13 +1,13 @@
 'use strict';
 
-var path      = require('path');
-var digest    = require(path.join(__dirname, '..', 'lib', 'helpers')).sri.digest;
+const path      = require('path');
+const digest    = require(path.join(__dirname, '..', 'lib', 'helpers')).sri.digest;
+const TITLE     = 'BootstrapCDN by MaxCDN';
 
-var TITLE     = 'BootstrapCDN by MaxCDN';
-var SRI_CACHE = {};
+let SRI_CACHE = {};
 
 function appendLocals(req, res) {
-    var proto = req.get('x-forwarded-proto');
+    let proto = req.get('x-forwarded-proto');
 
     if (typeof proto === 'undefined') {
         proto = req.protocol;
@@ -19,18 +19,18 @@ function appendLocals(req, res) {
 
     res.locals.theme = req.query.theme;
 
-    res.locals.displayTitle = function (pageTitle) {
-        return pageTitle + ' · ' + TITLE;
+    res.locals.displayTitle = (title) => {
+        return title + ' · ' + TITLE;
     };
 
-    res.locals.bodyClass = function (pageTitle) {
+    res.locals.bodyClass = (title) => {
         // Remove whitespace from title
-        var str = pageTitle.replace(' ', '');
+        let str = title.replace(' ', '');
 
         // Make the first letter lowercase
         str = str.charAt(0).toLowerCase() + str.slice(1);
 
-        return 'page-' + str;
+        return `page-${str}`;
     };
 
     res.locals.generateSRI = function (file) {
@@ -77,11 +77,12 @@ function legacy(req, res) {
 function showcase(req, res) {
     res = appendLocals(req, res);
 
-    var showcase = req.config.showcase;
-    var col1 = [];
-    var col2 = [];
+    const showcase = req.config.showcase;
 
-    for (var i = 0; i < showcase.length; i++) {
+    let col1 = [];
+    let col2 = [];
+
+    for (let i = 0; i < showcase.length; i++) {
         if (i % 2 === 0) {
             col1.push(showcase[i]);
         } else {
@@ -99,11 +100,12 @@ function showcase(req, res) {
 function integrations(req, res) {
     res = appendLocals(req, res);
 
-    var integrations = req.config.integrations;
-    var col1 = [];
-    var col2 = [];
+    const integrations = req.config.integrations;
 
-    for (var i = 0; i < integrations.length; i++) {
+    let col1 = [];
+    let col2 = [];
+
+    for (let i = 0; i < integrations.length; i++) {
         if (i % 2 === 0) {
             col1.push(integrations[i]);
         } else {
