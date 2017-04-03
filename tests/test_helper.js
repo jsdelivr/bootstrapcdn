@@ -105,9 +105,7 @@ function assertValidHTML(response, done) {
                 return false;
             })
             .filter((e) => {
-                const ignores = [
-                    /^Error: Attribute.+color.+not allowed on element.+link.+at this point./
-                ];
+                const ignores = [];
 
                 for (let i = 0, len = ignores.length; i < len; i++) {
                     if (e.match(ignores[i])) {
