@@ -5,35 +5,35 @@
 'use strict';
 
 require('shelljs/global');
-var https       = require('https');
-var fs          = require('fs');
-var path        = require('path');
+const https     = require('https');
+const fs        = require('fs');
+const path      = require('path');
 
-var version     = process.argv[2];
-
-// strip leading 'v' if present
-version = version.replace(/^v/, '');
-
-
-var basedir     = path.join(__dirname, '..');
-var bootlintDir = path.join(basedir, 'public', 'bootlint', version);
-var UGLIFYJS    = path.join(basedir, 'node_modules/.bin/uglifyjs');
+let version     = process.argv[2];
 
 if (!version) {
     echo('Valid Bootlint version required.');
     process.exit(1);
 }
 
+// strip leading 'v' if present
+version = version.replace(/^v/, '');
+
+const basedir     = path.join(__dirname, '..');
+const bootlintDir = path.join(basedir, 'public', 'bootlint', version);
+const UGLIFYJS    = path.join(basedir, 'node_modules/.bin/uglifyjs');
+
+
 if (test('-d', bootlintDir)) {
     echo('Bootlint version already found.');
     process.exit(1);
 }
 
-https.get('https://raw.githubusercontent.com/twbs/bootlint/v' + version + '/dist/browser/bootlint.js', function (res) {
-    var statusCode = res.statusCode;
+https.get(`https://raw.githubusercontent.com/twbs/bootlint/v${version}/dist/browser/bootlint.js`, (res) => {
+    const statusCode = res.statusCode;
 
     if (statusCode !== 200) {
-        console.log(new Error('Request Failed.\nStatus Code: ' + statusCode).message);
+        console.log(new Error(`Request Failed.\nStatus Code: ${statusCode}`).message);
         res.resume();
         return;
     }
@@ -41,19 +41,17 @@ https.get('https://raw.githubusercontent.com/twbs/bootlint/v' + version + '/dist
     mkdir(bootlintDir);
     pushd(bootlintDir);
 
-    var targetFile = 'bootlint.js';
-    var targetMinFile = 'bootlint.min.js';
-    var targetSourceMapFile = 'bootlint.min.js.map';
-    var file = fs.createWriteStream(targetFile);
+    const targetFile = 'bootlint.js';
+    const targetMinFile = 'bootlint.min.js';
+    const targetSourceMapFile = 'bootlint.min.js.map';
+    const file = fs.createWriteStream(targetFile);
 
     res.pipe(file);
 
-    res.on('end', function () {
+    res.on('end', () => {
         file.close();
 
-        exec(UGLIFYJS + ' ' + targetFile + ' -o ' + targetMinFile +
-          ' --compress --source-map ' + targetSourceMapFile +
-          ' --comments "/(?:^!|@(?:license|preserve|cc_on))/"');
+        exec(`${UGLIFYJS} ${targetFile} -o ${targetMinFile} --compress --source-map ${targetSourceMapFile} --comments "/(?:^!|@(?:license|preserve|cc_on))/"`);
 
         cd('..');
 
