@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "snyk-protect": "snyk protect",
-    "test": "snyk test && node make test"
+    "test": "node make test"
   },
   "dependencies": {
     "async": "^2.1.2",

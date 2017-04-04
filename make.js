@@ -1,26 +1,25 @@
 /* eslint-env shelljs */
-
 'use strict';
 
 require('shelljs/make');
 
-var path       = require('path');
-var http       = require('http');
-var fs         = require('fs');
-var async      = require('async');
+const path       = require('path');
+const http       = require('http');
+const fs         = require('fs');
+const async      = require('async');
 
-var MOCHA      = path.join(__dirname, 'node_modules/.bin/mocha');
-var ESLINT     = path.join(__dirname, 'node_modules/.bin/eslint');
-var BOOTLINT   = path.join(__dirname, 'node_modules/.bin/bootlint');
-var PUGLINT    = path.join(__dirname, 'node_modules/.bin/pug-lint');
-var FOREVER    = path.join(__dirname, 'node_modules/.bin/forever');
+const MOCHA      = path.join(__dirname, 'node_modules/.bin/mocha');
+const ESLINT     = path.join(__dirname, 'node_modules/.bin/eslint');
+const BOOTLINT   = path.join(__dirname, 'node_modules/.bin/bootlint');
+const PUGLINT    = path.join(__dirname, 'node_modules/.bin/pug-lint');
+const FOREVER    = path.join(__dirname, 'node_modules/.bin/forever');
 
-var MOCHA_OPTS = ' --timeout 15000 --slow 500';
+const MOCHA_OPTS = ' --timeout 15000 --slow 500';
 
 cd(__dirname);
 
 function assertExec (cmd, options) {
-    var res = options ? exec(cmd, options) : exec(cmd);
+    const res = options ? exec(cmd, options) : exec(cmd);
 
     if (res.code !== 0) {
         process.exit(res.code);
@@ -29,102 +28,100 @@ function assertExec (cmd, options) {
     return res;
 }
 
-target.test = function () {
+target.test = () => {
     // without functional tests
-    assertExec(MOCHA + MOCHA_OPTS + ' -i -g "functional" -R spec ./tests/');
+    assertExec(`${MOCHA}${MOCHA_OPTS} -i -g "functional" -R spec ./tests/`);
 };
 
-target.suite = function () {
-    assertExec(MOCHA + MOCHA_OPTS + ' -R dot ./tests/');
+target.suite = () => {
+    assertExec(`${MOCHA}${MOCHA_OPTS} -R dot ./tests/`);
 };
 
-target.eslint = function () {
+target.eslint = () => {
     echo('+ eslint .');
-    assertExec(ESLINT + ' .');
+    assertExec(`${ESLINT} .`);
 };
 
-target.puglint = function () {
+target.puglint = () => {
     echo('+ puglint .');
-    assertExec(PUGLINT + ' .');
+    assertExec(`${PUGLINT} .`);
 };
 
-target.lint = function () {
+target.lint = () => {
     target.eslint();
     target.puglint();
     target.bootlint();
 };
 
-target.functional = function () {
-    assertExec(MOCHA + MOCHA_OPTS + ' -R tap ./tests/functional_test.js');
+target.functional = () => {
+    assertExec(`${MOCHA}${MOCHA_OPTS} -R tap ./tests/functional_test.js`);
 };
 
-target.clean = function () {
+target.clean = () => {
     rm('-rf', 'node_modules');
 };
 
-target.run = function () {
+target.run = () => {
     assertExec('node app.js');
 };
 
 // for functional tests
-target.start = function () {
-    var env = process.env;
+target.start = () => {
+    const env = process.env;
 
     if (!env.NODE_ENV) {
         env.NODE_ENV = 'production';
     }
 
-    exec(FOREVER + ' start --plain app.js', { env: env });
+    exec(`${FOREVER} start --plain app.js`, { env });
 };
 
-target.stop = function () {
-    assertExec(FOREVER + ' stop app.js');
+target.stop = () => {
+    assertExec(`${FOREVER} stop app.js`);
 };
 
-target.tryStop = function () {
+target.tryStop = () => {
     // ignore errors with noop function
-    exec(FOREVER + ' stop app.js', function () {
-        return true;
-    });
+    exec(`${FOREVER} stop app.js`, () => true);
 };
 
-target.restart = function () {
+target.restart = () => {
     target.tryStop();
     target.start();
 };
 
-target.travis = function () {
+target.travis = () => {
     target.lint();
     target.suite();
 };
 
-target.appveyor = function () {
+target.appveyor = () => {
     target.lint();
 
     // without functional tests
-    assertExec(MOCHA + MOCHA_OPTS + ' -i -g "functional" -R dot ./tests/');
+    assertExec(`${MOCHA}${MOCHA_OPTS} -i -g "functional" -R dot ./tests/`);
 };
 
-target['wp-plugin'] = function () {
+target['wp-plugin'] = () => {
     echo('node ./scripts/wp-plugin.js');
     assertExec('node ./scripts/wp-plugin.js');
 };
 
-target['purge-latest'] = function () {
-    // TODO: Make pure JS
+target['purge-latest'] = () => {
     echo('bash ./scripts/purge.sh');
     assertExec('bash ./scripts/purge.sh');
 };
 
-target.bootlint = function () {
+target.bootlint = () => {
+    const port = 3080;
+
     echo('+ node make start');
-    var port = 3080;
 
     env.PORT = port;
     env.NODE_ENV = 'development';
     target.start();
 
-    var pages = [
+    const pages = [
         '',
         'fontawesome',
         'bootswatch',
@@ -134,41 +131,41 @@ target.bootlint = function () {
         'integrations'
     ];
 
-    var outputs = [];
+    const outputs = [];
 
     // sleep
-    setTimeout(function () {
+    setTimeout(() => {
         echo('------------------------------------------------');
-        async.eachSeries(pages, function (page, callback) {
-            var url = 'http://localhost:' + port + '/' + page + (page === '' ? '' : '/');
+        async.eachSeries(pages, (page, callback) => {
+            const url = `http://localhost:${port}/${page}${page === '' ? '' : '/'}`;
 
             if (page !== '') {
                 page += '_';
             }
 
-            var output = path.join(__dirname, page + 'lint.html');
-            var file = fs.createWriteStream(output);
+            const output = path.join(__dirname, `${page}lint.html`);
+            const file = fs.createWriteStream(output);
 
             // okay, not really curl, but it communicates
-            echo('+ curl ' + url + ' > ' + output);
+            echo(`+ curl ${url} > ${output}`);
 
-            http.get(url, function (response) {
+            http.get(url, (response) => {
                 response.pipe(file);
 
-                response.on('end', function () {
+                response.on('end', () => {
                     file.close();
                     outputs.push(output);
                     callback();
                 });
             });
-        }, function () {
+        }, () => {
             echo('+ node make tryStop');
             target.tryStop();
 
-            echo('+ bootlint ' + outputs.join('\\\n\t'));
+            echo(`+ bootlint ${outputs.join('\\\n\t')}`);
 
             // disabling latest version error
-            exec(BOOTLINT + ' -d W013 ' + outputs.join(' '), function (code) {
+            exec(`${BOOTLINT} -d W013 ${outputs.join(' ')}`, (code) => {
                 rm(outputs);
                 if (code !== 0) {
                     process.exit(code);
@@ -178,12 +175,12 @@ target.bootlint = function () {
     }, 2000);
 };
 
-target.all = function () {
+target.all = () => {
     target.test();
     target.run();
 };
 
-target.help = function () {
+target.help = () => {
     echo('Available targets:');
     echo('  all         test and run');
     echo('  test        runs unit tests');

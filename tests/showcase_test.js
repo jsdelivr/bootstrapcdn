@@ -1,52 +1,52 @@
 'use strict';
 
-var path     = require('path');
+const path     = require('path');
+const helpers  = require(path.join(__dirname, 'test_helper.js'));
+const config   = helpers.config();
+const uri      = helpers.app(config, 'showcase');
 
-var helpers  = require(path.join(__dirname, 'test_helper.js'));
-var config   = helpers.config();
-var uri      = helpers.app(config, 'showcase');
-var response = {};
+let response = {};
 
-before(function (done) {
-    helpers.preFetch(uri, function (res) {
+before((done) => {
+    helpers.preFetch(uri, (res) => {
         response = res;
         done();
     });
 });
 
-describe('showcase', function () {
-    it('works', function (done) {
+describe('showcase', () => {
+    it('works', (done) => {
         helpers.assert.response(response);
         done();
     });
 
-    it('contains authors', function (done) {
-        config.authors.forEach(function (author) {
+    it('contains authors', (done) => {
+        config.authors.forEach((author) => {
             helpers.assert.contains(author, response.body);
         });
         done();
     });
 
-    it('has header', function (done) {
+    it('has header', (done) => {
         helpers.assert.contains('<h2>Showcase</h2>', response.body);
         done();
     });
 
-    config.showcase.forEach(function (showcase) {
-        describe(showcase.name, function () {
-            it('has name', function (done) {
+    config.showcase.forEach((showcase) => {
+        describe(showcase.name, () => {
+            it('has name', (done) => {
                 helpers.assert.contains(showcase.name, response.body);
                 done();
             });
-            it('has image', function (done) {
+            it('has image', (done) => {
                 helpers.assert.contains(showcase.img, response.body);
                 done();
             });
-            it('has lib', function (done) {
+            it('has lib', (done) => {
                 helpers.assert.contains(showcase.lib, response.body);
                 done();
             });
-            it('has url', function (done) {
+            it('has url', (done) => {
                 helpers.assert.contains(showcase.url, response.body);
                 done();
             });

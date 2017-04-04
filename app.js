@@ -1,29 +1,29 @@
 'use strict';
 
-var env = process.env.NODE_ENV || 'development';
+const env = process.env.NODE_ENV || 'development';
 
-var path         = require('path');
-var fs           = require('fs');
-var http         = require('http');
-var express      = require('express');
-var yaml         = require('js-yaml');
-var uuid         = require('uuid');
+const path         = require('path');
+const fs           = require('fs');
+const http         = require('http');
+const express      = require('express');
+const yaml         = require('js-yaml');
+const uuid         = require('uuid');
 
 // middleware
-var compression  = require('compression');
-var favicon      = require('serve-favicon');
-var logger       = require('morgan');
-var serveStatic  = require('serve-static');
-var errorHandler = require('errorhandler');
-var enforce      = require('express-sslify');
-var sitemap      = require('express-sitemap');
-var helmet       = require('helmet');
+const compression  = require('compression');
+const favicon      = require('serve-favicon');
+const logger       = require('morgan');
+const serveStatic  = require('serve-static');
+const errorHandler = require('errorhandler');
+const enforce      = require('express-sslify');
+const sitemap      = require('express-sitemap');
+const helmet       = require('helmet');
 
-var helpers      = require('./lib/helpers');
-var routes       = require('./routes');
+const helpers      = require('./lib/helpers');
+const routes       = require('./routes');
 
-var config       = yaml.safeLoad(fs.readFileSync(path.join(__dirname, 'config', '_config.yml'), 'utf8'));
-var app          = express();
+const config       = yaml.safeLoad(fs.readFileSync(path.join(__dirname, 'config', '_config.yml'), 'utf8'));
+const app          = express();
 
 // all environments
 app.set('port', process.env.PORT || config.port || 3000);
@@ -65,7 +65,7 @@ app.use(serveStatic(path.join(__dirname, 'public'), {
     etag: false
 }));
 
-app.use(function (req, res, next) {
+app.use((req, res, next) => {
     // make config available in routes
     req.config = config;
 
@@ -108,9 +108,7 @@ app.use(helmet.contentSecurityPolicy({
             'platform.twitter.com',
             'cdn.syndication.twimg.com/timeline/',
             'api.github.com',
-            function (req, res) {
-                return '\'nonce-' + res.locals.nonce + '\'';
-            }
+            (req, res) => `'nonce-${res.locals.nonce}'`
         ],
         styleSrc: [
             '\'self\'',
@@ -183,9 +181,9 @@ app.get('/showcase/', routes.showcase);
 app.get('/integrations/', routes.integrations);
 app.get('/', routes.index);
 
-var data = {}; // only regenerated on restart
+let data = {}; // only regenerated on restart
 
-app.get('/data/bootstrapcdn.json', function (req, res) {
+app.get('/data/bootstrapcdn.json', (req, res) => {
     if (typeof data === 'undefined') {
         data = {
             timestamp: new Date(),
@@ -193,14 +191,14 @@ app.get('/data/bootstrapcdn.json', function (req, res) {
             fontawesome: {}
         };
 
-        config.bootstrap.forEach(function (bootstrap) {
+        config.bootstrap.forEach((bootstrap) => {
             data.bootstrap[bootstrap.version] = {
                 css: bootstrap.css_complete,
                 js: bootstrap.javascript
             };
         });
 
-        config.fontawesome.forEach(function (fontawesome) {
+        config.fontawesome.forEach((fontawesome) => {
             data.fontawesome[fontawesome.version] = fontawesome.css_complete;
         });
     }
@@ -220,7 +218,7 @@ function sitemapOptions (options) {
     return options;
 }
 
-var map = sitemap(sitemapOptions({
+const map = sitemap(sitemapOptions({
     url: 'www.bootstrapcdn.com',
     http: 'https',
     generate: app,
@@ -233,18 +231,12 @@ var map = sitemap(sitemapOptions({
 }));
 
 if (env === 'production') {
-    app.get('/sitemap.xml', function(req, res) { // send XML map
-        map.XMLtoWeb(res);
-    });
+    app.get('/sitemap.xml', (req, res) => map.XMLtoWeb(res));
 }
 
-app.get('/robots.txt', function(req, res) {      // send TXT map
-    map.TXTtoWeb(res);
-});
+app.get('/robots.txt', (req, res) => map.TXTtoWeb(res));
 
 // start
-http.createServer(app).listen(app.get('port'), function () {
-    console.log('Express server listening on port ' + app.get('port'));
-});
+http.createServer(app).listen(app.get('port'), () => console.log(`Express server listening on port ${app.get('port')}`));
 
 // vim: ft=javascript sw=4 sts=4 et:

@@ -1,39 +1,37 @@
 'use strict';
 
-var path      = require('path');
-var digest    = require(path.join(__dirname, '..', 'lib', 'helpers')).sri.digest;
+const path      = require('path');
+const digest    = require(path.join(__dirname, '..', 'lib', 'helpers')).sri.digest;
+const TITLE     = 'BootstrapCDN by MaxCDN';
 
-var TITLE     = 'BootstrapCDN by MaxCDN';
-var SRI_CACHE = {};
+const SRI_CACHE = {};
 
 function appendLocals(req, res) {
-    var proto = req.get('x-forwarded-proto');
+    let proto = req.get('x-forwarded-proto');
 
     if (typeof proto === 'undefined') {
         proto = req.protocol;
     }
 
-    res.locals.fullUrl = proto + '://' + req.hostname + req.path;
+    res.locals.fullUrl = `${proto}://${req.hostname}${req.path}`;
 
-    res.locals.siteUrl = proto + '://' + req.hostname;
+    res.locals.siteUrl = `${proto}://${req.hostname}`;
 
     res.locals.theme = req.query.theme;
 
-    res.locals.displayTitle = function (pageTitle) {
-        return pageTitle + ' · ' + TITLE;
-    };
+    res.locals.displayTitle = (title) => `${title} · ${TITLE}`;
 
-    res.locals.bodyClass = function (pageTitle) {
+    res.locals.bodyClass = (title) => {
         // Remove whitespace from title
-        var str = pageTitle.replace(' ', '');
+        let str = title.replace(' ', '');
 
         // Make the first letter lowercase
         str = str.charAt(0).toLowerCase() + str.slice(1);
 
-        return 'page-' + str;
+        return `page-${str}`;
     };
 
-    res.locals.generateSRI = function (file) {
+    res.locals.generateSRI = (file) => {
         if (typeof SRI_CACHE[file] === 'undefined') {
             SRI_CACHE[file] = digest(path.join(__dirname, '..', 'public', file));
         }
@@ -77,11 +75,12 @@ function legacy(req, res) {
 function showcase(req, res) {
     res = appendLocals(req, res);
 
-    var showcase = req.config.showcase;
-    var col1 = [];
-    var col2 = [];
+    const showcase = req.config.showcase;
 
-    for (var i = 0; i < showcase.length; i++) {
+    const col1 = [];
+    const col2 = [];
+
+    for (let i = 0; i < showcase.length; i++) {
         if (i % 2 === 0) {
             col1.push(showcase[i]);
         } else {
@@ -91,19 +90,20 @@ function showcase(req, res) {
 
     res.render('showcase', {
         title: 'Showcase',
-        col1: col1,
-        col2: col2
+        col1,
+        col2
     });
 }
 
 function integrations(req, res) {
     res = appendLocals(req, res);
 
-    var integrations = req.config.integrations;
-    var col1 = [];
-    var col2 = [];
+    const integrations = req.config.integrations;
 
-    for (var i = 0; i < integrations.length; i++) {
+    const col1 = [];
+    const col2 = [];
+
+    for (let i = 0; i < integrations.length; i++) {
         if (i % 2 === 0) {
             col1.push(integrations[i]);
         } else {
@@ -113,20 +113,20 @@ function integrations(req, res) {
 
     res.render('integrations', {
         title: 'Integrations',
-        col1: col1,
-        col2: col2
+        col1,
+        col2
     });
 }
 
 module.exports = {
-    index:        index,
-    fontawesome:  fontawesome,
-    bootswatch:   bootswatch,
-    bootlint:     bootlint,
-    alpha:        alpha,
-    legacy:       legacy,
-    showcase:     showcase,
-    integrations: integrations
+    index,
+    fontawesome,
+    bootswatch,
+    bootlint,
+    alpha,
+    legacy,
+    showcase,
+    integrations
 };
 
 // vim: ft=javascript sw=4 sts=4 et:
