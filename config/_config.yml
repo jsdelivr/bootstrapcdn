@@ -9,8 +9,8 @@ favicon:
   uri: /assets/img/favicons/favicon.ico
 javascripts:
   jquery:
-    uri: 'https://code.jquery.com/jquery-3.2.0.slim.min.js'
-    sri: sha384-1IgS1w1Tef85fCJ4P3BUG2mk9zC/mUicyWWxzNPI1PIVe8Tnq0XHGbE6gWOTyBgt
+    uri: 'https://code.jquery.com/jquery-3.2.1.slim.min.js'
+    sri: sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN
 bootswatch:
   version: 3.3.7
   link: 'https://bootswatch.com/SWATCH_NAME/'
