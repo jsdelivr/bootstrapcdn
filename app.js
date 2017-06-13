@@ -71,7 +71,7 @@ app.use((req, res, next) => {
 
     // custom headers
     res.setHeader('X-Powered-By', 'MaxCDN');
-    res.setHeader('X-Hello-Human', 'You must be bored. You should work for us. Email jdorfman+theheader@maxcdn.com or @jdorfman on Twitter.');
+    res.setHeader('X-Hello-Human', 'Say hello back! @getBootstrapCDN on Twitter');
     res.setHeader('Cache-Control', 'public, max-age=0');
     res.setHeader('Last-Modified', new Date().toUTCString());
     res.setHeader('Accept-Ranges', 'bytes');
