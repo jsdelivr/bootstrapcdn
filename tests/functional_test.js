@@ -16,9 +16,10 @@ const expectedHeaders = {
     'expires': undefined,
 
     // connection: 'keep-alive',
-    'connection': undefined, // TODO: reseach why this is returning 'closed' for
-                         // this test, but 'keep-alive' as expected via
-                         // curl and browsers.
+    // TODO: reseach why this is returning 'closed' for
+    // this test, but 'keep-alive' as expected via
+    // curl and browsers.
+    'connection': undefined,
 
     'vary': 'Accept-Encoding',
 

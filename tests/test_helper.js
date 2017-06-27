@@ -45,7 +45,7 @@ function assertContentType(uri, contentType) {
     if (process.env.TEST_STRICT === 'false' && Array.isArray(type)) {
         assert(type.includes(contentType),
             format('invalid content-type for "%s", expected one of "%s" but got "%s"',
-                   ext, type.join('", "'), contentType));
+                ext, type.join('", "'), contentType));
     } else {
         type = Array.isArray(type) ? type[0] : type;
 

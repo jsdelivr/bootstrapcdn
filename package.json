@@ -26,7 +26,7 @@
   },
   "devDependencies": {
     "bootlint": "^0.14.2",
-    "eslint": "^3.9.0",
+    "eslint": "^4.1.1",
     "forever": "^0.15.2",
     "format": "^0.2.2",
     "fs-walk": "^0.0.1",

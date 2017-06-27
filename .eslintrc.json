@@ -54,6 +54,7 @@
             "error",
             4,
             {
+                "MemberExpression": "off",
                 "SwitchCase": 1
             }
         ],
@@ -134,6 +135,7 @@
         "no-multi-spaces": [
             "error",
             {
+                "ignoreEOLComments": true,
                 "exceptions": {
                     "Property": true,
                     "VariableDeclarator": true
