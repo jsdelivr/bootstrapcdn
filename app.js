@@ -95,6 +95,8 @@ app.use(helmet.hsts({
     preload: true
 }));
 
+app.use(helmet.referrerPolicy({ policy: 'strict-origin-when-cross-origin' }));
+
 app.use(helmet.contentSecurityPolicy({
     directives: {
         defaultSrc: ['\'none\''],
