@@ -1,91 +1,97 @@
 - themeQs = theme ? '?theme=' + theme : ''
-.navbar.navbar-default.navbar-static-top(role='navigation')
+.navbar.navbar-default.navbar-static-top
     .container-fluid
-        .navbar-header
-            button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
-                span.sr-only Toggle navigation
-                span.icon-bar
-                span.icon-bar
-                span.icon-bar
-            a.navbar-brand(href='/' + themeQs) BootstrapCDN
-        .navbar-collapse.collapse
-            ul.nav.navbar-nav
-                li(class=(title === 'Font Awesome' ? 'active' : ''))
-                    a(href='/fontawesome/' + themeQs) Font Awesome
-                li(class=(title === 'Bootswatch' ? 'active' : ''))
-                    a(href='/bootswatch/' + themeQs) Bootswatch
-                li(class=(title === 'Bootlint' ? 'active' : ''))
-                    a(href='/bootlint/' + themeQs) Bootlint
-                li(class=(title === 'Bootstrap 4 Alpha' ? 'active' : ''))
-                    a(href='/alpha/' + themeQs) Bootstrap 4 Alpha
-                li(class=(title === 'Bootstrap Legacy' ? 'active' : ''))
-                    a(href='/legacy/' + themeQs) Legacy
+        .row
+            .col-md-2
+                .navbar-header
+                    button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+                        span.sr-only Toggle navigation
+                        span.icon-bar
+                        span.icon-bar
+                        span.icon-bar
+                    a.navbar-brand(href='/' + themeQs)
+                        img(src='/assets/img/bootstrapcdn.svg', alt='BootstrapCDN Logo', width='20', height='20')
+                        | BootstrapCDN
 
-            ul.nav.navbar-nav.navbar-right
-                li(class=(title === 'Showcase' ? 'active' : ''))
-                    a(href='/showcase/' + themeQs) Showcase
-                li(class=(title === 'Integrations' ? 'active' : ''))
-                    a(href='/integrations/' + themeQs) Integrations
-                li.dropdown
-                    a.dropdown-toggle(href='#', data-toggle='dropdown') Resources
-                        |  
-                        span.caret
-                    ul.dropdown-menu.dropdown-menu-right(role='menu')
-                        li
-                            a(href='https://github.com/MaxCDN/bootstrap-cdn',
-                                data-ga-category='Navigation',
-                                data-ga-action='Resources',
-                                data-ga-label='GitHub project',
-                                target='_blank',
-                                rel='noopener') GitHub project
-                        li
-                            a(href='https://wordpress.org/plugins/bootstrapcdn/',
-                                data-ga-category='Navigation',
-                                data-ga-action='Resources',
-                                data-ga-label='WordPress Plugin',
-                                target='_blank',
-                                rel='noopener') WordPress Plugin
-                        li
-                            a(href='http://getbootstrap.com/',
-                                data-ga-category='Navigation',
-                                data-ga-action='Resources',
-                                data-ga-label='Bootstrap',
-                                target='_blank',
-                                rel='noopener') Bootstrap
-                        li
-                            a(href='http://expo.getbootstrap.com/',
-                                data-ga-category='Navigation',
-                                data-ga-action='Resources',
-                                data-ga-label='Expo',
-                                target='_blank',
-                                rel='noopener') Bootstrap Expo
-                        li
-                            a(href='http://fontawesome.io/',
-                                data-ga-category='Navigation',
-                                data-ga-action='Resources',
-                                data-ga-label='Font Awesome',
-                                target='_blank',
-                                rel='noopener') Font Awesome
-                        li
-                            a(href='http://bootswatch.com/',
-                                data-ga-category='Navigation',
-                                data-ga-action='Resources',
-                                data-ga-label='Bootswatch',
-                                target='_blank',
-                                rel='noopener') Bootswatch
-                        li
-                            a(href='https://github.com/twbs/bootlint'
-                                data-ga-category='Navigation',
-                                data-ga-action='Resources',
-                                data-ga-label='Bootlint',
-                                target='_blank',
-                                rel='noopener') Bootlint
-                        li
-                            a(href='https://glyphicons.com/',
-                                data-ga-category='Navigation',
-                                data-ga-action='Resources',
-                                data-ga-label='Glyphicons',
-                                target='_blank',
-                                rel='noopener') Glyphicons
+            .col-md-10
+                .navbar-collapse.collapse
+                    ul.nav.navbar-nav.navbar-left
+                        li(class=(title === 'Font Awesome' ? 'active' : ''))
+                            a(href='/fontawesome/' + themeQs) Font Awesome
+                        li(class=(title === 'Bootswatch' ? 'active' : ''))
+                            a(href='/bootswatch/' + themeQs) Bootswatch
+                        li(class=(title === 'Bootlint' ? 'active' : ''))
+                            a(href='/bootlint/' + themeQs) Bootlint
+                        li(class=(title === 'Bootstrap 4 Alpha' ? 'active' : ''))
+                            a(href='/alpha/' + themeQs) Bootstrap 4 Alpha
+                        li(class=(title === 'Bootstrap Legacy' ? 'active' : ''))
+                            a(href='/legacy/' + themeQs) Legacy
+
+                    ul.nav.navbar-nav.navbar-right
+                        li(class=(title === 'Showcase' ? 'active' : ''))
+                            a(href='/showcase/' + themeQs) Showcase
+                        li(class=(title === 'Integrations' ? 'active' : ''))
+                            a(href='/integrations/' + themeQs) Integrations
+                        li.dropdown
+                            a#nav-dropdown.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false') Resources
+                                |  
+                                span.caret
+                            ul.dropdown-menu.dropdown-menu-right(aria-labelledby='nav-dropdown')
+                                li
+                                    a(href='https://github.com/MaxCDN/bootstrap-cdn',
+                                        data-ga-category='Navigation',
+                                        data-ga-action='Resources',
+                                        data-ga-label='GitHub project',
+                                        target='_blank',
+                                        rel='noopener') GitHub project
+                                li
+                                    a(href='https://wordpress.org/plugins/bootstrapcdn/',
+                                        data-ga-category='Navigation',
+                                        data-ga-action='Resources',
+                                        data-ga-label='WordPress Plugin',
+                                        target='_blank',
+                                        rel='noopener') WordPress Plugin
+                                li
+                                    a(href='http://getbootstrap.com/',
+                                        data-ga-category='Navigation',
+                                        data-ga-action='Resources',
+                                        data-ga-label='Bootstrap',
+                                        target='_blank',
+                                        rel='noopener') Bootstrap
+                                li
+                                    a(href='http://expo.getbootstrap.com/',
+                                        data-ga-category='Navigation',
+                                        data-ga-action='Resources',
+                                        data-ga-label='Expo',
+                                        target='_blank',
+                                        rel='noopener') Bootstrap Expo
+                                li
+                                    a(href='http://fontawesome.io/',
+                                        data-ga-category='Navigation',
+                                        data-ga-action='Resources',
+                                        data-ga-label='Font Awesome',
+                                        target='_blank',
+                                        rel='noopener') Font Awesome
+                                li
+                                    a(href='http://bootswatch.com/',
+                                        data-ga-category='Navigation',
+                                        data-ga-action='Resources',
+                                        data-ga-label='Bootswatch',
+                                        target='_blank',
+                                        rel='noopener') Bootswatch
+                                li
+                                    a(href='https://github.com/twbs/bootlint'
+                                        data-ga-category='Navigation',
+                                        data-ga-action='Resources',
+                                        data-ga-label='Bootlint',
+                                        target='_blank',
+                                        rel='noopener') Bootlint
+                                li
+                                    a(href='https://glyphicons.com/',
+                                        data-ga-category='Navigation',
+                                        data-ga-action='Resources',
+                                        data-ga-label='Glyphicons',
+                                        target='_blank',
+                                        rel='noopener') Glyphicons
 
 //- vim: ft=pug sw=4 sts=4 et:
