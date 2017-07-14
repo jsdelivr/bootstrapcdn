@@ -7,34 +7,34 @@ block content
             .well
                 h2=item.version
                 - if (item.stylesheet)
-                    - var file = item.stylesheet
-                    - var sri  = item.stylesheetSri
-                    - var name = 'css_complete_' + item.version.replace(/\./g, '_')
-                    - var id   = name + '_form'
+                    - var file   = item.stylesheet
+                    - var sri    = item.stylesheetSri
+                    - var name   = 'css_complete_' + item.version.replace(/\./g, '_')
+                    - var formId = name + '_form'
 
                     .form-group
-                        label(for=id) Complete CSS
+                        label(for=formId) Complete CSS
                     .input-group
-                        input.form-control(id=id, type='text', value=file)
+                        input.form-control(id=formId, type='text', value=file)
                         .input-group-btn
-                            button.btn.btn-default(type='button', data-el=name)
+                            button.btn.btn-default(type='button', data-toggle='collapse', data-target='#' + name, aria-expanded='false', aria-controls=name)
                                 span.caret
                     span.help-block Click to copy
 
                     include _partials/csscode.pug
 
                 - if (item.javascript)
-                    - var file = item.javascript
-                    - var sri  = item.javascriptSri
-                    - var name = 'javascript_' + item.version.replace(/\./g, '_')
-                    - var id   = name + '_form'
+                    - var file   = item.javascript
+                    - var sri    = item.javascriptSri
+                    - var name   = 'javascript_' + item.version.replace(/\./g, '_')
+                    - var formId = name + '_form'
 
                     .form-group
-                        label(for=id) Complete JavaScript
+                        label(for=formId) Complete JavaScript
                     .input-group
-                        input.form-control(id=id, type='text', value=file)
+                        input.form-control(id=formId, type='text', value=file)
                         .input-group-btn
-                            button.btn.btn-default(type='button', data-el=name)
+                            button.btn.btn-default(type='button', data-toggle='collapse', data-target='#' + name, aria-expanded='false', aria-controls=name)
                                 span.caret
                     span.help-block Click to copy
 

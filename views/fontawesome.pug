@@ -3,17 +3,17 @@ extends layout
 block content
     h2 Font Awesome
     .well
-        - var name = 'fontawesomeCSS1'.toLowerCase()
-        - var file = config.fontawesome[0].stylesheet
-        - var sri  = config.fontawesome[0].stylesheetSri
-        - var id   = name + '_form'
+        - var name   = 'fontawesomeCSS'.toLowerCase()
+        - var file   = config.fontawesome[0].stylesheet
+        - var sri    = config.fontawesome[0].stylesheetSri
+        - var formId = name + '_form'
 
         .form-group
-            label(for=id) Font Awesome CSS
+            label(for=formId) Font Awesome CSS
             .input-group.input-group-lg
-                input.form-control(id=id, type='text', value=file)
+                input.form-control(id=formId, type='text', value=file)
                 .input-group-btn
-                    button.btn.btn-default.btn-lg(type='button', data-el=name)
+                    button.btn.btn-default.btn-lg(type='button', data-toggle='collapse', data-target='#' + name, aria-expanded='false', aria-controls=name)
                         span.caret
             span.help-block Click to copy
 

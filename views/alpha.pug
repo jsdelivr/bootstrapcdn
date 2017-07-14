@@ -18,33 +18,33 @@ block content
     hr
 
     .well
-        - var name = 'alphaCSS'.toLowerCase()
-        - var file = config.bootstrap4[0].stylesheet
-        - var sri  = config.bootstrap4[0].stylesheetSri
-        - var id   = name + '_form'
+        - var name   = 'alphaCSS'.toLowerCase()
+        - var file   = config.bootstrap4[0].stylesheet
+        - var sri    = config.bootstrap4[0].stylesheetSri
+        - var formId = name + '_form'
 
         .form-group
-            label(for=id) Complete CSS
+            label(for=formId) Complete CSS
             .input-group.input-group-lg
-                input.form-control(id=id, type='text', value=file)
+                input.form-control(id=formId, type='text', value=file)
                 .input-group-btn
-                    button.btn.btn-default.btn-lg(type='button', data-el=name)
+                    button.btn.btn-default.btn-lg(type='button', data-toggle='collapse', data-target='#' + name, aria-expanded='false', aria-controls=name)
                         span.caret
             span.help-block Click to copy
 
         include _partials/csscode.pug
 
-        - var name = 'alphaJS'.toLowerCase()
-        - var file = config.bootstrap4[0].javascript
-        - var sri  = config.bootstrap4[0].javascriptSri
-        - var id   = name + '_form'
+        - var name   = 'alphaJS'.toLowerCase()
+        - var file   = config.bootstrap4[0].javascript
+        - var sri    = config.bootstrap4[0].javascriptSri
+        - var formId = name + '_form'
 
         .form-group
-            label(for=id) Complete JavaScript
+            label(for=formId) Complete JavaScript
             .input-group.input-group-lg
-                input.form-control(id=id, type='text', value=file)
+                input.form-control(id=formId, type='text', value=file)
                 .input-group-btn
-                    button.btn.btn-default.btn-lg(type='button', data-el=name)
+                    button.btn.btn-default.btn-lg(type='button', data-toggle='collapse', data-target='#' + name, aria-expanded='false', aria-controls=name)
                         span.caret
             span.help-block Click to copy
 

@@ -8,11 +8,9 @@
         var el = document.querySelectorAll(selector);
 
         function toggleCode(index) {
-            var name = el[index].getAttribute('data-el');
             var btnIcon = el[index].querySelector('span');
 
             el[index].addEventListener('click', function() {
-                document.getElementById(name).classList.toggle('hidden');
                 btnIcon.classList.toggle('caret-open');
             });
         }

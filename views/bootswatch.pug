@@ -22,7 +22,7 @@ block content
                         .input-group
                             input.form-control(type='text', value=file)
                             .input-group-btn
-                                button.btn.btn-default(type='button', data-el=name)
+                                button.btn.btn-default(type='button', data-toggle='collapse', data-target='#' + name, aria-expanded='false', aria-controls=name)
                                     span.caret
                         span.help-block Click to copy
 
