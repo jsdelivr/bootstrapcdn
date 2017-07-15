@@ -1,6 +1,9 @@
-.navbar-brand > img {
+.navbar-brand > svg {
     display: inline-block;
     margin-right: 8px;
+    vertical-align: middle;
+    width: 20px;
+    height: 20px;
 }
 
 .tryit {
