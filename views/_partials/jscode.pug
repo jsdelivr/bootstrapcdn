@@ -1,20 +1,20 @@
-.well.hidden(id=name)
+.well.collapse(id=name)
     .form-group
-        - var id = 'html_' + name
-        label(for=id) HTML
-        input.form-control(id=id, type='text', value='<script src="' + file + '" integrity="' + sri + '" crossorigin="anonymous"></script>')
+        - var formId = 'html_' + name
+        label(for=formId) HTML
+        input.form-control(id=formId, type='text', value='<script src="' + file + '" integrity="' + sri + '" crossorigin="anonymous"></script>')
         span.help-block Click to copy
     .form-group
-        - var id = 'jade_' + name
-        label(for=id)
+        - var formId = 'jade_' + name
+        label(for=formId)
             a(href='https://pugjs.org/', target='_blank', rel='noopener') Pug
-        input.form-control(id=id, type='text', value='script(src="' + file + '", integrity="' + sri + '", crossorigin="anonymous")')
+        input.form-control(id=formId, type='text', value='script(src="' + file + '", integrity="' + sri + '", crossorigin="anonymous")')
         span.help-block Click to copy
     .form-group
-        - var id = 'haml_' + name
-        label(for=id)
+        - var formId = 'haml_' + name
+        label(for=formId)
             a(href='http://haml.info/', target='_blank', rel='noopener') Haml
-        input.form-control(id=id, type='text', value='%script{src: "' + file + '", integrity: "' + sri + '", crossorigin: "anonymous"}')
+        input.form-control(id=formId, type='text', value='%script{src: "' + file + '", integrity: "' + sri + '", crossorigin: "anonymous"}')
         span.help-block Click to copy
 
 //- vim: ft=pug sw=4 sts=4 et:
