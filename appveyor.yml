@@ -7,8 +7,7 @@ environment:
     - platform: "x86"
 
 install:
-  - ps: Install-Product node "6" $env:platform
-  - npm config set spin false
+  - ps: Install-Product node "8" $env:platform
   - npm install
 
 build: off
@@ -22,4 +21,4 @@ matrix:
   fast_finish: true
 
 cache:
-  - 'node_modules -> appveyor.yml,package.json'
+  - 'node_modules -> appveyor.yml,package.json,package-lock.json'

@@ -38,7 +38,7 @@
     "uglify-js": "^2.7.4"
   },
   "engines": {
-    "node": "6.x"
+    "node": "8.x"
   },
   "snyk": true
 }

@@ -1,5 +1,5 @@
 web:
-  image: node:6
+  image: node:8
   working_dir: /app/user
   volumes:
     - .:/app/user
