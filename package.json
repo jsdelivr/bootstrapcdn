@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "snyk-protect": "snyk protect",
-    "test": "node make test"
+    "test": "node make test",
+    "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
     "async": "^2.1.2",
@@ -21,7 +22,7 @@
     "pug": "^2.0.0-beta6",
     "serve-favicon": "^2.3.2",
     "shelljs": "^0.5.3",
-    "snyk": "^1.19.1",
+    "snyk": "^1.31.0",
     "sri-toolbox": "^0.2.0"
   },
   "devDependencies": {
