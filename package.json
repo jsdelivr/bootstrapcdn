@@ -22,7 +22,8 @@
     "serve-favicon": "^2.3.2",
     "shelljs": "^0.5.3",
     "snyk": "^1.19.1",
-    "sri-toolbox": "^0.2.0"
+    "sri-toolbox": "^0.2.0",
+    "uglify-js": "^2.7.4"
   },
   "devDependencies": {
     "bootlint": "^0.14.2",
@@ -34,8 +35,7 @@
     "htmlencode": "^0.0.4",
     "mocha": "^3.1.2",
     "pug-lint": "^2.3.0",
-    "request": "^2.76.0",
-    "uglify-js": "^2.7.4"
+    "request": "^2.76.0"
   },
   "engines": {
     "node": "8.x"
