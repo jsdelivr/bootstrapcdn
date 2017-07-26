@@ -56,6 +56,7 @@ iframe {
 }
 
 .caret {
+    -webkit-transition: -webkit-transform 0.35s ease;
     transition: transform 0.35s ease;
 }
 
@@ -80,41 +81,73 @@ footer p {
     }
 }
 
+
+.carbonads-container {
+    position: relative;
+}
+
+@media screen and (min-width: 768px) {
+    .modal-dialog {
+        position: relative;
+        top: 50%;
+        -webkit-transform: translate3d(0, -50%, 0) !important; /* important to override Bootstrap */
+        transform: translate3d(0, -50%, 0) !important;         /* important to override Bootstrap */
+    }
+}
+
+.ads-info-btn {
+    background-color: transparent;
+    cursor: help;
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30px;
+    height: 30px;
+}
+
+.ads-info-btn:active,
+.ads-info-btn:focus,
+.ads-info-btn:hover {
+    box-shadow: none;
+    color: inherit;
+    outline: 1px dotted gold;
+}
+
 #carbonads {
-  display: block;
-  overflow: hidden;
-  margin-bottom: 2em;
-  padding: 1.5em 1em;
-  border: solid 1px #e3e3e3;
-  background-color: hsl(0, 0%, 98%);
-  text-align: center;
-  line-height: 1.5;
+    background-color: #fafafa;
+    border: 1px solid #e3e3e3;
+    line-height: 1.5;
+    margin-bottom: 2em;
+    overflow: hidden;
+    padding: 2em 1.5em;
+    text-align: center;
 }
 
 #carbonads a:hover {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 #carbonads span {
-  display: block;
-  overflow: hidden;
+    display: block;
+    overflow: hidden;
 }
 
 .carbon-img {
-  display: block;
-  margin: 0 auto 1em;
+    display: block;
+    margin: 0 auto 1em;
 }
 
 .carbon-text {
-  display: block;
-  margin-bottom: 1em;
+    display: block;
+    margin-bottom: 1em;
 }
 
 .carbon-poweredby {
-  display: block;
-  color: #373737;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-size: 10px;
-  line-height: 1;
+    color: #373737;
+    display: block;
+    font-size: 0.7em;
+    letter-spacing: 1px;
+    line-height: 1;
+    text-transform: uppercase;
 }
