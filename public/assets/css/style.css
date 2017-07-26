@@ -79,3 +79,42 @@ footer p {
         margin: 0 18px;
     }
 }
+
+#carbonads {
+  display: block;
+  overflow: hidden;
+  margin-bottom: 2em;
+  padding: 1.5em 1em;
+  border: solid 1px #e3e3e3;
+  background-color: hsl(0, 0%, 98%);
+  text-align: center;
+  line-height: 1.5;
+}
+
+#carbonads a:hover {
+  text-decoration: none;
+}
+
+#carbonads span {
+  display: block;
+  overflow: hidden;
+}
+
+.carbon-img {
+  display: block;
+  margin: 0 auto 1em;
+}
+
+.carbon-text {
+  display: block;
+  margin-bottom: 1em;
+}
+
+.carbon-poweredby {
+  display: block;
+  color: #373737;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 10px;
+  line-height: 1;
+}
