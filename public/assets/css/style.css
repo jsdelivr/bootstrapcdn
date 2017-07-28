@@ -83,22 +83,14 @@ footer p {
 
 
 .carbonads-container {
+    padding: 2em 1.5em;
     position: relative;
 }
 
-@media screen and (min-width: 768px) {
-    .modal-dialog {
-        position: relative;
-        top: 50%;
-        -webkit-transform: translate3d(0, -50%, 0) !important; /* important to override Bootstrap */
-        transform: translate3d(0, -50%, 0) !important;         /* important to override Bootstrap */
-    }
-}
-
-.ads-info-btn {
-    background-color: transparent;
+.ads-info-toggler {
     cursor: help;
     display: block;
+    padding: 4px;
     position: absolute;
     top: 0;
     right: 0;
@@ -106,22 +98,8 @@ footer p {
     height: 30px;
 }
 
-.ads-info-btn:active,
-.ads-info-btn:focus,
-.ads-info-btn:hover {
-    box-shadow: none;
-    color: inherit;
-    outline: 1px dotted gold;
-}
-
 #carbonads {
-    background-color: #fafafa;
-    border: 1px solid #e3e3e3;
-    line-height: 1.5;
-    margin-bottom: 2em;
     overflow: hidden;
-    padding: 2em 1.5em;
-    text-align: center;
 }
 
 #carbonads a:hover {
