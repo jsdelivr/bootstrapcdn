@@ -110,6 +110,9 @@ app.use(helmet.contentSecurityPolicy({
             'platform.twitter.com',
             'cdn.syndication.twimg.com/timeline/',
             'api.github.com',
+            'cdn.carbonads.com',
+            'srv.carbonads.net',
+            'adn.fusionads.net',
             (req, res) => `'nonce-${res.locals.nonce}'`
         ],
         styleSrc: [
@@ -129,7 +132,15 @@ app.use(helmet.contentSecurityPolicy({
             '*.twimg.com',
             'platform.twitter.com',
             'analytics.twitter.com',
-            'stats.g.doubleclick.net'
+            'stats.g.doubleclick.net',
+            'srv.carbonads.net',
+            'assets.servedby-buysellads.com',
+            'ad.doubleclick.net',
+            '*.convertro.com',
+            '*.c3tag.com',
+            '*.2mdn.net',
+            'launchbit.com',
+            'www.launchbit.com'
         ],
         fontSrc: [
             '\'self\'',

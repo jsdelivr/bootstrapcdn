@@ -56,6 +56,7 @@ iframe {
 }
 
 .caret {
+    -webkit-transition: -webkit-transform 0.35s ease;
     transition: transform 0.35s ease;
 }
 
@@ -78,4 +79,53 @@ footer p {
     li .twitter-share-button {
         margin: 0 18px;
     }
+}
+
+
+.carbonads-container {
+    padding: 2em 1.5em;
+    position: relative;
+}
+
+.ads-info-toggler {
+    cursor: help;
+    display: block;
+    padding: 4px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30px;
+    height: 30px;
+}
+
+#carbonads {
+    overflow: hidden;
+}
+
+#carbonads a:hover {
+    text-decoration: none;
+}
+
+#carbonads span {
+    display: block;
+    overflow: hidden;
+}
+
+.carbon-img {
+    display: block;
+    margin: 0 auto 1em;
+}
+
+.carbon-text {
+    display: block;
+    margin-bottom: 1em;
+}
+
+.carbon-poweredby {
+    color: #373737;
+    display: block;
+    font-size: 0.7em;
+    letter-spacing: 1px;
+    line-height: 1;
+    text-transform: uppercase;
 }

@@ -1,3 +1,4 @@
+/* eslint-env jquery */
 /* global Clipboard:true */
 
 (function mainJS() {
@@ -139,5 +140,9 @@
         window.addEventListener('click', gaEvent, false);
         /* eslint-enable */
     })();
+
+    $(function () {
+        $('.ads-info-toggler').popover();
+    });
 
 })();
