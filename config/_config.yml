@@ -99,8 +99,13 @@ bootlint:
     javascript: 'https://maxcdn.bootstrapcdn.com/bootlint/0.2.0/bootlint.min.js'
     javascriptSri: sha384-OuU4cNKby6UDoPD/pWtrEhfGUWHZXIFGs/E8+mUnoDIdR98n/cL0RZcixIA0XlnS
 bootstrap:
-  - version: 3.3.7
+  - version: 4.0.0-beta
     latest: true
+    stylesheet: 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css'
+    javascript: 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js'
+    javascriptSri: sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn
+    stylesheetSri: sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ
+  - version: 3.3.7
     stylesheet: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'
     javascript: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'
     javascriptSri: sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa
