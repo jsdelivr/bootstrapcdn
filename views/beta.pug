@@ -3,22 +3,19 @@ extends layout
 block content
     h2 Bootstrap 4 Beta
 
-    .panel.panel-warning
+    .panel.panel-info
         .panel-heading
-            h3.panel-title Warning
+            h3.panel-title Info
         .panel-body
-            | Bootstrap 4 is currently in Alpha release and should be treated as such. For details check out 
-            a(href='https://blog.getbootstrap.com/2015/08/19/bootstrap-4-alpha/', target='_blank', rel='noopener').
-                the Bootstrap 4 alpha announcement
+            | Bootstrap 4 is currently in Beta release and should be treated as such. For details check out 
+            a(href='https://blog.getbootstrap.com/2017/08/10/bootstrap-4-beta/', target='_blank', rel='noopener').
+                the Bootstrap 4 Beta announcement
             | .
-            br
-            br
-            | While we will do our best to keep this updated to the latest copy, we make no promises, guarantees, etc...
 
     hr
 
     .well
-        - var name   = 'alphaCSS'.toLowerCase()
+        - var name   = 'betaCSS'.toLowerCase()
         - var file   = config.bootstrap4[0].stylesheet
         - var sri    = config.bootstrap4[0].stylesheetSri
         - var formId = name + '_form'
@@ -34,7 +31,7 @@ block content
 
         include _partials/csscode.pug
 
-        - var name   = 'alphaJS'.toLowerCase()
+        - var name   = 'betaJS'.toLowerCase()
         - var file   = config.bootstrap4[0].javascript
         - var sri    = config.bootstrap4[0].javascriptSri
         - var formId = name + '_form'
