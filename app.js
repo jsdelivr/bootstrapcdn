@@ -189,6 +189,7 @@ app.get('/fontawesome/', routes.fontawesome);
 app.get('/bootswatch/', routes.bootswatch);
 app.get('/bootlint/', routes.bootlint);
 app.get('/alpha/', routes.alpha);
+app.get('/beta/', routes.beta);
 app.get('/legacy/', routes.legacy);
 app.get('/showcase/', routes.showcase);
 app.get('/integrations/', routes.integrations);
