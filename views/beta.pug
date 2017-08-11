@@ -13,38 +13,42 @@ block content
             | .
 
     hr
+    
+    each item in config.bootstrap4
 
-    .well
-        - var name   = 'betaCSS'.toLowerCase()
-        - var file   = config.bootstrap4[0].stylesheet
-        - var sri    = config.bootstrap4[0].stylesheetSri
-        - var formId = name + '_form'
+        .well
+            h3=item.version
 
-        .form-group
-            label(for=formId) Complete CSS
-            .input-group.input-group-lg
-                input.form-control(id=formId, type='text', value=file)
-                .input-group-btn
-                    button.btn.btn-default.btn-lg(type='button', data-toggle='collapse', data-target='#' + name, aria-expanded='false', aria-controls=name)
-                        span.caret
-            span.help-block Click to copy
+            - var name   = 'betaCSS'.toLowerCase() + item.version.replace(/\./g, '_')
+            - var file   = item.stylesheet
+            - var sri    = item.stylesheetSri
+            - var formId = name + '_form'
 
-        include _partials/csscode.pug
+            .form-group
+                label(for=formId) Complete CSS
+                .input-group.input-group-lg
+                    input.form-control(id=formId, type='text', value=file)
+                    .input-group-btn
+                        button.btn.btn-default.btn-lg(type='button', data-toggle='collapse', data-target='#' + name, aria-expanded='false', aria-controls=name)
+                            span.caret
+                span.help-block Click to copy
 
-        - var name   = 'betaJS'.toLowerCase()
-        - var file   = config.bootstrap4[0].javascript
-        - var sri    = config.bootstrap4[0].javascriptSri
-        - var formId = name + '_form'
+            include _partials/csscode.pug
 
-        .form-group
-            label(for=formId) Complete JavaScript
-            .input-group.input-group-lg
-                input.form-control(id=formId, type='text', value=file)
-                .input-group-btn
-                    button.btn.btn-default.btn-lg(type='button', data-toggle='collapse', data-target='#' + name, aria-expanded='false', aria-controls=name)
-                        span.caret
-            span.help-block Click to copy
+            - var name   = 'betaJS'.toLowerCase() + item.version.replace(/\./g, '_')
+            - var file   = item.javascript
+            - var sri    = item.javascriptSri
+            - var formId = name + '_form'
 
-        include _partials/jscode.pug
+            .form-group
+                label(for=formId) Complete JavaScript
+                .input-group.input-group-lg
+                    input.form-control(id=formId, type='text', value=file)
+                    .input-group-btn
+                        button.btn.btn-default.btn-lg(type='button', data-toggle='collapse', data-target='#' + name, aria-expanded='false', aria-controls=name)
+                            span.caret
+                span.help-block Click to copy
+
+            include _partials/jscode.pug
 
 //- vim: ft=pug sw=4 sts=4 et:
