@@ -52,7 +52,7 @@ describe('index', () => {
     });
 
     it('has header', (done) => {
-        helpers.assert.contains('<h2>Quick Start</h2>', response.body);
+        helpers.assert.contains('<h2 class="text-center">Quick Start</h2>', response.body);
         done();
     });
 
