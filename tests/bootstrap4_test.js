@@ -5,7 +5,7 @@ const assert   = require('assert');
 
 const helpers  = require(path.join(__dirname, 'test_helper.js'));
 const config   = helpers.config();
-const uri      = helpers.app(config, 'alpha');
+const uri      = helpers.app(config, 'beta');
 
 let response = {};
 
@@ -49,12 +49,12 @@ describe('bootstrap4', () => {
     });
 
     it('has header', (done) => {
-        helpers.assert.contains('<h2>Bootstrap 4 alpha</h2>', response.body);
+        helpers.assert.contains('<h2>Bootstrap 4 Beta</h2>', response.body);
         done();
     });
 
     it('has notice', (done) => {
-        helpers.assert.contains('Bootstrap 4 is currently in Alpha release and should be treated as such.', response.body);
+        helpers.assert.contains('Bootstrap 4 is currently in Beta release and should be treated as such.', response.body);
         done();
     });
 

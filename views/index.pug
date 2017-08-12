@@ -1,9 +1,10 @@
 extends layout
 
 block content
-    h2=title
+    h2.text-center=title
+    h3.text-center='v' + config.bootstrap[0].version
     .well
-        - var name   = 'quickstartCSS'.toLowerCase()
+        - var name   = 'quickstartCSS'.toLowerCase() + config.bootstrap[0].version.replace(/\./g, '_')
         - var file   = config.bootstrap[0].stylesheet
         - var sri    = config.bootstrap[0].stylesheetSri
         - var formId = name + '_form'
@@ -19,7 +20,7 @@ block content
 
         include _partials/csscode.pug
 
-        - var name   = 'quickstartJS'.toLowerCase()
+        - var name   = 'quickstartJS'.toLowerCase() + config.bootstrap[0].version.replace(/\./g, '_')
         - var file   = config.bootstrap[0].javascript
         - var sri    = config.bootstrap[0].javascriptSri
         - var formId = name + '_form'
@@ -34,8 +35,48 @@ block content
             span.help-block Click to copy
 
         include _partials/jscode.pug
+    hr
+    .panel.panel-info
+        .panel-heading
+            h3.panel-title Info
+        .panel-body
+            | Bootstrap 4 is currently in Beta release and should be treated as such. For details check out 
+            a(href='https://blog.getbootstrap.com/2017/08/10/bootstrap-4-beta/', target='_blank', rel='noopener').
+                the Bootstrap 4 Beta announcement
+            | .
 
-        p
-            a(href='https://www.maxcdn.com/blog/bootstrapcdn-subresource-integrity/', target='_blank', rel='noopener') Why BootstrapCDN believes in Subresource Integrity (SRI)
+    h3.text-center='v' + config.bootstrap4[0].version
+    .well
+        - var name   = 'quickstartCSS'.toLowerCase() + config.bootstrap4[0].version.replace(/\./g, '_')
+        - var file   = config.bootstrap4[0].stylesheet
+        - var sri    = config.bootstrap4[0].stylesheetSri
+        - var formId = name + '_form'
+
+        .form-group
+            label(for=formId) Complete CSS
+            .input-group.input-group-lg
+                input.form-control(id=formId, type='text', value=file)
+                .input-group-btn
+                    button.btn.btn-default.btn-lg(type='button', data-toggle='collapse', data-target='#' + name, aria-expanded='false', aria-controls=name)
+                        span.caret
+            span.help-block Click to copy
+
+        include _partials/csscode.pug
+
+        - var name   = 'quickstartJS'.toLowerCase() + config.bootstrap4[0].version.replace(/\./g, '_')
+        - var file   = config.bootstrap4[0].javascript
+        - var sri    = config.bootstrap4[0].javascriptSri
+        - var formId = name + '_form'
+
+        .form-group
+            label(for=formId) Complete JavaScript
+            .input-group.input-group-lg
+                input.form-control(id=formId, type='text', value=file)
+                .input-group-btn
+                    button.btn.btn-default.btn-lg(type='button', data-toggle='collapse', data-target='#' + name, aria-expanded='false', aria-controls=name)
+                        span.caret
+            span.help-block Click to copy
+
+        include _partials/jscode.pug
 
 //- vim: ft=pug sw=4 sts=4 et:

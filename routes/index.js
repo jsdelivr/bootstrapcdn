@@ -64,7 +64,12 @@ function bootlint(req, res) {
 
 function alpha(req, res) {
     res = appendLocals(req, res);
-    res.render('alpha', { title: 'Bootstrap 4 Alpha' });
+    res.redirect(301, '/beta/');
+}
+
+function beta(req, res) {
+    res = appendLocals(req, res);
+    res.render('beta', { title: 'Bootstrap 4 Beta' });
 }
 
 function legacy(req, res) {
@@ -124,6 +129,7 @@ module.exports = {
     bootswatch,
     bootlint,
     alpha,
+    beta,
     legacy,
     showcase,
     integrations
