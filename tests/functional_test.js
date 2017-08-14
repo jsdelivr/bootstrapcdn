@@ -211,7 +211,7 @@ describe('functional', () => {
         const publicURIs = [];
 
         walk.filesSync(path.join(__dirname, '..', 'public'), (base, name) => {
-            const root = process.platform === 'win32' ? base.split('\\public\\')[1] : base.split('/public/')[1];
+            const root = base.split(`${path.sep}public${path.sep}`)[1];
 
             // ensure file is in whitelisted directory
             if (typeof root === 'undefined' || !whitelist.includes(root.split(path.sep)[0])) {
