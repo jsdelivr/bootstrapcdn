@@ -14,7 +14,7 @@ const BOOTLINT   = path.join(__dirname, 'node_modules/.bin/bootlint');
 const PUGLINT    = path.join(__dirname, 'node_modules/.bin/pug-lint');
 const FOREVER    = path.join(__dirname, 'node_modules/.bin/forever');
 
-const MOCHA_OPTS = ' --timeout 15000 --slow 500';
+const MOCHA_OPTS = ' --timeout 15000 --slow 500 --exit';
 
 cd(__dirname);
 
