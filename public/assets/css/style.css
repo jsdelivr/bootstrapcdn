@@ -102,23 +102,28 @@ footer p {
     overflow: hidden;
 }
 
-#carbonads a:hover {
-    text-decoration: none;
-}
-
 #carbonads span {
     display: block;
     overflow: hidden;
 }
 
+#carbonads a {
+    text-decoration: none;
+}
+
 .carbon-img {
+    display: inline-block;
+}
+
+.carbon-img img {
     display: block;
     margin: 0 auto 1em;
 }
 
 .carbon-text {
     display: block;
-    margin-bottom: 1em;
+    margin: 0 auto 1em;
+    max-width: 300px;
 }
 
 .carbon-poweredby {
