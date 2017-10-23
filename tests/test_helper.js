@@ -1,6 +1,9 @@
 /* eslint global-require: 0 */
 'use strict';
 
+// Force NODE_ENV (and thus 'env' in express)
+process.env.NODE_ENV = 'test';
+
 const fs        = require('fs');
 const path      = require('path');
 const assert    = require('assert');
