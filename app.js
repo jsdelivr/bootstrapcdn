@@ -9,6 +9,7 @@ const express      = require('express');
 const yaml         = require('js-yaml');
 const uuid         = require('uuid');
 
+
 // middleware
 const compression  = require('compression');
 const favicon      = require('serve-favicon');
@@ -31,6 +32,26 @@ app.set('views', path.join(__dirname, '/views'));
 app.set('view engine', 'pug');
 
 app.disable('x-powered-by');
+
+// Enable rollbar early on the middleware stack, if it's configured.
+if (process.env.ROLLBAR_ACCESS_TOKEN) {
+    const Rollbar  = require('rollbar');
+
+    var rollbarOptions = {
+        accessToken: process.env.ROLLBAR_ACCESS_TOKEN,
+        environment: env,
+        captureUncaught: true,
+        captureUnhandledRejections: true,
+    };
+
+    // Heroku sets this by default, so using it if present.
+    if (process.env.ROLLBAR_ENDPOINT) {
+        rollbarOptions.endpoint = process.env.ROLLBAR_ENDPOINT;
+    }
+
+    const rollbar  = new Rollbar(rollbarOptions);
+    app.use(rollbar.errorHandler());
+}
 
 if (env === 'production') {
     // production
