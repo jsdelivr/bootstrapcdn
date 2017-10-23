@@ -9,7 +9,6 @@ const express      = require('express');
 const yaml         = require('js-yaml');
 const uuid         = require('uuid');
 
-
 // middleware
 const compression  = require('compression');
 const favicon      = require('serve-favicon');
@@ -51,6 +50,8 @@ if (process.env.ROLLBAR_ACCESS_TOKEN) {
 
     const rollbar  = new Rollbar(rollbarOptions);
     app.use(rollbar.errorHandler());
+} else if (env != "test") {
+    console.log("WARNING: starting without rollbar");
 }
 
 if (env === 'production') {
