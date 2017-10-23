@@ -18,6 +18,7 @@ const errorHandler = require('errorhandler');
 const enforce      = require('express-sslify');
 const sitemap      = require('express-sitemap');
 const helmet       = require('helmet');
+const Rollbar      = require('rollbar');
 
 const helpers      = require('./lib/helpers');
 const routes       = require('./routes');
@@ -31,6 +32,27 @@ app.set('views', path.join(__dirname, '/views'));
 app.set('view engine', 'pug');
 
 app.disable('x-powered-by');
+
+// Enable rollbar early on the middleware stack, if it's configured.
+if (process.env.ROLLBAR_ACCESS_TOKEN) {
+    const rollbarOptions = {
+        accessToken: process.env.ROLLBAR_ACCESS_TOKEN,
+        environment: env,
+        captureUncaught: true,
+        captureUnhandledRejections: true
+    };
+
+    // Heroku sets this by default, so using it if present.
+    if (process.env.ROLLBAR_ENDPOINT) {
+        rollbarOptions.endpoint = process.env.ROLLBAR_ENDPOINT;
+    }
+
+    const rollbar  = new Rollbar(rollbarOptions);
+
+    app.use(rollbar.errorHandler());
+} else if (env !== 'test') {
+    console.log('WARNING: starting without rollbar');
+}
 
 if (env === 'production') {
     // production

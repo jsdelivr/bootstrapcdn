@@ -19,6 +19,7 @@
     "jstransformer-uglify-js": "^1.1.1",
     "morgan": "^1.7.0",
     "pug": "^2.0.0-beta6",
+    "rollbar": "^2.2.10",
     "serve-favicon": "^2.3.2",
     "shelljs": "^0.5.3",
     "snyk": "^1.19.1",
