@@ -183,7 +183,7 @@ app.use(helmet.contentSecurityPolicy({
             'ghbtns.com'
         ],
         manifestSrc: ['\'self\''],
-        reportUri: 'https://d063bdf998559129f041de1efd2b41a5.report-uri.io/r/default/csp/enforce'
+        reportUri: 'https://d063bdf998559129f041de1efd2b41a5.report-uri.com/r/d/csp/enforce'
     },
 
     // Set to true if you only want browsers to report errors, not block them
