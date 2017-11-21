@@ -21,7 +21,7 @@
     "pug": "^2.0.0-beta6",
     "rollbar": "^2.2.10",
     "serve-favicon": "^2.3.2",
-    "shelljs": "^0.5.3",
+    "shelljs": "^0.7.8",
     "snyk": "^1.19.1",
     "sri-toolbox": "^0.2.0",
     "uglify-js": "^2.7.4"
