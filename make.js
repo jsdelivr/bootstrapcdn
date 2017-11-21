@@ -137,46 +137,41 @@ target.bootlint = () => {
 
     const outputs = [];
 
-    // sleep
-    setTimeout(() => {
-        echo('------------------------------------------------');
-        async.eachSeries(pages, (page, callback) => {
-            const url = `http://localhost:${port}/${page}${page === '' ? '' : '/'}`;
+    echo('------------------------------------------------');
+    async.eachSeries(pages, (page, callback) => {
+        const url = `http://localhost:${port}/${page}${page === '' ? '' : '/'}`;
 
-            if (page !== '') {
-                page += '_';
-            }
+        if (page !== '') {
+            page += '_';
+        }
 
-            const output = path.join(__dirname, `${page}lint.html`);
-            const file = fs.createWriteStream(output);
+        const output = path.join(__dirname, `${page}lint.html`);
+        const file = fs.createWriteStream(output);
 
-            // okay, not really curl, but it communicates
-            echo(`+ curl ${url} > ${output}`);
+        // okay, not really curl, but it communicates
+        echo(`+ curl ${url} > ${output}`);
 
-            http.get(url, (response) => {
-                response.pipe(file);
+        http.get(url, (response) => {
+            response.pipe(file);
 
-                response.on('end', () => {
-                    file.close();
-                    outputs.push(output);
-                    callback();
-                });
-            });
-        }, () => {
-            echo('+ node make tryStop');
-            target.tryStop();
-
-            echo(`+ bootlint ${outputs.join('\\\n\t')}`);
-
-            // disabling latest version error
-            exec(`${BOOTLINT} -d W013 ${outputs.join(' ')}`, (code) => {
-                rm(outputs);
-                if (code !== 0) {
-                    process.exit(code);
-                }
+            response.on('end', () => {
+                file.close();
+                outputs.push(output);
+                callback();
             });
         });
-    }, 2000);
+    }, () => {
+        echo('+ node make tryStop');
+        target.tryStop();
+
+        echo(`+ bootlint ${outputs.join('\\\n\t')}`);
+
+        // disabling latest version error
+        exec(`${BOOTLINT} -d W013 ${outputs.join(' ')}`, (code) => {
+            rm(outputs);
+            process.exit(code);
+        });
+    });
 };
 
 target.htmllint = () => {
@@ -233,10 +228,7 @@ target.htmllint = () => {
 
             exec(`${HTMLLINT} --verbose --format=text --file=${output}`, (code) => {
                 rm(output);
-                if (code === 0) {
-                    return callback();
-                }
-                return callback('HTML validation failed!');
+                return callback(code === 0 ? null : 'HTML validation failed!');
             });
         });
 
