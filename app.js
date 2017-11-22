@@ -210,6 +210,7 @@ app.locals.basedir = path.join(__dirname, 'public');
 // routes
 app.get('/fontawesome/', routes.fontawesome);
 app.get('/bootswatch/', routes.bootswatch);
+app.get('/bootswatch4/', routes.bootswatch4);
 app.get('/bootlint/', routes.bootlint);
 app.get('/alpha/', routes.alpha);
 app.get('/beta/', routes.beta);
