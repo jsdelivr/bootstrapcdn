@@ -134,6 +134,24 @@ describe('functional', () => {
         });
     });
 
+    describe('bootswatch4', () => {
+        config.bootswatch4.themes.forEach((theme) => {
+            const uri = helpers.domainCheck(config.bootswatch4.bootstrap
+                .replace('SWATCH_VERSION', config.bootswatch4.version)
+                .replace('SWATCH_NAME', theme.name));
+
+            describe(uri, () => {
+                Object.keys(expectedHeaders).forEach((header) => {
+                    assertHeader(uri, header);
+                });
+
+                it('has integrity', (done) => {
+                    assertSRI(uri, theme.sri, done);
+                });
+            });
+        });
+    });
+
     describe('bootlint', () => {
         config.bootlint.forEach((self) => {
             const uri = helpers.domainCheck(self.javascript);

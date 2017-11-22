@@ -7,7 +7,9 @@ const path    = require('path');
 const fs      = require('fs');
 const request = require('request');
 
-const version = process.argv[2];
+const version  = process.argv[2];
+const verMajor = version[0];
+
 
 if (!version) {
     console.log('Please pass the Bootswatch version as an argument.');
@@ -21,11 +23,11 @@ const configFile    = path.join(basedir, 'config', '_config.yml');
 const config = yaml.safeLoad(fs.readFileSync(configFile));
 
 const files = [
-    'https://www.bootswatch.com/%s/bootstrap.min.css',
-    'https://www.bootswatch.com/%s/bootstrap.css'
+    'https://bootswatch.com/%d/%s/bootstrap.min.css',
+    'https://bootswatch.com/%d/%s/bootstrap.css'
 ];
 
-const fonts    = 'https://www.bootswatch.com/fonts/%s';
+const fonts    = 'https://bootswatch.com/3/fonts/%s';
 const fontsDir = path.join(bootswatchDir, 'fonts');
 
 function errorCheck(err) {
@@ -46,9 +48,11 @@ function checkDirSync(dir) {
 
 checkDirSync(bootswatchDir);
 
+const bootswatchConf = (verMajor == '3' ? config.bootswatch : config['bootswatch'+verMajor]);
+
 files.forEach((file) => {
-    config.bootswatch.themes.forEach((theme) => {
-        const source = file.replace('%s', theme.name);
+    bootswatchConf.themes.forEach((theme) => {
+        const source = file.replace('%s', theme.name).replace('%d', verMajor);
 
         request.get(source, (err, res, body) => {
             if (err) {
@@ -73,31 +77,32 @@ files.forEach((file) => {
     });
 });
 
-checkDirSync(fontsDir);
+if (verMajor == '3') {
+    checkDirSync(fontsDir);
+    ['glyphicons-halflings-regular.eot',
+        'glyphicons-halflings-regular.svg',
+        'glyphicons-halflings-regular.ttf',
+        'glyphicons-halflings-regular.woff',
+        'glyphicons-halflings-regular.woff2'
+    ].forEach((font) => {
+        const fontPath = fonts.replace('%s', font);
+        const target   = path.join(fontsDir, font);
 
-['glyphicons-halflings-regular.eot',
-    'glyphicons-halflings-regular.svg',
-    'glyphicons-halflings-regular.ttf',
-    'glyphicons-halflings-regular.woff',
-    'glyphicons-halflings-regular.woff2'
-].forEach((font) => {
-    const fontPath = fonts.replace('%s', font);
-    const target   = path.join(fontsDir, font);
-
-    request
-        .get(fontPath)
-        .on('response', (res) => {
-            if (res.statusCode !== 200) {
-                errorCheck(new Error(`Non-success status code: ${res.statusCode}`));
-            }
-            console.log('  Saved: %s', target);
-            console.log('    From: %s', fontPath);
-        })
-        .on('error', (err) => {
-            console.trace(err);
-        })
-        .pipe(fs.createWriteStream(target));
-});
+        request
+            .get(fontPath)
+            .on('response', (res) => {
+                if (res.statusCode !== 200) {
+                    errorCheck(new Error(`Non-success status code: ${res.statusCode}`));
+                }
+                console.log('  Saved: %s', target);
+                console.log('    From: %s', fontPath);
+            })
+            .on('error', (err) => {
+                console.trace(err);
+            })
+            .pipe(fs.createWriteStream(target));
+    });
+}
 
 process.on('exit', (code) => {
     if (code === 0) {
