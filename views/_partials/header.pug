@@ -24,11 +24,21 @@
                             a(href='/bootlint/' + themeQs) Bootlint
                         li(class=(title === 'Bootstrap Legacy' ? 'active' : ''))
                             a(href='/legacy/' + themeQs) Legacy
-                        li(class=(title === 'Bootstrap 4 Beta' ? 'active' : ''))
-                            a(href='/beta/' + themeQs) Bootstrap 4 Beta
-                        li(class=(title === 'Bootswatch 4 Beta' ? 'active' : ''))
-                            a(href='/bootswatch4/' + themeQs) Bootswatch 4 Beta
-
+                        li.dropdown
+                            a#nav-dropdown.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false') 4 Beta
+                                |  
+                                span.caret
+                            ul.dropdown-menu.dropdown-menu-right(aria-labelledby='nav-dropdown')
+                                li
+                                    a(href='/beta/',
+                                        data-ga-category='Navigation',
+                                        data-ga-action='Resources',
+                                        data-ga-label='Bootstrap Beta 4') Bootstrap
+                                li
+                                    a(href='/bootswatch4/',
+                                        data-ga-category='Navigation',
+                                        data-ga-action='Resources',
+                                        data-ga-label='Bootswatch Beta 4') Bootswatch
                     ul.nav.navbar-nav.navbar-right
                         li(class=(title === 'Showcase' ? 'active' : ''))
                             a(href='/showcase/' + themeQs) Showcase
