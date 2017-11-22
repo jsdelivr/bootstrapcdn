@@ -1,0 +1,38 @@
+extends layout
+
+block content
+    h2 Bootswatch 4 Beta
+
+    .panel.panel-info
+        .panel-heading
+            h3.panel-title Info
+        .panel-body
+            | Bootstrap 4 is currently in Beta release and should be treated as such. For details check out 
+            a(href='https://blog.getbootstrap.com/2017/08/10/bootstrap-4-beta/', target='_blank', rel='noopener').
+                the Bootstrap 4 Beta announcement
+            | .
+
+    .well
+        - for (var i = 0; i < config.bootswatch4.themes.length; i++) {
+            - var name = config.bootswatch4.themes[i].name.toLowerCase()
+            - var sri  = config.bootswatch4.themes[i].sri
+            - var file = config.bootswatch4.bootstrap.replace('SWATCH_NAME', name).replace('SWATCH_VERSION', config.bootswatch4.version)
+
+            .row
+                .col-md-2 &nbsp;
+                .col-sm-12.col-md-8
+                    .bootswatch
+                        a(href=config.bootswatch4.link.replace('SWATCH_NAME', name), target='_blank', rel='noopener')
+                            img.bootswatch.img-responsive(src=config.bootswatch4.image.replace('SWATCH_NAME', name), alt=name + ' thumbnail', width='528', height='317')
+                        .input-group
+                            input.form-control(type='text', value=file)
+                            .input-group-btn
+                                button.btn.btn-default(type='button', data-toggle='collapse', data-target='#' + name, aria-expanded='false', aria-controls=name)
+                                    span.caret
+                        span.help-block Click to copy
+
+                        include _partials/csscode.pug
+
+        - }
+
+//- vim: ft=pug sw=4 sts=4 et:

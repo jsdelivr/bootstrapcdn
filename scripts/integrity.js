@@ -45,6 +45,20 @@ function exists(file) {
     }
 }))();
 
+// bootswatch4
+((() => {
+    const bootswatch = buildPath(config.bootswatch4.bootstrap);
+
+    for (const theme of config.bootswatch4.themes) {
+        const file = bootswatch.replace('SWATCH_VERSION', config.bootswatch4.version)
+                             .replace('SWATCH_NAME', theme.name);
+
+        if (exists(file)) { // always regenerate
+            theme.sri = sri.digest(file);
+        }
+    }
+}))();
+
 // bootlint
 ((() => {
     for (const bootlint of config.bootlint) {

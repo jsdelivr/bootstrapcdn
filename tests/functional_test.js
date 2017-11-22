@@ -6,6 +6,7 @@ const assert    = require('assert');
 const walk      = require('fs-walk');
 const async     = require('async');
 const https     = require('https');
+const semver    = require('semver');
 const digest    = require(path.join(__dirname, '..', 'lib', 'helpers')).sri.digest;
 const helpers   = require(path.join(__dirname, 'test_helper'));
 const config    = helpers.config();
@@ -134,6 +135,24 @@ describe('functional', () => {
         });
     });
 
+    describe('bootswatch4', () => {
+        config.bootswatch4.themes.forEach((theme) => {
+            const uri = helpers.domainCheck(config.bootswatch4.bootstrap
+                .replace('SWATCH_VERSION', config.bootswatch4.version)
+                .replace('SWATCH_NAME', theme.name));
+
+            describe(uri, () => {
+                Object.keys(expectedHeaders).forEach((header) => {
+                    assertHeader(uri, header);
+                });
+
+                it('has integrity', (done) => {
+                    assertSRI(uri, theme.sri, done);
+                });
+            });
+        });
+    });
+
     describe('bootlint', () => {
         config.bootlint.forEach((self) => {
             const uri = helpers.domainCheck(self.javascript);
@@ -225,6 +244,17 @@ describe('functional', () => {
             // ignore unknown / unsupported types
             if (typeof helpers.CONTENT_TYPE_MAP[ext] === 'undefined') {
                 return;
+            }
+
+            // ignore twitter-bootstrap versions after 2.3.2
+            if (uri.indexOf('twitter-bootstrap') > -1) {
+                const re = new RegExp('/([0-9]+.[0-9]+.[0-9]+)');
+                const m  = uri.match(re);
+
+                // err on the side of testing things that can't be abstracted
+                if (m && m[1] && semver.valid(m[1]) && semver.gt(m[1], '2.3.2')) {
+                    return; // don't add the file
+                }
             }
 
             publicURIs.push(uri);

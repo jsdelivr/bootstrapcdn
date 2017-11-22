@@ -57,6 +57,11 @@ function bootswatch(req, res) {
     res.render('bootswatch', { title: 'Bootswatch' });
 }
 
+function bootswatch4(req, res) {
+    res = appendLocals(req, res);
+    res.render('bootswatch4', { title: 'Bootswatch 4 Beta' });
+}
+
 function bootlint(req, res) {
     res = appendLocals(req, res);
     res.render('bootlint', { title: 'Bootlint' });
@@ -127,6 +132,7 @@ module.exports = {
     index,
     fontawesome,
     bootswatch,
+    bootswatch4,
     bootlint,
     alpha,
     beta,
