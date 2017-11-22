@@ -48,7 +48,7 @@ function checkDirSync(dir) {
 
 checkDirSync(bootswatchDir);
 
-const bootswatchConf = (verMajor == '3' ? config.bootswatch : config['bootswatch'+verMajor]);
+const bootswatchConf = verMajor === '3' ? config.bootswatch : config[`bootswatch${verMajor}`];
 
 files.forEach((file) => {
     bootswatchConf.themes.forEach((theme) => {
@@ -77,7 +77,7 @@ files.forEach((file) => {
     });
 });
 
-if (verMajor == '3') {
+if (verMajor === '3') {
     checkDirSync(fontsDir);
     ['glyphicons-halflings-regular.eot',
         'glyphicons-halflings-regular.svg',
