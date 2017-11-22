@@ -6,6 +6,7 @@ const assert    = require('assert');
 const walk      = require('fs-walk');
 const async     = require('async');
 const https     = require('https');
+const semver    = require('semver');
 const digest    = require(path.join(__dirname, '..', 'lib', 'helpers')).sri.digest;
 const helpers   = require(path.join(__dirname, 'test_helper'));
 const config    = helpers.config();
@@ -243,6 +244,17 @@ describe('functional', () => {
             // ignore unknown / unsupported types
             if (typeof helpers.CONTENT_TYPE_MAP[ext] === 'undefined') {
                 return;
+            }
+
+            // ignore twitter-bootstrap versions after 2.3.2
+            if (uri.indexOf('twitter-bootstrap') > -1) {
+                const re = new RegExp('/([0-9]+.[0-9]+.[0-9]+)');
+                const m  = uri.match(re);
+
+                // err on the side of testing things that can't be abstracted
+                if (m && m[1] && semver.valid(m[1]) && semver.gt(m[1], '2.3.2')) {
+                    return; // don't add the file
+                }
             }
 
             publicURIs.push(uri);
