@@ -2,6 +2,16 @@ extends layout
 
 block content
     h2 Bootswatch 4 Beta
+
+    .panel.panel-info
+        .panel-heading
+            h3.panel-title Info
+        .panel-body
+            | Bootstrap 4 is currently in Beta release and should be treated as such. For details check out 
+            a(href='https://blog.getbootstrap.com/2017/08/10/bootstrap-4-beta/', target='_blank', rel='noopener').
+                the Bootstrap 4 Beta announcement
+            | .
+
     .well
         - for (var i = 0; i < config.bootswatch4.themes.length; i++) {
             - var name = config.bootswatch4.themes[i].name.toLowerCase()
