@@ -36,7 +36,8 @@
     "htmlencode": "^0.0.4",
     "mocha": "^4.0.1",
     "pug-lint": "^2.3.0",
-    "request": "^2.76.0"
+    "request": "^2.76.0",
+    "semver": "^5.4.1"
   },
   "engines": {
     "node": "8.x"
