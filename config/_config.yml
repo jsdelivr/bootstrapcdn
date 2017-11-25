@@ -4,7 +4,7 @@ authors:
   - Joshua Mervine
   - Justin Dorfman
   - XhmikosR
-description: The recommended CDN for Bootstrap, Font Awesome and Bootswatch.
+description: 'The recommended CDN for Bootstrap, Font Awesome and Bootswatch.'
 favicon:
   uri: /assets/img/favicons/favicon.ico
 javascripts:

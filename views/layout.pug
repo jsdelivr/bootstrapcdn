@@ -7,10 +7,10 @@ html(lang='en', prefix='og: http://ogp.me/ns#', itemscope, itemtype='http://sche
         meta(name='author', content=config.authors.join(', '))
         meta(name='google-site-verification', content='GoWOPbhuU3D9P-yDUxKl1RLuR_vqJIdP_smWw51Wmdc')
 
-        - var description = description || config.description;
+        - var pageDescription = description || config.description;
         - var pageTitle = displayTitle(title);
 
-        meta(name='description', content=description)
+        meta(name='description', content!=pageDescription)
 
         title!=pageTitle
 
@@ -31,7 +31,7 @@ html(lang='en', prefix='og: http://ogp.me/ns#', itemscope, itemtype='http://sche
 
         meta(property='og:title', content!=pageTitle)
         meta(property='og:type', content='website')
-        meta(property='og:description', content=description)
+        meta(property='og:description', content!=pageDescription)
         meta(property='og:url', content=siteUrl)
         meta(property='og:image', content=helpers.buster(siteUrl.replace(/^https:/, 'http:') + '/assets/img/og.png'))
         meta(property='og:image:secure_url', content=helpers.buster(siteUrl + '/assets/img/og.png'))
@@ -45,7 +45,7 @@ html(lang='en', prefix='og: http://ogp.me/ns#', itemscope, itemtype='http://sche
         meta(name='twitter:title', content!=pageTitle)
 
         meta(itemprop='name', content='BootstrapCDN')
-        meta(itemprop='description', content=description)
+        meta(itemprop='description', content!=pageDescription)
         meta(itemprop='image', content=helpers.buster('/assets/img/og.png'))
 
         - bootswatch = helpers.theme.fetch(config, theme);
