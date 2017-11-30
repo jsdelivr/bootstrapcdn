@@ -1,21 +1,22 @@
 extends layout
 
 block content
-    h2 Bootlint
-    .well
-        - var name   = 'bootlintJS'.toLowerCase()
-        - var file   = config.bootlint[0].javascript
-        - var sri    = config.bootlint[0].javascriptSri
-        - var formId = name + '_form'
+    h2.text-center.mb-4 Bootlint
 
-        .form-group
-            label(for=formId) Complete JavaScript
+    .card.bg-light.mt-4.px-4.text-center
+        - var name   = 'bootlintJS'.toLowerCase();
+        - var file   = config.bootlint[0].javascript;
+        - var sri    = config.bootlint[0].javascriptSri;
+        - var formId = name + '_form';
+
+        .form-group.my-4
+            label.font-weight-bold(for=formId) Complete JavaScript
             .input-group.input-group-lg
                 input.form-control(id=formId, type='text', value=file)
-                .input-group-btn
-                    button.btn.btn-default.btn-lg(type='button', data-toggle='collapse', data-target='#' + name, aria-expanded='false', aria-controls=name)
+                span.input-group-btn
+                    button.btn.btn-secondary(type='button', data-toggle='collapse', data-target='#' + name, aria-expanded='false', aria-controls=name)
                         span.caret
-            span.help-block Click to copy
+            span.form-text.text-muted Click to copy
 
         include _partials/jscode.pug
 

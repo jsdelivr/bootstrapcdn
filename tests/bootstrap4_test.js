@@ -49,7 +49,7 @@ describe('bootstrap4', () => {
     });
 
     it('has header', (done) => {
-        helpers.assert.contains('<h2>Bootstrap 4 Beta</h2>', response.body);
+        helpers.assert.contains('<h2 class="text-center mb-4">Bootstrap 4 Beta</h2>', response.body);
         done();
     });
 

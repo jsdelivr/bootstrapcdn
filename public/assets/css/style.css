@@ -6,33 +6,10 @@
     height: 20px;
 }
 
-.tryit {
-    padding-top: 25px;
-}
-
-.well {
-    margin-top: 20px;
-    padding-top: 0;
-    text-align: center;
-}
-
-.well[id] {
-    padding-top: 10px;
-}
-
-.well > .form-group > label {
-    font-size: 18px;
-    margin-top: 5px;
-}
-
-.bootswatch {
-    padding: 10px 0 20px 0;
-}
-
-.jumbotron {
-    margin-top: -50px;
-    padding-bottom: 34px;
-    text-align: center;
+.display-5 {
+    font-size: 3rem;
+    font-weight: 300;
+    line-height: 1.2;
 }
 
 .social {
@@ -40,7 +17,7 @@
     text-align: center;
 }
 
-.social .list-inline > li {
+.social .list-inline-item {
     vertical-align: middle;
 }
 
@@ -55,17 +32,29 @@ iframe {
     height: 20px;
 }
 
-.caret {
+.caret::after {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    vertical-align: 0.255em;
+    content: "";
+    border-top: 0.3em solid;
+    border-right: 0.3em solid transparent;
+    border-bottom: 0;
+    border-left: 0.3em solid transparent;
+
     -webkit-transition: -webkit-transform 0.35s ease;
     transition: transform 0.35s ease;
 }
 
-.caret-open {
+.caret-open::after {
     -webkit-transform: rotate(-180deg);
     transform: rotate(-180deg);
 }
 
 footer {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    padding-top: 1.5rem;
     text-align: center;
 }
 
@@ -122,6 +111,7 @@ footer p {
 
 .carbon-text {
     display: block;
+    font-size: 0.9rem;
     margin: 0 auto 1em;
     max-width: 300px;
 }
