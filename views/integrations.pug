@@ -1,18 +1,19 @@
 extends layout
 
 block content
-    h2 Integrations
+    h2.text-center.mb-4 Integrations
+
     .row
-        .col-md-6.text-center
+        .col-md-6
             each item in col1
                 include _partials/integrations.pug
-
-        .col-md-6.text-center
+        .col-md-6
             each item in col2
                 include _partials/integrations.pug
+
     .row
-        .col-md-12.text-center
-            p
+        .col-md-12
+            p.my-3.text-center
                 a.btn.btn-success(href='mailto:jdorfman@maxcdn.com?subject=' + encodeURIComponent('BootstrapCDN Integration Submission')) Submit Yours
 
 //- vim: ft=pug sw=4 sts=4 et:

@@ -44,7 +44,7 @@ describe('bootlint', () => {
     });
 
     it('has header', (done) => {
-        helpers.assert.contains('<h2>Bootlint</h2>', response.body);
+        helpers.assert.contains('<h2 class="text-center mb-4">Bootlint</h2>', response.body);
         done();
     });
 

@@ -50,7 +50,8 @@ target.puglint = () => {
 target.lint = () => {
     target.eslint();
     target.puglint();
-    target.bootlint();
+    // DIsabling Bootlint until it works with Bootstrap 4
+    //target.bootlint();
 };
 
 target.functional = () => {

@@ -1,35 +1,40 @@
 extends layout
 
 block content
-    h2 Bootswatch 4 Beta
+    h2.text-center.mb-4 Bootswatch 4 Beta
 
-    .panel.panel-info
-        .panel-heading
-            h3.panel-title Info
-        .panel-body
+    .card.border-info
+        .card-header.bg-info.text-white
+            h3.card-title Info
+        .card-body
             | Bootstrap 4 is currently in Beta release and should be treated as such. For details check out 
             a(href='https://blog.getbootstrap.com/2017/08/10/bootstrap-4-beta/', target='_blank', rel='noopener').
                 the Bootstrap 4 Beta announcement
             | .
 
-    .well
-        - for (var i = 0; i < config.bootswatch4.themes.length; i++) {
-            - var name = config.bootswatch4.themes[i].name.toLowerCase()
-            - var sri  = config.bootswatch4.themes[i].sri
-            - var file = config.bootswatch4.bootstrap.replace('SWATCH_NAME', name).replace('SWATCH_VERSION', config.bootswatch4.version)
+    .card.bg-light.mt-4.px-4.text-center
+        - for (var i = 0, len = config.bootswatch4.themes.length; i < len; i++) {
+            - var name = config.bootswatch4.themes[i].name.toLowerCase();
+            - var sri  = config.bootswatch4.themes[i].sri;
+            - var file = config.bootswatch4.bootstrap.replace('SWATCH_NAME', name).replace('SWATCH_VERSION', config.bootswatch4.version);
 
             .row
-                .col-md-2 &nbsp;
+                .col-md-2
+                    .tryit.mt-4
+                        - if (i === helpers.theme.selected(config, theme))
+                            button.btn.btn-primary(type='button', disabled) Active!
+                        - else
+                            a.btn.btn-primary(role='button', href='?theme=' + i) Try it!
                 .col-sm-12.col-md-8
-                    .bootswatch
+                    .mt-4
                         a(href=config.bootswatch4.link.replace('SWATCH_NAME', name), target='_blank', rel='noopener')
-                            img.bootswatch.img-responsive(src=config.bootswatch4.image.replace('SWATCH_NAME', name), alt=name + ' thumbnail', width='528', height='317')
-                        .input-group
+                            img.bootswatch.d-block.img-fluid.mx-auto(src=config.bootswatch4.image.replace('SWATCH_NAME', name), alt=name + ' thumbnail', width='528', height='317')
+                        .input-group.mt-3
                             input.form-control(type='text', value=file)
-                            .input-group-btn
-                                button.btn.btn-default(type='button', data-toggle='collapse', data-target='#' + name, aria-expanded='false', aria-controls=name)
+                            span.input-group-btn
+                                button.btn.btn-secondary(type='button', data-toggle='collapse', data-target='#' + name, aria-expanded='false', aria-controls=name)
                                     span.caret
-                        span.help-block Click to copy
+                        span.form-text.text-muted Click to copy
 
                         include _partials/csscode.pug
 

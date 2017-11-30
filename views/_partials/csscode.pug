@@ -1,20 +1,21 @@
-.well.collapse(id=name)
-    .form-group
-        - var formId = 'html_' + name
-        label(for=formId) HTML
-        input.form-control(id=formId, type='text', value='<link href="' + file + '" rel="stylesheet" integrity="' + sri + '" crossorigin="anonymous">')
-        span.help-block Click to copy
-    .form-group
-        - var formId = 'jade_' + name
-        label(for=formId)
-            a(href='https://pugjs.org/', target='_blank', rel='noopener') Pug
-        input.form-control(id=formId, type='text', value='link(href="' + file + '", rel="stylesheet", integrity="' + sri + '", crossorigin="anonymous")')
-        span.help-block Click to copy
-    .form-group
-        - var formId = 'haml_' + name
-        label(for=formId)
-            a(href='http://haml.info/', target='_blank', rel='noopener') Haml
-        input.form-control(id=formId, type='text', value='%link{href: "' + file + '", rel: "stylesheet", integrity: "' + sri + '", crossorigin: "anonymous"}')
-        span.help-block Click to copy
+.collapse(id=name)
+    .card.bg-light.px-4.text-center
+        .form-group.mt-4
+            - var formId = 'html_' + name;
+            label.font-weight-bold(for=formId) HTML
+            input.form-control(id=formId, type='text', value='<link href="' + file + '" rel="stylesheet" integrity="' + sri + '" crossorigin="anonymous">')
+            span.form-text.text-muted Click to copy
+        .form-group
+            - var formId = 'jade_' + name;
+            label.font-weight-bold(for=formId)
+                a(href='https://pugjs.org/', target='_blank', rel='noopener') Pug
+            input.form-control(id=formId, type='text', value='link(href="' + file + '", rel="stylesheet", integrity="' + sri + '", crossorigin="anonymous")')
+            span.form-text.text-muted Click to copy
+        .form-group.mb-4
+            - var formId = 'haml_' + name;
+            label.font-weight-bold(for=formId)
+                a(href='http://haml.info/', target='_blank', rel='noopener') Haml
+            input.form-control(id=formId, type='text', value='%link{href: "' + file + '", rel: "stylesheet", integrity: "' + sri + '", crossorigin: "anonymous"}')
+            span.form-text.text-muted Click to copy
 
 //- vim: ft=pug sw=4 sts=4 et:
