@@ -39,14 +39,7 @@ block content
 
     hr.my-4
 
-    .card.border-info
-        .card-header.bg-info.text-white
-            h3.card-title Info
-        .card-body
-            | Bootstrap 4 is currently in Beta release and should be treated as such. For details check out 
-            a(href='https://blog.getbootstrap.com/2017/08/10/bootstrap-4-beta/', target='_blank', rel='noopener').
-                the Bootstrap 4 Beta announcement
-            | .
+    include _partials/beta-alert.pug
 
     h3.text-center.mt-4='v' + config.bootstrap4[0].version
 
