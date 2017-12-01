@@ -1,4 +1,4 @@
-extends layout.pug
+extends ../layout.pug
 
 block content
     h2.text-center.mb-4 Bootstrap Legacy
@@ -23,7 +23,7 @@ block content
                                     span.caret
                         span.form-text.text-muted Click to copy
 
-                    include _partials/csscode.pug
+                    include ../_partials/csscode.pug
 
                 if (item.javascript)
                     -var file   = item.javascript;
@@ -40,6 +40,6 @@ block content
                                     span.caret
                         span.form-text.text-muted Click to copy
 
-                    include _partials/jscode.pug
+                    include ../_partials/jscode.pug
 
 //- vim: ft=pug sw=4 sts=4 et:

@@ -16,21 +16,13 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
                 a.nav-link(href='/bootswatch/' + themeQs) Bootswatch
             li(class='nav-item' + (title === 'Bootlint' ? ' active' : ''))
                 a.nav-link(href='/bootlint/' + themeQs) Bootlint
-            li(class='nav-item' + (title === 'Bootstrap Legacy' ? ' active' : ''))
-                a.nav-link(href='/legacy/' + themeQs) Legacy
             li.nav-item.dropdown
-                a#navbarDropdown1.nav-link.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false') 4 Beta
+                a#navbarDropdown1.nav-link.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false') Old Versions
                 ul.dropdown-menu.bg-dark(aria-labelledby='navbarDropdown1')
                     li.dropdown-item.bg-dark
-                        a.nav-link(href='/beta/' + themeQs,
-                            data-ga-category='Navigation',
-                            data-ga-action='Resources',
-                            data-ga-label='Bootstrap Beta 4') Bootstrap
+                        a.nav-link(href='/legacy/bootstrap/' + themeQs) Bootstrap
                     li.dropdown-item.bg-dark
-                        a.nav-link(href='/bootswatch4/' + themeQs,
-                            data-ga-category='Navigation',
-                            data-ga-action='Resources',
-                            data-ga-label='Bootswatch Beta 4') Bootswatch
+                        a.nav-link(href='/legacy/bootswatch/' + themeQs) Bootswatch
         ul.nav.navbar-nav.ml-auto
             li(class='nav-item' + (title === 'Showcase' ? ' active' : ''))
                 a.nav-link(href='/showcase/' + themeQs) Showcase

@@ -67,10 +67,7 @@ function bootswatch(req, res) {
 
 function bootswatch4(req, res) {
     res = appendLocals(req, res);
-    res.render('bootswatch4', {
-        title: 'Bootswatch 4 Beta',
-        description: 'The recommended CDN for Bootswatch 4 Beta'
-    });
+    res.redirect(301, '/bootswatch/');
 }
 
 function bootlint(req, res) {
@@ -96,9 +93,22 @@ function beta(req, res) {
 
 function legacy(req, res) {
     res = appendLocals(req, res);
-    res.render('legacy', {
+    res.redirect(301, '/legacy/bootstrap/');
+}
+
+function legacyBootstrap(req, res) {
+    res = appendLocals(req, res);
+    res.render('legacy/bootstrap.pug', {
         title: 'Bootstrap Legacy',
         description: 'Older versions of Bootstrap hosted on a CDN'
+    });
+}
+
+function legacyBootswatch(req, res) {
+    res = appendLocals(req, res);
+    res.render('legacy/bootswatch.pug', {
+        title: 'Bootswatch Legacy',
+        description: 'Older versions of Bootswatch hosted on a CDN'
     });
 }
 
@@ -159,6 +169,8 @@ module.exports = {
     alpha,
     beta,
     legacy,
+    legacyBootstrap,
+    legacyBootswatch,
     showcase,
     integrations
 };
