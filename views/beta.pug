@@ -3,14 +3,7 @@ extends layout
 block content
     h2.text-center.mb-4 Bootstrap 4 Beta
 
-    .card.border-info
-        .card-header.bg-info.text-white
-            h3.card-title Info
-        .card-body
-            | Bootstrap 4 is currently in Beta release and should be treated as such. For details check out 
-            a(href='https://blog.getbootstrap.com/2017/08/10/bootstrap-4-beta/', target='_blank', rel='noopener').
-                the Bootstrap 4 Beta announcement
-            | .
+    include _partials/beta-alert.pug
 
     each item in config.bootstrap4
 
