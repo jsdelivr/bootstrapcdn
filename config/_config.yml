@@ -418,6 +418,10 @@ showcase:
     lib: Font Awesome 4.5.0
     url: 'https://kubernetesbootcamp.github.io/kubernetes-bootcamp/'
 integrations:
+  - name: freeCodeCamp
+    img: /assets/img/integrations/freecodecamp.png
+    plat: Node.js
+    url: 'https://www.freecodecamp.org/challenges/use-responsive-design-with-bootstrap-fluid-containers'
   - name: Bootstrap 3 Snippets
     img: /assets/img/integrations/atom-bootstrap3.png
     plat: Atom
