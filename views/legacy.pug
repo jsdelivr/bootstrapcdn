@@ -4,10 +4,11 @@ block content
     h2.text-center.mb-4 Bootstrap Legacy
 
     each item in config.bootstrap
-        - if (!item.latest)
+        unless (item.latest)
             .card.bg-light.text-center.mt-4.px-4
                 h2.mt-2=item.version
-                - if (item.stylesheet)
+
+                if (item.stylesheet)
                     - var file   = item.stylesheet;
                     - var sri    = item.stylesheetSri;
                     - var name   = 'css_complete_' + item.version.replace(/\./g, '_');
@@ -24,7 +25,7 @@ block content
 
                     include _partials/csscode.pug
 
-                - if (item.javascript)
+                if (item.javascript)
                     - var file   = item.javascript;
                     - var sri    = item.javascriptSri;
                     - var name   = 'javascript_' + item.version.replace(/\./g, '_');
