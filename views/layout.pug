@@ -46,11 +46,11 @@ html(lang='en', prefix='og: http://ogp.me/ns#', itemscope, itemtype='http://sche
         meta(itemprop='description', content!=pageDescription)
         meta(itemprop='image', content=helpers.buster('/assets/img/og.png'))
 
-        - bootswatch = helpers.theme.fetch(config, theme);
+        - var bootswatch = helpers.theme.fetch(config, theme);
         link(rel='stylesheet', href=bootswatch.uri, integrity=bootswatch.sri,
             crossorigin='anonymous')
 
-        if process.env.NODE_ENV === 'production'
+        if (process.env.NODE_ENV === 'production')
             style
                 include:clean-css /assets/css/style.css
         else
@@ -81,14 +81,14 @@ html(lang='en', prefix='og: http://ogp.me/ns#', itemscope, itemtype='http://sche
         script(src=config.javascripts.jquery.uri,
             integrity=config.javascripts.jquery.sri, crossorigin='anonymous')
 
-        - bootstrap = config.bootstrap4.filter(function(o) { return o.latest; })[0];
+        - var bootstrap = config.bootstrap4.filter(function(o) { return o.latest; })[0];
         script(src=bootstrap.javascriptBundle, integrity=bootstrap.javascriptBundleSri,
             crossorigin='anonymous')
 
         script(nonce=nonce)
             include /assets/js/clipboard.min.js
 
-            if process.env.NODE_ENV === 'production'
+            if (process.env.NODE_ENV === 'production')
                 include:uglify-js /assets/js/main.js
             else
                 include /assets/js/main.js

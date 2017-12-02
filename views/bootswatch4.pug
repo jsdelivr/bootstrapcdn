@@ -6,7 +6,7 @@ block content
     include _partials/beta-alert.pug
 
     .card.bg-light.mt-4.px-4.text-center
-        - for (var i = 0, len = config.bootswatch4.themes.length; i < len; i++) {
+        - for (var i = 0, len = config.bootswatch4.themes.length; i < len; i++)
             - var name = config.bootswatch4.themes[i].name.toLowerCase();
             - var sri  = config.bootswatch4.themes[i].sri;
             - var file = config.bootswatch4.bootstrap.replace('SWATCH_NAME', name).replace('SWATCH_VERSION', config.bootswatch4.version);
@@ -14,10 +14,11 @@ block content
             .row
                 .col-md-2
                     .tryit.mt-4
-                        - if (i === helpers.theme.selected(config, theme))
+                        if (i === helpers.theme.selected(config, theme))
                             button.btn.btn-primary(type='button', disabled) Active!
-                        - else
+                        else
                             a.btn.btn-primary(role='button', href='?theme=' + i) Try it!
+
                 .col-sm-12.col-md-8
                     .mt-4
                         a(href=config.bootswatch4.link.replace('SWATCH_NAME', name), target='_blank', rel='noopener')
@@ -30,7 +31,5 @@ block content
                         span.form-text.text-muted Click to copy
 
                         include _partials/csscode.pug
-
-        - }
 
 //- vim: ft=pug sw=4 sts=4 et:

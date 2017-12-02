@@ -3,7 +3,7 @@ extends layout
 block content
     h2.text-center.mb-4 Bootswatch
 
-    - for (var i = 0, len = config.bootswatch.themes.length; i < len; i++) {
+    - for (var i = 0, len = config.bootswatch.themes.length; i < len; i++)
         - var name = config.bootswatch.themes[i].name.toLowerCase();
         - var sri  = config.bootswatch.themes[i].sri;
         - var file = config.bootswatch.bootstrap.replace('SWATCH_NAME', name).replace('SWATCH_VERSION', config.bootswatch.version);
@@ -22,7 +22,5 @@ block content
                         span.form-text.text-muted Click to copy
 
                         include _partials/csscode.pug
-
-    - }
 
 //- vim: ft=pug sw=4 sts=4 et:
