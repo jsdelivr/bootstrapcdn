@@ -4,7 +4,7 @@ block content
     h2.text-center=title
     h3.text-center='v' + config.bootstrap[0].version
 
-    .card.bg-light.mt-4.px-4.text-center
+    .card.bg-light.mt-4.p-4.text-center
         - var name   = 'quickstartCSS'.toLowerCase() + config.bootstrap[0].version.replace(/\./g, '_');
         - var file   = config.bootstrap[0].stylesheet;
         - var sri    = config.bootstrap[0].stylesheetSri;
@@ -43,7 +43,7 @@ block content
 
     h3.text-center.mt-4='v' + config.bootstrap4[0].version
 
-    .card.bg-light.mt-4.px-4.text-center
+    .card.bg-light.mt-4.p-4.text-center
         - var name   = 'quickstartCSS'.toLowerCase() + config.bootstrap4[0].version.replace(/\./g, '_');
         - var file   = config.bootstrap4[0].stylesheet;
         - var sri    = config.bootstrap4[0].stylesheetSri;

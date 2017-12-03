@@ -1,10 +1,10 @@
-.card.py-4.mb-2.text-center
+.card.py-4.mb-3.text-center
     .card-body
         a(href=item.url, target='_blank', rel='noopener')
             img.card-img-top.img-fluid.d-block(src=helpers.buster(item.img), alt=item.name + ' Screenshot', width='443', height='289')
         h3.card-title.my-2
             a(href=item.url, target='_blank', rel='noopener')=item.name
-        p.
+        p.m-0.
             Platform: #{item.plat}
 
 //- vim: ft=pug sw=4 sts=4 et:
