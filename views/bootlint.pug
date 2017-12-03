@@ -1,13 +1,13 @@
-extends layout
+extends layout.pug
 
 block content
     h2.text-center.mb-4 Bootlint
 
     .card.bg-light.mt-4.p-4.text-center
-        - var name   = 'bootlintJS'.toLowerCase();
-        - var file   = config.bootlint[0].javascript;
-        - var sri    = config.bootlint[0].javascriptSri;
-        - var formId = name + '_form';
+        -var name   = 'bootlintJS'.toLowerCase();
+        -var file   = config.bootlint[0].javascript;
+        -var sri    = config.bootlint[0].javascriptSri;
+        -var formId = name + '_form';
 
         .form-group.my-4
             label.font-weight-bold(for=formId) Complete JavaScript

@@ -1,18 +1,18 @@
 .collapse(id=name)
     .card.bg-light.mb-4.px-4.text-center
         .form-group.mt-4
-            - var formId = 'html_' + name;
+            -var formId = 'html_' + name;
             label.font-weight-bold(for=formId) HTML
             input.form-control(id=formId, type='text', value='<script src="' + file + '" integrity="' + sri + '" crossorigin="anonymous"></script>')
             span.form-text.text-muted Click to copy
         .form-group
-            - var formId = 'jade_' + name;
+            -var formId = 'jade_' + name;
             label.font-weight-bold(for=formId)
                 a(href='https://pugjs.org/', target='_blank', rel='noopener') Pug
             input.form-control(id=formId, type='text', value='script(src="' + file + '", integrity="' + sri + '", crossorigin="anonymous")')
             span.form-text.text-muted Click to copy
         .form-group.mb-4
-            - var formId = 'haml_' + name;
+            -var formId = 'haml_' + name;
             label.font-weight-bold(for=formId)
                 a(href='http://haml.info/', target='_blank', rel='noopener') Haml
             input.form-control(id=formId, type='text', value='%script{src: "' + file + '", integrity: "' + sri + '", crossorigin: "anonymous"}')

@@ -1,4 +1,4 @@
-extends layout
+extends layout.pug
 
 block content
     h2.text-center.mb-4 Bootstrap 4 Beta
@@ -10,10 +10,10 @@ block content
         .card.bg-light.mt-4.p-4.text-center
             h3.mt-2=item.version
 
-            - var name   = 'betaCSS'.toLowerCase() + item.version.replace(/\./g, '_');
-            - var file   = item.stylesheet;
-            - var sri    = item.stylesheetSri;
-            - var formId = name + '_form';
+            -var name   = 'betaCSS'.toLowerCase() + item.version.replace(/\./g, '_');
+            -var file   = item.stylesheet;
+            -var sri    = item.stylesheetSri;
+            -var formId = name + '_form';
 
             .form-group.my-4
                 label.font-weight-bold(for=formId) Complete CSS
@@ -26,10 +26,10 @@ block content
 
             include _partials/csscode.pug
 
-            - var name   = 'betaJS'.toLowerCase() + item.version.replace(/\./g, '_');
-            - var file   = item.javascript;
-            - var sri    = item.javascriptSri;
-            - var formId = name + '_form';
+            -var name   = 'betaJS'.toLowerCase() + item.version.replace(/\./g, '_');
+            -var file   = item.javascript;
+            -var sri    = item.javascriptSri;
+            -var formId = name + '_form';
 
             .form-group.my-4
                 label.font-weight-bold(for=formId) Complete JavaScript

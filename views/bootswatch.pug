@@ -1,12 +1,12 @@
-extends layout
+extends layout.pug
 
 block content
     h2.text-center.mb-4 Bootswatch
 
-    - for (var i = 0, len = config.bootswatch.themes.length; i < len; i++)
-        - var name = config.bootswatch.themes[i].name.toLowerCase();
-        - var sri  = config.bootswatch.themes[i].sri;
-        - var file = config.bootswatch.bootstrap.replace('SWATCH_NAME', name).replace('SWATCH_VERSION', config.bootswatch.version);
+    -for (var i = 0, len = config.bootswatch.themes.length; i < len; i++)
+        -var name = config.bootswatch.themes[i].name.toLowerCase();
+        -var sri  = config.bootswatch.themes[i].sri;
+        -var file = config.bootswatch.bootstrap.replace('SWATCH_NAME', name).replace('SWATCH_VERSION', config.bootswatch.version);
 
         .card.bg-light.my-4.p-4.text-center
             .row

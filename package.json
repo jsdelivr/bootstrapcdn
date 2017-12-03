@@ -36,6 +36,7 @@
     "htmlencode": "^0.0.4",
     "mocha": "^4.0.1",
     "pug-lint": "^2.5.0",
+    "pug-lint-config-clock": "^2.0.0",
     "request": "^2.83.0",
     "semver": "^5.4.1"
   },
