@@ -6,7 +6,7 @@ html(lang='en', prefix='og: http://ogp.me/ns#', itemscope, itemtype='http://sche
         meta(name='author', content=config.authors.join(', '))
         meta(name='google-site-verification', content='GoWOPbhuU3D9P-yDUxKl1RLuR_vqJIdP_smWw51Wmdc')
 
-        - var pageDescription = description || config.description;
+        -var pageDescription = description || config.description;
 
         meta(name='description', content!=pageDescription)
 
@@ -46,7 +46,7 @@ html(lang='en', prefix='og: http://ogp.me/ns#', itemscope, itemtype='http://sche
         meta(itemprop='description', content!=pageDescription)
         meta(itemprop='image', content=helpers.buster('/assets/img/og.png'))
 
-        - var bootswatch = helpers.theme.fetch(config, theme);
+        -var bootswatch = helpers.theme.fetch(config, theme);
         link(rel='stylesheet', href=bootswatch.uri, integrity=bootswatch.sri,
             crossorigin='anonymous')
 
@@ -81,7 +81,7 @@ html(lang='en', prefix='og: http://ogp.me/ns#', itemscope, itemtype='http://sche
         script(src=config.javascripts.jquery.uri,
             integrity=config.javascripts.jquery.sri, crossorigin='anonymous')
 
-        - var bootstrap = config.bootstrap4.filter(function(o) { return o.latest; })[0];
+        -var bootstrap = config.bootstrap4.filter(function(o) { return o.latest; })[0];
         script(src=bootstrap.javascriptBundle, integrity=bootstrap.javascriptBundleSri,
             crossorigin='anonymous')
 

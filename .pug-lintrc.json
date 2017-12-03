@@ -1,23 +1,17 @@
 {
+    "extends": "clock",
     "excludeFiles": ["node_modules/**", "public/**"],
-    "disallowAttributeInterpolation": true,
     "disallowBlockExpansion": true,
-    "disallowClassAttributeWithStaticValue": true,
-    "disallowDuplicateAttributes": true,
     "disallowHtmlText": true,
     "disallowIdAttributeWithStaticValue": true,
+    "disallowIdLiterals": null,
     "disallowLegacyMixinCall": true,
-    "disallowMultipleLineBreaks": true,
-    "disallowSpaceAfterCodeOperator": [
-        "!=",
-        "="
-    ],
-    "disallowSpacesInsideAttributeBrackets": true,
+    "disallowSpaceAfterCodeOperator": true,
+    "disallowTagInterpolation": true,
+    "disallowTrailingSpaces": null,
     "requireClassLiterals": true,
-    "requireClassLiteralsBeforeAttributes": true,
-    "requireLineFeedAtFileEnd": true,
-    "requireLowerCaseAttributes": true,
-    "requireLowerCaseTags": true,
+    "requireClassLiteralsBeforeIdLiterals": null,
+    "requireSpaceAfterCodeOperator": null,
     "requireSpecificAttributes": [
         {
             "img": [
@@ -27,11 +21,7 @@
             ]
         }
     ],
-    "requireStrictEqualityOperators": true,
-    "validateAttributeQuoteMarks": "'",
-    "validateDivTags": true,
+    "validateAttributeSeparator": null,
     "validateIndentation": 4,
-    "validateLineBreaks": "LF",
-    "validateSelfClosingTags": true,
     "validateTemplateString": true
 }
