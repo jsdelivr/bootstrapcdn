@@ -182,6 +182,9 @@ app.use(helmet.contentSecurityPolicy({
             'syndication.twitter.com',
             'ghbtns.com'
         ],
+        connectSrc: [
+            'syndication.twitter.com'
+        ],
         manifestSrc: ['\'self\''],
         reportUri: 'https://d063bdf998559129f041de1efd2b41a5.report-uri.com/r/d/csp/enforce'
     },
