@@ -244,29 +244,23 @@ app.get('/data/bootstrapcdn.json', (req, res) => {
     res.send(data);
 });
 
-// Merge in variable options for sitemap.
-function sitemapOptions (options) {
-    if (env !== 'production') {
-        options.route = {
-            '/': {
-                disallow: true
-            }
-        };
-    }
-    return options;
-}
-
-const map = sitemap(sitemapOptions({
+const map = sitemap({
     url: 'www.bootstrapcdn.com',
     http: 'https',
     generate: app,
     cache: 60000,       // enable 1m cache
     route: {            // custom route
+        '/': {
+            disallow: env !== 'production' || false
+        },
         '/data/bootstrapcdn.json': {
             hide: true  // exclude this route from xml and txt
+        },
+        '/alpha/': {
+            hide: true
         }
     }
-}));
+});
 
 if (env === 'production') {
     app.get('/sitemap.xml', (req, res) => map.XMLtoWeb(res));

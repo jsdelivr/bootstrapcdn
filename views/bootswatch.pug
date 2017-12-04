@@ -1,33 +1,26 @@
-extends layout
+extends layout.pug
 
 block content
-    h2 Bootswatch
-    .well
-        - for (var i = 0; i < config.bootswatch.themes.length; i++) {
-            - var name = config.bootswatch.themes[i].name.toLowerCase()
-            - var sri  = config.bootswatch.themes[i].sri
-            - var file = config.bootswatch.bootstrap.replace('SWATCH_NAME', name).replace('SWATCH_VERSION', config.bootswatch.version)
+    h2.text-center.mb-4 Bootswatch
 
+    -for (var i = 0, len = config.bootswatch.themes.length; i < len; i++)
+        -var name = config.bootswatch.themes[i].name.toLowerCase();
+        -var sri  = config.bootswatch.themes[i].sri;
+        -var file = config.bootswatch.bootstrap.replace('SWATCH_NAME', name).replace('SWATCH_VERSION', config.bootswatch.version);
+
+        .card.bg-light.my-4.p-4.text-center
             .row
-                .col-md-2
-                    .tryit
-                        - if (i === helpers.theme.selected(config, theme))
-                            button.btn.btn-primary(type='button', disabled) Active!
-                        - else
-                            a.btn.btn-primary(role='button', href='?theme=' + i) Try it!
-                .col-sm-12.col-md-8
-                    .bootswatch
+                .col-sm-12.col-md-8.offset-md-2
+                    .mt-4
                         a(href=config.bootswatch.link.replace('SWATCH_NAME', name), target='_blank', rel='noopener')
-                            img.bootswatch.img-responsive(src=config.bootswatch.image.replace('SWATCH_NAME', name), alt=name + ' thumbnail', width='528', height='317')
-                        .input-group
+                            img.bootswatch.d-block.img-fluid.mx-auto(src=config.bootswatch.image.replace('SWATCH_NAME', name), alt=name + ' thumbnail', width='528', height='317')
+                        .input-group.mt-3
                             input.form-control(type='text', value=file)
-                            .input-group-btn
-                                button.btn.btn-default(type='button', data-toggle='collapse', data-target='#' + name, aria-expanded='false', aria-controls=name)
+                            span.input-group-btn
+                                button.btn.btn-secondary(type='button', data-toggle='collapse', data-target='#' + name, aria-expanded='false', aria-controls=name)
                                     span.caret
-                        span.help-block Click to copy
+                        span.form-text.text-muted.mb-4 Click to copy
 
                         include _partials/csscode.pug
-
-        - }
 
 //- vim: ft=pug sw=4 sts=4 et:

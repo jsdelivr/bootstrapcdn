@@ -1,54 +1,62 @@
-extends layout
+extends layout.pug
 
 block content
-    h2 Bootstrap 4 Beta
+    h2.text-center.mb-4 Bootstrap 4 Beta
 
-    .panel.panel-info
-        .panel-heading
-            h3.panel-title Info
-        .panel-body
-            | Bootstrap 4 is currently in Beta release and should be treated as such. For details check out 
-            a(href='https://blog.getbootstrap.com/2017/08/10/bootstrap-4-beta/', target='_blank', rel='noopener').
-                the Bootstrap 4 Beta announcement
-            | .
+    include _partials/beta-alert.pug
 
-    hr
-    
     each item in config.bootstrap4
 
-        .well
-            h3=item.version
+        .card.bg-light.mt-4.p-4.text-center
+            h3.mt-2=item.version
 
-            - var name   = 'betaCSS'.toLowerCase() + item.version.replace(/\./g, '_')
-            - var file   = item.stylesheet
-            - var sri    = item.stylesheetSri
-            - var formId = name + '_form'
+            -var name   = 'betaCSS'.toLowerCase() + item.version.replace(/\./g, '_');
+            -var file   = item.stylesheet;
+            -var sri    = item.stylesheetSri;
+            -var formId = name + '_form';
 
-            .form-group
-                label(for=formId) Complete CSS
+            .form-group.my-4
+                label.font-weight-bold(for=formId) Complete CSS
                 .input-group.input-group-lg
                     input.form-control(id=formId, type='text', value=file)
-                    .input-group-btn
-                        button.btn.btn-default.btn-lg(type='button', data-toggle='collapse', data-target='#' + name, aria-expanded='false', aria-controls=name)
+                    span.input-group-btn
+                        button.btn.btn-secondary(type='button', data-toggle='collapse', data-target='#' + name, aria-expanded='false', aria-controls=name)
                             span.caret
-                span.help-block Click to copy
+                span.form-text.text-muted Click to copy
 
             include _partials/csscode.pug
 
-            - var name   = 'betaJS'.toLowerCase() + item.version.replace(/\./g, '_')
-            - var file   = item.javascript
-            - var sri    = item.javascriptSri
-            - var formId = name + '_form'
+            -var name   = 'betaJS'.toLowerCase() + item.version.replace(/\./g, '_');
+            -var file   = item.javascript;
+            -var sri    = item.javascriptSri;
+            -var formId = name + '_form';
 
-            .form-group
-                label(for=formId) Complete JavaScript
+            .form-group.my-4
+                label.font-weight-bold(for=formId) Complete JavaScript
                 .input-group.input-group-lg
                     input.form-control(id=formId, type='text', value=file)
-                    .input-group-btn
-                        button.btn.btn-default.btn-lg(type='button', data-toggle='collapse', data-target='#' + name, aria-expanded='false', aria-controls=name)
+                    span.input-group-btn
+                        button.btn.btn-secondary(type='button', data-toggle='collapse', data-target='#' + name, aria-expanded='false', aria-controls=name)
                             span.caret
-                span.help-block Click to copy
+                span.form-text.text-muted Click to copy
 
             include _partials/jscode.pug
+
+            -var name   = 'betaJSBundle'.toLowerCase() + item.version.replace(/\./g, '_');
+            -var file   = item.javascriptBundle;
+            -var sri    = item.javascriptBundleSri;
+            -var formId = name + '_form';
+
+            if (typeof item.javascriptBundle !== 'undefined')
+                .form-group.my-4
+                    label.font-weight-bold(for=formId) Complete JavaScript Bundle
+                    .input-group.input-group-lg
+                        input.form-control(id=formId, type='text', value=file)
+                        span.input-group-btn
+                            button.btn.btn-secondary(type='button', data-toggle='collapse', data-target='#' + name, aria-expanded='false', aria-controls=name)
+                                span.caret
+                    span.form-text.text-muted Click to copy
+
+                include _partials/jscode.pug
 
 //- vim: ft=pug sw=4 sts=4 et:

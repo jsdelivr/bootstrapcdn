@@ -28,7 +28,7 @@ describe('integrations', () => {
     });
 
     it('has header', (done) => {
-        helpers.assert.contains('<h2>Integrations</h2>', response.body);
+        helpers.assert.contains('<h2 class="text-center mb-4">Integrations</h2>', response.body);
         done();
     });
 

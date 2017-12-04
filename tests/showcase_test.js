@@ -28,7 +28,7 @@ describe('showcase', () => {
     });
 
     it('has header', (done) => {
-        helpers.assert.contains('<h2>Showcase</h2>', response.body);
+        helpers.assert.contains('<h2 class="text-center mb-4">Showcase</h2>', response.body);
         done();
     });
 

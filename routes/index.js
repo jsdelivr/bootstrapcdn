@@ -44,27 +44,41 @@ function appendLocals(req, res) {
 
 function index(req, res) {
     res = appendLocals(req, res);
-    res.render('index', { title: 'Quick Start' });
+    res.render('index', {
+        title: 'Quick Start'
+    });
 }
 
 function fontawesome(req, res) {
     res = appendLocals(req, res);
-    res.render('fontawesome', { title: 'Font Awesome' });
+    res.render('fontawesome', {
+        title: 'Font Awesome',
+        description: 'The recommended CDN for Font Awesome'
+    });
 }
 
 function bootswatch(req, res) {
     res = appendLocals(req, res);
-    res.render('bootswatch', { title: 'Bootswatch' });
+    res.render('bootswatch', {
+        title: 'Bootswatch',
+        description: 'The recommended CDN for Bootswatch'
+    });
 }
 
 function bootswatch4(req, res) {
     res = appendLocals(req, res);
-    res.render('bootswatch4', { title: 'Bootswatch 4 Beta' });
+    res.render('bootswatch4', {
+        title: 'Bootswatch 4 Beta',
+        description: 'The recommended CDN for Bootswatch 4 Beta'
+    });
 }
 
 function bootlint(req, res) {
     res = appendLocals(req, res);
-    res.render('bootlint', { title: 'Bootlint' });
+    res.render('bootlint', {
+        title: 'Bootlint',
+        description: 'HTML linter for Bootstrap projects hosted on a CDN.'
+    });
 }
 
 function alpha(req, res) {
@@ -74,12 +88,18 @@ function alpha(req, res) {
 
 function beta(req, res) {
     res = appendLocals(req, res);
-    res.render('beta', { title: 'Bootstrap 4 Beta' });
+    res.render('beta', {
+        title: 'Bootstrap 4 Beta',
+        description: 'The recommended CDN for Bootstrap 4 Beta'
+    });
 }
 
 function legacy(req, res) {
     res = appendLocals(req, res);
-    res.render('legacy', { title: 'Bootstrap Legacy' });
+    res.render('legacy', {
+        title: 'Bootstrap Legacy',
+        description: 'Older versions of Bootstrap hosted on a CDN'
+    });
 }
 
 function showcase(req, res) {
@@ -100,6 +120,7 @@ function showcase(req, res) {
 
     res.render('showcase', {
         title: 'Showcase',
+        description: 'Websites and apps that use BootstrapCDN',
         col1,
         col2
     });
@@ -123,6 +144,7 @@ function integrations(req, res) {
 
     res.render('integrations', {
         title: 'Integrations',
+        description: 'Apps that integrate BootstrapCDN',
         col1,
         col2
     });

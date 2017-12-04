@@ -43,7 +43,7 @@ describe('fontawesome', () => {
     });
 
     it('has header', (done) => {
-        helpers.assert.contains('<h2>Font Awesome</h2>', response.body);
+        helpers.assert.contains('<h2 class="text-center mb-4">Font Awesome</h2>', response.body);
         done();
     });
 

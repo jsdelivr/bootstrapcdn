@@ -2,17 +2,15 @@ doctype
 html(lang='en', prefix='og: http://ogp.me/ns#', itemscope, itemtype='http://schema.org/WebPage')
     head
         meta(charset='utf-8')
-        meta('http-equiv'='X-UA-Compatible', content='IE=edge')
-        meta(name='viewport', content='width=device-width, initial-scale=1')
+        meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
         meta(name='author', content=config.authors.join(', '))
         meta(name='google-site-verification', content='GoWOPbhuU3D9P-yDUxKl1RLuR_vqJIdP_smWw51Wmdc')
 
-        - var description = description || config.description;
-        - var pageTitle = displayTitle(title);
+        -var pageDescription = description || config.description;
 
-        meta(name='description', content=description)
+        meta(name='description', content!=pageDescription)
 
-        title!=pageTitle
+        title!=displayTitle(title)
 
         link(rel='canonical', href=fullUrl)
 
@@ -29,9 +27,9 @@ html(lang='en', prefix='og: http://ogp.me/ns#', itemscope, itemtype='http://sche
         meta(name='msapplication-config', content='/assets/img/favicons/browserconfig.xml')
         meta(name='theme-color', content='#222222')
 
-        meta(property='og:title', content!=pageTitle)
+        meta(property='og:title', content!=title)
         meta(property='og:type', content='website')
-        meta(property='og:description', content=description)
+        meta(property='og:description', content!=pageDescription)
         meta(property='og:url', content=siteUrl)
         meta(property='og:image', content=helpers.buster(siteUrl.replace(/^https:/, 'http:') + '/assets/img/og.png'))
         meta(property='og:image:secure_url', content=helpers.buster(siteUrl + '/assets/img/og.png'))
@@ -42,17 +40,17 @@ html(lang='en', prefix='og: http://ogp.me/ns#', itemscope, itemtype='http://sche
         meta(name='twitter:card', content='summary_large_image')
         meta(name='twitter:creator', content='@getbootstrapcdn')
         meta(name='twitter:site', content='@getbootstrapcdn')
-        meta(name='twitter:title', content!=pageTitle)
+        meta(name='twitter:title', content!=title)
 
-        meta(itemprop='name', content='BootstrapCDN')
-        meta(itemprop='description', content=description)
+        meta(itemprop='name', content!=title)
+        meta(itemprop='description', content!=pageDescription)
         meta(itemprop='image', content=helpers.buster('/assets/img/og.png'))
 
-        - bootswatch = helpers.theme.fetch(config, theme);
+        -var bootswatch = helpers.theme.fetch(config, theme);
         link(rel='stylesheet', href=bootswatch.uri, integrity=bootswatch.sri,
             crossorigin='anonymous')
 
-        if process.env.NODE_ENV === 'production'
+        if (process.env.NODE_ENV === 'production')
             style
                 include:clean-css /assets/css/style.css
         else
@@ -77,20 +75,20 @@ html(lang='en', prefix='og: http://ogp.me/ns#', itemscope, itemtype='http://sche
                     .row
                         .col-sm-12
                             include _partials/carbonads.pug
-                        .col-sm-12.visible-md.visible-lg
+                        .col-sm-12.d-none.d-lg-block
                             a.twitter-timeline(href='https://twitter.com/getBootstrapCDN/timelines/770731482377621505', data-height='525', data-partner='tweetdeck') Mad Love - Curated tweets by getBootstrapCDN
 
         script(src=config.javascripts.jquery.uri,
             integrity=config.javascripts.jquery.sri, crossorigin='anonymous')
 
-        - bootstrap = config.bootstrap.filter(function(o) { return o.latest; })[0];
-        script(src=bootstrap.javascript, integrity=bootstrap.javascriptSri,
+        -var bootstrap = config.bootstrap4.filter(function(o) { return o.latest; })[0];
+        script(src=bootstrap.javascriptBundle, integrity=bootstrap.javascriptBundleSri,
             crossorigin='anonymous')
 
         script(nonce=nonce)
             include /assets/js/clipboard.min.js
 
-            if process.env.NODE_ENV === 'production'
+            if (process.env.NODE_ENV === 'production')
                 include:uglify-js /assets/js/main.js
             else
                 include /assets/js/main.js

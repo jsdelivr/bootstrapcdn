@@ -1,81 +1,94 @@
-extends layout
+extends layout.pug
 
 block content
     h2.text-center=title
-    h3.text-center='v' + config.bootstrap[0].version
-    .well
-        - var name   = 'quickstartCSS'.toLowerCase() + config.bootstrap[0].version.replace(/\./g, '_')
-        - var file   = config.bootstrap[0].stylesheet
-        - var sri    = config.bootstrap[0].stylesheetSri
-        - var formId = name + '_form'
+    h3.text-center=`v${config.bootstrap[0].version}`
 
-        .form-group
-            label(for=formId) Complete CSS
+    .card.bg-light.mt-4.p-4.text-center
+        -var name   = 'quickstartCSS'.toLowerCase() + config.bootstrap[0].version.replace(/\./g, '_');
+        -var file   = config.bootstrap[0].stylesheet;
+        -var sri    = config.bootstrap[0].stylesheetSri;
+        -var formId = name + '_form';
+
+        .form-group.my-4
+            label.font-weight-bold(for=formId) Complete CSS
             .input-group.input-group-lg
                 input.form-control(id=formId, type='text', value=file)
-                .input-group-btn
-                    button.btn.btn-default.btn-lg(type='button', data-toggle='collapse', data-target='#' + name, aria-expanded='false', aria-controls=name)
+                span.input-group-btn
+                    button.btn.btn-secondary(type='button', data-toggle='collapse', data-target='#' + name, aria-expanded='false', aria-controls=name)
                         span.caret
-            span.help-block Click to copy
+            span.form-text.text-muted Click to copy
 
         include _partials/csscode.pug
 
-        - var name   = 'quickstartJS'.toLowerCase() + config.bootstrap[0].version.replace(/\./g, '_')
-        - var file   = config.bootstrap[0].javascript
-        - var sri    = config.bootstrap[0].javascriptSri
-        - var formId = name + '_form'
+        -var name   = 'quickstartJS'.toLowerCase() + config.bootstrap[0].version.replace(/\./g, '_');
+        -var file   = config.bootstrap[0].javascript;
+        -var sri    = config.bootstrap[0].javascriptSri;
+        -var formId = name + '_form';
 
-        .form-group
-            label(for=formId) Complete JavaScript
+        .form-group.my-4
+            label.font-weight-bold(for=formId) Complete JavaScript
             .input-group.input-group-lg
                 input.form-control(id=formId, type='text', value=file)
-                .input-group-btn
-                    button.btn.btn-default.btn-lg(type='button', data-toggle='collapse', data-target='#' + name, aria-expanded='false', aria-controls=name)
+                span.input-group-btn
+                    button.btn.btn-secondary(type='button', data-toggle='collapse', data-target='#' + name, aria-expanded='false', aria-controls=name)
                         span.caret
-            span.help-block Click to copy
+            span.form-text.text-muted Click to copy
 
         include _partials/jscode.pug
-    hr
-    .panel.panel-info
-        .panel-heading
-            h3.panel-title Info
-        .panel-body
-            | Bootstrap 4 is currently in Beta release and should be treated as such. For details check out 
-            a(href='https://blog.getbootstrap.com/2017/08/10/bootstrap-4-beta/', target='_blank', rel='noopener').
-                the Bootstrap 4 Beta announcement
-            | .
 
-    h3.text-center='v' + config.bootstrap4[0].version
-    .well
-        - var name   = 'quickstartCSS'.toLowerCase() + config.bootstrap4[0].version.replace(/\./g, '_')
-        - var file   = config.bootstrap4[0].stylesheet
-        - var sri    = config.bootstrap4[0].stylesheetSri
-        - var formId = name + '_form'
+    hr.my-4
 
-        .form-group
-            label(for=formId) Complete CSS
+    include _partials/beta-alert.pug
+
+    h3.text-center.mt-4=`v${config.bootstrap4[0].version}`
+
+    .card.bg-light.mt-4.p-4.text-center
+        -var name   = 'quickstartCSS'.toLowerCase() + config.bootstrap4[0].version.replace(/\./g, '_');
+        -var file   = config.bootstrap4[0].stylesheet;
+        -var sri    = config.bootstrap4[0].stylesheetSri;
+        -var formId = name + '_form';
+
+        .form-group.my-4
+            label.font-weight-bold(for=formId) Complete CSS
             .input-group.input-group-lg
                 input.form-control(id=formId, type='text', value=file)
-                .input-group-btn
-                    button.btn.btn-default.btn-lg(type='button', data-toggle='collapse', data-target='#' + name, aria-expanded='false', aria-controls=name)
+                span.input-group-btn
+                    button.btn.btn-secondary(type='button', data-toggle='collapse', data-target='#' + name, aria-expanded='false', aria-controls=name)
                         span.caret
-            span.help-block Click to copy
+            span.form-text.text-muted Click to copy
 
         include _partials/csscode.pug
 
-        - var name   = 'quickstartJS'.toLowerCase() + config.bootstrap4[0].version.replace(/\./g, '_')
-        - var file   = config.bootstrap4[0].javascript
-        - var sri    = config.bootstrap4[0].javascriptSri
-        - var formId = name + '_form'
+        -var name   = 'quickstartJS'.toLowerCase() + config.bootstrap4[0].version.replace(/\./g, '_');
+        -var file   = config.bootstrap4[0].javascript;
+        -var sri    = config.bootstrap4[0].javascriptSri;
+        -var formId = name + '_form';
 
-        .form-group
-            label(for=formId) Complete JavaScript
+        .form-group.my-4
+            label.font-weight-bold(for=formId) Complete JavaScript
             .input-group.input-group-lg
                 input.form-control(id=formId, type='text', value=file)
-                .input-group-btn
-                    button.btn.btn-default.btn-lg(type='button', data-toggle='collapse', data-target='#' + name, aria-expanded='false', aria-controls=name)
+                span.input-group-btn
+                    button.btn.btn-secondary(type='button', data-toggle='collapse', data-target='#' + name, aria-expanded='false', aria-controls=name)
                         span.caret
-            span.help-block Click to copy
+            span.form-text.text-muted Click to copy
+
+        include _partials/jscode.pug
+
+        -var name   = 'quickstartJSBundle'.toLowerCase() + config.bootstrap4[0].version.replace(/\./g, '_');
+        -var file   = config.bootstrap4[0].javascriptBundle;
+        -var sri    = config.bootstrap4[0].javascriptBundleSri;
+        -var formId = name + '_form';
+
+        .form-group.my-4
+            label.font-weight-bold(for=formId) Complete JavaScript Bundle
+            .input-group.input-group-lg
+                input.form-control(id=formId, type='text', value=file)
+                span.input-group-btn
+                    button.btn.btn-secondary(type='button', data-toggle='collapse', data-target='#' + name, aria-expanded='false', aria-controls=name)
+                        span.caret
+            span.form-text.text-muted Click to copy
 
         include _partials/jscode.pug
 

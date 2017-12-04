@@ -1,18 +1,21 @@
-extends layout
+extends layout.pug
 
 block content
-    h2 Integrations
+    h2.text-center.mb-4 Integrations
+
     .row
-        .col-md-6.text-center
+        .col-md-6
             each item in col1
                 include _partials/integrations.pug
-
-        .col-md-6.text-center
+        .col-md-6
             each item in col2
                 include _partials/integrations.pug
+
     .row
-        .col-md-12.text-center
-            p
-                a.btn.btn-success(href='mailto:jdorfman@maxcdn.com?subject=' + encodeURIComponent('BootstrapCDN Integration Submission')) Submit Yours
+        .col-md-12
+            .alert.alert-primary.my-3.text-center(role='alert')
+                p.m-0
+                    | You want to submit yours? Open a Pull Request or an Issue on our 
+                    a.alert-link(href='https://github.com/MaxCDN/bootstrap-cdn') GitHub repository.
 
 //- vim: ft=pug sw=4 sts=4 et:
