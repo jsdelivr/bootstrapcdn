@@ -34,6 +34,11 @@ describe('bootstrap4', () => {
             assert(typeof latest.javascriptSri !== 'undefined');
             done();
         });
+
+        it('has javascript bundle integrity', (done) => {
+            assert(typeof latest.javascriptBundleSri !== 'undefined');
+            done();
+        });
     });
 
     it('works', (done) => {
@@ -77,6 +82,11 @@ describe('bootstrap4', () => {
     describe('javascript', () => {
         it('has javascript uri', (done) => {
             helpers.assert.contains(latest.javascript, response.body);
+            done();
+        });
+
+        it('has javascript bundle uri', (done) => {
+            helpers.assert.contains(latest.javascriptBundle, response.body);
             done();
         });
 
