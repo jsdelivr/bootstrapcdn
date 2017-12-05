@@ -86,7 +86,7 @@ function assertResponse(response, code = 200) {
 }
 
 function assertContains(needle, haystack) {
-    assert(haystack.indexOf(needle) > 0);
+    assert(haystack.includes(needle));
 }
 
 function assertValidHTML(response, done) {
