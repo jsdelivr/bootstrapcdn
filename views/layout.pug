@@ -50,11 +50,10 @@ html(lang='en', prefix='og: http://ogp.me/ns#', itemscope, itemtype='http://sche
         link(rel='stylesheet', href=bootswatch.uri, integrity=bootswatch.sri,
             crossorigin='anonymous')
 
-        if (process.env.NODE_ENV === 'production')
-            style
+        style
+            if (process.env.NODE_ENV === 'production')
                 include:clean-css /assets/css/style.css
-        else
-            style
+            else
                 include /assets/css/style.css
 
         block head

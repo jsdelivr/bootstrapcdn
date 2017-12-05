@@ -12,24 +12,18 @@
     line-height: 1.2;
 }
 
-.social {
-    height: 25px;
-    text-align: center;
-}
-
-.social .list-inline-item {
-    vertical-align: middle;
-}
-
 iframe {
     border: 0;
     overflow: hidden;
 }
 
 #ghbtns-badge {
-    display: inline-block;
     width: 110px;
     height: 20px;
+}
+
+footer {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .caret::after {
@@ -50,24 +44,6 @@ iframe {
 .caret-open::after {
     -webkit-transform: rotate(-180deg);
     transform: rotate(-180deg);
-}
-
-footer {
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
-    padding-top: 1.5rem;
-    text-align: center;
-}
-
-footer p {
-    line-height: 26px;
-}
-
-
-@media (min-width: 768px) {
-    li .twitter-follow-button,
-    li .twitter-share-button {
-        margin: 0 18px;
-    }
 }
 
 
