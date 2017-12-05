@@ -39,12 +39,11 @@ describe('bootswatch4', () => {
     });
 
     config.bootswatch4.themes.forEach((theme) => {
-        const name  = theme.name;
         const image = format(config.bootswatch4.image, theme.name);
         const uri   = format(config.bootswatch4.bootstrap, theme.name);
         const sri   = theme.sri;
 
-        describe(name, () => {
+        describe(theme.name, () => {
             describe('config', () => {
                 it('has integrity', (done) => {
                     assert(typeof sri !== 'undefined');

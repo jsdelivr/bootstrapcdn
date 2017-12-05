@@ -15,7 +15,7 @@ before((done) => {
     });
 });
 
-describe('legacy', () => {
+describe('legacy/bootstrap', () => {
     it('works', (done) => {
         helpers.assert.response(response);
         done();
@@ -33,7 +33,7 @@ describe('legacy', () => {
         done();
     });
 
-    config.bootstrap.forEach((bootstrap) => {
+    config.bootstrap3.forEach((bootstrap) => {
         if (bootstrap.latest === true) {
             return;
         }

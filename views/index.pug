@@ -8,9 +8,10 @@ block content
     h3.text-center.mt-4=`v${config.bootstrap4[0].version}`
 
     .card.bg-light.mt-4.p-4.text-center
-        -var name   = 'quickstartCSS'.toLowerCase() + config.bootstrap4[0].version.replace(/\./g, '_');
-        -var file   = config.bootstrap4[0].stylesheet;
-        -var sri    = config.bootstrap4[0].stylesheetSri;
+        -var latest = config.bootstrap4[0];
+        -var name   = 'quickstartCSS'.toLowerCase() + latest.version.replace(/\./g, '_');
+        -var file   = latest.stylesheet;
+        -var sri    = latest.stylesheetSri;
         -var formId = name + '_form';
 
         .form-group.my-4
@@ -24,9 +25,9 @@ block content
 
         include _partials/csscode.pug
 
-        -var name   = 'quickstartJS'.toLowerCase() + config.bootstrap4[0].version.replace(/\./g, '_');
-        -var file   = config.bootstrap4[0].javascript;
-        -var sri    = config.bootstrap4[0].javascriptSri;
+        -var name   = 'quickstartJS'.toLowerCase() + latest.version.replace(/\./g, '_');
+        -var file   = latest.javascript;
+        -var sri    = latest.javascriptSri;
         -var formId = name + '_form';
 
         .form-group.my-4
@@ -40,9 +41,9 @@ block content
 
         include _partials/jscode.pug
 
-        -var name   = 'quickstartJSBundle'.toLowerCase() + config.bootstrap4[0].version.replace(/\./g, '_');
-        -var file   = config.bootstrap4[0].javascriptBundle;
-        -var sri    = config.bootstrap4[0].javascriptBundleSri;
+        -var name   = 'quickstartJSBundle'.toLowerCase() + latest.version.replace(/\./g, '_');
+        -var file   = latest.javascriptBundle;
+        -var sri    = latest.javascriptBundleSri;
         -var formId = name + '_form';
 
         .form-group.my-4
@@ -58,12 +59,13 @@ block content
 
     hr.my-4
 
-    h3.text-center=`v${config.bootstrap[0].version}`
+    -var latest = config.bootstrap3[0];
+    h3.text-center=`v${latest.version}`
 
     .card.bg-light.mt-4.p-4.text-center
-        -var name   = 'quickstartCSS'.toLowerCase() + config.bootstrap[0].version.replace(/\./g, '_');
-        -var file   = config.bootstrap[0].stylesheet;
-        -var sri    = config.bootstrap[0].stylesheetSri;
+        -var name   = 'quickstartCSS'.toLowerCase() + latest.version.replace(/\./g, '_');
+        -var file   = latest.stylesheet;
+        -var sri    = latest.stylesheetSri;
         -var formId = name + '_form';
 
         .form-group.my-4
@@ -77,9 +79,9 @@ block content
 
         include _partials/csscode.pug
 
-        -var name   = 'quickstartJS'.toLowerCase() + config.bootstrap[0].version.replace(/\./g, '_');
-        -var file   = config.bootstrap[0].javascript;
-        -var sri    = config.bootstrap[0].javascriptSri;
+        -var name   = 'quickstartJS'.toLowerCase() + latest.version.replace(/\./g, '_');
+        -var file   = latest.javascript;
+        -var sri    = latest.javascriptSri;
         -var formId = name + '_form';
 
         .form-group.my-4

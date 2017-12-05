@@ -15,7 +15,7 @@ before((done) => {
     });
 });
 
-describe('bootstrap4', () => {
+describe('bootstrap4 block', () => {
     const latest = config.bootstrap4[0];
 
     describe('config', () => {
@@ -51,11 +51,6 @@ describe('bootstrap4', () => {
         });
         done();
     });
-
-    //it('has header', (done) => {
-    //    helpers.assert.contains('<h2 class="text-center mb-4">Bootstrap 4 Beta</h2>', response.body);
-    //    done();
-    //});
 
     it('has notice', (done) => {
         helpers.assert.contains('Bootstrap 4 is currently in Beta release and should be treated as such.', response.body);
@@ -100,8 +95,8 @@ describe('bootstrap4', () => {
     });
 });
 
-describe('index', () => {
-    const latest = config.bootstrap[0];
+describe('bootstrap3 block', () => {
+    const latest = config.bootstrap3[0];
 
     describe('config', () => {
         it('is latest', (done) => {

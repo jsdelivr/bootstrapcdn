@@ -10,7 +10,7 @@ let response = {};
 
 function format(str, name) {
     return str.replace('SWATCH_NAME', name)
-                .replace('SWATCH_VERSION', config.bootswatch.version);
+                .replace('SWATCH_VERSION', config.bootswatch3.version);
 }
 
 before((done) => {
@@ -20,14 +20,14 @@ before((done) => {
     });
 });
 
-describe('bootswatch', () => {
+describe('bootswatch3', () => {
     it('works', (done) => {
         helpers.assert.response(response);
         done();
     });
 
     it('has header', (done) => {
-        helpers.assert.contains('<h2 class="text-center mb-4">Bootswatch</h2>', response.body);
+        helpers.assert.contains('<h2 class="text-center mb-4">Bootswatch 3</h2>', response.body);
         done();
     });
 
@@ -38,13 +38,12 @@ describe('bootswatch', () => {
         done();
     });
 
-    config.bootswatch.themes.forEach((theme) => {
-        const name  = theme.name;
-        const image = format(config.bootswatch.image, theme.name);
-        const uri   = format(config.bootswatch.bootstrap, theme.name);
+    config.bootswatch3.themes.forEach((theme) => {
+        const image = format(config.bootswatch3.image, theme.name);
+        const uri   = format(config.bootswatch3.bootstrap, theme.name);
         const sri   = theme.sri;
 
-        describe(name, () => {
+        describe(theme.name, () => {
             describe('config', () => {
                 it('has integrity', (done) => {
                     assert(typeof sri !== 'undefined');
