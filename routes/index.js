@@ -78,17 +78,9 @@ function bootlint(req, res) {
     });
 }
 
-function alpha(req, res) {
+function redirectToRoot(req, res) {
     res = appendLocals(req, res);
-    res.redirect(301, '/beta/');
-}
-
-function beta(req, res) {
-    res = appendLocals(req, res);
-    res.render('beta', {
-        title: 'Bootstrap 4 Beta',
-        description: 'The recommended CDN for Bootstrap 4 Beta'
-    });
+    res.redirect(301, '/');
 }
 
 function legacy(req, res) {
@@ -166,8 +158,7 @@ module.exports = {
     bootswatch,
     bootswatch4,
     bootlint,
-    alpha,
-    beta,
+    redirectToRoot,
     legacy,
     legacyBootstrap,
     legacyBootswatch,

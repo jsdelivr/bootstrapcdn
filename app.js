@@ -215,8 +215,8 @@ app.get('/fontawesome/', routes.fontawesome);
 app.get('/bootswatch/', routes.bootswatch);
 app.get('/bootswatch4/', routes.bootswatch4);
 app.get('/bootlint/', routes.bootlint);
-app.get('/alpha/', routes.alpha);
-app.get('/beta/', routes.beta);
+app.get('/alpha/', routes.redirectToRoot);
+app.get('/beta/', routes.redirectToRoot);
 app.get('/legacy/', routes.legacy);
 app.get('/legacy/bootstrap/', routes.legacyBootstrap);
 app.get('/legacy/bootswatch/', routes.legacyBootswatch);
@@ -262,6 +262,9 @@ const map = sitemap({
             hide: true  // exclude this route from xml and txt
         },
         '/alpha/': {
+            hide: true
+        },
+        '/beta/': {
             hide: true
         },
         '/bootswatch4/': {
