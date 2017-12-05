@@ -89,8 +89,8 @@ function assertHeader(uri, header) {
 }
 
 describe('functional', () => {
-    describe('bootstrap', () => {
-        config.bootstrap.forEach((self) => {
+    describe('bootstrap3', () => {
+        config.bootstrap3.forEach((self) => {
             describe(helpers.domainCheck(self.javascript), () => {
                 const uri = helpers.domainCheck(self.javascript);
 
@@ -117,10 +117,10 @@ describe('functional', () => {
         });
     });
 
-    describe('bootswatch', () => {
-        config.bootswatch.themes.forEach((theme) => {
-            const uri = helpers.domainCheck(config.bootswatch.bootstrap
-                .replace('SWATCH_VERSION', config.bootswatch.version)
+    describe('bootswatch3', () => {
+        config.bootswatch3.themes.forEach((theme) => {
+            const uri = helpers.domainCheck(config.bootswatch3.bootstrap
+                .replace('SWATCH_VERSION', config.bootswatch3.version)
                 .replace('SWATCH_NAME', theme.name));
 
             describe(uri, () => {
