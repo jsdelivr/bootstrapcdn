@@ -38,18 +38,18 @@ describe('bootlint', () => {
 
     it('contains authors', (done) => {
         config.authors.forEach((author) => {
-            helpers.assert.contains(author, response.body);
+            response.body.includes(author);
         });
         done();
     });
 
     it('has header', (done) => {
-        helpers.assert.contains('<h2 class="text-center mb-4">Bootlint</h2>', response.body);
+        response.body.includes('<h2 class="text-center mb-4">Bootlint</h2>');
         done();
     });
 
     it('has javascript', (done) => {
-        helpers.assert.contains(latest.javascript, response.body);
+        response.body.includes(latest.javascript);
         done();
     });
 
@@ -57,7 +57,7 @@ describe('bootlint', () => {
         it(`has ${fmt}`, (done) => {
             const str = helpers.javascript[fmt](latest.javascript, latest.javascriptSri);
 
-            helpers.assert.contains(str, response.body);
+            response.body.includes(str);
             done();
         });
     });
