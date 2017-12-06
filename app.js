@@ -224,7 +224,8 @@ app.get('/showcase/', routes.showcase);
 app.get('/integrations/', routes.integrations);
 app.get('/', routes.index);
 
-let data = {}; // only regenerated on restart
+// eslint-disable-next-line init-declarations
+let data; // only regenerated on restart
 
 app.get('/data/bootstrapcdn.json', (req, res) => {
     if (typeof data === 'undefined') {
@@ -234,15 +235,15 @@ app.get('/data/bootstrapcdn.json', (req, res) => {
             fontawesome: {}
         };
 
-        config.bootstrap.forEach((bootstrap) => {
+        config.bootstrap3.forEach((bootstrap) => {
             data.bootstrap[bootstrap.version] = {
-                css: bootstrap.css_complete,
+                css: bootstrap.stylesheet,
                 js: bootstrap.javascript
             };
         });
 
         config.fontawesome.forEach((fontawesome) => {
-            data.fontawesome[fontawesome.version] = fontawesome.css_complete;
+            data.fontawesome[fontawesome.version] = fontawesome.stylesheet;
         });
     }
 
