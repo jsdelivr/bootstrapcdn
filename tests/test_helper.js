@@ -85,6 +85,10 @@ function assertResponse(response, code = 200) {
     assert.equal(code, response.statusCode);
 }
 
+function assertContains(needle, haystack) {
+    assert(haystack.includes(needle));
+}
+
 function assertValidHTML(response, done) {
     const options = {
         data: response.body,
@@ -175,6 +179,7 @@ module.exports = {
     app,
     assert: {
         response:    assertResponse,
+        contains:    assertContains,
         contentType: assertContentType,
         validHTML:   assertValidHTML
     },

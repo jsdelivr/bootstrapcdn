@@ -27,13 +27,13 @@ describe('bootswatch3', () => {
     });
 
     it('has header', (done) => {
-        response.body.includes('<h2 class="text-center mb-4">Bootswatch 3</h2>');
+        helpers.assert.contains('<h2 class="text-center mb-4">Bootswatch 3</h2>', response.body);
         done();
     });
 
     it('contains authors', (done) => {
         config.authors.forEach((author) => {
-            response.body.includes(author);
+            helpers.assert.contains(author, response.body);
         });
         done();
     });
@@ -52,7 +52,7 @@ describe('bootswatch3', () => {
             });
 
             it('has image', (done) => {
-                response.body.includes(image);
+                helpers.assert.contains(image, response.body);
                 done();
             });
 
@@ -60,7 +60,7 @@ describe('bootswatch3', () => {
                 it(`has ${fmt}`, (done) => {
                     const str = helpers.css[fmt](uri, sri);
 
-                    response.body.includes(str);
+                    helpers.assert.contains(str, response.body);
                     done();
                 });
             });

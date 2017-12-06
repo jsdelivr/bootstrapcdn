@@ -22,32 +22,32 @@ describe('showcase', () => {
 
     it('contains authors', (done) => {
         config.authors.forEach((author) => {
-            response.body.includes(author);
+            helpers.assert.contains(author, response.body);
         });
         done();
     });
 
     it('has header', (done) => {
-        response.body.includes('<h2 class="text-center mb-4">Showcase</h2>');
+        helpers.assert.contains('<h2 class="text-center mb-4">Showcase</h2>', response.body);
         done();
     });
 
     config.showcase.forEach((showcase) => {
         describe(showcase.name, () => {
             it('has name', (done) => {
-                response.body.includes(showcase.name);
+                helpers.assert.contains(showcase.name, response.body);
                 done();
             });
             it('has image', (done) => {
-                response.body.includes(showcase.img);
+                helpers.assert.contains(showcase.img, response.body);
                 done();
             });
             it('has lib', (done) => {
-                response.body.includes(showcase.lib);
+                helpers.assert.contains(showcase.lib, response.body);
                 done();
             });
             it('has url', (done) => {
-                response.body.includes(showcase.url);
+                helpers.assert.contains(showcase.url, response.body);
                 done();
             });
         });
