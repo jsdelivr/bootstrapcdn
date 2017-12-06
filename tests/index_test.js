@@ -47,19 +47,19 @@ describe('bootstrap4 block', () => {
 
     it('contains authors', (done) => {
         config.authors.forEach((author) => {
-            response.body.includes(author);
+            helpers.assert.contains(author, response.body);
         });
         done();
     });
 
     it('has notice', (done) => {
-        response.body.includes('Bootstrap 4 is currently in Beta release and should be treated as such.');
+        helpers.assert.contains('Bootstrap 4 is currently in Beta release and should be treated as such.', response.body);
         done();
     });
 
     describe('stylesheet', () => {
         it('has uri', (done) => {
-            response.body.includes(latest.stylesheet);
+            helpers.assert.contains(latest.stylesheet, response.body);
             done();
         });
 
@@ -67,7 +67,7 @@ describe('bootstrap4 block', () => {
             it(`has ${fmt}`, (done) => {
                 const str = helpers.css[fmt](latest.stylesheet, latest.stylesheetSri);
 
-                response.body.includes(str);
+                helpers.assert.contains(str, response.body);
                 done();
             });
         });
@@ -75,12 +75,12 @@ describe('bootstrap4 block', () => {
 
     describe('javascript', () => {
         it('has javascript uri', (done) => {
-            response.body.includes(latest.javascript);
+            helpers.assert.contains(latest.javascript, response.body);
             done();
         });
 
         it('has javascript bundle uri', (done) => {
-            response.body.includes(latest.javascriptBundle);
+            helpers.assert.contains(latest.javascriptBundle, response.body);
             done();
         });
 
@@ -88,7 +88,7 @@ describe('bootstrap4 block', () => {
             it(`has ${fmt}`, (done) => {
                 const str = helpers.javascript[fmt](latest.javascript, latest.javascriptSri);
 
-                response.body.includes(str);
+                helpers.assert.contains(str, response.body);
                 done();
             });
         });
@@ -126,19 +126,19 @@ describe('bootstrap3 block', () => {
 
     it('contains authors', (done) => {
         config.authors.forEach((author) => {
-            response.body.includes(author);
+            helpers.assert.contains(author, response.body);
         });
         done();
     });
 
     it('has header', (done) => {
-        response.body.includes('<h2 class="text-center">Quick Start</h2>');
+        helpers.assert.contains('<h2 class="text-center">Quick Start</h2>', response.body);
         done();
     });
 
     describe('stylesheet', () => {
         it('has uri', (done) => {
-            response.body.includes(latest.stylesheet);
+            helpers.assert.contains(latest.stylesheet, response.body);
             done();
         });
 
@@ -146,7 +146,7 @@ describe('bootstrap3 block', () => {
             it(`has ${fmt}`, (done) => {
                 const str = helpers.css[fmt](latest.stylesheet, latest.stylesheetSri);
 
-                response.body.includes(str);
+                helpers.assert.contains(str, response.body);
                 done();
             });
         });
@@ -154,7 +154,7 @@ describe('bootstrap3 block', () => {
 
     describe('javascript', () => {
         it('has javascript uri', (done) => {
-            response.body.includes(latest.javascript);
+            helpers.assert.contains(latest.javascript, response.body);
             done();
         });
 
@@ -162,7 +162,7 @@ describe('bootstrap3 block', () => {
             it(`has ${fmt}`, (done) => {
                 const str = helpers.javascript[fmt](latest.javascript, latest.javascriptSri);
 
-                response.body.includes(str);
+                helpers.assert.contains(str, response.body);
                 done();
             });
         });

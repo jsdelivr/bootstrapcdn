@@ -22,32 +22,32 @@ describe('integrations', () => {
 
     it('contains authors', (done) => {
         config.authors.forEach((author) => {
-            response.body.includes(author);
+            helpers.assert.contains(author, response.body);
         });
         done();
     });
 
     it('has header', (done) => {
-        response.body.includes('<h2 class="text-center mb-4">Integrations</h2>');
+        helpers.assert.contains('<h2 class="text-center mb-4">Integrations</h2>', response.body);
         done();
     });
 
     config.integrations.forEach((integration) => {
         describe(integration.name, () => {
             it('has name', (done) => {
-                response.body.includes(integration.name);
+                helpers.assert.contains(integration.name, response.body);
                 done();
             });
             it('has image', (done) => {
-                response.body.includes(integration.img);
+                helpers.assert.contains(integration.img, response.body);
                 done();
             });
             it('has platform', (done) => {
-                response.body.includes(integration.plat);
+                helpers.assert.contains(integration.plat, response.body);
                 done();
             });
             it('has url', (done) => {
-                response.body.includes(integration.url);
+                helpers.assert.contains(integration.url, response.body);
                 done();
             });
         });

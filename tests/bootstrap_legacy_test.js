@@ -22,13 +22,13 @@ describe('legacy/bootstrap', () => {
     });
 
     it('has header', (done) => {
-        response.body.includes('<h2 class="text-center mb-4">Bootstrap Legacy</h2>');
+        helpers.assert.contains('<h2 class="text-center mb-4">Bootstrap Legacy</h2>', response.body);
         done();
     });
 
     it('contains authors', (done) => {
         config.authors.forEach((author) => {
-            response.body.includes(author);
+            helpers.assert.contains(author, response.body);
         });
         done();
     });
@@ -54,14 +54,14 @@ describe('legacy/bootstrap', () => {
                 it(`has javascript ${fmt}`, (done) => {
                     const str = helpers.javascript[fmt](bootstrap.javascript, bootstrap.javascriptSri);
 
-                    response.body.includes(str);
+                    helpers.assert.contains(str, response.body);
                     done();
                 });
 
                 it(`has stylesheet ${fmt}`, (done) => {
                     const str = helpers.css[fmt](bootstrap.stylesheet, bootstrap.stylesheetSri);
 
-                    response.body.includes(str);
+                    helpers.assert.contains(str, response.body);
                     done();
                 });
             });
