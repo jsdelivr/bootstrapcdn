@@ -1,0 +1,99 @@
+extends ../layout.pug
+
+block content
+    h2.text-center.mb-4 Bootstrap Legacy
+
+    each item in config.bootstrap4
+        unless (item.latest)
+            .card.bg-light.mt-4.p-4.text-center
+                h3.mt-2=item.version
+
+                -var name   = 'betaCSS'.toLowerCase() + item.version.replace(/\./g, '_');
+                -var file   = item.stylesheet;
+                -var sri    = item.stylesheetSri;
+                -var formId = name + '_form';
+
+                .form-group.my-4
+                    label.font-weight-bold(for=formId) Complete CSS
+                    .input-group.input-group-lg
+                        input.form-control(id=formId, type='text', value=file)
+                        span.input-group-btn
+                            button.btn.btn-secondary(type='button', data-toggle='collapse', data-target='#' + name, aria-expanded='false', aria-controls=name)
+                                span.caret
+                    span.form-text.text-muted Click to copy
+
+                include ../_partials/csscode.pug
+
+                -var name   = 'betaJS'.toLowerCase() + item.version.replace(/\./g, '_');
+                -var file   = item.javascript;
+                -var sri    = item.javascriptSri;
+                -var formId = name + '_form';
+
+                .form-group.my-4
+                    label.font-weight-bold(for=formId) Complete JavaScript
+                    .input-group.input-group-lg
+                        input.form-control(id=formId, type='text', value=file)
+                        span.input-group-btn
+                            button.btn.btn-secondary(type='button', data-toggle='collapse', data-target='#' + name, aria-expanded='false', aria-controls=name)
+                                span.caret
+                    span.form-text.text-muted Click to copy
+
+                include ../_partials/jscode.pug
+
+                -var name   = 'betaJSBundle'.toLowerCase() + item.version.replace(/\./g, '_');
+                -var file   = item.javascriptBundle;
+                -var sri    = item.javascriptBundleSri;
+                -var formId = name + '_form';
+
+                if (typeof item.javascriptBundle !== 'undefined')
+                    .form-group.my-4
+                        label.font-weight-bold(for=formId) Complete JavaScript Bundle
+                        .input-group.input-group-lg
+                            input.form-control(id=formId, type='text', value=file)
+                            span.input-group-btn
+                                button.btn.btn-secondary(type='button', data-toggle='collapse', data-target='#' + name, aria-expanded='false', aria-controls=name)
+                                    span.caret
+                        span.form-text.text-muted Click to copy
+
+                    include ../_partials/jscode.pug
+
+    each item in config.bootstrap3
+        unless (item.latest)
+            .card.bg-light.text-center.mt-4.px-4
+                h2.mt-2=item.version
+
+                if (item.stylesheet)
+                    -var file   = item.stylesheet;
+                    -var sri    = item.stylesheetSri;
+                    -var name   = 'css_complete_' + item.version.replace(/\./g, '_');
+                    -var formId = name + '_form';
+
+                    .form-group.my-4
+                        label.font-weight-bold(for=formId) Complete CSS
+                        .input-group
+                            input.form-control(id=formId, type='text', value=file)
+                            span.input-group-btn
+                                button.btn.btn-secondary(type='button', data-toggle='collapse', data-target='#' + name, aria-expanded='false', aria-controls=name)
+                                    span.caret
+                        span.form-text.text-muted Click to copy
+
+                    include ../_partials/csscode.pug
+
+                if (item.javascript)
+                    -var file   = item.javascript;
+                    -var sri    = item.javascriptSri;
+                    -var name   = 'javascript_' + item.version.replace(/\./g, '_');
+                    -var formId = name + '_form';
+
+                    .form-group.my-4
+                        label.font-weight-bold(for=formId) Complete JavaScript
+                        .input-group
+                            input.form-control(id=formId, type='text', value=file)
+                            span.input-group-btn
+                                button.btn.btn-secondary(type='button', data-toggle='collapse', data-target='#' + name, aria-expanded='false', aria-controls=name)
+                                    span.caret
+                        span.form-text.text-muted Click to copy
+
+                    include ../_partials/jscode.pug
+
+//- vim: ft=pug sw=4 sts=4 et:

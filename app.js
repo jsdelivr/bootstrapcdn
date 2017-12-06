@@ -28,7 +28,7 @@ const app          = express();
 
 // all environments
 app.set('port', process.env.PORT || config.port || 3000);
-app.set('views', path.join(__dirname, '/views'));
+app.set('views', path.join(__dirname, '/views/'));
 app.set('view engine', 'pug');
 
 app.disable('x-powered-by');
@@ -215,9 +215,11 @@ app.get('/fontawesome/', routes.fontawesome);
 app.get('/bootswatch/', routes.bootswatch);
 app.get('/bootswatch4/', routes.bootswatch4);
 app.get('/bootlint/', routes.bootlint);
-app.get('/alpha/', routes.alpha);
-app.get('/beta/', routes.beta);
+app.get('/alpha/', routes.redirectToRoot);
+app.get('/beta/', routes.redirectToRoot);
 app.get('/legacy/', routes.legacy);
+app.get('/legacy/bootstrap/', routes.legacyBootstrap);
+app.get('/legacy/bootswatch/', routes.legacyBootswatch);
 app.get('/showcase/', routes.showcase);
 app.get('/integrations/', routes.integrations);
 app.get('/', routes.index);
@@ -260,6 +262,15 @@ const map = sitemap({
             hide: true  // exclude this route from xml and txt
         },
         '/alpha/': {
+            hide: true
+        },
+        '/beta/': {
+            hide: true
+        },
+        '/bootswatch4/': {
+            hide: true
+        },
+        '/legacy/': {
             hide: true
         }
     }

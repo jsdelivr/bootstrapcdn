@@ -11,7 +11,7 @@ javascripts:
   jquery:
     uri: 'https://code.jquery.com/jquery-3.2.1.slim.min.js'
     sri: sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN
-bootswatch:
+bootswatch3:
   version: 3.3.7
   link: 'https://bootswatch.com/3/SWATCH_NAME/'
   image: 'https://bootswatch.com/3/SWATCH_NAME/thumbnail.png'
@@ -146,7 +146,7 @@ bootlint:
   - version: 0.2.0
     javascript: 'https://maxcdn.bootstrapcdn.com/bootlint/0.2.0/bootlint.min.js'
     javascriptSri: sha384-OuU4cNKby6UDoPD/pWtrEhfGUWHZXIFGs/E8+mUnoDIdR98n/cL0RZcixIA0XlnS
-bootstrap:
+bootstrap3:
   - version: 3.3.7
     latest: true
     stylesheet: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'

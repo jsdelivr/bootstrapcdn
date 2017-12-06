@@ -1,0 +1,26 @@
+extends ../layout.pug
+
+block content
+    h2.text-center.mb-4 Bootswatch 3
+
+    -for (var i = 0, len = config.bootswatch3.themes.length; i < len; i++)
+        -var name = config.bootswatch3.themes[i].name.toLowerCase();
+        -var sri  = config.bootswatch3.themes[i].sri;
+        -var file = config.bootswatch3.bootstrap.replace('SWATCH_NAME', name).replace('SWATCH_VERSION', config.bootswatch3.version);
+
+        .card.bg-light.my-4.p-4.text-center
+            .row
+                .col-sm-12.col-md-8.offset-md-2
+                    .mt-4
+                        a(href=config.bootswatch3.link.replace('SWATCH_NAME', name), target='_blank', rel='noopener')
+                            img.bootswatch.d-block.img-fluid.mx-auto(src=config.bootswatch3.image.replace('SWATCH_NAME', name), alt=name + ' thumbnail', width='528', height='317')
+                        .input-group.mt-3
+                            input.form-control(type='text', value=file)
+                            span.input-group-btn
+                                button.btn.btn-secondary(type='button', data-toggle='collapse', data-target='#' + name, aria-expanded='false', aria-controls=name)
+                                    span.caret
+                        span.form-text.text-muted.mb-4 Click to copy
+
+                        include ../_partials/csscode.pug
+
+//- vim: ft=pug sw=4 sts=4 et:
