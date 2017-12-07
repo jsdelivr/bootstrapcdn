@@ -21,6 +21,10 @@ describe('legacy/bootstrap', () => {
         done();
     });
 
+    it('valid html', (done) => {
+        helpers.assert.validHTML(response, done);
+    });
+
     it('has header', (done) => {
         helpers.assert.contains('<h2 class="text-center mb-4">Bootstrap Legacy</h2>', response.body);
         done();
