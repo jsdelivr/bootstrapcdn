@@ -26,6 +26,10 @@ describe('bootswatch3', () => {
         done();
     });
 
+    it('valid html', (done) => {
+        helpers.assert.validHTML(response, done);
+    });
+
     it('has header', (done) => {
         helpers.assert.contains('<h2 class="text-center mb-4">Bootswatch 3</h2>', response.body);
         done();
