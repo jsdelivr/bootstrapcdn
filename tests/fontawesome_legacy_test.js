@@ -17,7 +17,8 @@ before((done) => {
 
 describe('legacy/fontawesome', () => {
     it('works', (done) => {
-        helpers.assert.response(response);
+        assert(response);
+        assert.equal(200, response.statusCode);
         done();
     });
 
@@ -26,13 +27,14 @@ describe('legacy/fontawesome', () => {
     });
 
     it('has header', (done) => {
-        helpers.assert.contains('<h2 class="text-center mb-4">Font Awesome Legacy</h2>', response.body);
+        assert(response.body.includes('<h2 class="text-center mb-4">Font Awesome Legacy</h2>'),
+            'Expected response body to include Font Awesome Legacy header');
         done();
     });
 
     it('contains authors', (done) => {
         config.authors.forEach((author) => {
-            helpers.assert.contains(author, response.body);
+            assert(response.body.includes(author), `Expected response body to inculde "${author}"`);
         });
         done();
     });
@@ -54,7 +56,7 @@ describe('legacy/fontawesome', () => {
                 it(`has stylesheet ${fmt}`, (done) => {
                     const str = helpers.css[fmt](fontawesome.stylesheet, fontawesome.stylesheetSri);
 
-                    helpers.assert.contains(str, response.body);
+                    assert(response.body.includes(str), `Expected response body to include "${str}"`);
                     done();
                 });
             });
