@@ -80,15 +80,6 @@ function app(config, endpoint) {
     return format('http://localhost:%s%s', process.env.PORT, endpoint);
 }
 
-function assertResponse(response, code = 200) {
-    assert(response);
-    assert.equal(code, response.statusCode);
-}
-
-function assertContains(needle, haystack) {
-    assert(haystack.includes(needle));
-}
-
 function assertValidHTML(response, done) {
     const options = {
         data: response.body,
@@ -178,8 +169,6 @@ module.exports = {
     config,
     app,
     assert: {
-        response:    assertResponse,
-        contains:    assertContains,
         contentType: assertContentType,
         validHTML:   assertValidHTML
     },

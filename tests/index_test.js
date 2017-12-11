@@ -41,25 +41,28 @@ describe('bootstrap4 block', () => {
     });
 
     it('works', (done) => {
-        helpers.assert.response(response);
+        assert(response);
+        assert.equal(200, response.statusCode);
         done();
     });
 
     it('contains authors', (done) => {
         config.authors.forEach((author) => {
-            helpers.assert.contains(author, response.body);
+            assert(response.body.includes(author), `Expects response body to include "${author}"`);
         });
         done();
     });
 
     it('has notice', (done) => {
-        helpers.assert.contains('Bootstrap 4 is currently in Beta release and should be treated as such.', response.body);
+        assert(response.body.includes('Bootstrap 4 is currently in Beta release and should be treated as such.'),
+            'Expects response body to include beta messaging');
         done();
     });
 
     describe('stylesheet', () => {
         it('has uri', (done) => {
-            helpers.assert.contains(latest.stylesheet, response.body);
+            assert(response.body.includes(latest.stylesheet),
+                `Expects response body to include "${latest.stylesheet}"`);
             done();
         });
 
@@ -67,7 +70,7 @@ describe('bootstrap4 block', () => {
             it(`has ${fmt}`, (done) => {
                 const str = helpers.css[fmt](latest.stylesheet, latest.stylesheetSri);
 
-                helpers.assert.contains(str, response.body);
+                assert(response.body.includes(str), `Expects response body to include "${str}"`);
                 done();
             });
         });
@@ -75,12 +78,14 @@ describe('bootstrap4 block', () => {
 
     describe('javascript', () => {
         it('has javascript uri', (done) => {
-            helpers.assert.contains(latest.javascript, response.body);
+            assert(response.body.includes(latest.javascript),
+                `Expects response body to include "${latest.javascript}"`);
             done();
         });
 
         it('has javascript bundle uri', (done) => {
-            helpers.assert.contains(latest.javascriptBundle, response.body);
+            assert(response.body.includes(latest.javascriptBundle),
+                `Expects response body to include "${latest.javascriptBundle}"`);
             done();
         });
 
@@ -88,7 +93,7 @@ describe('bootstrap4 block', () => {
             it(`has ${fmt}`, (done) => {
                 const str = helpers.javascript[fmt](latest.javascript, latest.javascriptSri);
 
-                helpers.assert.contains(str, response.body);
+                assert(response.body.includes(str), `Expects response body to include "${str}"`);
                 done();
             });
         });
@@ -116,7 +121,8 @@ describe('bootstrap3 block', () => {
     });
 
     it('works', (done) => {
-        helpers.assert.response(response);
+        assert(response);
+        assert.equal(200, response.statusCode);
         done();
     });
 
@@ -126,19 +132,22 @@ describe('bootstrap3 block', () => {
 
     it('contains authors', (done) => {
         config.authors.forEach((author) => {
-            helpers.assert.contains(author, response.body);
+            assert(response.body.includes(author),
+                `Expects response body to include "${author}"`);
         });
         done();
     });
 
     it('has header', (done) => {
-        helpers.assert.contains('<h2 class="text-center">Quick Start</h2>', response.body);
+        assert(response.body.includes('<h2 class="text-center">Quick Start</h2>'),
+            'Expects response body to include Quick Start header');
         done();
     });
 
     describe('stylesheet', () => {
         it('has uri', (done) => {
-            helpers.assert.contains(latest.stylesheet, response.body);
+            assert(response.body.includes(latest.stylesheet),
+                `Expects response body to include "${latest.stylesheet}"`);
             done();
         });
 
@@ -146,7 +155,7 @@ describe('bootstrap3 block', () => {
             it(`has ${fmt}`, (done) => {
                 const str = helpers.css[fmt](latest.stylesheet, latest.stylesheetSri);
 
-                helpers.assert.contains(str, response.body);
+                assert(response.body.includes(str), `Expects response body to include "${str}"`);
                 done();
             });
         });
@@ -154,7 +163,8 @@ describe('bootstrap3 block', () => {
 
     describe('javascript', () => {
         it('has javascript uri', (done) => {
-            helpers.assert.contains(latest.javascript, response.body);
+            assert(response.body.includes(latest.javascript),
+                `Expects response body to include "${latest.javascript}"`);
             done();
         });
 
@@ -162,7 +172,7 @@ describe('bootstrap3 block', () => {
             it(`has ${fmt}`, (done) => {
                 const str = helpers.javascript[fmt](latest.javascript, latest.javascriptSri);
 
-                helpers.assert.contains(str, response.body);
+                assert(response.body.includes(str), `Expects response body to include "${str}"`);
                 done();
             });
         });

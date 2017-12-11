@@ -1,6 +1,7 @@
 'use strict';
 
 const path     = require('path');
+const assert   = require('assert');
 const helpers  = require(path.join(__dirname, 'test_helper.js'));
 const config   = helpers.config();
 const uri      = helpers.app(config, 'integrations');
@@ -16,7 +17,8 @@ before((done) => {
 
 describe('integrations', () => {
     it('works', (done) => {
-        helpers.assert.response(response);
+        assert(response);
+        assert.equal(200, response.statusCode);
         done();
     });
 
@@ -26,32 +28,38 @@ describe('integrations', () => {
 
     it('contains authors', (done) => {
         config.authors.forEach((author) => {
-            helpers.assert.contains(author, response.body);
+            assert(response.body.includes(author),
+                `Expects response body to include "${author}"`);
         });
         done();
     });
 
     it('has header', (done) => {
-        helpers.assert.contains('<h2 class="text-center mb-4">Integrations</h2>', response.body);
+        assert(response.body.includes('<h2 class="text-center mb-4">Integrations</h2>'),
+            'Expects response body to include Integration header');
         done();
     });
 
     config.integrations.forEach((integration) => {
         describe(integration.name, () => {
             it('has name', (done) => {
-                helpers.assert.contains(integration.name, response.body);
+                assert(response.body.includes(integration.name),
+                    `Expects response body to include "${integration.name}"`);
                 done();
             });
             it('has image', (done) => {
-                helpers.assert.contains(integration.img, response.body);
+                assert(response.body.includes(integration.img),
+                    `Expects response body to include "${integration.img}"`);
                 done();
             });
             it('has platform', (done) => {
-                helpers.assert.contains(integration.plat, response.body);
+                assert(response.body.includes(integration.plat),
+                    `Expects response body to include "${integration.plat}"`);
                 done();
             });
             it('has url', (done) => {
-                helpers.assert.contains(integration.url, response.body);
+                assert(response.body.includes(integration.url),
+                    `Expects response body to include "${integration.url}"`);
                 done();
             });
         });
