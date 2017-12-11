@@ -1,0 +1,27 @@
+extends ../layout.pug
+
+block content
+    h2.text-center.mb-4 Font Awesome Legacy
+
+    each item in config.fontawesome
+        unless (item.latest)
+            .card.bg-light.mt-4.p-4.text-center
+                h3.mt-2=item.version
+
+                -var name   = 'fontawesomeCSS'.toLowerCase() + item.version.replace(/\./g, '_');
+                -var file   = item.stylesheet;
+                -var sri    = item.stylesheetSri;
+                -var formId = name + '_form';
+
+                .form-group.my-4
+                    label.font-weight-bold(for=formId) Complete CSS
+                    .input-group.input-group-lg
+                        input.form-control(id=formId, type='text', value=file)
+                        span.input-group-btn
+                            button.btn.btn-secondary(type='button', data-toggle='collapse', data-target='#' + name, aria-expanded='false', aria-controls=name)
+                                span.caret
+                    span.form-text.text-muted Click to copy
+
+                include ../_partials/csscode.pug
+
+//- vim: ft=pug sw=4 sts=4 et:
