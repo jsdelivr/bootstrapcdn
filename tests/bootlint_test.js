@@ -32,7 +32,8 @@ describe('bootlint', () => {
     });
 
     it('works', (done) => {
-        helpers.assert.response(response);
+        assert(response);
+        assert.equal(200, response.statusCode);
         done();
     });
 
@@ -42,18 +43,21 @@ describe('bootlint', () => {
 
     it('contains authors', (done) => {
         config.authors.forEach((author) => {
-            helpers.assert.contains(author, response.body);
+            assert(response.body.includes(author),
+                `Expects response body to include "${author}"`);
         });
         done();
     });
 
     it('has header', (done) => {
-        helpers.assert.contains('<h2 class="text-center mb-4">Bootlint</h2>', response.body);
+        assert(response.body.includes('<h2 class="text-center mb-4">Bootlint</h2>'),
+            'Expects response body to include Bootlint header');
         done();
     });
 
     it('has javascript', (done) => {
-        helpers.assert.contains(latest.javascript, response.body);
+        assert(response.body.includes(latest.javascript),
+            `Expects response body to include "${latest.javascript}"`);
         done();
     });
 
@@ -61,7 +65,7 @@ describe('bootlint', () => {
         it(`has ${fmt}`, (done) => {
             const str = helpers.javascript[fmt](latest.javascript, latest.javascriptSri);
 
-            helpers.assert.contains(str, response.body);
+            assert(response.body.includes(str), `Expects response body to include "${str}"`);
             done();
         });
     });
