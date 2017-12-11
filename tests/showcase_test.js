@@ -28,7 +28,7 @@ describe('showcase', () => {
 
     it('contains authors', (done) => {
         config.authors.forEach((author) => {
-            assert(response.body.includes(author), `Expects response bodt to include "${author}"`);
+            assert(response.body.includes(author), `Expects response body to include "${author}"`);
         });
         done();
     });
