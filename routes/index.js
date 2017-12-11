@@ -96,6 +96,14 @@ function legacyBootstrap(req, res) {
     });
 }
 
+function legacyFontawesome(req, res) {
+    res = appendLocals(req, res);
+    res.render('legacy/fontawesome.pug', {
+        title: 'Font Awesome Legacy',
+        description: 'Older versions of Font Awesome hosted on a CDN'
+    });
+}
+
 function legacyBootswatch(req, res) {
     res = appendLocals(req, res);
     res.render('legacy/bootswatch.pug', {
@@ -162,6 +170,7 @@ module.exports = {
     legacy,
     legacyBootstrap,
     legacyBootswatch,
+    legacyFontawesome,
     showcase,
     integrations
 };

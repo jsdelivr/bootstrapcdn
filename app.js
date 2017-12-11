@@ -220,6 +220,7 @@ app.get('/beta/', routes.redirectToRoot);
 app.get('/legacy/', routes.legacy);
 app.get('/legacy/bootstrap/', routes.legacyBootstrap);
 app.get('/legacy/bootswatch/', routes.legacyBootswatch);
+app.get('/legacy/fontawesome/', routes.legacyFontawesome);
 app.get('/showcase/', routes.showcase);
 app.get('/integrations/', routes.integrations);
 app.get('/', routes.index);
