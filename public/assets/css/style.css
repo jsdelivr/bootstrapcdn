@@ -12,6 +12,10 @@
     line-height: 1.2;
 }
 
+.social {
+    height: 25px;
+}
+
 iframe {
     border: 0;
     overflow: hidden;
