@@ -7,8 +7,8 @@ const walk      = require('fs-walk');
 const async     = require('async');
 const https     = require('https');
 const semver    = require('semver');
-const digest    = require(path.join(__dirname, '..', 'lib', 'helpers')).sri.digest;
-const helpers   = require(path.join(__dirname, 'test_helper'));
+const digest    = require('../lib/helpers.js').sri.digest;
+const helpers   = require('./test_helper.js');
 const config    = helpers.config();
 
 const expectedHeaders = {
