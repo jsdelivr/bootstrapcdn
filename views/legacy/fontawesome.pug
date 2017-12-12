@@ -6,7 +6,7 @@ block content
     each item in config.fontawesome
         unless (item.latest)
             .card.bg-light.mt-4.p-4.text-center
-                h3.mt-2=item.version
+                h3.mt-2=`v${item.version}`
 
                 -var name   = 'fontawesomeCSS'.toLowerCase() + item.version.replace(/\./g, '_');
                 -var file   = item.stylesheet;
