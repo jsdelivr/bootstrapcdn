@@ -20,7 +20,7 @@ const sitemap      = require('express-sitemap');
 const helmet       = require('helmet');
 const Rollbar      = require('rollbar');
 
-const helpers      = require('./lib/helpers');
+const helpers      = require('./lib/helpers.js');
 const routes       = require('./routes');
 
 const config       = yaml.safeLoad(fs.readFileSync(path.join(__dirname, 'config', '_config.yml'), 'utf8'));

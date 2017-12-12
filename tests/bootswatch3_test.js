@@ -1,8 +1,8 @@
 'use strict';
 
-const path     = require('path');
 const assert   = require('assert');
-const helpers  = require(path.join(__dirname, 'test_helper.js'));
+const helpers  = require('./test_helper.js');
+
 const config   = helpers.config();
 const uri      = helpers.app(config, 'legacy/bootswatch');
 

@@ -1,7 +1,7 @@
 'use strict';
 
 const path   = require('path');
-const digest = require(path.join(__dirname, '..', 'lib', 'helpers')).sri.digest;
+const digest = require('../lib/helpers.js').sri.digest;
 
 const SRI_CACHE = {};
 
