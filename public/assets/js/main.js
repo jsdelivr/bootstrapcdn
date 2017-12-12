@@ -72,7 +72,10 @@
     })();
 
     function initTwitterTimeline() {
-        if (!window.matchMedia('(min-width: 992px)').matches) {
+        var timelineSelector = '.twitter-timeline-custom';
+        var timelineRendered = timelineSelector + ' .twitter-timeline-rendered';
+
+        if (!window.matchMedia('(min-width: 992px)').matches || document.querySelector(timelineRendered) !== null) {
             return;
         }
 
@@ -82,7 +85,7 @@
                     sourceType: 'collection',
                     id: '770731482377621505'
                 },
-                document.querySelector('.twitter-timeline-custom'),
+                document.querySelector(timelineSelector),
                 {
                     height: 525,
                     partner: 'tweetdeck'
