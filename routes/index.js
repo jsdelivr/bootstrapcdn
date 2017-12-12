@@ -1,12 +1,12 @@
 'use strict';
 
-const path      = require('path');
-const digest    = require(path.join(__dirname, '..', 'lib', 'helpers')).sri.digest;
-const TITLE     = 'BootstrapCDN by MaxCDN';
+const path   = require('path');
+const digest = require(path.join(__dirname, '..', 'lib', 'helpers')).sri.digest;
 
 const SRI_CACHE = {};
 
 function appendLocals(req, res) {
+    const TITLE_SUFFIX = 'BootstrapCDN by MaxCDN';
     let proto = req.get('x-forwarded-proto');
 
     if (typeof proto === 'undefined') {
@@ -19,11 +19,11 @@ function appendLocals(req, res) {
 
     res.locals.theme = req.query.theme;
 
-    res.locals.displayTitle = (title) => `${title} · ${TITLE}`;
+    res.locals.displayTitle = (title) => `${title} · ${TITLE_SUFFIX}`;
 
     res.locals.bodyClass = (title) => {
-        // Remove whitespace from title
-        let str = title.replace(' ', '');
+        // Remove any whitespace from the title
+        let str = title.replace(/\s/g, '');
 
         // Make the first letter lowercase
         str = str.charAt(0).toLowerCase() + str.slice(1);
