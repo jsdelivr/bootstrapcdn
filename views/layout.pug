@@ -68,14 +68,14 @@ html(lang='en', prefix='og: http://ogp.me/ns#', itemscope, itemtype='http://sche
                 .col-12.col-md-9
                     block content
 
-                    include _partials/footer.pug
-
                 .col-12.col-md-3
                     .row
                         .col-12
                             include _partials/carbonads.pug
                         .col-12.d-none.d-lg-block
                             .twitter-timeline-custom
+
+        include _partials/footer.pug
 
         script(nonce=nonce)
             include /assets/js/vendor/clipboard.min.js
