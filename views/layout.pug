@@ -77,8 +77,8 @@ html(lang='en', prefix='og: http://ogp.me/ns#', itemscope, itemtype='http://sche
                         .col-sm-12.d-none.d-lg-block
                             .twitter-timeline-custom
 
-        script(src=config.javascripts.jquery.uri,
-            integrity=config.javascripts.jquery.sri, crossorigin='anonymous')
+        script(src=config.javascript.jquery.uri,
+            integrity=config.javascript.jquery.sri, crossorigin='anonymous')
 
         -var bootstrap = config.bootstrap4.filter(function(o) { return o.latest; })[0];
         script(src=bootstrap.javascriptBundle, integrity=bootstrap.javascriptBundleSri,
