@@ -6,7 +6,7 @@ block content
     each item in config.bootstrap4
         unless (item.latest)
             .card.bg-light.mt-4.p-4.text-center
-                h3.mt-2=item.version
+                h3.mt-2=`v${item.version}`
 
                 -var name   = 'betaCSS'.toLowerCase() + item.version.replace(/\./g, '_');
                 -var file   = item.stylesheet;
@@ -60,7 +60,7 @@ block content
     each item in config.bootstrap3
         unless (item.latest)
             .card.bg-light.text-center.mt-4.px-4
-                h2.mt-2=item.version
+                h2.mt-2=`v${item.version}`
 
                 if (item.stylesheet)
                     -var file   = item.stylesheet;
