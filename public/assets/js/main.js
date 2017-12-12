@@ -4,7 +4,7 @@
 (function mainJS() {
     'use strict';
 
-    (function toggleInputCaret() {
+    function toggleInputCaret() {
         var selector = '.input-group-btn > button';
         var el = document.querySelectorAll(selector);
 
@@ -19,9 +19,9 @@
         for (var i = 0, len = el.length; i < len; i++) {
             toggleCode(i);
         }
-    })();
+    }
 
-    (function selectTextCopyToClipboard() {
+    function selectTextCopyToClipboard() {
         var selector = 'input[type="text"]';
         var el = document.querySelectorAll(selector);
         var origHelpBlockText = 'Click to copy';
@@ -69,7 +69,7 @@
             }, true);
         }
 
-    })();
+    }
 
     function initTwitterTimeline() {
         var timelineSelector = '.twitter-timeline-custom';
@@ -94,51 +94,39 @@
         });
     }
 
-    (function loadScripts() {
-        function loadGhbtns() {
-            var iframeEl = document.createElement('iframe');
-
-            iframeEl.setAttribute('src', 'https://ghbtns.com/github-btn.html?user=MaxCDN&repo=bootstrap-cdn&type=watch&count=true');
-            iframeEl.title = 'Star on GitHub';
-            iframeEl.style.width = '110px';
-            iframeEl.style.height = '20px';
-
-            document.getElementById('ghbtns-badge').appendChild(iframeEl);
-        }
-
+    function loadTwitterScript() {
         /* eslint-disable */
-        function loadTwitterScript() {
-            window.twttr = (function(d, s, id) {
-                var js, fjs = d.getElementsByTagName(s)[0],
-                    t = window.twttr || {};
-                if (d.getElementById(id)) return t;
-                js = d.createElement(s);
-                js.id = id;
-                js.src = 'https://platform.twitter.com/widgets.js';
-                fjs.parentNode.insertBefore(js, fjs);
+        window.twttr = (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0],
+                t = window.twttr || {};
+            if (d.getElementById(id)) return t;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = 'https://platform.twitter.com/widgets.js';
+            fjs.parentNode.insertBefore(js, fjs);
 
-                t._e = [];
-                t.ready = function(f) {
-                    t._e.push(f);
-                };
+            t._e = [];
+            t.ready = function(f) {
+                t._e.push(f);
+            };
 
-                return t;
-            }(document, 'script', 'twitter-wjs'));
-        }
+            return t;
+        }(document, 'script', 'twitter-wjs'));
         /* eslint-enable */
+    }
 
-        function onLoad() {
-            loadGhbtns();
-            loadTwitterScript();
-            initTwitterTimeline();
-        }
+    function loadGhBtn() {
+        var iframeEl = document.createElement('iframe');
 
-        window.addEventListener('load', onLoad, false);
-        window.addEventListener('resize', initTwitterTimeline, false);
-    })();
+        iframeEl.setAttribute('src', 'https://ghbtns.com/github-btn.html?user=MaxCDN&repo=bootstrap-cdn&type=watch&count=true');
+        iframeEl.title = 'Star on GitHub';
+        iframeEl.style.width = '110px';
+        iframeEl.style.height = '20px';
 
+        document.getElementById('ghbtns-badge').appendChild(iframeEl);
+    }
 
-    (function googleAnalytics() {
+    function googleAnalytics() {
         function gaEvent(e) {
             if (typeof e.target !== 'undefined') {
                 var action = e.target.getAttribute('data-ga-action');
@@ -163,7 +151,20 @@
 
         window.addEventListener('click', gaEvent, false);
         /* eslint-enable */
-    })();
+    }
+
+    function init() {
+        toggleInputCaret();
+        selectTextCopyToClipboard();
+        loadGhBtn();
+        loadTwitterScript();
+        initTwitterTimeline();
+        googleAnalytics();
+    }
+
+    window.addEventListener('load', init, false);
+
+    window.addEventListener('resize', initTwitterTimeline, false);
 
     $(function () {
         $('.ads-info-toggler').popover();
