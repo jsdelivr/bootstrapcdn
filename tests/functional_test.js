@@ -17,7 +17,7 @@ const expectedHeaders = {
     'expires': undefined,
 
     // connection: 'keep-alive',
-    // TODO: reseach why this is returning 'closed' for
+    // TODO: research why this is returning 'closed' for
     // this test, but 'keep-alive' as expected via
     // curl and browsers.
     'connection': undefined,
