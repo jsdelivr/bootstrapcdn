@@ -34,7 +34,7 @@ describe('legacy/fontawesome', () => {
 
     it('contains authors', (done) => {
         config.authors.forEach((author) => {
-            assert(response.body.includes(author), `Expected response body to inculde "${author}"`);
+            assert(response.body.includes(author), `Expected response body to include "${author}"`);
         });
         done();
     });
