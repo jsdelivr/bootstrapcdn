@@ -71,6 +71,28 @@
 
     })();
 
+    function initTwitterTimeline() {
+        var timelineSelector = '.twitter-timeline-custom';
+        var timelineRendered = timelineSelector + ' .twitter-timeline-rendered';
+
+        if (!window.matchMedia('(min-width: 992px)').matches || document.querySelector(timelineRendered) !== null) {
+            return;
+        }
+
+        window.twttr.ready(function(twttr) {
+            twttr.widgets.createTimeline(
+                {
+                    sourceType: 'collection',
+                    id: '770731482377621505'
+                },
+                document.querySelector(timelineSelector),
+                {
+                    height: 525,
+                    partner: 'tweetdeck'
+                }
+            );
+        });
+    }
 
     (function loadScripts() {
         function loadGhbtns() {
@@ -108,9 +130,11 @@
         function onLoad() {
             loadGhbtns();
             loadTwitterScript();
+            initTwitterTimeline();
         }
 
         window.addEventListener('load', onLoad, false);
+        window.addEventListener('resize', initTwitterTimeline, false);
     })();
 
 

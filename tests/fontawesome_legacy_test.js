@@ -4,7 +4,7 @@ const assert   = require('assert');
 const helpers  = require('./test_helper.js');
 
 const config   = helpers.config();
-const uri      = helpers.app(config, 'legacy/bootstrap');
+const uri      = helpers.app(config, 'legacy/fontawesome');
 
 let response = {};
 
@@ -15,7 +15,7 @@ before((done) => {
     });
 });
 
-describe('legacy/bootstrap', () => {
+describe('legacy/fontawesome', () => {
     it('works', (done) => {
         assert(response);
         assert.equal(200, response.statusCode);
@@ -27,8 +27,8 @@ describe('legacy/bootstrap', () => {
     });
 
     it('has header', (done) => {
-        assert(response.body.includes('<h2 class="text-center mb-4">Bootstrap Legacy</h2>'),
-            'Expected response body to include Bootstrap Legacy header');
+        assert(response.body.includes('<h2 class="text-center mb-4">Font Awesome Legacy</h2>'),
+            'Expected response body to include Font Awesome Legacy header');
         done();
     });
 
@@ -39,33 +39,22 @@ describe('legacy/bootstrap', () => {
         done();
     });
 
-    config.bootstrap3.forEach((bootstrap) => {
-        if (bootstrap.latest === true) {
+    config.fontawesome.forEach((fontawesome) => {
+        if (fontawesome.latest === true) {
             return;
         }
 
-        describe(bootstrap.version, () => {
+        describe(fontawesome.version, () => {
             describe('config', () => {
-                it('has javascript integrity', (done) => {
-                    assert(typeof bootstrap.javascriptSri !== 'undefined');
-                    done();
-                });
                 it('has stylesheet integrity', (done) => {
-                    assert(typeof bootstrap.stylesheetSri !== 'undefined');
+                    assert(typeof fontawesome.stylesheetSri !== 'undefined');
                     done();
                 });
             });
 
             ['html', 'pug', 'haml'].forEach((fmt) => {
-                it(`has javascript ${fmt}`, (done) => {
-                    const str = helpers.javascript[fmt](bootstrap.javascript, bootstrap.javascriptSri);
-
-                    assert(response.body.includes(str), `Expected response body to include "${str}"`);
-                    done();
-                });
-
                 it(`has stylesheet ${fmt}`, (done) => {
-                    const str = helpers.css[fmt](bootstrap.stylesheet, bootstrap.stylesheetSri);
+                    const str = helpers.css[fmt](fontawesome.stylesheet, fontawesome.stylesheetSri);
 
                     assert(response.body.includes(str), `Expected response body to include "${str}"`);
                     done();

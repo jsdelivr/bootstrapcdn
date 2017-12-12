@@ -19,10 +19,12 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
             li.nav-item.dropdown
                 a#navbarDropdown1.nav-link.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false') Old Versions
                 ul.dropdown-menu.bg-dark(aria-labelledby='navbarDropdown1')
-                    li.dropdown-item.bg-dark
+                    li(class='dropdown-item bg-dark' + (title === 'Bootstrap Legacy' ? ' active' : ''))
                         a.nav-link(href='/legacy/bootstrap/' + themeQs) Bootstrap
-                    li.dropdown-item.bg-dark
+                    li(class='dropdown-item bg-dark' + (title === 'Bootswatch Legacy' ? ' active' : ''))
                         a.nav-link(href='/legacy/bootswatch/' + themeQs) Bootswatch
+                    li(class='dropdown-item bg-dark' + (title === 'Font Awesome Legacy' ? ' active' : ''))
+                        a.nav-link(href='/legacy/fontawesome/' + themeQs) Font Awesome
         ul.nav.navbar-nav.ml-auto
             li(class='nav-item' + (title === 'Showcase' ? ' active' : ''))
                 a.nav-link(href='/showcase/' + themeQs) Showcase

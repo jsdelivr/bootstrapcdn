@@ -6,11 +6,12 @@ const fs         = require('fs');
 const path       = require('path');
 const yaml       = require('js-yaml');
 
-const sri        = require(path.join(__dirname, 'sri'));
+const sri        = require('./sri.js');
+
+const configFile = require('../config/_config.yml');
+const config     = yaml.safeLoad(fs.readFileSync(configFile));
 
 const basedir    = path.join(__dirname, '..');
-const configFile = path.join(basedir, 'config', '_config.yml');
-const config     = yaml.safeLoad(fs.readFileSync(configFile));
 
 // create backup file
 fs.createReadStream(configFile)
@@ -31,32 +32,20 @@ function exists(file) {
     return found;
 }
 
-// bootswatch
+// bootswatch{3,4}
 ((() => {
-    const bootswatch = buildPath(config.bootswatch.bootstrap);
+    ['bootswatch3', 'bootswatch4'].forEach((key) => {
+        const bootswatch = buildPath(config[key].bootstrap);
 
-    for (const theme of config.bootswatch.themes) {
-        const file = bootswatch.replace('SWATCH_VERSION', config.bootswatch.version)
-                             .replace('SWATCH_NAME', theme.name);
+        for (const theme of config[key].themes) {
+            const file = bootswatch.replace('SWATCH_VERSION', config[key].version)
+                                 .replace('SWATCH_NAME', theme.name);
 
-        if (exists(file)) { // always regenerate
-            theme.sri = sri.digest(file);
+            if (exists(file)) { // always regenerate
+                theme.sri = sri.digest(file);
+            }
         }
-    }
-}))();
-
-// bootswatch4
-((() => {
-    const bootswatch = buildPath(config.bootswatch4.bootstrap);
-
-    for (const theme of config.bootswatch4.themes) {
-        const file = bootswatch.replace('SWATCH_VERSION', config.bootswatch4.version)
-                             .replace('SWATCH_NAME', theme.name);
-
-        if (exists(file)) { // always regenerate
-            theme.sri = sri.digest(file);
-        }
-    }
+    });
 }))();
 
 // bootlint
@@ -70,9 +59,9 @@ function exists(file) {
     }
 }))();
 
-// bootstrap{4}
+// bootstrap{3,4}
 ((() => {
-    ['bootstrap', 'bootstrap4'].forEach((key) => {
+    ['bootstrap3', 'bootstrap4'].forEach((key) => {
         for (const bootstrap of config[key]) {
             // Skip when the key doesn't exist
             if (typeof bootstrap.javascriptBundle === 'undefined') {

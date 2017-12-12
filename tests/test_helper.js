@@ -17,7 +17,8 @@ let response  = {};
 // for array of types, first will be chosen when testing strictly
 const CONTENT_TYPE_MAP = {
     css: 'text/css',
-    js: ['application/javascript',
+    js: [
+        'application/javascript',
         'text/javascript',
         'application/x-javascript'
     ],
@@ -25,7 +26,8 @@ const CONTENT_TYPE_MAP = {
     // fonts
     eot: 'application/vnd.ms-fontobject',
     svg: 'image/svg+xml',
-    ttf: ['application/x-font-ttf',
+    ttf: [
+        'application/x-font-ttf',
         'font/ttf'
     ],
 
@@ -39,8 +41,8 @@ function extension(str) {
 }
 
 function assertContentType(uri, contentType) {
-    const ext  = extension(uri);
-    let type = CONTENT_TYPE_MAP[ext];
+    const ext = extension(uri);
+    let type  = CONTENT_TYPE_MAP[ext];
 
     // Making TEST_STRICT=true default, pass TEST_STRICT=false to disable
     // strict checking.
@@ -78,11 +80,6 @@ function app(config, endpoint) {
     // load app
     require('../app.js');
     return format('http://localhost:%s%s', process.env.PORT, endpoint);
-}
-
-function assertResponse(response, code = 200) {
-    assert(response);
-    assert.equal(code, response.statusCode);
 }
 
 function assertValidHTML(response, done) {
@@ -174,7 +171,6 @@ module.exports = {
     config,
     app,
     assert: {
-        response:    assertResponse,
         contentType: assertContentType,
         validHTML:   assertValidHTML
     },

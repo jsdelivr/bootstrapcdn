@@ -1,7 +1,8 @@
 'use strict';
 
-const path     = require('path');
-const helpers  = require(path.join(__dirname, 'test_helper.js'));
+const assert   = require('assert');
+const helpers  = require('./test_helper.js');
+
 const config   = helpers.config();
 const uri      = helpers.app(config, 'showcase');
 
@@ -16,38 +17,48 @@ before((done) => {
 
 describe('showcase', () => {
     it('works', (done) => {
-        helpers.assert.response(response);
+        assert(response);
+        assert.equal(200, response.statusCode);
         done();
+    });
+
+    it('valid html', (done) => {
+        helpers.assert.validHTML(response, done);
     });
 
     it('contains authors', (done) => {
         config.authors.forEach((author) => {
-            response.body.includes(author);
+            assert(response.body.includes(author), `Expects response body to include "${author}"`);
         });
         done();
     });
 
     it('has header', (done) => {
-        response.body.includes('<h2 class="text-center mb-4">Showcase</h2>');
+        assert(response.body.includes('<h2 class="text-center mb-4">Showcase</h2>'),
+            'Expects response body to include Showcase header');
         done();
     });
 
     config.showcase.forEach((showcase) => {
         describe(showcase.name, () => {
             it('has name', (done) => {
-                response.body.includes(showcase.name);
+                assert(response.body.includes(showcase.name),
+                    `Expects response body to include "${showcase.name}"`);
                 done();
             });
             it('has image', (done) => {
-                response.body.includes(showcase.img);
+                assert(response.body.includes(showcase.img),
+                    `Expects response body to include "${showcase.img}"`);
                 done();
             });
             it('has lib', (done) => {
-                response.body.includes(showcase.lib);
+                assert(response.body.includes(showcase.lib),
+                    `Expects response body to include "${showcase.lib}"`);
                 done();
             });
             it('has url', (done) => {
-                response.body.includes(showcase.url);
+                assert(response.body.includes(showcase.url),
+                    `Expects response body to include "${showcase.url}"`);
                 done();
             });
         });

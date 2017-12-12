@@ -20,7 +20,7 @@ const sitemap      = require('express-sitemap');
 const helmet       = require('helmet');
 const Rollbar      = require('rollbar');
 
-const helpers      = require('./lib/helpers');
+const helpers      = require('./lib/helpers.js');
 const routes       = require('./routes');
 
 const config       = yaml.safeLoad(fs.readFileSync(path.join(__dirname, 'config', '_config.yml'), 'utf8'));
@@ -220,11 +220,13 @@ app.get('/beta/', routes.redirectToRoot);
 app.get('/legacy/', routes.legacy);
 app.get('/legacy/bootstrap/', routes.legacyBootstrap);
 app.get('/legacy/bootswatch/', routes.legacyBootswatch);
+app.get('/legacy/fontawesome/', routes.legacyFontawesome);
 app.get('/showcase/', routes.showcase);
 app.get('/integrations/', routes.integrations);
 app.get('/', routes.index);
 
-let data = {}; // only regenerated on restart
+// eslint-disable-next-line init-declarations
+let data; // only regenerated on restart
 
 app.get('/data/bootstrapcdn.json', (req, res) => {
     if (typeof data === 'undefined') {
@@ -234,15 +236,15 @@ app.get('/data/bootstrapcdn.json', (req, res) => {
             fontawesome: {}
         };
 
-        config.bootstrap.forEach((bootstrap) => {
+        config.bootstrap3.forEach((bootstrap) => {
             data.bootstrap[bootstrap.version] = {
-                css: bootstrap.css_complete,
+                css: bootstrap.stylesheet,
                 js: bootstrap.javascript
             };
         });
 
         config.fontawesome.forEach((fontawesome) => {
-            data.fontawesome[fontawesome.version] = fontawesome.css_complete;
+            data.fontawesome[fontawesome.version] = fontawesome.stylesheet;
         });
     }
 

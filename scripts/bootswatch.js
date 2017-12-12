@@ -48,7 +48,7 @@ function checkDirSync(dir) {
 
 checkDirSync(bootswatchDir);
 
-const bootswatchConf = verMajor === '3' ? config.bootswatch : config[`bootswatch${verMajor}`];
+const bootswatchConf = config[`bootswatch${verMajor}`];
 
 files.forEach((file) => {
     bootswatchConf.themes.forEach((theme) => {

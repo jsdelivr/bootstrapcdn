@@ -1,9 +1,8 @@
 'use strict';
 
-const path     = require('path');
 const assert   = require('assert');
+const helpers  = require('./test_helper.js');
 
-const helpers  = require(path.join(__dirname, 'test_helper.js'));
 const config   = helpers.config();
 const uri      = helpers.app(config, 'bootlint');
 
@@ -32,24 +31,32 @@ describe('bootlint', () => {
     });
 
     it('works', (done) => {
-        helpers.assert.response(response);
+        assert(response);
+        assert.equal(200, response.statusCode);
         done();
+    });
+
+    it('valid html', (done) => {
+        helpers.assert.validHTML(response, done);
     });
 
     it('contains authors', (done) => {
         config.authors.forEach((author) => {
-            response.body.includes(author);
+            assert(response.body.includes(author),
+                `Expects response body to include "${author}"`);
         });
         done();
     });
 
     it('has header', (done) => {
-        response.body.includes('<h2 class="text-center mb-4">Bootlint</h2>');
+        assert(response.body.includes('<h2 class="text-center mb-4">Bootlint</h2>'),
+            'Expects response body to include Bootlint header');
         done();
     });
 
     it('has javascript', (done) => {
-        response.body.includes(latest.javascript);
+        assert(response.body.includes(latest.javascript),
+            `Expects response body to include "${latest.javascript}"`);
         done();
     });
 
@@ -57,7 +64,7 @@ describe('bootlint', () => {
         it(`has ${fmt}`, (done) => {
             const str = helpers.javascript[fmt](latest.javascript, latest.javascriptSri);
 
-            response.body.includes(str);
+            assert(response.body.includes(str), `Expects response body to include "${str}"`);
             done();
         });
     });

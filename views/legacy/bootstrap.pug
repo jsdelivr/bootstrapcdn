@@ -6,9 +6,9 @@ block content
     each item in config.bootstrap4
         unless (item.latest)
             .card.bg-light.mt-4.p-4.text-center
-                h3.mt-2=item.version
+                h3.mt-2=`v${item.version}`
 
-                -var name   = 'betaCSS'.toLowerCase() + item.version.replace(/\./g, '_');
+                -var name   = 'betacss' + item.version.replace(/\./g, '_');
                 -var file   = item.stylesheet;
                 -var sri    = item.stylesheetSri;
                 -var formId = name + '_form';
@@ -24,7 +24,7 @@ block content
 
                 include ../_partials/csscode.pug
 
-                -var name   = 'betaJS'.toLowerCase() + item.version.replace(/\./g, '_');
+                -var name   = 'betajs' + item.version.replace(/\./g, '_');
                 -var file   = item.javascript;
                 -var sri    = item.javascriptSri;
                 -var formId = name + '_form';
@@ -40,7 +40,7 @@ block content
 
                 include ../_partials/jscode.pug
 
-                -var name   = 'betaJSBundle'.toLowerCase() + item.version.replace(/\./g, '_');
+                -var name   = 'betajsbundle' + item.version.replace(/\./g, '_');
                 -var file   = item.javascriptBundle;
                 -var sri    = item.javascriptBundleSri;
                 -var formId = name + '_form';
@@ -59,18 +59,18 @@ block content
 
     each item in config.bootstrap3
         unless (item.latest)
-            .card.bg-light.text-center.mt-4.px-4
-                h2.mt-2=item.version
+            .card.bg-light.mt-4.p-4.text-center
+                h3.mt-2=`v${item.version}`
 
                 if (item.stylesheet)
+                    -var name   = 'css_complete_' + item.version.replace(/\./g, '_');
                     -var file   = item.stylesheet;
                     -var sri    = item.stylesheetSri;
-                    -var name   = 'css_complete_' + item.version.replace(/\./g, '_');
                     -var formId = name + '_form';
 
                     .form-group.my-4
                         label.font-weight-bold(for=formId) Complete CSS
-                        .input-group
+                        .input-group.input-group-lg
                             input.form-control(id=formId, type='text', value=file)
                             span.input-group-btn
                                 button.btn.btn-secondary(type='button', data-toggle='collapse', data-target='#' + name, aria-expanded='false', aria-controls=name)
@@ -80,14 +80,14 @@ block content
                     include ../_partials/csscode.pug
 
                 if (item.javascript)
+                    -var name   = 'javascript_' + item.version.replace(/\./g, '_');
                     -var file   = item.javascript;
                     -var sri    = item.javascriptSri;
-                    -var name   = 'javascript_' + item.version.replace(/\./g, '_');
                     -var formId = name + '_form';
 
                     .form-group.my-4
                         label.font-weight-bold(for=formId) Complete JavaScript
-                        .input-group
+                        .input-group.input-group-lg
                             input.form-control(id=formId, type='text', value=file)
                             span.input-group-btn
                                 button.btn.btn-secondary(type='button', data-toggle='collapse', data-target='#' + name, aria-expanded='false', aria-controls=name)

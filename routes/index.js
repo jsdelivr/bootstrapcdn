@@ -1,12 +1,12 @@
 'use strict';
 
-const path      = require('path');
-const digest    = require(path.join(__dirname, '..', 'lib', 'helpers')).sri.digest;
-const TITLE     = 'BootstrapCDN by MaxCDN';
+const path   = require('path');
+const digest = require('../lib/helpers.js').sri.digest;
 
 const SRI_CACHE = {};
 
 function appendLocals(req, res) {
+    const TITLE_SUFFIX = 'BootstrapCDN by MaxCDN';
     let proto = req.get('x-forwarded-proto');
 
     if (typeof proto === 'undefined') {
@@ -19,11 +19,11 @@ function appendLocals(req, res) {
 
     res.locals.theme = req.query.theme;
 
-    res.locals.displayTitle = (title) => `${title} · ${TITLE}`;
+    res.locals.displayTitle = (title) => `${title} · ${TITLE_SUFFIX}`;
 
     res.locals.bodyClass = (title) => {
-        // Remove whitespace from title
-        let str = title.replace(' ', '');
+        // Remove any whitespace from the title
+        let str = title.replace(/\s/g, '');
 
         // Make the first letter lowercase
         str = str.charAt(0).toLowerCase() + str.slice(1);
@@ -96,6 +96,14 @@ function legacyBootstrap(req, res) {
     });
 }
 
+function legacyFontawesome(req, res) {
+    res = appendLocals(req, res);
+    res.render('legacy/fontawesome.pug', {
+        title: 'Font Awesome Legacy',
+        description: 'Older versions of Font Awesome hosted on a CDN'
+    });
+}
+
 function legacyBootswatch(req, res) {
     res = appendLocals(req, res);
     res.render('legacy/bootswatch.pug', {
@@ -162,6 +170,7 @@ module.exports = {
     legacy,
     legacyBootstrap,
     legacyBootswatch,
+    legacyFontawesome,
     showcase,
     integrations
 };

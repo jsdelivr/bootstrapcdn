@@ -1,8 +1,8 @@
 'use strict';
 
-const path     = require('path');
 const assert   = require('assert');
-const helpers  = require(path.join(__dirname, 'test_helper.js'));
+const helpers  = require('./test_helper.js');
+
 const config   = helpers.config();
 const uri      = helpers.app(config, 'legacy/bootswatch');
 
@@ -22,18 +22,24 @@ before((done) => {
 
 describe('bootswatch3', () => {
     it('works', (done) => {
-        helpers.assert.response(response);
+        assert(response);
+        assert.equal(200, response.statusCode);
         done();
     });
 
+    it('valid html', (done) => {
+        helpers.assert.validHTML(response, done);
+    });
+
     it('has header', (done) => {
-        response.body.includes('<h2 class="text-center mb-4">Bootswatch 3</h2>');
+        assert(response.body.includes('<h2 class="text-center mb-4">Bootswatch 3</h2>'),
+            'Expects response body to include Bootswatch 3 header');
         done();
     });
 
     it('contains authors', (done) => {
         config.authors.forEach((author) => {
-            response.body.includes(author);
+            assert(response.body.includes(author), `Expects response body to include "${author}"`);
         });
         done();
     });
@@ -52,7 +58,7 @@ describe('bootswatch3', () => {
             });
 
             it('has image', (done) => {
-                response.body.includes(image);
+                assert(response.body.includes(image), `Expects response body to include "${image}"`);
                 done();
             });
 
@@ -60,7 +66,7 @@ describe('bootswatch3', () => {
                 it(`has ${fmt}`, (done) => {
                     const str = helpers.css[fmt](uri, sri);
 
-                    response.body.includes(str);
+                    assert(response.body.includes(str), `Expects response body to include "${str}"`);
                     done();
                 });
             });
