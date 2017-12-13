@@ -115,17 +115,6 @@
         /* eslint-enable */
     }
 
-    function loadGhBtn() {
-        var iframeEl = document.createElement('iframe');
-
-        iframeEl.setAttribute('src', 'https://ghbtns.com/github-btn.html?user=MaxCDN&repo=bootstrap-cdn&type=watch&count=true');
-        iframeEl.title = 'Star on GitHub';
-        iframeEl.style.width = '110px';
-        iframeEl.style.height = '20px';
-
-        document.getElementById('ghbtns-badge').appendChild(iframeEl);
-    }
-
     function googleAnalytics() {
         function gaEvent(e) {
             if (typeof e.target !== 'undefined') {
@@ -153,16 +142,11 @@
         /* eslint-enable */
     }
 
-    function init() {
-        toggleInputCaret();
-        selectTextCopyToClipboard();
-        loadGhBtn();
-        loadTwitterScript();
-        initTwitterTimeline();
-        googleAnalytics();
-    }
-
-    window.addEventListener('DOMContentLoaded', init, false);
+    toggleInputCaret();
+    selectTextCopyToClipboard();
+    loadTwitterScript();
+    initTwitterTimeline();
+    googleAnalytics();
 
     window.addEventListener('resize', initTwitterTimeline, false);
 
