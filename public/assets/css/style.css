@@ -21,11 +21,6 @@ iframe {
     overflow: hidden;
 }
 
-#ghbtns-badge {
-    width: 110px;
-    height: 20px;
-}
-
 footer {
     border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
