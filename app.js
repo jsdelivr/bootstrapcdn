@@ -139,6 +139,7 @@ app.use(helmet.contentSecurityPolicy({
             '\'self\'',
             '\'unsafe-inline\'',
             'maxcdn.bootstrapcdn.com',
+            'fonts.googleapis.com',
             'www.google-analytics.com',
             'code.jquery.com',
             'platform.twitter.com',

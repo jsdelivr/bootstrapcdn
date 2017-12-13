@@ -2,6 +2,9 @@
 -var jquery = config.javascript.filter(function(o) { return o.name === 'jquery'; })[0];
 -var bundle = getVersionedPath(process.env.NODE_ENV === 'production' ? '/assets/js/bundle.prod.js' : '/assets/js/bundle.dev.js');
 
+if (helpers.theme.selected(config, theme) === config.theme)
+    | loadjs(['#{bootswatch.uri}', 'css!https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700'], 'styles');
+
 | loadjs('#{bundle}', 'bundle', {
 |     numRetries: 3
 | });

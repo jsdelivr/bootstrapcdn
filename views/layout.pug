@@ -47,8 +47,10 @@ html(lang='en', prefix='og: http://ogp.me/ns#', itemscope, itemtype='http://sche
         meta(itemprop='image', content=getVersionedPath('/assets/img/og.png'))
 
         -var bootswatch = helpers.theme.fetch(config, theme);
-        link(rel='stylesheet', href=bootswatch.uri, integrity=bootswatch.sri,
-            crossorigin='anonymous')
+
+        unless (helpers.theme.selected(config, theme) === config.theme)
+            link(rel='stylesheet', href=bootswatch.uri, integrity=bootswatch.sri,
+                crossorigin='anonymous')
 
         each css in config.stylesheet
             if (title === 'Privacy Policy' && css.name === 'iubenda')
@@ -57,8 +59,12 @@ html(lang='en', prefix='og: http://ogp.me/ns#', itemscope, itemtype='http://sche
 
         style
             if (process.env.NODE_ENV === 'production')
+                if (helpers.theme.selected(config, theme) === config.theme)
+                    include:clean-css /assets/css/critical.css
                 include:clean-css /assets/css/style.css
             else
+                if (helpers.theme.selected(config, theme) === config.theme)
+                    include /assets/css/critical.css
                 include /assets/css/style.css
 
         script(nonce=nonce)
