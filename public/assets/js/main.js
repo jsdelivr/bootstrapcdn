@@ -1,44 +1,44 @@
 /* global Clipboard:true */
 
-(function () {
+((() => {
     'use strict';
 
     function toggleInputCaret() {
-        var selector = '.input-group-btn > button';
-        var el = document.querySelectorAll(selector);
+        const selector = '.input-group-btn > button';
+        const el = document.querySelectorAll(selector);
 
         function toggleCode(index) {
-            var btnIcon = el[index].querySelector('span');
+            const btnIcon = el[index].querySelector('span');
 
-            el[index].addEventListener('click', function() {
+            el[index].addEventListener('click', () => {
                 btnIcon.classList.toggle('caret-open');
             });
         }
 
-        for (var i = 0, len = el.length; i < len; i++) {
+        for (let i = 0, len = el.length; i < len; i++) {
             toggleCode(i);
         }
     }
 
     function selectTextCopyToClipboard() {
-        var selector = 'input[type="text"]';
-        var el = document.querySelectorAll(selector);
-        var origHelpBlockText = 'Click to copy';
+        const selector = 'input[type="text"]';
+        const el = document.querySelectorAll(selector);
+        const origHelpBlockText = 'Click to copy';
 
-        for (var i = 0, len = el.length; i < len; i++) {
+        for (let i = 0, len = el.length; i < len; i++) {
             el[i].addEventListener('focus', function(e) {
                 e.preventDefault();
                 this.select();
 
-                var clipboardSnippets = new Clipboard(this, {
-                    target: function (trigger) {
+                const clipboardSnippets = new Clipboard(this, {
+                    target(trigger) {
                         return trigger;
                     }
                 });
 
-                clipboardSnippets.on('success', function (e) {
-                    var helpBlock = {};
-                    var parentNextSibling = e.trigger.parentElement.nextElementSibling;
+                clipboardSnippets.on('success', (e) => {
+                    let helpBlock = {};
+                    const parentNextSibling = e.trigger.parentElement.nextElementSibling;
 
                     if (parentNextSibling &&
                         parentNextSibling.nodeName.toLowerCase() === 'span') {
@@ -52,8 +52,8 @@
             }, true);
 
             el[i].addEventListener('blur', function(e) {
-                var helpBlock = {};
-                var parentNextSibling = this.parentElement.nextElementSibling;
+                let helpBlock = {};
+                const parentNextSibling = this.parentElement.nextElementSibling;
 
                 if (parentNextSibling &&
                     parentNextSibling.nodeName.toLowerCase() === 'span') {
@@ -69,14 +69,14 @@
     }
 
     function initTwitterTimeline() {
-        var timelineSelector = '.twitter-timeline-custom';
-        var timelineRendered = timelineSelector + ' .twitter-timeline-rendered';
+        const timelineSelector = '.twitter-timeline-custom';
+        const timelineRendered = `${timelineSelector} .twitter-timeline-rendered`;
 
         if (!window.matchMedia('(min-width: 992px)').matches || document.querySelector(timelineRendered) !== null) {
             return;
         }
 
-        window.twttr.ready(function(twttr) {
+        window.twttr.ready((twttr) => {
             twttr.widgets.createTimeline(
                 {
                     sourceType: 'collection',
@@ -113,7 +113,7 @@
     }
 
     function loadGhBtn() {
-        var iframeEl = document.createElement('iframe');
+        const iframeEl = document.createElement('iframe');
 
         iframeEl.setAttribute('src', 'https://ghbtns.com/github-btn.html?user=MaxCDN&repo=bootstrap-cdn&type=watch&count=true');
         iframeEl.title = 'Star on GitHub';
@@ -126,10 +126,10 @@
     function googleAnalytics() {
         function gaEvent(e) {
             if (typeof e.target !== 'undefined') {
-                var action = e.target.getAttribute('data-ga-action');
-                var category = e.target.getAttribute('data-ga-category');
-                var label = e.target.getAttribute('data-ga-label');
-                var value = parseInt(e.target.getAttribute('data-ga-value'), 10);
+                const action = e.target.getAttribute('data-ga-action');
+                const category = e.target.getAttribute('data-ga-category');
+                const label = e.target.getAttribute('data-ga-label');
+                const value = parseInt(e.target.getAttribute('data-ga-value'), 10);
 
                 if (typeof window.ga !== 'undefined' && typeof category !== 'undefined' && typeof action !== 'undefined') {
                     window.ga('send', 'event', category, action, label, value, {});
@@ -162,4 +162,4 @@
     window.addEventListener('DOMContentLoaded', init, false);
 
     window.addEventListener('resize', initTwitterTimeline, false);
-})();
+}))();

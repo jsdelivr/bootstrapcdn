@@ -8,6 +8,8 @@
   },
   "dependencies": {
     "async": "^2.6.0",
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
     "compression": "^1.7.1",
     "errorhandler": "^1.5.0",
     "express": "^4.16.2",
@@ -15,6 +17,7 @@
     "express-sslify": "^1.2.0",
     "helmet": "^3.9.0",
     "js-yaml": "^3.10.0",
+    "jstransformer-babel": "^2.1.0",
     "jstransformer-clean-css": "^2.0.0",
     "jstransformer-uglify-js": "^1.2.0",
     "morgan": "^1.9.0",
@@ -29,6 +32,7 @@
     "uuid": "^3.1.0"
   },
   "devDependencies": {
+    "babel-eslint": "^8.0.3",
     "bootlint": "^0.14.2",
     "eslint": "^4.13.1",
     "forever": "^0.15.3",
@@ -44,6 +48,29 @@
   },
   "engines": {
     "node": "8.x"
+  },
+  "browserslist": [
+    "last 1 major version",
+    ">= 1%",
+    "Chrome >= 45",
+    "Firefox >= 38",
+    "Edge >= 12",
+    "Explorer >= 10",
+    "iOS >= 9",
+    "Safari >= 9",
+    "Android >= 4.4",
+    "Opera >= 30"
+  ],
+  "babel": {
+    "presets": [
+      [
+        "env",
+        {
+          "loose": true,
+          "modules": false
+        }
+      ]
+    ]
   },
   "snyk": true
 }

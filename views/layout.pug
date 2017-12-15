@@ -82,9 +82,9 @@ html(lang='en', prefix='og: http://ogp.me/ns#', itemscope, itemtype='http://sche
             include /assets/js/vendor/loadjs.min.js
 
             if (process.env.NODE_ENV === 'production')
-                include:uglify-js /assets/js/main.js
+                include:babel:uglify-js /assets/js/main.js
             else
-                include /assets/js/main.js
+                include:babel /assets/js/main.js
 
             include _partials/loadjs.pug
 
