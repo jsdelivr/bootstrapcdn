@@ -9,7 +9,7 @@ const fs         = require('fs');
 const async      = require('async');
 
 const MOCHA      = path.join(__dirname, 'node_modules/.bin/mocha');
-const ESLINT     = path.join(__dirname, 'node_modules/.bin/eslint');
+const XO         = path.join(__dirname, 'node_modules/.bin/xo');
 const BOOTLINT   = path.join(__dirname, 'node_modules/.bin/bootlint');
 const PUGLINT    = path.join(__dirname, 'node_modules/.bin/pug-lint');
 const FOREVER    = path.join(__dirname, 'node_modules/.bin/forever');
@@ -37,9 +37,9 @@ target.suite = () => {
     assertExec(`${MOCHA}${MOCHA_OPTS} -R dot ./tests/`);
 };
 
-target.eslint = () => {
-    echo('+ eslint .');
-    assertExec(`${ESLINT} .`);
+target.xo = () => {
+    echo('+ xo --quiet');
+    assertExec(`${XO} --quiet`);
 };
 
 target.puglint = () => {
@@ -48,7 +48,7 @@ target.puglint = () => {
 };
 
 target.lint = () => {
-    target.eslint();
+    target.xo();
     target.puglint();
     // Disabling Bootlint until it works with Bootstrap 4
     // target.bootlint();
@@ -190,7 +190,7 @@ target.help = () => {
     echo('  clean       clean up working directory');
     echo('  run         runs for development mode');
     echo('  lint        lint all the things');
-    echo('  eslint      run eslint');
+    echo('  xo          run xo');
     echo('  bootlint    run Bootlint');
     echo('  puglint     run pug-lint');
     echo('  travis      run Travis CI checks');

@@ -6,6 +6,9 @@
     "snyk-protect": "snyk protect",
     "test": "node make test"
   },
+  "engines": {
+    "node": "8.x"
+  },
   "dependencies": {
     "async": "^2.6.0",
     "babel-core": "^6.26.0",
@@ -34,7 +37,6 @@
   "devDependencies": {
     "babel-eslint": "^8.0.3",
     "bootlint": "^0.14.2",
-    "eslint": "^4.13.1",
     "forever": "^0.15.3",
     "format": "^0.2.2",
     "fs-walk": "^0.0.1",
@@ -44,10 +46,71 @@
     "pug-lint": "^2.5.0",
     "pug-lint-config-clock": "^2.0.0",
     "request": "^2.83.0",
-    "semver": "^5.4.1"
+    "semver": "^5.4.1",
+    "xo": "^0.18.2"
   },
-  "engines": {
-    "node": "8.x"
+  "xo": {
+    "esnext": true,
+    "space": 4,
+    "rules": {
+      "arrow-parens": [
+        "error",
+        "always"
+      ],
+      "capitalized-comments": "off",
+      "global-require": "error",
+      "import/no-unassigned-import": [
+        "error",
+        {
+          "allow": [
+            "app.js",
+            "shelljs/make"
+          ]
+        }
+      ],
+      "init-declarations": [
+        "error",
+        "always"
+      ],
+      "new-cap": "off",
+      "no-multi-spaces": [
+        "error",
+        {
+          "exceptions": {
+            "Property": true,
+            "VariableDeclarator": true
+          }
+        }
+      ],
+      "no-undefined": "error",
+      "object-curly-spacing": [
+        "error",
+        "always"
+      ],
+      "quote-props": [
+        "error",
+        "consistent"
+      ],
+      "unicorn/filename-case": "off",
+      "unicorn/no-process-exit": "off"
+    },
+    "overrides": [
+      {
+        "files": "public/assets/js/main.js",
+        "envs": [
+          "browser"
+        ],
+        "rules": {
+          "unicorn/no-abusive-eslint-disable": "off"
+        }
+      },
+      {
+        "files": "tests/*.js",
+        "envs": [
+          "mocha"
+        ]
+      }
+    ]
   },
   "browserslist": [
     "last 1 major version",
