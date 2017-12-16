@@ -16,33 +16,30 @@
 
 ## Running
 
-Use `node make <task>`.
+Use `npm run <task>`.
 
 ### Development
 
 ```sh
 npm install
 
-node make test run
+npm test && npm run dev
 ```
 
 ### Demonized
 
 ```shell
-# start server
-node make start
+# start production server
+npm start
 
 # stop server
-node make stop
+npm stop
 
 # restart server
-node make restart
+npm restart
 
-# server status
-node make status
-
-# view logs
-node ./node_modules/.bin/forever logs app.js
+# and more
+npm run
 ```
 
 ## Configuration

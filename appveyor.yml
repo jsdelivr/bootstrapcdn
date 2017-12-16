@@ -15,7 +15,7 @@ build: off
 test_script:
   - node -v
   - npm -v
-  - node make appveyor
+  - npm test
 
 matrix:
   fast_finish: true
