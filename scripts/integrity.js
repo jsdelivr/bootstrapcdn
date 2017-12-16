@@ -96,5 +96,4 @@ function exists(file) {
     }
 }))();
 
-
 fs.writeFileSync(configFile, yaml.dump(config, { lineWidth: -1 }));

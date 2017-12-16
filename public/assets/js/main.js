@@ -1,6 +1,6 @@
 /* global Clipboard:true */
 
-(function mainJS() {
+(function () {
     'use strict';
 
     function toggleInputCaret() {
@@ -49,7 +49,6 @@
 
                     helpBlock.innerHTML = 'Copied text to clipboard';
                 });
-
             }, true);
 
             el[i].addEventListener('blur', function(e) {
@@ -67,7 +66,6 @@
                 helpBlock.innerHTML = origHelpBlockText;
             }, true);
         }
-
     }
 
     function initTwitterTimeline() {
@@ -133,7 +131,7 @@
                 var label = e.target.getAttribute('data-ga-label');
                 var value = parseInt(e.target.getAttribute('data-ga-value'), 10);
 
-                if (typeof ga !== 'undefined' && typeof category !== 'undefined' && typeof action !== 'undefined') {
+                if (typeof window.ga !== 'undefined' && typeof category !== 'undefined' && typeof action !== 'undefined') {
                     window.ga('send', 'event', category, action, label, value, {});
                 }
             }

@@ -2,14 +2,13 @@
 
 'use strict';
 
-const yaml    = require('js-yaml');
 const path    = require('path');
 const fs      = require('fs');
 const request = require('request');
+const yaml    = require('js-yaml');
 
 const version  = process.argv[2];
 const verMajor = version[0];
-
 
 if (!version) {
     console.log('Please pass the Bootswatch version as an argument.');
@@ -40,7 +39,7 @@ function errorCheck(err) {
 function checkDirSync(dir) {
     try {
         fs.statSync(dir);
-    } catch (e) {
+    } catch (err) {
         fs.mkdirSync(dir);
         console.log('Created: %s', dir);
     }

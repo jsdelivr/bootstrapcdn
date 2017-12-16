@@ -47,7 +47,7 @@ if (process.env.ROLLBAR_ACCESS_TOKEN) {
         rollbarOptions.endpoint = process.env.ROLLBAR_ENDPOINT;
     }
 
-    const rollbar  = new Rollbar(rollbarOptions);
+    const rollbar = new Rollbar(rollbarOptions);
 
     app.use(rollbar.errorHandler());
 } else if (env !== 'test') {
