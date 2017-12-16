@@ -26,7 +26,7 @@
         const origHelpBlockText = 'Click to copy';
 
         for (let i = 0, len = el.length; i < len; i++) {
-            el[i].addEventListener('focus', function(e) {
+            el[i].addEventListener('focus', function (e) {
                 e.preventDefault();
                 this.select();
 
@@ -51,7 +51,7 @@
                 });
             }, true);
 
-            el[i].addEventListener('blur', function(e) {
+            el[i].addEventListener('blur', function (e) {
                 let helpBlock = {};
                 const parentNextSibling = this.parentElement.nextElementSibling;
 
