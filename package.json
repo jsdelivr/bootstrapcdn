@@ -21,10 +21,12 @@
     "pug": "^2.0.0-rc.4",
     "rollbar": "^2.3.3",
     "serve-favicon": "^2.4.5",
+    "serve-static": "^1.13.1",
     "shelljs": "^0.5.3",
     "snyk": "^1.59.1",
     "sri-toolbox": "^0.2.0",
-    "uglify-js": "^2.8.29"
+    "uglify-js": "^2.8.29",
+    "uuid": "^3.1.0"
   },
   "devDependencies": {
     "bootlint": "^0.14.2",

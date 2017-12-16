@@ -18,7 +18,7 @@ const MOCHA_OPTS = ' --timeout 15000 --slow 500 --exit';
 
 cd(__dirname);
 
-function assertExec (cmd, options) {
+function assertExec(cmd, options) {
     const res = options ? exec(cmd, options) : exec(cmd);
 
     if (res.code !== 0) {
@@ -50,8 +50,8 @@ target.puglint = () => {
 target.lint = () => {
     target.eslint();
     target.puglint();
-    // DIsabling Bootlint until it works with Bootstrap 4
-    //target.bootlint();
+    // Disabling Bootlint until it works with Bootstrap 4
+    // target.bootlint();
 };
 
 target.functional = () => {

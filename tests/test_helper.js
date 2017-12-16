@@ -12,7 +12,7 @@ const format    = require('format');
 const encode    = require('htmlencode').htmlEncode;
 const validator = require('html-validator');
 
-let response  = {};
+let response = {};
 
 // for array of types, first will be chosen when testing strictly
 const CONTENT_TYPE_MAP = {
@@ -95,7 +95,7 @@ function assertValidHTML(response, done) {
 
         const errors = data.split('\n')
             .filter((e) => {
-                if (e.match(/^Error:/)) {
+                if (e.startsWith('Error:')) {
                     return true;
                 }
                 return false;
@@ -172,17 +172,17 @@ module.exports = {
     app,
     assert: {
         contentType: assertContentType,
-        validHTML:   assertValidHTML
+        validHTML: assertValidHTML
     },
     preFetch,
     extension,
     css: {
-        pug:  cssJade,
+        pug: cssJade,
         html: cssHTML,
         haml: cssHAML
     },
     javascript: {
-        pug:  jsJade,
+        pug: jsJade,
         html: jsHTML,
         haml: jsHAML
     },

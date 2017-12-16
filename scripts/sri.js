@@ -1,6 +1,7 @@
 'use strict';
 
 const path   = require('path');
+
 const digest = require(path.join(__dirname, '..', 'lib', 'helpers')).sri.digest;
 
 if (process.argv[1] === __filename) {
