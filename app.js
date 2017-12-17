@@ -83,12 +83,6 @@ app.use(compression());
 
 app.use(favicon(path.join(PUBLIC_DIR, config.favicon.uri), '7d'));
 
-app.use(serveStatic(PUBLIC_DIR, {
-    maxAge: '30d',
-    lastModified: true,
-    etag: false
-}));
-
 app.use((req, res, next) => {
     // make config available in routes
     req.config = config;
@@ -102,8 +96,17 @@ app.use((req, res, next) => {
 
     res.locals.nonce = Buffer.from(uuid.v4(), 'utf-8').toString('base64');
 
+    // Rewrite the versioned assets
+    req.url = req.url.replace(/\/([^/]+)\.[0-9a-f]+\.(\w+)$/, '/$1.$2');
+
     next();
 });
+
+app.use(serveStatic(path.join(__dirname, 'public'), {
+    maxAge: '30d',
+    lastModified: true,
+    etag: false
+}));
 
 app.use(helmet({
     dnsPrefetchControl: false,
