@@ -5,67 +5,63 @@
 
     function toggleInputCaret() {
         const selector = '.input-group-btn > button';
-        const el = document.querySelectorAll(selector);
+        const elements = document.querySelectorAll(selector);
 
-        function toggleCode(index) {
-            const btnIcon = el[index].querySelector('span');
+        elements.forEach((elem) => {
+            const btnIcon = elem.querySelector('span');
 
-            el[index].addEventListener('click', () => {
+            elem.addEventListener('click', () => {
                 btnIcon.classList.toggle('caret-open');
             });
-        }
-
-        for (let i = 0, len = el.length; i < len; i++) {
-            toggleCode(i);
-        }
+        });
     }
 
     function selectTextCopyToClipboard() {
         const selector = 'input[type="text"]';
-        const el = document.querySelectorAll(selector);
+        const elements = document.querySelectorAll(selector);
         const origHelpBlockText = 'Click to copy';
 
-        for (let i = 0, len = el.length; i < len; i++) {
-            el[i].addEventListener('focus', function(e) {
-                e.preventDefault();
-                this.select();
+        elements.forEach((elem) => {
+            elem.addEventListener('focus', (event) => {
+                event.preventDefault();
+                elem.select();
 
-                const clipboardSnippets = new Clipboard(this, {
+                const clipboardInputs = new Clipboard(elem, {
                     target(trigger) {
                         return trigger;
                     }
                 });
 
-                clipboardSnippets.on('success', (e) => {
+                clipboardInputs.on('success', (event) => {
                     let helpBlock = {};
-                    const parentNextSibling = e.trigger.parentElement.nextElementSibling;
+                    const parentNextSibling = event.trigger.parentElement.nextElementSibling;
 
                     if (parentNextSibling &&
                         parentNextSibling.nodeName.toLowerCase() === 'span') {
                         helpBlock = parentNextSibling;
                     } else {
-                        helpBlock = e.trigger.nextElementSibling;
+                        helpBlock = event.trigger.nextElementSibling;
                     }
 
                     helpBlock.innerHTML = 'Copied text to clipboard';
                 });
             }, true);
 
-            el[i].addEventListener('blur', function(e) {
+            elem.addEventListener('blur', (event) => {
                 let helpBlock = {};
-                const parentNextSibling = this.parentElement.nextElementSibling;
+                const parentNextSibling = elem.parentElement.nextElementSibling;
 
                 if (parentNextSibling &&
                     parentNextSibling.nodeName.toLowerCase() === 'span') {
                     helpBlock = parentNextSibling;
                 } else {
-                    helpBlock = this.nextElementSibling;
+                    helpBlock = elem.nextElementSibling;
                 }
 
-                e.preventDefault();
+                event.preventDefault();
                 helpBlock.innerHTML = origHelpBlockText;
             }, true);
-        }
+        });
     }
 
     function initTwitterTimeline() {
@@ -124,12 +120,12 @@
     }
 
     function googleAnalytics() {
-        function gaEvent(e) {
-            if (typeof e.target !== 'undefined') {
-                const action = e.target.getAttribute('data-ga-action');
-                const category = e.target.getAttribute('data-ga-category');
-                const label = e.target.getAttribute('data-ga-label');
-                const value = parseInt(e.target.getAttribute('data-ga-value'), 10);
+        function gaEvent(event) {
+            if (typeof event.target !== 'undefined') {
+                const action = event.target.getAttribute('data-ga-action');
+                const category = event.target.getAttribute('data-ga-category');
+                const label = event.target.getAttribute('data-ga-label');
+                const value = parseInt(event.target.getAttribute('data-ga-value'), 10);
 
                 if (typeof window.ga !== 'undefined' && typeof category !== 'undefined' && typeof action !== 'undefined') {
                     window.ga('send', 'event', category, action, label, value, {});
