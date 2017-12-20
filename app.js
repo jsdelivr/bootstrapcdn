@@ -17,6 +17,7 @@ const enforce      = require('express-sslify');
 const sitemap      = require('express-sitemap');
 const helmet       = require('helmet');
 const Rollbar      = require('rollbar');
+const staticify    = require('staticify');
 
 const helpers      = require('./lib/helpers.js');
 const routes       = require('./routes');
@@ -80,6 +81,7 @@ if (env === 'production') {
 
 // middleware
 app.use(compression());
+app.use(staticify(PUBLIC_DIR).middleware);
 
 app.use(favicon(path.join(PUBLIC_DIR, config.favicon.uri), '7d'));
 
@@ -96,13 +98,10 @@ app.use((req, res, next) => {
 
     res.locals.nonce = Buffer.from(uuid.v4(), 'utf-8').toString('base64');
 
-    // Rewrite the versioned assets
-    req.url = req.url.replace(/\/([^/]+)\.[0-9a-f]+\.(\w+)$/, '/$1.$2');
-
     next();
 });
 
-app.use(serveStatic(path.join(__dirname, 'public'), {
+app.use(serveStatic(PUBLIC_DIR, {
     maxAge: '30d',
     lastModified: true,
     etag: false
@@ -218,6 +217,7 @@ app.use(helmet.contentSecurityPolicy({
 app.locals.helpers = helpers;
 app.locals.config = config;
 app.locals.basedir = PUBLIC_DIR;
+app.locals.getVersionedPath = staticify(PUBLIC_DIR).getVersionedPath;
 
 // routes
 app.get('/fontawesome/', routes.fontawesome);
