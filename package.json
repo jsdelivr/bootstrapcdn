@@ -19,8 +19,7 @@
     "purge-latest": "bash ./scripts/purge.sh",
     "bootswatch": "node ./scripts/bootswatch.js",
     "integrity": "node ./scripts/integrity.js",
-    "wp-plugin": "node ./scripts/wp-plugin.js",
-    "snyk-protect": "snyk protect"
+    "wp-plugin": "node ./scripts/wp-plugin.js"
   },
   "dependencies": {
     "async": "^2.6.0",
@@ -43,7 +42,6 @@
     "rollbar": "^2.3.3",
     "serve-favicon": "^2.4.5",
     "serve-static": "^1.13.1",
-    "snyk": "^1.59.1",
     "sri-toolbox": "^0.2.0",
     "uglify-js": "^2.8.29",
     "uuid": "^3.1.0"
@@ -87,6 +85,5 @@
         }
       ]
     ]
-  },
-  "snyk": true
+  }
 }
