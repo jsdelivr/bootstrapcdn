@@ -30,8 +30,10 @@ const app          = express();
 app.set('port', process.env.PORT || config.port || 3000);
 app.set('views', path.join(__dirname, '/views/'));
 app.set('view engine', 'pug');
-
-app.disable('x-powered-by');
+app.set('etag', false);
+app.set('json escape', true);
+app.set('json spaces', 2);
+app.set('x-powered-by', false);
 
 // Enable rollbar early on the middleware stack, if it's configured.
 if (process.env.ROLLBAR_ACCESS_TOKEN) {
@@ -47,7 +49,7 @@ if (process.env.ROLLBAR_ACCESS_TOKEN) {
         rollbarOptions.endpoint = process.env.ROLLBAR_ENDPOINT;
     }
 
-    const rollbar  = new Rollbar(rollbarOptions);
+    const rollbar = new Rollbar(rollbarOptions);
 
     app.use(rollbar.errorHandler());
 } else if (env !== 'test') {
@@ -77,7 +79,6 @@ if (env === 'production') {
 
 // middleware
 app.use(compression());
-app.set('etag', false);
 
 app.use(favicon(path.join(__dirname, 'public', config.favicon.uri), '7d'));
 
@@ -189,6 +190,10 @@ app.use(helmet.contentSecurityPolicy({
         reportUri: 'https://d063bdf998559129f041de1efd2b41a5.report-uri.com/r/d/csp/enforce'
     },
 
+    // This module will detect common mistakes in your directives and throw errors
+    // if it finds any. To disable this, enable "loose mode".
+    loose: false,
+
     // Set to true if you only want browsers to report errors, not block them
     reportOnly: false,
 
@@ -202,7 +207,7 @@ app.use(helmet.contentSecurityPolicy({
     // Set to false if you want to completely disable any user-agent sniffing.
     // This may make the headers less compatible but it will be much faster.
     // This defaults to `true`.
-    browserSniff: true
+    browserSniff: false
 }));
 
 // locals

@@ -1,6 +1,6 @@
 /.git/
 /node_modules/
-/public/assets/js/clipboard.min.js
+/public/assets/js/vendor/
 /public/bootlint/
 /public/bootswatch/
 /public/html5shiv/

@@ -8,7 +8,7 @@
 
 ## Deploy your own copy on Heroku
 
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
 ## Requirements
 
@@ -16,33 +16,30 @@
 
 ## Running
 
-Use `node make <task>`.
+Use `npm run <task>`.
 
 ### Development
 
 ```sh
 npm install
 
-node make test run
+npm test && npm run dev
 ```
 
 ### Demonized
 
 ```shell
-# start server
-node make start
+# start production server
+npm start
 
 # stop server
-node make stop
+npm stop
 
 # restart server
-node make restart
+npm restart
 
-# server status
-node make status
-
-# view logs
-node ./node_modules/.bin/forever logs app.js
+# and more
+npm run
 ```
 
 ## Configuration
@@ -55,7 +52,7 @@ Key Overview:
 2. `theme`: Integer value of the array index from the `bootswatch` section below.
 3. `authors`: Array of author Strings
 4. `description`: String containing the default meta description of the site.
-5. `javascripts`: Array containing JavaScript files to be loaded.
+5. `javascript`: Array containing JavaScript files to be loaded.
 6. `bootswatch3`: Hash containing current Bootswatch 3 meta data and themes.
 7. `bootswatch4`: Hash containing current Bootswatch 4 meta data and themes.
 8. `bootlint`: Array of hashes containing Bootlint meta data and paths.

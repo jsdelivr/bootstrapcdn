@@ -3,12 +3,13 @@
 
 const path      = require('path');
 const assert    = require('assert');
+const https     = require('https');
 const walk      = require('fs-walk');
 const async     = require('async');
-const https     = require('https');
 const semver    = require('semver');
 const digest    = require('../lib/helpers.js').sri.digest;
 const helpers   = require('./test_helper.js');
+
 const config    = helpers.config();
 
 const expectedHeaders = {
@@ -44,7 +45,7 @@ const responses = {};
 
 function request(uri, cb) {
     // return memoized response to avoid making the same http call twice
-    if (responses.hasOwnProperty(uri)) {
+    if (Object.prototype.hasOwnProperty.call(responses, uri)) {
         return cb(responses[uri]);
     }
 
@@ -53,7 +54,6 @@ function request(uri, cb) {
         responses[uri] = res;
         cb(res);
     }, https);
-
 }
 
 function assertSRI(uri, sri, done) {
@@ -76,7 +76,7 @@ function assertHeader(uri, header) {
         it(`has ${header}`, (done) => {
             request(uri, (response) => {
                 assert.equal(200, response.statusCode);
-                assert(response.headers.hasOwnProperty(header));
+                assert(Object.prototype.hasOwnProperty.call(response.headers, header));
 
                 if (expectedHeaders[header]) {
                     assert.equal(response.headers[header], expectedHeaders[header]);
@@ -214,9 +214,7 @@ describe('functional', () => {
     });
 
     describe('public/**/*.*', () => {
-        /*
-         * Build File List
-         ****/
+        // Build File List
         const whitelist = [
             'bootlint',
             'bootstrap',
@@ -259,9 +257,7 @@ describe('functional', () => {
             publicURIs.push(uri);
         });
 
-        /*
-         * Run Tests
-         ****/
+        // Run Tests
         async.each(publicURIs, (uri, callback) => {
             describe(uri, () => {
                 it('content-type', (done) => {

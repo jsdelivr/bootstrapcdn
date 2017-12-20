@@ -3,38 +3,58 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "snyk-protect": "snyk protect",
-    "test": "node make test"
+    "clean": "rm -rf ./node_modules/",
+    "eslint": "eslint .",
+    "puglint": "pug-lint .",
+    "lint": "npm run eslint && npm run puglint",
+    "mocha": "mocha --timeout 15000 --slow 500 --exit -i -g \"functional\" -R dot ./tests/",
+    "mocha:suite": "mocha --timeout 15000 --slow 500 --exit -R dot ./tests/",
+    "mocha:functional": "mocha --timeout 15000 --slow 500 --exit -R tap ./tests/functional_test.js",
+    "dev": "cross-env NODE_ENV=development nodemon app.js --ext css,js,pug,svg,png,yml --ignore tests",
+    "start": "cross-env NODE_ENV=production forever start --plain app.js",
+    "stop": "forever stop app.js",
+    "restart": "npm run stop & npm run start",
+    "travis": "npm run lint && npm run mocha:suite",
+    "test": "npm run lint && npm run mocha",
+    "purge-latest": "bash ./scripts/purge.sh",
+    "bootswatch": "node ./scripts/bootswatch.js",
+    "integrity": "node ./scripts/integrity.js",
+    "wp-plugin": "node ./scripts/wp-plugin.js"
   },
   "dependencies": {
     "async": "^2.6.0",
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
     "compression": "^1.7.1",
+    "cross-env": "^5.1.1",
     "errorhandler": "^1.5.0",
     "express": "^4.16.2",
     "express-sitemap": "^1.8.0",
     "express-sslify": "^1.2.0",
+    "forever": "^0.15.3",
     "helmet": "^3.9.0",
     "js-yaml": "^3.10.0",
+    "jstransformer-babel": "^2.1.0",
     "jstransformer-clean-css": "^2.0.0",
     "jstransformer-uglify-js": "^1.2.0",
     "morgan": "^1.9.0",
     "pug": "^2.0.0-rc.4",
-    "rollbar": "^2.3.2",
+    "rollbar": "^2.3.3",
     "serve-favicon": "^2.4.5",
-    "shelljs": "^0.5.3",
-    "snyk": "^1.53.0",
+    "serve-static": "^1.13.1",
     "sri-toolbox": "^0.2.0",
-    "uglify-js": "^2.8.29"
+    "uglify-js": "^2.8.29",
+    "uuid": "^3.1.0"
   },
   "devDependencies": {
-    "bootlint": "^0.14.2",
-    "eslint": "^4.12.1",
-    "forever": "^0.15.3",
+    "babel-eslint": "^8.0.3",
+    "eslint": "^4.13.1",
     "format": "^0.2.2",
     "fs-walk": "^0.0.1",
     "html-validator": "^2.2.3",
     "htmlencode": "^0.0.4",
     "mocha": "^4.0.1",
+    "nodemon": "^1.13.3",
     "pug-lint": "^2.5.0",
     "pug-lint-config-clock": "^2.0.0",
     "request": "^2.83.0",
@@ -43,5 +63,27 @@
   "engines": {
     "node": "8.x"
   },
-  "snyk": true
+  "browserslist": [
+    "last 1 major version",
+    ">= 1%",
+    "Chrome >= 45",
+    "Firefox >= 38",
+    "Edge >= 12",
+    "Explorer >= 10",
+    "iOS >= 9",
+    "Safari >= 9",
+    "Android >= 4.4",
+    "Opera >= 30"
+  ],
+  "babel": {
+    "presets": [
+      [
+        "env",
+        {
+          "loose": true,
+          "modules": false
+        }
+      ]
+    ]
+  }
 }

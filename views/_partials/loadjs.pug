@@ -1,0 +1,11 @@
+-var bootstrap = config.bootstrap4.filter(function(o) { return o.latest; })[0];
+
+| loadjs(['#{config.javascript.jquery.uri}', '#{bootstrap.javascriptBundle}'], 'jquery', {
+|     async: false,
+|     numRetries: 3
+| });
+| loadjs.ready('jquery', {
+|     success: function() {
+|         $('.ads-info-toggler').popover();
+|     }
+| });

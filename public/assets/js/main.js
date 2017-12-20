@@ -1,85 +1,78 @@
-/* eslint-env jquery */
 /* global Clipboard:true */
 
-(function mainJS() {
+((() => {
     'use strict';
 
-    (function toggleInputCaret() {
-        var selector = '.input-group-btn > button';
-        var el = document.querySelectorAll(selector);
+    function toggleInputCaret() {
+        const selector = '.input-group-btn > button';
+        const elements = document.querySelectorAll(selector);
 
-        function toggleCode(index) {
-            var btnIcon = el[index].querySelector('span');
+        elements.forEach((elem) => {
+            const btnIcon = elem.querySelector('span');
 
-            el[index].addEventListener('click', function() {
+            elem.addEventListener('click', () => {
                 btnIcon.classList.toggle('caret-open');
             });
-        }
+        });
+    }
 
-        for (var i = 0, len = el.length; i < len; i++) {
-            toggleCode(i);
-        }
-    })();
+    function selectTextCopyToClipboard() {
+        const selector = 'input[type="text"]';
+        const elements = document.querySelectorAll(selector);
+        const origHelpBlockText = 'Click to copy';
 
-    (function selectTextCopyToClipboard() {
-        var selector = 'input[type="text"]';
-        var el = document.querySelectorAll(selector);
-        var origHelpBlockText = 'Click to copy';
+        elements.forEach((elem) => {
+            elem.addEventListener('focus', (event) => {
+                event.preventDefault();
+                elem.select();
 
-        for (var i = 0, len = el.length; i < len; i++) {
-            el[i].addEventListener('focus', function(e) {
-                e.preventDefault();
-                this.select();
-
-                var clipboardSnippets = new Clipboard(this, {
-                    target: function (trigger) {
+                const clipboardInputs = new Clipboard(elem, {
+                    target(trigger) {
                         return trigger;
                     }
                 });
 
-                clipboardSnippets.on('success', function (e) {
-                    var helpBlock = {};
-                    var parentNextSibling = e.trigger.parentElement.nextElementSibling;
+                clipboardInputs.on('success', (event) => {
+                    let helpBlock = {};
+                    const parentNextSibling = event.trigger.parentElement.nextElementSibling;
 
                     if (parentNextSibling &&
                         parentNextSibling.nodeName.toLowerCase() === 'span') {
                         helpBlock = parentNextSibling;
                     } else {
-                        helpBlock = e.trigger.nextElementSibling;
+                        helpBlock = event.trigger.nextElementSibling;
                     }
 
                     helpBlock.innerHTML = 'Copied text to clipboard';
                 });
-
             }, true);
 
-            el[i].addEventListener('blur', function(e) {
-                var helpBlock = {};
-                var parentNextSibling = this.parentElement.nextElementSibling;
+            elem.addEventListener('blur', (event) => {
+                let helpBlock = {};
+                const parentNextSibling = elem.parentElement.nextElementSibling;
 
                 if (parentNextSibling &&
                     parentNextSibling.nodeName.toLowerCase() === 'span') {
                     helpBlock = parentNextSibling;
                 } else {
-                    helpBlock = this.nextElementSibling;
+                    helpBlock = elem.nextElementSibling;
                 }
 
-                e.preventDefault();
+                event.preventDefault();
                 helpBlock.innerHTML = origHelpBlockText;
             }, true);
-        }
-
-    })();
+        });
+    }
 
     function initTwitterTimeline() {
-        var timelineSelector = '.twitter-timeline-custom';
-        var timelineRendered = timelineSelector + ' .twitter-timeline-rendered';
+        const timelineSelector = '.twitter-timeline-custom';
+        const timelineRendered = `${timelineSelector} .twitter-timeline-rendered`;
 
         if (!window.matchMedia('(min-width: 992px)').matches || document.querySelector(timelineRendered) !== null) {
             return;
         }
 
-        window.twttr.ready(function(twttr) {
+        window.twttr.ready((twttr) => {
             twttr.widgets.createTimeline(
                 {
                     sourceType: 'collection',
@@ -94,59 +87,47 @@
         });
     }
 
-    (function loadScripts() {
-        function loadGhbtns() {
-            var iframeEl = document.createElement('iframe');
-
-            iframeEl.setAttribute('src', 'https://ghbtns.com/github-btn.html?user=MaxCDN&repo=bootstrap-cdn&type=watch&count=true');
-            iframeEl.title = 'Star on GitHub';
-            iframeEl.style.width = '110px';
-            iframeEl.style.height = '20px';
-
-            document.getElementById('ghbtns-badge').appendChild(iframeEl);
-        }
-
+    function loadTwitterScript() {
         /* eslint-disable */
-        function loadTwitterScript() {
-            window.twttr = (function(d, s, id) {
-                var js, fjs = d.getElementsByTagName(s)[0],
-                    t = window.twttr || {};
-                if (d.getElementById(id)) return t;
-                js = d.createElement(s);
-                js.id = id;
-                js.src = 'https://platform.twitter.com/widgets.js';
-                fjs.parentNode.insertBefore(js, fjs);
+        window.twttr = (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0],
+                t = window.twttr || {};
+            if (d.getElementById(id)) return t;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = 'https://platform.twitter.com/widgets.js';
+            fjs.parentNode.insertBefore(js, fjs);
 
-                t._e = [];
-                t.ready = function(f) {
-                    t._e.push(f);
-                };
+            t._e = [];
+            t.ready = function(f) {
+                t._e.push(f);
+            };
 
-                return t;
-            }(document, 'script', 'twitter-wjs'));
-        }
+            return t;
+        }(document, 'script', 'twitter-wjs'));
         /* eslint-enable */
+    }
 
-        function onLoad() {
-            loadGhbtns();
-            loadTwitterScript();
-            initTwitterTimeline();
-        }
+    function loadGhBtn() {
+        const iframeEl = document.createElement('iframe');
 
-        window.addEventListener('load', onLoad, false);
-        window.addEventListener('resize', initTwitterTimeline, false);
-    })();
+        iframeEl.setAttribute('src', 'https://ghbtns.com/github-btn.html?user=MaxCDN&repo=bootstrap-cdn&type=watch&count=true');
+        iframeEl.title = 'Star on GitHub';
+        iframeEl.style.width = '110px';
+        iframeEl.style.height = '20px';
 
+        document.getElementById('ghbtns-badge').appendChild(iframeEl);
+    }
 
-    (function googleAnalytics() {
-        function gaEvent(e) {
-            if (typeof e.target !== 'undefined') {
-                var action = e.target.getAttribute('data-ga-action');
-                var category = e.target.getAttribute('data-ga-category');
-                var label = e.target.getAttribute('data-ga-label');
-                var value = parseInt(e.target.getAttribute('data-ga-value'), 10);
+    function googleAnalytics() {
+        function gaEvent(event) {
+            if (typeof event.target !== 'undefined') {
+                const action = event.target.getAttribute('data-ga-action');
+                const category = event.target.getAttribute('data-ga-category');
+                const label = event.target.getAttribute('data-ga-label');
+                const value = parseInt(event.target.getAttribute('data-ga-value'), 10);
 
-                if (typeof ga !== 'undefined' && typeof category !== 'undefined' && typeof action !== 'undefined') {
+                if (typeof window.ga !== 'undefined' && typeof category !== 'undefined' && typeof action !== 'undefined') {
                     window.ga('send', 'event', category, action, label, value, {});
                 }
             }
@@ -163,10 +144,18 @@
 
         window.addEventListener('click', gaEvent, false);
         /* eslint-enable */
-    })();
+    }
 
-    $(function () {
-        $('.ads-info-toggler').popover();
-    });
+    function init() {
+        toggleInputCaret();
+        selectTextCopyToClipboard();
+        loadGhBtn();
+        loadTwitterScript();
+        initTwitterTimeline();
+        googleAnalytics();
+    }
 
-})();
+    window.addEventListener('DOMContentLoaded', init, false);
+
+    window.addEventListener('resize', initTwitterTimeline, false);
+}))();

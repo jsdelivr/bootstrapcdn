@@ -77,19 +77,15 @@ html(lang='en', prefix='og: http://ogp.me/ns#', itemscope, itemtype='http://sche
                         .col-sm-12.d-none.d-lg-block
                             .twitter-timeline-custom
 
-        script(src=config.javascripts.jquery.uri,
-            integrity=config.javascripts.jquery.sri, crossorigin='anonymous')
-
-        -var bootstrap = config.bootstrap4.filter(function(o) { return o.latest; })[0];
-        script(src=bootstrap.javascriptBundle, integrity=bootstrap.javascriptBundleSri,
-            crossorigin='anonymous')
-
         script(nonce=nonce)
-            include /assets/js/clipboard.min.js
+            include /assets/js/vendor/clipboard.min.js
+            include /assets/js/vendor/loadjs.min.js
 
             if (process.env.NODE_ENV === 'production')
-                include:uglify-js /assets/js/main.js
+                include:babel:uglify-js /assets/js/main.js
             else
-                include /assets/js/main.js
+                include:babel /assets/js/main.js
+
+            include _partials/loadjs.pug
 
 //- vim: ft=pug sw=4 sts=4 et:
