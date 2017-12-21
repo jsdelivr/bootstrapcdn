@@ -12,20 +12,20 @@ block content
 
         .card.bg-light.my-4.p-4.text-center
             .row
-                .col-md-2
+                .col-12.col-md-2
                     .tryit.mt-4
                         -if (index === helpers.theme.selected(config, theme))
                             button.btn.btn-primary(type='button', disabled) Active!
                         -else
                             a.btn.btn-primary(role='button', href='?theme=' + index) Try it!
-                .col-sm-12.col-md-8
+                .col-12.col-md-8
                     .mt-4
                         a(href=config.bootswatch4.link.replace('SWATCH_NAME', name), target='_blank', rel='noopener')
                             img.bootswatch.d-block.img-fluid.mx-auto(src=config.bootswatch4.image.replace('SWATCH_NAME', name), alt=name + ' thumbnail', width='528', height='317')
                         .input-group.mt-3
                             input.form-control(type='text', value=file)
                             span.input-group-btn
-                                button.btn.btn-secondary(type='button', data-toggle='collapse', data-target='#' + name, aria-expanded='false', aria-controls=name)
+                                button.btn.btn-dark(type='button', data-toggle='collapse', data-target='#' + name, aria-expanded='false', aria-controls=name)
                                     span.caret
                         span.form-text.text-muted.mb-4 Click to copy
 
