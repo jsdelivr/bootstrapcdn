@@ -1,7 +1,5 @@
 'use strict';
 
-const env = process.env.NODE_ENV || 'development';
-
 const path         = require('path');
 const fs           = require('fs');
 const http         = require('http');
@@ -25,6 +23,9 @@ const routes       = require('./routes');
 
 const config       = yaml.safeLoad(fs.readFileSync(path.join(__dirname, 'config', '_config.yml'), 'utf8'));
 const app          = express();
+
+const env          = process.env.NODE_ENV || 'development';
+const PUBLIC_DIR   = path.join(__dirname, 'public');
 
 // all environments
 app.set('port', process.env.PORT || config.port || 3000);
@@ -80,9 +81,9 @@ if (env === 'production') {
 // middleware
 app.use(compression());
 
-app.use(favicon(path.join(__dirname, 'public', config.favicon.uri), '7d'));
+app.use(favicon(path.join(PUBLIC_DIR, config.favicon.uri), '7d'));
 
-app.use(serveStatic(path.join(__dirname, 'public'), {
+app.use(serveStatic(PUBLIC_DIR, {
     maxAge: '30d',
     lastModified: true,
     etag: false
@@ -213,7 +214,7 @@ app.use(helmet.contentSecurityPolicy({
 // locals
 app.locals.helpers = helpers;
 app.locals.config = config;
-app.locals.basedir = path.join(__dirname, 'public');
+app.locals.basedir = PUBLIC_DIR;
 
 // routes
 app.get('/fontawesome/', routes.fontawesome);
