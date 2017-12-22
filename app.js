@@ -81,7 +81,12 @@ if (env === 'production') {
 
 // middleware
 app.use(compression());
-app.use(staticify(PUBLIC_DIR).middleware);
+app.use(staticify(PUBLIC_DIR, {
+    sendOptions: {
+        etag: false,
+        maxAge: '1y'
+    }
+}).middleware);
 
 app.use(favicon(path.join(PUBLIC_DIR, config.favicon.uri), '7d'));
 
