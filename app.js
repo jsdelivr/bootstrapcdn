@@ -1,7 +1,5 @@
 'use strict';
 
-const env = process.env.NODE_ENV || 'development';
-
 const path         = require('path');
 const fs           = require('fs');
 const http         = require('http');
@@ -19,12 +17,16 @@ const enforce      = require('express-sslify');
 const sitemap      = require('express-sitemap');
 const helmet       = require('helmet');
 const Rollbar      = require('rollbar');
+const staticify    = require('staticify');
 
 const helpers      = require('./lib/helpers.js');
 const routes       = require('./routes');
 
 const config       = yaml.safeLoad(fs.readFileSync(path.join(__dirname, 'config', '_config.yml'), 'utf8'));
 const app          = express();
+
+const env          = process.env.NODE_ENV || 'development';
+const PUBLIC_DIR   = path.join(__dirname, 'public');
 
 // all environments
 app.set('port', process.env.PORT || config.port || 3000);
@@ -79,14 +81,9 @@ if (env === 'production') {
 
 // middleware
 app.use(compression());
+app.use(staticify(PUBLIC_DIR).middleware);
 
-app.use(favicon(path.join(__dirname, 'public', config.favicon.uri), '7d'));
-
-app.use(serveStatic(path.join(__dirname, 'public'), {
-    maxAge: '30d',
-    lastModified: true,
-    etag: false
-}));
+app.use(favicon(path.join(PUBLIC_DIR, config.favicon.uri), '7d'));
 
 app.use((req, res, next) => {
     // make config available in routes
@@ -103,6 +100,12 @@ app.use((req, res, next) => {
 
     next();
 });
+
+app.use(serveStatic(PUBLIC_DIR, {
+    maxAge: '30d',
+    lastModified: true,
+    etag: false
+}));
 
 app.use(helmet({
     dnsPrefetchControl: false,
@@ -213,7 +216,8 @@ app.use(helmet.contentSecurityPolicy({
 // locals
 app.locals.helpers = helpers;
 app.locals.config = config;
-app.locals.basedir = path.join(__dirname, 'public');
+app.locals.basedir = PUBLIC_DIR;
+app.locals.getVersionedPath = staticify(PUBLIC_DIR).getVersionedPath;
 
 // routes
 app.get('/fontawesome/', routes.fontawesome);

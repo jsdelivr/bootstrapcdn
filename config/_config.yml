@@ -279,8 +279,15 @@ bootstrap3:
     javascriptSri: sha384-2sVosMIQw67h8RBCTmE20BSl9j66nWwbH+2W/CKr8celILSNnEfJnJv2PKCdet3I
     stylesheetSri: sha384-G87n9a15LEsz+OvKCr10ldEbckfbCpr2gjYnZgCiKiwH0p/If1QkSURCTzubbt19
 bootstrap4:
-  - version: 4.0.0-beta.2
+  - version: 4.0.0-beta.3
     latest: true
+    stylesheet: 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css'
+    javascript: 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js'
+    javascriptBundle: 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.bundle.min.js'
+    javascriptSri: sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4
+    javascriptBundleSri: sha384-VspmFJ2uqRrKr3en+IG0cIq1Cl/v/PHneDw6SQZYgrcr8ZZmZoQ3zhuGfMnSR/F2
+    stylesheetSri: sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy
+  - version: 4.0.0-beta.2
     stylesheet: 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css'
     javascript: 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js'
     javascriptBundle: 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.bundle.min.js'
