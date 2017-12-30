@@ -14,8 +14,7 @@ block content
             .input-group.input-group-lg
                 input.form-control(id=formId, type='text', value=file)
                 span.input-group-btn
-                    button.btn.btn-dark(type='button', data-toggle='collapse', data-target='#' + name, aria-expanded='false', aria-controls=name)
-                        span.caret
+                    button.btn.btn-dark.dropdown-toggle(type='button', data-toggle='collapse', data-target='#' + name, aria-expanded='false', aria-controls=name)
             span.form-text.text-muted Click to copy
 
         include _partials/csscode.pug
