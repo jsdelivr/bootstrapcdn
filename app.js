@@ -145,6 +145,8 @@ app.use(helmet.contentSecurityPolicy({
             'cdn.carbonads.com',
             'srv.carbonads.net',
             'adn.fusionads.net',
+            'www.iubenda.com',
+            'cdn.iubenda.com',
             (req, res) => `'nonce-${res.locals.nonce}'`
         ],
         styleSrc: [
@@ -153,7 +155,8 @@ app.use(helmet.contentSecurityPolicy({
             'maxcdn.bootstrapcdn.com',
             'fonts.googleapis.com',
             '*.twimg.com',
-            'platform.twitter.com'
+            'platform.twitter.com',
+            'www.iubenda.com'
         ],
         imgSrc: [
             '\'self\'',
@@ -172,7 +175,8 @@ app.use(helmet.contentSecurityPolicy({
             '*.c3tag.com',
             '*.2mdn.net',
             'launchbit.com',
-            'www.launchbit.com'
+            'www.launchbit.com',
+            'www.iubenda.com'
         ],
         fontSrc: [
             '\'self\'',
@@ -237,6 +241,7 @@ app.get('/legacy/bootswatch/', routes.legacyBootswatch);
 app.get('/legacy/fontawesome/', routes.legacyFontawesome);
 app.get('/showcase/', routes.showcase);
 app.get('/integrations/', routes.integrations);
+app.get('/privacy-policy/', routes.privacyPolicy);
 app.get('/', routes.index);
 
 // eslint-disable-next-line init-declarations
