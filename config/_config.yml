@@ -10,7 +10,7 @@ favicon:
 stylesheet:
   iubenda:
     uri: /assets/css/privacy_policy.css
-    sri: sha384-qSWOx8QIvNJRAcXiF+qQYKZKNud/6URVAsiPozK+hM+JG3OYAEi58Lcg6B65VFH8
+    sri: sha384-h7lhcr4yF6PdmDsDfu+JxPnl6Ifb6WK220bieEpto+cpgVLm877NvsSj1fmI77fF
 javascript:
   jquery:
     uri: 'https://code.jquery.com/jquery-3.2.1.slim.min.js'
