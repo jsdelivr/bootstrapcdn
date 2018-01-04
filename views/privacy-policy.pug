@@ -1,10 +1,338 @@
 extends layout.pug
 
 block content
-    h2.text-center.mb-4 Privacy Policy
-
     .row
         .col-12
-            a.iubenda-nostyle.iub-body-embed.iubenda-embed(href='https://www.iubenda.com/privacy-policy/74504147', title='Privacy Policy') Privacy Policy
+
+            #iub-pp-container
+                #iubenda_policy.iubenda_fluid_policy.iubenda_embed_policy
+                    #wbars_all
+                        .iub_container.iub_base_container
+                            #wbars
+                                .iub_content.legal_pp
+                                    .iub_header
+                                        h2
+                                            | Privacy Policy of 
+                                            strong www.bootstrapcdn.com
+                                        p This Application collects some Personal Data from its Users.
+                                    // /header
+                                    .simple_pp
+                                        .one_line_col
+                                            h2(style='text-align: center; font-variant:small-caps;') Policy summary
+                                        // /one_line_col
+                                        h2#purposes_data
+                                            | Personal Data collected for the following purposes and using the following services:
+                                        ul.for_boxes.cf
+                                            li.one_line_col
+                                                ul.for_boxes
+                                                    li
+                                                        .iconed.policyicon_purpose_7
+                                                            h3 Advertising
+                                                            ul
+                                                                li
+                                                                    h3 Carbon Ads
+                                                                    p Personal Data: Cookies and Usage Data
+                                                    li
+                                                        .iconed.policyicon_purpose_5
+                                                            h3 Analytics
+                                                            ul
+                                                                li
+                                                                    h3 Google Analytics
+                                                                    p Personal Data: Cookies and Usage Data
+                                                    li
+                                                        .iconed.policyicon_purpose_25
+                                                            h3 Displaying content from external platforms
+                                                            ul
+                                                                li
+                                                                    h3 GitHub button and social widgets
+                                                                    p Personal Data: Usage Data
+                                                                li
+                                                                    h3 Google Fonts
+                                                                    p
+                                                                        | Personal Data: Usage Data and various types of Data as specified in the privacy policy of the service
+                                                    li
+                                                        .iconed.policyicon_purpose_42
+                                                            h3 Hosting and backend infrastructure
+                                                            ul
+                                                                li
+                                                                    h3 Heroku
+                                                                    p
+                                                                        | Personal Data: various types of Data as specified in the privacy policy of the service
+                                                    li
+                                                        .iconed.policyicon_purpose_26
+                                                            h3 Interaction with external social networks and platforms
+                                                            ul
+                                                                li
+                                                                    h3 Twitter Tweet button and social widgets
+                                                                    p Personal Data: Cookies and Usage Data
+                                        h2#further_data Further information about Personal Data
+                                        ul.for_boxes.cf
+                                            li.one_line_col.wide
+                                                ul.for_boxes
+                                                    li
+                                                        .iconed.icon_general
+                                                            h3 Anonymous Aggregated Data
+                                                            p.more_one
+                                                                | StackPath may aggregate and anonymize data from individual StackPath Services and utilize it to further secure other StackPath services and clients. We may utilize this anonymous data to build further security into each Service we deploy for our users. None of the data identifies any individual. For example, we monitor DDoS attacks at the network edge and utilize that data to protect other StackPath clients or Users from DDoS attacks. We may assemble this data and provide it to an external party in an anonymized format, maintaining that our Users’ and their visitors’ personal information will never be attached to or included in such data. We utilize this log data to detect and block new threats on the Internet.
+                                        h2#contact_information Contact information
+                                        ul.for_boxes.cf
+                                            li.one_line_col
+                                                ul.for_boxes
+                                                    li
+                                                        .iconed.icon_owner
+                                                            h3 Data owner
+                                                            p MaxCDN DBA StackPath
+                                                            p
+                                                                b Owner contact email:
+                                                                |  privacy@stackpath.com
+                                    // /simple_pp
+                                    .one_line_col
+                                        h2(style='text-align: center; font-variant:small-caps;') Full policy
+                                    // /one_line_col
+                                    .one_line_col
+                                        h2#owner_of_the_data Data Controller and Owner
+                                        p MaxCDN DBA StackPath
+                                        p
+                                            b Owner contact email:
+                                            |  privacy@stackpath.com
+                                    // /one_line_col
+                                    .one_line_col
+                                        h2#types_of_data Types of Data collected
+                                        p
+                                            | Among the types of Personal Data that this Application collects, by itself or through third parties, there are: Cookies and Usage Data.
+                                        p
+                                            | Complete details on each type of Personal Data collected are provided in the dedicated sections of this privacy policy or by specific explanation texts displayed prior to the Data collection.
+                                            br
+                                            | The Personal Data may be freely provided by the User, or, in case of Usage Data, collected automatically when using this Application.
+                                            br
+                                            | All Data requested by this Application is mandatory and failure to provide this Data may make it impossible for this Application to provide its services. In cases where this Application specifically states that some Data is not mandatory, Users are free not to communicate this Data without any consequences on the availability or the functioning of the service.
+                                            br
+                                            | Users who are uncertain about which Personal Data is mandatory are welcome to contact the Owner.
+                                            br
+                                            | Any use of Cookies – or of other tracking tools – by this Application or by the owners of third party services used by this Application serves the purpose of providing the service required by the User, in addition to any other purposes described in the present document and in the Cookie Policy, if available.
+                                        p
+                                            | Users are responsible for any third party Personal Data obtained, published or shared through this Application and confirm that they have the third party's consent to provide the Data to the Owner.
+                                    // /one_line_col
+                                    .one_line_col
+                                        h2#place_of_processing Mode and place of processing the Data
+                                        h3 Methods of processing
+                                        p
+                                            | The Data Controller processes the Data of Users in a proper manner and shall take appropriate security measures to prevent unauthorized access, disclosure, modification, or unauthorized destruction of the Data.
+                                            br
+                                            | The Data processing is carried out using computers and/or IT enabled tools, following organizational procedures and modes strictly related to the purposes indicated. In addition to the Data Controller, in some cases, the Data may be accessible to certain types of persons in charge, involved with the operation of the site (administration, sales, marketing, legal, system administration) or external parties (such as third party technical service providers, mail carriers, hosting providers, IT companies, communications agencies) appointed, if necessary, as Data Processors by the Owner. The updated list of these parties may be requested from the Data Controller at any time.
+                                        h3 Place
+                                        p
+                                            | The Data is processed at the Data Controller's operating offices and in any other places where the parties involved with the processing are located. For further information, please contact the Data Controller.
+                                        h3 Retention time
+                                        p
+                                            | The Data is kept for the time necessary to provide the service requested by the User, or stated by the purposes outlined in this document, and the User can always request that the Data Controller suspend or remove the data.
+                                    // /one_line_col
+                                    .one_line_col
+                                        h2#use_collected_data The use of the collected Data
+                                        p
+                                            | The Data concerning the User is collected to allow the Owner to provide its services, as well as for the following purposes: Analytics, Interaction with external social networks and platforms, Displaying content from external platforms, Advertising and Hosting and backend infrastructure.
+                                        p
+                                            | The Personal Data used for each purpose is outlined in the specific sections of this document.
+                                    // /one_line_col
+                                    .one_line_col
+                                        h2#data_processing_detailed_info Detailed information on the processing of Personal Data
+                                        p
+                                            | Personal Data is collected for the following purposes and using the following services:
+                                        ul.for_boxes
+                                            li
+                                                .box_primary.box_10.expand
+                                                    h3.expand-click.w_icon_24.policyicon_purpose_4305240 Advertising
+                                                    .expand-content
+                                                        p
+                                                            | This type of service allows User Data to be utilized for advertising communication purposes displayed in the form of banners and other advertisements on this Application, possibly based on User interests.
+                                                            br
+                                                            |  This does not mean that all Personal Data are used for this purpose. Information and conditions of use are shown below.
+                                                            br
+                                                            |  Some of the services listed below may use Cookies to identify Users or they may use the behavioral retargeting technique, i.e. displaying ads tailored to the User’s interests and behavior, including those detected outside this Application. For more information, please check the privacy policies of the relevant services.
+                                                            br
+                                                            |  In addition to any opt out offered by any of the services below, the User may opt out of a third-party service's use of cookies by visiting the 
+                                                            a(href='http://optout.networkadvertising.org/') Network Advertising Initiative opt-out page
+                                                            | .
+                                                        h4 Carbon Ads (BuySellAds.com Inc.)
+                                                        p Carbon Ads is an advertising service provided BuySellAds.com Inc.
+                                                        p  Personal Data collected: Cookies and Usage Data. 
+                                                        p
+                                                            | Place of processing: US – 
+                                                            a(href='https://carbonads.net/privacy.php', target='_blank', rel='noopener') Privacy Policy
+                                                    // /expand-content
+                                                // /expand
+                                            li
+                                                .box_primary.box_10.expand
+                                                    h3.expand-click.w_icon_24.policyicon_purpose_4305135 Analytics
+                                                    .expand-content
+                                                        p
+                                                            | The services contained in this section enable the Owner to monitor and analyze web traffic and can be used to keep track of User behavior.
+                                                        h4 Google Analytics (Google Inc.)
+                                                        p
+                                                            | Google Analytics is a web analysis service provided by Google Inc. (“Google”). Google utilizes the Data collected to track and examine the use of this Application, to prepare reports on its activities and share them with other Google services.
+                                                            br
+                                                            |  Google may use the Data collected to contextualize and personalize the ads of its own advertising network.
+                                                        p  Personal Data collected: Cookies and Usage Data. 
+                                                        p
+                                                            | Place of processing: US – 
+                                                            a(href='https://www.google.com/intl/en/policies/privacy/', target='_blank', rel='noopener') Privacy Policy
+                                                            |  – 
+                                                            a(href='https://tools.google.com/dlpage/gaoptout?hl=en', target='_blank', rel='noopener') Opt Out
+                                                    // /expand-content
+                                                // /expand
+                                            li
+                                                .box_primary.box_10.expand
+                                                    h3.expand-click.w_icon_24.policyicon_purpose_4305137 Displaying content from external platforms
+                                                    .expand-content
+                                                        p
+                                                            | This type of service allows you to view content hosted on external platforms directly from the pages of this Application and interact with them.
+                                                            br
+                                                            |  This type of service might still collect web traffic data for the pages where the service is installed, even when Users do not use it.
+                                                        h4 GitHub button and social widgets (GitHub Inc.)
+                                                        p
+                                                            | The GitHub button and social widgets are services allowing interaction with the GitHub and Gist services provided by GitHub, Inc.
+                                                        p  Personal Data collected: Usage Data. 
+                                                        p
+                                                            | Place of processing: US – 
+                                                            a(href='https://help.github.com/articles/github-privacy-policy', target='_blank', rel='noopener') Privacy Policy
+                                                        h4 Google Fonts (Google Inc.)
+                                                        p
+                                                            | Google Fonts is a typeface visualization service provided by Google Inc. that allows this Application to incorporate content of this kind on its pages.
+                                                        p
+                                                            | Personal Data collected: Usage Data and various types of Data as specified in the privacy policy of the service.
+                                                        p
+                                                            | Place of processing: US – 
+                                                            a(href='https://www.google.it/intl/policies/privacy/', target='_blank', rel='noopener') Privacy Policy
+                                                    // /expand-content
+                                                // /expand
+                                            li
+                                                .box_primary.box_10.expand
+                                                    h3.expand-click.w_icon_24.policyicon_purpose_4305241 Hosting and backend infrastructure
+                                                    .expand-content
+                                                        p
+                                                            | This type of service has the purpose of hosting data and files that enable this Application to run and be distributed as well as to provide a ready-made infrastructure to run specific features or parts of this Application. Some of these services work through geographically distributed servers, making it difficult to determine the actual location where the Personal Data are stored.
+                                                        h4 Heroku (Heroku, Inc.)
+                                                        p Heroku is a hosting service provided by Heroku, Inc.
+                                                        p
+                                                            | Personal Data collected: various types of Data as specified in the privacy policy of the service.
+                                                        p
+                                                            | Place of processing: US – 
+                                                            a(href='https://www.heroku.com/policy/privacy', target='_blank', rel='noopener') Privacy Policy
+                                                    // /expand-content
+                                                // /expand
+                                            li
+                                                .box_primary.box_10.expand
+                                                    h3.expand-click.w_icon_24.policyicon_purpose_4305136 Interaction with external social networks and platforms
+                                                    .expand-content
+                                                        p
+                                                            | This type of service allows interaction with social networks or other external platforms directly from the pages of this Application.
+                                                            br
+                                                            |  The interaction and information obtained through this Application are always subject to the User’s privacy settings for each social network.
+                                                            br
+                                                            |  This type of service might still collect traffic data for the pages where the service is installed, even when Users do not use it.
+                                                        h4 Twitter Tweet button and social widgets (Twitter, Inc.)
+                                                        p
+                                                            | The Twitter Tweet button and social widgets are services allowing interaction with the Twitter social network provided by Twitter, Inc.
+                                                        p  Personal Data collected: Cookies and Usage Data. 
+                                                        p
+                                                            | Place of processing: US – 
+                                                            a(href='https://twitter.com/privacy', target='_blank', rel='noopener') Privacy Policy
+                                                    // /expand-content
+                                                // /expand
+                                    // /one_line_col
+                                    .one_line_col
+                                        h2#further_data_2 Further information about Personal Data
+                                        ul.for_boxes
+                                            li
+                                                .box_primary.box_10.expand
+                                                    h3.expand-click.w_icon_24.icon_general Anonymous Aggregated Data
+                                                    .expand-content
+                                                        p
+                                                            | StackPath may aggregate and anonymize data from individual StackPath Services and utilize it to further secure other StackPath services and clients. We may utilize this anonymous data to build further security into each Service we deploy for our users. None of the data identifies any individual. For example, we monitor DDoS attacks at the network edge and utilize that data to protect other StackPath clients or Users from DDoS attacks. We may assemble this data and provide it to an external party in an anonymized format, maintaining that our Users’ and their visitors’ personal information will never be attached to or included in such data. We utilize this log data to detect and block new threats on the Internet.
+                                                    // /expand-content
+                                                // /expand
+                                    // /one_line_col
+                                    .one_line_col
+                                        h2#cookie_policy Cookie Policy
+                                        p
+                                            | This Application uses Cookies. To learn more and for a detailed cookie notice, you may consult the 
+                                            a.show_comp_link.iframe-preserve.an-preserve(href='//www.iubenda.com/private/privacy-policy/1019108/cookie-policy', title='Cookie Policy') Cookie Policy
+                                            | .
+                                    // /one_line_col
+                                    .one_line_col
+                                        h2#further_data_processing_info Additional information about Data collection and processing
+                                        h3 Legal action
+                                        p
+                                            | The User's Personal Data may be used for legal purposes by the Data Controller, in Court or in the stages leading to possible legal action arising from improper use of this Application or the related services.
+                                            br
+                                            | The User declares to be aware that the Data Controller may be required to reveal personal data upon request of public authorities.
+                                        h3 Additional information about User's Personal Data
+                                        p
+                                            | In addition to the information contained in this privacy policy, this Application may provide the User with additional and contextual information concerning particular services or the collection and processing of Personal Data upon request.
+                                        h3 System logs and maintenance
+                                        p
+                                            | For operation and maintenance purposes, this Application and any third party services may collect files that record interaction with this Application (System logs) or use for this purpose other Personal Data (such as IP Address).
+                                        h3 Information not contained in this policy
+                                        p
+                                            | More details concerning the collection or processing of Personal Data may be requested from the Data Controller at any time. Please see the contact information at the beginning of this document.
+                                        h3 The rights of Users
+                                        p
+                                            | Users have the right, at any time, to know whether their Personal Data has been stored and can consult the Data Controller to learn about their contents and origin, to verify their accuracy or to ask for them to be supplemented, cancelled, updated or corrected, or for their transformation into anonymous format or to block any data held in violation of the law, as well as to oppose their treatment for any and all legitimate reasons. Requests should be sent to the Data Controller at the contact information set out above.
+                                        p
+                                            | This Application does not support “Do Not Track” requests.
+                                            br
+                                            | To determine whether any of the third party services it uses honor the “Do Not Track” requests, please read their privacy policies.
+                                        h3 Changes to this privacy policy
+                                        p
+                                            | The Data Controller reserves the right to make changes to this privacy policy at any time by giving notice to its Users on this page. It is strongly recommended to check this page often, referring to the date of the last modification listed at the bottom. If a User objects to any of the changes to the Policy, the User must cease using this Application and can request that the Data Controller remove the Personal Data. Unless stated otherwise, the then-current privacy policy applies to all Personal Data the Data Controller has about Users.
+                                        h3 Information about this privacy policy
+                                        p
+                                            | The Data Controller is responsible for this privacy policy, prepared starting from the modules provided by Iubenda and hosted on Iubenda's servers.
+                                    // /one_line_col
+                                    .one_line_col
+                                        .box_primary.box_10.definitions.expand
+                                            h3.expand-click.w_icon_24.icon_ribbon  Definitions and legal references 
+                                            .expand-content
+                                                h4 Personal Data (or Data)
+                                                p
+                                                    | Any information regarding a natural person, a legal person, an institution or an association, which is, or can be, identified, even indirectly, by reference to any other information, including a personal identification number.
+                                                h4 Usage Data
+                                                p
+                                                    | Information collected automatically from this Application (or third party services employed in this Application), which can include: the IP addresses or domain names of the computers utilized by the Users who use this Application, the URI addresses (Uniform Resource Identifier), the time of the request, the method utilized to submit the request to the server, the size of the file received in response, the numerical code indicating the status of the server's answer (successful outcome, error, etc.), the country of origin, the features of the browser and the operating system utilized by the User, the various time details per visit (e.g., the time spent on each page within the Application) and the details about the path followed within the Application with special reference to the sequence of pages visited, and other parameters about the device operating system and/or the User's IT environment.
+                                                h4 User
+                                                p
+                                                    | The individual using this Application, which must coincide with or be authorized by the Data Subject, to whom the Personal Data refers.
+                                                h4 Data Subject
+                                                p The legal or natural person to whom the Personal Data refers.
+                                                h4 Data Processor (or Data Supervisor)
+                                                p
+                                                    | The natural person, legal person, public administration or any other body, association or organization authorized by the Data Controller to process the Personal Data in compliance with this privacy policy.
+                                                h4 Data Controller (or Owner)
+                                                p
+                                                    | The natural person, legal person, public administration or any other body, association or organization with the right, also jointly with another Data Controller, to make decisions regarding the purposes, and the methods of processing of Personal Data and the means used, including the security measures concerning the operation and use of this Application. The Data Controller, unless otherwise specified, is the Owner of this Application.
+                                                h4 This Application
+                                                p
+                                                    | The hardware or software tool by which the Personal Data of the User is collected.
+                                                h4 Cookies
+                                                p Small piece of data stored in the User's device.
+                                                hr
+                                                h4 Legal information
+                                                p
+                                                    | Notice to European Users: this privacy statement has been prepared in fulfillment of the obligations under Art. 10 of EC Directive n. 95/46/EC, and under the provisions of Directive 2002/58/EC, as revised by Directive 2009/136/EC, on the subject of Cookies.
+                                                p This privacy policy relates solely to this Application.
+                                            // /expand-content
+                                        // /box_primary
+                                    // /one_line_col
+                                // /content
+                            // /wbars
+                            .iub_footer
+                                p
+                                    | Privacy Policy generated with 
+                                    a.no_border(href='https://www.iubenda.com', title='iubenda', target='_blank', rel='noopener')
+                                        img(alt='iubenda', src=getVersionedPath('/assets/img/iubenda_logo_min.png'), width='68', height='18')
+                                a.btn.iubgreen(href='https://www.iubenda.com', title='Generate a privacy policy', target='_blank', rel='noopener') Generate yours
+                        // /container base_container
+                    // /wbars_wrapper
+                // /iubenda_policy
 
 //- vim: ft=pug sw=4 sts=4 et:
