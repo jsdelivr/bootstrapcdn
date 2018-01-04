@@ -7,6 +7,10 @@ authors:
 description: 'The recommended CDN for Bootstrap, Font Awesome and Bootswatch.'
 favicon:
   uri: /assets/img/favicons/favicon.ico
+stylesheet:
+  iubenda:
+    uri: /assets/css/privacy_policy.css
+    sri: sha384-qSWOx8QIvNJRAcXiF+qQYKZKNud/6URVAsiPozK+hM+JG3OYAEi58Lcg6B65VFH8
 javascript:
   jquery:
     uri: 'https://code.jquery.com/jquery-3.2.1.slim.min.js'
