@@ -50,6 +50,9 @@ html(lang='en', prefix='og: http://ogp.me/ns#', itemscope, itemtype='http://sche
         link(rel='stylesheet', href=bootswatch.uri, integrity=bootswatch.sri,
             crossorigin='anonymous')
 
+        if (title === 'Privacy Policy')
+            link(rel='stylesheet', href=getVersionedPath('/assets/css/privacy_policy.css'))
+
         style
             if (process.env.NODE_ENV === 'production')
                 include:clean-css /assets/css/style.css
