@@ -1,11 +1,21 @@
 'use strict';
 
-const path         = require('path');
 const fs           = require('fs');
 const http         = require('http');
+const path         = require('path');
 const express      = require('express');
 const yaml         = require('js-yaml');
 const uuid         = require('uuid');
+
+// constants
+const ENV          = process.env;
+const NODE_ENV     = ENV.NODE_ENV || 'development';
+const PUBLIC_DIR   = path.join(__dirname, 'public');
+const STATIC_OPTS  = {
+    maxAge: '1y',
+    lastModified: true,
+    etag: false
+};
 
 // middleware
 const compression  = require('compression');
@@ -17,7 +27,9 @@ const enforce      = require('express-sslify');
 const sitemap      = require('express-sitemap');
 const helmet       = require('helmet');
 const Rollbar      = require('rollbar');
-const staticify    = require('staticify');
+const staticify    = require('staticify')(PUBLIC_DIR, {
+    sendOptions: STATIC_OPTS
+});
 
 const helpers      = require('./lib/helpers.js');
 const routes       = require('./routes');
@@ -25,11 +37,8 @@ const routes       = require('./routes');
 const config       = yaml.safeLoad(fs.readFileSync(path.join(__dirname, 'config', '_config.yml'), 'utf8'));
 const app          = express();
 
-const env          = process.env.NODE_ENV || 'development';
-const PUBLIC_DIR   = path.join(__dirname, 'public');
-
 // all environments
-app.set('port', process.env.PORT || config.port || 3000);
+app.set('port', ENV.PORT || config.port || 3000);
 app.set('views', path.join(__dirname, '/views/'));
 app.set('view engine', 'pug');
 app.set('etag', false);
@@ -38,31 +47,31 @@ app.set('json spaces', 2);
 app.set('x-powered-by', false);
 
 // Enable rollbar early on the middleware stack, if it's configured.
-if (process.env.ROLLBAR_ACCESS_TOKEN) {
+if (ENV.ROLLBAR_ACCESS_TOKEN) {
     const rollbarOptions = {
-        accessToken: process.env.ROLLBAR_ACCESS_TOKEN,
-        environment: env,
+        accessToken: ENV.ROLLBAR_ACCESS_TOKEN,
+        environment: NODE_ENV,
         captureUncaught: true,
         captureUnhandledRejections: true
     };
 
     // Heroku sets this by default, so using it if present.
-    if (process.env.ROLLBAR_ENDPOINT) {
-        rollbarOptions.endpoint = process.env.ROLLBAR_ENDPOINT;
+    if (ENV.ROLLBAR_ENDPOINT) {
+        rollbarOptions.endpoint = ENV.ROLLBAR_ENDPOINT;
     }
 
     const rollbar = new Rollbar(rollbarOptions);
 
     app.use(rollbar.errorHandler());
-} else if (env !== 'test') {
+} else if (NODE_ENV !== 'test') {
     console.log('WARNING: starting without rollbar');
 }
 
-if (env === 'production') {
+if (NODE_ENV === 'production') {
     // production
     app.use(logger('combined'));
 
-    if (process.env.FORCE_SSL === 'true') {
+    if (ENV.FORCE_SSL === 'true') {
         // Because this is (always) going to break local, I'm requiring a secondary
         // environment variable to be enabled to activate it. This is required in
         // app.json to ensure that it's always set when building out the app on
@@ -81,7 +90,7 @@ if (env === 'production') {
 
 // middleware
 app.use(compression());
-app.use(staticify(PUBLIC_DIR).middleware);
+app.use(staticify.middleware);
 
 app.use(favicon(path.join(PUBLIC_DIR, config.favicon.uri), '7d'));
 
@@ -101,11 +110,7 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use(serveStatic(PUBLIC_DIR, {
-    maxAge: '30d',
-    lastModified: true,
-    etag: false
-}));
+app.use(serveStatic(PUBLIC_DIR, STATIC_OPTS));
 
 app.use(helmet({
     dnsPrefetchControl: false,
@@ -217,7 +222,7 @@ app.use(helmet.contentSecurityPolicy({
 app.locals.helpers = helpers;
 app.locals.config = config;
 app.locals.basedir = PUBLIC_DIR;
-app.locals.getVersionedPath = staticify(PUBLIC_DIR).getVersionedPath;
+app.locals.getVersionedPath = staticify.getVersionedPath;
 
 // routes
 app.get('/fontawesome/', routes.fontawesome);
@@ -267,7 +272,7 @@ const map = sitemap({
     cache: 60000,       // enable 1m cache
     route: {            // custom route
         '/': {
-            disallow: env !== 'production' || false
+            disallow: NODE_ENV !== 'production' || false
         },
         '/data/bootstrapcdn.json': {
             hide: true  // exclude this route from xml and txt
@@ -287,7 +292,7 @@ const map = sitemap({
     }
 });
 
-if (env === 'production') {
+if (NODE_ENV === 'production') {
     app.get('/sitemap.xml', (req, res) => map.XMLtoWeb(res));
 }
 

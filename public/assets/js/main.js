@@ -4,14 +4,12 @@
     'use strict';
 
     function toggleInputCaret() {
-        const selector = '.input-group-btn > button';
+        const selector = '.input-group-btn > .dropdown-toggle';
         const elements = document.querySelectorAll(selector);
 
         elements.forEach((elem) => {
-            const btnIcon = elem.querySelector('span');
-
             elem.addEventListener('click', () => {
-                btnIcon.classList.toggle('caret-open');
+                elem.classList.toggle('dropdown-toggle-open');
             });
         });
     }
