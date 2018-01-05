@@ -50,10 +50,10 @@ html(lang='en', prefix='og: http://ogp.me/ns#', itemscope, itemtype='http://sche
         link(rel='stylesheet', href=bootswatch.uri, integrity=bootswatch.sri,
             crossorigin='anonymous')
 
-        if (title === 'Privacy Policy')
-            link(rel='stylesheet', href=getVersionedPath(config.stylesheet.iubenda.uri),
-            integrity=config.stylesheet.iubenda.sri,
-            crossorigin='anonymous')
+        each css in config.stylesheet
+            if (title === 'Privacy Policy' && css.name === 'iubenda')
+                link(rel='stylesheet', href=getVersionedPath(css.uri),
+                integrity=css.sri, crossorigin='anonymous')
 
         style
             if (process.env.NODE_ENV === 'production')
