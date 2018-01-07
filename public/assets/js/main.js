@@ -79,8 +79,8 @@
                 document.querySelector(timelineSelector),
                 {
                     dnt: true,
-                    height: 525,
-                    partner: 'tweetdeck'
+                    partner: 'tweetdeck',
+                    tweetLimit: 4
                 }
             );
         });
