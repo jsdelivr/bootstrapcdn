@@ -78,6 +78,7 @@
                 },
                 document.querySelector(timelineSelector),
                 {
+                    dnt: true,
                     height: 525,
                     partner: 'tweetdeck'
                 }
