@@ -140,7 +140,7 @@ app.use(helmet.contentSecurityPolicy({
             'www.google-analytics.com',
             'code.jquery.com',
             'platform.twitter.com',
-            'cdn.syndication.twimg.com/timeline/',
+            'cdn.syndication.twimg.com',
             'api.github.com',
             'cdn.carbonads.com',
             'srv.carbonads.net',
