@@ -4,7 +4,7 @@
     'use strict';
 
     function toggleInputCaret() {
-        const selector = '.input-group-btn > .dropdown-toggle';
+        const selector = '.input-group .dropdown-toggle';
         const elements = document.querySelectorAll(selector);
 
         elements.forEach((elem) => {
