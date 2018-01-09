@@ -4,7 +4,7 @@
     'use strict';
 
     function toggleInputCaret() {
-        const selector = '.input-group-btn > .dropdown-toggle';
+        const selector = '.input-group .dropdown-toggle';
         const elements = document.querySelectorAll(selector);
 
         elements.forEach((elem) => {
@@ -78,8 +78,9 @@
                 },
                 document.querySelector(timelineSelector),
                 {
-                    height: 525,
-                    partner: 'tweetdeck'
+                    dnt: true,
+                    partner: 'tweetdeck',
+                    tweetLimit: 4
                 }
             );
         });
@@ -109,7 +110,7 @@
     function loadGhBtn() {
         const iframeEl = document.createElement('iframe');
 
-        iframeEl.setAttribute('src', 'https://ghbtns.com/github-btn.html?user=MaxCDN&repo=bootstrap-cdn&type=watch&count=true');
+        iframeEl.setAttribute('src', 'https://ghbtns.com/github-btn.html?user=MaxCDN&repo=bootstrapcdn&type=watch&count=true');
         iframeEl.title = 'Star on GitHub';
         iframeEl.style.width = '110px';
         iframeEl.style.height = '20px';

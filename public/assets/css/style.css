@@ -30,12 +30,12 @@ footer {
     border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-.input-group-btn > .dropdown-toggle::after {
+.input-group .dropdown-toggle::after {
     -webkit-transition: -webkit-transform 0.35s ease;
     transition: transform 0.35s ease;
 }
 
-.input-group-btn > .dropdown-toggle-open::after {
+.input-group .dropdown-toggle-open::after {
     -webkit-transform: rotate(-180deg);
     transform: rotate(-180deg);
 }
