@@ -160,6 +160,14 @@ function integrations(req, res) {
     });
 }
 
+function privacyPolicy(req, res) {
+    res = appendLocals(req, res);
+    res.render('privacy-policy', {
+        title: 'Privacy Policy',
+        description: 'Read about our Privacy Policy and data usage.'
+    });
+}
+
 module.exports = {
     index,
     fontawesome,
@@ -172,7 +180,8 @@ module.exports = {
     legacyBootswatch,
     legacyFontawesome,
     showcase,
-    integrations
+    integrations,
+    privacyPolicy
 };
 
 // vim: ft=javascript sw=4 sts=4 et:

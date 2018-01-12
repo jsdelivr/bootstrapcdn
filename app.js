@@ -237,6 +237,7 @@ app.get('/legacy/bootswatch/', routes.legacyBootswatch);
 app.get('/legacy/fontawesome/', routes.legacyFontawesome);
 app.get('/showcase/', routes.showcase);
 app.get('/integrations/', routes.integrations);
+app.get('/privacy-policy/', routes.privacyPolicy);
 app.get('/', routes.index);
 
 // eslint-disable-next-line init-declarations

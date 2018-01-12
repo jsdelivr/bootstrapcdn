@@ -30,6 +30,28 @@ function exists(file) {
     return found;
 }
 
+// our css files
+((() => {
+    for (const css of config.stylesheet) {
+        const file = buildPath(css.uri);
+
+        if (exists(file)) { // always regenerate
+            css.sri = sri.digest(file);
+        }
+    }
+}))();
+
+// our js files
+((() => {
+    for (const js of config.javascript) {
+        const file = buildPath(js.uri);
+
+        if (exists(file)) { // always regenerate
+            js.sri = sri.digest(file);
+        }
+    }
+}))();
+
 // bootswatch{3,4}
 ((() => {
     ['bootswatch3', 'bootswatch4'].forEach((key) => {
