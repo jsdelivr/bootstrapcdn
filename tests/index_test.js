@@ -53,12 +53,6 @@ describe('bootstrap4 block', () => {
         done();
     });
 
-    it('has notice', (done) => {
-        assert(response.body.includes('Bootstrap 4 is currently in Beta release and should be treated as such.'),
-            'Expects response body to include beta messaging');
-        done();
-    });
-
     describe('stylesheet', () => {
         it('has uri', (done) => {
             assert(response.body.includes(latest.stylesheet),
