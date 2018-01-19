@@ -3,14 +3,14 @@ extends layout.pug
 block content
     h2.text-center=title
 
-    h3.text-center.mt-4=`v${config.bootstrap4[0].version}`
+    -var current = config.bootstrap[0];
+    h3.text-center.mt-4=`v${current.version}`
 
     .card.bg-light.mt-4.p-4.text-center
-        -var current = config.bootstrap4[0];
-        -var name    = 'quickstartcss' + current.version.replace(/\./g, '_');
-        -var file    = current.stylesheet;
-        -var sri     = current.stylesheetSri;
-        -var formId  = name + '_form';
+        -var name   = 'quickstartcss' + current.version.replace(/\./g, '_');
+        -var file   = current.stylesheet;
+        -var sri    = current.stylesheetSri;
+        -var formId = name + '_form';
 
         .form-group.my-4
             label.font-weight-bold(for=formId) Complete CSS
@@ -44,42 +44,6 @@ block content
 
         .form-group.my-4
             label.font-weight-bold(for=formId) Complete JavaScript Bundle
-            .input-group.input-group-lg
-                input.form-control(id=formId, type='text', value=file)
-                .input-group-append
-                    button.btn.btn-dark.dropdown-toggle(type='button', data-toggle='collapse', data-target='#' + name, aria-expanded='false', aria-controls=name)
-            span.form-text.text-muted Click to copy
-
-        include _partials/jscode.pug
-
-    hr.my-4
-
-    -var current = config.bootstrap3[0];
-    h3.text-center=`v${current.version}`
-
-    .card.bg-light.mt-4.p-4.text-center
-        -var name   = 'quickstartcss' + current.version.replace(/\./g, '_');
-        -var file   = current.stylesheet;
-        -var sri    = current.stylesheetSri;
-        -var formId = name + '_form';
-
-        .form-group.my-4
-            label.font-weight-bold(for=formId) Complete CSS
-            .input-group.input-group-lg
-                input.form-control(id=formId, type='text', value=file)
-                .input-group-append
-                    button.btn.btn-dark.dropdown-toggle(type='button', data-toggle='collapse', data-target='#' + name, aria-expanded='false', aria-controls=name)
-            span.form-text.text-muted Click to copy
-
-        include _partials/csscode.pug
-
-        -var name   = 'quickstartjs' + current.version.replace(/\./g, '_');
-        -var file   = current.javascript;
-        -var sri    = current.javascriptSri;
-        -var formId = name + '_form';
-
-        .form-group.my-4
-            label.font-weight-bold(for=formId) Complete JavaScript
             .input-group.input-group-lg
                 input.form-control(id=formId, type='text', value=file)
                 .input-group-append

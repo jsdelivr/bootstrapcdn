@@ -56,5 +56,4 @@ Key Overview:
 6. `bootswatch3`: Hash containing current Bootswatch 3 meta data and themes.
 7. `bootswatch4`: Hash containing current Bootswatch 4 meta data and themes.
 8. `bootlint`: Array of hashes containing Bootlint meta data and paths.
-9. `bootstrap3`: Array of hashes containing Bootstrap 3 meta data and paths.
-10. `bootstrap4`: Array of hashes containing Bootstrap 4 meta data and paths.
+9. `bootstrap`: Array of hashes containing Bootstrap meta data and paths.
