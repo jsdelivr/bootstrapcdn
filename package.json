@@ -40,6 +40,7 @@
     "morgan": "^1.9.0",
     "pug": "^2.0.0-rc.4",
     "rollbar": "^2.3.9",
+    "semver": "^5.5.0",
     "serve-favicon": "^2.4.5",
     "serve-static": "^1.13.2",
     "sri-toolbox": "^0.2.0",
@@ -58,8 +59,7 @@
     "nodemon": "^1.15.1",
     "pug-lint": "^2.5.0",
     "pug-lint-config-clock": "^2.0.0",
-    "request": "^2.83.0",
-    "semver": "^5.5.0"
+    "request": "^2.83.0"
   },
   "engines": {
     "node": "8.x"

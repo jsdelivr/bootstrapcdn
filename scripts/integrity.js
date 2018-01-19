@@ -79,32 +79,30 @@ function exists(file) {
     }
 }))();
 
-// bootstrap{3,4}
+// bootstrap
 ((() => {
-    ['bootstrap3', 'bootstrap4'].forEach((key) => {
-        for (const bootstrap of config[key]) {
-            // Skip when the key doesn't exist
-            if (typeof bootstrap.javascriptBundle === 'undefined') {
-                continue;
-            }
-
-            const javascript = buildPath(bootstrap.javascript);
-            const javascriptBundle = buildPath(bootstrap.javascriptBundle);
-            const stylesheet = buildPath(bootstrap.stylesheet);
-
-            if (exists(javascript)) {
-                bootstrap.javascriptSri = sri.digest(javascript);
-            }
-
-            if (exists(javascriptBundle)) {
-                bootstrap.javascriptBundleSri = sri.digest(javascriptBundle);
-            }
-
-            if (exists(stylesheet)) {
-                bootstrap.stylesheetSri = sri.digest(stylesheet);
-            }
+    for (const bootstrap of config.bootstrap) {
+        // Skip when the key doesn't exist
+        if (typeof bootstrap.javascriptBundle === 'undefined') {
+            continue;
         }
-    });
+
+        const javascript = buildPath(bootstrap.javascript);
+        const javascriptBundle = buildPath(bootstrap.javascriptBundle);
+        const stylesheet = buildPath(bootstrap.stylesheet);
+
+        if (exists(javascript)) {
+            bootstrap.javascriptSri = sri.digest(javascript);
+        }
+
+        if (exists(javascriptBundle)) {
+            bootstrap.javascriptBundleSri = sri.digest(javascriptBundle);
+        }
+
+        if (exists(stylesheet)) {
+            bootstrap.stylesheetSri = sri.digest(stylesheet);
+        }
+    }
 }))();
 
 // fontawesome

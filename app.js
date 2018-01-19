@@ -6,6 +6,7 @@ const path         = require('path');
 const express      = require('express');
 const yaml         = require('js-yaml');
 const uuid         = require('uuid');
+const semver       = require('semver');
 
 // constants
 const ENV          = process.env;
@@ -251,11 +252,15 @@ app.get('/data/bootstrapcdn.json', (req, res) => {
             fontawesome: {}
         };
 
-        config.bootstrap3.forEach((bootstrap) => {
-            data.bootstrap[bootstrap.version] = {
-                css: bootstrap.stylesheet,
-                js: bootstrap.javascript
-            };
+        config.bootstrap.forEach((bootstrap) => {
+            const bootstrapVersion = bootstrap.version;
+
+            if (semver.satisfies(semver.coerce(bootstrapVersion), '<4')) {
+                data.bootstrap[bootstrapVersion] = {
+                    css: bootstrap.stylesheet,
+                    js: bootstrap.javascript
+                };
+            }
         });
 
         config.fontawesome.forEach((fontawesome) => {

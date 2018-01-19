@@ -91,34 +91,32 @@ function assertHeader(uri, header, value) {
 }
 
 describe('functional', () => {
-    describe('bootstrap3', () => {
-        config.bootstrap3.forEach((self) => {
-            describe(helpers.domainCheck(self.javascript), () => {
-                const uri = helpers.domainCheck(self.javascript);
+    config.bootstrap.forEach((self) => {
+        describe(helpers.domainCheck(self.javascript), () => {
+            const uri = helpers.domainCheck(self.javascript);
 
-                Object.keys(expectedHeaders).forEach((header) => {
-                    assertHeader(uri, header);
-                });
-
-                assertHeader(uri, 'content-type', 'application/javascript; charset=utf-8');
-
-                it('has integrity', (done) => {
-                    assertSRI(uri, self.javascriptSri, done);
-                });
+            Object.keys(expectedHeaders).forEach((header) => {
+                assertHeader(uri, header);
             });
 
-            describe(helpers.domainCheck(self.stylesheet), () => {
-                const uri = helpers.domainCheck(self.stylesheet);
+            assertHeader(uri, 'content-type', 'application/javascript; charset=utf-8');
 
-                Object.keys(expectedHeaders).forEach((header) => {
-                    assertHeader(uri, header);
-                });
+            it('has integrity', (done) => {
+                assertSRI(uri, self.javascriptSri, done);
+            });
+        });
 
-                assertHeader(uri, 'content-type', 'text/css; charset=utf-8');
+        describe(helpers.domainCheck(self.stylesheet), () => {
+            const uri = helpers.domainCheck(self.stylesheet);
 
-                it('has integrity', (done) => {
-                    assertSRI(uri, self.stylesheetSri, done);
-                });
+            Object.keys(expectedHeaders).forEach((header) => {
+                assertHeader(uri, header);
+            });
+
+            assertHeader(uri, 'content-type', 'text/css; charset=utf-8');
+
+            it('has integrity', (done) => {
+                assertSRI(uri, self.stylesheetSri, done);
             });
         });
     });
@@ -176,38 +174,6 @@ describe('functional', () => {
 
                 it('has integrity', (done) => {
                     assertSRI(uri, self.javascriptSri, done);
-                });
-            });
-        });
-    });
-
-    describe('bootstrap4', () => {
-        config.bootstrap4.forEach((self) => {
-            describe(helpers.domainCheck(self.javascript), () => {
-                const uri = helpers.domainCheck(self.javascript);
-
-                Object.keys(expectedHeaders).forEach((header) => {
-                    assertHeader(uri, header);
-                });
-
-                assertHeader(uri, 'content-type', 'application/javascript; charset=utf-8');
-
-                it('has integrity', (done) => {
-                    assertSRI(uri, self.javascriptSri, done);
-                });
-            });
-
-            describe(helpers.domainCheck(self.stylesheet), () => {
-                const uri = helpers.domainCheck(self.stylesheet);
-
-                Object.keys(expectedHeaders).forEach((header) => {
-                    assertHeader(uri, header);
-                });
-
-                assertHeader(uri, 'content-type', 'text/css; charset=utf-8');
-
-                it('has integrity', (done) => {
-                    assertSRI(uri, self.stylesheetSri, done);
                 });
             });
         });
