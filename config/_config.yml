@@ -13,8 +13,8 @@ stylesheet:
     sri: sha384-h7lhcr4yF6PdmDsDfu+JxPnl6Ifb6WK220bieEpto+cpgVLm877NvsSj1fmI77fF
 javascript:
   - name: jquery
-    uri: 'https://code.jquery.com/jquery-3.2.1.slim.min.js'
-    sri: sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN
+    uri: 'https://code.jquery.com/jquery-3.3.1.slim.min.js'
+    sri: sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo
 bootswatch3:
   version: 3.3.7
   link: 'https://bootswatch.com/3/SWATCH_NAME/'
