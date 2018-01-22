@@ -35,31 +35,31 @@
     "helmet": "^3.9.0",
     "js-yaml": "^3.10.0",
     "jstransformer-babel": "^2.1.0",
-    "jstransformer-clean-css": "^2.0.0",
+    "jstransformer-clean-css": "^2.1.0",
     "jstransformer-uglify-js": "^1.2.0",
     "morgan": "^1.9.0",
     "pug": "^2.0.0-rc.4",
-    "rollbar": "^2.3.6",
+    "rollbar": "^2.3.7",
     "serve-favicon": "^2.4.5",
     "serve-static": "^1.13.1",
     "sri-toolbox": "^0.2.0",
     "staticify": "^2.0.0",
-    "uglify-js": "^3.3.5",
-    "uuid": "^3.1.0"
+    "uglify-js": "^3.3.8",
+    "uuid": "^3.2.1"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.1",
-    "eslint": "^4.15.0",
+    "eslint": "^4.16.0",
     "format": "^0.2.2",
     "fs-walk": "^0.0.1",
     "html-validator": "^2.2.3",
     "htmlencode": "^0.0.4",
-    "mocha": "^4.1.0",
-    "nodemon": "^1.14.9",
+    "mocha": "^5.0.0",
+    "nodemon": "^1.14.11",
     "pug-lint": "^2.5.0",
     "pug-lint-config-clock": "^2.0.0",
     "request": "^2.83.0",
-    "semver": "^5.4.1"
+    "semver": "^5.5.0"
   },
   "engines": {
     "node": "8.x"
