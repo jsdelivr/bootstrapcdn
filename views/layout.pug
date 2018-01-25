@@ -61,6 +61,10 @@ html(lang='en', prefix='og: http://ogp.me/ns#', itemscope, itemtype='http://sche
             else
                 include /assets/css/style.css
 
+        script(nonce=nonce)
+            include /assets/js/vendor/loadjs.min.js
+            include _partials/loadjs.pug
+
         block head
 
     body(class=bodyClass(title))
@@ -81,9 +85,5 @@ html(lang='en', prefix='og: http://ogp.me/ns#', itemscope, itemtype='http://sche
                             .twitter-timeline-custom
 
         include _partials/footer.pug
-
-        script(nonce=nonce)
-            include /assets/js/vendor/loadjs.min.js
-            include _partials/loadjs.pug
 
 //- vim: ft=pug sw=4 sts=4 et:
