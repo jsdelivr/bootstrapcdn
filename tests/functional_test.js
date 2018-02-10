@@ -69,7 +69,7 @@ function assertSRI(uri, sri, done) {
 
 const s3include = ['content-type'];
 
-function assertHeader(uri, header) {
+function assertHeader(uri, header, value) {
     if (typeof process.env.TEST_S3 !== 'undefined' && !s3include.includes(header)) {
         it.skip(`has ${header}`);
     } else {
@@ -78,7 +78,9 @@ function assertHeader(uri, header) {
                 assert.equal(200, response.statusCode);
                 assert(Object.prototype.hasOwnProperty.call(response.headers, header));
 
-                if (expectedHeaders[header]) {
+                if (typeof value !== 'undefined') {
+                    assert.equal(response.headers[header], value);
+                } else if (expectedHeaders[header]) {
                     assert.equal(response.headers[header], expectedHeaders[header]);
                 }
 
@@ -98,6 +100,8 @@ describe('functional', () => {
                     assertHeader(uri, header);
                 });
 
+                assertHeader(uri, 'content-type', 'application/javascript; charset=utf-8');
+
                 it('has integrity', (done) => {
                     assertSRI(uri, self.javascriptSri, done);
                 });
@@ -109,6 +113,8 @@ describe('functional', () => {
                 Object.keys(expectedHeaders).forEach((header) => {
                     assertHeader(uri, header);
                 });
+
+                assertHeader(uri, 'content-type', 'text/css; charset=utf-8');
 
                 it('has integrity', (done) => {
                     assertSRI(uri, self.stylesheetSri, done);
@@ -128,6 +134,8 @@ describe('functional', () => {
                     assertHeader(uri, header);
                 });
 
+                assertHeader(uri, 'content-type', 'text/css; charset=utf-8');
+
                 it('has integrity', (done) => {
                     assertSRI(uri, theme.sri, done);
                 });
@@ -146,6 +154,8 @@ describe('functional', () => {
                     assertHeader(uri, header);
                 });
 
+                assertHeader(uri, 'content-type', 'text/css; charset=utf-8');
+
                 it('has integrity', (done) => {
                     assertSRI(uri, theme.sri, done);
                 });
@@ -161,6 +171,8 @@ describe('functional', () => {
                 Object.keys(expectedHeaders).forEach((header) => {
                     assertHeader(uri, header);
                 });
+
+                assertHeader(uri, 'content-type', 'application/javascript; charset=utf-8');
 
                 it('has integrity', (done) => {
                     assertSRI(uri, self.javascriptSri, done);
@@ -178,6 +190,8 @@ describe('functional', () => {
                     assertHeader(uri, header);
                 });
 
+                assertHeader(uri, 'content-type', 'application/javascript; charset=utf-8');
+
                 it('has integrity', (done) => {
                     assertSRI(uri, self.javascriptSri, done);
                 });
@@ -189,6 +203,8 @@ describe('functional', () => {
                 Object.keys(expectedHeaders).forEach((header) => {
                     assertHeader(uri, header);
                 });
+
+                assertHeader(uri, 'content-type', 'text/css; charset=utf-8');
 
                 it('has integrity', (done) => {
                     assertSRI(uri, self.stylesheetSri, done);
@@ -205,6 +221,8 @@ describe('functional', () => {
                 Object.keys(expectedHeaders).forEach((header) => {
                     assertHeader(uri, header);
                 });
+
+                assertHeader(uri, 'content-type', 'text/css; charset=utf-8');
 
                 it('has integrity', (done) => {
                     assertSRI(uri, self.stylesheetSri, done);

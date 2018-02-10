@@ -16,9 +16,9 @@ let response = {};
 
 // for array of types, first will be chosen when testing strictly
 const CONTENT_TYPE_MAP = {
-    css: 'text/css',
+    css: 'text/css; charset=utf-8',
     js: [
-        'application/javascript',
+        'application/javascript; charset=utf-8',
         'text/javascript',
         'application/x-javascript'
     ],
