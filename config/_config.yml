@@ -105,7 +105,7 @@ bootswatch4:
       sri: sha384-xpQNcoacYF/4TKVs2uD3sXyaQYs49wxwEmeFNkOUgun6SLWdEbaCOv8hGaB9jLxt
 bootlint:
   - version: 0.14.2
-    latest: true
+    current: true
     javascript: 'https://maxcdn.bootstrapcdn.com/bootlint/0.14.2/bootlint.min.js'
     javascriptSri: sha384-SLfe/wBrCVfyGjtLhfUmA5cYQLnNVTRmwMUJ11s7x5HxXCKom2oeEwX9bvY74CAs
   - version: 0.14.1
@@ -152,7 +152,7 @@ bootlint:
     javascriptSri: sha384-OuU4cNKby6UDoPD/pWtrEhfGUWHZXIFGs/E8+mUnoDIdR98n/cL0RZcixIA0XlnS
 bootstrap3:
   - version: 3.3.7
-    latest: true
+    current: true
     stylesheet: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'
     javascript: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'
     javascriptSri: sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa
@@ -284,7 +284,7 @@ bootstrap3:
     stylesheetSri: sha384-G87n9a15LEsz+OvKCr10ldEbckfbCpr2gjYnZgCiKiwH0p/If1QkSURCTzubbt19
 bootstrap4:
   - version: 4.0.0
-    latest: true
+    current: true
     stylesheet: 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css'
     javascript: 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js'
     javascriptBundle: 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js'
@@ -317,7 +317,7 @@ bootstrap4:
     stylesheetSri: sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ
 fontawesome:
   - version: 4.7.0
-    latest: true
+    current: true
     stylesheet: 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'
     stylesheetSri: sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN
   - version: 4.6.3

@@ -23,9 +23,6 @@ pushd public/bootlint/$version
 wget --output-document bootlint.js \
   https://raw.githubusercontent.com/twbs/bootlint/v$version/dist/browser/bootlint.js
 
-cd ..
-rm latest
-ln -s $version latest
 popd
 
 $root/scripts/lint.sh $version

@@ -73,22 +73,9 @@ verify() {
   fi
 }
 
-verify "bootstrap/latest/js/bootstrap.js" "$MONITOR_PRIMARY_SOURCE"
-verify "bootstrap/latest/js/bootstrap.min.js" "$MONITOR_PRIMARY_SOURCE"
-
-if [[ ! -z "$MONITOR_SECONDARY_SOURCE" ]]; then
-  verify "bootstrap/latest/js/bootstrap.js" "$MONITOR_SECONDARY_SOURCE"
-  verify "bootstrap/latest/js/bootstrap.min.js" "$MONITOR_SECONDARY_SOURCE"
-fi
-
 if [[ ! -z "$MONITOR_BOOTSTRAP_VERSION" ]]; then
   verify "bootstrap/$MONITOR_BOOTSTRAP_VERSION/js/bootstrap.js" "$MONITOR_PRIMARY_SOURCE"
   verify "bootstrap/$MONITOR_BOOTSTRAP_VERSION/js/bootstrap.min.js" "$MONITOR_PRIMARY_SOURCE"
-
-  if [[ ! -z "$MONITOR_SECONDARY_SOURCE" ]]; then
-    verify "bootstrap/latest/js/bootstrap.js" "$MONITOR_SECONDARY_SOURCE"
-    verify "bootstrap/latest/js/bootstrap.min.js" "$MONITOR_SECONDARY_SOURCE"
-  fi
 else
   warn "'MONITOR_BOOTSTRAP_VERSION' not set, skipping version specific checks"
 fi

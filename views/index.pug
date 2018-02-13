@@ -6,11 +6,11 @@ block content
     h3.text-center.mt-4=`v${config.bootstrap4[0].version}`
 
     .card.bg-light.mt-4.p-4.text-center
-        -var latest = config.bootstrap4[0];
-        -var name   = 'quickstartcss' + latest.version.replace(/\./g, '_');
-        -var file   = latest.stylesheet;
-        -var sri    = latest.stylesheetSri;
-        -var formId = name + '_form';
+        -var current = config.bootstrap4[0];
+        -var name    = 'quickstartcss' + current.version.replace(/\./g, '_');
+        -var file    = current.stylesheet;
+        -var sri     = current.stylesheetSri;
+        -var formId  = name + '_form';
 
         .form-group.my-4
             label.font-weight-bold(for=formId) Complete CSS
@@ -22,9 +22,9 @@ block content
 
         include _partials/csscode.pug
 
-        -var name   = 'quickstartjs' + latest.version.replace(/\./g, '_');
-        -var file   = latest.javascript;
-        -var sri    = latest.javascriptSri;
+        -var name   = 'quickstartjs' + current.version.replace(/\./g, '_');
+        -var file   = current.javascript;
+        -var sri    = current.javascriptSri;
         -var formId = name + '_form';
 
         .form-group.my-4
@@ -37,9 +37,9 @@ block content
 
         include _partials/jscode.pug
 
-        -var name   = 'quickstartjsbundle' + latest.version.replace(/\./g, '_');
-        -var file   = latest.javascriptBundle;
-        -var sri    = latest.javascriptBundleSri;
+        -var name   = 'quickstartjsbundle' + current.version.replace(/\./g, '_');
+        -var file   = current.javascriptBundle;
+        -var sri    = current.javascriptBundleSri;
         -var formId = name + '_form';
 
         .form-group.my-4
@@ -54,13 +54,13 @@ block content
 
     hr.my-4
 
-    -var latest = config.bootstrap3[0];
-    h3.text-center=`v${latest.version}`
+    -var current = config.bootstrap3[0];
+    h3.text-center=`v${current.version}`
 
     .card.bg-light.mt-4.p-4.text-center
-        -var name   = 'quickstartcss' + latest.version.replace(/\./g, '_');
-        -var file   = latest.stylesheet;
-        -var sri    = latest.stylesheetSri;
+        -var name   = 'quickstartcss' + current.version.replace(/\./g, '_');
+        -var file   = current.stylesheet;
+        -var sri    = current.stylesheetSri;
         -var formId = name + '_form';
 
         .form-group.my-4
@@ -73,9 +73,9 @@ block content
 
         include _partials/csscode.pug
 
-        -var name   = 'quickstartjs' + latest.version.replace(/\./g, '_');
-        -var file   = latest.javascript;
-        -var sri    = latest.javascriptSri;
+        -var name   = 'quickstartjs' + current.version.replace(/\./g, '_');
+        -var file   = current.javascript;
+        -var sri    = current.javascriptSri;
         -var formId = name + '_form';
 
         .form-group.my-4
