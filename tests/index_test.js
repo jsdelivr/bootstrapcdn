@@ -16,26 +16,26 @@ before((done) => {
 });
 
 describe('bootstrap4 block', () => {
-    const latest = config.bootstrap4[0];
+    const current = config.bootstrap4[0];
 
     describe('config', () => {
-        it('is latest', (done) => {
-            assert(latest.latest);
+        it('is current', (done) => {
+            assert(current.current);
             done();
         });
 
         it('has stylesheet integrity', (done) => {
-            assert(typeof latest.stylesheetSri !== 'undefined');
+            assert(typeof current.stylesheetSri !== 'undefined');
             done();
         });
 
         it('has javascript integrity', (done) => {
-            assert(typeof latest.javascriptSri !== 'undefined');
+            assert(typeof current.javascriptSri !== 'undefined');
             done();
         });
 
         it('has javascript bundle integrity', (done) => {
-            assert(typeof latest.javascriptBundleSri !== 'undefined');
+            assert(typeof current.javascriptBundleSri !== 'undefined');
             done();
         });
     });
@@ -55,14 +55,14 @@ describe('bootstrap4 block', () => {
 
     describe('stylesheet', () => {
         it('has uri', (done) => {
-            assert(response.body.includes(latest.stylesheet),
-                `Expects response body to include "${latest.stylesheet}"`);
+            assert(response.body.includes(current.stylesheet),
+                `Expects response body to include "${current.stylesheet}"`);
             done();
         });
 
         ['html', 'pug', 'haml'].forEach((fmt) => {
             it(`has ${fmt}`, (done) => {
-                const str = helpers.css[fmt](latest.stylesheet, latest.stylesheetSri);
+                const str = helpers.css[fmt](current.stylesheet, current.stylesheetSri);
 
                 assert(response.body.includes(str), `Expects response body to include "${str}"`);
                 done();
@@ -72,20 +72,20 @@ describe('bootstrap4 block', () => {
 
     describe('javascript', () => {
         it('has javascript uri', (done) => {
-            assert(response.body.includes(latest.javascript),
-                `Expects response body to include "${latest.javascript}"`);
+            assert(response.body.includes(current.javascript),
+                `Expects response body to include "${current.javascript}"`);
             done();
         });
 
         it('has javascript bundle uri', (done) => {
-            assert(response.body.includes(latest.javascriptBundle),
-                `Expects response body to include "${latest.javascriptBundle}"`);
+            assert(response.body.includes(current.javascriptBundle),
+                `Expects response body to include "${current.javascriptBundle}"`);
             done();
         });
 
         ['html', 'pug', 'haml'].forEach((fmt) => {
             it(`has ${fmt}`, (done) => {
-                const str = helpers.javascript[fmt](latest.javascript, latest.javascriptSri);
+                const str = helpers.javascript[fmt](current.javascript, current.javascriptSri);
 
                 assert(response.body.includes(str), `Expects response body to include "${str}"`);
                 done();
@@ -95,21 +95,21 @@ describe('bootstrap4 block', () => {
 });
 
 describe('bootstrap3 block', () => {
-    const latest = config.bootstrap3[0];
+    const current = config.bootstrap3[0];
 
     describe('config', () => {
-        it('is latest', (done) => {
-            assert(latest.latest);
+        it('is current', (done) => {
+            assert(current.current);
             done();
         });
 
         it('has stylesheet integrity', (done) => {
-            assert(typeof latest.stylesheetSri !== 'undefined');
+            assert(typeof current.stylesheetSri !== 'undefined');
             done();
         });
 
         it('has javascript integrity', (done) => {
-            assert(typeof latest.javascriptSri !== 'undefined');
+            assert(typeof current.javascriptSri !== 'undefined');
             done();
         });
     });
@@ -140,14 +140,14 @@ describe('bootstrap3 block', () => {
 
     describe('stylesheet', () => {
         it('has uri', (done) => {
-            assert(response.body.includes(latest.stylesheet),
-                `Expects response body to include "${latest.stylesheet}"`);
+            assert(response.body.includes(current.stylesheet),
+                `Expects response body to include "${current.stylesheet}"`);
             done();
         });
 
         ['html', 'pug', 'haml'].forEach((fmt) => {
             it(`has ${fmt}`, (done) => {
-                const str = helpers.css[fmt](latest.stylesheet, latest.stylesheetSri);
+                const str = helpers.css[fmt](current.stylesheet, current.stylesheetSri);
 
                 assert(response.body.includes(str), `Expects response body to include "${str}"`);
                 done();
@@ -157,14 +157,14 @@ describe('bootstrap3 block', () => {
 
     describe('javascript', () => {
         it('has javascript uri', (done) => {
-            assert(response.body.includes(latest.javascript),
-                `Expects response body to include "${latest.javascript}"`);
+            assert(response.body.includes(current.javascript),
+                `Expects response body to include "${current.javascript}"`);
             done();
         });
 
         ['html', 'pug', 'haml'].forEach((fmt) => {
             it(`has ${fmt}`, (done) => {
-                const str = helpers.javascript[fmt](latest.javascript, latest.javascriptSri);
+                const str = helpers.javascript[fmt](current.javascript, current.javascriptSri);
 
                 assert(response.body.includes(str), `Expects response body to include "${str}"`);
                 done();
