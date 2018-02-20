@@ -33,7 +33,9 @@ const CONTENT_TYPE_MAP = {
 
     woff: 'application/font-woff',
     woff2: 'application/font-woff2',
-    otf: 'application/x-font-otf'
+    otf: 'application/x-font-otf',
+
+    map: 'application/json; charset=utf-8'
 };
 
 function extension(str) {
