@@ -32,8 +32,8 @@ describe('bootswatch4', () => {
     });
 
     it('has header', (done) => {
-        assert(response.body.includes('<h2 class="text-center mb-4">Bootswatch 4 Beta</h2>'),
-            'Expects response body to include Bootswatch 4 Beta header');
+        assert(response.body.includes('<h2 class="text-center mb-4">Bootswatch 4</h2>'),
+            'Expects response body to include Bootswatch 4 header');
         done();
     });
 

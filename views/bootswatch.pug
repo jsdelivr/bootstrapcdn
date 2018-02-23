@@ -1,9 +1,7 @@
 extends layout.pug
 
 block content
-    h2.text-center.mb-4 Bootswatch 4 Beta
-
-    include _partials/beta-alert.pug
+    h2.text-center.mb-4 Bootswatch 4
 
     each item, index in config.bootswatch4.themes
         -var name = item.name.toLowerCase();
