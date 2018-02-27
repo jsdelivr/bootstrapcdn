@@ -13,8 +13,8 @@ stylesheet:
     sri: sha384-h7lhcr4yF6PdmDsDfu+JxPnl6Ifb6WK220bieEpto+cpgVLm877NvsSj1fmI77fF
 javascript:
   - name: jquery
-    uri: 'https://code.jquery.com/jquery-3.2.1.slim.min.js'
-    sri: sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN
+    uri: 'https://code.jquery.com/jquery-3.3.1.slim.min.js'
+    sri: sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo
 bootswatch3:
   version: 3.3.7
   link: 'https://bootswatch.com/3/SWATCH_NAME/'
@@ -56,56 +56,56 @@ bootswatch3:
     - name: yeti
       sri: sha384-HzUaiJdCTIY/RL2vDPRGdEQHHahjzwoJJzGUkYjHVzTwXFQ2QN/nVgX7tzoMW3Ov
 bootswatch4:
-  version: 4.0.0-beta.3
+  version: 4.0.0
   link: 'https://bootswatch.com/SWATCH_NAME/'
   image: 'https://bootswatch.com/SWATCH_NAME/thumbnail.png'
   bootstrap: 'https://maxcdn.bootstrapcdn.com/bootswatch/SWATCH_VERSION/SWATCH_NAME/bootstrap.min.css'
   themes:
     - name: cerulean
-      sri: sha384-SJRp3lIuvy82g2roYNoSMWGEf7ufogthbl9noRHbJIxsMPcFl6NEi5fO3PuYptFv
+      sri: sha384-Pu87tkhdc8aoo+5M/Coc7ErjxhR36ayOFNloPU+tR/4PamJKHHjhK9B0EBGKxNet
     - name: cosmo
-      sri: sha384-a1fJ5ppVJ3J5OscI8CmYpZH6XRnafYX7sXnA9uVadDWXox/IU9IIk9zz5zNE5HPL
+      sri: sha384-UU2jkdv1M9UEjLje/kygVxqMBq9Jrg9z+Gqvw972H6BqKTzDvLaRJfK7PnzLM4SI
     - name: cyborg
-      sri: sha384-MtIP/3oPOnaTWtZGXE7C1YfcWSIgL8W+tyWY425Vav0Uten58co0sWnIfridWjr9
+      sri: sha384-HOjmaybB3GQTM8HunY46MvK7ngm9b/eRGOWESCQ/s+Vk4omobTY5+FXqurpSFcbz
     - name: darkly
-      sri: sha384-novkfxI48G9YvcamVHf01KL+Sm6JFherxeJKqUdbez8EoEsAued2k/cD43lYG+B1
+      sri: sha384-p8bH4RlA/kdF4wbAoep+/6VeOQI2IAWa9zLjTIQbQLv2FuCjX/W/FkdYdeKISDvK
     - name: flatly
-      sri: sha384-+lmTKXkS+c9d34U9obDdGOZT7zqFicJDkhckYYsW7oenXR37T2OEV4uqfUO45M87
+      sri: sha384-jb1k1ntK2AaXuVTIiFXgcGvjcWQrYlrsxipJRLPdwnr1sHBRqSLowOD2q3dIL5KG
     - name: journal
-      sri: sha384-/qQob+A1P2FeRYphuSbqp7heEKdhjZxqgAz/yWLX9CQKU9FTB8wKTexI0IiFlIXC
+      sri: sha384-8HThyWW6Qwbs+q89KCgd0BjyEBdNWp0WwPtSOC1R44+d7CjcyLy0Z/2FPvlCahFG
     - name: litera
-      sri: sha384-IzI0oYQkUWBlg1pHwxuQHkY3lDjpB6aHpvi1eomAYMJlD7yk+TvMZoRXt0Wk31WJ
+      sri: sha384-MmFGSHKWNFDZYlwAtfeY6ThYRrYajzX+v7G4KVORjlWAG0nLhv0ULnFETyWGeQiU
     - name: lumen
-      sri: sha384-lBO0+E/aIJhpRIYjP6dJ1mNYgo3hhUBPcF74XRfOM27g7WmDuitolvnUENdDG4QI
+      sri: sha384-0LGTKb8NPx8fBKaojW3qF+Qo2Yhhs/mBrVHMYjPV8V/o4ZAmZ1cpGI2OeQab16T2
     - name: lux
-      sri: sha384-XI0PIujkSZEzZ5m8WTEm+krRuIpfO+vHrEznaIrhTAkbrbIvfs11kzCqUarPR7yn
+      sri: sha384-GxhP7S92hzaDyDJqbdpcHqV5cFflxAx0Yze/X7vUONp43KK1E8eUWaJIMkit3D0R
     - name: materia
-      sri: sha384-9+9yAZ8WTqE5Elo0puxoZtIpLRu+wf9gLMnZsiBuCThtWoy+J2LUu/PIuzzKzhhP
+      sri: sha384-kpxyUW5uLgBOlhLqm8Hga/aWgf7FgZWLhphVqsMgaW0s+G6KF1RZpUb6ygQL3WUE
     - name: minty
-      sri: sha384-JhIgJbGaBmwiP1/6gN1Li6rs5arXlyM7vZ2Ehu3Pg6ySt73jpv+d6IKesRmwDhaa
+      sri: sha384-OSebLJ6DTybdnQ7rjdh2FeOkWs4mQkZQwBDa0IdEyyWyCONtTCUyj+VOEqMcpKAo
     - name: pulse
-      sri: sha384-Tt49/uH7xRJMCIU5qH2HEeWNZLx4BKZwYN0H7NJ2jo9v732hZJ7yHl0xUu2Lkt04
+      sri: sha384-s4gnxO2aVdL1Yod+BZDOlk2050aVqe/OPfWcWp9EeSihsgc6exzYVQiPoiOfr3Qp
     - name: sandstone
-      sri: sha384-XNRTCesHENaXoVVjLx3Vm0rmwmS4W2g5w0xwZQIDPDvT4IDa/HRIvwb8CoH7/JPW
+      sri: sha384-bsvEK+YNVfNd1Ld4bz9xMEEWEDQDZMLT37OAK45h+mmV4t5nT9ZFs4lPonkivNY7
     - name: simplex
-      sri: sha384-PaAXG6+jSgdshuo6vfUlKWn4lPCWBBE1xxs4LhwbqgpRdHWPtjR7XvKkj8cEAqd4
+      sri: sha384-AuEr11i558k+Xa9Spnw45VKJGyQKeqddQG1ASFxPamSRm5fl/sQYzrRK4H37gJ7W
     - name: sketchy
-      sri: sha384-7ELRJF5/u1pkLd0W7K793Y7ZCb1ISE8FjEKiDAwHD3nSDbA2E9Txc423ovuNf1CV
+      sri: sha384-QAdi7HQouHzrMcg66qFdsKV2BCFW/iVhCRvooAkqS4d5rXV8Hlu+X8MY3ao03fgn
     - name: slate
-      sri: sha384-0hg9nIBwdqzDMXB5NKI6aLmOMkt8sWpL8xY0q9J7eAS/UYXIqoZ/iXiRxQYe0znl
+      sri: sha384-T1sSLX/htqsu85/3kmZD2CGQ6tJEKOPe87/9+ysDO3tn4CyADZRh2cdsjAmobUZA
     - name: solar
-      sri: sha384-Jpv9vxZao0dlyvegpeTxSgc5cczNCOpcV5ihm8RQbrMo263QmC3Sf5HIMBfr+nqx
+      sri: sha384-05+VJtAaH13TDtIHikH0vJFqCdHB4VPg9dYfcALIbTdOSDwSL299oJ173uQBedD5
     - name: spacelab
-      sri: sha384-37YbQUib4zA7U5bsHd2KZyDlsbwU4JgX78b4NZR3fFBCvoX9VQ0Py9iYVKd0OKo9
+      sri: sha384-e+0qYmcSTAyJRsrzfuf1XY5zKGXAktqk1K1dhzXbFOrPfieXnb+7F/mT3F8iLyRZ
     - name: superhero
-      sri: sha384-5wAMKUlGYMj+I1P0kUCCwryZKMvv4S6K2e0UlixY5YK3Z4/HWKP9MtELCm0Iyo74
+      sri: sha384-rf+AXvSkhLbz1L4YFHJAUCHM3JqZ4RJlaT9Op6bq/M0+EJh2Sr8UzIeUovTEbafc
     - name: united
-      sri: sha384-oh6CIJjWhRwp0mieUS356ygt51KjDbBegXk3ExmLxlQPRno1G/QOtiK55uCVuGs3
+      sri: sha384-/jW88w4AK58qCyfTnqErGkTLcE+LoRhfbA68B00ca/AjGmFd+UG+fB6ryk6g6T9p
     - name: yeti
-      sri: sha384-xpQNcoacYF/4TKVs2uD3sXyaQYs49wxwEmeFNkOUgun6SLWdEbaCOv8hGaB9jLxt
+      sri: sha384-ai4W/dNRpZ8Bl2+MNe2GXtf7urjWG5od4NHaCWEwrMeLzfDEQWZjFFIjQ6zG4R3W
 bootlint:
   - version: 0.14.2
-    latest: true
+    current: true
     javascript: 'https://maxcdn.bootstrapcdn.com/bootlint/0.14.2/bootlint.min.js'
     javascriptSri: sha384-SLfe/wBrCVfyGjtLhfUmA5cYQLnNVTRmwMUJ11s7x5HxXCKom2oeEwX9bvY74CAs
   - version: 0.14.1
@@ -152,7 +152,7 @@ bootlint:
     javascriptSri: sha384-OuU4cNKby6UDoPD/pWtrEhfGUWHZXIFGs/E8+mUnoDIdR98n/cL0RZcixIA0XlnS
 bootstrap3:
   - version: 3.3.7
-    latest: true
+    current: true
     stylesheet: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'
     javascript: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'
     javascriptSri: sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa
@@ -284,7 +284,7 @@ bootstrap3:
     stylesheetSri: sha384-G87n9a15LEsz+OvKCr10ldEbckfbCpr2gjYnZgCiKiwH0p/If1QkSURCTzubbt19
 bootstrap4:
   - version: 4.0.0
-    latest: true
+    current: true
     stylesheet: 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css'
     javascript: 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js'
     javascriptBundle: 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js'
@@ -317,7 +317,7 @@ bootstrap4:
     stylesheetSri: sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ
 fontawesome:
   - version: 4.7.0
-    latest: true
+    current: true
     stylesheet: 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'
     stylesheetSri: sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN
   - version: 4.6.3

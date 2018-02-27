@@ -102,9 +102,3 @@ if (verMajor === '3') {
             .pipe(fs.createWriteStream(target));
     });
 }
-
-process.on('exit', (code) => {
-    if (code === 0) {
-        console.log('Don\'t forget to update the symlink and config file!');
-    }
-});

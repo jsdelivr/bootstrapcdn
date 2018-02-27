@@ -16,16 +16,16 @@ before((done) => {
 });
 
 describe('fontawesome', () => {
-    const latest = config.fontawesome[0];
+    const current = config.fontawesome[0];
 
     describe('config', () => {
-        it('is latest', (done) => {
-            assert(latest.latest);
+        it('is current', (done) => {
+            assert(current.current);
             done();
         });
 
         it('has integrity', (done) => {
-            assert(typeof latest.stylesheetSri !== 'undefined');
+            assert(typeof current.stylesheetSri !== 'undefined');
             done();
         });
     });
@@ -54,14 +54,14 @@ describe('fontawesome', () => {
     });
 
     it('has stylesheet', (done) => {
-        assert(response.body.includes(latest.stylesheet),
-            `Expected response body to include "${latest.stylesheet}"`);
+        assert(response.body.includes(current.stylesheet),
+            `Expected response body to include "${current.stylesheet}"`);
         done();
     });
 
     ['html', 'pug', 'haml'].forEach((fmt) => {
         it(`has ${fmt}`, (done) => {
-            const str = helpers.css[fmt](latest.stylesheet, latest.stylesheetSri);
+            const str = helpers.css[fmt](current.stylesheet, current.stylesheetSri);
 
             assert(response.body.includes(str), `Expected response body to include "${str}"`);
             done();
