@@ -1,12 +1,12 @@
 'use strict';
 
-const assert   = require('assert');
-const helpers  = require('./test_helper.js');
+const assert    = require('assert');
+const helpers   = require('./test_helper.js');
 
-const config   = helpers.config();
-const uri      = helpers.app(config);
+const config    = helpers.config();
+const uri       = helpers.app(config);
 
-let response = {};
+let response    = {};
 
 before((done) => {
     helpers.preFetch(uri, (res) => {
@@ -45,10 +45,20 @@ it('works', (done) => {
     done();
 });
 
+it('valid html', (done) => {
+    helpers.assert.validHTML(response, done);
+});
+
 it('contains authors', (done) => {
     config.authors.forEach((author) => {
         assert(response.body.includes(author), `Expects response body to include "${author}"`);
     });
+    done();
+});
+
+it('has header', (done) => {
+    assert(response.body.includes('<h2 class="text-center">Quick Start</h2>'),
+        'Expects response body to include Quick Start header');
     done();
 });
 
