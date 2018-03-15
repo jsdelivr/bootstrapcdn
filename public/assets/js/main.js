@@ -1,4 +1,4 @@
-/* global Clipboard:true */
+/* global ClipboardJS:false */
 
 ((() => {
     'use strict';
@@ -24,7 +24,7 @@
                 event.preventDefault();
                 elem.select();
 
-                const clipboardInputs = new Clipboard(elem, {
+                const clipboardInputs = new ClipboardJS(elem, {
                     target(trigger) {
                         return trigger;
                     }

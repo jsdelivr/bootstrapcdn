@@ -4,6 +4,7 @@
 
 const fs     = require('fs');
 const path   = require('path');
+const semver = require('semver');
 const yaml   = require('js-yaml');
 
 const config = yaml.safeLoad(fs.readFileSync(path.resolve(__dirname, '..', 'config', '_config.yml'), 'utf8'));
@@ -16,11 +17,15 @@ const data = {
     fontawesome: {}
 };
 
-config.bootstrap3.forEach((bootstrap) => {
-    data.bootstrap[bootstrap.version] = {
-        css: bootstrap.stylesheet,
-        js: bootstrap.javascript
-    };
+config.bootstrap.forEach((bootstrap) => {
+    const bootstrapVersion = bootstrap.version;
+
+    if (semver.satisfies(semver.coerce(bootstrapVersion), '<4')) {
+        data.bootstrap[bootstrapVersion] = {
+            css: bootstrap.stylesheet,
+            js: bootstrap.javascript
+        };
+    }
 });
 
 config.fontawesome.forEach((fontawesome) => {

@@ -39,7 +39,7 @@ describe('legacy/bootstrap', () => {
         done();
     });
 
-    config.bootstrap3.forEach((bootstrap) => {
+    config.bootstrap.forEach((bootstrap) => {
         if (bootstrap.current === true) {
             return;
         }
