@@ -6,8 +6,9 @@
     "clean": "rm -rf ./node_modules/",
     "babel": "babel public/assets/js/main.js",
     "build:development": "npm run babel -- -o public/assets/js/main.dev.js",
+    "postbuild:development": "shx cat public/assets/js/vendor/clipboard.min.js public/assets/js/main.dev.js > public/assets/js/bundle.dev.js",
     "build:production": "npm run babel -- -o public/assets/js/main.prod.js",
-    "postbuild:production": "uglifyjs --compress typeofs=false --mangle --comments \"/^!/\" --output public/assets/js/main.prod.js public/assets/js/main.prod.js",
+    "postbuild:production": "uglifyjs --compress typeofs=false --mangle --comments \"/^!/\" --output public/assets/js/bundle.prod.js public/assets/js/vendor/clipboard.min.js public/assets/js/main.prod.js",
     "eslint": "eslint .",
     "puglint": "pug-lint .",
     "lint": "npm-run-all --parallel eslint puglint",
@@ -16,7 +17,7 @@
     "mocha:functional": "mocha --timeout 15000 --slow 500 --exit -R tap ./tests/functional_test.js",
     "dev": "npm run watch",
     "watch": "npm-run-all --parallel watch:*",
-    "watch:js": "cross-env NODE_ENV=development nodemon --ext js --ignore tests --ignore public/assets/js/main.dev.js --exec \"npm run build:development\"",
+    "watch:js": "cross-env NODE_ENV=development nodemon --ext js --ignore tests --ignore public/assets/js/main.dev.js --ignore public/assets/js/bundle.dev.js --exec \"npm run build:development\"",
     "watch:other": "cross-env NODE_ENV=development nodemon app.js --ext css,pug,svg,png,yml --ignore tests",
     "prestart": "npm run build:production",
     "start": "cross-env NODE_ENV=production forever start --plain app.js",
@@ -67,7 +68,8 @@
     "npm-run-all": "^4.1.2",
     "pug-lint": "^2.5.0",
     "pug-lint-config-clock": "^2.0.0",
-    "request": "^2.85.0"
+    "request": "^2.85.0",
+    "shx": "^0.2.2"
   },
   "engines": {
     "node": "8.x"
