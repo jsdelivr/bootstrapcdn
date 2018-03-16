@@ -7,7 +7,8 @@ config/_maxcdn.yml
 Dockme.yml
 lint.html
 npm-debug.log
-shelljs_*
+public/assets/js/main.dev.js
+public/assets/js/main.prod.js
 data/
 inc/
 node_modules/
