@@ -133,6 +133,7 @@ app.use(helmet.contentSecurityPolicy({
     directives: {
         defaultSrc: ['\'none\''],
         baseUri: ['\'self\''],
+        formAction: ['syndication.twitter.com'],
         frameAncestors: ['\'none\''],
         scriptSrc: [
             '\'self\'',
@@ -146,6 +147,7 @@ app.use(helmet.contentSecurityPolicy({
             'cdn.carbonads.com',
             'srv.carbonads.net',
             'adn.fusionads.net',
+            'fallbacks.carbonads.com',
             (req, res) => `'nonce-${res.locals.nonce}'`
         ],
         styleSrc: [
@@ -161,10 +163,8 @@ app.use(helmet.contentSecurityPolicy({
             'data:',
             'www.google-analytics.com',
             'bootswatch.com',
-            'syndication.twitter.com',
+            '*.twitter.com',
             '*.twimg.com',
-            'platform.twitter.com',
-            'analytics.twitter.com',
             'stats.g.doubleclick.net',
             'srv.carbonads.net',
             'assets.servedby-buysellads.com',
@@ -195,8 +195,7 @@ app.use(helmet.contentSecurityPolicy({
         connectSrc: [
             'syndication.twitter.com'
         ],
-        manifestSrc: ['\'self\''],
-        reportUri: 'https://d063bdf998559129f041de1efd2b41a5.report-uri.com/r/d/csp/enforce'
+        manifestSrc: ['\'self\'']
     },
 
     // This module will detect common mistakes in your directives and throw errors
