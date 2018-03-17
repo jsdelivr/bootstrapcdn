@@ -48,7 +48,7 @@ html(lang='en', prefix='og: http://ogp.me/ns#', itemscope, itemtype='http://sche
 
         -var bootswatch = helpers.theme.fetch(config, theme);
 
-        unless (helpers.theme.selected(config, theme) === config.theme)
+        if (helpers.theme.selected(config, theme) !== config.theme || process.env.GENERATE_CRITICAL_CSS)
             link(rel='stylesheet', href=bootswatch.uri, integrity=bootswatch.sri,
                 crossorigin='anonymous')
 
@@ -63,9 +63,10 @@ html(lang='en', prefix='og: http://ogp.me/ns#', itemscope, itemtype='http://sche
                     include:clean-css /assets/css/critical.css
                 include:clean-css /assets/css/style.css
             else
-                if (helpers.theme.selected(config, theme) === config.theme)
-                    include /assets/css/critical.css
                 include /assets/css/style.css
+
+        if (process.env.GENERATE_CRITICAL_CSS)
+            link(rel='stylesheet', href=getVersionedPath('/assets/css/style.css'))
 
         script(nonce=nonce)
             include /assets/js/vendor/loadjs.min.js
