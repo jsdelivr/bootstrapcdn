@@ -29,7 +29,7 @@ npm test && npm run dev
 ### Demonized
 
 ```shell
-# start production server
+# build production files and start server
 npm start
 
 # stop server
