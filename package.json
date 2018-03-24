@@ -3,11 +3,11 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "clean": "del-cli -f \"public/assets/css/critical.css\" \"public/assets/js/bundle.*.js\" \"public/assets/js/main.*.js\"",
+    "clean": "del-cli -f \"public/assets/js/bundle.dev.js\" \"public/assets/js/main.dev.js\"",
     "babel": "babel public/assets/js/main.js",
     "critical": "wait-on tcp:3339 && critical http://127.0.0.1:3339/ --base public --assetPaths public --ignore \"@import\" --ignore \":root\" > public/assets/css/critical.css",
     "critical-gen": "cross-env GENERATE_CRITICAL_CSS=true PORT=3339 npm-run-all --race --parallel start-node critical",
-    "build": "npm-run-all clean \"babel -- -o public/assets/js/main.prod.js\" critical-gen",
+    "build": "npm-run-all \"babel -- -o public/assets/js/main.prod.js\" critical-gen",
     "postbuild": "uglifyjs --compress typeofs=false --mangle --comments \"/^!/\" --output public/assets/js/bundle.prod.js public/assets/js/vendor/clipboard.min.js public/assets/js/main.prod.js",
     "build:dev": "npm-run-all clean \"babel -- -o public/assets/js/main.dev.js\" critical-gen",
     "postbuild:dev": "shx cat public/assets/js/vendor/clipboard.min.js public/assets/js/main.dev.js > public/assets/js/bundle.dev.js",
