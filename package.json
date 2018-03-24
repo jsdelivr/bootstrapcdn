@@ -22,7 +22,7 @@
     "watch:cssjs": "nodemon --ext css,js --ignore tests --ignore public/assets/css/critical.css --ignore public/assets/js/main.dev.js --ignore public/assets/js/bundle.dev.js --exec \"npm run build:dev\"",
     "watch:other": "nodemon app.js --ext pug,svg,png,yml --ignore tests",
     "start-node": "node app.js",
-    "start": "npm run build && cross-env NODE_ENV=production forever start --plain app.js",
+    "start": "npm run build && cross-env NODE_ENV=production node app.js",
     "stop": "forever stop app.js",
     "restart": "npm run stop & npm run start",
     "travis": "npm-run-all build --parallel lint mocha:suite",
