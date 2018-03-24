@@ -1,7 +1,6 @@
 /.git/
 /node_modules/
 /public/assets/js/vendor/
-/public/assets/js/bundle.{dev,prod}.js
 /public/assets/js/main.{dev,prod}.js
 /public/bootlint/
 /public/bootswatch/
