@@ -1,8 +1,10 @@
 /.git/
 /node_modules/
 /public/assets/js/vendor/
-/public/assets/js/bundle.{dev,prod}.js
-/public/assets/js/main.{dev,prod}.js
+/public/assets/js/bundle.dev.js
+/public/assets/js/bundle.prod.js
+/public/assets/js/main.dev.js
+/public/assets/js/main.prod.js
 /public/bootlint/
 /public/bootswatch/
 /public/html5shiv/
