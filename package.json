@@ -4,21 +4,13 @@
   "private": true,
   "scripts": {
     "clean": "rm -rf ./node_modules/",
-    "babel": "babel public/assets/js/main.js",
-    "build:development": "npm run babel -- -o public/assets/js/main.dev.js",
-    "build:production": "npm run babel -- -o public/assets/js/main.prod.js",
-    "postbuild:production": "uglifyjs --compress typeofs=false --mangle --comments \"/^!/\" --output public/assets/js/main.prod.js public/assets/js/main.prod.js",
     "eslint": "eslint .",
     "puglint": "pug-lint .",
-    "lint": "npm-run-all --parallel eslint puglint",
+    "lint": "npm run eslint && npm run puglint",
     "mocha": "mocha --timeout 15000 --slow 500 --exit -i -g \"functional\" -R dot ./tests/",
     "mocha:suite": "mocha --timeout 15000 --slow 500 --exit -R dot ./tests/",
     "mocha:functional": "mocha --timeout 15000 --slow 500 --exit -R tap ./tests/functional_test.js",
-    "dev": "npm run watch",
-    "watch": "npm-run-all --parallel watch:*",
-    "watch:js": "cross-env NODE_ENV=development nodemon --ext js --ignore tests --ignore public/assets/js/main.dev.js --exec \"npm run build:development\"",
-    "watch:other": "cross-env NODE_ENV=development nodemon app.js --ext css,pug,svg,png,yml --ignore tests",
-    "prestart": "npm run build:production",
+    "dev": "cross-env NODE_ENV=development nodemon app.js --ext css,js,pug,svg,png,yml --ignore tests",
     "start": "cross-env NODE_ENV=production forever start --plain app.js",
     "stop": "forever stop app.js",
     "restart": "npm run stop & npm run start",
@@ -30,10 +22,9 @@
     "wp-plugin": "node ./scripts/wp-plugin.js"
   },
   "dependencies": {
-    "@babel/cli": "^7.0.0-beta.42",
-    "@babel/core": "^7.0.0-beta.42",
-    "@babel/preset-env": "^7.0.0-beta.42",
     "async": "^2.6.0",
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
     "compression": "^1.7.2",
     "cross-env": "^5.1.4",
     "errorhandler": "^1.5.0",
@@ -43,7 +34,9 @@
     "forever": "^0.15.3",
     "helmet": "^3.12.0",
     "js-yaml": "^3.11.0",
+    "jstransformer-babel": "^2.1.0",
     "jstransformer-clean-css": "^2.1.0",
+    "jstransformer-uglify-js": "^1.2.0",
     "morgan": "^1.9.0",
     "pug": "^2.0.1",
     "rollbar": "^2.3.9",
@@ -64,7 +57,6 @@
     "htmlencode": "^0.0.4",
     "mocha": "^5.0.4",
     "nodemon": "^1.17.2",
-    "npm-run-all": "^4.1.2",
     "pug-lint": "^2.5.0",
     "pug-lint-config-clock": "^2.0.0",
     "request": "^2.85.0"
@@ -87,7 +79,7 @@
   "babel": {
     "presets": [
       [
-        "@babel/env",
+        "env",
         {
           "loose": true,
           "modules": false
