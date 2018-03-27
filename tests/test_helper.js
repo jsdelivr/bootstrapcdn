@@ -166,7 +166,7 @@ function domainCheck(uri) {
         return uri;
     }
 
-    return uri.replace('https://maxcdn.bootstrapcdn.com/', process.env.TEST_S3);
+    return uri.replace('https://stackpath.bootstrapcdn.com/', process.env.TEST_S3);
 }
 
 module.exports = {

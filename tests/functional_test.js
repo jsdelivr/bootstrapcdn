@@ -219,7 +219,7 @@ describe('functional', () => {
                 return;
             }
 
-            const domain = helpers.domainCheck('https://maxcdn.bootstrapcdn.com/');
+            const domain = helpers.domainCheck('https://stackpath.bootstrapcdn.com/');
             const uri = `${domain + root}/${name}`;
             const ext = helpers.extension(name);
 
