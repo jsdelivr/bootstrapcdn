@@ -6,7 +6,7 @@ __dirname="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 # OPTIONAL w/ defaults:
 # any of these can be set
 MONITOR_BOOTSTRAP_VERSION=${MONITOR_BOOTSTRAP_VERSION-}
-MONITOR_PRIMARY_SOURCE=${MONITOR_PRIMARY_SOURCE-"https://maxcdn.bootstrapcdn.com"}
+MONITOR_PRIMARY_SOURCE=${MONITOR_PRIMARY_SOURCE-"https://stackpath.bootstrapcdn.com"}
 MONITOR_SECONDARY_SOURCE=${MONITOR_SECONDARY_SOURCE-""}
 MONITOR_LOCAL_PREFIX=${MONITOR_LOCAL_PREFIX-"${__dirname}/../public"}
 PAGERDUTY_SERVICE_KEY=${PAGERDUTY_SERVICE_KEY-}
