@@ -13,32 +13,22 @@ const helpers   = require('./test_helper.js');
 const config    = helpers.config();
 
 const expectedHeaders = {
-    'date': undefined,
-    'etag': undefined,
-    'expires': undefined,
+    'accept-ranges': 'bytes',
+    'access-control-allow-origin': '*',
+    'cache-control': undefined,
 
-    // connection: 'keep-alive',
     // TODO: research why this is returning 'closed' for
     // this test, but 'keep-alive' as expected via
     // curl and browsers.
     'connection': undefined,
-
-    'vary': 'Accept-Encoding',
-
-    'content-type': undefined,
     'content-length': undefined,
-
+    'content-type': undefined,
+    'date': undefined,
+    'etag': undefined,
     'last-modified': undefined,
+    'vary': 'Accept-Encoding',
     'x-cache': undefined,
-
-    'accept-ranges': undefined,
-    'access-control-allow-origin': '*',
-
-    // the following are set as undefined because www
-    // and assets (js/css) differ
-    'server': undefined,
-    'x-hello-human': undefined,
-    'cache-control': undefined
+    'x-hello-human': 'Say hello back! @getBootstrapCDN on Twitter'
 };
 
 const responses = {};
