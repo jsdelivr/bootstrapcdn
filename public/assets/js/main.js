@@ -154,7 +154,7 @@
         googleAnalytics();
     }
 
-    init();
+    window.addEventListener('DOMContentLoaded', init, false);
 
     window.addEventListener('resize', initTwitterTimeline, false);
 }))();

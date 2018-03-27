@@ -1,10 +1,6 @@
 -var bootstrap = config.bootstrap.filter(function(o) { return o.current; })[0];
 -var jquery = config.javascript.filter(function(o) { return o.name === 'jquery'; })[0];
--var bundle = getVersionedPath(process.env.NODE_ENV === 'production' ? '/assets/js/bundle.prod.js' : '/assets/js/bundle.dev.js');
 
-| loadjs('#{bundle}', 'bundle', {
-|     numRetries: 3
-| });
 | loadjs(['#{jquery.uri}', '#{bootstrap.javascriptBundle}'], 'jquery', {
 |     async: false,
 |     numRetries: 3
