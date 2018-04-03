@@ -7,5 +7,12 @@
             "value": "true"
         }
     },
+    "environments": {
+        "test": {
+            "scripts": {
+                "test": "npm run ci"
+            }
+        }
+    },
     "addons": []
 }
