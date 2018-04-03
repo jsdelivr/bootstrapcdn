@@ -14,7 +14,7 @@
     "start": "cross-env NODE_ENV=production forever start --plain app.js",
     "stop": "forever stop app.js",
     "restart": "npm run stop & npm run start",
-    "travis": "npm run lint && npm run mocha:suite",
+    "ci": "npm run lint && npm run mocha:suite",
     "test": "npm run lint && npm run mocha",
     "purge-latest": "bash ./scripts/purge.sh",
     "bootswatch": "node ./scripts/bootswatch.js",
