@@ -1,13 +1,11 @@
 'use strict';
 
-const path   = require('path');
-const fs     = require('fs');
 const http   = require('http');
 const assert = require('assert');
-const yaml   = require('js-yaml');
 const format = require('format');
 
-const config = yaml.safeLoad(fs.readFileSync(path.join(__dirname, '..', 'config', '_config.yml'), 'utf8'));
+const helpers = require('./test_helper.js');
+const config  = helpers.config();
 
 process.env.PORT = config.port < 3000 ? config.port + 3000 : config.port + 1;   // don't use configured port
 

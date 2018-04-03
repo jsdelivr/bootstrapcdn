@@ -12,6 +12,8 @@ const format    = require('format');
 const encode    = require('htmlencode').htmlEncode;
 const validator = require('html-validator');
 
+const configYml = yaml.safeLoad(fs.readFileSync(path.join(__dirname, '..', 'config', '_config.yml'), 'utf8'));
+
 let response = {};
 
 // for array of types, first will be chosen when testing strictly
@@ -63,7 +65,7 @@ function assertContentType(uri, contentType) {
 }
 
 function config() {
-    return yaml.safeLoad(fs.readFileSync(path.join(__dirname, '..', 'config', '_config.yml'), 'utf8'));
+    return configYml;
 }
 
 function cleanEndpoint(endpoint = '/') {
