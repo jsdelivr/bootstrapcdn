@@ -63,7 +63,9 @@ function assertContentType(uri, contentType) {
 }
 
 function config() {
-    return yaml.safeLoad(fs.readFileSync(path.join(__dirname, '..', 'config', '_config.yml'), 'utf8'));
+    const CONFIG_FILE = path.join(__dirname, '..', 'config', '_config.yml');
+
+    return yaml.safeLoad(fs.readFileSync(CONFIG_FILE, 'utf8'));
 }
 
 function cleanEndpoint(endpoint = '/') {
