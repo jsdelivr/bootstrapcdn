@@ -17,10 +17,7 @@ const expectedHeaders = {
     'access-control-allow-origin': '*',
     'cache-control': undefined,
 
-    // TODO: research why this is returning 'closed' for
-    // this test, but 'keep-alive' as expected via
-    // curl and browsers.
-    'connection': undefined,
+    'connection': 'Keep-Alive',
     'content-length': undefined,
     'content-type': undefined,
     'date': undefined,
