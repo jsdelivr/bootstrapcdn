@@ -129,6 +129,8 @@ function assertValidHTML(response, done) {
 }
 
 function preFetch(uri, cb, http = require('http')) {
+    http.globalAgent.keepAlive = true;
+
     http.get(uri, (res) => {
         response = res;
         response.body = '';
