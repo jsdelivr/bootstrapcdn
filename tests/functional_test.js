@@ -18,6 +18,7 @@ const expectedHeaders = {
     'cache-control': undefined,
 
     'connection': 'Keep-Alive',
+    'content-encoding': 'gzip',
     'content-length': undefined,
     'content-type': undefined,
     'date': undefined,

@@ -133,7 +133,7 @@ function preFetch(uri, cb) {
     const reqOpts = {
         uri,
         forever: true, // for `connection: Keep-Alive`
-        gzip: false
+        gzip: true
     };
 
     request.get(reqOpts, (err, res, body) => {
