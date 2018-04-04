@@ -15,8 +15,7 @@ const config    = helpers.config();
 const expectedHeaders = {
     'accept-ranges': 'bytes',
     'access-control-allow-origin': '*',
-    'cache-control': undefined,
-
+    'cache-control': 'max-age=31536000',
     'connection': 'Keep-Alive',
     'content-encoding': 'gzip',
     'content-length': undefined,
