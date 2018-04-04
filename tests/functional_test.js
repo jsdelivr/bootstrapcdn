@@ -13,32 +13,22 @@ const helpers   = require('./test_helper.js');
 const config    = helpers.config();
 
 const expectedHeaders = {
-    'date': undefined,
-    'etag': undefined,
-    'expires': undefined,
+    'accept-ranges': 'bytes',
+    'access-control-allow-origin': '*',
+    'cache-control': undefined,
 
-    // connection: 'keep-alive',
     // TODO: research why this is returning 'closed' for
     // this test, but 'keep-alive' as expected via
     // curl and browsers.
     'connection': undefined,
-
-    'vary': 'Accept-Encoding',
-
-    'content-type': undefined,
     'content-length': undefined,
-
+    'content-type': undefined,
+    'date': undefined,
+    'etag': undefined,
     'last-modified': undefined,
+    'vary': 'Accept-Encoding',
     'x-cache': undefined,
-
-    'accept-ranges': undefined,
-    'access-control-allow-origin': '*',
-
-    // the following are set as undefined because www
-    // and assets (js/css) differ
-    'server': undefined,
-    'x-hello-human': undefined,
-    'cache-control': undefined
+    'x-hello-human': 'Say hello back! @getBootstrapCDN on Twitter'
 };
 
 const responses = {};
@@ -76,7 +66,8 @@ function assertHeader(uri, header, value) {
         it(`has ${header}`, (done) => {
             request(uri, (response) => {
                 assert.equal(200, response.statusCode);
-                assert(Object.prototype.hasOwnProperty.call(response.headers, header));
+                assert(Object.prototype.hasOwnProperty.call(response.headers, header),
+                    'Expected: ${header} in: ${Object.keys(response.headers).join(", ")}');
 
                 if (typeof value !== 'undefined') {
                     assert.equal(response.headers[header], value);
@@ -212,14 +203,16 @@ describe('functional', () => {
         const publicURIs = [];
 
         walk.filesSync(path.join(__dirname, '..', 'public'), (base, name) => {
-            const root = base.split(`${path.sep}public${path.sep}`)[1];
+            let root = base.split(`${path.sep}public${path.sep}`)[1];
 
             // ensure file is in whitelisted directory
             if (typeof root === 'undefined' || !whitelist.includes(root.split(path.sep)[0])) {
                 return;
             }
 
-            const domain = helpers.domainCheck('https://maxcdn.bootstrapcdn.com/');
+            // replace Windows backslashes with forward ones
+            root = root.replace(/\\/g, '/');
+            const domain = helpers.domainCheck('https://stackpath.bootstrapcdn.com/');
             const uri = `${domain + root}/${name}`;
             const ext = helpers.extension(name);
 
@@ -242,7 +235,7 @@ describe('functional', () => {
         });
 
         // Run Tests
-        async.each(publicURIs, (uri, callback) => {
+        async.eachLimit(publicURIs, 5, (uri, callback) => {
             describe(uri, () => {
                 it('content-type', (done) => {
                     request(uri, (response) => {

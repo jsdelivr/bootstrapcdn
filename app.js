@@ -100,7 +100,7 @@ app.use((req, res, next) => {
     req.config = config;
 
     // custom headers
-    res.setHeader('X-Powered-By', 'MaxCDN');
+    res.setHeader('X-Powered-By', 'StackPath');
     res.setHeader('X-Hello-Human', 'Say hello back! @getBootstrapCDN on Twitter');
     res.setHeader('Cache-Control', 'public, max-age=0');
     res.setHeader('Last-Modified', new Date().toUTCString());
@@ -138,7 +138,7 @@ app.use(helmet.contentSecurityPolicy({
         scriptSrc: [
             '\'self\'',
             '\'unsafe-inline\'',
-            'maxcdn.bootstrapcdn.com',
+            'stackpath.bootstrapcdn.com',
             'www.google-analytics.com',
             'code.jquery.com',
             'platform.twitter.com',
@@ -153,7 +153,7 @@ app.use(helmet.contentSecurityPolicy({
         styleSrc: [
             '\'self\'',
             '\'unsafe-inline\'',
-            'maxcdn.bootstrapcdn.com',
+            'stackpath.bootstrapcdn.com',
             'fonts.googleapis.com',
             '*.twimg.com',
             'platform.twitter.com'
@@ -177,7 +177,7 @@ app.use(helmet.contentSecurityPolicy({
         ],
         fontSrc: [
             '\'self\'',
-            'maxcdn.bootstrapcdn.com',
+            'stackpath.bootstrapcdn.com',
             'fonts.gstatic.com'
         ],
         frameSrc: [
