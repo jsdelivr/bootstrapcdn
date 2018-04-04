@@ -5,8 +5,6 @@
 |     async: false,
 |     numRetries: 3
 | });
-| loadjs.ready('jquery', {
-|     success: function() {
-|         $('.ads-info-toggler').popover();
-|     }
+| loadjs.ready('jquery', function() {
+|     $('.ads-info-toggler').popover();
 | });

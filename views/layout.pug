@@ -14,7 +14,7 @@ html(lang='en', prefix='og: http://ogp.me/ns#', itemscope, itemtype='http://sche
 
         link(rel='canonical', href=fullUrl)
 
-        link(rel='dns-prefetch', href='//maxcdn.bootstrapcdn.com')
+        link(rel='dns-prefetch', href='//stackpath.bootstrapcdn.com')
         link(rel='dns-prefetch', href='//code.jquery.com')
         link(rel='dns-prefetch', href='//fonts.googleapis.com')
 
@@ -50,10 +50,7 @@ html(lang='en', prefix='og: http://ogp.me/ns#', itemscope, itemtype='http://sche
         link(rel='stylesheet', href=bootswatch.uri, integrity=bootswatch.sri,
             crossorigin='anonymous')
 
-        each css in config.stylesheet
-            if (title === 'Privacy Policy' && css.name === 'iubenda')
-                link(rel='stylesheet', href=getVersionedPath(css.uri),
-                integrity=css.sri, crossorigin='anonymous')
+        block stylesheets
 
         style
             if (process.env.NODE_ENV === 'production')

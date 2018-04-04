@@ -6,7 +6,7 @@ const digest = require('../lib/helpers.js').sri.digest;
 const SRI_CACHE = {};
 
 function appendLocals(req, res) {
-    const TITLE_SUFFIX = 'BootstrapCDN by MaxCDN';
+    const TITLE_SUFFIX = 'BootstrapCDN by StackPath';
     let proto = req.get('x-forwarded-proto');
 
     if (typeof proto === 'undefined') {

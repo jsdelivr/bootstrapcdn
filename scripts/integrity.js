@@ -17,7 +17,7 @@ fs.createReadStream(configFile)
 
 function buildPath(d) {
     d = d.replace('/bootstrap/', '/twitter-bootstrap/')
-         .replace('https://maxcdn.bootstrapcdn.com/', '');
+         .replace('https://stackpath.bootstrapcdn.com/', '');
     return path.join(basedir, 'public', d);
 }
 

@@ -6,6 +6,11 @@ environment:
   matrix:
     - platform: "x86"
 
+init:
+  # Enable symlinks in git; note that this requires to clone
+  # the repo with admin rights, which AppVeyor does by default
+  - git config --global core.symlinks true
+
 install:
   - ps: Install-Product node "8" $env:platform
   - npm install
@@ -15,7 +20,7 @@ build: off
 test_script:
   - node -v
   - npm -v
-  - npm test
+  - npm run ci
 
 matrix:
   fast_finish: true

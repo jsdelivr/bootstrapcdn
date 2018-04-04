@@ -100,7 +100,7 @@ app.use((req, res, next) => {
     req.config = config;
 
     // custom headers
-    res.setHeader('X-Powered-By', 'MaxCDN');
+    res.setHeader('X-Powered-By', 'StackPath');
     res.setHeader('X-Hello-Human', 'Say hello back! @getBootstrapCDN on Twitter');
     res.setHeader('Cache-Control', 'public, max-age=0');
     res.setHeader('Last-Modified', new Date().toUTCString());
@@ -133,11 +133,12 @@ app.use(helmet.contentSecurityPolicy({
     directives: {
         defaultSrc: ['\'none\''],
         baseUri: ['\'self\''],
+        formAction: ['syndication.twitter.com'],
         frameAncestors: ['\'none\''],
         scriptSrc: [
             '\'self\'',
             '\'unsafe-inline\'',
-            'maxcdn.bootstrapcdn.com',
+            'stackpath.bootstrapcdn.com',
             'www.google-analytics.com',
             'code.jquery.com',
             'platform.twitter.com',
@@ -146,12 +147,13 @@ app.use(helmet.contentSecurityPolicy({
             'cdn.carbonads.com',
             'srv.carbonads.net',
             'adn.fusionads.net',
+            'fallbacks.carbonads.com',
             (req, res) => `'nonce-${res.locals.nonce}'`
         ],
         styleSrc: [
             '\'self\'',
             '\'unsafe-inline\'',
-            'maxcdn.bootstrapcdn.com',
+            'stackpath.bootstrapcdn.com',
             'fonts.googleapis.com',
             '*.twimg.com',
             'platform.twitter.com'
@@ -161,10 +163,8 @@ app.use(helmet.contentSecurityPolicy({
             'data:',
             'www.google-analytics.com',
             'bootswatch.com',
-            'syndication.twitter.com',
+            '*.twitter.com',
             '*.twimg.com',
-            'platform.twitter.com',
-            'analytics.twitter.com',
             'stats.g.doubleclick.net',
             'srv.carbonads.net',
             'assets.servedby-buysellads.com',
@@ -177,7 +177,7 @@ app.use(helmet.contentSecurityPolicy({
         ],
         fontSrc: [
             '\'self\'',
-            'maxcdn.bootstrapcdn.com',
+            'stackpath.bootstrapcdn.com',
             'fonts.gstatic.com'
         ],
         frameSrc: [
@@ -195,8 +195,7 @@ app.use(helmet.contentSecurityPolicy({
         connectSrc: [
             'syndication.twitter.com'
         ],
-        manifestSrc: ['\'self\''],
-        reportUri: 'https://d063bdf998559129f041de1efd2b41a5.report-uri.com/r/d/csp/enforce'
+        manifestSrc: ['\'self\'']
     },
 
     // This module will detect common mistakes in your directives and throw errors
