@@ -235,7 +235,7 @@ describe('functional', () => {
         });
 
         // Run Tests
-        async.eachLimit(publicURIs, 5, (uri, callback) => {
+        async.eachSeries(publicURIs, (uri, callback) => {
             describe(uri, () => {
                 it('content-type', (done) => {
                     request(uri, (response) => {
