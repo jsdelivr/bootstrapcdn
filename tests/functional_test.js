@@ -66,7 +66,8 @@ function assertHeader(uri, header, value) {
         it(`has ${header}`, (done) => {
             request(uri, (response) => {
                 assert.equal(200, response.statusCode);
-                assert(Object.prototype.hasOwnProperty.call(response.headers, header));
+                assert(Object.prototype.hasOwnProperty.call(response.headers, header),
+                    'Expected: ' + header + ' in: ' + Object.keys(response.headers).join(', '));
 
                 if (typeof value !== 'undefined') {
                     assert.equal(response.headers[header], value);
@@ -234,7 +235,7 @@ describe('functional', () => {
         });
 
         // Run Tests
-        async.each(publicURIs, (uri, callback) => {
+        async.eachLimit(publicURIs, 5, (uri, callback) => {
             describe(uri, () => {
                 it('content-type', (done) => {
                     request(uri, (response) => {
