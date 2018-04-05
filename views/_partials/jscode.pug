@@ -2,7 +2,8 @@
     .card.bg-light.mb-4.px-4.text-center
         .form-group.mt-4
             -var formId = 'html_' + name;
-            label.font-weight-bold(for=formId) HTML
+            label.font-weight-bold(for=formId)
+                a(href='https://www.w3.org/html/', target='_blank', rel='noopener') HTML
             input.form-control(id=formId, type='text', value='<script src="' + file + '" integrity="' + sri + '" crossorigin="anonymous"></script>')
             span.form-text.text-muted Click to copy
         .form-group
