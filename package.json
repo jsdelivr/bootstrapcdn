@@ -10,7 +10,7 @@
     "mocha": "mocha --timeout 15000 --slow 500 --exit -i -g \"functional\" -R dot ./tests/",
     "mocha:suite": "mocha --timeout 15000 --slow 500 --exit -R dot ./tests/",
     "mocha:functional": "mocha --timeout 15000 --slow 500 --exit -R tap ./tests/functional_test.js",
-    "dev": "cross-env NODE_ENV=development nodemon app.js --ext css,js,pug,svg,png,yml --ignore tests",
+    "dev": "nodemon app.js --ext css,js,pug,svg,png,yml --ignore tests",
     "start": "cross-env NODE_ENV=production forever start --plain app.js",
     "stop": "forever stop app.js",
     "restart": "npm run stop & npm run start",
