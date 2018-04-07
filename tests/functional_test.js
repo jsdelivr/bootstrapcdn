@@ -15,9 +15,9 @@ const config    = helpers.config();
 const expectedHeaders = {
     'accept-ranges': 'bytes',
     'access-control-allow-origin': '*',
-    'cache-control': undefined,
-
+    'cache-control': 'max-age=31536000',
     'connection': 'Keep-Alive',
+    'content-encoding': 'gzip',
     'content-length': undefined,
     'content-type': undefined,
     'date': undefined,
@@ -64,7 +64,7 @@ function assertHeader(uri, header, value) {
             request(uri, (response) => {
                 assert.equal(200, response.statusCode);
                 assert(Object.prototype.hasOwnProperty.call(response.headers, header),
-                    'Expected: ${header} in: ${Object.keys(response.headers).join(", ")}');
+                    `Expected: ${header} in: ${Object.keys(response.headers).join(', ')}`);
 
                 if (typeof value !== 'undefined') {
                     assert.equal(response.headers[header], value);

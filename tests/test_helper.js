@@ -4,13 +4,14 @@
 // Force NODE_ENV (and thus 'env' in express)
 process.env.NODE_ENV = 'test';
 
-const fs        = require('fs');
-const path      = require('path');
-const assert    = require('assert');
-const yaml      = require('js-yaml');
-const format    = require('format');
-const encode    = require('htmlencode').htmlEncode;
-const validator = require('html-validator');
+const assert     = require('assert');
+const fs         = require('fs');
+const path       = require('path');
+const format     = require('format');
+const htmlEncode = require('htmlencode').htmlEncode;
+const request    = require('request');
+const validator  = require('html-validator');
+const yaml       = require('js-yaml');
 
 let response = {};
 
@@ -86,9 +87,9 @@ function app(config, endpoint) {
     return format('http://localhost:%s%s', process.env.PORT, endpoint);
 }
 
-function assertValidHTML(response, done) {
+function assertValidHTML(res, done) {
     const options = {
-        data: response.body,
+        data: res.body,
         format: 'text'
     };
 
@@ -128,41 +129,49 @@ function assertValidHTML(response, done) {
     });
 }
 
-function preFetch(uri, cb, http = require('http')) {
-    http.globalAgent.keepAlive = true;
+function preFetch(uri, cb) {
+    const reqOpts = {
+        uri,
+        forever: true, // for `connection: Keep-Alive`
+        gzip: true
+    };
 
-    http.get(uri, (res) => {
+    request.get(reqOpts, (err, res, body) => {
+        if (err) {
+            console.log(err);
+        }
+
         response = res;
-        response.body = '';
-        res.on('data', (chunk) => {
-            response.body += chunk;
-        });
-        res.on('end', () => cb(response));
+        response.body = body;
+    })
+    .on('complete', () => cb(response))
+    .on('error', (err) => {
+        console.log(err);
     });
 }
 
 function cssHTML(uri, sri) {
-    return encode(`<link href="${uri}" rel="stylesheet" integrity="${sri}" crossorigin="anonymous">`);
+    return htmlEncode(`<link href="${uri}" rel="stylesheet" integrity="${sri}" crossorigin="anonymous">`);
 }
 
 function cssJade(uri, sri) {
-    return encode(`link(href="${uri}", rel="stylesheet", integrity="${sri}", crossorigin="anonymous")`);
+    return htmlEncode(`link(href="${uri}", rel="stylesheet", integrity="${sri}", crossorigin="anonymous")`);
 }
 
 function cssHAML(uri, sri) {
-    return encode(`%link{href: "${uri}", rel: "stylesheet", integrity: "${sri}", crossorigin: "anonymous"}`);
+    return htmlEncode(`%link{href: "${uri}", rel: "stylesheet", integrity: "${sri}", crossorigin: "anonymous"}`);
 }
 
 function jsHTML(uri, sri) {
-    return encode(`<script src="${uri}" integrity="${sri}" crossorigin="anonymous"></script>`);
+    return htmlEncode(`<script src="${uri}" integrity="${sri}" crossorigin="anonymous"></script>`);
 }
 
 function jsJade(uri, sri) {
-    return encode(`script(src="${uri}", integrity="${sri}", crossorigin="anonymous")`);
+    return htmlEncode(`script(src="${uri}", integrity="${sri}", crossorigin="anonymous")`);
 }
 
 function jsHAML(uri, sri) {
-    return encode(`%script{src: "${uri}", integrity: "${sri}", crossorigin: "anonymous"}`);
+    return htmlEncode(`%script{src: "${uri}", integrity: "${sri}", crossorigin: "anonymous"}`);
 }
 
 function domainCheck(uri) {
