@@ -1,12 +1,12 @@
 'use strict';
 
-const assert  = require('assert');
-const helpers = require('./test_helper.js');
+const assert    = require('assert');
+const helpers   = require('./test_helper.js');
 
-const config  = helpers.getConfig();
-const uri     = helpers.runApp(config, 'data/bootstrapcdn.json');
+const config    = helpers.getConfig();
+const uri       = helpers.runApp(config, 'data/bootstrapcdn.json');
 
-let response = {};
+let response    = {};
 
 before((done) => {
     helpers.preFetch(uri, (res) => {
@@ -17,9 +17,7 @@ before((done) => {
 
 describe('data', () => {
     it('/data/bootstrapcdn.json :: 200\'s', (done) => {
-        assert(response);
-        assert(response.statusCode === 200);
-        done();
+        helpers.assert.itWorks(response.statusCode, done);
     });
 
     it('is json', (done) => {

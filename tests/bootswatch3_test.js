@@ -1,12 +1,12 @@
 'use strict';
 
-const assert   = require('assert');
-const helpers  = require('./test_helper.js');
+const assert    = require('assert');
+const helpers   = require('./test_helper.js');
 
-const config   = helpers.getConfig();
-const uri      = helpers.runApp(config, 'legacy/bootswatch');
+const config    = helpers.getConfig();
+const uri       = helpers.runApp(config, 'legacy/bootswatch');
 
-let response = {};
+let response    = {};
 
 function format(str, name) {
     return str.replace('SWATCH_NAME', name)
@@ -22,9 +22,7 @@ before((done) => {
 
 describe('bootswatch3', () => {
     it('works', (done) => {
-        assert(response);
-        assert.equal(200, response.statusCode);
-        done();
+        helpers.assert.itWorks(response.statusCode, done);
     });
 
     it('valid html', (done) => {
@@ -50,13 +48,6 @@ describe('bootswatch3', () => {
         const themeSri   = theme.sri;
 
         describe(theme.name, () => {
-            describe('config', () => {
-                it('has integrity', (done) => {
-                    assert(typeof themeSri !== 'undefined');
-                    done();
-                });
-            });
-
             it('has image', (done) => {
                 assert(response.body.includes(themeImage), `Expects response body to include "${themeImage}"`);
                 done();

@@ -1,12 +1,12 @@
 'use strict';
 
-const assert     = require('assert');
-const path       = require('path');
-const staticify  = require('staticify');
-const helpers    = require('./test_helper.js');
+const assert    = require('assert');
+const path      = require('path');
+const staticify = require('staticify');
+const helpers   = require('./test_helper.js');
 
-const config     = helpers.getConfig();
-const uri        = helpers.runApp(config, 'showcase');
+const config    = helpers.getConfig();
+const uri       = helpers.runApp(config, 'showcase');
 
 const PUBLIC_DIR = path.join(__dirname, '../public');
 
@@ -21,9 +21,7 @@ before((done) => {
 
 describe('showcase', () => {
     it('works', (done) => {
-        assert(response);
-        assert.equal(200, response.statusCode);
-        done();
+        helpers.assert.itWorks(response.statusCode, done);
     });
 
     it('valid html', (done) => {

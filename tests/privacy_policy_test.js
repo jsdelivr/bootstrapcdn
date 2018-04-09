@@ -1,10 +1,10 @@
 'use strict';
 
-const assert     = require('assert');
-const helpers    = require('./test_helper.js');
+const assert    = require('assert');
+const helpers   = require('./test_helper.js');
 
-const config     = helpers.getConfig();
-const uri        = helpers.runApp(config, 'privacy-policy');
+const config    = helpers.getConfig();
+const uri       = helpers.runApp(config, 'privacy-policy');
 
 let response = {};
 
@@ -17,9 +17,7 @@ before((done) => {
 
 describe('privacy-policy', () => {
     it('works', (done) => {
-        assert(response);
-        assert.equal(200, response.statusCode);
-        done();
+        helpers.assert.itWorks(response.statusCode, done);
     });
 
     it('valid html', (done) => {

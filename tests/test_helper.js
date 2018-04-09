@@ -130,10 +130,15 @@ function assertValidHTML(res, done) {
     });
 }
 
+function assertItWorks(res, done) {
+    assert.equal(200, res, 'file missing or forbidden');
+    done();
+}
+
 function preFetch(uri, cb) {
     const reqOpts = {
         uri,
-        forever: true, // for `connection: Keep-Alive`
+        forever: true, // for 'connection: Keep-Alive'
         gzip: true
     };
 
@@ -145,10 +150,7 @@ function preFetch(uri, cb) {
         response = res;
         response.body = body;
     })
-    .on('complete', () => cb(response))
-    .on('error', (err) => {
-        console.log(err);
-    });
+    .on('complete', () => cb(response));
 }
 
 function cssHTML(uri, sri) {
@@ -188,6 +190,7 @@ module.exports = {
     runApp,
     assert: {
         contentType: assertContentType,
+        itWorks: assertItWorks,
         validHTML: assertValidHTML
     },
     preFetch,
