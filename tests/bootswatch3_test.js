@@ -45,26 +45,26 @@ describe('bootswatch3', () => {
     });
 
     config.bootswatch3.themes.forEach((theme) => {
-        const image = format(config.bootswatch3.image, theme.name);
-        const uri   = format(config.bootswatch3.bootstrap, theme.name);
-        const sri   = theme.sri;
+        const themeImage = format(config.bootswatch3.image, theme.name);
+        const themeUri   = format(config.bootswatch3.bootstrap, theme.name);
+        const themeSri   = theme.sri;
 
         describe(theme.name, () => {
             describe('config', () => {
                 it('has integrity', (done) => {
-                    assert(typeof sri !== 'undefined');
+                    assert(typeof themeSri !== 'undefined');
                     done();
                 });
             });
 
             it('has image', (done) => {
-                assert(response.body.includes(image), `Expects response body to include "${image}"`);
+                assert(response.body.includes(themeImage), `Expects response body to include "${themeImage}"`);
                 done();
             });
 
             ['html', 'pug', 'haml'].forEach((fmt) => {
                 it(`has ${fmt}`, (done) => {
-                    const str = helpers.css[fmt](uri, sri);
+                    const str = helpers.css[fmt](themeUri, themeSri);
 
                     assert(response.body.includes(str), `Expects response body to include "${str}"`);
                     done();

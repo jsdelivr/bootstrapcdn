@@ -70,11 +70,11 @@ function cleanEndpoint(endpoint = '/') {
     return endpoint;
 }
 
-function app(config, endpoint) {
+function app(cfg, endpoint) {
     endpoint = cleanEndpoint(endpoint);
 
     // don't use configured port
-    process.env.PORT = config.port < 3000 ? config.port + 3000 : config.port + 1;
+    process.env.PORT = cfg.port < 3000 ? cfg.port + 3000 : cfg.port + 1;
 
     // load app
     require('../app.js');
