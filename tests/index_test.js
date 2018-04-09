@@ -15,33 +15,14 @@ before((done) => {
     });
 });
 
-const current = config.bootstrap[0];
-
-describe('config', () => {
-    it('is current', (done) => {
-        assert(current.current);
-        done();
-    });
-
-    it('has stylesheet integrity', (done) => {
-        assert(typeof current.stylesheetSri !== 'undefined');
-        done();
-    });
-
-    it('has javascript integrity', (done) => {
-        assert(typeof current.javascriptSri !== 'undefined');
-        done();
-    });
-
-    it('has javascript bundle integrity', (done) => {
-        assert(typeof current.javascriptBundleSri !== 'undefined');
-        done();
-    });
+it('works', (done) => {
+    helpers.assert.itWorks(response.statusCode, done);
 });
 
-it('works', (done) => {
-    assert(response);
-    assert.equal(200, response.statusCode);
+const current = config.bootstrap[0];
+
+it('is current', (done) => {
+    assert(current.current);
     done();
 });
 

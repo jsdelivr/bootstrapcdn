@@ -1,12 +1,12 @@
 'use strict';
 
-const assert   = require('assert');
-const helpers  = require('./test_helper.js');
+const assert    = require('assert');
+const helpers   = require('./test_helper.js');
 
-const config   = helpers.getConfig();
-const uri      = helpers.runApp(config, 'fontawesome');
+const config    = helpers.getConfig();
+const uri       = helpers.runApp(config, 'fontawesome');
 
-let response = {};
+let response    = {};
 
 before((done) => {
     helpers.preFetch(uri, (res) => {
@@ -16,23 +16,14 @@ before((done) => {
 });
 
 describe('fontawesome', () => {
-    const current = config.fontawesome[0];
-
-    describe('config', () => {
-        it('is current', (done) => {
-            assert(current.current);
-            done();
-        });
-
-        it('has integrity', (done) => {
-            assert(typeof current.stylesheetSri !== 'undefined');
-            done();
-        });
+    it('works', (done) => {
+        helpers.assert.itWorks(response.statusCode, done);
     });
 
-    it('works', (done) => {
-        assert(response);
-        assert.equal(200, response.statusCode);
+    const current = config.fontawesome[0];
+
+    it('is current', (done) => {
+        assert(current.current);
         done();
     });
 

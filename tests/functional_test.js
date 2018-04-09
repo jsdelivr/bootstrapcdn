@@ -43,14 +43,10 @@ function request(uri, cb) {
 }
 
 function assertSRI(uri, sri, done) {
-    request(uri, (response) => {
-        assert.equal(200, response.statusCode);
+    const expected = digest(responses[uri].body, true);
 
-        const expected = digest(response.body, true);
-
-        assert.equal(expected, sri);
-        done();
-    });
+    assert.equal(expected, sri);
+    done();
 }
 
 const s3include = ['content-type'];
@@ -60,19 +56,16 @@ function assertHeader(uri, header, value) {
         it.skip(`has ${header}`);
     } else {
         it(`has ${header}`, (done) => {
-            request(uri, (response) => {
-                assert.equal(200, response.statusCode);
-                assert(Object.prototype.hasOwnProperty.call(response.headers, header),
-                    `Expects: ${header} in: ${Object.keys(response.headers).join(', ')}`);
+            assert(Object.prototype.hasOwnProperty.call(responses[uri].headers, header),
+                `Expects: ${header} in: ${Object.keys(responses[uri].headers).join(', ')}`);
 
-                if (typeof value !== 'undefined') {
-                    assert.equal(response.headers[header], value);
-                } else if (expectedHeaders[header]) {
-                    assert.equal(response.headers[header], expectedHeaders[header]);
-                }
+            if (typeof value !== 'undefined') {
+                assert.equal(responses[uri].headers[header], value);
+            } else if (expectedHeaders[header]) {
+                assert.equal(responses[uri].headers[header], expectedHeaders[header]);
+            }
 
-                done();
-            });
+            done();
         });
     }
 }
@@ -81,6 +74,12 @@ describe('functional', () => {
     config.bootstrap.forEach((self) => {
         describe(helpers.domainCheck(self.javascript), () => {
             const uri = helpers.domainCheck(self.javascript);
+
+            it('it works', (done) => {
+                request(uri, () => {
+                    helpers.assert.itWorks(responses[uri].statusCode, done);
+                });
+            });
 
             Object.keys(expectedHeaders).forEach((header) => {
                 assertHeader(uri, header);
@@ -93,8 +92,36 @@ describe('functional', () => {
             });
         });
 
+        if (self.javascriptBundle) {
+            describe(helpers.domainCheck(self.javascriptBundle), () => {
+                const uri = helpers.domainCheck(self.javascriptBundle);
+
+                it('it works', (done) => {
+                    request(uri, () => {
+                        helpers.assert.itWorks(responses[uri].statusCode, done);
+                    });
+                });
+
+                Object.keys(expectedHeaders).forEach((header) => {
+                    assertHeader(uri, header);
+                });
+
+                assertHeader(uri, 'content-type', 'application/javascript; charset=utf-8');
+
+                it('has integrity', (done) => {
+                    assertSRI(uri, self.javascriptBundleSri, done);
+                });
+            });
+        }
+
         describe(helpers.domainCheck(self.stylesheet), () => {
             const uri = helpers.domainCheck(self.stylesheet);
+
+            it('it works', (done) => {
+                request(uri, () => {
+                    helpers.assert.itWorks(responses[uri].statusCode, done);
+                });
+            });
 
             Object.keys(expectedHeaders).forEach((header) => {
                 assertHeader(uri, header);
@@ -115,6 +142,12 @@ describe('functional', () => {
                 .replace('SWATCH_NAME', theme.name));
 
             describe(uri, () => {
+                it('it works', (done) => {
+                    request(uri, () => {
+                        helpers.assert.itWorks(responses[uri].statusCode, done);
+                    });
+                });
+
                 Object.keys(expectedHeaders).forEach((header) => {
                     assertHeader(uri, header);
                 });
@@ -135,6 +168,12 @@ describe('functional', () => {
                 .replace('SWATCH_NAME', theme.name));
 
             describe(uri, () => {
+                it('it works', (done) => {
+                    request(uri, () => {
+                        helpers.assert.itWorks(responses[uri].statusCode, done);
+                    });
+                });
+
                 Object.keys(expectedHeaders).forEach((header) => {
                     assertHeader(uri, header);
                 });
@@ -153,6 +192,12 @@ describe('functional', () => {
             const uri = helpers.domainCheck(self.javascript);
 
             describe(uri, () => {
+                it('it works', (done) => {
+                    request(uri, () => {
+                        helpers.assert.itWorks(responses[uri].statusCode, done);
+                    });
+                });
+
                 Object.keys(expectedHeaders).forEach((header) => {
                     assertHeader(uri, header);
                 });
@@ -171,6 +216,12 @@ describe('functional', () => {
             const uri = helpers.domainCheck(self.stylesheet);
 
             describe(uri, () => {
+                it('it works', (done) => {
+                    request(uri, () => {
+                        helpers.assert.itWorks(responses[uri].statusCode, done);
+                    });
+                });
+
                 Object.keys(expectedHeaders).forEach((header) => {
                     assertHeader(uri, header);
                 });
@@ -233,11 +284,15 @@ describe('functional', () => {
         // Run Tests
         async.eachSeries(publicURIs, (uri, callback) => {
             describe(uri, () => {
-                it('content-type', (done) => {
-                    request(uri, (response) => {
-                        assert.equal(200, response.statusCode, 'file missing or forbidden');
+                it('it works', (done) => {
+                    request(uri, () => {
+                        helpers.assert.itWorks(responses[uri].statusCode, done);
+                    });
+                });
 
-                        helpers.assert.contentType(uri, response.headers['content-type']);
+                it('content-type', (done) => {
+                    request(uri, (res) => {
+                        helpers.assert.contentType(uri, res.headers['content-type']);
                         done();
                         callback();
                     });
