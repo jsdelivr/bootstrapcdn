@@ -15,26 +15,20 @@ const yaml       = require('js-yaml');
 
 let response = {};
 
-// for array of types, first will be chosen when testing strictly
+// For array of types, the first one will be chosen when testing strictly
 const CONTENT_TYPE_MAP = {
     css: 'text/css; charset=utf-8',
-    js: [
-        'application/javascript; charset=utf-8',
-        'text/javascript',
-        'application/x-javascript'
-    ],
+    js: 'application/javascript; charset=utf-8',
 
-    // fonts
     eot: 'application/vnd.ms-fontobject',
+    otf: 'application/x-font-otf',
     svg: 'image/svg+xml',
     ttf: [
         'application/x-font-ttf',
         'font/ttf'
     ],
-
     woff: 'application/font-woff',
     woff2: 'application/font-woff2',
-    otf: 'application/x-font-otf',
 
     map: 'application/json; charset=utf-8'
 };
