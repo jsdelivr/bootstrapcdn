@@ -83,7 +83,10 @@
                 "max": 1
             }
         ],
-        "multiline-ternary": "off",
+        "multiline-ternary": [
+            "error",
+            "always-multiline"
+        ],
         "new-cap": "off",
         "newline-after-var": [
             "error",
@@ -157,7 +160,7 @@
         "no-return-assign": "error",
         "no-self-compare": "error",
         "no-sequences": "error",
-        "no-shadow": "off",
+        "no-shadow": "error",
         "no-shadow-restricted-names": "error",
         "no-throw-literal": "error",
         "no-trailing-spaces": "error",
