@@ -64,7 +64,7 @@ function assertHeader(uri, header, value) {
             request(uri, (response) => {
                 assert.equal(200, response.statusCode);
                 assert(Object.prototype.hasOwnProperty.call(response.headers, header),
-                    `Expected: ${header} in: ${Object.keys(response.headers).join(', ')}`);
+                    `Expects: ${header} in: ${Object.keys(response.headers).join(', ')}`);
 
                 if (typeof value !== 'undefined') {
                     assert.equal(response.headers[header], value);
