@@ -64,8 +64,8 @@ function config() {
 }
 
 function cleanEndpoint(endpoint = '/') {
-    endpoint = endpoint[0] === '/' ? endpoint : `/${endpoint}`;
-    endpoint = endpoint[endpoint.length - 1] === '/' ? endpoint : `${endpoint}/`;
+    endpoint = endpoint.startsWith('/') ? endpoint : `/${endpoint}`;
+    endpoint = endpoint.endsWith('/') ? endpoint : `${endpoint}/`;
 
     return endpoint;
 }
