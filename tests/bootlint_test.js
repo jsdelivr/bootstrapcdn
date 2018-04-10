@@ -3,8 +3,8 @@
 const assert   = require('assert');
 const helpers  = require('./test_helper.js');
 
-const config   = helpers.config();
-const uri      = helpers.app(config, 'bootlint');
+const config   = helpers.getConfig();
+const uri      = helpers.runApp(config, 'bootlint');
 
 let response = {};
 

@@ -3,8 +3,8 @@
 const assert  = require('assert');
 const helpers = require('./test_helper.js');
 
-const config  = helpers.config();
-const uri     = helpers.app(config, 'data/bootstrapcdn.json');
+const config  = helpers.getConfig();
+const uri     = helpers.runApp(config, 'data/bootstrapcdn.json');
 
 let response = {};
 

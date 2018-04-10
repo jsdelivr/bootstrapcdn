@@ -5,8 +5,8 @@ const path       = require('path');
 const staticify  = require('staticify');
 const helpers    = require('./test_helper.js');
 
-const config     = helpers.config();
-const uri        = helpers.app(config, 'showcase');
+const config     = helpers.getConfig();
+const uri        = helpers.runApp(config, 'showcase');
 
 const PUBLIC_DIR = path.join(__dirname, '../public');
 
