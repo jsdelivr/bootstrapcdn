@@ -33,7 +33,7 @@ const CONTENT_TYPE_MAP = {
     map: 'application/json; charset=utf-8'
 };
 
-function extension(str) {
+function getExtension(str) {
     // use two enclosing parts; one for the dot (.)
     // and one for the extension itself.
     // So, the result we want is the third Array element,
@@ -45,7 +45,7 @@ function extension(str) {
 }
 
 function assertContentType(uri, contentType) {
-    const ext = extension(uri);
+    const ext = getExtension(uri);
     let type  = CONTENT_TYPE_MAP[ext];
 
     // Making TEST_STRICT=true default, pass TEST_STRICT=false to disable
@@ -64,7 +64,7 @@ function assertContentType(uri, contentType) {
     }
 }
 
-function config() {
+function getConfig() {
     const CONFIG_FILE = path.join(__dirname, '..', 'config', '_config.yml');
 
     return yaml.safeLoad(fs.readFileSync(CONFIG_FILE, 'utf8'));
@@ -77,7 +77,7 @@ function cleanEndpoint(endpoint = '/') {
     return endpoint;
 }
 
-function app(cfg, endpoint) {
+function runApp(cfg, endpoint) {
     endpoint = cleanEndpoint(endpoint);
 
     // don't use configured port
@@ -184,14 +184,14 @@ function domainCheck(uri) {
 }
 
 module.exports = {
-    config,
-    app,
+    getConfig,
+    runApp,
     assert: {
         contentType: assertContentType,
         validHTML: assertValidHTML
     },
     preFetch,
-    extension,
+    getExtension,
     css: {
         pug: cssJade,
         html: cssHTML,

@@ -9,7 +9,7 @@ const semver    = require('semver');
 const digest    = require('../lib/helpers.js').sri.digest;
 const helpers   = require('./test_helper.js');
 
-const config    = helpers.config();
+const config    = helpers.getConfig();
 
 const expectedHeaders = {
     'accept-ranges': 'bytes',
@@ -210,7 +210,7 @@ describe('functional', () => {
             root = root.replace(/\\/g, '/');
             const domain = helpers.domainCheck('https://stackpath.bootstrapcdn.com/');
             const uri = `${domain + root}/${name}`;
-            const ext = helpers.extension(name);
+            const ext = helpers.getExtension(name);
 
             // ignore unknown / unsupported types
             if (typeof helpers.CONTENT_TYPE_MAP[ext] === 'undefined') {
