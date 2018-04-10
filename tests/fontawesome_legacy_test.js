@@ -28,13 +28,13 @@ describe('legacy/fontawesome', () => {
 
     it('has header', (done) => {
         assert(response.body.includes('<h2 class="text-center mb-4">Font Awesome Legacy</h2>'),
-            'Expected response body to include Font Awesome Legacy header');
+            'Expects response body to include Font Awesome Legacy header');
         done();
     });
 
     it('contains authors', (done) => {
         config.authors.forEach((author) => {
-            assert(response.body.includes(author), `Expected response body to include "${author}"`);
+            assert(response.body.includes(author), `Expects response body to include "${author}"`);
         });
         done();
     });
@@ -56,7 +56,7 @@ describe('legacy/fontawesome', () => {
                 it(`has stylesheet ${fmt}`, (done) => {
                     const str = helpers.css[fmt](fontawesome.stylesheet, fontawesome.stylesheetSri);
 
-                    assert(response.body.includes(str), `Expected response body to include "${str}"`);
+                    assert(response.body.includes(str), `Expects response body to include "${str}"`);
                     done();
                 });
             });
