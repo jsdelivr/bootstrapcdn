@@ -1,4 +1,5 @@
--var bootstrap = config.bootstrap.filter(function(o) { return o.current; })[0];
+-var bootswatchVersion = config.bootswatch4.version;
+-var bootstrap = config.bootstrap.filter(function(o) { return o.version === bootswatchVersion; })[0];
 -var jquery = config.javascript.filter(function(o) { return o.name === 'jquery'; })[0];
 -var clipboardjs = getVersionedPath('/assets/js/vendor/clipboard.min.js');
 
