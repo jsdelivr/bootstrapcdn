@@ -3,14 +3,13 @@
 
 const path      = require('path');
 const assert    = require('assert');
-const https     = require('https');
 const walk      = require('fs-walk');
 const async     = require('async');
 const semver    = require('semver');
 const digest    = require('../lib/helpers.js').sri.digest;
 const helpers   = require('./test_helper.js');
 
-const config    = helpers.config();
+const config    = helpers.getConfig();
 
 const expectedHeaders = {
     'accept-ranges': 'bytes',
@@ -40,7 +39,7 @@ function request(uri, cb) {
     return helpers.preFetch(uri, (res) => {
         responses[uri] = res;
         cb(res);
-    }, https);
+    });
 }
 
 function assertSRI(uri, sri, done) {
@@ -64,7 +63,7 @@ function assertHeader(uri, header, value) {
             request(uri, (response) => {
                 assert.equal(200, response.statusCode);
                 assert(Object.prototype.hasOwnProperty.call(response.headers, header),
-                    `Expected: ${header} in: ${Object.keys(response.headers).join(', ')}`);
+                    `Expects: ${header} in: ${Object.keys(response.headers).join(', ')}`);
 
                 if (typeof value !== 'undefined') {
                     assert.equal(response.headers[header], value);
@@ -211,7 +210,7 @@ describe('functional', () => {
             root = root.replace(/\\/g, '/');
             const domain = helpers.domainCheck('https://stackpath.bootstrapcdn.com/');
             const uri = `${domain + root}/${name}`;
-            const ext = helpers.extension(name);
+            const ext = helpers.getExtension(name);
 
             // ignore unknown / unsupported types
             if (typeof helpers.CONTENT_TYPE_MAP[ext] === 'undefined') {

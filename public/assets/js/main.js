@@ -30,15 +30,15 @@
                     }
                 });
 
-                clipboardInputs.on('success', (event) => {
+                clipboardInputs.on('success', (ev) => {
                     let helpBlock = {};
-                    const parentNextSibling = event.trigger.parentElement.nextElementSibling;
+                    const parentNextSibling = ev.trigger.parentElement.nextElementSibling;
 
                     if (parentNextSibling &&
                         parentNextSibling.nodeName.toLowerCase() === 'span') {
                         helpBlock = parentNextSibling;
                     } else {
-                        helpBlock = event.trigger.nextElementSibling;
+                        helpBlock = ev.trigger.nextElementSibling;
                     }
 
                     helpBlock.innerHTML = 'Copied text to clipboard';

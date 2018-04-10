@@ -3,8 +3,8 @@
 const assert   = require('assert');
 const helpers  = require('./test_helper.js');
 
-const config   = helpers.config();
-const uri      = helpers.app(config, 'fontawesome');
+const config   = helpers.getConfig();
+const uri      = helpers.runApp(config, 'fontawesome');
 
 let response = {};
 
@@ -42,20 +42,20 @@ describe('fontawesome', () => {
 
     it('contains authors', (done) => {
         config.authors.forEach((author) => {
-            assert(response.body.includes(author), `Expected response body to include "${author}"`);
+            assert(response.body.includes(author), `Expects response body to include "${author}"`);
         });
         done();
     });
 
     it('has header', (done) => {
         assert(response.body.includes('<h2 class="text-center mb-4">Font Awesome</h2>'),
-            'Expected response body to include Font Awesome header');
+            'Expects response body to include Font Awesome header');
         done();
     });
 
     it('has stylesheet', (done) => {
         assert(response.body.includes(current.stylesheet),
-            `Expected response body to include "${current.stylesheet}"`);
+            `Expects response body to include "${current.stylesheet}"`);
         done();
     });
 
@@ -63,7 +63,7 @@ describe('fontawesome', () => {
         it(`has ${fmt}`, (done) => {
             const str = helpers.css[fmt](current.stylesheet, current.stylesheetSri);
 
-            assert(response.body.includes(str), `Expected response body to include "${str}"`);
+            assert(response.body.includes(str), `Expects response body to include "${str}"`);
             done();
         });
     });

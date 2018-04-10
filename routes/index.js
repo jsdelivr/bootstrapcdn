@@ -42,14 +42,14 @@ function appendLocals(req, res) {
     return res;
 }
 
-function index(req, res) {
+function renderIndex(req, res) {
     res = appendLocals(req, res);
     res.render('index', {
         title: 'Quick Start'
     });
 }
 
-function fontawesome(req, res) {
+function renderFontawesome(req, res) {
     res = appendLocals(req, res);
     res.render('fontawesome', {
         title: 'Font Awesome',
@@ -57,7 +57,7 @@ function fontawesome(req, res) {
     });
 }
 
-function bootswatch(req, res) {
+function renderBootswatch(req, res) {
     res = appendLocals(req, res);
     res.render('bootswatch', {
         title: 'Bootswatch',
@@ -65,12 +65,12 @@ function bootswatch(req, res) {
     });
 }
 
-function bootswatch4(req, res) {
+function renderBootswatch4(req, res) {
     res = appendLocals(req, res);
     res.redirect(301, '/bootswatch/');
 }
 
-function bootlint(req, res) {
+function renderBootlint(req, res) {
     res = appendLocals(req, res);
     res.render('bootlint', {
         title: 'Bootlint',
@@ -88,7 +88,7 @@ function legacy(req, res) {
     res.redirect(301, '/legacy/bootstrap/');
 }
 
-function legacyBootstrap(req, res) {
+function renderLegacyBootstrap(req, res) {
     res = appendLocals(req, res);
     res.render('legacy/bootstrap.pug', {
         title: 'Bootstrap Legacy',
@@ -96,7 +96,7 @@ function legacyBootstrap(req, res) {
     });
 }
 
-function legacyFontawesome(req, res) {
+function renderLegacyFontawesome(req, res) {
     res = appendLocals(req, res);
     res.render('legacy/fontawesome.pug', {
         title: 'Font Awesome Legacy',
@@ -104,7 +104,7 @@ function legacyFontawesome(req, res) {
     });
 }
 
-function legacyBootswatch(req, res) {
+function renderLegacyBootswatch(req, res) {
     res = appendLocals(req, res);
     res.render('legacy/bootswatch.pug', {
         title: 'Bootswatch Legacy',
@@ -112,31 +112,7 @@ function legacyBootswatch(req, res) {
     });
 }
 
-function showcase(req, res) {
-    res = appendLocals(req, res);
-
-    const showcase = req.config.showcase;
-
-    const col1 = [];
-    const col2 = [];
-
-    for (let i = 0; i < showcase.length; i++) {
-        if (i % 2 === 0) {
-            col1.push(showcase[i]);
-        } else {
-            col2.push(showcase[i]);
-        }
-    }
-
-    res.render('showcase', {
-        title: 'Showcase',
-        description: 'Websites and apps that use BootstrapCDN',
-        col1,
-        col2
-    });
-}
-
-function integrations(req, res) {
+function renderIntegrations(req, res) {
     res = appendLocals(req, res);
 
     const integrations = req.config.integrations;
@@ -160,7 +136,31 @@ function integrations(req, res) {
     });
 }
 
-function privacyPolicy(req, res) {
+function renderShowcase(req, res) {
+    res = appendLocals(req, res);
+
+    const showcase = req.config.showcase;
+
+    const col1 = [];
+    const col2 = [];
+
+    for (let i = 0; i < showcase.length; i++) {
+        if (i % 2 === 0) {
+            col1.push(showcase[i]);
+        } else {
+            col2.push(showcase[i]);
+        }
+    }
+
+    res.render('showcase', {
+        title: 'Showcase',
+        description: 'Websites and apps that use BootstrapCDN',
+        col1,
+        col2
+    });
+}
+
+function renderPrivacyPolicy(req, res) {
     res = appendLocals(req, res);
     res.render('privacy-policy', {
         title: 'Privacy Policy',
@@ -169,19 +169,19 @@ function privacyPolicy(req, res) {
 }
 
 module.exports = {
-    index,
-    fontawesome,
-    bootswatch,
-    bootswatch4,
-    bootlint,
+    renderIndex,
+    renderFontawesome,
+    renderBootswatch,
+    renderBootswatch4,
+    renderBootlint,
     redirectToRoot,
     legacy,
-    legacyBootstrap,
-    legacyBootswatch,
-    legacyFontawesome,
-    showcase,
-    integrations,
-    privacyPolicy
+    renderLegacyBootstrap,
+    renderLegacyBootswatch,
+    renderLegacyFontawesome,
+    renderIntegrations,
+    renderShowcase,
+    renderPrivacyPolicy
 };
 
 // vim: ft=javascript sw=4 sts=4 et:

@@ -3,8 +3,8 @@
 const assert   = require('assert');
 const helpers  = require('./test_helper.js');
 
-const config   = helpers.config();
-const uri      = helpers.app(config, 'bootswatch');
+const config   = helpers.getConfig();
+const uri      = helpers.runApp(config, 'bootswatch');
 
 let response = {};
 
@@ -45,27 +45,27 @@ describe('bootswatch4', () => {
     });
 
     config.bootswatch4.themes.forEach((theme) => {
-        const image = format(config.bootswatch4.image, theme.name);
-        const uri   = format(config.bootswatch4.bootstrap, theme.name);
-        const sri   = theme.sri;
+        const themeImage = format(config.bootswatch4.image, theme.name);
+        const themeUri   = format(config.bootswatch4.bootstrap, theme.name);
+        const themeSri   = theme.sri;
 
         describe(theme.name, () => {
             describe('config', () => {
                 it('has integrity', (done) => {
-                    assert(typeof sri !== 'undefined');
+                    assert(typeof themeSri !== 'undefined');
                     done();
                 });
             });
 
             it('has image', (done) => {
-                assert(response.body.includes(image),
-                    `Expects response body to include "${image}"`);
+                assert(response.body.includes(themeImage),
+                    `Expects response body to include "${themeImage}"`);
                 done();
             });
 
             ['html', 'pug', 'haml'].forEach((fmt) => {
                 it(`has ${fmt}`, (done) => {
-                    const str = helpers.css[fmt](uri, sri);
+                    const str = helpers.css[fmt](themeUri, themeSri);
 
                     assert(response.body.includes(str), `Expects response body to include "${str}"`);
                     done();

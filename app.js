@@ -225,20 +225,20 @@ app.locals.basedir = PUBLIC_DIR;
 app.locals.getVersionedPath = staticify.getVersionedPath;
 
 // routes
-app.get('/fontawesome/', routes.fontawesome);
-app.get('/bootswatch/', routes.bootswatch);
-app.get('/bootswatch4/', routes.bootswatch4);
-app.get('/bootlint/', routes.bootlint);
+app.get('/fontawesome/', routes.renderFontawesome);
+app.get('/bootswatch/', routes.renderBootswatch);
+app.get('/bootswatch4/', routes.renderBootswatch4);
+app.get('/bootlint/', routes.renderBootlint);
 app.get('/alpha/', routes.redirectToRoot);
 app.get('/beta/', routes.redirectToRoot);
 app.get('/legacy/', routes.legacy);
-app.get('/legacy/bootstrap/', routes.legacyBootstrap);
-app.get('/legacy/bootswatch/', routes.legacyBootswatch);
-app.get('/legacy/fontawesome/', routes.legacyFontawesome);
-app.get('/showcase/', routes.showcase);
-app.get('/integrations/', routes.integrations);
-app.get('/privacy-policy/', routes.privacyPolicy);
-app.get('/', routes.index);
+app.get('/legacy/bootstrap/', routes.renderLegacyBootstrap);
+app.get('/legacy/bootswatch/', routes.renderLegacyBootswatch);
+app.get('/legacy/fontawesome/', routes.renderLegacyFontawesome);
+app.get('/showcase/', routes.renderShowcase);
+app.get('/integrations/', routes.renderIntegrations);
+app.get('/privacy-policy/', routes.renderPrivacyPolicy);
+app.get('/', routes.renderIndex);
 
 // eslint-disable-next-line init-declarations
 let data; // only regenerated on restart

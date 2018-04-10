@@ -15,36 +15,37 @@ const yaml       = require('js-yaml');
 
 let response = {};
 
-// for array of types, first will be chosen when testing strictly
+// For array of types, the first one will be chosen when testing strictly
 const CONTENT_TYPE_MAP = {
     css: 'text/css; charset=utf-8',
-    js: [
-        'application/javascript; charset=utf-8',
-        'text/javascript',
-        'application/x-javascript'
-    ],
+    js: 'application/javascript; charset=utf-8',
 
-    // fonts
     eot: 'application/vnd.ms-fontobject',
+    otf: 'application/x-font-otf',
     svg: 'image/svg+xml',
     ttf: [
         'application/x-font-ttf',
         'font/ttf'
     ],
-
     woff: 'application/font-woff',
     woff2: 'application/font-woff2',
-    otf: 'application/x-font-otf',
 
     map: 'application/json; charset=utf-8'
 };
 
-function extension(str) {
-    return str.match(/[A-Za-z0-9]+$/)[0];
+function getExtension(str) {
+    // use two enclosing parts; one for the dot (.)
+    // and one for the extension itself.
+    // So, the result we want is the third Array element,
+    // since the first one is the whole match, the second one
+    // returns the first captured match, etc.
+    const re = /(\.)([a-zA-Z0-9]+)$/;
+
+    return str.match(re)[2];
 }
 
 function assertContentType(uri, contentType) {
-    const ext = extension(uri);
+    const ext = getExtension(uri);
     let type  = CONTENT_TYPE_MAP[ext];
 
     // Making TEST_STRICT=true default, pass TEST_STRICT=false to disable
@@ -63,24 +64,24 @@ function assertContentType(uri, contentType) {
     }
 }
 
-function config() {
+function getConfig() {
     const CONFIG_FILE = path.join(__dirname, '..', 'config', '_config.yml');
 
     return yaml.safeLoad(fs.readFileSync(CONFIG_FILE, 'utf8'));
 }
 
 function cleanEndpoint(endpoint = '/') {
-    endpoint = endpoint[0] === '/' ? endpoint : `/${endpoint}`;
-    endpoint = endpoint[endpoint.length - 1] === '/' ? endpoint : `${endpoint}/`;
+    endpoint = endpoint.startsWith('/') ? endpoint : `/${endpoint}`;
+    endpoint = endpoint.endsWith('/') ? endpoint : `${endpoint}/`;
 
     return endpoint;
 }
 
-function app(config, endpoint) {
+function runApp(cfg, endpoint) {
     endpoint = cleanEndpoint(endpoint);
 
     // don't use configured port
-    process.env.PORT = config.port < 3000 ? config.port + 3000 : config.port + 1;
+    process.env.PORT = cfg.port < 3000 ? cfg.port + 3000 : cfg.port + 1;
 
     // load app
     require('../app.js');
@@ -183,14 +184,14 @@ function domainCheck(uri) {
 }
 
 module.exports = {
-    config,
-    app,
+    getConfig,
+    runApp,
     assert: {
         contentType: assertContentType,
         validHTML: assertValidHTML
     },
     preFetch,
-    extension,
+    getExtension,
     css: {
         pug: cssJade,
         html: cssHTML,
