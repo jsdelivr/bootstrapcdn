@@ -40,7 +40,14 @@ const CONTENT_TYPE_MAP = {
 };
 
 function extension(str) {
-    return str.match(/[A-Za-z0-9]+$/)[0];
+    // use two enclosing parts; one for the dot (.)
+    // and one for the extension itself.
+    // So, the result we want is the third Array element,
+    // since the first one is the whole match, the second one
+    // returns the first captured match, etc.
+    const re = /(\.)([a-zA-Z0-9]+)$/;
+
+    return str.match(re)[2];
 }
 
 function assertContentType(uri, contentType) {
