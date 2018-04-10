@@ -3,7 +3,6 @@
 
 const path      = require('path');
 const assert    = require('assert');
-const https     = require('https');
 const walk      = require('fs-walk');
 const async     = require('async');
 const semver    = require('semver');
@@ -40,7 +39,7 @@ function request(uri, cb) {
     return helpers.preFetch(uri, (res) => {
         responses[uri] = res;
         cb(res);
-    }, https);
+    });
 }
 
 function assertSRI(uri, sri, done) {
