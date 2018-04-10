@@ -15,6 +15,9 @@ javascript:
   - name: jquery
     uri: 'https://code.jquery.com/jquery-3.3.1.slim.min.js'
     sri: sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo
+  - name: clipboardjs
+    uri: /assets/js/vendor/clipboard.min.js
+    sri: sha384-5tfO0soa+FisnuBhaHP2VmPXQG/JZ8dLcRL43IkJFzbsXTXT6zIX8q8sIT0VSe2G
 bootstrap:
   - version: 4.1.0
     current: true
