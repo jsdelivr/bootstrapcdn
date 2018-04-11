@@ -33,7 +33,6 @@
     "helmet": "^3.12.0",
     "js-yaml": "^3.11.0",
     "jstransformer-clean-css": "^2.1.0",
-    "jstransformer-uglify-js": "^1.2.0",
     "morgan": "^1.9.0",
     "pug": "^2.0.3",
     "rollbar": "^2.3.9",
@@ -42,7 +41,6 @@
     "serve-static": "^1.13.2",
     "sri-toolbox": "^0.2.0",
     "staticify": "^2.0.0",
-    "uglify-js": "^3.3.18",
     "uuid": "^3.2.1"
   },
   "devDependencies": {
@@ -55,7 +53,8 @@
     "nodemon": "^1.17.3",
     "pug-lint": "^2.5.0",
     "pug-lint-config-clock": "^2.0.0",
-    "request": "^2.85.0"
+    "request": "^2.85.0",
+    "uglify-js": "^3.3.20"
   },
   "engines": {
     "node": "8.x"

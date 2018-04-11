@@ -16,6 +16,8 @@ javascript:
     sri: sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo
   - name: clipboardjs
     uri: /assets/js/vendor/clipboard.min.js
+  - name: main
+    uri: /assets/js/main.js
 bootstrap:
   - version: 4.1.0
     current: true

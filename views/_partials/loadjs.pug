@@ -9,15 +9,21 @@
     var clipboardjs = config.javascript.filter(function(o) { return o.name === 'clipboardjs'; })[0];
     var clipboardjsUri = getVersionedPath(clipboardjs.uri);
     var clipboardjsSri = generateSRI(clipboardjs.uri);
+    var mainJs = config.javascript.filter(function(o) { return o.name === 'main'; })[0];
+    var mainJsUri = getVersionedPath(mainJs.uri);
+    var mainJsSri = generateSRI('/assets/js/main.js');
 
+| var mainJsUri = '#{mainJsUri}';
+| var clipboardjsUri = '#{clipboardjsUri}';
 | var jqueryUri = '#{jquery.uri}';
 | var bootstrapBundleUri = '#{bootstrap.javascriptBundle}';
 |
-| loadjs('#{clipboardjsUri}', 'clipboardjs', {
+| loadjs([clipboardjsUri, mainJsUri], 'main', {
 |    before: function(path, el) {
-|        el.integrity = '#{clipboardjsSri}';
+|        el.integrity = path === mainJsUri ? '#{mainJsSri}' : '#{clipboardjsSri}';
 |        el.crossOrigin = 'anonymous';
-|     }
+|     },
+|     async: false
 | });
 | loadjs([jqueryUri, bootstrapBundleUri], 'jquery', {
 |    before: function(path, el) {
@@ -28,10 +34,4 @@
 | });
 | loadjs.ready('jquery', function() {
 |     $('.ads-info-toggler').popover();
-| })
-| .ready('clipboardjs', function() {
-if (process.env.NODE_ENV === 'production')
-    include:uglify-js /assets/js/main.js
-else
-    include /assets/js/main.js
 | });
