@@ -8,13 +8,14 @@
     })[0];
     var clipboardjs = config.javascript.filter(function(o) { return o.name === 'clipboardjs'; })[0];
     var clipboardjsUri = getVersionedPath(clipboardjs.uri);
+    var clipboardjsSri = generateSRI(clipboardjs.uri);
 
 | var jqueryUri = '#{jquery.uri}';
 | var bootstrapBundleUri = '#{bootstrap.javascriptBundle}';
 |
 | loadjs('#{clipboardjsUri}', 'clipboardjs', {
 |    before: function(path, el) {
-|        el.integrity = '#{clipboardjs.sri}';
+|        el.integrity = '#{clipboardjsSri}';
 |        el.crossOrigin = 'anonymous';
 |     }
 | });

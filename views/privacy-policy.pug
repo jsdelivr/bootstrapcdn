@@ -3,7 +3,7 @@ extends layout.pug
 block stylesheets
     -var iubenda = config.stylesheet.filter(function(o) { return o.name === 'iubenda'; })[0];
     link(rel='stylesheet', href=getVersionedPath(iubenda.uri),
-         integrity=iubenda.sri, crossorigin='anonymous')
+         integrity=generateSRI(iubenda.uri), crossorigin='anonymous')
 
 block content
     .row
