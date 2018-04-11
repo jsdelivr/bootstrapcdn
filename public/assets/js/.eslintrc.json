@@ -7,6 +7,7 @@
     },
     "rules": {
         "no-var": "off",
+        "object-shorthand": "off",
         "prefer-arrow-callback": "off",
         "prefer-template": "off"
     }
