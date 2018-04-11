@@ -14,7 +14,7 @@
 | })
 | .ready('clipboardjs', function() {
 if (process.env.NODE_ENV === 'production')
-    include:uglify-js:babel /assets/js/main.js
+    include:uglify-js /assets/js/main.js
 else
-    include:babel /assets/js/main.js
+    include /assets/js/main.js
 | });

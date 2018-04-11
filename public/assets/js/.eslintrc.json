@@ -2,6 +2,12 @@
     "extends": "../../../.eslintrc.json",
     "env": {
         "browser": true,
+        "es6": false,
         "node": false
+    },
+    "rules": {
+        "no-var": "off",
+        "prefer-arrow-callback": "off",
+        "prefer-template": "off"
     }
 }
