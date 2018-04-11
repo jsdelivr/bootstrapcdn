@@ -39,6 +39,7 @@
     "cross-env": "^5.2.0",
     "errorhandler": "^1.5.0",
     "express": "^4.16.4",
+    "express-minify": "^1.0.0",
     "express-sitemap": "^1.8.0",
     "express-sslify": "^1.2.0",
     "helmet": "^3.15.0",
