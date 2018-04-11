@@ -1,38 +1,38 @@
 /* global ClipboardJS:false */
 
-((() => {
+(function () {
     'use strict';
 
     function toggleInputCaret() {
-        const selector = '.input-group .dropdown-toggle';
-        const elements = document.querySelectorAll(selector);
+        var selector = '.input-group .dropdown-toggle';
+        var elements = document.querySelectorAll(selector);
 
-        elements.forEach((elem) => {
-            elem.addEventListener('click', () => {
+        elements.forEach(function (elem) {
+            elem.addEventListener('click', function () {
                 elem.classList.toggle('dropdown-toggle-open');
             });
         });
     }
 
     function selectTextCopyToClipboard() {
-        const selector = 'input[type="text"]';
-        const elements = document.querySelectorAll(selector);
-        const origHelpBlockText = 'Click to copy';
+        var selector = 'input[type="text"]';
+        var elements = document.querySelectorAll(selector);
+        var origHelpBlockText = 'Click to copy';
 
-        elements.forEach((elem) => {
-            elem.addEventListener('focus', (event) => {
+        elements.forEach(function (elem) {
+            elem.addEventListener('focus', function (event) {
                 event.preventDefault();
                 elem.select();
 
-                const clipboardInputs = new ClipboardJS(elem, {
-                    target(trigger) {
+                var clipboardInputs = new ClipboardJS(elem, {
+                    target: function target(trigger) {
                         return trigger;
                     }
                 });
 
-                clipboardInputs.on('success', (ev) => {
-                    let helpBlock = {};
-                    const parentNextSibling = ev.trigger.parentElement.nextElementSibling;
+                clipboardInputs.on('success', function (ev) {
+                    var helpBlock = {};
+                    var parentNextSibling = ev.trigger.parentElement.nextElementSibling;
 
                     if (parentNextSibling &&
                         parentNextSibling.nodeName.toLowerCase() === 'span') {
@@ -45,9 +45,9 @@
                 });
             }, true);
 
-            elem.addEventListener('blur', (event) => {
-                let helpBlock = {};
-                const parentNextSibling = elem.parentElement.nextElementSibling;
+            elem.addEventListener('blur', function (event) {
+                var helpBlock = {};
+                var parentNextSibling = elem.parentElement.nextElementSibling;
 
                 if (parentNextSibling &&
                     parentNextSibling.nodeName.toLowerCase() === 'span') {
@@ -63,14 +63,14 @@
     }
 
     function initTwitterTimeline() {
-        const timelineSelector = '.twitter-timeline-custom';
-        const timelineRendered = `${timelineSelector} .twitter-timeline-rendered`;
+        var timelineSelector = '.twitter-timeline-custom';
+        var timelineRendered = timelineSelector + ' .twitter-timeline-rendered';
 
         if (!window.matchMedia('(min-width: 992px)').matches || document.querySelector(timelineRendered) !== null) {
             return;
         }
 
-        window.twttr.ready((twttr) => {
+        window.twttr.ready(function (twttr) {
             twttr.widgets.createTimeline(
                 {
                     sourceType: 'collection',
@@ -108,7 +108,7 @@
     }
 
     function loadGhBtn() {
-        const iframeEl = document.createElement('iframe');
+        var iframeEl = document.createElement('iframe');
 
         iframeEl.setAttribute('src', 'https://ghbtns.com/github-btn.html?user=MaxCDN&repo=bootstrapcdn&type=watch&count=true');
         iframeEl.title = 'Star on GitHub';
@@ -121,10 +121,10 @@
     function googleAnalytics() {
         function gaEvent(event) {
             if (typeof event.target !== 'undefined') {
-                const action = event.target.getAttribute('data-ga-action');
-                const category = event.target.getAttribute('data-ga-category');
-                const label = event.target.getAttribute('data-ga-label');
-                const value = parseInt(event.target.getAttribute('data-ga-value'), 10);
+                var action = event.target.getAttribute('data-ga-action');
+                var category = event.target.getAttribute('data-ga-category');
+                var label = event.target.getAttribute('data-ga-label');
+                var value = parseInt(event.target.getAttribute('data-ga-value'), 10);
 
                 if (typeof window.ga !== 'undefined' && typeof category !== 'undefined' && typeof action !== 'undefined') {
                     window.ga('send', 'event', category, action, label, value, {});
@@ -157,4 +157,4 @@
     init();
 
     window.addEventListener('resize', initTwitterTimeline, false);
-}))();
+})();
