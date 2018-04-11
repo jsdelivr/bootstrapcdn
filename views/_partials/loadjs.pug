@@ -1,14 +1,7 @@
-//- This is a little "hacky" but gets the job done.
-//- Assuming the versions follow the "a.b.c.d" scheme:
-//- 1. Gets the Bootswatch version, splits the first two parts in "." and then
-//-    joins them with "." as a string. So we end up with "a.b".
-//- 2. Then, we get the first Bootstrap version that starts with the Bootswatch
-//-    version we created in the previous step.
-//- This allows us to use Bootstrap patch versions.
 -
-    var bootswatchVersion = config.bootswatch4.version.split('.', 2).join('.');
+    var bootswatchVersion = semver.coerce(config.bootswatch4.version);
     var bootstrap = config.bootstrap.filter(function(o) {
-        return o.version.startsWith(bootswatchVersion);
+        return semver.satisfies(bootswatchVersion, '~' + o.version);
     })[0];
     var jquery = config.javascript.filter(function(o) {
         return o.name === 'jquery';
