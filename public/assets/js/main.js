@@ -25,7 +25,7 @@
                 elem.select();
 
                 var clipboardInputs = new ClipboardJS(elem, {
-                    target: function target(trigger) {
+                    target: function (trigger) {
                         return trigger;
                     }
                 });
