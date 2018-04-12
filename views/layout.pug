@@ -46,6 +46,8 @@ html(lang='en', prefix='og: http://ogp.me/ns#', itemscope, itemtype='http://sche
         meta(itemprop='description', content!=pageDescription)
         meta(itemprop='image', content=getVersionedPath('/assets/img/og.png'))
 
+        meta(name='twitter:widgets:csp', content='on')
+
         -var bootswatch = helpers.theme.fetch(config, theme);
         link(rel='stylesheet', href=bootswatch.uri, integrity=bootswatch.sri,
             crossorigin='anonymous')
