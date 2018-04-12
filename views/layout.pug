@@ -29,7 +29,7 @@ html(lang='en', prefix='og: http://ogp.me/ns#', itemscope, itemtype='http://sche
 
         block stylesheets
 
-        style
+        style(nonce=nonce)
             if (process.env.NODE_ENV === 'production')
                 include:clean-css /assets/css/style.css
             else
