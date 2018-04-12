@@ -29,7 +29,8 @@ const CSP = {
         'stackpath.bootstrapcdn.com',
         'fonts.googleapis.com',
         '*.twimg.com',
-        'platform.twitter.com'
+        'platform.twitter.com',
+        (req, res) => `'nonce-${res.locals.nonce}'`
     ],
     imgSrc: [
         '\'self\'',
