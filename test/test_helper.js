@@ -96,12 +96,11 @@ function assertValidHTML(res, done) {
 
     validator(options, (err, data) => {
         if (err) {
-            console.trace(err);
             return done(err);
         }
 
-        // Returned when successful.
-        if (data.indexOf('The document validates') > -1) {
+        // Return when successful.
+        if (data.includes('The document validates')) {
             return done();
         }
 
