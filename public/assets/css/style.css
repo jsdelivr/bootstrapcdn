@@ -31,8 +31,9 @@ footer {
 }
 
 .input-group .dropdown-toggle::after {
-    -webkit-transition: -webkit-transform 0.35s ease;
+    transition: -webkit-transform 0.35s ease;
     transition: transform 0.35s ease;
+    transition: transform 0.35s ease, -webkit-transform 0.35s ease;
 }
 
 .input-group .dropdown-toggle-open::after {
