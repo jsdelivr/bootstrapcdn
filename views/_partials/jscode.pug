@@ -3,19 +3,19 @@
         .form-group.mt-4
             -var formId = 'html_' + name;
             label.font-weight-bold(for=formId)
-                a(href='https://www.w3.org/html/', target='_blank', rel='noopener') HTML
+                a(href='https://www.w3.org/html/', rel='noopener', target='_blank') HTML
             input.form-control(id=formId, type='text', value='<script src="' + file + '" integrity="' + sri + '" crossorigin="anonymous"></script>')
             span.form-text.text-muted Click to copy
         .form-group
             -var formId = 'jade_' + name;
             label.font-weight-bold(for=formId)
-                a(href='https://pugjs.org/', target='_blank', rel='noopener') Pug
+                a(href='https://pugjs.org/', rel='noopener', target='_blank') Pug
             input.form-control(id=formId, type='text', value='script(src="' + file + '", integrity="' + sri + '", crossorigin="anonymous")')
             span.form-text.text-muted Click to copy
         .form-group.mb-4
             -var formId = 'haml_' + name;
             label.font-weight-bold(for=formId)
-                a(href='http://haml.info/', target='_blank', rel='noopener') Haml
+                a(href='http://haml.info/', rel='noopener', target='_blank') Haml
             input.form-control(id=formId, type='text', value='%script{src: "' + file + '", integrity: "' + sri + '", crossorigin: "anonymous"}')
             span.form-text.text-muted Click to copy
 

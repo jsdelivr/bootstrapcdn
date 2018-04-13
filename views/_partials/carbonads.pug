@@ -1,8 +1,8 @@
 .card.text-center.mt-5.mt-lg-0.mb-4.carbonads-container
     script#_carbonads_js(async, src='https://cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=bootstrapcdncom')
 
-    -var content='This ad is designed to support Open Source. All earnings are a donation to the <a href=\"https://opencollective.com/opensource" target="_blank" rel="noopener">Open Source Collective</a>.';
+    -var content='This ad is designed to support Open Source. All earnings are a donation to the <a href=\"https://opencollective.com/opensource" rel="noopener" target="_blank">Open Source Collective</a>.';
 
-    a.ads-info-toggler(tabindex='0', role='button', data-container='.carbonads-container', data-toggle='popover', data-placement='auto', data-trigger='focus', data-html='true', title='What\'s This Ad?', data-content=content)
+    a.ads-info-toggler(tabindex='0', role='button', data-container='.carbonads-container', data-toggle='popover', data-placement='auto', data-trigger='focus', data-html='true', data-content=content, title='What\'s This Ad?')
         include /assets/img/info-icon.svg
         span.sr-only Ads info
