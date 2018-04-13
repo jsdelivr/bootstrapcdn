@@ -7,7 +7,6 @@ process.env.NODE_ENV = 'test';
 const assert     = require('assert');
 const fs         = require('fs');
 const path       = require('path');
-const format     = require('format');
 const htmlEncode = require('htmlencode').htmlEncode;
 const request    = require('request');
 const validator  = require('html-validator');
@@ -46,21 +45,19 @@ function getExtension(str) {
 
 function assertContentType(uri, contentType) {
     const ext = getExtension(uri);
-    let type  = CONTENT_TYPE_MAP[ext];
+    let expectedType  = CONTENT_TYPE_MAP[ext];
 
     // Making TEST_STRICT=true default, pass TEST_STRICT=false to disable
     // strict checking.
 
-    if (process.env.TEST_STRICT === 'false' && Array.isArray(type)) {
-        assert(type.includes(contentType),
-            format('invalid content-type for "%s", expects one of "%s" but got "%s"',
-                ext, type.join('", "'), contentType));
+    if (process.env.TEST_STRICT === 'false' && Array.isArray(expectedType)) {
+        assert(contentType.includes(expectedType),
+            `Invalid "content-type" for "${ext}", expects one of "${expectedType.join('", "')}" but got ${contentType}`);
     } else {
-        type = Array.isArray(type) ? type[0] : type;
+        expectedType = Array.isArray(expectedType) ? expectedType[0] : expectedType;
 
-        assert.equal(type, contentType,
-            format('invalid content-type for "%s", expects "%s" but got "%s"',
-                ext, type, contentType));
+        assert.equal(contentType, expectedType,
+            `Invalid "content-type" for "${ext}", expects "${expectedType}" but got "${contentType}"`);
     }
 }
 
@@ -78,14 +75,16 @@ function cleanEndpoint(endpoint = '/') {
 }
 
 function runApp(cfg, endpoint) {
-    endpoint = cleanEndpoint(endpoint);
+    const endp = cleanEndpoint(endpoint);
+    const port = cfg.port < 3000 ? cfg.port + 3000 : cfg.port + 1;
 
     // don't use configured port
-    process.env.PORT = cfg.port < 3000 ? cfg.port + 3000 : cfg.port + 1;
+    process.env.PORT = port;
 
     // load app
     require('../app.js');
-    return format('http://localhost:%s%s', process.env.PORT, endpoint);
+
+    return `http://localhost:${port}${endp}`;
 }
 
 function assertValidHTML(res, done) {
