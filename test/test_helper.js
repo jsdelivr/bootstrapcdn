@@ -14,7 +14,6 @@ const yaml       = require('js-yaml');
 
 let response = {};
 
-// For array of types, the first one will be chosen when testing strictly
 const CONTENT_TYPE_MAP = {
     css: 'text/css; charset=utf-8',
     js: 'application/javascript; charset=utf-8',
@@ -22,10 +21,7 @@ const CONTENT_TYPE_MAP = {
     eot: 'application/vnd.ms-fontobject',
     otf: 'application/x-font-otf',
     svg: 'image/svg+xml',
-    ttf: [
-        'application/x-font-ttf',
-        'font/ttf'
-    ],
+    ttf: 'application/x-font-ttf',
     woff: 'application/font-woff',
     woff2: 'application/font-woff2',
 
@@ -45,20 +41,10 @@ function getExtension(str) {
 
 function assertContentType(uri, contentType) {
     const ext = getExtension(uri);
-    let expectedType  = CONTENT_TYPE_MAP[ext];
+    const expectedType = CONTENT_TYPE_MAP[ext];
 
-    // Making TEST_STRICT=true default, pass TEST_STRICT=false to disable
-    // strict checking.
-
-    if (process.env.TEST_STRICT === 'false' && Array.isArray(expectedType)) {
-        assert(contentType.includes(expectedType),
-            `Invalid "content-type" for "${ext}", expects one of "${expectedType.join('", "')}" but got ${contentType}`);
-    } else {
-        expectedType = Array.isArray(expectedType) ? expectedType[0] : expectedType;
-
-        assert.equal(contentType, expectedType,
-            `Invalid "content-type" for "${ext}", expects "${expectedType}" but got "${contentType}"`);
-    }
+    assert.equal(expectedType, contentType,
+        `Invalid "content-type" for "${ext}", expects "${expectedType}" but got "${contentType}"`);
 }
 
 function getConfig() {
