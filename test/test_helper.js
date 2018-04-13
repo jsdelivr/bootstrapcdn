@@ -97,36 +97,18 @@ function assertValidHTML(res, done) {
     validator(options, (err, data) => {
         if (err) {
             console.trace(err);
+            return done(err);
         }
 
-        const errors = data.split('\n')
-            .filter((e) => {
-                if (e.startsWith('Error:')) {
-                    return true;
-                }
-                return false;
-            })
-            .filter((e) => {
-                const ignores = [];
-
-                for (let i = 0, len = ignores.length; i < len; i++) {
-                    if (e.match(ignores[i])) {
-                        console.log(`\n>> (IGNORED) ${e}`);
-                        return false;
-                    }
-                }
-                console.error(`\n>> ${e}\n`);
-                return true;
-            });
-
-        if (errors.length > 0) {
-            const sep = '\n\t - ';
-
-            assert(false, sep + errors.join(sep));
-        } else {
-            assert(true);
+        // Returned when successful.
+        if (data.indexOf('The document validates') > -1) {
+            return done();
         }
-        done();
+
+        // Formatting output for readability.
+        const errStr = `HTML Validation for '${res.request.path}' failed with:\n\t${data.replace('Error: ', '').split('\n').join('\n\t')}\n`;
+
+        return done(new Error(errStr));
     });
 }
 
