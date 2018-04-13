@@ -32,17 +32,17 @@
             "last"
         ],
         "consistent-return": "error",
-        "consistent-this": [
-            "off",
-            "self"
-        ],
+        "consistent-this": "off",
         "curly": "error",
         "default-case": "error",
         "dot-notation": "error",
         "eol-last": "error",
         "eqeqeq": "error",
         "func-call-spacing": "error",
-        "func-names": "off",
+        "func-names": [
+            "error",
+            "never"
+        ],
         "func-style": [
             "error",
             "declaration"
@@ -87,7 +87,11 @@
             "error",
             "always-multiline"
         ],
-        "new-cap": "off",
+        "new-cap": [
+            "error", {
+                "properties": false
+            }
+        ],
         "newline-after-var": [
             "error",
             "always"
@@ -237,10 +241,7 @@
             "error",
             "always"
         ],
-        "spaced-comment": [
-            "off",
-            "always"
-        ],
+        "spaced-comment": "off",
         "space-infix-ops": "error",
         "space-in-parens": [
             "error",
