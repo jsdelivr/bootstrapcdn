@@ -13,7 +13,7 @@
     "mocha:functional": "mocha ./test/functional_test.js",
     "dev": "nodemon --ext css,js,pug,svg,png,yml --ignore test --exec \"npm run server\"",
     "watch": "npm run dev",
-    "server": "node app.js",
+    "server": "node bin/www.js",
     "start": "cross-env NODE_ENV=production npm run server",
     "ci": "npm run lint && npm run mocha:suite",
     "test": "npm run lint && npm run mocha",
