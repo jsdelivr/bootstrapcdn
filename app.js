@@ -215,7 +215,7 @@ const map = sitemap({
     cache: 60000,       // enable 1m cache
     route: {            // custom route
         '/': {
-            disallow: NODE_ENV !== 'production' || false
+            disallow: !ENV.ENABLE_CRAWLING
         },
         '/data/bootstrapcdn.json': {
             hide: true  // exclude this route from xml and txt
@@ -235,7 +235,7 @@ const map = sitemap({
     }
 });
 
-if (NODE_ENV === 'production') {
+if (ENV.ENABLE_CRAWLING) {
     app.get('/sitemap.xml', (req, res) => map.XMLtoWeb(res));
 }
 
