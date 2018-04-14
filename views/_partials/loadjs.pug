@@ -1,20 +1,37 @@
--var bootstrap = config.bootstrap.filter(function(o) { return o.current; })[0];
--var jquery = config.javascript.filter(function(o) { return o.name === 'jquery'; })[0];
--var clipboardjs = getVersionedPath('/assets/js/vendor/clipboard.min.js');
+-
+    var bootswatchVersion = semver.coerce(config.bootswatch4.version);
+    var bootstrap = config.bootstrap.filter(function(o) {
+        return semver.satisfies(bootswatchVersion, '~' + o.version);
+    })[0];
+    var jquery = config.javascript.filter(function(o) {
+        return o.name === 'jquery';
+    })[0];
+    var clipboardjs = config.javascript.filter(function(o) { return o.name === 'clipboardjs'; })[0];
+    var clipboardjsUri = getVersionedPath(clipboardjs.uri);
+    var clipboardjsSri = generateSRI(clipboardjs.uri);
+    var mainJs = config.javascript.filter(function(o) { return o.name === 'main'; })[0];
+    var mainJsUri = getVersionedPath(mainJs.uri);
+    var mainJsSri = generateSRI('/assets/js/main.js');
 
-| loadjs('#{clipboardjs}', 'clipboardjs', {
-|     numRetries: 3
+| var mainJsUri = '#{mainJsUri}';
+| var clipboardjsUri = '#{clipboardjsUri}';
+| var jqueryUri = '#{jquery.uri}';
+| var bootstrapBundleUri = '#{bootstrap.javascriptBundle}';
+|
+| loadjs([clipboardjsUri, mainJsUri], 'main', {
+|    before: function(path, el) {
+|        el.integrity = path === mainJsUri ? '#{mainJsSri}' : '#{clipboardjsSri}';
+|        el.crossOrigin = 'anonymous';
+|     },
+|     async: false
 | });
-| loadjs(['#{jquery.uri}', '#{bootstrap.javascriptBundle}'], 'jquery', {
-|     async: false,
-|     numRetries: 3
+| loadjs([jqueryUri, bootstrapBundleUri], 'jquery', {
+|    before: function(path, el) {
+|        el.integrity = path === jqueryUri ? '#{jquery.sri}' : '#{bootstrap.javascriptBundleSri}';
+|        el.crossOrigin = 'anonymous';
+|     },
+|     async: false
 | });
 | loadjs.ready('jquery', function() {
 |     $('.ads-info-toggler').popover();
-| })
-| .ready('clipboardjs', function() {
-if (process.env.NODE_ENV === 'production')
-    include:uglify-js:babel /assets/js/main.js
-else
-    include:babel /assets/js/main.js
 | });

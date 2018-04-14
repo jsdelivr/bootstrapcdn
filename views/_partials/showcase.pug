@@ -1,9 +1,9 @@
 .card.py-2.mb-3.text-center
     .card-body
-        a(href=item.url, target='_blank', rel='noopener')
+        a(href=item.url, rel='noopener', target='_blank')
             img.card-img-top.img-fluid.d-block(src=getVersionedPath(item.img), alt=item.name + ' Screenshot', width='443', height='289')
         h3.card-title.my-2
-            a(href=item.url, target='_blank', rel='noopener')=item.name
+            a(href=item.url, rel='noopener', target='_blank')=item.name
         p.m-0.
             Libraries: #{item.lib}
 

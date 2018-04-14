@@ -7,7 +7,6 @@ process.env.NODE_ENV = 'test';
 const assert     = require('assert');
 const fs         = require('fs');
 const path       = require('path');
-const format     = require('format');
 const htmlEncode = require('htmlencode').htmlEncode;
 const request    = require('request');
 const validator  = require('html-validator');
@@ -46,21 +45,19 @@ function getExtension(str) {
 
 function assertContentType(uri, contentType) {
     const ext = getExtension(uri);
-    let type  = CONTENT_TYPE_MAP[ext];
+    let expectedType  = CONTENT_TYPE_MAP[ext];
 
     // Making TEST_STRICT=true default, pass TEST_STRICT=false to disable
     // strict checking.
 
-    if (process.env.TEST_STRICT === 'false' && Array.isArray(type)) {
-        assert(type.includes(contentType),
-            format('invalid content-type for "%s", expected one of "%s" but got "%s"',
-                ext, type.join('", "'), contentType));
+    if (process.env.TEST_STRICT === 'false' && Array.isArray(expectedType)) {
+        assert(contentType.includes(expectedType),
+            `Invalid "content-type" for "${ext}", expects one of "${expectedType.join('", "')}" but got ${contentType}`);
     } else {
-        type = Array.isArray(type) ? type[0] : type;
+        expectedType = Array.isArray(expectedType) ? expectedType[0] : expectedType;
 
-        assert.equal(type, contentType,
-            format('invalid content-type for "%s", expected "%s" but got "%s"',
-                ext, type, contentType));
+        assert.equal(contentType, expectedType,
+            `Invalid "content-type" for "${ext}", expects "${expectedType}" but got "${contentType}"`);
     }
 }
 
@@ -78,14 +75,16 @@ function cleanEndpoint(endpoint = '/') {
 }
 
 function runApp(cfg, endpoint) {
-    endpoint = cleanEndpoint(endpoint);
+    const endp = cleanEndpoint(endpoint);
+    const port = cfg.port < 3000 ? cfg.port + 3000 : cfg.port + 1;
 
     // don't use configured port
-    process.env.PORT = cfg.port < 3000 ? cfg.port + 3000 : cfg.port + 1;
+    process.env.PORT = port;
 
     // load app
     require('../app.js');
-    return format('http://localhost:%s%s', process.env.PORT, endpoint);
+
+    return `http://localhost:${port}${endp}`;
 }
 
 function assertValidHTML(res, done) {
@@ -96,44 +95,34 @@ function assertValidHTML(res, done) {
 
     validator(options, (err, data) => {
         if (err) {
-            console.trace(err);
+            return done(err);
         }
 
-        const errors = data.split('\n')
-            .filter((e) => {
-                if (e.startsWith('Error:')) {
-                    return true;
-                }
-                return false;
-            })
-            .filter((e) => {
-                const ignores = [];
-
-                for (let i = 0, len = ignores.length; i < len; i++) {
-                    if (e.match(ignores[i])) {
-                        console.log(`\n>> (IGNORED) ${e}`);
-                        return false;
-                    }
-                }
-                console.error(`\n>> ${e}\n`);
-                return true;
-            });
-
-        if (errors.length > 0) {
-            const sep = '\n\t - ';
-
-            assert(false, sep + errors.join(sep));
-        } else {
-            assert(true);
+        // Return when successful.
+        if (data.includes('The document validates')) {
+            return done();
         }
-        done();
+
+        // Formatting output for readability.
+        const errStr = `HTML Validation for '${res.request.path}' failed with:\n\t${data.replace('Error: ', '').split('\n').join('\n\t')}\n`;
+
+        return done(new Error(errStr));
     });
+}
+
+function assertItWorks(res, done) {
+    try {
+        assert.equal(200, res, 'file missing or forbidden');
+        done();
+    } catch (err) {
+        done(err);
+    }
 }
 
 function preFetch(uri, cb) {
     const reqOpts = {
         uri,
-        forever: true, // for `connection: Keep-Alive`
+        forever: true, // for 'connection: Keep-Alive'
         gzip: true
     };
 
@@ -145,10 +134,7 @@ function preFetch(uri, cb) {
         response = res;
         response.body = body;
     })
-    .on('complete', () => cb(response))
-    .on('error', (err) => {
-        console.log(err);
-    });
+    .on('complete', () => cb(response));
 }
 
 function cssHTML(uri, sri) {
@@ -188,6 +174,7 @@ module.exports = {
     runApp,
     assert: {
         contentType: assertContentType,
+        itWorks: assertItWorks,
         validHTML: assertValidHTML
     },
     preFetch,

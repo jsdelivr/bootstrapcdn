@@ -21,9 +21,7 @@ before((done) => {
 
 describe('integrations', () => {
     it('works', (done) => {
-        assert(response);
-        assert.equal(200, response.statusCode);
-        done();
+        helpers.assert.itWorks(response.statusCode, done);
     });
 
     it('valid html', (done) => {
@@ -32,8 +30,7 @@ describe('integrations', () => {
 
     it('contains authors', (done) => {
         config.authors.forEach((author) => {
-            assert(response.body.includes(author),
-                `Expects response body to include "${author}"`);
+            assert(response.body.includes(author), `Expects response body to include "${author}"`);
         });
         done();
     });

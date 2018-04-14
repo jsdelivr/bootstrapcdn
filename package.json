@@ -7,10 +7,10 @@
     "eslint": "eslint .",
     "puglint": "pug-lint .",
     "lint": "npm run eslint && npm run puglint",
-    "mocha": "mocha --timeout 15000 --slow 500 --exit -i -g \"functional\" -R dot ./tests/",
-    "mocha:suite": "mocha --timeout 15000 --slow 500 --exit -R dot ./tests/",
-    "mocha:functional": "mocha --timeout 15000 --slow 500 --exit -R tap ./tests/functional_test.js",
-    "dev": "nodemon app.js --ext css,js,pug,svg,png,yml --ignore tests",
+    "mocha": "mocha --invert --grep \"functional\"",
+    "mocha:suite": "mocha",
+    "mocha:functional": "mocha -R tap ./test/functional_test.js",
+    "dev": "nodemon app.js --ext css,js,pug,svg,png,yml --ignore test",
     "start": "cross-env NODE_ENV=production forever start --plain app.js",
     "stop": "forever stop app.js",
     "restart": "npm run stop & npm run start",
@@ -23,8 +23,6 @@
   },
   "dependencies": {
     "async": "^2.6.0",
-    "babel-core": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
     "compression": "^1.7.2",
     "cross-env": "^5.1.4",
     "errorhandler": "^1.5.0",
@@ -34,9 +32,7 @@
     "forever": "^0.15.3",
     "helmet": "^3.12.0",
     "js-yaml": "^3.11.0",
-    "jstransformer-babel": "^2.1.0",
     "jstransformer-clean-css": "^2.1.0",
-    "jstransformer-uglify-js": "^1.2.0",
     "morgan": "^1.9.0",
     "pug": "^2.0.3",
     "rollbar": "^2.3.9",
@@ -45,46 +41,21 @@
     "serve-static": "^1.13.2",
     "sri-toolbox": "^0.2.0",
     "staticify": "^2.0.0",
-    "uglify-js": "^3.3.18",
     "uuid": "^3.2.1"
   },
   "devDependencies": {
-    "babel-eslint": "^8.2.2",
     "eslint": "^4.19.1",
-    "format": "^0.2.2",
     "fs-walk": "^0.0.2",
     "html-validator": "^2.2.3",
     "htmlencode": "^0.0.4",
-    "mocha": "^5.0.5",
+    "mocha": "^5.1.0",
     "nodemon": "^1.17.3",
     "pug-lint": "^2.5.0",
     "pug-lint-config-clock": "^2.0.0",
-    "request": "^2.85.0"
+    "request": "^2.85.0",
+    "uglify-js": "^3.3.21"
   },
   "engines": {
     "node": "8.x"
-  },
-  "browserslist": [
-    "last 1 major version",
-    ">= 1%",
-    "Chrome >= 45",
-    "Firefox >= 38",
-    "Edge >= 12",
-    "Explorer >= 10",
-    "iOS >= 9",
-    "Safari >= 9",
-    "Android >= 4.4",
-    "Opera >= 30"
-  ],
-  "babel": {
-    "presets": [
-      [
-        "env",
-        {
-          "loose": true,
-          "modules": false
-        }
-      ]
-    ]
   }
 }

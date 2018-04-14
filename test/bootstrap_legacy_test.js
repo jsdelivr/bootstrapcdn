@@ -1,12 +1,12 @@
 'use strict';
 
-const assert   = require('assert');
-const helpers  = require('./test_helper.js');
+const assert    = require('assert');
+const helpers   = require('./test_helper.js');
 
-const config   = helpers.getConfig();
-const uri      = helpers.runApp(config, 'legacy/bootstrap');
+const config    = helpers.getConfig();
+const uri       = helpers.runApp(config, 'legacy/bootstrap');
 
-let response = {};
+let response    = {};
 
 before((done) => {
     helpers.preFetch(uri, (res) => {
@@ -17,9 +17,7 @@ before((done) => {
 
 describe('legacy/bootstrap', () => {
     it('works', (done) => {
-        assert(response);
-        assert.equal(200, response.statusCode);
-        done();
+        helpers.assert.itWorks(response.statusCode, done);
     });
 
     it('valid html', (done) => {
@@ -45,17 +43,6 @@ describe('legacy/bootstrap', () => {
         }
 
         describe(bootstrap.version, () => {
-            describe('config', () => {
-                it('has javascript integrity', (done) => {
-                    assert(typeof bootstrap.javascriptSri !== 'undefined');
-                    done();
-                });
-                it('has stylesheet integrity', (done) => {
-                    assert(typeof bootstrap.stylesheetSri !== 'undefined');
-                    done();
-                });
-            });
-
             ['html', 'pug', 'haml'].forEach((fmt) => {
                 it(`has javascript ${fmt}`, (done) => {
                     const str = helpers.javascript[fmt](bootstrap.javascript, bootstrap.javascriptSri);

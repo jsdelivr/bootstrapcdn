@@ -223,6 +223,7 @@ app.locals.helpers = helpers;
 app.locals.config = config;
 app.locals.basedir = PUBLIC_DIR;
 app.locals.getVersionedPath = staticify.getVersionedPath;
+app.locals.semver = semver;
 
 // routes
 app.get('/fontawesome/', routes.renderFontawesome);
