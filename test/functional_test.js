@@ -261,12 +261,6 @@ describe('functional', () => {
             root = root.replace(/\\/g, '/');
             const domain = helpers.domainCheck('https://stackpath.bootstrapcdn.com/');
             const uri = `${domain + root}/${name}`;
-            const ext = helpers.getExtension(name);
-
-            // ignore unknown / unsupported types
-            if (typeof helpers.CONTENT_TYPE_MAP[ext] === 'undefined') {
-                return;
-            }
 
             // ignore twitter-bootstrap versions after 2.3.2
             if (uri.includes('twitter-bootstrap')) {
