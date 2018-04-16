@@ -16,14 +16,18 @@ const CONTENT_TYPE_MAP = {
     css: 'text/css; charset=utf-8',
     js: 'application/javascript; charset=utf-8',
 
+    map: 'application/json; charset=utf-8',
+
+    // images
+    png: 'image/png',
+    svg: 'image/svg+xml',
+
+    // fonts
     eot: 'application/vnd.ms-fontobject',
     otf: 'application/x-font-otf',
-    svg: 'image/svg+xml',
     ttf: 'application/x-font-ttf',
     woff: 'application/font-woff',
-    woff2: 'application/font-woff2',
-
-    map: 'application/json; charset=utf-8'
+    woff2: 'application/font-woff2'
 };
 
 function getExtension(str) {
