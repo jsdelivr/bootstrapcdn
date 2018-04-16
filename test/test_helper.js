@@ -1,16 +1,16 @@
 /* eslint global-require: 0 */
+
 'use strict';
 
 // Force NODE_ENV (and thus 'env' in express)
 process.env.NODE_ENV = 'test';
 
 const assert     = require('assert');
-const fs         = require('fs');
-const path       = require('path');
 const htmlEncode = require('htmlencode').htmlEncode;
 const request    = require('request');
 const validator  = require('html-validator');
-const yaml       = require('js-yaml');
+
+const CONFIG_FILE = require('../config/_config.json');
 
 let response = {};
 
@@ -48,9 +48,7 @@ function assertContentType(uri, contentType) {
 }
 
 function getConfig() {
-    const CONFIG_FILE = path.join(__dirname, '..', 'config', '_config.yml');
-
-    return yaml.safeLoad(fs.readFileSync(CONFIG_FILE, 'utf8'));
+    return CONFIG_FILE;
 }
 
 function cleanEndpoint(endpoint = '/') {

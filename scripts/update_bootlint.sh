@@ -29,4 +29,4 @@ $root/scripts/lint.sh $version
 
 set +x
 echo " "
-echo "Do not forget to update 'config/_config.yml!'"
+echo "Do not forget to update 'config/_config.json!'"
