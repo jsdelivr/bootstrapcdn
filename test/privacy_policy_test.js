@@ -1,7 +1,7 @@
 'use strict';
 
 const assert    = require('assert');
-const helpers   = require('./test_helper.js');
+const helpers   = require('./test_helpers.js');
 
 const config    = helpers.getConfig();
 const uri       = helpers.runApp(config, 'privacy-policy');

@@ -1,4 +1,5 @@
 /* eslint no-undefined: 0 */
+
 'use strict';
 
 const path      = require('path');
@@ -7,7 +8,7 @@ const walk      = require('fs-walk');
 const async     = require('async');
 const semver    = require('semver');
 const digest    = require('../lib/helpers.js').sri.digest;
-const helpers   = require('./test_helper.js');
+const helpers   = require('./test_helpers.js');
 
 const config    = helpers.getConfig();
 
