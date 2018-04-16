@@ -1,10 +1,8 @@
 'use strict';
 
-const fs           = require('fs');
 const http         = require('http');
 const path         = require('path');
 const express      = require('express');
-const yaml         = require('js-yaml');
 const uuid         = require('uuid');
 const semver       = require('semver');
 
@@ -35,7 +33,7 @@ const staticify    = require('staticify')(PUBLIC_DIR, {
 const helpers      = require('./lib/helpers.js');
 const routes       = require('./routes');
 
-const config       = yaml.safeLoad(fs.readFileSync(path.join(__dirname, 'config', '_config.yml'), 'utf8'));
+const config       = helpers.getConfig();
 const app          = express();
 
 // all environments
