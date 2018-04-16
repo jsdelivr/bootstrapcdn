@@ -44,7 +44,7 @@ npm run
 
 ## Configuration
 
-### `config/_config.yml`
+### `config/_config.json`
 
 Key Overview:
 

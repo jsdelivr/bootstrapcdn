@@ -5,11 +5,10 @@
 const fs     = require('fs');
 const path   = require('path');
 const semver = require('semver');
-const yaml   = require('js-yaml');
 
-const config = yaml.safeLoad(fs.readFileSync(path.resolve(__dirname, '..', 'config', '_config.yml'), 'utf8'));
+const config = require('../config/_config.json');
 
-const OUT_DIR = path.resolve(__dirname, '..', 'data');
+const OUT_DIR = path.resolve(__dirname, '../data');
 
 const data = {
     timestamp: new Date(),

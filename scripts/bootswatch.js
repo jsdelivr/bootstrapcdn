@@ -5,7 +5,6 @@
 const path    = require('path');
 const fs      = require('fs');
 const request = require('request');
-const yaml    = require('js-yaml');
 
 const version  = process.argv[2];
 const verMajor = version[0];
@@ -17,9 +16,9 @@ if (!version) {
 
 const basedir       = path.join(__dirname, '..');
 const bootswatchDir = path.join(basedir, 'public', 'bootswatch', version);
-const configFile    = path.join(basedir, 'config', '_config.yml');
+const configFile    = path.join(basedir, 'config/_config.json');
 
-const config = yaml.safeLoad(fs.readFileSync(configFile));
+const config        = require(configFile);
 
 const files = [
     'https://bootswatch.com/%d/%s/bootstrap.min.css',

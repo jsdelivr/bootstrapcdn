@@ -4,12 +4,11 @@
 
 const fs         = require('fs');
 const path       = require('path');
-const yaml       = require('js-yaml');
 const sri        = require('./sri.js');
 
 const basedir    = path.join(__dirname, '..');
-const configFile = path.join(basedir, 'config', '_config.yml');
-const config     = yaml.safeLoad(fs.readFileSync(configFile));
+const configFile = path.join(basedir, 'config/_config.json');
+const config     = require(configFile);
 
 // create backup file
 fs.createReadStream(configFile)
@@ -94,4 +93,4 @@ function exists(file) {
     }
 }))();
 
-fs.writeFileSync(configFile, yaml.dump(config, { lineWidth: -1 }));
+fs.writeFileSync(configFile, JSON.stringify(config, null, 2));
