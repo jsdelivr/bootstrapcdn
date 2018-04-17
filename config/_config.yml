@@ -419,10 +419,6 @@ showcase:
     img: /assets/img/showcase/new-relic.png
     lib: Font Awesome 4.2.0
     url: 'https://newrelic.com/'
-  - name: Onion Studios
-    img: /assets/img/showcase/onion-studios.png
-    lib: Font Awesome 4.2.0
-    url: 'http://www.onionstudios.com/'
   - name: Nasdaq
     img: /assets/img/showcase/nasdaq.png
     lib: Font Awesome 4.4.0
