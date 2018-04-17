@@ -103,6 +103,14 @@ function assertItWorks(res, done) {
     done(ret);
 }
 
+function assertAuthors(res, done) {
+    const config = getConfig();
+    const authorsStr = `<meta name="author" content="${config.authors.join(', ')}">`;
+    const ret = assert(res.body.includes(authorsStr), `Expects response body to include "${authorsStr}"`);
+
+    done(ret);
+}
+
 function preFetch(uri, cb) {
     const reqOpts = {
         uri,
@@ -157,6 +165,7 @@ module.exports = {
     getConfig,
     runApp,
     assert: {
+        authors: assertAuthors,
         contentType: assertContentType,
         itWorks: assertItWorks,
         validHTML: assertValidHTML
