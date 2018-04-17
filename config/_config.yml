@@ -1,9 +1,15 @@
 port: 3333
 theme: 1
 authors:
-  - Joshua Mervine
-  - Justin Dorfman
-  - XhmikosR
+  - name: Justin Dorfman
+    twitter: jdorfman
+    url: 'https://twitter.com/jdorfman'
+  - name: Joshua Mervine
+    twitter: mervinej
+    url: 'https://twitter.com/mervinej'
+  - name: XhmikosR
+    twitter: XhmikosR
+    url: 'https://xhmikosr.io/'
 description: 'The recommended CDN for Bootstrap, Font Awesome and Bootswatch.'
 favicon:
   uri: /assets/img/favicons/favicon.ico

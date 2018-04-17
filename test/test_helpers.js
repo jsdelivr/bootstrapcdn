@@ -105,7 +105,8 @@ function assertItWorks(res, done) {
 
 function assertAuthors(res, done) {
     const config = getConfig();
-    const authorsStr = `<meta name="author" content="${config.authors.join(', ')}">`;
+    const authors = config.authors.map((author) => author.name).join(', ');
+    const authorsStr = `<meta name="author" content="${authors}">`;
     const ret = assert(res.body.includes(authorsStr), `Expects response body to include "${authorsStr}"`);
 
     done(ret);
