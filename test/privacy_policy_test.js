@@ -25,10 +25,7 @@ describe('privacy-policy', () => {
     });
 
     it('contains authors', (done) => {
-        const authorsStr = `<meta name="author" content="${config.authors.join(', ')}">`;
-
-        assert(response.body.includes(authorsStr), `Expects response body to include "${authorsStr}"`);
-        done();
+        helpers.assert.authors(response, done);
     });
 
     it('has header', (done) => {

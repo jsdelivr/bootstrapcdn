@@ -36,10 +36,7 @@ describe('bootswatch4', () => {
     });
 
     it('contains authors', (done) => {
-        const authorsStr = `<meta name="author" content="${config.authors.join(', ')}">`;
-
-        assert(response.body.includes(authorsStr), `Expects response body to include "${authorsStr}"`);
-        done();
+        helpers.assert.authors(response, done);
     });
 
     config.bootswatch4.themes.forEach((theme) => {
