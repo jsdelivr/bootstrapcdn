@@ -97,12 +97,9 @@ function assertValidHTML(res, done) {
 }
 
 function assertItWorks(res, done) {
-    try {
-        assert.equal(200, res, 'file missing or forbidden');
-        done();
-    } catch (err) {
-        done(err);
-    }
+    const ret = assert.equal(200, res);
+
+    done(ret);
 }
 
 function preFetch(uri, cb) {
