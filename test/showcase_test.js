@@ -29,9 +29,9 @@ describe('showcase', () => {
     });
 
     it('contains authors', (done) => {
-        config.authors.forEach((author) => {
-            assert(response.body.includes(author), `Expects response body to include "${author}"`);
-        });
+        const authorsStr = `<meta name="author" content="${config.authors.join(', ')}">`;
+
+        assert(response.body.includes(authorsStr), `Expects response body to include "${authorsStr}"`);
         done();
     });
 
