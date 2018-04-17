@@ -5,7 +5,6 @@
 const path      = require('path');
 const assert    = require('assert');
 const walk      = require('fs-walk');
-const async     = require('async');
 const semver    = require('semver');
 const digest    = require('../lib/helpers.js').sri.digest;
 const helpers   = require('./test_helpers.js');
@@ -283,7 +282,7 @@ describe('functional', () => {
         });
 
         // Run Tests
-        async.eachSeries(publicURIs, (uri, callback) => {
+        for (const uri of publicURIs) {
             describe(uri, () => {
                 it('it works', (done) => {
                     request(uri, () => {
@@ -291,14 +290,10 @@ describe('functional', () => {
                     });
                 });
 
-                it('content-type', (done) => {
-                    request(uri, (res) => {
-                        helpers.assert.contentType(uri, res.headers['content-type']);
-                        done();
-                        callback();
-                    });
+                it('has content-type', (done) => {
+                    helpers.assert.contentType(uri, responses[uri].headers['content-type'], done);
                 });
             });
-        });
+        }
     });
 });
