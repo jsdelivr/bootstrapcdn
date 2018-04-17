@@ -70,128 +70,6 @@ function assertHeaders(uri, header, value) {
 }
 
 describe('functional', () => {
-    config.bootstrap.forEach((self) => {
-        describe(helpers.domainCheck(self.javascript), () => {
-            const uri = helpers.domainCheck(self.javascript);
-
-            it('it works', (done) => {
-                request(uri, () => {
-                    helpers.assert.itWorks(responses[uri].statusCode, done);
-                });
-            });
-
-            it('has integrity', (done) => {
-                assertSRI(uri, self.javascriptSri, done);
-            });
-        });
-
-        if (self.javascriptBundle) {
-            describe(helpers.domainCheck(self.javascriptBundle), () => {
-                const uri = helpers.domainCheck(self.javascriptBundle);
-
-                it('it works', (done) => {
-                    request(uri, () => {
-                        helpers.assert.itWorks(responses[uri].statusCode, done);
-                    });
-                });
-
-                it('has integrity', (done) => {
-                    assertSRI(uri, self.javascriptBundleSri, done);
-                });
-            });
-        }
-
-        describe(helpers.domainCheck(self.stylesheet), () => {
-            const uri = helpers.domainCheck(self.stylesheet);
-
-            it('it works', (done) => {
-                request(uri, () => {
-                    helpers.assert.itWorks(responses[uri].statusCode, done);
-                });
-            });
-
-            it('has integrity', (done) => {
-                assertSRI(uri, self.stylesheetSri, done);
-            });
-        });
-    });
-
-    describe('bootswatch3', () => {
-        config.bootswatch3.themes.forEach((theme) => {
-            const uri = helpers.domainCheck(config.bootswatch3.bootstrap
-                .replace('SWATCH_VERSION', config.bootswatch3.version)
-                .replace('SWATCH_NAME', theme.name));
-
-            describe(uri, () => {
-                it('it works', (done) => {
-                    request(uri, () => {
-                        helpers.assert.itWorks(responses[uri].statusCode, done);
-                    });
-                });
-
-                it('has integrity', (done) => {
-                    assertSRI(uri, theme.sri, done);
-                });
-            });
-        });
-    });
-
-    describe('bootswatch4', () => {
-        config.bootswatch4.themes.forEach((theme) => {
-            const uri = helpers.domainCheck(config.bootswatch4.bootstrap
-                .replace('SWATCH_VERSION', config.bootswatch4.version)
-                .replace('SWATCH_NAME', theme.name));
-
-            describe(uri, () => {
-                it('it works', (done) => {
-                    request(uri, () => {
-                        helpers.assert.itWorks(responses[uri].statusCode, done);
-                    });
-                });
-
-                it('has integrity', (done) => {
-                    assertSRI(uri, theme.sri, done);
-                });
-            });
-        });
-    });
-
-    describe('bootlint', () => {
-        config.bootlint.forEach((self) => {
-            const uri = helpers.domainCheck(self.javascript);
-
-            describe(uri, () => {
-                it('it works', (done) => {
-                    request(uri, () => {
-                        helpers.assert.itWorks(responses[uri].statusCode, done);
-                    });
-                });
-
-                it('has integrity', (done) => {
-                    assertSRI(uri, self.javascriptSri, done);
-                });
-            });
-        });
-    });
-
-    describe('fontawesome', () => {
-        config.fontawesome.forEach((self) => {
-            const uri = helpers.domainCheck(self.stylesheet);
-
-            describe(uri, () => {
-                it('it works', (done) => {
-                    request(uri, () => {
-                        helpers.assert.itWorks(responses[uri].statusCode, done);
-                    });
-                });
-
-                it('has integrity', (done) => {
-                    assertSRI(uri, self.stylesheetSri, done);
-                });
-            });
-        });
-    });
-
     describe('public/**/*.*', () => {
         // Build File List
         const whitelist = [
@@ -245,10 +123,88 @@ describe('functional', () => {
                     assertHeaders(uri, header);
                 });
 
-                it(`has content-type (${uri})`, (done) => {
+                it('has content-type', (done) => {
                     helpers.assert.contentType(uri, responses[uri].headers['content-type'], done);
                 });
             });
         }
+    });
+
+    config.bootstrap.forEach((self) => {
+        describe(helpers.domainCheck(self.javascript), () => {
+            const uri = helpers.domainCheck(self.javascript);
+
+            it('has valid integrity', (done) => {
+                assertSRI(uri, self.javascriptSri, done);
+            });
+        });
+
+        if (self.javascriptBundle) {
+            describe(helpers.domainCheck(self.javascriptBundle), () => {
+                const uri = helpers.domainCheck(self.javascriptBundle);
+
+                it('has valid integrity', (done) => {
+                    assertSRI(uri, self.javascriptBundleSri, done);
+                });
+            });
+        }
+
+        describe(helpers.domainCheck(self.stylesheet), () => {
+            const uri = helpers.domainCheck(self.stylesheet);
+
+            it('has valid integrity', (done) => {
+                assertSRI(uri, self.stylesheetSri, done);
+            });
+        });
+    });
+
+    describe('bootswatch3', () => {
+        config.bootswatch3.themes.forEach((theme) => {
+            const uri = helpers.domainCheck(config.bootswatch3.bootstrap
+                .replace('SWATCH_VERSION', config.bootswatch3.version)
+                .replace('SWATCH_NAME', theme.name));
+
+            it('has valid integrity', (done) => {
+                assertSRI(uri, theme.sri, done);
+            });
+        });
+    });
+
+    describe('bootswatch4', () => {
+        config.bootswatch4.themes.forEach((theme) => {
+            const uri = helpers.domainCheck(config.bootswatch4.bootstrap
+                .replace('SWATCH_VERSION', config.bootswatch4.version)
+                .replace('SWATCH_NAME', theme.name));
+
+            describe(uri, () => {
+                it('has valid integrity', (done) => {
+                    assertSRI(uri, theme.sri, done);
+                });
+            });
+        });
+    });
+
+    describe('bootlint', () => {
+        config.bootlint.forEach((self) => {
+            const uri = helpers.domainCheck(self.javascript);
+
+            describe(uri, () => {
+                it('has valid integrity', (done) => {
+                    assertSRI(uri, self.javascriptSri, done);
+                });
+            });
+        });
+    });
+
+    describe('fontawesome', () => {
+        config.fontawesome.forEach((self) => {
+            const uri = helpers.domainCheck(self.stylesheet);
+
+            describe(uri, () => {
+                it('has valid integrity', (done) => {
+                    assertSRI(uri, self.stylesheetSri, done);
+                });
+            });
+        });
     });
 });
