@@ -37,12 +37,13 @@ function getExtension(str) {
     return str.match(re)[2];
 }
 
-function assertContentType(uri, contentType) {
+function assertContentType(uri, currentType, cb) {
     const ext = getExtension(uri);
     const expectedType = CONTENT_TYPE_MAP[ext];
 
-    assert.equal(expectedType, contentType,
-        `Invalid "content-type" for "${ext}", expects "${expectedType}" but got "${contentType}"`);
+    assert.equal(expectedType, currentType,
+        `Invalid "content-type" for "${ext}", expects "${expectedType}" but got "${currentType}"`);
+    cb();
 }
 
 function getConfig() {
