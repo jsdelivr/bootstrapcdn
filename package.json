@@ -19,6 +19,7 @@
     "purge-latest": "bash ./scripts/purge.sh",
     "bootswatch": "node ./scripts/bootswatch.js",
     "integrity": "node ./scripts/integrity.js",
+    "sri": "node ./scripts/sri.js",
     "wp-plugin": "node ./scripts/wp-plugin.js"
   },
   "dependencies": {
