@@ -9,7 +9,7 @@
     "lint": "npm run eslint && npm run puglint",
     "mocha": "mocha --invert --grep \"functional\"",
     "mocha:suite": "mocha",
-    "mocha:functional": "mocha -R tap ./test/functional_test.js",
+    "mocha:functional": "mocha ./test/functional_test.js",
     "dev": "nodemon app.js --ext css,js,pug,svg,png,yml --ignore test",
     "start": "cross-env NODE_ENV=production forever start --plain app.js",
     "stop": "forever stop app.js",
