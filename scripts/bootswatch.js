@@ -2,10 +2,10 @@
 
 'use strict';
 
-const path    = require('path');
 const fs      = require('fs');
+const path    = require('path');
 const request = require('request');
-const yaml    = require('js-yaml');
+const helpers = require('../lib/helpers.js');
 
 const version  = process.argv[2];
 const verMajor = version[0];
@@ -15,11 +15,8 @@ if (!version) {
     process.exit(1);
 }
 
-const basedir       = path.join(__dirname, '..');
-const bootswatchDir = path.join(basedir, 'public', 'bootswatch', version);
-const configFile    = path.join(basedir, 'config', '_config.yml');
-
-const config = yaml.safeLoad(fs.readFileSync(configFile));
+const bootswatchDir = path.join(__dirname, '../public/bootswatch', version);
+const config = helpers.getConfig();
 
 const files = [
     'https://bootswatch.com/%d/%s/bootstrap.min.css',
