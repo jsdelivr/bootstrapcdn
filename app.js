@@ -3,7 +3,7 @@
 const http         = require('http');
 const path         = require('path');
 const express      = require('express');
-const uuid         = require('uuid');
+const uuidv4       = require('uuid/v4');
 const semver       = require('semver');
 
 // constants
@@ -104,7 +104,7 @@ app.use((req, res, next) => {
     res.setHeader('Last-Modified', new Date().toUTCString());
     res.setHeader('Accept-Ranges', 'bytes');
 
-    res.locals.nonce = Buffer.from(uuid.v4(), 'utf-8').toString('base64');
+    res.locals.nonce = Buffer.from(uuidv4(), 'utf-8').toString('base64');
 
     next();
 });
