@@ -5,11 +5,11 @@
   "scripts": {
     "clean": "rm -rf ./node_modules/",
     "eslint": "eslint .",
-    "puglint": "pug-lint .",
+    "puglint": "pug-lint views/",
     "lint": "npm run eslint && npm run puglint",
     "mocha": "mocha --invert --grep \"functional\"",
     "mocha:suite": "mocha",
-    "mocha:functional": "mocha -R tap ./test/functional_test.js",
+    "mocha:functional": "mocha ./test/functional_test.js",
     "dev": "nodemon app.js --ext css,js,pug,svg,png,yml --ignore test",
     "start": "cross-env NODE_ENV=production forever start --plain app.js",
     "stop": "forever stop app.js",
@@ -19,10 +19,10 @@
     "purge-latest": "bash ./scripts/purge.sh",
     "bootswatch": "node ./scripts/bootswatch.js",
     "integrity": "node ./scripts/integrity.js",
+    "sri": "node ./scripts/sri.js",
     "wp-plugin": "node ./scripts/wp-plugin.js"
   },
   "dependencies": {
-    "async": "^2.6.0",
     "compression": "^1.7.2",
     "cross-env": "^5.1.4",
     "errorhandler": "^1.5.0",

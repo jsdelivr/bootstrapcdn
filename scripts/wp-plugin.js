@@ -5,11 +5,10 @@
 const fs     = require('fs');
 const path   = require('path');
 const semver = require('semver');
-const yaml   = require('js-yaml');
+const helpers = require('../lib/helpers.js');
 
-const config = yaml.safeLoad(fs.readFileSync(path.resolve(__dirname, '..', 'config', '_config.yml'), 'utf8'));
-
-const OUT_DIR = path.resolve(__dirname, '..', 'data');
+const config  = helpers.getConfig();
+const OUT_DIR = path.resolve(__dirname, '../data');
 
 const data = {
     timestamp: new Date(),
@@ -37,7 +36,7 @@ if (!fs.existsSync(OUT_DIR)) {
 }
 
 fs.writeFile(
-    path.resolve(OUT_DIR, 'bootstrapcdn.json'),
+    path.join(OUT_DIR, 'bootstrapcdn.json'),
     JSON.stringify(data, null, 2),
     (err) => {
         if (err) {

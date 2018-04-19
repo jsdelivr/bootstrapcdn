@@ -2,6 +2,7 @@
 /node_modules/
 /public/assets/js/vendor/
 /public/bootlint/
+/public/bootstrap/
 /public/bootswatch/
 /public/font-awesome/
 /public/html5shiv/

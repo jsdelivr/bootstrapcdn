@@ -1,8 +1,10 @@
 'use strict';
 
-const path   = require('path');
+const path    = require('path');
 
-const digest = require(path.join(__dirname, '..', 'lib', 'helpers')).sri.digest;
+const helpers = require(path.resolve(__dirname, '../lib/helpers.js'));
+
+const digest  = helpers.sri.digest;
 
 if (process.argv[1] === __filename) {
     for (let i = 2; i < process.argv.length; i++) {

@@ -1,13 +1,13 @@
 /* eslint no-undefined: 0 */
+
 'use strict';
 
 const path      = require('path');
 const assert    = require('assert');
 const walk      = require('fs-walk');
-const async     = require('async');
 const semver    = require('semver');
 const digest    = require('../lib/helpers.js').sri.digest;
-const helpers   = require('./test_helper.js');
+const helpers   = require('./test_helpers.js');
 
 const config    = helpers.getConfig();
 
@@ -261,12 +261,6 @@ describe('functional', () => {
             root = root.replace(/\\/g, '/');
             const domain = helpers.domainCheck('https://stackpath.bootstrapcdn.com/');
             const uri = `${domain + root}/${name}`;
-            const ext = helpers.getExtension(name);
-
-            // ignore unknown / unsupported types
-            if (typeof helpers.CONTENT_TYPE_MAP[ext] === 'undefined') {
-                return;
-            }
 
             // ignore twitter-bootstrap versions after 2.3.2
             if (uri.includes('twitter-bootstrap')) {
@@ -282,7 +276,7 @@ describe('functional', () => {
         });
 
         // Run Tests
-        async.eachSeries(publicURIs, (uri, callback) => {
+        for (const uri of publicURIs) {
             describe(uri, () => {
                 it('it works', (done) => {
                     request(uri, () => {
@@ -290,14 +284,10 @@ describe('functional', () => {
                     });
                 });
 
-                it('content-type', (done) => {
-                    request(uri, (res) => {
-                        helpers.assert.contentType(uri, res.headers['content-type']);
-                        done();
-                        callback();
-                    });
+                it('has content-type', (done) => {
+                    helpers.assert.contentType(uri, responses[uri].headers['content-type'], done);
                 });
             });
-        });
+        }
     });
 });

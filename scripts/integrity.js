@@ -5,11 +5,11 @@
 const fs         = require('fs');
 const path       = require('path');
 const yaml       = require('js-yaml');
+const helpers    = require('../lib/helpers.js');
 const sri        = require('./sri.js');
 
-const basedir    = path.join(__dirname, '..');
-const configFile = path.join(basedir, 'config', '_config.yml');
-const config     = yaml.safeLoad(fs.readFileSync(configFile));
+const configFile = helpers.getConfigPath();
+const config     = helpers.getConfig();
 
 // create backup file
 fs.createReadStream(configFile)
@@ -18,7 +18,7 @@ fs.createReadStream(configFile)
 function buildPath(d) {
     d = d.replace('/bootstrap/', '/twitter-bootstrap/')
          .replace('https://stackpath.bootstrapcdn.com/', '');
-    return path.join(basedir, 'public', d);
+    return path.join(__dirname, '../public', d);
 }
 
 function exists(file) {

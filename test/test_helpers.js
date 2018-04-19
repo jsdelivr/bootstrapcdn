@@ -3,33 +3,32 @@
 
 // Force NODE_ENV (and thus 'env' in express)
 process.env.NODE_ENV = 'test';
+process.env.ENABLE_CRAWLING = true;
 
 const assert     = require('assert');
-const fs         = require('fs');
-const path       = require('path');
 const htmlEncode = require('htmlencode').htmlEncode;
 const request    = require('request');
 const validator  = require('html-validator');
-const yaml       = require('js-yaml');
+const helpers    = require('../lib/helpers.js');
 
 let response = {};
 
-// For array of types, the first one will be chosen when testing strictly
 const CONTENT_TYPE_MAP = {
     css: 'text/css; charset=utf-8',
     js: 'application/javascript; charset=utf-8',
 
+    map: 'application/json; charset=utf-8',
+
+    // images
+    png: 'image/png',
+    svg: 'image/svg+xml',
+
+    // fonts
     eot: 'application/vnd.ms-fontobject',
     otf: 'application/x-font-otf',
-    svg: 'image/svg+xml',
-    ttf: [
-        'application/x-font-ttf',
-        'font/ttf'
-    ],
+    ttf: 'application/x-font-ttf',
     woff: 'application/font-woff',
-    woff2: 'application/font-woff2',
-
-    map: 'application/json; charset=utf-8'
+    woff2: 'application/font-woff2'
 };
 
 function getExtension(str) {
@@ -43,28 +42,17 @@ function getExtension(str) {
     return str.match(re)[2];
 }
 
-function assertContentType(uri, contentType) {
+function assertContentType(uri, currentType, cb) {
     const ext = getExtension(uri);
-    let expectedType  = CONTENT_TYPE_MAP[ext];
+    const expectedType = CONTENT_TYPE_MAP[ext];
 
-    // Making TEST_STRICT=true default, pass TEST_STRICT=false to disable
-    // strict checking.
-
-    if (process.env.TEST_STRICT === 'false' && Array.isArray(expectedType)) {
-        assert(contentType.includes(expectedType),
-            `Invalid "content-type" for "${ext}", expects one of "${expectedType.join('", "')}" but got ${contentType}`);
-    } else {
-        expectedType = Array.isArray(expectedType) ? expectedType[0] : expectedType;
-
-        assert.equal(contentType, expectedType,
-            `Invalid "content-type" for "${ext}", expects "${expectedType}" but got "${contentType}"`);
-    }
+    assert.equal(expectedType, currentType,
+        `Invalid "content-type" for "${ext}", expects "${expectedType}" but got "${currentType}"`);
+    cb();
 }
 
 function getConfig() {
-    const CONFIG_FILE = path.join(__dirname, '..', 'config', '_config.yml');
-
-    return yaml.safeLoad(fs.readFileSync(CONFIG_FILE, 'utf8'));
+    return helpers.getConfig();
 }
 
 function cleanEndpoint(endpoint = '/') {
@@ -111,12 +99,18 @@ function assertValidHTML(res, done) {
 }
 
 function assertItWorks(res, done) {
-    try {
-        assert.equal(200, res, 'file missing or forbidden');
-        done();
-    } catch (err) {
-        done(err);
-    }
+    const ret = assert.equal(200, res);
+
+    done(ret);
+}
+
+function assertAuthors(res, done) {
+    const config = getConfig();
+    const authors = config.authors.map((author) => author.name).join(', ');
+    const authorsStr = `<meta name="author" content="${authors}">`;
+    const ret = assert(res.body.includes(authorsStr), `Expects response body to include "${authorsStr}"`);
+
+    done(ret);
 }
 
 function preFetch(uri, cb) {
@@ -173,6 +167,7 @@ module.exports = {
     getConfig,
     runApp,
     assert: {
+        authors: assertAuthors,
         contentType: assertContentType,
         itWorks: assertItWorks,
         validHTML: assertValidHTML

@@ -4,26 +4,25 @@ footer.mt-5.py-4.text-center
             .col-12
                 p
                     | Maintained by 
-                    a(href='https://twitter.com/jdorfman', rel='noopener', target='_blank') @jdorfman
-                    |  , 
-                    a(href='https://twitter.com/mervinej', rel='noopener', target='_blank') @mervinej
-                    |  and 
-                    a(href='https://xhmikosr.io/', rel='noopener', target='_blank') @XhmikosR
+                    each author, index in config.authors
+                        if (index === config.authors.length - 1)
+                            |  &amp; 
+                        else if (index > 0)
+                            | , 
+                        a(href=author.url, rel='noopener', target='_blank')=`@${author.twitter}` 
+
                 p
                     a(href='https://www.stackpath.com/', title='StackPath', rel='noopener', target='_blank')
                         include /assets/img/stackpath-icon.svg
 
                 p
                     | Homies be 
-                    a(href=config.friends[0].url, rel='noopener', target='_blank')=config.friends[0].name 
-                    | , 
-                    a(href=config.friends[1].url, rel='noopener', target='_blank')=config.friends[1].name 
-                    | , 
-                    a(href=config.friends[2].url, rel='noopener', target='_blank')=config.friends[2].name 
-                    | , 
-                    a(href=config.friends[3].url, rel='noopener', target='_blank')=config.friends[3].name 
-                    |  &amp; 
-                    a(href=config.friends[4].url, rel='noopener', target='_blank')=config.friends[4].name
+                    each friend, index in config.friends
+                        if (index === config.friends.length - 1)
+                            |  &amp; 
+                        else if (index > 0)
+                            | , 
+                        a(href=friend.url, rel='noopener', target='_blank')=friend.name 
 
                 p
                     a(href='/privacy-policy/') Privacy Policy

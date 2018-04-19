@@ -1,10 +1,9 @@
 'use strict';
 
-const assert    = require('assert');
 const helpers   = require('./test_helpers.js');
 
 const config    = helpers.getConfig();
-const uri       = helpers.runApp(config, 'data/bootstrapcdn.json');
+const uri       = helpers.runApp(config, 'sitemap.xml');
 
 let response    = {};
 
@@ -15,13 +14,8 @@ before((done) => {
     });
 });
 
-describe('data', () => {
-    it('/data/bootstrapcdn.json :: 200\'s', (done) => {
+describe('sitemap.xml', () => {
+    it('works', (done) => {
         helpers.assert.itWorks(response.statusCode, done);
-    });
-
-    it('is json', (done) => {
-        assert(JSON.parse(response.body));
-        done();
     });
 });

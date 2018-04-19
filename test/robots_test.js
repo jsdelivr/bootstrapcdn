@@ -4,7 +4,7 @@ const assert    = require('assert');
 const helpers   = require('./test_helpers.js');
 
 const config    = helpers.getConfig();
-const uri       = helpers.runApp(config, 'data/bootstrapcdn.json');
+const uri       = helpers.runApp(config, 'robots.txt');
 
 let response    = {};
 
@@ -15,13 +15,15 @@ before((done) => {
     });
 });
 
-describe('data', () => {
-    it('/data/bootstrapcdn.json :: 200\'s', (done) => {
+describe('robots.txt', () => {
+    it('works', (done) => {
         helpers.assert.itWorks(response.statusCode, done);
     });
 
-    it('is json', (done) => {
-        assert(JSON.parse(response.body));
+    it('has content', (done) => {
+        const expected = 'User-agent: *\nDisallow:';
+
+        assert.equal(response.body.trim(), expected.trim(), 'Expects response to be valid robots.txt');
         done();
     });
 });

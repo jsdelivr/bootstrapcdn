@@ -1,9 +1,15 @@
 port: 3333
 theme: 1
 authors:
-  - Joshua Mervine
-  - Justin Dorfman
-  - XhmikosR
+  - name: Justin Dorfman
+    twitter: jdorfman
+    url: 'https://twitter.com/jdorfman'
+  - name: Joshua Mervine
+    twitter: mervinej
+    url: 'https://twitter.com/mervinej'
+  - name: XhmikosR
+    twitter: XhmikosR
+    url: 'https://xhmikosr.io/'
 description: 'The recommended CDN for Bootstrap, Font Awesome and Bootswatch.'
 favicon:
   uri: /assets/img/favicons/favicon.ico
@@ -374,15 +380,15 @@ showcase:
   - name: Microsoft Education
     img: /assets/img/showcase/microsoft-education.png
     lib: Font Awesome 4.3.0
-    url: 'http://www.microsoft.com/en-us/education/default.aspx'
+    url: 'https://www.microsoft.com/en-us/education/default.aspx'
   - name: New York Post
     img: /assets/img/showcase/new-york-post.png
     lib: Font Awesome 4.0.3
-    url: 'http://nypost.com/'
+    url: 'https://nypost.com/'
   - name: NBC News
     img: /assets/img/showcase/nbc-news.png
     lib: Font Awesome 4.0.3
-    url: 'http://www.nbcnews.com/'
+    url: 'https://www.nbcnews.com/'
   - name: EA Help
     img: /assets/img/showcase/ea-help.png
     lib: Font Awesome 3.2.1
@@ -390,11 +396,11 @@ showcase:
   - name: Stanford University
     img: /assets/img/showcase/stanford.png
     lib: Font Awesome 4.3.0
-    url: 'http://www.stanford.edu/'
+    url: 'https://www.stanford.edu/'
   - name: Go Doc
     img: /assets/img/showcase/godoc-org.png
     lib: Bootstrap 3.3.1
-    url: 'http://godoc.org/'
+    url: 'https://godoc.org/'
   - name: Mozilla Webmaker API
     img: /assets/img/showcase/mozilla-webmaker.png
     lib: Bootstrap 3.0.3
@@ -402,7 +408,7 @@ showcase:
   - name: New York University
     img: /assets/img/showcase/nyu.png
     lib: Font Awesome 4.2.0
-    url: 'http://www.nyu.edu/'
+    url: 'https://www.nyu.edu/'
   - name: Cracked
     img: /assets/img/showcase/cracked.png
     lib: 'Bootstrap 3.3.2, Font Awesome 4.3.0'
@@ -410,23 +416,19 @@ showcase:
   - name: HP Support
     img: /assets/img/showcase/hp-support.png
     lib: Font Awesome 4.1.0
-    url: 'http://support.hp.com/us-en'
+    url: 'https://support.hp.com/us-en'
   - name: Monster
     img: /assets/img/showcase/monster.png
     lib: Font Awesome 4.2.0
-    url: 'http://www.monster.com/'
+    url: 'https://www.monster.com/'
   - name: New Relic
     img: /assets/img/showcase/new-relic.png
     lib: Font Awesome 4.2.0
     url: 'https://newrelic.com/'
-  - name: Onion Studios
-    img: /assets/img/showcase/onion-studios.png
-    lib: Font Awesome 4.2.0
-    url: 'http://www.onionstudios.com/'
   - name: Nasdaq
     img: /assets/img/showcase/nasdaq.png
     lib: Font Awesome 4.4.0
-    url: 'http://www.nasdaq.com/'
+    url: 'https://www.nasdaq.com/'
   - name: Creative Commons
     img: /assets/img/showcase/creative-commons.png
     lib: Bootstrap 3.2.0
@@ -467,7 +469,7 @@ integrations:
   - name: Bootstrap NBM
     img: /assets/img/integrations/bootstrap-nbm.png
     plat: NetBeans
-    url: 'http://davidsalter.com/2014/05/bootstrap-cdn-plugin-for-netbeans-release-1-1-0.html'
+    url: 'https://www.davidsalter.co.uk/bootstrap-cdn-plugin-for-netbeans-release-1-1-0/'
   - name: BootstrapCDN WP
     img: /assets/img/integrations/bootstrapcdn-wp.png
     plat: WordPress
@@ -475,7 +477,7 @@ integrations:
   - name: Light Bootstrap Dashboard
     img: /assets/img/integrations/light-bootstrap-dashboard.png
     plat: WebPlatform
-    url: 'http://www.creative-tim.com/product/light-bootstrap-dashboard'
+    url: 'https://www.creative-tim.com/product/light-bootstrap-dashboard'
   - name: Radix Theme
     img: /assets/img/integrations/radix-theme-drupal.png
     plat: Drupal
@@ -491,7 +493,7 @@ integrations:
   - name: Bootstrap Editor and Builder
     img: /assets/img/integrations/bootply.png
     plat: Bootply
-    url: 'http://www.bootply.com/'
+    url: 'https://www.bootply.com/'
   - name: React-Bootstrap
     img: /assets/img/integrations/react-bootstrap.png
     plat: React

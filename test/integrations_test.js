@@ -3,7 +3,7 @@
 const assert     = require('assert');
 const path       = require('path');
 const staticify  = require('staticify');
-const helpers    = require('./test_helper.js');
+const helpers    = require('./test_helpers.js');
 
 const config     = helpers.getConfig();
 const uri        = helpers.runApp(config, 'integrations');
@@ -29,10 +29,7 @@ describe('integrations', () => {
     });
 
     it('contains authors', (done) => {
-        config.authors.forEach((author) => {
-            assert(response.body.includes(author), `Expects response body to include "${author}"`);
-        });
-        done();
+        helpers.assert.authors(response, done);
     });
 
     it('has header', (done) => {
