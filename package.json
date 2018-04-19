@@ -5,7 +5,7 @@
   "scripts": {
     "clean": "rm -rf ./node_modules/",
     "eslint": "eslint .",
-    "puglint": "pug-lint .",
+    "puglint": "pug-lint views/",
     "lint": "npm run eslint && npm run puglint",
     "mocha": "mocha --invert --grep \"functional\"",
     "mocha:suite": "mocha",
