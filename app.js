@@ -94,17 +94,21 @@ app.use(staticify.middleware);
 app.use(favicon(path.join(PUBLIC_DIR, config.favicon.uri), '7d'));
 
 app.use((req, res, next) => {
+    // Create a nonce for use with CSP;
+    // get a random UUID and convert it to a base64 string
+    const nonce = Buffer.from(uuidv4(), 'utf-8').toString('base64');
+
     // make config available in routes
     req.config = config;
 
     // custom headers
-    res.setHeader('X-Powered-By', 'StackPath');
-    res.setHeader('X-Hello-Human', 'Say hello back! @getBootstrapCDN on Twitter');
+    res.setHeader('Accept-Ranges', 'bytes');
     res.setHeader('Cache-Control', 'public, max-age=0');
     res.setHeader('Last-Modified', new Date().toUTCString());
-    res.setHeader('Accept-Ranges', 'bytes');
+    res.setHeader('X-Hello-Human', 'Say hello back! @getBootstrapCDN on Twitter');
+    res.setHeader('X-Powered-By', 'StackPath');
 
-    res.locals.nonce = Buffer.from(uuidv4(), 'utf-8').toString('base64');
+    res.locals.nonce = nonce;
 
     next();
 });
