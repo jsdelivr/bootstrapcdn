@@ -37,9 +37,9 @@ function getExtension(str) {
     // So, the result we want is the third Array element,
     // since the first one is the whole match, the second one
     // returns the first captured match, etc.
-    const re = /(\.)([a-zA-Z0-9]+)$/;
+    const match = str.match(/(\.)([a-zA-Z0-9]+)$/);
 
-    return str.match(re)[2];
+    return match && match[2];
 }
 
 function assertContentType(uri, currentType, cb) {
@@ -56,8 +56,12 @@ function getConfig() {
 }
 
 function cleanEndpoint(endpoint = '/') {
-    endpoint = endpoint.startsWith('/') ? endpoint : `/${endpoint}`;
-    endpoint = endpoint.endsWith('/') ? endpoint : `${endpoint}/`;
+    if (!endpoint.startsWith('/')) {
+        endpoint = `/${endpoint}`;
+    }
+    if (!endpoint.endsWith('/') && !getExtension(endpoint)) {
+        endpoint = `${endpoint}/`;
+    }
 
     return endpoint;
 }
