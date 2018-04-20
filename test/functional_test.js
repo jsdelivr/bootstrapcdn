@@ -44,7 +44,7 @@ function request(uri, cb) {
 function assertSRI(uri, sri, done) {
     const expected = digest(responses[uri].body, true);
 
-    assert.equal(expected, sri);
+    assert.strictEqual(expected, sri);
     done();
 }
 
@@ -55,13 +55,13 @@ function assertHeaders(uri, header, value) {
         it.skip(`has ${header}`);
     } else {
         it(`has ${header}`, (done) => {
-            assert(Object.prototype.hasOwnProperty.call(responses[uri].headers, header),
+            assert.ok(Object.prototype.hasOwnProperty.call(responses[uri].headers, header),
                 `Expects "${header}" in: ${Object.keys(responses[uri].headers).join(', ')}`);
 
             if (typeof value !== 'undefined') {
-                assert.equal(responses[uri].headers[header], value);
+                assert.strictEqual(responses[uri].headers[header], value);
             } else if (expectedHeaders[header]) {
-                assert.equal(responses[uri].headers[header], expectedHeaders[header]);
+                assert.strictEqual(responses[uri].headers[header], expectedHeaders[header]);
             }
 
             done();

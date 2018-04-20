@@ -39,22 +39,22 @@ describe('integrations', () => {
     config.integrations.forEach((integration) => {
         describe(integration.name, () => {
             it('has name', (done) => {
-                assert(response.body.includes(integration.name),
+                assert.ok(response.body.includes(integration.name),
                     `Expects response body to include "${integration.name}"`);
                 done();
             });
             it('has image', (done) => {
-                assert(response.body.includes(staticify(PUBLIC_DIR).getVersionedPath(integration.img)),
+                assert.ok(response.body.includes(staticify(PUBLIC_DIR).getVersionedPath(integration.img)),
                     `Expects response body to include "${integration.img}"`);
                 done();
             });
             it('has platform', (done) => {
-                assert(response.body.includes(integration.plat),
+                assert.ok(response.body.includes(integration.plat),
                     `Expects response body to include "${integration.plat}"`);
                 done();
             });
             it('has url', (done) => {
-                assert(response.body.includes(integration.url),
+                assert.ok(response.body.includes(integration.url),
                     `Expects response body to include "${integration.url}"`);
                 done();
             });

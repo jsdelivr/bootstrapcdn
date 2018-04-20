@@ -21,7 +21,7 @@ describe('data', () => {
     });
 
     it('is json', (done) => {
-        assert(JSON.parse(response.body));
+        assert.ok(JSON.parse(response.body));
         done();
     });
 });

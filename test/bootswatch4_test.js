@@ -44,7 +44,7 @@ describe('bootswatch4', () => {
 
         describe(theme.name, () => {
             it('has image', (done) => {
-                assert(response.body.includes(themeImage),
+                assert.ok(response.body.includes(themeImage),
                     `Expects response body to include "${themeImage}"`);
                 done();
             });
@@ -53,7 +53,7 @@ describe('bootswatch4', () => {
                 it(`has ${fmt}`, (done) => {
                     const str = helpers.css[fmt](themeUri, themeSri);
 
-                    assert(response.body.includes(str), `Expects response body to include "${str}"`);
+                    assert.ok(response.body.includes(str), `Expects response body to include "${str}"`);
                     done();
                 });
             });
