@@ -17,7 +17,7 @@ before((done) => {
 
 describe('404', () => {
     it('works', (done) => {
-        assert.equal(response.statusCode, 404);
+        assert.strictEqual(response.statusCode, 404);
         done();
     });
 

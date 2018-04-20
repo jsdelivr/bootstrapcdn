@@ -51,7 +51,7 @@ function assertContentType(uri, currentType, cb) {
     const ext = getExtension(uri);
     const expectedType = CONTENT_TYPE_MAP[ext];
 
-    assert.equal(expectedType, currentType,
+    assert.strictEqual(expectedType, currentType,
         `Invalid "content-type" for "${ext}", expects "${expectedType}" but got "${currentType}"`);
     cb();
 }
@@ -108,7 +108,7 @@ function assertValidHTML(res, done) {
 }
 
 function assertItWorks(res, done) {
-    const ret = assert.equal(200, res);
+    const ret = assert.strictEqual(200, res);
 
     done(ret);
 }
@@ -125,7 +125,7 @@ function assertAuthors(res, done) {
     const config = getConfig();
     const authors = config.authors.map((author) => author.name).join(', ');
     const authorsStr = `<meta name="author" content="${authors}">`;
-    const ret = assert(res.body.includes(authorsStr), `Expects response body to include "${authorsStr}"`);
+    const ret = assert.ok(res.body.includes(authorsStr), `Expects response body to include "${authorsStr}"`);
 
     done(ret);
 }

@@ -22,7 +22,7 @@ it('works', (done) => {
 const current = config.bootstrap[0];
 
 it('is current', (done) => {
-    assert(current.current);
+    assert.ok(current.current);
     done();
 });
 
@@ -40,7 +40,7 @@ it('has page header', (done) => {
 
 describe('stylesheet', () => {
     it('has uri', (done) => {
-        assert(response.body.includes(current.stylesheet),
+        assert.ok(response.body.includes(current.stylesheet),
             `Expects response body to include "${current.stylesheet}"`);
         done();
     });
@@ -49,7 +49,7 @@ describe('stylesheet', () => {
         it(`has ${fmt}`, (done) => {
             const str = helpers.css[fmt](current.stylesheet, current.stylesheetSri);
 
-            assert(response.body.includes(str), `Expects response body to include "${str}"`);
+            assert.ok(response.body.includes(str), `Expects response body to include "${str}"`);
             done();
         });
     });
@@ -57,13 +57,13 @@ describe('stylesheet', () => {
 
 describe('javascript', () => {
     it('has javascript uri', (done) => {
-        assert(response.body.includes(current.javascript),
+        assert.ok(response.body.includes(current.javascript),
             `Expects response body to include "${current.javascript}"`);
         done();
     });
 
     it('has javascript bundle uri', (done) => {
-        assert(response.body.includes(current.javascriptBundle),
+        assert.ok(response.body.includes(current.javascriptBundle),
             `Expects response body to include "${current.javascriptBundle}"`);
         done();
     });
@@ -72,7 +72,7 @@ describe('javascript', () => {
         it(`has ${fmt}`, (done) => {
             const str = helpers.javascript[fmt](current.javascript, current.javascriptSri);
 
-            assert(response.body.includes(str), `Expects response body to include "${str}"`);
+            assert.ok(response.body.includes(str), `Expects response body to include "${str}"`);
             done();
         });
     });

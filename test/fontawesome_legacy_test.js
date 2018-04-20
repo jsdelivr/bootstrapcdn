@@ -42,7 +42,7 @@ describe('legacy/fontawesome', () => {
                 it(`has stylesheet ${fmt}`, (done) => {
                     const str = helpers.css[fmt](fontawesome.stylesheet, fontawesome.stylesheetSri);
 
-                    assert(response.body.includes(str), `Expects response body to include "${str}"`);
+                    assert.ok(response.body.includes(str), `Expects response body to include "${str}"`);
                     done();
                 });
             });

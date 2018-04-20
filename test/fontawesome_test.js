@@ -23,7 +23,7 @@ describe('fontawesome', () => {
     const current = config.fontawesome[0];
 
     it('is current', (done) => {
-        assert(current.current);
+        assert.ok(current.current);
         done();
     });
 
@@ -40,7 +40,7 @@ describe('fontawesome', () => {
     });
 
     it('has stylesheet', (done) => {
-        assert(response.body.includes(current.stylesheet),
+        assert.ok(response.body.includes(current.stylesheet),
             `Expects response body to include "${current.stylesheet}"`);
         done();
     });
@@ -49,7 +49,7 @@ describe('fontawesome', () => {
         it(`has ${fmt}`, (done) => {
             const str = helpers.css[fmt](current.stylesheet, current.stylesheetSri);
 
-            assert(response.body.includes(str), `Expects response body to include "${str}"`);
+            assert.ok(response.body.includes(str), `Expects response body to include "${str}"`);
             done();
         });
     });
