@@ -29,14 +29,11 @@ npm test && npm run dev
 ### Demonized
 
 ```shell
+# start development server
+npm run dev
+
 # start production server
 npm start
-
-# stop server
-npm stop
-
-# restart server
-npm restart
 
 # and more
 npm run
