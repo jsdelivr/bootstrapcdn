@@ -46,9 +46,9 @@
   "devDependencies": {
     "eslint": "^4.19.1",
     "fs-walk": "^0.0.2",
-    "html-validator": "^2.2.3",
+    "html-validator": "^3.0.0",
     "htmlencode": "^0.0.4",
-    "mocha": "^5.1.0",
+    "mocha": "^5.1.1",
     "nodemon": "^1.17.3",
     "pug-lint": "^2.5.0",
     "pug-lint-config-clock": "^2.0.0",
