@@ -220,6 +220,9 @@ const map = sitemap({
         '/data/bootstrapcdn.json': {
             hide: true  // exclude this route from xml and txt
         },
+        '/404/': {
+            hide: true
+        },
         '/alpha/': {
             hide: true
         },
@@ -240,6 +243,8 @@ if (ENV.ENABLE_CRAWLING) {
 }
 
 app.get('/robots.txt', (req, res) => map.TXTtoWeb(res));
+
+app.get('*', routes.render404);
 
 // start
 http.createServer(app).listen(app.get('port'), () => console.log(`Express server listening on port ${app.get('port')}`));
