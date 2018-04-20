@@ -112,7 +112,7 @@
 
         iframeEl.setAttribute('src', 'https://ghbtns.com/github-btn.html?user=MaxCDN&repo=bootstrapcdn&type=watch&count=true');
         iframeEl.title = 'Star on GitHub';
-        iframeEl.style.width = '110px';
+        iframeEl.style.width = '88px';
         iframeEl.style.height = '20px';
 
         document.getElementById('ghbtns-badge').appendChild(iframeEl);
