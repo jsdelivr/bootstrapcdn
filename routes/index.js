@@ -42,6 +42,13 @@ function appendLocals(req, res) {
     return res;
 }
 
+function render404(req, res) {
+    res = appendLocals(req, res);
+    res.status(404).render('404', {
+        title: 'Page Not Found'
+    });
+}
+
 function renderIndex(req, res) {
     res = appendLocals(req, res);
     res.render('index', {
@@ -169,6 +176,7 @@ function renderPrivacyPolicy(req, res) {
 }
 
 module.exports = {
+    render404,
     renderIndex,
     renderFontawesome,
     renderBootswatch,
