@@ -3,7 +3,10 @@
 const CSP = {
     defaultSrc: ['\'none\''],
     baseUri: ['\'self\''],
-    formAction: ['syndication.twitter.com'],
+    formAction: [
+        'platform.twitter.com',
+        'syndication.twitter.com'
+    ],
     frameAncestors: ['\'none\''],
     scriptSrc: [
         '\'self\'',
