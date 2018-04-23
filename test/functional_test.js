@@ -76,7 +76,7 @@ describe('functional', () => {
 
             it('it works', (done) => {
                 request(uri, () => {
-                    helpers.assert.itWorks(responses[uri].statusCode, done);
+                    helpers.assert.itWorks(responses[uri], done);
                 });
             });
 
@@ -91,7 +91,7 @@ describe('functional', () => {
 
                 it('it works', (done) => {
                     request(uri, () => {
-                        helpers.assert.itWorks(responses[uri].statusCode, done);
+                        helpers.assert.itWorks(responses[uri], done);
                     });
                 });
 
@@ -106,7 +106,7 @@ describe('functional', () => {
 
             it('it works', (done) => {
                 request(uri, () => {
-                    helpers.assert.itWorks(responses[uri].statusCode, done);
+                    helpers.assert.itWorks(responses[uri], done);
                 });
             });
 
@@ -125,7 +125,7 @@ describe('functional', () => {
             describe(uri, () => {
                 it('it works', (done) => {
                     request(uri, () => {
-                        helpers.assert.itWorks(responses[uri].statusCode, done);
+                        helpers.assert.itWorks(responses[uri], done);
                     });
                 });
 
@@ -145,7 +145,7 @@ describe('functional', () => {
             describe(uri, () => {
                 it('it works', (done) => {
                     request(uri, () => {
-                        helpers.assert.itWorks(responses[uri].statusCode, done);
+                        helpers.assert.itWorks(responses[uri], done);
                     });
                 });
 
@@ -163,7 +163,7 @@ describe('functional', () => {
             describe(uri, () => {
                 it('it works', (done) => {
                     request(uri, () => {
-                        helpers.assert.itWorks(responses[uri].statusCode, done);
+                        helpers.assert.itWorks(responses[uri], done);
                     });
                 });
 
@@ -181,7 +181,7 @@ describe('functional', () => {
             describe(uri, () => {
                 it('it works', (done) => {
                     request(uri, () => {
-                        helpers.assert.itWorks(responses[uri].statusCode, done);
+                        helpers.assert.itWorks(responses[uri], done);
                     });
                 });
 
@@ -237,7 +237,7 @@ describe('functional', () => {
             describe(uri, () => {
                 it('it works', (done) => {
                     request(uri, () => {
-                        helpers.assert.itWorks(responses[uri].statusCode, done);
+                        helpers.assert.itWorks(responses[uri], done);
                     });
                 });
 

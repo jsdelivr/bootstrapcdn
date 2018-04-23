@@ -16,7 +16,7 @@ before((done) => {
 });
 
 it('works', (done) => {
-    helpers.assert.itWorks(response.statusCode, done);
+    helpers.assert.itWorks(response, done);
 });
 
 const current = config.bootstrap[0];

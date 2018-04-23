@@ -16,6 +16,6 @@ before((done) => {
 
 describe('sitemap.xml', () => {
     it('works', (done) => {
-        helpers.assert.itWorks(response.statusCode, done);
+        helpers.assert.itWorks(response, done);
     });
 });

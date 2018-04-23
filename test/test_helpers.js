@@ -108,7 +108,7 @@ function assertValidHTML(res, done) {
 }
 
 function assertItWorks(res, done) {
-    const ret = assert.strictEqual(200, res);
+    const ret = assert.strictEqual(200, res.statusCode);
 
     done(ret);
 }

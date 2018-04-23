@@ -17,7 +17,7 @@ before((done) => {
 
 describe('fontawesome', () => {
     it('works', (done) => {
-        helpers.assert.itWorks(response.statusCode, done);
+        helpers.assert.itWorks(response, done);
     });
 
     const current = config.fontawesome[0];

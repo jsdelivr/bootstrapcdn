@@ -17,7 +17,7 @@ before((done) => {
 
 describe('bootlint', () => {
     it('works', (done) => {
-        helpers.assert.itWorks(response.statusCode, done);
+        helpers.assert.itWorks(response, done);
     });
 
     const current = config.bootlint[0];

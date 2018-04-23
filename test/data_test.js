@@ -17,7 +17,7 @@ before((done) => {
 
 describe('data', () => {
     it('/data/bootstrapcdn.json :: 200\'s', (done) => {
-        helpers.assert.itWorks(response.statusCode, done);
+        helpers.assert.itWorks(response, done);
     });
 
     it('is json', (done) => {
