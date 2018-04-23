@@ -18,6 +18,7 @@
     "ci": "npm run lint && npm run mocha:suite",
     "test": "npm run lint && npm run mocha",
     "purge-latest": "bash ./scripts/purge.sh",
+    "bootlint": "node ./scripts/update_bootlint.js",
     "bootswatch": "node ./scripts/update_bootswatch.js",
     "integrity": "node ./scripts/integrity.js",
     "sri": "node ./scripts/sri.js",
@@ -44,6 +45,7 @@
     "uuid": "^3.2.1"
   },
   "devDependencies": {
+    "bootlint": "0.14.2",
     "eslint": "^4.19.1",
     "fs-walk": "^0.0.2",
     "html-validator": "^3.0.0",
