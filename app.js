@@ -163,20 +163,21 @@ app.locals.getVersionedPath = staticify.getVersionedPath;
 app.locals.semver = semver;
 
 // routes
-app.get('/fontawesome/', routes.renderFontawesome);
-app.get('/bootswatch/', routes.renderBootswatch);
-app.get('/bootswatch4/', routes.renderBootswatch4);
-app.get('/bootlint/', routes.renderBootlint);
+app.get('/', routes.renderIndex);
+app.get('/about/', routes.renderAbout);
 app.get('/alpha/', routes.redirectToRoot);
 app.get('/beta/', routes.redirectToRoot);
+app.get('/bootlint/', routes.renderBootlint);
+app.get('/bootswatch/', routes.renderBootswatch);
+app.get('/bootswatch4/', routes.renderBootswatch4);
+app.get('/fontawesome/', routes.renderFontawesome);
+app.get('/integrations/', routes.renderIntegrations);
 app.get('/legacy/', routes.legacy);
 app.get('/legacy/bootstrap/', routes.renderLegacyBootstrap);
 app.get('/legacy/bootswatch/', routes.renderLegacyBootswatch);
 app.get('/legacy/fontawesome/', routes.renderLegacyFontawesome);
-app.get('/showcase/', routes.renderShowcase);
-app.get('/integrations/', routes.renderIntegrations);
 app.get('/privacy-policy/', routes.renderPrivacyPolicy);
-app.get('/', routes.renderIndex);
+app.get('/showcase/', routes.renderShowcase);
 
 // eslint-disable-next-line init-declarations
 let data; // only regenerated on restart

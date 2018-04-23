@@ -175,21 +175,30 @@ function renderPrivacyPolicy(req, res) {
     });
 }
 
+function renderAbout(req, res) {
+    res = appendLocals(req, res);
+    res.render('about', {
+        title: 'About BootstrapCDN',
+        description: 'Who we are and what we stand for.'
+    });
+}
+
 module.exports = {
+    legacy,
+    redirectToRoot,
     render404,
-    renderIndex,
-    renderFontawesome,
+    renderAbout,
+    renderBootlint,
     renderBootswatch,
     renderBootswatch4,
-    renderBootlint,
-    redirectToRoot,
-    legacy,
+    renderFontawesome,
+    renderIndex,
+    renderIntegrations,
     renderLegacyBootstrap,
     renderLegacyBootswatch,
     renderLegacyFontawesome,
-    renderIntegrations,
-    renderShowcase,
-    renderPrivacyPolicy
+    renderPrivacyPolicy,
+    renderShowcase
 };
 
 // vim: ft=javascript sw=4 sts=4 et:

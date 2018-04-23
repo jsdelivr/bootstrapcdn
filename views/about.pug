@@ -1,0 +1,86 @@
+extends layout.pug
+
+block content
+    .row
+        .col-12
+
+            h2.text-center.mb-4 About
+
+            -var authors=config.authors;
+
+            p.
+                BootstrapCDN was founded in 2012 by #[a(href='https://twitter.com/DavidHenzel', rel='noopener', target='_blank') David Henzel]
+                and Justin Dorfman at MaxCDN. Today, BootstrapCDN is used by over
+                #[a(href='https://trends.builtwith.com/cdn/BootstrapCDN', rel='noopener', target='_blank') 5.1 million sites]
+                delivering over 70 billion requests a month.
+
+            p There are currently #{authors.length} maintainers:
+
+            ul
+                each author in authors
+                    li
+                        a(href=author.url, rel='noopener', target='_blank')=author.name
+
+            h2.my-4 Core Values
+
+            h3.h4.mb-3
+                strong 1. Security
+
+            p We agree with StackPath, security should be built in, not bolted on.
+
+            ul
+                li Our DNS & CDN is managed by #[a(href='https://www.stackpath.com/', rel='noopener', target='_blank') StackPath].
+                li Our origin server is #[a(href='https://aws.amazon.com/s3/', rel='noopener', target='_blank') Amazon S3].
+                li This website is hosted by Heroku.
+                li.
+                    We enforce #[a(href='https://en.wikipedia.org/wiki/Multi-factor_authentication', rel='noopener', target='_blank') 2-factor authentication]
+                    on all services (including GitHub, MarkMonitor, AWS & Gmail).
+                li.
+                    Our production branch on GitHub is protected to prevent force pushing, prevent branches from being deleted,
+                    and require status checks to pass before merging.
+                li.
+                    Our domain #[code bootstrapcdn.com] is managed by #[a(href='https://www.markmonitor.com/', rel='noopener', target='_blank') MarkMonitor],
+                    an ICANN-accredited registrar and recognized industry leader since 1999. They have security measures
+                    in place such as registry locking and IP restrictions to help reduce security vulnerabilities and minimize
+                    the likelihood of successful domain hijacking.
+                li.
+                    By default we include #[a(href='https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity', rel='noopener', target='_blank') Subresource Integrity (SRI)]
+                    hashes when users copy a code snippet from this site.
+
+            h3.h4.my-3
+                strong 2. Reliability
+
+            p Reliable services require reliable people.
+
+            ul
+                li.
+                    StackPath's network is monitored #[em 24/7/365] and any incidents are posted to their
+                    #[a(href='https://status.stackpath.com/', rel='noopener', target='_blank') status page]
+                    in real-time.
+                li.
+                    Twitter is monitored for any mentions of the terms "#[em BootstrapCDN]",
+                    "#[em #BootstrapCDN]", "#[em Bootstrap CDN]".
+                li.
+                    There is someone always on call and has direct access to the StackPath support team
+                    via a private Slack channel. As mentioned above, we only use services that are secure
+                    & reliable.
+                li.
+                    Every Pull Request requires our whole test suite to pass. This includes checking every
+                    file we deliver, making #[strong ~21K tests] in total, to make sure all of the HTTP headers
+                    are correct and the SRI hashes match.
+
+            h3.h4.my-3
+                strong 3. Accessibility
+
+            p.
+                We must do everything we can to make sure this service is accessible to all.
+                We do that by providing IPv6 support, we are also whitelisted in
+                #[a(href='https://github.com/ampproject/amphtml/search?utf8=%E2%9C%93&q=bootstrapcdn&type=', rel='noopener', target='_blank') Google AMP]
+                & the "Great Firewall of China".
+
+            p.
+                Last but not least, we have Points of Presence (POPs) in North America,
+                South America, Europe & Asia-Pacific region
+                (#[a(href='https://www.stackpath.com/network/', rel='noopener', target='_blank') view network map]).
+
+//- vim: ft=pug sw=4 sts=4 et:
