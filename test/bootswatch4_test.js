@@ -29,14 +29,12 @@ describe('bootswatch4', () => {
         helpers.assert.validHTML(response, done);
     });
 
-    it('has header', (done) => {
-        assert(response.body.includes('<h2 class="text-center mb-4">Bootswatch 4</h2>'),
-            'Expects response body to include Bootswatch 4 header');
-        done();
-    });
-
     it('contains authors', (done) => {
         helpers.assert.authors(response, done);
+    });
+
+    it('has page header', (done) => {
+        helpers.assert.pageHeader('Bootswatch 4', response, done);
     });
 
     config.bootswatch4.themes.forEach((theme) => {

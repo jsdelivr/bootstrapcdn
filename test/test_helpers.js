@@ -42,6 +42,11 @@ function getExtension(str) {
     return str.match(re)[2];
 }
 
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions
+function escapeRegExp(string) {
+    return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); // $& means the whole matched string
+}
+
 function assertContentType(uri, currentType, cb) {
     const ext = getExtension(uri);
     const expectedType = CONTENT_TYPE_MAP[ext];
@@ -102,6 +107,14 @@ function assertItWorks(res, done) {
     const ret = assert.equal(200, res);
 
     done(ret);
+}
+
+function assertPageHeader(txt, res, done) {
+    const escapedTxt = escapeRegExp(txt);
+    const re = new RegExp(`<h[1-6]( class=".+")?>(${escapedTxt})(</h[1-6]>)`);
+
+    assert.ok(re.test(res.body), `Expects page header to be "${txt}"`);
+    done();
 }
 
 function assertAuthors(res, done) {
@@ -170,6 +183,7 @@ module.exports = {
         authors: assertAuthors,
         contentType: assertContentType,
         itWorks: assertItWorks,
+        pageHeader: assertPageHeader,
         validHTML: assertValidHTML
     },
     preFetch,

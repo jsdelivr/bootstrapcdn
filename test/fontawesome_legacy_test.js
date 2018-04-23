@@ -24,14 +24,12 @@ describe('legacy/fontawesome', () => {
         helpers.assert.validHTML(response, done);
     });
 
-    it('has header', (done) => {
-        assert(response.body.includes('<h2 class="text-center mb-4">Font Awesome Legacy</h2>'),
-            'Expects response body to include Font Awesome Legacy header');
-        done();
-    });
-
     it('contains authors', (done) => {
         helpers.assert.authors(response, done);
+    });
+
+    it('has page header', (done) => {
+        helpers.assert.pageHeader('Font Awesome Legacy', response, done);
     });
 
     config.fontawesome.forEach((fontawesome) => {
