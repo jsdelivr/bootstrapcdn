@@ -19,6 +19,7 @@
     "test": "npm run lint && npm run mocha",
     "purge-latest": "bash ./scripts/purge.sh",
     "bootlint": "node ./scripts/update_bootlint.js",
+    "bootstrap": "node ./scripts/update_bootstrap.js",
     "bootswatch": "node ./scripts/update_bootswatch.js",
     "integrity": "node ./scripts/integrity.js",
     "sri": "node ./scripts/sri.js",
@@ -45,7 +46,9 @@
   },
   "devDependencies": {
     "bootlint": "0.14.2",
+    "bootstrap": "4.1.0",
     "eslint": "^4.19.1",
+    "fs-extra": "^5.0.0",
     "fs-walk": "^0.0.2",
     "html-validator": "^3.0.0",
     "htmlencode": "^0.0.4",
