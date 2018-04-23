@@ -35,10 +35,8 @@ describe('fontawesome', () => {
         helpers.assert.authors(response, done);
     });
 
-    it('has header', (done) => {
-        assert(response.body.includes('<h2 class="text-center mb-4">Font Awesome</h2>'),
-            'Expects response body to include Font Awesome header');
-        done();
+    it('has page header', (done) => {
+        helpers.assert.pageHeader('Font Awesome', response, done);
     });
 
     it('has stylesheet', (done) => {

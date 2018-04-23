@@ -29,9 +29,7 @@ describe('404', () => {
         helpers.assert.authors(response, done);
     });
 
-    it('has header', (done) => {
-        assert(response.body.includes('<h2 class="text-center mb-4">Page Not Found</h2>'),
-            'Expects response body to include 404 header');
-        done();
+    it('has page header', (done) => {
+        helpers.assert.pageHeader('Page Not Found', response, done);
     });
 });
