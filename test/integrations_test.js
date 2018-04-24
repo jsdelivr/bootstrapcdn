@@ -32,10 +32,8 @@ describe('integrations', () => {
         helpers.assert.authors(response, done);
     });
 
-    it('has header', (done) => {
-        assert(response.body.includes('<h2 class="text-center mb-4">Integrations</h2>'),
-            'Expects response body to include Integration header');
-        done();
+    it('has page header', (done) => {
+        helpers.assert.pageHeader('Integrations', response, done);
     });
 
     config.integrations.forEach((integration) => {

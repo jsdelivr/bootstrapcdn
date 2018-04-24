@@ -34,10 +34,8 @@ it('contains authors', (done) => {
     helpers.assert.authors(response, done);
 });
 
-it('has header', (done) => {
-    assert(response.body.includes('<h2 class="text-center">Quick Start</h2>'),
-        'Expects response body to include Quick Start header');
-    done();
+it('has page header', (done) => {
+    helpers.assert.pageHeader('Quick Start', response, done);
 });
 
 describe('stylesheet', () => {

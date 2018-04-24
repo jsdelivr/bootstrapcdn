@@ -1,6 +1,5 @@
 'use strict';
 
-const assert    = require('assert');
 const helpers   = require('./test_helpers.js');
 
 const config    = helpers.getConfig();
@@ -28,9 +27,7 @@ describe('privacy-policy', () => {
         helpers.assert.authors(response, done);
     });
 
-    it('has header', (done) => {
-        assert(response.body.includes('<h2>Privacy Policy of'),
-            'Expects response body to include Privacy Policy header');
-        done();
+    it('has page header', (done) => {
+        helpers.assert.pageHeader('Privacy Policy of www.bootstrapcdn.com', response, done);
     });
 });

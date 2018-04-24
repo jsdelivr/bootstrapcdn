@@ -32,10 +32,8 @@ describe('showcase', () => {
         helpers.assert.authors(response, done);
     });
 
-    it('has header', (done) => {
-        assert(response.body.includes('<h2 class="text-center mb-4">Showcase</h2>'),
-            'Expects response body to include Showcase header');
-        done();
+    it('has page header', (done) => {
+        helpers.assert.pageHeader('Showcase', response, done);
     });
 
     config.showcase.forEach((showcase) => {

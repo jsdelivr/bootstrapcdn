@@ -29,16 +29,13 @@ describe('bootswatch3', () => {
         helpers.assert.validHTML(response, done);
     });
 
-    it('has header', (done) => {
-        assert(response.body.includes('<h2 class="text-center mb-4">Bootswatch 3</h2>'),
-            'Expects response body to include Bootswatch 3 header');
-        done();
-    });
-
     it('contains authors', (done) => {
         helpers.assert.authors(response, done);
     });
 
+    it('has page header', (done) => {
+        helpers.assert.pageHeader('Bootswatch 3', response, done);
+    });
     config.bootswatch3.themes.forEach((theme) => {
         const themeImage = format(config.bootswatch3.image, theme.name);
         const themeUri   = format(config.bootswatch3.bootstrap, theme.name);

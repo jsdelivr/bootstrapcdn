@@ -35,10 +35,8 @@ describe('bootlint', () => {
         helpers.assert.authors(response, done);
     });
 
-    it('has header', (done) => {
-        assert(response.body.includes('<h2 class="text-center mb-4">Bootlint</h2>'),
-            'Expects response body to include Bootlint header');
-        done();
+    it('has page header', (done) => {
+        helpers.assert.pageHeader('Bootlint', response, done);
     });
 
     it('has javascript', (done) => {
