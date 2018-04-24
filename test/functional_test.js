@@ -16,7 +16,6 @@ const expectedHeaders = {
     'access-control-allow-origin': '*',
     'cache-control': 'max-age=31536000',
     'connection': 'Keep-Alive',
-    'content-encoding': 'gzip',
     'content-length': '',
     'date': '',
     'etag': '',
@@ -25,6 +24,18 @@ const expectedHeaders = {
     'x-cache': '',
     'x-hello-human': 'Say hello back! @getBootstrapCDN on Twitter'
 };
+
+const compressedExtensions = [
+    'css',
+    'eot',
+    'js',
+    'map',
+    'otf',
+    'svg',
+    'ttf',
+    'woff',
+    'woff2'
+];
 
 // Helper functions used in this file
 function domainCheck(uri) {
@@ -57,23 +68,39 @@ function assertSRI(uri, actualSri, done) {
 
 const s3include = ['content-type'];
 
-function assertHeaders(uri, header) {
-    if (typeof process.env.TEST_S3 !== 'undefined' && !s3include.includes(header)) {
-        it.skip(`has ${header}`);
+function assertHeaders(uri) {
+    const ext = helpers.getExtension(uri);
+
+    Object.keys(expectedHeaders).forEach((header) => {
+        if (typeof process.env.TEST_S3 !== 'undefined' && !s3include.includes(header)) {
+            it.skip(`has ${header}`);
+        } else {
+            it(`has ${header}`, (done) => {
+                assert.ok(Object.prototype.hasOwnProperty.call(responses[uri].headers, header),
+                    `Expects "${header}" in: ${Object.keys(responses[uri].headers).join(', ')}`);
+
+                // Ignore case in checking equality.
+                const actual = responses[uri].headers[header].toLowerCase();
+
+                if (expectedHeaders[header] !== '') {
+                    const expected = expectedHeaders[header].toLowerCase();
+
+                    assert.strictEqual(actual, expected);
+                }
+                done();
+            });
+        }
+    });
+
+    if (compressedExtensions.includes(ext)) {
+        it('has content-encoding: gzip', (done) => {
+            assert.strictEqual(responses[uri].headers['content-encoding'], 'gzip');
+            done();
+        });
     } else {
-        it(`has ${header}`, (done) => {
-            assert.ok(Object.prototype.hasOwnProperty.call(responses[uri].headers, header),
-                `Expects "${header}" in: ${Object.keys(responses[uri].headers).join(', ')}`);
-
-            // Ignore case in checking equality.
-            const actual = responses[uri].headers[header].toLowerCase();
-
-            if (expectedHeaders[header] !== '') {
-                const expected = expectedHeaders[header].toLowerCase();
-
-                assert.strictEqual(actual, expected);
-            }
-
+        it('does NOT have content-encoding set', (done) => {
+            // eslint-disable-next-line no-undefined
+            assert.strictEqual(responses[uri].headers['content-encoding'], undefined);
             done();
         });
     }
@@ -250,9 +277,7 @@ describe('functional', () => {
                     });
                 });
 
-                Object.keys(expectedHeaders).forEach((header) => {
-                    assertHeaders(uri, header);
-                });
+                assertHeaders(uri);
 
                 it('has content-type', (done) => {
                     helpers.assert.contentType(uri, responses[uri].headers['content-type'], done);
