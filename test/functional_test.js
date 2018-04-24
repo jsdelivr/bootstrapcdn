@@ -37,6 +37,24 @@ const compressedExtensions = [
     'woff2'
 ];
 
+const CONTENT_TYPE_MAP = {
+    css: 'text/css; charset=utf-8',
+    js: 'application/javascript; charset=utf-8',
+
+    map: 'application/json; charset=utf-8',
+
+    // images
+    png: 'image/png',
+    svg: 'image/svg+xml',
+
+    // fonts
+    eot: 'application/vnd.ms-fontobject',
+    otf: 'application/x-font-otf',
+    ttf: 'application/x-font-ttf',
+    woff: 'application/font-woff',
+    woff2: 'application/font-woff2'
+};
+
 // Helper functions used in this file
 function domainCheck(uri) {
     if (typeof process.env.TEST_S3 === 'undefined') {
@@ -104,6 +122,15 @@ function assertHeaders(uri) {
             done();
         });
     }
+}
+
+function assertContentType(uri, currentType, cb) {
+    const ext = helpers.getExtension(uri);
+    const expectedType = CONTENT_TYPE_MAP[ext];
+
+    assert.strictEqual(currentType, expectedType,
+        `Invalid "content-type" for "${ext}", expects "${expectedType}" but got "${currentType}"`);
+    cb();
 }
 
 describe('functional', () => {
@@ -280,7 +307,7 @@ describe('functional', () => {
                 assertHeaders(uri);
 
                 it('has content-type', (done) => {
-                    helpers.assert.contentType(uri, responses[uri].headers['content-type'], done);
+                    assertContentType(uri, responses[uri].headers['content-type'], done);
                 });
             });
         }

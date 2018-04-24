@@ -19,24 +19,6 @@ let server = {};
 
 mockDate.set('03/05/2018');
 
-const CONTENT_TYPE_MAP = {
-    css: 'text/css; charset=utf-8',
-    js: 'application/javascript; charset=utf-8',
-
-    map: 'application/json; charset=utf-8',
-
-    // images
-    png: 'image/png',
-    svg: 'image/svg+xml',
-
-    // fonts
-    eot: 'application/vnd.ms-fontobject',
-    otf: 'application/x-font-otf',
-    ttf: 'application/x-font-ttf',
-    woff: 'application/font-woff',
-    woff2: 'application/font-woff2'
-};
-
 function getExtension(str) {
     // use two enclosing parts; one for the dot (.)
     // and one for the extension itself.
@@ -51,15 +33,6 @@ function getExtension(str) {
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions
 function escapeRegExp(string) {
     return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); // $& means the whole matched string
-}
-
-function assertContentType(uri, currentType, cb) {
-    const ext = getExtension(uri);
-    const expectedType = CONTENT_TYPE_MAP[ext];
-
-    assert.strictEqual(currentType, expectedType,
-        `Invalid "content-type" for "${ext}", expects "${expectedType}" but got "${currentType}"`);
-    cb();
 }
 
 function getConfig() {
@@ -207,7 +180,6 @@ module.exports = {
     stopServer,
     assert: {
         authors: assertAuthors,
-        contentType: assertContentType,
         itWorks: assertItWorks,
         pageHeader: assertPageHeader,
         validHTML: assertValidHTML
