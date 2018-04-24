@@ -201,6 +201,7 @@ function jsHAML(uri, sri) {
 
 module.exports = {
     getConfig,
+    getExtension,
     getURI,
     startServer,
     stopServer,
