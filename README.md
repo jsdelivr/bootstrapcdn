@@ -79,13 +79,18 @@ Contains the CDN files we host.The SRI values are updated by running `npm run in
 
 Our CSP config using <https://github.com/helmetjs/csp>
 
-## Updating Bootstrap/Bootlint
+## Updating Bootstrap/Bootlint/Bootswatch
 
-1. `npm i bootstrap@version --save-exact -D`/`npm i bootlint@version --save-exact -D`
-2. `npm run bootstrap version`/`npm run bootlint version`
-3. Update `config/_config.yml` accordingly
-4. `npm run integrity`
-5. Make sure `npm run ci` passes after the files are on S3/CDN and verify the frontend works as expected without any visual breakage
+Replace `package` by the package you want to update and `version` with its version in the following commands:
+
+```shell
+npm i package@version --save-exact -D
+npm run package version
+```
+
+1. Update `config/_config.yml` accordingly
+2. `npm run integrity`
+3. Make sure `npm run ci` passes after the files are on S3/CDN and verify the frontend works as expected without any visual breakage
 
 ## Backers
 

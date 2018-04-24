@@ -34,5 +34,5 @@ try {
     console.log(`Successfully copied "${bootstrapSrcDir}" to "${bootstrapDistDir}"`);
     console.log(`\nDo not forget to update "${path.normalize('config/_config.yml')}"!`);
 } catch (err) {
-    console.log(err);
+    throw new Error(err);
 }
