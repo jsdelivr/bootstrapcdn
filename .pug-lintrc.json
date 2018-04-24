@@ -7,7 +7,6 @@
     "disallowIdLiterals": null,
     "disallowLegacyMixinCall": true,
     "disallowSpaceAfterCodeOperator": true,
-    "disallowTagInterpolation": true,
     "disallowTrailingSpaces": null,
     "requireClassLiterals": true,
     "requireClassLiteralsBeforeIdLiterals": null,
