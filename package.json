@@ -11,7 +11,7 @@
     "mocha": "mocha --invert --grep \"functional\"",
     "mocha:suite": "mocha",
     "mocha:functional": "mocha ./test/functional_test.js",
-    "dev": "nodemon app.js --ext css,js,pug,svg,png,yml --ignore test",
+    "dev": "nodemon --ext css,js,pug,svg,png,yml --ignore test --exec \"npm run server\"",
     "watch": "npm run dev",
     "server": "node app.js",
     "start": "cross-env NODE_ENV=production npm run server",
