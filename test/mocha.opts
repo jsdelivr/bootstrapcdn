@@ -1,10 +1,11 @@
---timeout 15000
---slow 500
---exit
---throw-deprecation
 --check-leaks
+--exit
+--globals __core-js_shared__
+--reporter dot
+--retries 1
+--slow 500
+--throw-deprecation
+--timeout 15000
 --trace-deprecation
 --trace-warnings
 --use_strict
---globals __core-js_shared__
---reporter dot
