@@ -2,13 +2,11 @@
 
 const assert     = require('assert');
 const path       = require('path');
-const staticify  = require('staticify');
+const staticify  = require('staticify')(path.join(__dirname, '../public'));
 const helpers    = require('./test_helpers.js');
 
 const config     = helpers.getConfig();
 const uri        = helpers.runApp(config, 'integrations');
-
-const PUBLIC_DIR = path.join(__dirname, '../public');
 
 let response = {};
 
@@ -44,7 +42,7 @@ describe('integrations', () => {
                 done();
             });
             it('has image', (done) => {
-                assert.ok(response.body.includes(staticify(PUBLIC_DIR).getVersionedPath(integration.img)),
+                assert.ok(response.body.includes(staticify.getVersionedPath(integration.img)),
                     `Expects response body to include "${integration.img}"`);
                 done();
             });
