@@ -60,6 +60,6 @@
     "uglify-js": "^3.3.22"
   },
   "engines": {
-    "node": "8.x"
+    "node": "10.x"
   }
 }
