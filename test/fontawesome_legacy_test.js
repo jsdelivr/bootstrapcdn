@@ -17,7 +17,7 @@ before((done) => {
 
 describe('legacy/fontawesome', () => {
     it('works', (done) => {
-        helpers.assert.itWorks(response.statusCode, done);
+        helpers.assert.itWorks(response, done);
     });
 
     it('valid html', (done) => {

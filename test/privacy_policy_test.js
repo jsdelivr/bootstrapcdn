@@ -16,7 +16,7 @@ before((done) => {
 
 describe('privacy-policy', () => {
     it('works', (done) => {
-        helpers.assert.itWorks(response.statusCode, done);
+        helpers.assert.itWorks(response, done);
     });
 
     it('valid html', (done) => {

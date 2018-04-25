@@ -19,7 +19,7 @@ before((done) => {
 
 describe('showcase', () => {
     it('works', (done) => {
-        helpers.assert.itWorks(response.statusCode, done);
+        helpers.assert.itWorks(response, done);
     });
 
     it('valid html', (done) => {

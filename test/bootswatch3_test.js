@@ -22,7 +22,7 @@ before((done) => {
 
 describe('bootswatch3', () => {
     it('works', (done) => {
-        helpers.assert.itWorks(response.statusCode, done);
+        helpers.assert.itWorks(response, done);
     });
 
     it('valid html', (done) => {

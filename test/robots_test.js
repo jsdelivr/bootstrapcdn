@@ -17,7 +17,7 @@ before((done) => {
 
 describe('robots.txt', () => {
     it('works', (done) => {
-        helpers.assert.itWorks(response.statusCode, done);
+        helpers.assert.itWorks(response, done);
     });
 
     it('has content', (done) => {
