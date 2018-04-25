@@ -39,7 +39,6 @@
     "rollbar": "^2.3.9",
     "semver": "^5.5.0",
     "serve-favicon": "^2.5.0",
-    "serve-static": "^1.13.2",
     "sri-toolbox": "^0.2.0",
     "staticify": "^2.0.0",
     "uuid": "^3.2.1"

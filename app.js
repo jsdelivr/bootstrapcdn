@@ -20,7 +20,6 @@ const STATIC_OPTS  = {
 const compression  = require('compression');
 const favicon      = require('serve-favicon');
 const logger       = require('morgan');
-const serveStatic  = require('serve-static');
 const errorHandler = require('errorhandler');
 const enforce      = require('express-sslify');
 const sitemap      = require('express-sitemap');
@@ -114,7 +113,7 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use(serveStatic(PUBLIC_DIR, STATIC_OPTS));
+app.use(express.static(PUBLIC_DIR, STATIC_OPTS));
 
 app.use(helmet({
     dnsPrefetchControl: false,
