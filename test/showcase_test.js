@@ -1,14 +1,12 @@
 'use strict';
 
-const assert    = require('assert');
-const path      = require('path');
-const staticify = require('staticify');
-const helpers   = require('./test_helpers.js');
+const assert     = require('assert');
+const path       = require('path');
+const staticify  = require('staticify')(path.join(__dirname, '../public'));
+const helpers    = require('./test_helpers.js');
 
-const config    = helpers.getConfig();
-const uri       = helpers.runApp(config, 'showcase');
-
-const PUBLIC_DIR = path.join(__dirname, '../public');
+const config     = helpers.getConfig();
+const uri        = helpers.runApp(config, 'showcase');
 
 let response = {};
 
@@ -44,7 +42,7 @@ describe('showcase', () => {
                 done();
             });
             it('has image', (done) => {
-                assert.ok(response.body.includes(staticify(PUBLIC_DIR).getVersionedPath(showcase.img)),
+                assert.ok(response.body.includes(staticify.getVersionedPath(showcase.img)),
                     `Expects response body to include "${showcase.img}"`);
                 done();
             });
