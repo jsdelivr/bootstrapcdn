@@ -69,10 +69,10 @@ const CONTENT_TYPE_MAP = {
 
     // fonts
     eot: 'application/vnd.ms-fontobject',
-    otf: 'application/x-font-otf',
-    ttf: 'application/x-font-ttf',
-    woff: 'application/font-woff',
-    woff2: 'application/font-woff2'
+    otf: 'font/otf',
+    ttf: 'font/ttf',
+    woff: 'font/woff',
+    woff2: 'font/woff2'
 };
 
 // Helper functions used in this file
