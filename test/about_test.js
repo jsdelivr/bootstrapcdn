@@ -1,10 +1,9 @@
 'use strict';
 
-const assert    = require('assert');
 const helpers   = require('./test_helpers.js');
 
 const config    = helpers.getConfig();
-const uri       = helpers.runApp(config, '404');
+const uri       = helpers.runApp(config, 'about');
 
 let response    = {};
 
@@ -15,10 +14,9 @@ before((done) => {
     });
 });
 
-describe('404', () => {
+describe('About', () => {
     it('works', (done) => {
-        assert.strictEqual(response.statusCode, 404);
-        done();
+        helpers.assert.itWorks(response.statusCode, done);
     });
 
     it('valid html', (done) => {
@@ -30,6 +28,6 @@ describe('404', () => {
     });
 
     it('has page header', (done) => {
-        helpers.assert.pageHeader('Page Not Found', response, done);
+        helpers.assert.pageHeader('About', response, done);
     });
 });

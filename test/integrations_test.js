@@ -2,13 +2,11 @@
 
 const assert     = require('assert');
 const path       = require('path');
-const staticify  = require('staticify');
+const staticify  = require('staticify')(path.join(__dirname, '../public'));
 const helpers    = require('./test_helpers.js');
 
 const config     = helpers.getConfig();
 const uri        = helpers.runApp(config, 'integrations');
-
-const PUBLIC_DIR = path.join(__dirname, '../public');
 
 let response = {};
 
@@ -32,31 +30,29 @@ describe('integrations', () => {
         helpers.assert.authors(response, done);
     });
 
-    it('has header', (done) => {
-        assert(response.body.includes('<h2 class="text-center mb-4">Integrations</h2>'),
-            'Expects response body to include Integration header');
-        done();
+    it('has page header', (done) => {
+        helpers.assert.pageHeader('Integrations', response, done);
     });
 
     config.integrations.forEach((integration) => {
         describe(integration.name, () => {
             it('has name', (done) => {
-                assert(response.body.includes(integration.name),
+                assert.ok(response.body.includes(integration.name),
                     `Expects response body to include "${integration.name}"`);
                 done();
             });
             it('has image', (done) => {
-                assert(response.body.includes(staticify(PUBLIC_DIR).getVersionedPath(integration.img)),
+                assert.ok(response.body.includes(staticify.getVersionedPath(integration.img)),
                     `Expects response body to include "${integration.img}"`);
                 done();
             });
             it('has platform', (done) => {
-                assert(response.body.includes(integration.plat),
+                assert.ok(response.body.includes(integration.plat),
                     `Expects response body to include "${integration.plat}"`);
                 done();
             });
             it('has url', (done) => {
-                assert(response.body.includes(integration.url),
+                assert.ok(response.body.includes(integration.url),
                     `Expects response body to include "${integration.url}"`);
                 done();
             });

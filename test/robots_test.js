@@ -23,7 +23,7 @@ describe('robots.txt', () => {
     it('has content', (done) => {
         const expected = 'User-agent: *\nDisallow:';
 
-        assert.equal(response.body.trim(), expected.trim(), 'Expects response to be valid robots.txt');
+        assert.strictEqual(response.body.trim(), expected.trim(), 'Expects response to be valid robots.txt');
         done();
     });
 });

@@ -18,7 +18,8 @@
     "ci": "npm run lint && npm run mocha:suite",
     "test": "npm run lint && npm run mocha",
     "purge-latest": "bash ./scripts/purge.sh",
-    "bootswatch": "node ./scripts/bootswatch.js",
+    "bootlint": "node ./scripts/update_bootlint.js",
+    "bootswatch": "node ./scripts/update_bootswatch.js",
     "integrity": "node ./scripts/integrity.js",
     "sri": "node ./scripts/sri.js",
     "wp-plugin": "node ./scripts/wp-plugin.js"
@@ -38,12 +39,12 @@
     "rollbar": "^2.3.9",
     "semver": "^5.5.0",
     "serve-favicon": "^2.5.0",
-    "serve-static": "^1.13.2",
     "sri-toolbox": "^0.2.0",
     "staticify": "^2.0.0",
     "uuid": "^3.2.1"
   },
   "devDependencies": {
+    "bootlint": "0.14.2",
     "eslint": "^4.19.1",
     "fs-walk": "^0.0.2",
     "html-validator": "^3.0.0",

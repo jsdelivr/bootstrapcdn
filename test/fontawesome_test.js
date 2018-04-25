@@ -23,7 +23,7 @@ describe('fontawesome', () => {
     const current = config.fontawesome[0];
 
     it('is current', (done) => {
-        assert(current.current);
+        assert.ok(current.current);
         done();
     });
 
@@ -35,14 +35,12 @@ describe('fontawesome', () => {
         helpers.assert.authors(response, done);
     });
 
-    it('has header', (done) => {
-        assert(response.body.includes('<h2 class="text-center mb-4">Font Awesome</h2>'),
-            'Expects response body to include Font Awesome header');
-        done();
+    it('has page header', (done) => {
+        helpers.assert.pageHeader('Font Awesome', response, done);
     });
 
     it('has stylesheet', (done) => {
-        assert(response.body.includes(current.stylesheet),
+        assert.ok(response.body.includes(current.stylesheet),
             `Expects response body to include "${current.stylesheet}"`);
         done();
     });
@@ -51,7 +49,7 @@ describe('fontawesome', () => {
         it(`has ${fmt}`, (done) => {
             const str = helpers.css[fmt](current.stylesheet, current.stylesheetSri);
 
-            assert(response.body.includes(str), `Expects response body to include "${str}"`);
+            assert.ok(response.body.includes(str), `Expects response body to include "${str}"`);
             done();
         });
     });
