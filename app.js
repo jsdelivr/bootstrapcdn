@@ -170,10 +170,7 @@ app.use('/bootswatch4/', routes.bootswatch4Route);
 app.use('/data/bootstrapcdn.json', routes.dataRoute);
 app.use('/fontawesome/', routes.fontawesomeRoute);
 app.use('/integrations/', routes.integrationsRoute);
-app.use('/legacy/', routes.legacyRoute);
-app.use('/legacy/bootstrap/', routes.legacyBootstrapRoute);
-app.use('/legacy/bootswatch/', routes.legacyBootswatchRoute);
-app.use('/legacy/fontawesome/', routes.legacyFontawesomeRoute);
+app.use('/legacy', routes.legacyRoutes);
 app.use('/privacy-policy/', routes.privacyPolicyRoute);
 app.use('/showcase/', routes.showcaseRoute);
 
