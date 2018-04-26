@@ -10,10 +10,7 @@ const dataRoute = require('./data.js');
 const fontawesomeRoute = require('./fontawesome.js');
 const indexRoute = require('./home.js');
 const integrationsRoute = require('./integrations.js');
-const legacyBootstrapRoute = require('./legacyBootstrap.js');
-const legacyBootswatchRoute = require('./legacyBootswatch.js');
-const legacyFontawesomeRoute = require('./legacyFontawesome.js');
-const legacyRoute = require('./legacy.js');
+const legacyRoutes = require('./legacy.js');
 const privacyPolicyRoute = require('./privacyPolicy.js');
 const redirectToRoot = require('./redirectToRoot.js');
 const showcaseRoute = require('./showcase.js');
@@ -27,10 +24,7 @@ const routes = {
     fontawesomeRoute,
     indexRoute,
     integrationsRoute,
-    legacyBootstrapRoute,
-    legacyBootswatchRoute,
-    legacyFontawesomeRoute,
-    legacyRoute,
+    legacyRoutes,
     privacyPolicyRoute,
     redirectToRoot,
     showcaseRoute
