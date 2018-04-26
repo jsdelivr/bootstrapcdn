@@ -49,23 +49,25 @@ footer {
 
 
 .carbonads-container {
-    padding: 2em 1.5em;
+    display: block;
     position: relative;
 }
 
 .ads-info-toggler {
     cursor: help;
-    display: block;
+    display: none;
     padding: 4px;
     position: absolute;
-    top: 0;
+    top: 6px;
     right: 0;
     width: 30px;
     height: 30px;
 }
 
 #carbonads {
+    min-height: 300px;
     overflow: hidden;
+    padding: 3rem 1rem;
 }
 
 #carbonads span {
