@@ -7,11 +7,15 @@
         var selector = '.input-group .dropdown-toggle';
         var elements = document.querySelectorAll(selector);
 
-        elements.forEach(function (elem) {
-            elem.addEventListener('click', function () {
-                elem.classList.toggle('dropdown-toggle-open');
+        function toggleCode(index) {
+            elements[index].addEventListener('click', function() {
+                elements[index].classList.toggle('dropdown-toggle-open');
             });
-        });
+        }
+
+        for (var i = 0, len = elements.length; i < len; i++) {
+            toggleCode(i);
+        }
     }
 
     function selectTextCopyToClipboard() {
@@ -19,12 +23,12 @@
         var elements = document.querySelectorAll(selector);
         var origHelpBlockText = 'Click to copy';
 
-        elements.forEach(function (elem) {
-            elem.addEventListener('focus', function (event) {
+        for (var i = 0, len = elements.length; i < len; i++) {
+            elements[i].addEventListener('focus', function (event) {
                 event.preventDefault();
-                elem.select();
+                this.select();
 
-                var clipboardInputs = new ClipboardJS(elem, {
+                var clipboardInputs = new ClipboardJS(this, {
                     target: function (trigger) {
                         return trigger;
                     }
@@ -45,21 +49,21 @@
                 });
             }, true);
 
-            elem.addEventListener('blur', function (event) {
+            elements[i].addEventListener('blur', function (event) {
                 var helpBlock = {};
-                var parentNextSibling = elem.parentElement.nextElementSibling;
+                var parentNextSibling = this.parentElement.nextElementSibling;
 
                 if (parentNextSibling &&
                     parentNextSibling.nodeName.toLowerCase() === 'span') {
                     helpBlock = parentNextSibling;
                 } else {
-                    helpBlock = elem.nextElementSibling;
+                    helpBlock = this.nextElementSibling;
                 }
 
                 event.preventDefault();
                 helpBlock.innerHTML = origHelpBlockText;
             }, true);
-        });
+        }
     }
 
     function initTwitterTimeline() {
@@ -112,7 +116,7 @@
 
         iframeEl.setAttribute('src', 'https://ghbtns.com/github-btn.html?user=MaxCDN&repo=bootstrapcdn&type=watch&count=true');
         iframeEl.title = 'Star on GitHub';
-        iframeEl.style.width = '110px';
+        iframeEl.style.width = '88px';
         iframeEl.style.height = '20px';
 
         document.getElementById('ghbtns-badge').appendChild(iframeEl);

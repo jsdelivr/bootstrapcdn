@@ -29,14 +29,12 @@ describe('bootswatch4', () => {
         helpers.assert.validHTML(response, done);
     });
 
-    it('has header', (done) => {
-        assert(response.body.includes('<h2 class="text-center mb-4">Bootswatch 4</h2>'),
-            'Expects response body to include Bootswatch 4 header');
-        done();
-    });
-
     it('contains authors', (done) => {
         helpers.assert.authors(response, done);
+    });
+
+    it('has page header', (done) => {
+        helpers.assert.pageHeader('Bootswatch 4', response, done);
     });
 
     config.bootswatch4.themes.forEach((theme) => {
@@ -46,7 +44,7 @@ describe('bootswatch4', () => {
 
         describe(theme.name, () => {
             it('has image', (done) => {
-                assert(response.body.includes(themeImage),
+                assert.ok(response.body.includes(themeImage),
                     `Expects response body to include "${themeImage}"`);
                 done();
             });
@@ -55,7 +53,7 @@ describe('bootswatch4', () => {
                 it(`has ${fmt}`, (done) => {
                     const str = helpers.css[fmt](themeUri, themeSri);
 
-                    assert(response.body.includes(str), `Expects response body to include "${str}"`);
+                    assert.ok(response.body.includes(str), `Expects response body to include "${str}"`);
                     done();
                 });
             });

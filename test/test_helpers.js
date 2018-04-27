@@ -37,16 +37,21 @@ function getExtension(str) {
     // So, the result we want is the third Array element,
     // since the first one is the whole match, the second one
     // returns the first captured match, etc.
-    const re = /(\.)([a-zA-Z0-9]+)$/;
+    const match = str.match(/(\.)([a-zA-Z0-9]+)$/);
 
-    return str.match(re)[2];
+    return match && match[2];
+}
+
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions
+function escapeRegExp(string) {
+    return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); // $& means the whole matched string
 }
 
 function assertContentType(uri, currentType, cb) {
     const ext = getExtension(uri);
     const expectedType = CONTENT_TYPE_MAP[ext];
 
-    assert.equal(expectedType, currentType,
+    assert.strictEqual(expectedType, currentType,
         `Invalid "content-type" for "${ext}", expects "${expectedType}" but got "${currentType}"`);
     cb();
 }
@@ -56,8 +61,12 @@ function getConfig() {
 }
 
 function cleanEndpoint(endpoint = '/') {
-    endpoint = endpoint.startsWith('/') ? endpoint : `/${endpoint}`;
-    endpoint = endpoint.endsWith('/') ? endpoint : `${endpoint}/`;
+    if (!endpoint.startsWith('/')) {
+        endpoint = `/${endpoint}`;
+    }
+    if (!endpoint.endsWith('/') && !getExtension(endpoint)) {
+        endpoint = `${endpoint}/`;
+    }
 
     return endpoint;
 }
@@ -99,16 +108,24 @@ function assertValidHTML(res, done) {
 }
 
 function assertItWorks(res, done) {
-    const ret = assert.equal(200, res);
+    const ret = assert.strictEqual(200, res);
 
     done(ret);
+}
+
+function assertPageHeader(txt, res, done) {
+    const escapedTxt = escapeRegExp(txt);
+    const re = new RegExp(`<h[1-6]( class=".+")?>(${escapedTxt})(</h[1-6]>)`);
+
+    assert.ok(re.test(res.body), `Expects page header to be "${txt}"`);
+    done();
 }
 
 function assertAuthors(res, done) {
     const config = getConfig();
     const authors = config.authors.map((author) => author.name).join(', ');
     const authorsStr = `<meta name="author" content="${authors}">`;
-    const ret = assert(res.body.includes(authorsStr), `Expects response body to include "${authorsStr}"`);
+    const ret = assert.ok(res.body.includes(authorsStr), `Expects response body to include "${authorsStr}"`);
 
     done(ret);
 }
@@ -170,6 +187,7 @@ module.exports = {
         authors: assertAuthors,
         contentType: assertContentType,
         itWorks: assertItWorks,
+        pageHeader: assertPageHeader,
         validHTML: assertValidHTML
     },
     preFetch,

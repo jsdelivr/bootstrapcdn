@@ -1,5 +1,6 @@
 port: 3333
 theme: 1
+siteurl: 'https://www.bootstrapcdn.com'
 authors:
   - name: Justin Dorfman
     twitter: jdorfman

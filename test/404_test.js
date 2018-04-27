@@ -1,11 +1,12 @@
 'use strict';
 
+const assert    = require('assert');
 const helpers   = require('./test_helpers.js');
 
 const config    = helpers.getConfig();
-const uri       = helpers.runApp(config, 'privacy-policy');
+const uri       = helpers.runApp(config, '404');
 
-let response = {};
+let response    = {};
 
 before((done) => {
     helpers.preFetch(uri, (res) => {
@@ -14,9 +15,10 @@ before((done) => {
     });
 });
 
-describe('privacy-policy', () => {
+describe('404', () => {
     it('works', (done) => {
-        helpers.assert.itWorks(response.statusCode, done);
+        assert.strictEqual(response.statusCode, 404);
+        done();
     });
 
     it('valid html', (done) => {
@@ -28,6 +30,6 @@ describe('privacy-policy', () => {
     });
 
     it('has page header', (done) => {
-        helpers.assert.pageHeader('Privacy Policy of www.bootstrapcdn.com', response, done);
+        helpers.assert.pageHeader('Page Not Found', response, done);
     });
 });

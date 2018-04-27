@@ -3,7 +3,10 @@
 const CSP = {
     defaultSrc: ['\'none\''],
     baseUri: ['\'self\''],
-    formAction: ['syndication.twitter.com'],
+    formAction: [
+        'platform.twitter.com',
+        'syndication.twitter.com'
+    ],
     frameAncestors: ['\'none\''],
     scriptSrc: [
         '\'self\'',
@@ -36,6 +39,7 @@ const CSP = {
         '*.twitter.com',
         '*.twimg.com',
         'stats.g.doubleclick.net',
+        'fallbacks.carbonads.com',
         'srv.carbonads.net',
         'assets.servedby-buysellads.com',
         'ad.doubleclick.net',

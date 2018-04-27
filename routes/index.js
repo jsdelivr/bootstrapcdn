@@ -1,7 +1,8 @@
 'use strict';
 
-const path   = require('path');
-const digest = require('../lib/helpers.js').sri.digest;
+const path = require('path');
+const helpers = require('../lib/helpers.js');
+const digest = helpers.sri.digest;
 
 const SRI_CACHE = {};
 
@@ -13,7 +14,7 @@ function appendLocals(req, res) {
         proto = req.protocol;
     }
 
-    res.locals.fullUrl = `${proto}://${req.hostname}${req.path}`;
+    res.locals.canonicalUrl = `${req.config.siteurl}${req.path}`;
 
     res.locals.siteUrl = `${proto}://${req.hostname}`;
 
@@ -33,13 +34,20 @@ function appendLocals(req, res) {
 
     res.locals.generateSRI = (file) => {
         if (typeof SRI_CACHE[file] === 'undefined') {
-            SRI_CACHE[file] = digest(path.join(__dirname, '..', 'public', file));
+            SRI_CACHE[file] = digest(path.join(__dirname, '../public', file));
         }
 
         return SRI_CACHE[file];
     };
 
     return res;
+}
+
+function render404(req, res) {
+    res = appendLocals(req, res);
+    res.status(404).render('404', {
+        title: 'Page Not Found'
+    });
 }
 
 function renderIndex(req, res) {
@@ -168,20 +176,30 @@ function renderPrivacyPolicy(req, res) {
     });
 }
 
+function renderAbout(req, res) {
+    res = appendLocals(req, res);
+    res.render('about', {
+        title: 'About BootstrapCDN',
+        description: 'Who we are and what we stand for.'
+    });
+}
+
 module.exports = {
-    renderIndex,
-    renderFontawesome,
+    legacy,
+    redirectToRoot,
+    render404,
+    renderAbout,
+    renderBootlint,
     renderBootswatch,
     renderBootswatch4,
-    renderBootlint,
-    redirectToRoot,
-    legacy,
+    renderFontawesome,
+    renderIndex,
+    renderIntegrations,
     renderLegacyBootstrap,
     renderLegacyBootswatch,
     renderLegacyFontawesome,
-    renderIntegrations,
-    renderShowcase,
-    renderPrivacyPolicy
+    renderPrivacyPolicy,
+    renderShowcase
 };
 
 // vim: ft=javascript sw=4 sts=4 et:

@@ -3,9 +3,9 @@
 const helpers   = require('./test_helpers.js');
 
 const config    = helpers.getConfig();
-const uri       = helpers.runApp(config, 'privacy-policy');
+const uri       = helpers.runApp(config, 'about');
 
-let response = {};
+let response    = {};
 
 before((done) => {
     helpers.preFetch(uri, (res) => {
@@ -14,7 +14,7 @@ before((done) => {
     });
 });
 
-describe('privacy-policy', () => {
+describe('About', () => {
     it('works', (done) => {
         helpers.assert.itWorks(response.statusCode, done);
     });
@@ -28,6 +28,6 @@ describe('privacy-policy', () => {
     });
 
     it('has page header', (done) => {
-        helpers.assert.pageHeader('Privacy Policy of www.bootstrapcdn.com', response, done);
+        helpers.assert.pageHeader('About', response, done);
     });
 });

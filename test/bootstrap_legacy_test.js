@@ -24,14 +24,12 @@ describe('legacy/bootstrap', () => {
         helpers.assert.validHTML(response, done);
     });
 
-    it('has header', (done) => {
-        assert(response.body.includes('<h2 class="text-center mb-4">Bootstrap Legacy</h2>'),
-            'Expects response body to include Bootstrap Legacy header');
-        done();
-    });
-
     it('contains authors', (done) => {
         helpers.assert.authors(response, done);
+    });
+
+    it('has page header', (done) => {
+        helpers.assert.pageHeader('Bootstrap Legacy', response, done);
     });
 
     config.bootstrap.forEach((bootstrap) => {
@@ -44,14 +42,14 @@ describe('legacy/bootstrap', () => {
                 it(`has javascript ${fmt}`, (done) => {
                     const str = helpers.javascript[fmt](bootstrap.javascript, bootstrap.javascriptSri);
 
-                    assert(response.body.includes(str), `Expects response body to include "${str}"`);
+                    assert.ok(response.body.includes(str), `Expects response body to include "${str}"`);
                     done();
                 });
 
                 it(`has stylesheet ${fmt}`, (done) => {
                     const str = helpers.css[fmt](bootstrap.stylesheet, bootstrap.stylesheetSri);
 
-                    assert(response.body.includes(str), `Expects response body to include "${str}"`);
+                    assert.ok(response.body.includes(str), `Expects response body to include "${str}"`);
                     done();
                 });
             });
