@@ -39,6 +39,7 @@ const CSP = {
         '*.twitter.com',
         '*.twimg.com',
         'stats.g.doubleclick.net',
+        'fallbacks.carbonads.com',
         'srv.carbonads.net',
         'assets.servedby-buysellads.com',
         'ad.doubleclick.net',
