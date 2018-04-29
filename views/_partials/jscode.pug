@@ -7,7 +7,7 @@
             input.form-control(id=formId, type='text', value=`<script src="${file}" integrity="${sri}" crossorigin="anonymous"></script>`)
             span.form-text.text-muted Click to copy
         .form-group
-            -var formId = `jade_${name}`;
+            -var formId = `pug_${name}`;
             label.font-weight-bold(for=formId)
                 a(href='https://pugjs.org/', rel='noopener', target='_blank') Pug
             input.form-control(id=formId, type='text', value=`script(src="${file}", integrity="${sri}", crossorigin="anonymous")`)
