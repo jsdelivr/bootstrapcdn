@@ -7,14 +7,14 @@ block content
         -var name   = 'bootlintjs';
         -var file   = config.bootlint[0].javascript;
         -var sri    = config.bootlint[0].javascriptSri;
-        -var formId = name + '_form';
+        -var formId = `${name}_form`;
 
         .form-group.my-4
             label.font-weight-bold(for=formId) Complete JavaScript
             .input-group.input-group-lg
                 input.form-control(id=formId, type='text', value=file)
                 .input-group-append
-                    button.btn.btn-dark.dropdown-toggle(type='button', data-toggle='collapse', data-target='#' + name, aria-expanded='false', aria-controls=name)
+                    button.btn.btn-dark.dropdown-toggle(type='button', data-toggle='collapse', data-target=`#${name}`, aria-expanded='false', aria-controls=name)
             span.form-text.text-muted Click to copy
 
         include _partials/jscode.pug
