@@ -8,7 +8,7 @@ block content
             .card.bg-light.mt-4.p-4.text-center
                 h3.mt-2=`v${item.version}`
 
-                -var name   = `css${item.version.replace(/\./g, '_')}`;
+                -var name   = `css_${item.version.replace(/\./g, '_')}`;
                 -var file   = item.stylesheet;
                 -var sri    = item.stylesheetSri;
                 -var formId = `${name}_form`;
@@ -23,7 +23,7 @@ block content
 
                 include ../_partials/csscode.pug
 
-                -var name   = `js${item.version.replace(/\./g, '_')}`;
+                -var name   = `js_${item.version.replace(/\./g, '_')}`;
                 -var file   = item.javascript;
                 -var sri    = item.javascriptSri;
                 -var formId = `${name}_form`;
@@ -39,7 +39,7 @@ block content
                 include ../_partials/jscode.pug
 
                 if (typeof item.javascriptBundle !== 'undefined')
-                    -var name   = `jsbundle${item.version.replace(/\./g, '_')}`;
+                    -var name   = `jsbundle_${item.version.replace(/\./g, '_')}`;
                     -var file   = item.javascriptBundle;
                     -var sri    = item.javascriptBundleSri;
                     -var formId = `${name}_form`;

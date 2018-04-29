@@ -8,7 +8,7 @@ block content
             .card.bg-light.mt-4.p-4.text-center
                 h3.mt-2=`v${item.version}`
 
-                -var name   = `fontawesomecss${item.version.replace(/\./g, '_')}`;
+                -var name   = `fontawesomecss_${item.version.replace(/\./g, '_')}`;
                 -var file   = item.stylesheet;
                 -var sri    = item.stylesheetSri;
                 -var formId = `${name}_form`;
