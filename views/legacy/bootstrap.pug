@@ -8,40 +8,40 @@ block content
             .card.bg-light.mt-4.p-4.text-center
                 h3.mt-2=`v${item.version}`
 
-                -var name   = 'betacss' + item.version.replace(/\./g, '_');
+                -var name   = `betacss${item.version.replace(/\./g, '_')}`;
                 -var file   = item.stylesheet;
                 -var sri    = item.stylesheetSri;
-                -var formId = name + '_form';
+                -var formId = `${name}_form`;
 
                 .form-group.my-4
                     label.font-weight-bold(for=formId) Complete CSS
                     .input-group.input-group-lg
                         input.form-control(id=formId, type='text', value=file)
                         .input-group-append
-                            button.btn.btn-dark.dropdown-toggle(type='button', data-toggle='collapse', data-target='#' + name, aria-expanded='false', aria-controls=name)
+                            button.btn.btn-dark.dropdown-toggle(type='button', data-toggle='collapse', data-target=`#${name}`, aria-expanded='false', aria-controls=name)
                     span.form-text.text-muted Click to copy
 
                 include ../_partials/csscode.pug
 
-                -var name   = 'betajs' + item.version.replace(/\./g, '_');
+                -var name   = `betajs${item.version.replace(/\./g, '_')}`;
                 -var file   = item.javascript;
                 -var sri    = item.javascriptSri;
-                -var formId = name + '_form';
+                -var formId = `${name}_form`;
 
                 .form-group.my-4
                     label.font-weight-bold(for=formId) Complete JavaScript
                     .input-group.input-group-lg
                         input.form-control(id=formId, type='text', value=file)
                         .input-group-append
-                            button.btn.btn-dark.dropdown-toggle(type='button', data-toggle='collapse', data-target='#' + name, aria-expanded='false', aria-controls=name)
+                            button.btn.btn-dark.dropdown-toggle(type='button', data-toggle='collapse', data-target=`#${name}`, aria-expanded='false', aria-controls=name)
                     span.form-text.text-muted Click to copy
 
                 include ../_partials/jscode.pug
 
-                -var name   = 'betajsbundle' + item.version.replace(/\./g, '_');
+                -var name   = `betajsbundle${item.version.replace(/\./g, '_')}`;
                 -var file   = item.javascriptBundle;
                 -var sri    = item.javascriptBundleSri;
-                -var formId = name + '_form';
+                -var formId = `${name}_form`;
 
                 if (typeof item.javascriptBundle !== 'undefined')
                     .form-group.my-4
@@ -49,7 +49,7 @@ block content
                         .input-group.input-group-lg
                             input.form-control(id=formId, type='text', value=file)
                             .input-group-append
-                                button.btn.btn-dark.dropdown-toggle(type='button', data-toggle='collapse', data-target='#' + name, aria-expanded='false', aria-controls=name)
+                                button.btn.btn-dark.dropdown-toggle(type='button', data-toggle='collapse', data-target=`#${name}`, aria-expanded='false', aria-controls=name)
                         span.form-text.text-muted Click to copy
 
                     include ../_partials/jscode.pug
