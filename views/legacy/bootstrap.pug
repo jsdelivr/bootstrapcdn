@@ -8,7 +8,7 @@ block content
             .card.bg-light.mt-4.p-4.text-center
                 h3.mt-2=`v${item.version}`
 
-                -var name   = `betacss${item.version.replace(/\./g, '_')}`;
+                -var name   = `css${item.version.replace(/\./g, '_')}`;
                 -var file   = item.stylesheet;
                 -var sri    = item.stylesheetSri;
                 -var formId = `${name}_form`;
@@ -23,7 +23,7 @@ block content
 
                 include ../_partials/csscode.pug
 
-                -var name   = `betajs${item.version.replace(/\./g, '_')}`;
+                -var name   = `js${item.version.replace(/\./g, '_')}`;
                 -var file   = item.javascript;
                 -var sri    = item.javascriptSri;
                 -var formId = `${name}_form`;
@@ -38,12 +38,12 @@ block content
 
                 include ../_partials/jscode.pug
 
-                -var name   = `betajsbundle${item.version.replace(/\./g, '_')}`;
-                -var file   = item.javascriptBundle;
-                -var sri    = item.javascriptBundleSri;
-                -var formId = `${name}_form`;
-
                 if (typeof item.javascriptBundle !== 'undefined')
+                    -var name   = `jsbundle${item.version.replace(/\./g, '_')}`;
+                    -var file   = item.javascriptBundle;
+                    -var sri    = item.javascriptBundleSri;
+                    -var formId = `${name}_form`;
+
                     .form-group.my-4
                         label.font-weight-bold(for=formId) Complete JavaScript Bundle
                         .input-group.input-group-lg
