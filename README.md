@@ -29,8 +29,10 @@ npm test && npm run dev
 ### Demonized
 
 ```shell
-# start development server
+# start development server and watch for changes
 npm run dev
+# or
+npm run watch
 
 # start production server
 npm start
@@ -54,3 +56,11 @@ Key Overview:
 7. `bootswatch4`: Hash containing current Bootswatch 4 meta data and themes.
 8. `bootlint`: Array of hashes containing Bootlint meta data and paths.
 9. `bootstrap`: Array of hashes containing Bootstrap meta data and paths.
+
+## Updating Bootstrap/Bootlint
+
+1. `npm i bootstrap@version --save-exact`/`npm i bootlint@version --save-exact`
+2. `npm run bootstrap version`/`npm run bootlint version`
+3. Update `config/_config.yml` accordingly
+4. `npm run integrity`
+5. Make sure `npm run ci` after the files are on S3/CDN and verify the frontend works as expected without any visual breakage
