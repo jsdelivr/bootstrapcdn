@@ -1,0 +1,20 @@
+mixin menuItem(name, url)
+    -
+        let classes = ['nav-item'];
+
+        if (typeof attributes['extra-class'] !== 'undefined') {
+            classes.push(attributes['extra-class']);
+        }
+
+        if (title === name) {
+            classes.push('active');
+        }
+
+        classes = classes.join(' ');
+
+        if (name.includes(' Legacy')) {
+            name = name.replace(' Legacy', '');
+        }
+
+    li(class=classes)
+        a.nav-link(href=`${url}${themeQs}`)=name
