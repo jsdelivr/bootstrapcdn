@@ -13,7 +13,13 @@
 }
 
 .social {
-    height: 30px;
+    height: 75px;
+}
+
+@media (min-width: 576px) {
+    .social {
+        height: 30px;
+    }
 }
 
 iframe {
@@ -94,10 +100,4 @@ footer {
     letter-spacing: 1px;
     line-height: 1;
     text-transform: uppercase;
-}
-
-
-/* ugly but it's their selector... */
-#iubenda_policy .iub_container > .iub_footer img {
-    vertical-align: baseline;
 }
