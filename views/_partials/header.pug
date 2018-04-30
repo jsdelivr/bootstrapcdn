@@ -1,3 +1,5 @@
+include ../_mixins.pug
+
 -var themeQs = theme ? `?theme=${theme}` : '';
 
 nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
@@ -10,26 +12,18 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
 
     #main-nav.navbar-collapse.collapse
         ul.nav.navbar-nav.ml-lg-5
-            li(class=`nav-item${title === 'Font Awesome' ? ' active' : ''}`)
-                a.nav-link(href=`/fontawesome/${themeQs}`) Font Awesome
-            li(class=`nav-item${title === 'Bootswatch' ? ' active' : ''}`)
-                a.nav-link(href=`/bootswatch/${themeQs}`) Bootswatch
-            li(class=`nav-item${title === 'Bootlint' ? ' active' : ''}`)
-                a.nav-link(href=`/bootlint/${themeQs}`) Bootlint
+            +menuItem('Font Awesome', '/fontawesome/')
+            +menuItem('Bootswatch', '/bootswatch/')
+            +menuItem('Bootlint', '/bootlint/')
             li.nav-item.dropdown
                 a#navbarDropdown1.nav-link.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false') Old Versions
                 ul.dropdown-menu.bg-dark(aria-labelledby='navbarDropdown1')
-                    li(class=`dropdown-item bg-dark${title === 'Bootstrap Legacy' ? ' active' : ''}`)
-                        a.nav-link(href=`/legacy/bootstrap/${themeQs}`) Bootstrap
-                    li(class=`dropdown-item bg-dark${title === 'Bootswatch Legacy' ? ' active' : ''}`)
-                        a.nav-link(href=`/legacy/bootswatch/${themeQs}`) Bootswatch
-                    li(class=`dropdown-item bg-dark${title === 'Font Awesome Legacy' ? ' active' : ''}`)
-                        a.nav-link(href=`/legacy/fontawesome/${themeQs}`) Font Awesome
+                    +menuItem('Bootstrap Legacy', '/legacy/bootstrap/')(extra-class='dropdown-item bg-dark')
+                    +menuItem('Bootswatch Legacy', '/legacy/bootswatch/')(extra-class='dropdown-item bg-dark')
+                    +menuItem('Font Awesome Legacy', '/legacy/fontawesome/')(extra-class='dropdown-item bg-dark')
         ul.nav.navbar-nav.ml-auto
-            li(class=`nav-item${title === 'Showcase' ? ' active' : ''}`)
-                a.nav-link(href=`/showcase/${themeQs}`) Showcase
-            li(class=`nav-item${title === 'Integrations' ? ' active' : ''}`)
-                a.nav-link(href=`/integrations/${themeQs}`) Integrations
+            +menuItem('Showcase', '/showcase/')
+            +menuItem('Integrations', '/integrations/')
             li.nav-item.dropdown
                 a#navbarDropdownRight.nav-dropdown.nav-link.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false') Resources
                 ul.dropdown-menu.dropdown-menu-right.bg-dark(aria-labelledby='navbarDropdownRight')
