@@ -59,7 +59,7 @@ Key Overview:
 
 ## Updating Bootstrap/Bootlint
 
-1. `npm i bootstrap@version --save-exact`/`npm i bootlint@version --save-exact`
+1. `npm i bootstrap@version --save-exact -D`/`npm i bootlint@version --save-exact -D`
 2. `npm run bootstrap version`/`npm run bootlint version`
 3. Update `config/_config.yml` accordingly
 4. `npm run integrity`
