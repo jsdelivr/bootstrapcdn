@@ -95,9 +95,3 @@ footer {
     line-height: 1;
     text-transform: uppercase;
 }
-
-
-/* ugly but it's their selector... */
-#iubenda_policy .iub_container > .iub_footer img {
-    vertical-align: baseline;
-}
