@@ -1,7 +1,7 @@
 extends layout.pug
 
 block stylesheets
-    -var iubenda = config.stylesheet.filter(function(o) { return o.name === 'iubenda'; })[0];
+    -var iubenda = config.stylesheet.find((file) => file.name === 'iubenda');
     link(rel='stylesheet', href=getVersionedPath(iubenda.uri),
          integrity=generateSRI(iubenda.uri), crossorigin='anonymous')
 
