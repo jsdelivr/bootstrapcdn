@@ -7,6 +7,7 @@ const digest = helpers.sri.digest;
 const SRI_CACHE = {};
 
 function appendLocals(req, res) {
+    const totalThemes = helpers.getConfig().bootswatch4.themes.length;
     const TITLE_SUFFIX = 'BootstrapCDN by StackPath';
     let proto = req.get('x-forwarded-proto');
 
@@ -18,7 +19,9 @@ function appendLocals(req, res) {
 
     res.locals.siteUrl = `${proto}://${req.hostname}`;
 
-    res.locals.theme = req.query.theme;
+    res.locals.theme = req.query.theme < totalThemes ?
+        req.query.theme :
+        '';
 
     res.locals.displayTitle = (title) => `${title} · ${TITLE_SUFFIX}`;
 
