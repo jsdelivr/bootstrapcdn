@@ -63,4 +63,4 @@ Key Overview:
 2. `npm run bootstrap version`/`npm run bootlint version`
 3. Update `config/_config.yml` accordingly
 4. `npm run integrity`
-5. Make sure `npm run ci` after the files are on S3/CDN and verify the frontend works as expected without any visual breakage
+5. Make sure `npm run ci` passes after the files are on S3/CDN and verify the frontend works as expected without any visual breakage
