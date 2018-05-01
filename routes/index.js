@@ -7,6 +7,7 @@ const digest = helpers.sri.digest;
 const SRI_CACHE = {};
 
 function appendLocals(req, res) {
+    const totalThemes = helpers.getConfig().bootswatch4.themes.length;
     const TITLE_SUFFIX = 'BootstrapCDN by StackPath';
     let proto = req.get('x-forwarded-proto');
 
@@ -18,7 +19,9 @@ function appendLocals(req, res) {
 
     res.locals.siteUrl = `${proto}://${req.hostname}`;
 
-    res.locals.theme = req.query.theme;
+    res.locals.theme = req.query.theme < totalThemes ?
+        req.query.theme :
+        '';
 
     res.locals.displayTitle = (title) => `${title} · ${TITLE_SUFFIX}`;
 
@@ -122,49 +125,17 @@ function renderLegacyBootswatch(req, res) {
 
 function renderIntegrations(req, res) {
     res = appendLocals(req, res);
-
-    const integrations = req.config.integrations;
-
-    const col1 = [];
-    const col2 = [];
-
-    for (let i = 0; i < integrations.length; i++) {
-        if (i % 2 === 0) {
-            col1.push(integrations[i]);
-        } else {
-            col2.push(integrations[i]);
-        }
-    }
-
     res.render('integrations', {
         title: 'Integrations',
-        description: 'Apps that integrate BootstrapCDN',
-        col1,
-        col2
+        description: 'Apps that integrate BootstrapCDN'
     });
 }
 
 function renderShowcase(req, res) {
     res = appendLocals(req, res);
-
-    const showcase = req.config.showcase;
-
-    const col1 = [];
-    const col2 = [];
-
-    for (let i = 0; i < showcase.length; i++) {
-        if (i % 2 === 0) {
-            col1.push(showcase[i]);
-        } else {
-            col2.push(showcase[i]);
-        }
-    }
-
     res.render('showcase', {
         title: 'Showcase',
-        description: 'Websites and apps that use BootstrapCDN',
-        col1,
-        col2
+        description: 'Websites and apps that use BootstrapCDN'
     });
 }
 
