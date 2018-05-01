@@ -5,9 +5,15 @@ authors:
   - name: Justin Dorfman
     twitter: jdorfman
     url: 'https://twitter.com/jdorfman'
+    work:
+      text: Sticker Mule
+      url: 'https://www.stickermule.com/'
   - name: Joshua Mervine
     twitter: mervinej
     url: 'https://twitter.com/mervinej'
+    work:
+      text: Heroku
+      url: 'https://www.heroku.com/'
   - name: XhmikosR
     twitter: XhmikosR
     url: 'https://xhmikosr.io/'
