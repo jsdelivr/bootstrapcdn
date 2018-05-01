@@ -4,11 +4,8 @@ block content
     h2.text-center.mb-4 Integrations
 
     .row
-        .col-12.col-md-6
-            each item in col1
-                include _partials/integrations.pug
-        .col-12.col-md-6
-            each item in col2
+        each item in config.integrations
+            .col-12.col-md-6
                 include _partials/integrations.pug
 
     .row
