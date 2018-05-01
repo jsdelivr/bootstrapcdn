@@ -7,14 +7,14 @@ const uri       = helpers.runApp(config, 'about');
 
 let response    = {};
 
-before((done) => {
-    helpers.preFetch(uri, (res) => {
-        response = res;
-        done();
-    });
-});
-
 describe('About', () => {
+    before((done) => {
+        helpers.preFetch(uri, (res) => {
+            response = res;
+            done();
+        });
+    });
+
     it('works', (done) => {
         helpers.assert.itWorks(response.statusCode, done);
     });

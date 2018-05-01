@@ -8,14 +8,14 @@ const uri       = helpers.runApp(config, '404');
 
 let response    = {};
 
-before((done) => {
-    helpers.preFetch(uri, (res) => {
-        response = res;
-        done();
-    });
-});
-
 describe('404', () => {
+    before((done) => {
+        helpers.preFetch(uri, (res) => {
+            response = res;
+            done();
+        });
+    });
+
     it('works', (done) => {
         assert.strictEqual(response.statusCode, 404);
         done();
