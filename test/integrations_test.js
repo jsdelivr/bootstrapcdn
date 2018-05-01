@@ -10,14 +10,14 @@ const uri        = helpers.runApp(config, 'integrations');
 
 let response = {};
 
-before((done) => {
-    helpers.preFetch(uri, (res) => {
-        response = res;
-        done();
-    });
-});
-
 describe('integrations', () => {
+    before((done) => {
+        helpers.preFetch(uri, (res) => {
+            response = res;
+            done();
+        });
+    });
+
     it('works', (done) => {
         helpers.assert.itWorks(response.statusCode, done);
     });

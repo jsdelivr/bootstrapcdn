@@ -13,14 +13,14 @@ function format(str, name) {
                 .replace('SWATCH_VERSION', config.bootswatch3.version);
 }
 
-before((done) => {
-    helpers.preFetch(uri, (res) => {
-        response = res;
-        done();
-    });
-});
-
 describe('bootswatch3', () => {
+    before((done) => {
+        helpers.preFetch(uri, (res) => {
+            response = res;
+            done();
+        });
+    });
+
     it('works', (done) => {
         helpers.assert.itWorks(response.statusCode, done);
     });
