@@ -178,32 +178,8 @@ app.get('/legacy/fontawesome/', routes.renderLegacyFontawesome);
 app.get('/privacy-policy/', routes.renderPrivacyPolicy);
 app.get('/showcase/', routes.renderShowcase);
 
-// eslint-disable-next-line init-declarations
-let data; // only regenerated on restart
-
 app.get('/data/bootstrapcdn.json', (req, res) => {
-    if (typeof data === 'undefined') {
-        data = {
-            timestamp: new Date(),
-            bootstrap: {},
-            fontawesome: {}
-        };
-
-        config.bootstrap.forEach((bootstrap) => {
-            const bootstrapVersion = bootstrap.version;
-
-            if (semver.satisfies(semver.coerce(bootstrapVersion), '<4')) {
-                data.bootstrap[bootstrapVersion] = {
-                    css: bootstrap.stylesheet,
-                    js: bootstrap.javascript
-                };
-            }
-        });
-
-        config.fontawesome.forEach((fontawesome) => {
-            data.fontawesome[fontawesome.version] = fontawesome.stylesheet;
-        });
-    }
+    const data = helpers.generateDataJson();
 
     res.send(data);
 });
