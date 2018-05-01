@@ -53,6 +53,7 @@
     "html-validator": "^3.0.1",
     "htmlencode": "^0.0.4",
     "mocha": "^5.1.1",
+    "mockdate": "^2.0.2",
     "nodemon": "^1.17.3",
     "pug-lint": "^2.5.0",
     "pug-lint-config-clock": "^2.0.0",

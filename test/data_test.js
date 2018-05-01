@@ -1,6 +1,7 @@
 'use strict';
 
 const assert    = require('assert');
+const libHelpers = require('../lib/helpers.js');
 const helpers   = require('./test_helpers.js');
 
 const config    = helpers.getConfig();
@@ -20,8 +21,11 @@ describe('data', () => {
         helpers.assert.itWorks(response.statusCode, done);
     });
 
-    it('is json', (done) => {
-        assert.ok(JSON.parse(response.body));
+    it('contains all data', (done) => {
+        const expected = libHelpers.generateDataJson();
+        const actual = JSON.parse(response.body);
+
+        assert.deepStrictEqual(expected, actual);
         done();
     });
 });
