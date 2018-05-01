@@ -134,6 +134,7 @@ function preFetch(uri, cb) {
     const reqOpts = {
         uri,
         forever: true, // for 'connection: Keep-Alive'
+        followRedirect: false,
         gzip: true
     };
 
