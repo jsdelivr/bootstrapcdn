@@ -31,6 +31,16 @@ javascript:
     uri: /assets/js/vendor/clipboard.min.js
   - name: main
     uri: /assets/js/main.js
+redirects:
+  - name: legacy
+    from: /legacy/
+    to: /legacy/bootstrap/
+  - name: alpha
+    from: /alpha/
+    to: /
+  - name: beta
+    from: /beta/
+    to: /
 bootstrap:
   - version: 4.1.1
     current: true

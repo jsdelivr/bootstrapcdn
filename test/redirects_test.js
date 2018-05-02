@@ -4,17 +4,13 @@ const assert = require('assert');
 const helpers = require('./test_helpers.js');
 
 const config = helpers.getConfig();
+const redirects = config.redirects;
 
 describe('redirects', () => {
-    const redirects = {
-        '/legacy/': '/legacy/bootstrap/',
-        '/alpha/': '/',
-        '/beta/': '/'
-    };
-
-    for (const redirectFrom in redirects) {
-        if (Object.prototype.hasOwnProperty.call(redirects, redirectFrom)) {
-            const redirectTo = redirects[redirectFrom];
+    for (const redirect in redirects) {
+        if (Object.prototype.hasOwnProperty.call(redirects, redirect)) {
+            const redirectFrom = redirects[redirect].from;
+            const redirectTo = redirects[redirect].to;
             let uri = '';
             let response = {};
 
