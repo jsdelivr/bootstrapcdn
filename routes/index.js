@@ -2,8 +2,8 @@
 
 const path = require('path');
 const helpers = require('../lib/helpers.js');
-const digest = helpers.sri.digest;
 
+const digest = helpers.sri.digest;
 const SRI_CACHE = {};
 
 function appendLocals(req, res) {
