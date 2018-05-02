@@ -7,7 +7,7 @@ const helpers = require('./test_helpers.js');
 
 describe('showcase', () => {
     const config = helpers.getConfig();
-    const uri = helpers.runApp('showcase');
+    const uri = helpers.getURI('showcase');
     let response = {};
 
     before((done) => {

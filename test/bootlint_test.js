@@ -5,7 +5,7 @@ const helpers = require('./test_helpers.js');
 
 describe('bootlint', () => {
     const config = helpers.getConfig();
-    const uri = helpers.runApp('bootlint');
+    const uri = helpers.getURI('bootlint');
     const current = config.bootlint[0];
     let response = {};
 

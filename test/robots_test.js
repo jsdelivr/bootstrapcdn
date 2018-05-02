@@ -4,7 +4,7 @@ const assert = require('assert').strict;
 const helpers = require('./test_helpers.js');
 
 describe('robots.txt', () => {
-    const uri = helpers.runApp('robots.txt');
+    const uri = helpers.getURI('robots.txt');
     let response = {};
 
     before((done) => {

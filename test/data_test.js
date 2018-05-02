@@ -5,7 +5,7 @@ const libHelpers = require('../lib/helpers.js');
 const helpers = require('./test_helpers.js');
 
 describe('data', () => {
-    const uri = helpers.runApp('data/bootstrapcdn.json');
+    const uri = helpers.getURI('data/bootstrapcdn.json');
     let response = {};
 
     before((done) => {

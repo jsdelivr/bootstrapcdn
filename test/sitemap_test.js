@@ -3,7 +3,7 @@
 const helpers = require('./test_helpers.js');
 
 describe('sitemap.xml', () => {
-    const uri = helpers.runApp('sitemap.xml');
+    const uri = helpers.getURI('sitemap.xml');
     let response = {};
 
     before((done) => {
@@ -11,6 +11,10 @@ describe('sitemap.xml', () => {
             response = res;
             done();
         });
+    });
+
+    after((done) => {
+        helpers.stopServer(done);
     });
 
     it('works', (done) => {

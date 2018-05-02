@@ -1,5 +1,4 @@
 --check-leaks
---exit
 --globals __core-js_shared__
 --reporter dot
 --slow 500

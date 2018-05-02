@@ -5,7 +5,7 @@ const helpers = require('./test_helpers.js');
 
 describe('legacy/fontawesome', () => {
     const config = helpers.getConfig();
-    const uri = helpers.runApp('legacy/fontawesome');
+    const uri = helpers.getURI('legacy/fontawesome');
     let response = {};
 
     before((done) => {

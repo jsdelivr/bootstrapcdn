@@ -3,7 +3,7 @@
 const helpers = require('./test_helpers.js');
 
 describe('privacy-policy', () => {
-    const uri = helpers.runApp('privacy-policy');
+    const uri = helpers.getURI('privacy-policy');
     let response = {};
 
     before((done) => {

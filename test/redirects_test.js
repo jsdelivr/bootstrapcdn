@@ -15,7 +15,7 @@ describe('redirects', () => {
             let response = {};
 
             before((done) => {
-                uri = helpers.runApp(redirectFrom);
+                uri = helpers.getURI(redirectFrom);
 
                 helpers.prefetch(uri, (res) => {
                     response = res;

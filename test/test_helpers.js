@@ -1,4 +1,3 @@
-/* eslint global-require: 0 */
 'use strict';
 
 // Force NODE_ENV (and thus 'env' in express)
@@ -10,7 +9,13 @@ const htmlEncode = require('htmlencode').htmlEncode;
 const mockDate = require('mockdate');
 const request = require('request');
 const validator = require('html-validator');
+const app = require('../app.js');
 const helpers = require('../lib/helpers.js');
+
+// The server object holds the server instance across all tests;
+// We start it in the first test and close it in the last one,
+// otherwise test time increases a lot (more than 3x)
+let server = {};
 
 mockDate.set('03/05/2018');
 
@@ -72,19 +77,54 @@ function cleanEndpoint(endpoint = '/') {
     return endpoint;
 }
 
-function runApp(endpoint) {
+function getPort() {
     const config = getConfig();
-    const endp = cleanEndpoint(endpoint);
+    // don't use configured port
     const port = config.port < 3000 ? config.port + 3000 : config.port + 1;
 
-    // don't use configured port
-    process.env.PORT = port;
+    return port;
+}
 
-    // load app
-    require('../bin/www.js');
+function getURI(endpoint) {
+    const endp = cleanEndpoint(endpoint);
+    const port = getPort();
 
     return `http://localhost:${port}${endp}`;
 }
+
+function startServer() {
+    const port = getPort();
+
+    if (server.listening) {
+        return server;
+    }
+
+    server = app.listen(port);
+
+    return server;
+}
+
+function stopServer(done) {
+    return server.listening && server.close(done);
+}
+
+function prefetch(uri, cb) {
+    const reqOpts = {
+        uri,
+        forever: true, // for 'connection: Keep-Alive'
+        followRedirect: false,
+        gzip: true
+    };
+
+    request.get(reqOpts, (err, res) => {
+        if (err) {
+            return cb(err);
+        }
+
+        return cb(res);
+    });
+}
+
 
 function assertValidHTML(res, cb) {
     const options = {
@@ -135,23 +175,6 @@ function assertAuthors(res, cb) {
     cb();
 }
 
-function prefetch(uri, cb) {
-    const reqOpts = {
-        uri,
-        forever: true, // for 'connection: Keep-Alive'
-        followRedirect: false,
-        gzip: true
-    };
-
-    request.get(reqOpts, (err, res) => {
-        if (err) {
-            return cb(err);
-        }
-
-        return cb(res);
-    });
-}
-
 function cssHTML(uri, sri) {
     return htmlEncode(`<link href="${uri}" rel="stylesheet" integrity="${sri}" crossorigin="anonymous">`);
 }
@@ -178,7 +201,9 @@ function jsHAML(uri, sri) {
 
 module.exports = {
     getConfig,
-    runApp,
+    getURI,
+    startServer,
+    stopServer,
     assert: {
         authors: assertAuthors,
         contentType: assertContentType,

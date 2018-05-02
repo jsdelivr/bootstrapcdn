@@ -7,7 +7,7 @@ const helpers = require('./test_helpers.js');
 
 describe('integrations', () => {
     const config = helpers.getConfig();
-    const uri = helpers.runApp('integrations');
+    const uri = helpers.getURI('integrations');
     let response = {};
 
     before((done) => {

@@ -5,7 +5,7 @@ const helpers = require('./test_helpers.js');
 
 describe('legacy/bootstrap', () => {
     const config = helpers.getConfig();
-    const uri = helpers.runApp('legacy/bootstrap');
+    const uri = helpers.getURI('legacy/bootstrap');
     let response = {};
 
     before((done) => {
