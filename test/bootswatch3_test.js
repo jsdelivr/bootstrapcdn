@@ -11,7 +11,7 @@ function format(str, name) {
 }
 
 describe('bootswatch3', () => {
-    const uri = helpers.runApp('legacy/bootswatch');
+    const uri = helpers.getURI('legacy/bootswatch');
     let response = {};
 
     before((done) => {

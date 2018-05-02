@@ -3,7 +3,7 @@
 const helpers = require('./test_helpers.js');
 
 describe('About', () => {
-    const uri = helpers.runApp('about');
+    const uri = helpers.getURI('about');
     let response = {};
 
     before((done) => {

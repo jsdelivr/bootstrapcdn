@@ -4,10 +4,11 @@ const assert = require('assert').strict;
 const helpers = require('./test_helpers.js');
 
 describe('404', () => {
-    const uri = helpers.runApp('404');
+    const uri = helpers.getURI('404');
     let response = {};
 
     before((done) => {
+        helpers.startServer();
         helpers.prefetch(uri, (res) => {
             response = res;
             done();

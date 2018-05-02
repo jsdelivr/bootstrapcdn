@@ -5,7 +5,7 @@ const helpers = require('./test_helpers.js');
 
 describe('index', () => {
     const config = helpers.getConfig();
-    const uri = helpers.runApp();
+    const uri = helpers.getURI();
     const current = config.bootstrap[0];
     let response = {};
 
