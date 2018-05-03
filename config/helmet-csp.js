@@ -43,6 +43,7 @@ const CSP = {
         'srv.carbonads.net',
         'assets.servedby-buysellads.com',
         'ad.doubleclick.net',
+        '*.buysellads.net',
         '*.convertro.com',
         '*.c3tag.com',
         '*.2mdn.net',

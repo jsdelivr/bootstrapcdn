@@ -43,7 +43,7 @@ function runUglify() {
         },
         sourceMap: {
             filename: targetSourceMapFile,
-            //includeSources: true,
+            // includeSources: true,
             url: targetSourceMapFile
         }
     };

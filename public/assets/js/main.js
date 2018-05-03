@@ -8,7 +8,7 @@
         var elements = document.querySelectorAll(selector);
 
         function toggleCode(index) {
-            elements[index].addEventListener('click', function() {
+            elements[index].addEventListener('click', function () {
                 elements[index].classList.toggle('dropdown-toggle-open');
             });
         }

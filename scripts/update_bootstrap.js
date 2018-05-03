@@ -3,8 +3,8 @@
 'use strict';
 
 const fs = require('fs');
-const fse = require('fs-extra');
 const path = require('path');
+const fse = require('fs-extra');
 
 let version = process.argv[2];
 

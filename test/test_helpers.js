@@ -7,11 +7,14 @@ process.env.ENABLE_CRAWLING = true;
 
 const assert     = require('assert');
 const htmlEncode = require('htmlencode').htmlEncode;
+const mockDate   = require('mockdate');
 const request    = require('request');
 const validator  = require('html-validator');
 const helpers    = require('../lib/helpers.js');
 
 let response = {};
+
+mockDate.set('03/05/2018');
 
 const CONTENT_TYPE_MAP = {
     css: 'text/css; charset=utf-8',
@@ -134,6 +137,7 @@ function preFetch(uri, cb) {
     const reqOpts = {
         uri,
         forever: true, // for 'connection: Keep-Alive'
+        followRedirect: false,
         gzip: true
     };
 

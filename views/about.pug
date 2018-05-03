@@ -21,6 +21,13 @@ block content
                     li
                         a(href=author.url, rel='noopener', target='_blank')=author.name
 
+                        if (author.work && author.work.text)
+                            |  - 
+                            if (author.work.url)
+                                a(href=author.work.url, rel='noopener', target='_blank')=author.work.text
+                            else
+                                | #{author.work.text}
+
             h2.my-4 Core Values
 
             h3.h4.mb-3
