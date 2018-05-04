@@ -1,15 +1,13 @@
 'use strict';
 
-const helpers   = require('./test_helpers.js');
-
-const config    = helpers.getConfig();
-const uri       = helpers.runApp(config, 'privacy-policy');
-
-let response = {};
+const helpers = require('./test_helpers.js');
 
 describe('privacy-policy', () => {
+    const uri = helpers.runApp('privacy-policy');
+    let response = {};
+
     before((done) => {
-        helpers.preFetch(uri, (res) => {
+        helpers.prefetch(uri, (res) => {
             response = res;
             done();
         });

@@ -2,7 +2,6 @@
 --exit
 --globals __core-js_shared__
 --reporter dot
---retries 1
 --slow 500
 --throw-deprecation
 --timeout 15000

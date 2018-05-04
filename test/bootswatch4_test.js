@@ -1,12 +1,9 @@
 'use strict';
 
-const assert    = require('assert');
-const helpers   = require('./test_helpers.js');
+const assert = require('assert').strict;
+const helpers = require('./test_helpers.js');
 
-const config    = helpers.getConfig();
-const uri       = helpers.runApp(config, 'bootswatch');
-
-let response    = {};
+const config = helpers.getConfig();
 
 function format(str, name) {
     return str.replace('SWATCH_NAME', name)
@@ -14,8 +11,11 @@ function format(str, name) {
 }
 
 describe('bootswatch4', () => {
+    const uri = helpers.runApp('bootswatch');
+    let response = {};
+
     before((done) => {
-        helpers.preFetch(uri, (res) => {
+        helpers.prefetch(uri, (res) => {
             response = res;
             done();
         });
@@ -38,11 +38,11 @@ describe('bootswatch4', () => {
     });
 
     config.bootswatch4.themes.forEach((theme) => {
-        const themeImage = format(config.bootswatch4.image, theme.name);
-        const themeUri   = format(config.bootswatch4.bootstrap, theme.name);
-        const themeSri   = theme.sri;
-
         describe(theme.name, () => {
+            const themeImage = format(config.bootswatch4.image, theme.name);
+            const themeUri   = format(config.bootswatch4.bootstrap, theme.name);
+            const themeSri   = theme.sri;
+
             it('has image', (done) => {
                 assert.ok(response.body.includes(themeImage),
                     `Expects response body to include "${themeImage}"`);
