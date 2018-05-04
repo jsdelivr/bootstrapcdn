@@ -1,16 +1,16 @@
 'use strict';
 
-const assert    = require('assert');
-const helpers   = require('./test_helpers.js');
-
-const config    = helpers.getConfig();
-const uri       = helpers.runApp(config, 'fontawesome');
-
-let response    = {};
+const assert = require('assert').strict;
+const helpers = require('./test_helpers.js');
 
 describe('fontawesome', () => {
+    const config = helpers.getConfig();
+    const uri = helpers.runApp('fontawesome');
+    const current = config.fontawesome[0];
+    let response = {};
+
     before((done) => {
-        helpers.preFetch(uri, (res) => {
+        helpers.prefetch(uri, (res) => {
             response = res;
             done();
         });
@@ -19,8 +19,6 @@ describe('fontawesome', () => {
     it('works', (done) => {
         helpers.assert.itWorks(response.statusCode, done);
     });
-
-    const current = config.fontawesome[0];
 
     it('is current', (done) => {
         assert.ok(current.current);

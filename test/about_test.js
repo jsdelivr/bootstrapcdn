@@ -1,15 +1,13 @@
 'use strict';
 
-const helpers   = require('./test_helpers.js');
-
-const config    = helpers.getConfig();
-const uri       = helpers.runApp(config, 'about');
-
-let response    = {};
+const helpers = require('./test_helpers.js');
 
 describe('About', () => {
+    const uri = helpers.runApp('about');
+    let response = {};
+
     before((done) => {
-        helpers.preFetch(uri, (res) => {
+        helpers.prefetch(uri, (res) => {
             response = res;
             done();
         });
