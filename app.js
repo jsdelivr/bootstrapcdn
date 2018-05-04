@@ -5,11 +5,6 @@ const express      = require('express');
 const uuidv4       = require('uuid/v4');
 const semver       = require('semver');
 
-const helpers      = require('./lib/helpers.js');
-const config       = helpers.getConfig();
-
-const app          = express();
-
 // constants
 const ENV          = process.env;
 const NODE_ENV     = ENV.NODE_ENV || 'development';
@@ -33,8 +28,12 @@ const staticify    = require('staticify')(PUBLIC_DIR, {
     sendOptions: STATIC_OPTS
 });
 
-const CSP = require('./config/helmet-csp.js');
-const routes = require('./routes/');
+const helpers      = require('./lib/helpers.js');
+const CSP          = require('./config/helmet-csp.js');
+const routes       = require('./routes');
+
+const config       = helpers.getConfig();
+const app          = express();
 
 // all environments
 app.set('views', path.join(__dirname, '/views/'));

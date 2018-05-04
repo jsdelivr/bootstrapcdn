@@ -14,6 +14,7 @@ const legacyRoutes = require('./legacy.js');
 const privacyPolicyRoute = require('./privacyPolicy.js');
 const redirectToRoot = require('./redirectToRoot.js');
 const showcaseRoute = require('./showcase.js');
+
 const routes = {
     notFoundRoute,
     aboutRoute,
