@@ -402,8 +402,11 @@ bootlint:
     javascript: 'https://stackpath.bootstrapcdn.com/bootlint/0.2.0/bootlint.min.js'
     javascriptSri: sha384-OuU4cNKby6UDoPD/pWtrEhfGUWHZXIFGs/E8+mUnoDIdR98n/cL0RZcixIA0XlnS
 fontawesome:
-  - version: 4.7.0
+  - version: 5.0.12
     current: true
+    stylesheet: 'https://stackpath.bootstrapcdn.com/font-awesome/5.0.12/web-fonts-with-css/css/fontawesome-all.min.css'
+    stylesheetSri: sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9
+  - version: 4.7.0
     stylesheet: 'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'
     stylesheetSri: sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN
   - version: 4.6.3
