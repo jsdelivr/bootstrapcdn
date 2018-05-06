@@ -25,7 +25,7 @@ describe('data', () => {
         const expected = libHelpers.generateDataJson();
         const actual = JSON.parse(response.body);
 
-        assert.deepStrictEqual(expected, actual);
+        assert.deepStrictEqual(actual, expected);
         done();
     });
 });

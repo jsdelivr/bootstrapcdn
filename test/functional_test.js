@@ -41,10 +41,10 @@ function request(uri, cb) {
     });
 }
 
-function assertSRI(uri, sri, done) {
-    const expected = digest(responses[uri].body, true);
+function assertSRI(uri, actualSri, done) {
+    const expectedSri = digest(responses[uri].body, true);
 
-    assert.strictEqual(expected, sri);
+    assert.strictEqual(actualSri, expectedSri);
     done();
 }
 
