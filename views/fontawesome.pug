@@ -5,21 +5,44 @@ block content
 
     h2.text-center.mb-4 Font Awesome
 
+    -var current = config.files.fontawesome.find((ver) => ver.current === true);
+
+    h3.text-center.mb-4 Font Awesome Web Fonts with CSS
+
     .card.bg-light.mt-4.p-4.text-center
-        -var name    = 'fontawesomecss';
-        -var current = config.files.fontawesome.find(file => file.current);
-        -var file    = current.stylesheet;
-        -var sri     = current.stylesheetSri;
-        -var formId  = `${name}_form`;
+        each fa in current.assets.webfontswithcss
+            -var name   = `fontawesomecss${fa.name}`;
+            -var file   = fa.url;
+            -var sri    = fa.sri;
+            -var formId = `${name}_form`;
 
-        .form-group.my-4
-            label.font-weight-bold(for=formId) Font Awesome CSS
-            .input-group.input-group-lg
-                input.form-control(id=formId, type='text', readonly, value=file)
-                .input-group-append
-                    button.btn.btn-dark.dropdown-toggle(type='button', data-toggle='collapse', data-target=`#${name}`, aria-label='Toggle Dropdown', aria-expanded='false', aria-controls=name)
-            span.form-text.text-muted Click to copy
+            .form-group.my-4
+                label.font-weight-bold(for=formId)=fa.name
+                .input-group.input-group-lg
+                    input.form-control(id=formId, type='text', readonly, value=file)
+                    .input-group-append
+                        button.btn.btn-dark.dropdown-toggle(type='button', data-toggle='collapse', data-target=`#${name}`, aria-label='Toggle Dropdown', aria-expanded='false', aria-controls=name)
+                span.form-text.text-muted Click to copy
 
-        include _partials/csscode.pug
+            include _partials/csscode.pug
+
+    h3.text-center.my-4 Font Awesome SVG with JS
+
+    .card.bg-light.mt-4.p-4.text-center
+        each fa in current.assets.svgwithjs
+            -var name   = `fontawesomejs${fa.name}`;
+            -var file   = fa.url;
+            -var sri    = fa.sri;
+            -var formId = `${name}_form`;
+
+            .form-group.my-4
+                label.font-weight-bold(for=formId)=fa.name
+                .input-group.input-group-lg
+                    input.form-control(id=formId, type='text', readonly, value=file)
+                    .input-group-append
+                        button.btn.btn-dark.dropdown-toggle(type='button', data-toggle='collapse', data-target=`#${name}`, aria-label='Toggle Dropdown', aria-expanded='false', aria-controls=name)
+                span.form-text.text-muted Click to copy
+
+            include _partials/jscode.pug
 
 //- vim: ft=pug sw=4 sts=4 et:

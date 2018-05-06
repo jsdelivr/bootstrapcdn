@@ -404,50 +404,111 @@ bootlint:
 fontawesome:
   - version: 5.0.12
     current: true
-    stylesheet: 'https://stackpath.bootstrapcdn.com/font-awesome/5.0.12/web-fonts-with-css/css/fontawesome-all.min.css'
-    stylesheetSri: sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9
+    assets:
+      webfontswithcss:
+        - name: all
+          url: 'https://stackpath.bootstrapcdn.com/font-awesome/5.0.12/web-fonts-with-css/css/fontawesome-all.min.css'
+          sri: sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9
+        - name: normal
+          url: 'https://stackpath.bootstrapcdn.com/font-awesome/5.0.12/web-fonts-with-css/css/fontawesome.min.css'
+          sri: sha384-rnr8fdrJ6oj4zli02To2U/e6t1qG8dvJ8yNZZPsKHcU7wFK3MGilejY5R/cUc5kf
+        - name: brands
+          url: 'https://stackpath.bootstrapcdn.com/font-awesome/5.0.12/web-fonts-with-css/css/fa-brands.min.css'
+          sri: sha384-Pln/erVatVEIIVh7sfyudOXs5oajCSHg7l5e2Me02e3TklmDuKEhQ8resTIwyI+w
+        - name: regular
+          url: 'https://stackpath.bootstrapcdn.com/font-awesome/5.0.12/web-fonts-with-css/css/fa-regular.min.css'
+          sri: sha384-RGDxJbFQcd3/Rei8rYb+3xO3YREd0abxm8WfLkYj7j4HHo5ZVuNUGVx8H8GbpFTQ
+        - name: solid
+          url: 'https://stackpath.bootstrapcdn.com/font-awesome/5.0.12/web-fonts-with-css/css/fa-solid.min.css'
+          sri: sha384-VxweGom9fDoUf7YfLTHgO0r70LVNHP5+Oi8dcR4hbEjS8UnpRtrwTx7LpHq/MWLI
+      svgwithjs:
+        - name: all
+          url: 'https://stackpath.bootstrapcdn.com/font-awesome/5.0.12/svg-with-js/css/fontawesome-all.min.css'
+          sri: sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9
+        - name: normal
+          url: 'https://stackpath.bootstrapcdn.com/font-awesome/5.0.12/svg-with-js/css/fontawesome.min.css'
+          sri: sha384-rnr8fdrJ6oj4zli02To2U/e6t1qG8dvJ8yNZZPsKHcU7wFK3MGilejY5R/cUc5kf
+        - name: brands
+          url: 'https://stackpath.bootstrapcdn.com/font-awesome/5.0.12/svg-with-js/css/fa-brands.min.css'
+          sri: sha384-Pln/erVatVEIIVh7sfyudOXs5oajCSHg7l5e2Me02e3TklmDuKEhQ8resTIwyI+w
+        - name: regular
+          url: 'https://stackpath.bootstrapcdn.com/font-awesome/5.0.12/svg-with-js/css/fa-regular.min.css'
+          sri: sha384-RGDxJbFQcd3/Rei8rYb+3xO3YREd0abxm8WfLkYj7j4HHo5ZVuNUGVx8H8GbpFTQ
+        - name: solid
+          url: 'https://stackpath.bootstrapcdn.com/font-awesome/5.0.12/svg-with-js/css/fa-solid.min.css'
+          sri: sha384-VxweGom9fDoUf7YfLTHgO0r70LVNHP5+Oi8dcR4hbEjS8UnpRtrwTx7LpHq/MWLI
   - version: 4.7.0
-    stylesheet: 'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'
-    stylesheetSri: sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN
+    assets:
+      main:
+        - url: 'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'
+          sri: sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN
   - version: 4.6.3
-    stylesheet: 'https://stackpath.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css'
-    stylesheetSri: sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1
+    assets:
+      main:
+        - url: 'https://stackpath.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css'
+          sri: sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1
   - version: 4.6.2
-    stylesheet: 'https://stackpath.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css'
-    stylesheetSri: sha384-aNUYGqSUL9wG/vP7+cWZ5QOM4gsQou3sBfWRr/8S3R1Lv0rysEmnwsRKMbhiQX/O
+    assets:
+      main:
+        - url: 'https://stackpath.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css'
+          sri: sha384-aNUYGqSUL9wG/vP7+cWZ5QOM4gsQou3sBfWRr/8S3R1Lv0rysEmnwsRKMbhiQX/O
   - version: 4.6.1
-    stylesheet: 'https://stackpath.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css'
-    stylesheetSri: sha384-hQpvDQiCJaD2H465dQfA717v7lu5qHWtDbWNPvaTJ0ID5xnPUlVXnKzq7b8YUkbN
+    assets:
+      main:
+        - url: 'https://stackpath.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css'
+          sri: sha384-hQpvDQiCJaD2H465dQfA717v7lu5qHWtDbWNPvaTJ0ID5xnPUlVXnKzq7b8YUkbN
   - version: 4.6.0
-    stylesheet: 'https://stackpath.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css'
-    stylesheetSri: sha384-I6JCnqxMbC2DuiHjsoCiLa15NVbKRf8/ooANRLsXD87zD2dVqzlz6Oqjvj470ztk
+    assets:
+      main:
+        - url: 'https://stackpath.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css'
+          sri: sha384-I6JCnqxMbC2DuiHjsoCiLa15NVbKRf8/ooANRLsXD87zD2dVqzlz6Oqjvj470ztk
   - version: 4.5.0
-    stylesheet: 'https://stackpath.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css'
-    stylesheetSri: sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+
+    assets:
+      main:
+        - url: 'https://stackpath.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css'
+          sri: sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+
   - version: 4.4.0
-    stylesheet: 'https://stackpath.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'
-    stylesheetSri: sha384-MI32KR77SgI9QAPUs+6R7leEOwtop70UsjEtFEezfKnMjXWx15NENsZpfDgq8m8S
+    assets:
+      main:
+        - url: 'https://stackpath.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'
+          sri: sha384-MI32KR77SgI9QAPUs+6R7leEOwtop70UsjEtFEezfKnMjXWx15NENsZpfDgq8m8S
   - version: 4.3.0
-    stylesheet: 'https://stackpath.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'
-    stylesheetSri: sha384-yNuQMX46Gcak2eQsUzmBYgJ3eBeWYNKhnjyiBqLd1vvtE9kuMtgw6bjwN8J0JauQ
+    assets:
+      main:
+        - url: 'https://stackpath.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'
+          sri: sha384-yNuQMX46Gcak2eQsUzmBYgJ3eBeWYNKhnjyiBqLd1vvtE9kuMtgw6bjwN8J0JauQ
   - version: 4.2.0
-    stylesheet: 'https://stackpath.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'
-    stylesheetSri: sha384-CmLV3WR+cw/TcN50vJSYAs2EAzhDD77tQvGcmoZ1KEzxtpl2K5xkrpFz9N2H9ClN
+    assets:
+      main:
+        - url: 'https://stackpath.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'
+          sri: sha384-CmLV3WR+cw/TcN50vJSYAs2EAzhDD77tQvGcmoZ1KEzxtpl2K5xkrpFz9N2H9ClN
   - version: 4.1.0
-    stylesheet: 'https://stackpath.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css'
-    stylesheetSri: sha384-X7L1bhgb36bF1iFvaqvhgpaGpayKM+vXNNYRlF89BFA5s3vi1qZ8EX9086RlZjy1
+    assets:
+      main:
+        - url: 'https://stackpath.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css'
+          sri: sha384-X7L1bhgb36bF1iFvaqvhgpaGpayKM+vXNNYRlF89BFA5s3vi1qZ8EX9086RlZjy1
   - version: 4.0.3
-    stylesheet: 'https://stackpath.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css'
-    stylesheetSri: sha384-UMpQFQdby6sZ3T16Qz0uq+QsAA7AhfgfMhkZdFOjY8D5kfgRaU2RKE6wHNEo7062
+    assets:
+      main:
+        - url: 'https://stackpath.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css'
+          sri: sha384-UMpQFQdby6sZ3T16Qz0uq+QsAA7AhfgfMhkZdFOjY8D5kfgRaU2RKE6wHNEo7062
   - version: 4.0.2
-    stylesheet: 'https://stackpath.bootstrapcdn.com/font-awesome/4.0.2/css/font-awesome.min.css'
-    stylesheetSri: sha384-5dQsFPHX9TfyZXy1AFBBv3gLnd1YI5OSKtFBaxfXLcPFSV5AjjLtS6FD4D8e7I/R
+    assets:
+      main:
+        - url: 'https://stackpath.bootstrapcdn.com/font-awesome/4.0.2/css/font-awesome.min.css'
+          sri: sha384-5dQsFPHX9TfyZXy1AFBBv3gLnd1YI5OSKtFBaxfXLcPFSV5AjjLtS6FD4D8e7I/R
   - version: 4.0.1
-    stylesheet: 'https://stackpath.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.min.css'
-    stylesheetSri: sha384-Sny7En3GKRrKIzzbFN1VJGA/wVVLmWH8/GeE7eBSe0M83a3WGyRCbh0VyljhaOKT
+    assets:
+      main:
+        - url: 'https://stackpath.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.min.css'
+          sri: sha384-Sny7En3GKRrKIzzbFN1VJGA/wVVLmWH8/GeE7eBSe0M83a3WGyRCbh0VyljhaOKT
   - version: 4.0.0
-    stylesheet: 'https://stackpath.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.min.css'
-    stylesheetSri: sha384-zFzXNZnkXgOSk/hRVQNKFU1ZqC9h18Ge1sp4XCwupvrh3zLMRHclbusmMKTznUnX
+    assets:
+      main:
+        - url: 'https://stackpath.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.min.css'
+          sri: sha384-zFzXNZnkXgOSk/hRVQNKFU1ZqC9h18Ge1sp4XCwupvrh3zLMRHclbusmMKTznUnX
   - version: 3.2.1
-    stylesheet: 'https://stackpath.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css'
-    stylesheetSri: sha384-5WSMKsEjlK1hO/E+0ERtEmsujy8NFgEb15UOB5phg+1xk2zTO0Dd71qJ+7yD1QFN
+    assets:
+      main:
+        - url: 'https://stackpath.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css'
+          sri: sha384-5WSMKsEjlK1hO/E+0ERtEmsujy8NFgEb15UOB5phg+1xk2zTO0Dd71qJ+7yD1QFN

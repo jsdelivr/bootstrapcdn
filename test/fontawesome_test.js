@@ -46,18 +46,20 @@ describe('fontawesome', () => {
         helpers.assert.bodyClass('page-fontawesome', response, done);
     });
 
-    it('has stylesheet', (done) => {
-        assert.ok(response.body.includes(current.stylesheet),
-            `Expects response body to include "${current.stylesheet}"`);
-        done();
-    });
-
-    ['html', 'pug', 'haml'].forEach((fmt) => {
-        it(`has ${fmt}`, (done) => {
-            const str = helpers.css[fmt](current.stylesheet, current.stylesheetSri);
-
-            assert.ok(response.body.includes(str), `Expects response body to include "${str}"`);
+    current.assets.forEach((type) => {
+        it('has stylesheet', (done) => {
+            assert.ok(response.body.includes(type.url),
+                `Expects response body to include "${type.url}"`);
             done();
+        });
+
+        ['html', 'pug', 'haml'].forEach((fmt) => {
+            it(`has ${fmt}`, (done) => {
+                const str = helpers.css[fmt](type.url, type.sri);
+
+                assert.ok(response.body.includes(str), `Expects response body to include "${str}"`);
+                done();
+            });
         });
     });
 });

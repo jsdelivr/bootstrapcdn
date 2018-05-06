@@ -73,14 +73,57 @@ files.bootstrap.forEach((bootstrap) => {
     }
 });
 
-// Font Awesome
-files.fontawesome.forEach((fontawesome) => {
-    const stylesheet = buildPath(fontawesome.stylesheet);
+// fontawesome
+(() => {
+    for (const fontawesome of files.fontawesome) {
+        // Skip when the key doesn't exist
+        if (typeof fontawesome.stylesheetAll === 'undefined') {
+            continue;
+        }
 
-    if (exists(stylesheet)) {
-        fontawesome.stylesheetSri = generateSri(stylesheet);
+        if (typeof fontawesome.stylesheetBrands === 'undefined') {
+            continue;
+        }
+
+        if (typeof fontawesome.stylesheetBrands === 'undefined') {
+            continue;
+        }
+
+        if (typeof fontawesome.stylesheetRegular === 'undefined') {
+            continue;
+        }
+
+        if (typeof fontawesome.stylesheetSolid === 'undefined') {
+            continue;
+        }
+
+        const stylesheet = buildPath(fontawesome.stylesheet);
+        const stylesheetAll = buildPath(fontawesome.stylesheetAll);
+        const stylesheetBrands = buildPath(fontawesome.stylesheetBrands);
+        const stylesheetRegular = buildPath(fontawesome.stylesheetRegular);
+        const stylesheetSolid = buildPath(fontawesome.stylesheetSolid);
+
+        if (exists(stylesheet)) {
+            fontawesome.stylesheetSri = generateSri(stylesheet);
+        }
+
+        if (exists(stylesheetAll)) {
+            fontawesome.stylesheetAllSri = generateSri(stylesheetAll);
+        }
+
+        if (exists(stylesheetBrands)) {
+            fontawesome.stylesheetBrandsSri = generateSri(stylesheetBrands);
+        }
+
+        if (exists(stylesheetRegular)) {
+            fontawesome.stylesheetRegularSri = generateSri(stylesheetRegular);
+        }
+
+        if (exists(stylesheetSolid)) {
+            fontawesome.stylesheetSolidSri = generateSri(stylesheetSolid);
+        }
     }
-});
+})();
 
 // Create backup file
 fs.copyFileSync(configFile, `${configFile}.bak`);

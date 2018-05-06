@@ -3,24 +3,26 @@ extends ../layout.pug
 block content
     h2.text-center.mb-4 Font Awesome Legacy
 
-    each item in config.files.fontawesome
-        unless (item.current)
-            .card.bg-light.mt-4.p-4.text-center
-                h3.mt-2=`v${item.version}`
+    each fa in config.files.fontawesome
+        unless (fa.current)
+            each type in fa.assets
+                each item in type
+                    .card.bg-light.mt-4.p-4.text-center
+                        h3.mt-2=`v${fa.version}`
 
-                -var name   = `fontawesomecss_${item.version.replace(/\./g, '_')}`;
-                -var file   = item.stylesheet;
-                -var sri    = item.stylesheetSri;
-                -var formId = `${name}_form`;
+                        -var name   = `fontawesomecss_${fa.version.replace(/\./g, '_')}`;
+                        -var file   = item.url;
+                        -var sri    = item.sri;
+                        -var formId = `${name}_form`;
 
-                .form-group.my-4
-                    label.font-weight-bold(for=formId) Complete CSS
-                    .input-group.input-group-lg
-                        input.form-control(id=formId, type='text', readonly, value=file)
-                        .input-group-append
-                            button.btn.btn-dark.dropdown-toggle(type='button', data-toggle='collapse', data-target=`#${name}`, aria-label='Toggle Dropdown', aria-expanded='false', aria-controls=name)
-                    span.form-text.text-muted Click to copy
+                        .form-group.my-4
+                            label.font-weight-bold(for=formId) Complete CSS
+                            .input-group.input-group-lg
+                                input.form-control(id=formId, type='text', readonly, value=file)
+                                .input-group-append
+                                    button.btn.btn-dark.dropdown-toggle(type='button', data-toggle='collapse', data-target=`#${name}`, aria-label='Toggle Dropdown', aria-expanded='false', aria-controls=name)
+                            span.form-text.text-muted Click to copy
 
-                include ../_partials/csscode.pug
+                        include ../_partials/csscode.pug
 
 //- vim: ft=pug sw=4 sts=4 et:
