@@ -58,10 +58,17 @@ function assertHeaders(uri, header, value) {
             assert.ok(Object.prototype.hasOwnProperty.call(responses[uri].headers, header),
                 `Expects "${header}" in: ${Object.keys(responses[uri].headers).join(', ')}`);
 
+            // Ignore case in checking equality.
+            const actual = responses[uri].headers[header].toLowerCase();
+
             if (typeof value !== 'undefined') {
-                assert.strictEqual(responses[uri].headers[header], value);
+                const expected = value.toLowerCase();
+
+                assert.strictEqual(actual, expected);
             } else if (expectedHeaders[header]) {
-                assert.strictEqual(responses[uri].headers[header], expectedHeaders[header]);
+                const expected = expectedHeaders[header].toLowerCase();
+
+                assert.strictEqual(actual, expected);
             }
 
             done();
