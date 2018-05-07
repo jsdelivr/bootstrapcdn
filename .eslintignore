@@ -1,4 +1,5 @@
 /.git/
+/coverage/
 /node_modules/
 /public/assets/js/vendor/
 /public/bootlint/

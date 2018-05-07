@@ -41,10 +41,10 @@ function request(uri, cb) {
     });
 }
 
-function assertSRI(uri, sri, done) {
-    const expected = digest(responses[uri].body, true);
+function assertSRI(uri, actualSri, done) {
+    const expectedSri = digest(responses[uri].body, true);
 
-    assert.strictEqual(expected, sri);
+    assert.strictEqual(actualSri, expectedSri);
     done();
 }
 
@@ -75,8 +75,8 @@ describe('functional', () => {
             const uri = helpers.domainCheck(self.javascript);
 
             it('it works', (done) => {
-                request(uri, () => {
-                    helpers.assert.itWorks(responses[uri].statusCode, done);
+                request(uri, (res) => {
+                    helpers.assert.itWorks(res.statusCode, done);
                 });
             });
 
@@ -90,8 +90,8 @@ describe('functional', () => {
                 const uri = helpers.domainCheck(self.javascriptBundle);
 
                 it('it works', (done) => {
-                    request(uri, () => {
-                        helpers.assert.itWorks(responses[uri].statusCode, done);
+                    request(uri, (res) => {
+                        helpers.assert.itWorks(res.statusCode, done);
                     });
                 });
 
@@ -105,8 +105,8 @@ describe('functional', () => {
             const uri = helpers.domainCheck(self.stylesheet);
 
             it('it works', (done) => {
-                request(uri, () => {
-                    helpers.assert.itWorks(responses[uri].statusCode, done);
+                request(uri, (res) => {
+                    helpers.assert.itWorks(res.statusCode, done);
                 });
             });
 
@@ -124,8 +124,8 @@ describe('functional', () => {
 
             describe(uri, () => {
                 it('it works', (done) => {
-                    request(uri, () => {
-                        helpers.assert.itWorks(responses[uri].statusCode, done);
+                    request(uri, (res) => {
+                        helpers.assert.itWorks(res.statusCode, done);
                     });
                 });
 
@@ -144,8 +144,8 @@ describe('functional', () => {
 
             describe(uri, () => {
                 it('it works', (done) => {
-                    request(uri, () => {
-                        helpers.assert.itWorks(responses[uri].statusCode, done);
+                    request(uri, (res) => {
+                        helpers.assert.itWorks(res.statusCode, done);
                     });
                 });
 
@@ -162,8 +162,8 @@ describe('functional', () => {
 
             describe(uri, () => {
                 it('it works', (done) => {
-                    request(uri, () => {
-                        helpers.assert.itWorks(responses[uri].statusCode, done);
+                    request(uri, (res) => {
+                        helpers.assert.itWorks(res.statusCode, done);
                     });
                 });
 
@@ -180,8 +180,8 @@ describe('functional', () => {
 
             describe(uri, () => {
                 it('it works', (done) => {
-                    request(uri, () => {
-                        helpers.assert.itWorks(responses[uri].statusCode, done);
+                    request(uri, (res) => {
+                        helpers.assert.itWorks(res.statusCode, done);
                     });
                 });
 
@@ -236,8 +236,8 @@ describe('functional', () => {
         for (const uri of publicURIs) {
             describe(uri, () => {
                 it('it works', (done) => {
-                    request(uri, () => {
-                        helpers.assert.itWorks(responses[uri].statusCode, done);
+                    request(uri, (res) => {
+                        helpers.assert.itWorks(res.statusCode, done);
                     });
                 });
 

@@ -9,14 +9,14 @@ const uri       = helpers.runApp(config, 'data/bootstrapcdn.json');
 
 let response    = {};
 
-before((done) => {
-    helpers.preFetch(uri, (res) => {
-        response = res;
-        done();
-    });
-});
-
 describe('data', () => {
+    before((done) => {
+        helpers.preFetch(uri, (res) => {
+            response = res;
+            done();
+        });
+    });
+
     it('/data/bootstrapcdn.json :: 200\'s', (done) => {
         helpers.assert.itWorks(response.statusCode, done);
     });
@@ -25,7 +25,7 @@ describe('data', () => {
         const expected = libHelpers.generateDataJson();
         const actual = JSON.parse(response.body);
 
-        assert.deepStrictEqual(expected, actual);
+        assert.deepStrictEqual(actual, expected);
         done();
     });
 });

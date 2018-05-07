@@ -54,7 +54,7 @@ function assertContentType(uri, currentType, cb) {
     const ext = getExtension(uri);
     const expectedType = CONTENT_TYPE_MAP[ext];
 
-    assert.strictEqual(expectedType, currentType,
+    assert.strictEqual(currentType, expectedType,
         `Invalid "content-type" for "${ext}", expects "${expectedType}" but got "${currentType}"`);
     cb();
 }
@@ -82,7 +82,7 @@ function runApp(cfg, endpoint) {
     process.env.PORT = port;
 
     // load app
-    require('../app.js');
+    require('../bin/www.js');
 
     return `http://localhost:${port}${endp}`;
 }

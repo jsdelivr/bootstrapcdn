@@ -8,14 +8,14 @@ const uri       = helpers.runApp(config, 'robots.txt');
 
 let response    = {};
 
-before((done) => {
-    helpers.preFetch(uri, (res) => {
-        response = res;
-        done();
-    });
-});
-
 describe('robots.txt', () => {
+    before((done) => {
+        helpers.preFetch(uri, (res) => {
+            response = res;
+            done();
+        });
+    });
+
     it('works', (done) => {
         helpers.assert.itWorks(response.statusCode, done);
     });
@@ -23,7 +23,7 @@ describe('robots.txt', () => {
     it('has content', (done) => {
         const expected = 'User-agent: *\nDisallow:';
 
-        assert.strictEqual(response.body.trim(), expected.trim(), 'Expects response to be valid robots.txt');
+        assert.strictEqual(response.body.trim(), expected, 'Expects response to be valid robots.txt');
         done();
     });
 });
