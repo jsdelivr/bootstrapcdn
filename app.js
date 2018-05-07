@@ -1,15 +1,15 @@
 'use strict';
 
-const path         = require('path');
-const express      = require('express');
-const uuidv4       = require('uuid/v4');
-const semver       = require('semver');
+const path    = require('path');
+const express = require('express');
+const uuidv4  = require('uuid/v4');
+const semver  = require('semver');
 
 // constants
-const ENV          = process.env;
-const NODE_ENV     = ENV.NODE_ENV || 'development';
-const PUBLIC_DIR   = path.join(__dirname, 'public');
-const STATIC_OPTS  = {
+const ENV         = process.env;
+const NODE_ENV    = ENV.NODE_ENV || 'development';
+const PUBLIC_DIR  = path.join(__dirname, 'public');
+const STATIC_OPTS = {
     maxAge: '1y',
     lastModified: true,
     etag: false
@@ -28,12 +28,11 @@ const staticify    = require('staticify')(PUBLIC_DIR, {
     sendOptions: STATIC_OPTS
 });
 
-const helpers      = require('./lib/helpers.js');
-const CSP          = require('./config/helmet-csp.js');
-const routes       = require('./routes');
+const config  = require('./config');
+const helpers = require('./lib/helpers.js');
+const routes  = require('./routes');
 
-const config       = helpers.getConfig();
-const app          = express();
+const app     = express();
 
 // all environments
 app.set('views', path.join(__dirname, '/views/'));
@@ -130,7 +129,7 @@ app.use(helmet.hsts({
 app.use(helmet.referrerPolicy({ policy: 'strict-origin-when-cross-origin' }));
 
 app.use(helmet.contentSecurityPolicy({
-    directives: CSP,
+    directives: config.CSP,
 
     // This module will detect common mistakes in your directives and throw errors
     // if it finds any. To disable this, enable "loose mode".
