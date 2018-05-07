@@ -2,9 +2,7 @@
 
 const http = require('http');
 const app = require('../app.js');
-const helpers = require('../lib/helpers.js');
-
-const config = helpers.getConfig();
+const config = require('../config');
 
 app.set('port', process.env.PORT || config.port || 3000);
 
