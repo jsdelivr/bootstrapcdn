@@ -21,7 +21,6 @@ const CSP = {
         'srv.carbonads.net',
         'adn.fusionads.net',
         'fallbacks.carbonads.com',
-        'redalert.battleforthenet.com',
         (req, res) => `'nonce-${res.locals.nonce}'`
     ],
     styleSrc: [
@@ -60,14 +59,12 @@ const CSP = {
         '\'self\'',
         'platform.twitter.com',
         'syndication.twitter.com',
-        'redalert.battleforthenet.com',
         'ghbtns.com'
     ],
     childSrc: [
         '\'self\'',
         'platform.twitter.com',
         'syndication.twitter.com',
-        'redalert.battleforthenet.com',
         'ghbtns.com'
     ],
     connectSrc: [
