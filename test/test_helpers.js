@@ -149,9 +149,9 @@ function assertValidHTML(res, cb) {
     });
 }
 
-function assertItWorks(res, cb) {
+function assertItWorks(statusCode, cb) {
     try {
-        assert.strictEqual(200, res);
+        assert.strictEqual(statusCode, 200);
         return cb();
     } catch (err) {
         return cb(err);
