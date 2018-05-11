@@ -1,6 +1,6 @@
 version: "{build}"
 
-clone_depth: 10
+clone_depth: 5
 
 environment:
   matrix:
