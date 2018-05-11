@@ -21,6 +21,7 @@ test_script:
   - node -v
   - npm -v
   - npm run ci
+  - npm run coverage
 
 matrix:
   fast_finish: true
