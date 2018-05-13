@@ -16,16 +16,16 @@
     "server": "node bin/www.js",
     "start": "cross-env NODE_ENV=production npm run server",
     "ci": "npm run lint && npm run mocha:suite",
+    "ci-with-coverage": "npm run lint && nyc npm run mocha:suite",
     "test": "npm run lint && npm run mocha",
+    "test-with-coverage": "npm run lint && nyc npm run mocha",
     "purge-latest": "bash ./scripts/purge.sh",
     "bootlint": "node ./scripts/update_bootlint.js",
     "bootstrap": "node ./scripts/update_bootstrap.js",
     "bootswatch": "node ./scripts/update_bootswatch.js",
     "integrity": "node ./scripts/integrity.js",
     "sri": "node ./scripts/sri.js",
-    "wp-plugin": "node ./scripts/wp-plugin.js",
-    "cov": "istanbul cover app.js",
-    "coverage": "npm run cov"
+    "wp-plugin": "node ./scripts/wp-plugin.js"
   },
   "dependencies": {
     "compression": "^1.7.2",
@@ -54,10 +54,10 @@
     "fs-walk": "^0.0.2",
     "html-validator": "^3.0.2",
     "htmlencode": "^0.0.4",
-    "istanbul": "^0.4.5",
     "mocha": "^5.2.0",
     "mockdate": "^2.0.2",
     "nodemon": "^1.17.4",
+    "nyc": "^11.8.0",
     "pug-lint": "^2.5.0",
     "pug-lint-config-clock": "^2.0.0",
     "request": "^2.86.0",
@@ -65,5 +65,14 @@
   },
   "engines": {
     "node": "10.x"
+  },
+  "nyc": {
+    "include": [
+      "**/*.js"
+    ],
+    "reporter": [
+      "html",
+      "text-summary"
+    ]
   }
 }
