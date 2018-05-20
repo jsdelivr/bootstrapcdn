@@ -11,6 +11,7 @@ const config = helpers.getConfig();
 
 const responses = {};
 
+// Expects header names to be lowercase in this object.
 const expectedHeaders = {
     'accept-ranges': 'bytes',
     'access-control-allow-origin': '*',
@@ -90,6 +91,8 @@ function assertHeaders(uri) {
     const ext = helpers.getExtension(uri);
 
     Object.keys(expectedHeaders).forEach((header) => {
+        header = header.toLowerCase();
+
         if (typeof process.env.TEST_S3 !== 'undefined' && !s3include.includes(header)) {
             it.skip(`has ${header}`);
         } else {
