@@ -1,16 +1,14 @@
 'use strict';
 
-const assert    = require('assert');
-const helpers   = require('./test_helpers.js');
-
-const config    = helpers.getConfig();
-const uri       = helpers.runApp(config, 'robots.txt');
-
-let response    = {};
+const assert = require('assert').strict;
+const helpers = require('./test_helpers.js');
 
 describe('robots.txt', () => {
+    const uri = helpers.getURI('robots.txt');
+    let response = {};
+
     before((done) => {
-        helpers.preFetch(uri, (res) => {
+        helpers.prefetch(uri, (res) => {
             response = res;
             done();
         });

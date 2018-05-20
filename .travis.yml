@@ -1,5 +1,5 @@
 git:
-  depth: 10
+  depth: 5
 
 language: node_js
 
@@ -7,6 +7,9 @@ node_js:
   - "10"
 
 script: npm run ci
+
+after_success:
+  - npm run coverage
 
 matrix:
   fast_finish: true

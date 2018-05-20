@@ -1,16 +1,15 @@
 'use strict';
 
-const assert    = require('assert');
-const helpers   = require('./test_helpers.js');
-
-const config    = helpers.getConfig();
-const uri       = helpers.runApp(config, '404');
-
-let response    = {};
+const assert = require('assert').strict;
+const helpers = require('./test_helpers.js');
 
 describe('404', () => {
+    const uri = helpers.getURI('404');
+    let response = {};
+
     before((done) => {
-        helpers.preFetch(uri, (res) => {
+        helpers.startServer();
+        helpers.prefetch(uri, (res) => {
             response = res;
             done();
         });

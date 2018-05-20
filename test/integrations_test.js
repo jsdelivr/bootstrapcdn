@@ -1,18 +1,17 @@
 'use strict';
 
-const assert     = require('assert');
-const path       = require('path');
-const staticify  = require('staticify')(path.join(__dirname, '../public'));
-const helpers    = require('./test_helpers.js');
-
-const config     = helpers.getConfig();
-const uri        = helpers.runApp(config, 'integrations');
-
-let response = {};
+const assert = require('assert').strict;
+const path = require('path');
+const staticify = require('staticify')(path.join(__dirname, '../public'));
+const helpers = require('./test_helpers.js');
 
 describe('integrations', () => {
+    const config = helpers.getConfig();
+    const uri = helpers.getURI('integrations');
+    let response = {};
+
     before((done) => {
-        helpers.preFetch(uri, (res) => {
+        helpers.prefetch(uri, (res) => {
             response = res;
             done();
         });

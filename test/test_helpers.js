@@ -1,18 +1,21 @@
-/* eslint global-require: 0 */
 'use strict';
 
 // Force NODE_ENV (and thus 'env' in express)
 process.env.NODE_ENV = 'test';
 process.env.ENABLE_CRAWLING = true;
 
-const assert     = require('assert');
+const assert = require('assert').strict;
 const htmlEncode = require('htmlencode').htmlEncode;
-const mockDate   = require('mockdate');
-const request    = require('request');
-const validator  = require('html-validator');
-const helpers    = require('../lib/helpers.js');
+const mockDate = require('mockdate');
+const request = require('request');
+const validator = require('html-validator');
+const app = require('../app.js');
+const helpers = require('../lib/helpers.js');
 
-let response = {};
+// The server object holds the server instance across all tests;
+// We start it in the first test and close it in the last one,
+// otherwise test time increases a lot (more than 3x)
+let server = {};
 
 mockDate.set('03/05/2018');
 
@@ -74,66 +77,38 @@ function cleanEndpoint(endpoint = '/') {
     return endpoint;
 }
 
-function runApp(cfg, endpoint) {
-    const endp = cleanEndpoint(endpoint);
-    const port = cfg.port < 3000 ? cfg.port + 3000 : cfg.port + 1;
-
+function getPort() {
+    const config = getConfig();
     // don't use configured port
-    process.env.PORT = port;
+    const port = config.port < 3000 ? config.port + 3000 : config.port + 1;
 
-    // load app
-    require('../bin/www.js');
+    return port;
+}
+
+function getURI(endpoint) {
+    const endp = cleanEndpoint(endpoint);
+    const port = getPort();
 
     return `http://localhost:${port}${endp}`;
 }
 
-function assertValidHTML(res, done) {
-    const options = {
-        data: res.body,
-        format: 'text'
-    };
+function startServer() {
+    const port = getPort();
 
-    validator(options, (err, data) => {
-        if (err) {
-            return done(err);
-        }
+    if (server.listening) {
+        return server;
+    }
 
-        // Return when successful.
-        if (data.includes('The document validates')) {
-            return done();
-        }
+    server = app.listen(port);
 
-        // Formatting output for readability.
-        const errStr = `HTML Validation for '${res.request.path}' failed with:\n\t${data.replace('Error: ', '').split('\n').join('\n\t')}\n`;
-
-        return done(new Error(errStr));
-    });
+    return server;
 }
 
-function assertItWorks(res, done) {
-    const ret = assert.strictEqual(200, res);
-
-    done(ret);
+function stopServer(done) {
+    return server.listening && server.close(done);
 }
 
-function assertPageHeader(txt, res, done) {
-    const escapedTxt = escapeRegExp(txt);
-    const re = new RegExp(`<h[1-6]( class=".+")?>(${escapedTxt})(</h[1-6]>)`);
-
-    assert.ok(re.test(res.body), `Expects page header to be "${txt}"`);
-    done();
-}
-
-function assertAuthors(res, done) {
-    const config = getConfig();
-    const authors = config.authors.map((author) => author.name).join(', ');
-    const authorsStr = `<meta name="author" content="${authors}">`;
-    const ret = assert.ok(res.body.includes(authorsStr), `Expects response body to include "${authorsStr}"`);
-
-    done(ret);
-}
-
-function preFetch(uri, cb) {
+function prefetch(uri, cb) {
     const reqOpts = {
         uri,
         forever: true, // for 'connection: Keep-Alive'
@@ -141,15 +116,63 @@ function preFetch(uri, cb) {
         gzip: true
     };
 
-    request.get(reqOpts, (err, res, body) => {
+    request.get(reqOpts, (err, res) => {
         if (err) {
-            console.log(err);
+            return cb(err);
         }
 
-        response = res;
-        response.body = body;
-    })
-    .on('complete', () => cb(response));
+        return cb(res);
+    });
+}
+
+
+function assertValidHTML(res, cb) {
+    const options = {
+        data: res.body,
+        format: 'text'
+    };
+
+    validator(options, (err, data) => {
+        if (err) {
+            return cb(err);
+        }
+
+        // Return when successful.
+        if (data.includes('The document validates')) {
+            return cb();
+        }
+
+        // Formatting output for readability.
+        const errStr = `HTML Validation for '${res.request.path}' failed with:\n\t${data.replace('Error: ', '').split('\n').join('\n\t')}\n`;
+
+        return cb(new Error(errStr));
+    });
+}
+
+function assertItWorks(statusCode, cb) {
+    try {
+        assert.strictEqual(statusCode, 200);
+        return cb();
+    } catch (err) {
+        return cb(err);
+    }
+}
+
+function assertPageHeader(txt, res, cb) {
+    const escapedTxt = escapeRegExp(txt);
+    const re = new RegExp(`<h[1-6]( class=".+")?>(${escapedTxt})(</h[1-6]>)`);
+
+    assert.ok(re.test(res.body), `Expects page header to be "${txt}"`);
+    cb();
+}
+
+function assertAuthors(res, cb) {
+    const config = getConfig();
+    const authors = config.authors.map((author) => author.name).join(', ');
+    const authorsStr = `<meta name="author" content="${authors}">`;
+
+    assert.ok(res.body.includes(authorsStr), `Expects response body to include "${authorsStr}"`);
+    cb();
 }
 
 function cssHTML(uri, sri) {
@@ -176,17 +199,11 @@ function jsHAML(uri, sri) {
     return htmlEncode(`%script{src: "${uri}", integrity: "${sri}", crossorigin: "anonymous"}`);
 }
 
-function domainCheck(uri) {
-    if (typeof process.env.TEST_S3 === 'undefined') {
-        return uri;
-    }
-
-    return uri.replace('https://stackpath.bootstrapcdn.com/', process.env.TEST_S3);
-}
-
 module.exports = {
     getConfig,
-    runApp,
+    getURI,
+    startServer,
+    stopServer,
     assert: {
         authors: assertAuthors,
         contentType: assertContentType,
@@ -194,8 +211,7 @@ module.exports = {
         pageHeader: assertPageHeader,
         validHTML: assertValidHTML
     },
-    preFetch,
-    getExtension,
+    prefetch,
     css: {
         pug: cssJade,
         html: cssHTML,
@@ -205,7 +221,5 @@ module.exports = {
         pug: jsJade,
         html: jsHTML,
         haml: jsHAML
-    },
-    CONTENT_TYPE_MAP,
-    domainCheck
+    }
 };

@@ -1,16 +1,16 @@
 'use strict';
 
-const assert    = require('assert');
-const helpers   = require('./test_helpers.js');
-
-const config    = helpers.getConfig();
-const uri       = helpers.runApp(config);
-
-let response    = {};
+const assert = require('assert').strict;
+const helpers = require('./test_helpers.js');
 
 describe('index', () => {
+    const config = helpers.getConfig();
+    const uri = helpers.getURI();
+    const current = config.bootstrap[0];
+    let response = {};
+
     before((done) => {
-        helpers.preFetch(uri, (res) => {
+        helpers.prefetch(uri, (res) => {
             response = res;
             done();
         });
@@ -19,8 +19,6 @@ describe('index', () => {
     it('works', (done) => {
         helpers.assert.itWorks(response.statusCode, done);
     });
-
-    const current = config.bootstrap[0];
 
     it('is current', (done) => {
         assert.ok(current.current);

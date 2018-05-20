@@ -1,16 +1,15 @@
 'use strict';
 
-const assert    = require('assert');
-const helpers   = require('./test_helpers.js');
-
-const config    = helpers.getConfig();
-const uri       = helpers.runApp(config, 'legacy/bootstrap');
-
-let response    = {};
+const assert = require('assert').strict;
+const helpers = require('./test_helpers.js');
 
 describe('legacy/bootstrap', () => {
+    const config = helpers.getConfig();
+    const uri = helpers.getURI('legacy/bootstrap');
+    let response = {};
+
     before((done) => {
-        helpers.preFetch(uri, (res) => {
+        helpers.prefetch(uri, (res) => {
             response = res;
             done();
         });
