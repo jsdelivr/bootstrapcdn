@@ -8,6 +8,9 @@ node_js:
 
 script: npm run ci-with-coverage
 
+after_success:
+  - npm run coveralls
+
 matrix:
   fast_finish: true
 

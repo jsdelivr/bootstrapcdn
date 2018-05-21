@@ -20,7 +20,7 @@ build: off
 test_script:
   - node -v
   - npm -v
-  - npm run ci-with-coverage
+  - npm run ci
 
 matrix:
   fast_finish: true

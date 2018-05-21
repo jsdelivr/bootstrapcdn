@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "clean": "rm -rf ./node_modules/",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls",
     "eslint": "eslint .",
     "puglint": "pug-lint views/",
     "pug-lint": "npm run puglint",
@@ -49,6 +50,7 @@
   "devDependencies": {
     "bootlint": "0.14.2",
     "bootstrap": "4.1.1",
+    "coveralls": "^3.0.1",
     "eslint": "^4.19.1",
     "fs-extra": "^6.0.1",
     "fs-walk": "^0.0.2",
