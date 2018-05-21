@@ -11,12 +11,12 @@ const config = helpers.getConfig();
 
 const responses = {};
 
+// Expects header names to be lowercase in this object.
 const expectedHeaders = {
     'accept-ranges': 'bytes',
     'access-control-allow-origin': '*',
     'cache-control': 'max-age=31536000',
     'connection': 'Keep-Alive',
-    'content-encoding': 'gzip',
     'content-length': '',
     'date': '',
     'etag': '',
@@ -24,6 +24,36 @@ const expectedHeaders = {
     'vary': 'Accept-Encoding',
     'x-cache': '',
     'x-hello-human': 'Say hello back! @getBootstrapCDN on Twitter'
+};
+
+const compressedExtensions = [
+    'css',
+    'eot',
+    'js',
+    'map',
+    'otf',
+    'svg',
+    'ttf',
+    'woff',
+    'woff2'
+];
+
+const CONTENT_TYPE_MAP = {
+    css: 'text/css; charset=utf-8',
+    js: 'application/javascript; charset=utf-8',
+
+    map: 'application/json; charset=utf-8',
+
+    // images
+    png: 'image/png',
+    svg: 'image/svg+xml',
+
+    // fonts
+    eot: 'application/vnd.ms-fontobject',
+    otf: 'application/x-font-otf',
+    ttf: 'application/x-font-ttf',
+    woff: 'application/font-woff',
+    woff2: 'application/font-woff2'
 };
 
 // Helper functions used in this file
@@ -57,26 +87,53 @@ function assertSRI(uri, actualSri, done) {
 
 const s3include = ['content-type'];
 
-function assertHeaders(uri, header) {
-    if (typeof process.env.TEST_S3 !== 'undefined' && !s3include.includes(header)) {
-        it.skip(`has ${header}`);
+function assertHeaders(uri) {
+    const ext = helpers.getExtension(uri);
+
+    Object.keys(expectedHeaders).forEach((header) => {
+        header = header.toLowerCase();
+
+        if (typeof process.env.TEST_S3 !== 'undefined' && !s3include.includes(header)) {
+            it.skip(`has ${header}`);
+        } else {
+            it(`has ${header}`, (done) => {
+                assert.ok(Object.prototype.hasOwnProperty.call(responses[uri].headers, header),
+                    `Expects "${header}" in: ${Object.keys(responses[uri].headers).join(', ')}`);
+
+                // Ignore case in checking equality.
+                const actual = responses[uri].headers[header].toLowerCase();
+
+                if (expectedHeaders[header] !== '') {
+                    const expected = expectedHeaders[header].toLowerCase();
+
+                    assert.strictEqual(actual, expected);
+                }
+                done();
+            });
+        }
+    });
+
+    if (compressedExtensions.includes(ext)) {
+        it('has content-encoding: gzip', (done) => {
+            assert.strictEqual(responses[uri].headers['content-encoding'], 'gzip');
+            done();
+        });
     } else {
-        it(`has ${header}`, (done) => {
-            assert.ok(Object.prototype.hasOwnProperty.call(responses[uri].headers, header),
-                `Expects "${header}" in: ${Object.keys(responses[uri].headers).join(', ')}`);
-
-            // Ignore case in checking equality.
-            const actual = responses[uri].headers[header].toLowerCase();
-
-            if (expectedHeaders[header] !== '') {
-                const expected = expectedHeaders[header].toLowerCase();
-
-                assert.strictEqual(actual, expected);
-            }
-
+        it('does NOT have content-encoding set', (done) => {
+            // eslint-disable-next-line no-undefined
+            assert.strictEqual(responses[uri].headers['content-encoding'], undefined);
             done();
         });
     }
+}
+
+function assertContentType(uri, currentType, cb) {
+    const ext = helpers.getExtension(uri);
+    const expectedType = CONTENT_TYPE_MAP[ext];
+
+    assert.strictEqual(currentType, expectedType,
+        `Invalid "content-type" for "${ext}", expects "${expectedType}" but got "${currentType}"`);
+    cb();
 }
 
 describe('functional', () => {
@@ -250,12 +307,10 @@ describe('functional', () => {
                     });
                 });
 
-                Object.keys(expectedHeaders).forEach((header) => {
-                    assertHeaders(uri, header);
-                });
+                assertHeaders(uri);
 
                 it('has content-type', (done) => {
-                    helpers.assert.contentType(uri, responses[uri].headers['content-type'], done);
+                    assertContentType(uri, responses[uri].headers['content-type'], done);
                 });
             });
         }

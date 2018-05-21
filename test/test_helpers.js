@@ -12,30 +12,14 @@ const validator = require('html-validator');
 const app = require('../app.js');
 const helpers = require('../lib/helpers.js');
 
+const config = helpers.getConfig();
+
 // The server object holds the server instance across all tests;
 // We start it in the first test and close it in the last one,
 // otherwise test time increases a lot (more than 3x)
 let server = {};
 
 mockDate.set('03/05/2018');
-
-const CONTENT_TYPE_MAP = {
-    css: 'text/css; charset=utf-8',
-    js: 'application/javascript; charset=utf-8',
-
-    map: 'application/json; charset=utf-8',
-
-    // images
-    png: 'image/png',
-    svg: 'image/svg+xml',
-
-    // fonts
-    eot: 'application/vnd.ms-fontobject',
-    otf: 'application/x-font-otf',
-    ttf: 'application/x-font-ttf',
-    woff: 'application/font-woff',
-    woff2: 'application/font-woff2'
-};
 
 function getExtension(str) {
     // use two enclosing parts; one for the dot (.)
@@ -53,17 +37,10 @@ function escapeRegExp(string) {
     return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); // $& means the whole matched string
 }
 
-function assertContentType(uri, currentType, cb) {
-    const ext = getExtension(uri);
-    const expectedType = CONTENT_TYPE_MAP[ext];
-
-    assert.strictEqual(currentType, expectedType,
-        `Invalid "content-type" for "${ext}", expects "${expectedType}" but got "${currentType}"`);
-    cb();
-}
-
+// Just returning the existent config so that
+// we don't have to import lib/helpers in tests.
 function getConfig() {
-    return helpers.getConfig();
+    return config;
 }
 
 function cleanEndpoint(endpoint = '/') {
@@ -78,7 +55,6 @@ function cleanEndpoint(endpoint = '/') {
 }
 
 function getPort() {
-    const config = getConfig();
     // don't use configured port
     const port = config.port < 3000 ? config.port + 3000 : config.port + 1;
 
@@ -125,7 +101,6 @@ function prefetch(uri, cb) {
     });
 }
 
-
 function assertValidHTML(res, cb) {
     const options = {
         data: res.body,
@@ -167,7 +142,6 @@ function assertPageHeader(txt, res, cb) {
 }
 
 function assertAuthors(res, cb) {
-    const config = getConfig();
     const authors = config.authors.map((author) => author.name).join(', ');
     const authorsStr = `<meta name="author" content="${authors}">`;
 
@@ -201,12 +175,12 @@ function jsHAML(uri, sri) {
 
 module.exports = {
     getConfig,
+    getExtension,
     getURI,
     startServer,
     stopServer,
     assert: {
         authors: assertAuthors,
-        contentType: assertContentType,
         itWorks: assertItWorks,
         pageHeader: assertPageHeader,
         validHTML: assertValidHTML

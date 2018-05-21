@@ -5,6 +5,7 @@ config/_config.yml.bak
 Dockme.yml
 lint.html
 npm-debug.log
+.nyc_output/
 coverage/
 data/
 node_modules/
