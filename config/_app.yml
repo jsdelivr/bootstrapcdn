@@ -1,0 +1,43 @@
+port: 3333
+theme: 1
+siteurl: 'https://www.bootstrapcdn.com'
+authors:
+  - name: Justin Dorfman
+    twitter: jdorfman
+    url: 'https://twitter.com/jdorfman'
+    work:
+      text: Sticker Mule
+      url: 'https://www.stickermule.com/'
+  - name: Joshua Mervine
+    twitter: mervinej
+    url: 'https://twitter.com/mervinej'
+    work:
+      text: Heroku
+      url: 'https://www.heroku.com/'
+  - name: XhmikosR
+    twitter: XhmikosR
+    url: 'https://xhmikosr.io/'
+description: 'The recommended CDN for Bootstrap, Font Awesome and Bootswatch.'
+favicon:
+  uri: /assets/img/favicons/favicon.ico
+stylesheet:
+  - name: iubenda
+    uri: /assets/css/privacy_policy.css
+javascript:
+  - name: jquery
+    uri: 'https://code.jquery.com/jquery-3.3.1.slim.min.js'
+    sri: sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo
+  - name: clipboardjs
+    uri: /assets/js/vendor/clipboard.min.js
+  - name: main
+    uri: /assets/js/main.js
+redirects:
+  - name: legacy
+    from: /legacy/
+    to: /legacy/bootstrap/
+  - name: alpha
+    from: /alpha/
+    to: /
+  - name: beta
+    from: /beta/
+    to: /

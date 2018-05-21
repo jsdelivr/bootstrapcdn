@@ -1,15 +1,15 @@
 'use strict';
 
-const path         = require('path');
-const express      = require('express');
-const uuidv4       = require('uuid/v4');
-const semver       = require('semver');
+const path    = require('path');
+const express = require('express');
+const uuidv4  = require('uuid/v4');
+const semver  = require('semver');
 
 // constants
-const ENV          = process.env;
-const NODE_ENV     = ENV.NODE_ENV || 'development';
-const PUBLIC_DIR   = path.join(__dirname, 'public');
-const STATIC_OPTS  = {
+const ENV         = process.env;
+const NODE_ENV    = ENV.NODE_ENV || 'development';
+const PUBLIC_DIR  = path.join(__dirname, 'public');
+const STATIC_OPTS = {
     maxAge: '1y',
     lastModified: true,
     etag: false
@@ -28,12 +28,11 @@ const staticify    = require('staticify')(PUBLIC_DIR, {
     sendOptions: STATIC_OPTS
 });
 
-const helpers      = require('./lib/helpers.js');
-const CSP          = require('./config/helmet-csp.js');
-const routes       = require('./routes');
+const config  = require('./config');
+const helpers = require('./lib/helpers.js');
+const routes  = require('./routes');
 
-const config       = helpers.getConfig();
-const app          = express();
+const app     = express();
 
 // all environments
 app.set('views', path.join(__dirname, '/views/'));
@@ -130,7 +129,7 @@ app.use(helmet.hsts({
 app.use(helmet.referrerPolicy({ policy: 'strict-origin-when-cross-origin' }));
 
 app.use(helmet.contentSecurityPolicy({
-    directives: CSP,
+    directives: config.CSP,
 
     // This module will detect common mistakes in your directives and throw errors
     // if it finds any. To disable this, enable "loose mode".
@@ -176,7 +175,7 @@ app.use('/showcase/', routes.showcaseRoute);
 const map = sitemap({
     url: 'www.bootstrapcdn.com',
     http: 'https',
-    generate: app,
+    sitemapSubmission: '/sitemap.xml',
     cache: 60000,       // enable 1m cache
     route: {            // custom route
         '/': {
@@ -199,12 +198,31 @@ const map = sitemap({
         },
         '/legacy/': {
             hide: true
+        },
+        '/sitemap.xml': {
+            hide: true
+        },
+        '/robots.txt': {
+            hide: true
         }
     }
 });
 
 if (ENV.ENABLE_CRAWLING) {
-    app.get('/sitemap.xml', (req, res) => map.XMLtoWeb(res));
+    app.get('/sitemap.xml', (req, res) => {
+        map.generate4(app, [
+            '/',
+            '/about',
+            '/bootlint',
+            '/bootswatch',
+            '/fontawesome',
+            '/integrations',
+            '/legacy',
+            '/privacy-policy',
+            '/showcase'
+        ]);
+        return map.XMLtoWeb(res);
+    });
 }
 
 app.get('/robots.txt', (req, res) => map.TXTtoWeb(res));

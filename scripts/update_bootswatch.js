@@ -5,7 +5,7 @@
 const fs      = require('fs');
 const path    = require('path');
 const request = require('request');
-const helpers = require('../lib/helpers.js');
+const config  = require('../config');
 
 const version  = process.argv[2];
 const verMajor = version[0];
@@ -16,7 +16,6 @@ if (!version) {
 }
 
 const bootswatchDir = path.join(__dirname, '../public/bootswatch', version);
-const config = helpers.getConfig();
 
 const files = [
     'https://bootswatch.com/%d/%s/bootstrap.min.css',
