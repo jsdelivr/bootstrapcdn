@@ -1,6 +1,8 @@
 port: 3333
 theme: 1
 siteurl: 'https://www.bootstrapcdn.com'
+description: 'The recommended CDN for Bootstrap, Font Awesome and Bootswatch.'
+title_suffix: 'BootstrapCDN by StackPath'
 authors:
   - name: Justin Dorfman
     twitter: jdorfman
@@ -17,7 +19,6 @@ authors:
   - name: XhmikosR
     twitter: XhmikosR
     url: 'https://xhmikosr.io/'
-description: 'The recommended CDN for Bootstrap, Font Awesome and Bootswatch.'
 favicon:
   uri: /assets/img/favicons/favicon.ico
 stylesheet:
