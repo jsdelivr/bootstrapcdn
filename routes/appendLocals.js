@@ -2,13 +2,13 @@
 
 const path = require('path');
 const helpers = require('../lib/helpers.js');
+const config = require('../config');
 
 const digest = helpers.sri.digest;
-
 const SRI_CACHE = {};
 
 function appendLocals(req, res) {
-    const totalThemes = helpers.getConfig().bootswatch4.themes.length;
+    const totalThemes = config.bootswatch4.themes.length;
     const TITLE_SUFFIX = 'BootstrapCDN by StackPath';
     let proto = req.get('x-forwarded-proto');
 

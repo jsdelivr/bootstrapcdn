@@ -9,10 +9,9 @@ const htmlEncode = require('htmlencode').htmlEncode;
 const mockDate = require('mockdate');
 const request = require('request');
 const validator = require('html-validator');
-const app = require('../app.js');
-const helpers = require('../lib/helpers.js');
 
-const config = helpers.getConfig();
+const app = require('../app.js');
+const config = require('../config');
 
 // The server object holds the server instance across all tests;
 // We start it in the first test and close it in the last one,

@@ -5,11 +5,11 @@
 const fs         = require('fs');
 const path       = require('path');
 const yaml       = require('js-yaml');
-const helpers    = require('../lib/helpers.js');
 const sri        = require('./sri.js');
+const config     = require('../config');
 
-const configFile = helpers.getConfigPath();
-const config     = helpers.getConfig();
+const filesConfig = config.loadConfig('_files.yml');
+const configFile = config.getConfigPath('_files.yml');
 
 // create backup file
 fs.createReadStream(configFile)
@@ -33,10 +33,10 @@ function exists(file) {
 // bootswatch{3,4}
 ((() => {
     ['bootswatch3', 'bootswatch4'].forEach((key) => {
-        const bootswatch = buildPath(config[key].bootstrap);
+        const bootswatch = buildPath(filesConfig[key].bootstrap);
 
-        for (const theme of config[key].themes) {
-            const file = bootswatch.replace('SWATCH_VERSION', config[key].version)
+        for (const theme of filesConfig[key].themes) {
+            const file = bootswatch.replace('SWATCH_VERSION', filesConfig[key].version)
                                  .replace('SWATCH_NAME', theme.name);
 
             if (exists(file)) { // always regenerate
@@ -48,7 +48,7 @@ function exists(file) {
 
 // bootlint
 ((() => {
-    for (const bootlint of config.bootlint) {
+    for (const bootlint of filesConfig.bootlint) {
         const file = buildPath(bootlint.javascript);
 
         if (exists(file)) { // always regenerate
@@ -59,7 +59,7 @@ function exists(file) {
 
 // bootstrap
 ((() => {
-    for (const bootstrap of config.bootstrap) {
+    for (const bootstrap of filesConfig.bootstrap) {
         // Skip when the key doesn't exist
         if (typeof bootstrap.javascriptBundle === 'undefined') {
             continue;
@@ -85,7 +85,7 @@ function exists(file) {
 
 // fontawesome
 ((() => {
-    for (const fontawesome of config.fontawesome) {
+    for (const fontawesome of filesConfig.fontawesome) {
         const stylesheet = buildPath(fontawesome.stylesheet);
 
         if (exists(stylesheet)) {
@@ -94,4 +94,4 @@ function exists(file) {
     }
 }))();
 
-fs.writeFileSync(configFile, yaml.dump(config, { lineWidth: -1 }));
+fs.writeFileSync(configFile, yaml.dump(filesConfig, { lineWidth: -1 }));
