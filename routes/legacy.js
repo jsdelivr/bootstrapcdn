@@ -5,7 +5,7 @@ const appendLocals = require('./appendLocals.js');
 
 const router = express.Router();
 
-router.get('/bootstrap', (req, res) => {
+router.get('/bootstrap/', (req, res) => {
     res = appendLocals(req, res);
     res.render('legacy/bootstrap.pug', {
         title: 'Bootstrap Legacy',
@@ -13,7 +13,7 @@ router.get('/bootstrap', (req, res) => {
     });
 });
 
-router.get('/bootswatch', (req, res) => {
+router.get('/bootswatch/', (req, res) => {
     res = appendLocals(req, res);
     res.render('legacy/bootswatch.pug', {
         title: 'Bootswatch Legacy',
@@ -21,7 +21,7 @@ router.get('/bootswatch', (req, res) => {
     });
 });
 
-router.get('/fontawesome', (req, res) => {
+router.get('/fontawesome/', (req, res) => {
     res = appendLocals(req, res);
     res.render('legacy/fontawesome.pug', {
         title: 'Font Awesome Legacy',
