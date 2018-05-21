@@ -175,7 +175,7 @@ app.use('/showcase/', routes.showcaseRoute);
 const map = sitemap({
     url: 'www.bootstrapcdn.com',
     http: 'https',
-    generate: app,
+    sitemapSubmission: '/sitemap.xml',
     cache: 60000,       // enable 1m cache
     route: {            // custom route
         '/': {
@@ -198,12 +198,31 @@ const map = sitemap({
         },
         '/legacy/': {
             hide: true
+        },
+        '/sitemap.xml': {
+            hide: true
+        },
+        '/robots.txt': {
+            hide: true
         }
     }
 });
 
 if (ENV.ENABLE_CRAWLING) {
-    app.get('/sitemap.xml', (req, res) => map.XMLtoWeb(res));
+    app.get('/sitemap.xml', (req, res) => {
+        map.generate4(app, [
+            '/',
+            '/about',
+            '/bootlint',
+            '/bootswatch',
+            '/fontawesome',
+            '/integrations',
+            '/legacy',
+            '/privacy-policy',
+            '/showcase'
+        ]);
+        return map.XMLtoWeb(res);
+    });
 }
 
 app.get('/robots.txt', (req, res) => map.TXTtoWeb(res));
