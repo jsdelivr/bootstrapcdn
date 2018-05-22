@@ -45,10 +45,12 @@ function getConfig() {
 }
 
 function cleanEndpoint(endpoint = '/') {
+    // Maybe we should use node's `url` in this function
     if (!endpoint.startsWith('/')) {
         endpoint = `/${endpoint}`;
     }
-    if (!endpoint.endsWith('/') && !getExtension(endpoint)) {
+
+    if (!endpoint.endsWith('/') && !endpoint.includes('?') && !getExtension(endpoint)) {
         endpoint = `${endpoint}/`;
     }
 
