@@ -17,11 +17,13 @@ const expectedHeaders = {
     'connection': 'Keep-Alive',
     'content-length': '',
     'date': '',
+    'debug': 'Enabled', // We should test the opposite too
     'etag': '',
     'last-modified': '',
     'vary': 'Accept-Encoding',
-    'x-cache': '',
-    'x-hello-human': 'Say hello back! @getBootstrapCDN on Twitter'
+    //'x-cache': 'HIT', // If we don't hit the cache, tests will fail due to gzip being absent anyway
+    'x-hello-human': 'Say hello back! @getBootstrapCDN on Twitter',
+    'x-hw': '' // We should test the opposite too. We should log its value to help debugging
 };
 
 const compressedExtensions = [
@@ -148,6 +150,14 @@ describe('functional', () => {
             it('has integrity', (done) => {
                 assertSRI(uri, self.javascriptSri, done);
             });
+
+            afterEach(function() {
+                if (this.currentTest.state === 'failed') {
+                    const errStr = `\n${uri}\nX-HW: ${responses[uri].headers['x-hw']}`;
+
+                    console.error(errStr);
+                }
+            });
         });
 
         if (self.javascriptBundle) {
@@ -163,6 +173,14 @@ describe('functional', () => {
                 it('has integrity', (done) => {
                     assertSRI(uri, self.javascriptBundleSri, done);
                 });
+
+                afterEach(function() {
+                    if (this.currentTest.state === 'failed') {
+                        const errStr = `\n${uri}\nX-HW: ${responses[uri].headers['x-hw']}`;
+
+                        console.error(errStr);
+                    }
+                });
             });
         }
 
@@ -177,6 +195,14 @@ describe('functional', () => {
 
             it('has integrity', (done) => {
                 assertSRI(uri, self.stylesheetSri, done);
+            });
+
+            afterEach(function() {
+                if (this.currentTest.state === 'failed') {
+                    const errStr = `\n${uri}\nX-HW: ${responses[uri].headers['x-hw']}`;
+
+                    console.error(errStr);
+                }
             });
         });
     });
@@ -196,6 +222,14 @@ describe('functional', () => {
 
                 it('has integrity', (done) => {
                     assertSRI(uri, theme.sri, done);
+                });
+
+                afterEach(function() {
+                    if (this.currentTest.state === 'failed') {
+                        const errStr = `\n${uri}\nX-HW: ${responses[uri].headers['x-hw']}`;
+
+                        console.error(errStr);
+                    }
                 });
             });
         });
@@ -217,6 +251,14 @@ describe('functional', () => {
                 it('has integrity', (done) => {
                     assertSRI(uri, theme.sri, done);
                 });
+
+                afterEach(function() {
+                    if (this.currentTest.state === 'failed') {
+                        const errStr = `\n${uri}\nX-HW: ${responses[uri].headers['x-hw']}`;
+
+                        console.error(errStr);
+                    }
+                });
             });
         });
     });
@@ -235,6 +277,14 @@ describe('functional', () => {
                 it('has integrity', (done) => {
                     assertSRI(uri, self.javascriptSri, done);
                 });
+
+                afterEach(function() {
+                    if (this.currentTest.state === 'failed') {
+                        const errStr = `\n${uri}\nX-HW: ${responses[uri].headers['x-hw']}`;
+
+                        console.error(errStr);
+                    }
+                });
             });
         });
     });
@@ -252,6 +302,14 @@ describe('functional', () => {
 
                 it('has integrity', (done) => {
                     assertSRI(uri, self.stylesheetSri, done);
+                });
+
+                afterEach(function() {
+                    if (this.currentTest.state === 'failed') {
+                        const errStr = `\n${uri}\nX-HW: ${responses[uri].headers['x-hw']}`;
+
+                        console.error(errStr);
+                    }
                 });
             });
         });
@@ -309,6 +367,14 @@ describe('functional', () => {
 
                 it('has content-type', (done) => {
                     assertContentType(uri, responses[uri].headers['content-type'], done);
+                });
+
+                afterEach(function() {
+                    if (this.currentTest.state === 'failed') {
+                        const errStr = `\n${uri}\nX-HW: ${responses[uri].headers['x-hw']}`;
+
+                        console.error(errStr);
+                    }
                 });
             });
         }
