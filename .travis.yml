@@ -6,6 +6,9 @@ language: node_js
 node_js:
   - "10"
 
+before_script:
+  - curl https://v4.ifconfig.co/
+
 script: npm run ci-with-coverage
 
 after_success:

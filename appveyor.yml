@@ -17,6 +17,9 @@ install:
 
 build: off
 
+before_test:
+  - curl https://v4.ifconfig.co/
+
 test_script:
   - node -v
   - npm -v
