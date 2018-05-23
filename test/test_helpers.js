@@ -86,7 +86,10 @@ function prefetch(uri, cb) {
         uri,
         forever: true, // for 'connection: Keep-Alive'
         followRedirect: false,
-        gzip: true
+        gzip: true,
+        headers: {
+            Pragma: 'debug'
+        }
     };
 
     request.get(reqOpts, (err, res) => {
