@@ -1,3 +1,10 @@
+/* eslint no-undefined: 0*/
+
+const ENV = process.env;
+
+// We use BCDN_HEADERS to distinguish between production and debug CDN headers
+ENV.BCDN_HEADERS = ENV.BCDN_HEADERS || 'production';
+
 const assert = require('assert').strict;
 const path = require('path');
 const semver = require('semver');
@@ -17,14 +24,21 @@ const expectedHeaders = {
     'connection': 'Keep-Alive',
     'content-length': '',
     'date': '',
-    'debug': 'Enabled', // We should test the opposite too
+    'debug': undefined,
     'etag': '',
     'last-modified': '',
     'vary': 'Accept-Encoding',
-    //'x-cache': 'HIT', // If we don't hit the cache, tests will fail due to gzip being absent anyway
+    'x-cache': '',
     'x-hello-human': 'Say hello back! @getBootstrapCDN on Twitter',
-    'x-hw': '' // We should test the opposite too. We should log its value to help debugging
+    'x-hw': undefined
 };
+
+if (ENV.BCDN_HEADERS === 'debug') {
+    expectedHeaders.debug = 'Enabled';
+    // x-cache isn't present when the 'Debug' header is set to 'Enabled'
+    expectedHeaders['x-cache'] = undefined;
+    expectedHeaders['x-hw'] = '';
+}
 
 const compressedExtensions = [
     'css',
@@ -91,22 +105,27 @@ function assertHeaders(uri) {
     const ext = helpers.getExtension(uri);
 
     Object.keys(expectedHeaders).forEach((header) => {
+        // Ignore header name case as per the specs
         header = header.toLowerCase();
 
         if (typeof process.env.TEST_S3 !== 'undefined' && !s3include.includes(header)) {
             it.skip(`has ${header}`);
         } else {
-            it(`has ${header}`, (done) => {
-                assert.ok(Object.prototype.hasOwnProperty.call(responses[uri].headers, header),
-                    `Expects "${header}" in: ${Object.keys(responses[uri].headers).join(', ')}`);
+            const expected = expectedHeaders[header];
+            const testDescription = typeof expected === 'undefined' ?
+                `does NOT have ${header} present` :
+                `has ${header}${expected === '' ? ' present' : `: ${expected}`}`;
 
-                // Ignore case in checking equality.
-                const actual = responses[uri].headers[header].toLowerCase();
+            it(testDescription, (done) => {
+                const actual = responses[uri].headers[header];
 
-                if (expectedHeaders[header] !== '') {
-                    const expected = expectedHeaders[header].toLowerCase();
-
-                    assert.strictEqual(actual, expected);
+                if (typeof expected === 'undefined') {
+                    assert.strictEqual(actual, expected, `Expects ${header} to NOT be present in the response headers`);
+                } else if (expected === '') {
+                    assert.ok(Object.prototype.hasOwnProperty.call(responses[uri].headers, header),
+                        `Expects "${header}" to be present in the response headers`);
+                } else {
+                    assert.strictEqual(actual, expected, `Expects ${header} to be present in the response headers`);
                 }
                 done();
             });
@@ -152,7 +171,7 @@ describe('functional', () => {
             });
 
             afterEach(function() {
-                if (this.currentTest.state === 'failed') {
+                if (this.currentTest.state === 'failed' && ENV.BCDN_HEADERS === 'debug') {
                     const errStr = `\n${uri}\nX-HW: ${responses[uri].headers['x-hw']}`;
 
                     console.error(errStr);
@@ -175,7 +194,7 @@ describe('functional', () => {
                 });
 
                 afterEach(function() {
-                    if (this.currentTest.state === 'failed') {
+                    if (this.currentTest.state === 'failed' && ENV.BCDN_HEADERS === 'debug') {
                         const errStr = `\n${uri}\nX-HW: ${responses[uri].headers['x-hw']}`;
 
                         console.error(errStr);
@@ -198,7 +217,7 @@ describe('functional', () => {
             });
 
             afterEach(function() {
-                if (this.currentTest.state === 'failed') {
+                if (this.currentTest.state === 'failed' && ENV.BCDN_HEADERS === 'debug') {
                     const errStr = `\n${uri}\nX-HW: ${responses[uri].headers['x-hw']}`;
 
                     console.error(errStr);
@@ -225,7 +244,7 @@ describe('functional', () => {
                 });
 
                 afterEach(function() {
-                    if (this.currentTest.state === 'failed') {
+                    if (this.currentTest.state === 'failed' && ENV.BCDN_HEADERS === 'debug') {
                         const errStr = `\n${uri}\nX-HW: ${responses[uri].headers['x-hw']}`;
 
                         console.error(errStr);
@@ -253,7 +272,7 @@ describe('functional', () => {
                 });
 
                 afterEach(function() {
-                    if (this.currentTest.state === 'failed') {
+                    if (this.currentTest.state === 'failed' && ENV.BCDN_HEADERS === 'debug') {
                         const errStr = `\n${uri}\nX-HW: ${responses[uri].headers['x-hw']}`;
 
                         console.error(errStr);
@@ -279,7 +298,7 @@ describe('functional', () => {
                 });
 
                 afterEach(function() {
-                    if (this.currentTest.state === 'failed') {
+                    if (this.currentTest.state === 'failed' && ENV.BCDN_HEADERS === 'debug') {
                         const errStr = `\n${uri}\nX-HW: ${responses[uri].headers['x-hw']}`;
 
                         console.error(errStr);
@@ -305,7 +324,7 @@ describe('functional', () => {
                 });
 
                 afterEach(function() {
-                    if (this.currentTest.state === 'failed') {
+                    if (this.currentTest.state === 'failed' && ENV.BCDN_HEADERS === 'debug') {
                         const errStr = `\n${uri}\nX-HW: ${responses[uri].headers['x-hw']}`;
 
                         console.error(errStr);
@@ -370,7 +389,7 @@ describe('functional', () => {
                 });
 
                 afterEach(function() {
-                    if (this.currentTest.state === 'failed') {
+                    if (this.currentTest.state === 'failed' && ENV.BCDN_HEADERS === 'debug') {
                         const errStr = `\n${uri}\nX-HW: ${responses[uri].headers['x-hw']}`;
 
                         console.error(errStr);
