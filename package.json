@@ -10,7 +10,7 @@
     "pug-lint": "npm run puglint",
     "lint": "npm run eslint && npm run puglint",
     "mocha": "mocha",
-    "mocha:only-functional": "npm run mocha -- ./test/functional_test.js",
+    "mocha:only-functional": "npm run mocha -- --reporter progress ./test/functional_test.js",
     "mocha:only-functional:dev": "cross-env BCDN_HEADERS=debug npm run mocha:only-functional",
     "mocha:only-functional:prod": "cross-env BCDN_HEADERS=production npm run mocha:only-functional",
     "mocha:no-functional": "npm run mocha -- --invert --grep \"functional\"",
