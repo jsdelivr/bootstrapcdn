@@ -44,19 +44,37 @@ npm run
 
 ## Configuration
 
-### `config/_config.yml`
+### `config/_app.yml`
 
-Key Overview:
+The Express.js app configuration.
 
-1. `port`: Integer value of the Node application port.
-2. `theme`: Integer value of the array index from the `bootswatch` section below.
-3. `authors`: Array of author Strings
-4. `description`: String containing the default meta description of the site.
-5. `javascript`: Array containing JavaScript files to be loaded.
-6. `bootswatch3`: Hash containing current Bootswatch 3 meta data and themes.
-7. `bootswatch4`: Hash containing current Bootswatch 4 meta data and themes.
-8. `bootlint`: Array of hashes containing Bootlint meta data and paths.
-9. `bootstrap`: Array of hashes containing Bootstrap meta data and paths.
+* port: Integer value of the Node application port.
+* theme: Integer value of the default theme we use; it's the array index value from the `bootswatch4` section below.
+* siteurl: Our canonical URL.
+* authors: Array of author Objects. Accepts the following:
+    * name
+    * twitter: the Twitter handler without `@`
+    * url: author's website URL (optional)
+    * work: (optional) Object which can contain:
+        * text: the text to show for the `url` bellow
+        * url: the link to the work
+* description: String containing the default meta description of the site.
+* favicon: The path to `favicon.ico`.
+* stylesheet: Array of stylesheet file(s) we use apart from the Bootswatch stylesheet.
+* javascript: Array of javascript file(s) we use.
+* redirects: Array of Objects for the page redirects.
+
+### `config/_extras.yml`
+
+Contains the `/showcase/` and `/integrations/` config we use in the Express.js app.
+
+### `config/_files.yml`
+
+Contains the CDN files we host.The SRI values are updated by running `npm run integrity`.
+
+### `config/helmet-csp.js`
+
+Our CSP config using <https://github.com/helmetjs/csp>
 
 ## Updating Bootstrap/Bootlint
 
