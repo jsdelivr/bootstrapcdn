@@ -168,6 +168,7 @@ app.use('/bootswatch4/', routes.bootswatch4Route);
 app.use('/data/bootstrapcdn.json', routes.dataRoute);
 app.use('/fontawesome/', routes.fontawesomeRoute);
 app.use('/integrations/', routes.integrationsRoute);
+app.use('/jobs/', routes.jobsRoute);
 app.use('/legacy', routes.legacyRoutes);
 app.use('/privacy-policy/', routes.privacyPolicyRoute);
 app.use('/showcase/', routes.showcaseRoute);
@@ -217,6 +218,7 @@ if (ENV.ENABLE_CRAWLING) {
             '/bootswatch',
             '/fontawesome',
             '/integrations',
+            '/jobs',
             '/legacy',
             '/privacy-policy',
             '/showcase'
