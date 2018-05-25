@@ -41,3 +41,6 @@ redirects:
   - name: beta
     from: /beta/
     to: /
+  - name: bootswatch4
+    from: /bootswatch4/
+    to: /bootswatch/

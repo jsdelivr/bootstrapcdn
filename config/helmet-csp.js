@@ -21,7 +21,8 @@ const CSP = {
         'srv.carbonads.net',
         'adn.fusionads.net',
         'fallbacks.carbonads.com',
-        'redalert.battleforthenet.com',
+        'www.ziprecruiter.com',
+        'api.ziprecruiter.com',
         (req, res) => `'nonce-${res.locals.nonce}'`
     ],
     styleSrc: [
@@ -49,7 +50,8 @@ const CSP = {
         '*.c3tag.com',
         '*.2mdn.net',
         'launchbit.com',
-        'www.launchbit.com'
+        'www.launchbit.com',
+        'www.ziprecruiter.com'
     ],
     fontSrc: [
         '\'self\'',
@@ -60,14 +62,12 @@ const CSP = {
         '\'self\'',
         'platform.twitter.com',
         'syndication.twitter.com',
-        'redalert.battleforthenet.com',
         'ghbtns.com'
     ],
     childSrc: [
         '\'self\'',
         'platform.twitter.com',
         'syndication.twitter.com',
-        'redalert.battleforthenet.com',
         'ghbtns.com'
     ],
     connectSrc: [
