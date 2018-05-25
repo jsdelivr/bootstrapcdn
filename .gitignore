@@ -1,10 +1,10 @@
 *.log
 .DS_Store
 .zedstate
-config/_config.yml.bak
+config/*.bak
 Dockme.yml
-lint.html
 npm-debug.log
+.nyc_output/
 coverage/
 data/
 node_modules/

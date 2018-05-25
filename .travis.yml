@@ -1,12 +1,15 @@
 git:
-  depth: 10
+  depth: 5
 
 language: node_js
 
 node_js:
   - "10"
 
-script: npm run ci
+script: npm run ci-with-coverage
+
+after_success:
+  - npm run coveralls
 
 matrix:
   fast_finish: true
