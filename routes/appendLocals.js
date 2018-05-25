@@ -19,6 +19,7 @@ function appendLocals(req, res) {
     res.locals.canonicalUrl = `${req.config.siteurl}${req.path}`;
 
     res.locals.siteUrl = `${proto}://${req.hostname}`;
+    res.locals.pageUrl = req.originalUrl;
 
     res.locals.theme = req.query.theme < totalThemes ?
         req.query.theme :
