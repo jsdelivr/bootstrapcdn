@@ -103,3 +103,9 @@ footer {
     line-height: 1;
     text-transform: uppercase;
 }
+
+.book-card img {
+    /* use the height of the smallest image so that they are aligned */
+    height: 250px;
+    width: auto;
+}
