@@ -10,6 +10,7 @@ const SRI_CACHE = {};
 function appendLocals(req, res) {
     const totalThemes = config.bootswatch4.themes.length;
     const TITLE_SUFFIX = 'BootstrapCDN by StackPath';
+    const pageUrl = req.originalUrl;
     let proto = req.get('x-forwarded-proto');
 
     if (typeof proto === 'undefined') {
@@ -19,7 +20,7 @@ function appendLocals(req, res) {
     res.locals.canonicalUrl = `${req.config.siteurl}${req.path}`;
 
     res.locals.siteUrl = `${proto}://${req.hostname}`;
-    res.locals.pageUrl = req.originalUrl;
+    res.locals.pageUrl = pageUrl;
 
     res.locals.theme = req.query.theme < totalThemes ?
         req.query.theme :
@@ -27,9 +28,9 @@ function appendLocals(req, res) {
 
     res.locals.displayTitle = (title) => `${title} · ${TITLE_SUFFIX}`;
 
-    res.locals.bodyClass = (title) => {
-        // Remove any whitespace from the title
-        let str = title.replace(/\s/g, '');
+    res.locals.bodyClass = () => {
+        let str = pageUrl.replace(/\s/g, '') // remove any whitespace
+                    .replace(/\//g, ''); // remove any slashes
 
         // Make the first letter lowercase
         str = str.charAt(0).toLowerCase() + str.slice(1);
