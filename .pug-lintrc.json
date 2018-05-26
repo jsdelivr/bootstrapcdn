@@ -1,6 +1,6 @@
 {
     "extends": "clock",
-    "excludeFiles": ["node_modules/**", "public/**"],
+    "excludeFiles": ["node_modules/**", "cdn/**"],
     "disallowBlockExpansion": true,
     "disallowHtmlText": true,
     "disallowIdAttributeWithStaticValue": true,

@@ -16,7 +16,7 @@ fs.createReadStream(configFile)
 function buildPath(d) {
     d = d.replace('/bootstrap/', '/twitter-bootstrap/')
          .replace('https://stackpath.bootstrapcdn.com/', '');
-    return path.join(__dirname, '../public', d);
+    return path.join(__dirname, '../cdn', d);
 }
 
 function exists(file) {

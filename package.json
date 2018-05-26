@@ -14,7 +14,7 @@
     "mocha:only-functional:dev": "cross-env BCDN_HEADERS=debug npm run mocha:only-functional",
     "mocha:only-functional:prod": "cross-env BCDN_HEADERS=production npm run mocha:only-functional",
     "mocha:no-functional": "npm run mocha -- --invert --grep \"functional\"",
-    "dev": "nodemon --ext css,js,pug,svg,png,yml --ignore test --exec \"npm run server\"",
+    "dev": "nodemon --ext css,js,pug,svg,png,yml --ignore test --ignore cdn --exec \"npm run server\"",
     "watch": "npm run dev",
     "server": "node bin/www.js",
     "start": "cross-env NODE_ENV=production npm run server",

@@ -16,7 +16,7 @@ version = version.replace(/^v/, '');
 
 const basedir = path.join(__dirname, '..');
 const bootlintSrcDir = path.join(basedir, 'node_modules/bootlint/dist/browser/');
-const bootlintDistDir = path.join(basedir, 'public', 'bootlint', version);
+const bootlintDistDir = path.join(basedir, 'cdn', 'bootlint', version);
 
 if (fs.existsSync(bootlintDistDir)) {
     console.log('Bootlint version already found.');
