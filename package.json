@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "compression": "^1.7.2",
-    "cross-env": "^5.1.5",
+    "cross-env": "^5.1.6",
     "errorhandler": "^1.5.0",
     "express": "^4.16.3",
     "express-sitemap": "^1.8.0",
@@ -58,12 +58,12 @@
     "htmlencode": "^0.0.4",
     "mocha": "^5.2.0",
     "mockdate": "^2.0.2",
-    "nodemon": "^1.17.4",
+    "nodemon": "^1.17.5",
     "nyc": "^11.8.0",
     "pug-lint": "^2.5.0",
     "pug-lint-config-clock": "^2.0.0",
     "request": "^2.87.0",
-    "uglify-js": "^3.3.26"
+    "uglify-js": "^3.3.27"
   },
   "engines": {
     "node": "10.x"
