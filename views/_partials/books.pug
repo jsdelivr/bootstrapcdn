@@ -1,15 +1,9 @@
--
-    const beforeTrackImgUrl = `https://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=${book.asin}&Format=_SL250_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=bcdn-20`;
-    const afterTrackImgUrl = `https://ir-na.amazon-adsystem.com/e/ir?t=bcdn-20&l=li3&o=1&a=${book.asin}`;
-
 .card-deck
-    .card.border-primary.py-3.px-md-3.mb-3.text-center
+    .card.border-primary.py-3.px-md-3.mb-3.text-center.book-card
         .card-header.bg-transparent.border-0
-            h3.h4.card-title.mb-0=book.name
+            img.card-img-top.img-fluid.d-block.mx-auto(src=getVersionedPath(book.img), alt=`${book.name} cover`)
         .card-body.bg-transparent.border-0
-            a(href=book.url, rel='noopener', target='_blank')
-                img.border-0(src=beforeTrackImgUrl, alt='')
-            img.border-0.m-0(src=afterTrackImgUrl, width='1', height='1', alt='')
+            h3.h4.card-title.mb-0=book.name
         .card-footer.bg-transparent.border-0
             a.btn.btn-primary.btn-lg.btn-block.w-75.mx-auto.py-3(href=book.url, rel='noopener', target='_blank') Buy from Amazon
 

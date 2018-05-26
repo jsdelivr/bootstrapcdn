@@ -51,10 +51,7 @@ const CSP = {
         '*.2mdn.net',
         'launchbit.com',
         'www.launchbit.com',
-        'www.ziprecruiter.com',
-        'ws-na.amazon-adsystem.com',
-        'ir-na.amazon-adsystem.com',
-        'images-na.ssl-images-amazon.com'
+        'www.ziprecruiter.com'
     ],
     fontSrc: [
         '\'self\'',

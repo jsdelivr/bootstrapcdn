@@ -1,7 +1,9 @@
 'use strict';
 
 const assert = require('assert').strict;
+const path = require('path');
 const htmlEncode = require('htmlencode').htmlEncode;
+const staticify = require('staticify')(path.join(__dirname, '../public'));
 const helpers = require('./test_helpers.js');
 
 describe('books', () => {
@@ -29,35 +31,24 @@ describe('books', () => {
     });
 
     it('has page header', (done) => {
-        helpers.assert.pageHeader('Books', response, done);
+        helpers.assert.pageHeader('Bootstrap Books', response, done);
     });
 
     config.books.forEach((book) => {
         describe(book.name, () => {
-            const beforeTrackImgUrl = `https://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=${book.asin}&Format=_SL250_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1&tag=bcdn-20`;
-            const afterTrackImgUrl = `https://ir-na.amazon-adsystem.com/e/ir?t=bcdn-20&l=li3&o=1&a=${book.asin}`;
-
             it('has name', (done) => {
                 assert.ok(response.body.includes(book.name),
                     `Expects response body to include "${book.name}"`);
                 done();
             });
-
+            it('has image', (done) => {
+                assert.ok(response.body.includes(staticify.getVersionedPath(book.img)),
+                    `Expects response body to include "${book.img}"`);
+                done();
+            });
             it('has url', (done) => {
                 assert.ok(response.body.includes(htmlEncode(book.url)),
                     `Expects response body to include "${book.url}"`);
-                done();
-            });
-
-            it('has before tracking image', (done) => {
-                assert.ok(response.body.includes(htmlEncode(beforeTrackImgUrl)),
-                    `Expects response body to include "${beforeTrackImgUrl}"`);
-                done();
-            });
-
-            it('has after tracking image', (done) => {
-                assert.ok(response.body.includes(htmlEncode(afterTrackImgUrl)),
-                    `Expects response body to include "${afterTrackImgUrl}"`);
                 done();
             });
         });
