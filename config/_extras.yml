@@ -1,3 +1,16 @@
+books:
+  - name: 'Jump Start Bootstrap: Get Up to Speed With Bootstrap in a Weekend'
+    url: 'https://www.amazon.com/Jump-Start-Bootstrap-Speed-Weekend/dp/0992279437/ref=as_li_ss_il?_encoding=UTF8&psc=1&refRID=2WP7MEQ0KPAHQS6YT117&linkCode=li3&tag=bcdn-20&linkId=b44f87f6e04d5eb7e6b49af61cd0e422'
+    asin: '0992279437'
+  - name: 'Building Progressive Web Apps: Bringing the Power of Native to the Browser'
+    url: 'https://www.amazon.com/Building-Progressive-Web-Apps-Bringing-ebook/dp/B075HP52WY/ref=as_li_ss_il?ie=UTF8&linkCode=li3&tag=bcdn-20&linkId=013ca3a2eb57883d255384829ec0a6a2'
+    asin: 'B075HP52WY'
+  - name: 'Coding For Dummies (For Dummies (Computer/Tech))'
+    url: 'https://www.amazon.com/Coding-Dummies-Computer-Tech/dp/1119293324/ref=as_li_ss_il?ie=UTF8&linkCode=li3&tag=bcdn-20&linkId=fb405dc117a040e91557b45f6dc1094b'
+    asin: '1119293324'
+  - name: 'Bootstrap in 24 Hours, Sams Teach Yourself'
+    url: 'https://www.amazon.com/Bootstrap-Hours-Sams-Teach-Yourself-ebook/dp/B017M8OWZQ/ref=as_li_ss_il?ie=UTF8&linkCode=li3&tag=bcdn-20&linkId=f8a39275b5204f5f2d0427a1ef1c4f83'
+    asin: 'B017M8OWZQ'
 showcase:
   - name: Microsoft Education
     img: /assets/img/showcase/microsoft-education.png

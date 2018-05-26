@@ -1,0 +1,19 @@
+extends layout.pug
+
+block content
+    h2.text-center.mb-4 Books
+
+    .row
+        each book in config.books
+            .col-12.col-md-6
+                include _partials/books.pug
+
+    .row
+        .col-12
+            .alert.alert-primary.my-3.text-center(role='alert')
+                p.m-0
+                    | You want to submit yours? Open a Pull Request or an Issue on our 
+                    a.alert-link(href='https://github.com/MaxCDN/bootstrapcdn') GitHub repository
+                    | .
+
+//- vim: ft=pug sw=4 sts=4 et:

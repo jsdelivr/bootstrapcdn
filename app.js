@@ -162,6 +162,7 @@ app.locals.semver = semver;
 app.use('/', routes.indexRoute);
 app.use('/about/', routes.aboutRoute);
 app.use('/alpha/?|/beta/?', routes.redirectToRoot);
+app.use('/books/', routes.booksRoute);
 app.use('/bootlint/', routes.bootlintRoute);
 app.use('/bootswatch/', routes.bootswatchRoute);
 app.use('/bootswatch4/', routes.bootswatch4Route);
@@ -214,6 +215,7 @@ if (ENV.ENABLE_CRAWLING) {
         map.generate4(app, [
             '/',
             '/about',
+            '/books',
             '/bootlint',
             '/bootswatch',
             '/fontawesome',
