@@ -2,7 +2,7 @@
 
 const helpers = require('./test_helpers.js');
 
-describe('Jobs', () => {
+describe('jobs', () => {
     const uri = helpers.getURI('jobs');
     let response = {};
 

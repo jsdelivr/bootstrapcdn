@@ -14,9 +14,7 @@
     "requireSpecificAttributes": [
         {
             "img": [
-                "alt",
-                "width",
-                "height"
+                "alt"
             ]
         }
     ],
