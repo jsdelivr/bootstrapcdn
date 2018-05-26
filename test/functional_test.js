@@ -13,7 +13,7 @@ const digest = require('../lib/helpers.js').sri.digest;
 const helpers = require('./test_helpers.js');
 
 const config = helpers.getConfig();
-
+const CDN_URL = 'https://stackpath.bootstrapcdn.com/';
 const responses = {};
 
 // Expects header names to be lowercase in this object.
@@ -76,7 +76,7 @@ function domainCheck(uri) {
         return uri;
     }
 
-    return uri.replace('https://stackpath.bootstrapcdn.com/', process.env.TEST_S3);
+    return uri.replace(CDN_URL, process.env.TEST_S3);
 }
 
 function request(uri, cb) {
@@ -334,30 +334,19 @@ describe('functional', () => {
         });
     });
 
-    describe('public/**/*.*', () => {
-        // Build File List
-        const whitelist = [
-            'bootlint',
-            'bootstrap',
-            'bootswatch',
-            'font-awesome',
-            'twitter-bootstrap',
-            'css',
-            'js'
-        ];
-        const publicURIs = [];
+    describe('cdn/**/*.*', () => {
+        const cdnURIs = [];
 
-        walk.filesSync(path.join(__dirname, '..', 'public'), (base, name) => {
-            let root = base.split(`${path.sep}public${path.sep}`)[1];
+        walk.filesSync(path.join(__dirname, '../cdn'), (base, name) => {
+            let root = base.split(`${path.sep}cdn${path.sep}`)[1];
 
-            // ensure file is in whitelisted directory
-            if (typeof root === 'undefined' || !whitelist.includes(root.split(path.sep)[0])) {
+            if (typeof root === 'undefined') {
                 return;
             }
 
             // replace Windows backslashes with forward ones
             root = root.replace(/\\/g, '/');
-            const domain = domainCheck('https://stackpath.bootstrapcdn.com/');
+            const domain = domainCheck(CDN_URL);
             const uri = `${domain + root}/${name}`;
 
             // ignore twitter-bootstrap versions after 2.3.2
@@ -370,11 +359,11 @@ describe('functional', () => {
                 }
             }
 
-            publicURIs.push(uri);
+            cdnURIs.push(uri);
         });
 
         // Run Tests
-        for (const uri of publicURIs) {
+        for (const uri of cdnURIs) {
             describe(uri, () => {
                 it('it works', (done) => {
                     request(uri, (res) => {

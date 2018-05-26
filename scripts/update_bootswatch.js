@@ -13,7 +13,7 @@ if (!version) {
     process.exit(1);
 }
 
-const bootswatchDir = path.join(__dirname, '../public/bootswatch', version);
+const bootswatchDir = path.join(__dirname, '../cdn/bootswatch', version);
 
 const files = [
     'https://bootswatch.com/%d/%s/bootstrap.min.css',
