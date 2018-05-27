@@ -14,12 +14,13 @@
 
     .social.my-4.text-center
         ul.list-inline
-            li.list-inline-item.d-block.d-sm-inline-block.mr-sm-3
-                span#ghbtns-badge.d-inline-block
-                    iframe(src='https://ghbtns.com/github-btn.html?user=MaxCDN&repo=bootstrapcdn&type=watch&count=true', width='110', height='20', title='Star on GitHub')
-            li.list-inline-item.d-block.d-sm-inline-block.mx-sm-3
-                a.twitter-follow-button(href='https://twitter.com/getbootstrapcdn', data-show-count='false') Follow @getbootstrapcdn
-            li.list-inline-item.d-block.d-sm-inline-block.ml-sm-3
-                a.twitter-share-button(href=encodeURI('https://twitter.com/intent/tweet?hashtags=webperf&related=mervinej,jdorfman,xhmikosr&text=#BootstrapCDN: @getbootstrap hosted by @StackPath&url=https://www.bootstrapcdn.com/&via=getbootstrapcdn')) Tweet
+            li.list-inline-item.d-block.d-sm-inline-block.mr-sm-3.mb-2.mb-sm-0
+                a.ghbtns-badge(href='https://github.com/MaxCDN/bootstrapcdn/', rel='noopener', target='_blank', title='Star our repo on GitHub')
+                    include /assets/img/octicon-mark-github.svg
+                    span Star
+            li.list-inline-item.d-block.d-sm-inline-block.mx-sm-3.my-2.my-sm-0
+                a.twitter-follow-button(href='https://twitter.com/getbootstrapcdn', data-show-count='false', data-size='large') Follow @getbootstrapcdn
+            li.list-inline-item.d-block.d-sm-inline-block.ml-sm-3.mt-2.mt-sm-0
+                a.twitter-share-button(href=encodeURI('https://twitter.com/intent/tweet?hashtags=webperf&related=mervinej,jdorfman,xhmikosr&text=#BootstrapCDN: @getbootstrap hosted by @StackPath&url=https://www.bootstrapcdn.com/&via=getbootstrapcdn'), data-size='large') Tweet
 
 //- vim: ft=pug sw=4 sts=4 et:
