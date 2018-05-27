@@ -140,6 +140,13 @@ function assertPageHeader(txt, res, cb) {
     cb();
 }
 
+function assertPageBodyClass(bodyClass, res, cb) {
+    const expected = `<body class="${bodyClass}`;
+
+    assert.ok(res.body.includes(expected), `Expects page body class to include "${bodyClass}"`);
+    cb();
+}
+
 function assertAuthors(res, cb) {
     const authors = config.authors.map((author) => author.name).join(', ');
     const authorsStr = `<meta name="author" content="${authors}">`;
@@ -180,6 +187,7 @@ module.exports = {
     stopServer,
     assert: {
         authors: assertAuthors,
+        bodyClass: assertPageBodyClass,
         itWorks: assertItWorks,
         pageHeader: assertPageHeader,
         validHTML: assertValidHTML

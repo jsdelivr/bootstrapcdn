@@ -43,6 +43,10 @@ describe('bootlint', () => {
         done();
     });
 
+    it('has body class', (done) => {
+        helpers.assert.bodyClass('page-bootlint', response, done);
+    });
+
     ['html', 'pug', 'haml'].forEach((fmt) => {
         it(`has ${fmt}`, (done) => {
             const str = helpers.javascript[fmt](current.javascript, current.javascriptSri);

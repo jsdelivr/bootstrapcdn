@@ -31,6 +31,10 @@ describe('legacy/bootstrap', () => {
         helpers.assert.pageHeader('Bootstrap Legacy', response, done);
     });
 
+    it('has body class', (done) => {
+        helpers.assert.bodyClass('page-legacybootstrap', response, done);
+    });
+
     config.bootstrap.forEach((bootstrap) => {
         if (bootstrap.current === true) {
             return;

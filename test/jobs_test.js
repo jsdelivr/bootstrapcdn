@@ -28,4 +28,8 @@ describe('jobs', () => {
     it('has page header', (done) => {
         helpers.assert.pageHeader('Jobs', response, done);
     });
+
+    it('has body class', (done) => {
+        helpers.assert.bodyClass('page-jobs', response, done);
+    });
 });

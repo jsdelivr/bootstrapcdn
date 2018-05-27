@@ -37,6 +37,10 @@ describe('fontawesome', () => {
         helpers.assert.pageHeader('Font Awesome', response, done);
     });
 
+    it('has body class', (done) => {
+        helpers.assert.bodyClass('page-fontawesome', response, done);
+    });
+
     it('has stylesheet', (done) => {
         assert.ok(response.body.includes(current.stylesheet),
             `Expects response body to include "${current.stylesheet}"`);
