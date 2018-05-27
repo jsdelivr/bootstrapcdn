@@ -18,7 +18,19 @@
 
 @media (min-width: 576px) {
     .social {
-        height: 30px;
+        height: 45px;
+    }
+
+    .social .list-inline {
+        min-height: 33px;
+    }
+
+    .social .list-inline-item  {
+        vertical-align: middle;
+    }
+
+    .social iframe {
+        vertical-align: middle;
     }
 }
 
@@ -27,9 +39,23 @@ iframe {
     overflow: hidden;
 }
 
-#ghbtns-badge {
-    width: 88px;
-    height: 20px;
+.ghbtns-badge svg {
+    margin-right: 8px;
+    vertical-align: -3px;
+    width: 16px;
+    height: 16px;
+}
+
+.ghbtns-badge {
+    background-color: #eff3f6;
+    background-image: linear-gradient(to bottom, #fafbfc, #e4ebf0);
+    border: 1px solid #d1d2d3;
+    border-radius: 0.25em;
+    color: #000;
+    display: inline-block;
+    line-height: 20px;
+    padding: 4px 12px;
+    vertical-align: middle;
 }
 
 footer {

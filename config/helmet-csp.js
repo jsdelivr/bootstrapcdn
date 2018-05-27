@@ -61,14 +61,12 @@ const CSP = {
     frameSrc: [
         '\'self\'',
         'platform.twitter.com',
-        'syndication.twitter.com',
-        'ghbtns.com'
+        'syndication.twitter.com'
     ],
     childSrc: [
         '\'self\'',
         'platform.twitter.com',
-        'syndication.twitter.com',
-        'ghbtns.com'
+        'syndication.twitter.com'
     ],
     connectSrc: [
         'syndication.twitter.com'
