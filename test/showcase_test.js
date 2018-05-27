@@ -33,6 +33,10 @@ describe('showcase', () => {
         helpers.assert.pageHeader('Showcase', response, done);
     });
 
+    it('has body class', (done) => {
+        helpers.assert.bodyClass('page-showcase', response, done);
+    });
+
     config.showcase.forEach((showcase) => {
         describe(showcase.name, () => {
             it('has name', (done) => {

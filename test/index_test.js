@@ -37,6 +37,10 @@ describe('index', () => {
         helpers.assert.pageHeader('Quick Start', response, done);
     });
 
+    it('has body class', (done) => {
+        helpers.assert.bodyClass('page-home', response, done);
+    });
+
     describe('stylesheet', () => {
         it('has uri', (done) => {
             assert.ok(response.body.includes(current.stylesheet),

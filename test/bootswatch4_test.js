@@ -37,6 +37,10 @@ describe('bootswatch4', () => {
         helpers.assert.pageHeader('Bootswatch 4', response, done);
     });
 
+    it('has body class', (done) => {
+        helpers.assert.bodyClass('page-bootswatch', response, done);
+    });
+
     config.bootswatch4.themes.forEach((theme) => {
         describe(theme.name, () => {
             const themeImage = format(config.bootswatch4.image, theme.name);

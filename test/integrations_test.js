@@ -33,6 +33,10 @@ describe('integrations', () => {
         helpers.assert.pageHeader('Integrations', response, done);
     });
 
+    it('has body class', (done) => {
+        helpers.assert.bodyClass('page-integrations', response, done);
+    });
+
     config.integrations.forEach((integration) => {
         describe(integration.name, () => {
             it('has name', (done) => {

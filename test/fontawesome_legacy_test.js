@@ -31,6 +31,10 @@ describe('legacy/fontawesome', () => {
         helpers.assert.pageHeader('Font Awesome Legacy', response, done);
     });
 
+    it('has body class', (done) => {
+        helpers.assert.bodyClass('page-legacyfontawesome', response, done);
+    });
+
     config.fontawesome.forEach((fontawesome) => {
         if (fontawesome.current === true) {
             return;

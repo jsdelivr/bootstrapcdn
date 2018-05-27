@@ -34,6 +34,10 @@ describe('books', () => {
         helpers.assert.pageHeader('Bootstrap Books', response, done);
     });
 
+    it('has body class', (done) => {
+        helpers.assert.bodyClass('page-books', response, done);
+    });
+
     config.books.forEach((book) => {
         describe(book.name, () => {
             it('has name', (done) => {
