@@ -5,6 +5,9 @@
         "es6": false,
         "node": false
     },
+    "parserOptions": {
+        "sourceType": "script"
+    },
     "rules": {
         "no-var": "off",
         "object-shorthand": "off",

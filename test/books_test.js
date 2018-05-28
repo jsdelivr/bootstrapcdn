@@ -1,5 +1,3 @@
-'use strict';
-
 const assert = require('assert').strict;
 const path = require('path');
 const htmlEncode = require('htmlencode').htmlEncode;

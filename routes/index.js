@@ -1,5 +1,3 @@
-'use strict';
-
 // This file just holds all route requires
 const notFoundRoute = require('./404.js');
 const aboutRoute = require('./about.js');
