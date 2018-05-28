@@ -45,16 +45,21 @@ describe('showcase', () => {
                     `Expects response body to include "${showcase.name}"`);
                 done();
             });
+
             it('has image', (done) => {
-                assert.ok(response.body.includes(staticify.getVersionedPath(showcase.img)),
-                    `Expects response body to include "${showcase.img}"`);
+                const img = staticify.getVersionedPath(showcase.img);
+
+                assert.ok(response.body.includes(img),
+                    `Expects response body to include "${img}"`);
                 done();
             });
+
             it('has lib', (done) => {
                 assert.ok(response.body.includes(showcase.lib),
                     `Expects response body to include "${showcase.lib}"`);
                 done();
             });
+
             it('has url', (done) => {
                 const url = htmlEncode(showcase.url);
 

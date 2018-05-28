@@ -45,16 +45,21 @@ describe('integrations', () => {
                     `Expects response body to include "${integration.name}"`);
                 done();
             });
+
             it('has image', (done) => {
-                assert.ok(response.body.includes(staticify.getVersionedPath(integration.img)),
-                    `Expects response body to include "${integration.img}"`);
+                const img = staticify.getVersionedPath(integration.img);
+
+                assert.ok(response.body.includes(img),
+                    `Expects response body to include "${img}"`);
                 done();
             });
+
             it('has platform', (done) => {
                 assert.ok(response.body.includes(integration.plat),
                     `Expects response body to include "${integration.plat}"`);
                 done();
             });
+
             it('has url', (done) => {
                 const url = htmlEncode(integration.url);
 
