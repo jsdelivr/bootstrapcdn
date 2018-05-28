@@ -1,5 +1,6 @@
 const assert = require('assert').strict;
 const path = require('path');
+const htmlEncode = require('htmlencode').htmlEncode;
 const staticify = require('staticify')(path.join(__dirname, '../public'));
 const helpers = require('./test_helpers.js');
 
@@ -53,8 +54,10 @@ describe('showcase', () => {
                 done();
             });
             it('has url', (done) => {
-                assert.ok(response.body.includes(showcase.url),
-                    `Expects response body to include "${showcase.url}"`);
+                const url = htmlEncode(showcase.url);
+
+                assert.ok(response.body.includes(url),
+                    `Expects response body to include "${url}"`);
                 done();
             });
         });
