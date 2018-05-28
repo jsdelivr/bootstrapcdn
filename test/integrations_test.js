@@ -2,6 +2,7 @@
 
 const assert = require('assert').strict;
 const path = require('path');
+const htmlEncode = require('htmlencode').htmlEncode;
 const staticify = require('staticify')(path.join(__dirname, '../public'));
 const helpers = require('./test_helpers.js');
 
@@ -55,8 +56,10 @@ describe('integrations', () => {
                 done();
             });
             it('has url', (done) => {
-                assert.ok(response.body.includes(integration.url),
-                    `Expects response body to include "${integration.url}"`);
+                const url = htmlEncode(integration.url);
+
+                assert.ok(response.body.includes(url),
+                    `Expects response body to include "${url}"`);
                 done();
             });
         });
