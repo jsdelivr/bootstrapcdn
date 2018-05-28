@@ -122,16 +122,6 @@
         document.getElementById('ghbtns-badge').appendChild(iframeEl);
     }
 
-    function styleCarbonAds() {
-        var adsContainer = document.querySelector('.carbonads-container');
-        var adsToggler = adsContainer.querySelector('.ads-info-toggler');
-
-        if (window.carbonads && adsContainer && adsToggler) {
-            adsContainer.classList.add('card');
-            adsToggler.style.display = 'block';
-        }
-    }
-
     function googleAnalytics() {
         function gaEvent(event) {
             if (typeof event.target !== 'undefined') {
@@ -169,7 +159,6 @@
     }
 
     init();
-    window.addEventListener('load', styleCarbonAds, false);
 
     window.addEventListener('resize', initTwitterTimeline, false);
 })();
