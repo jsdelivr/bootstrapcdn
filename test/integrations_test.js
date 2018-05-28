@@ -1,5 +1,3 @@
-'use strict';
-
 const assert = require('assert').strict;
 const path = require('path');
 const staticify = require('staticify')(path.join(__dirname, '../public'));

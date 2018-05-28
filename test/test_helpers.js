@@ -1,5 +1,3 @@
-'use strict';
-
 // Force NODE_ENV (and thus 'env' in express)
 process.env.NODE_ENV = 'test';
 process.env.ENABLE_CRAWLING = true;
