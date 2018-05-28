@@ -43,11 +43,15 @@ describe('books', () => {
                     `Expects response body to include "${book.name}"`);
                 done();
             });
+
             it('has image', (done) => {
-                assert.ok(response.body.includes(staticify.getVersionedPath(book.img)),
-                    `Expects response body to include "${book.img}"`);
+                const img = staticify.getVersionedPath(book.img);
+
+                assert.ok(response.body.includes(img),
+                    `Expects response body to include "${img}"`);
                 done();
             });
+
             it('has url', (done) => {
                 assert.ok(response.body.includes(htmlEncode(book.url)),
                     `Expects response body to include "${book.url}"`);
