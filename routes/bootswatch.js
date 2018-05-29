@@ -1,5 +1,3 @@
-'use strict';
-
 const express = require('express');
 const appendLocals = require('./appendLocals.js');
 
