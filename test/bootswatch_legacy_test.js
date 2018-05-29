@@ -1,5 +1,3 @@
-'use strict';
-
 const assert = require('assert').strict;
 const helpers = require('./test_helpers.js');
 
@@ -36,6 +34,11 @@ describe('bootswatch3', () => {
     it('has page header', (done) => {
         helpers.assert.pageHeader('Bootswatch 3', response, done);
     });
+
+    it('has body class', (done) => {
+        helpers.assert.bodyClass('page-legacybootswatch', response, done);
+    });
+
     config.bootswatch3.themes.forEach((theme) => {
         describe(theme.name, () => {
             const themeImage = format(config.bootswatch3.image, theme.name);

@@ -1,5 +1,3 @@
-'use strict';
-
 const helpers = require('./test_helpers.js');
 
 describe('privacy-policy', () => {
@@ -27,5 +25,9 @@ describe('privacy-policy', () => {
 
     it('has page header', (done) => {
         helpers.assert.pageHeader('Privacy Policy of www.bootstrapcdn.com', response, done);
+    });
+
+    it('has body class', (done) => {
+        helpers.assert.bodyClass('page-privacy-policy', response, done);
     });
 });

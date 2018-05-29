@@ -1,5 +1,3 @@
-'use strict';
-
 const assert = require('assert').strict;
 const libHelpers = require('../lib/helpers.js');
 const helpers = require('./test_helpers.js');

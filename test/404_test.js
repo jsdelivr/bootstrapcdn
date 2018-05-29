@@ -1,5 +1,3 @@
-'use strict';
-
 const assert = require('assert').strict;
 const helpers = require('./test_helpers.js');
 
@@ -30,5 +28,9 @@ describe('404', () => {
 
     it('has page header', (done) => {
         helpers.assert.pageHeader('Page Not Found', response, done);
+    });
+
+    it('has body class', (done) => {
+        helpers.assert.bodyClass('page-404', response, done);
     });
 });

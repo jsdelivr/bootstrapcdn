@@ -111,65 +111,14 @@
         /* eslint-enable */
     }
 
-    function loadGhBtn() {
-        var iframeEl = document.createElement('iframe');
-
-        iframeEl.setAttribute('src', 'https://ghbtns.com/github-btn.html?user=MaxCDN&repo=bootstrapcdn&type=watch&count=true');
-        iframeEl.title = 'Star on GitHub';
-        iframeEl.style.width = '88px';
-        iframeEl.style.height = '20px';
-
-        document.getElementById('ghbtns-badge').appendChild(iframeEl);
-    }
-
-    function styleCarbonAds() {
-        var adsContainer = document.querySelector('.carbonads-container');
-        var adsToggler = adsContainer.querySelector('.ads-info-toggler');
-
-        if (window.carbonads && adsContainer && adsToggler) {
-            adsContainer.classList.add('card');
-            adsToggler.style.display = 'block';
-        }
-    }
-
-    function googleAnalytics() {
-        function gaEvent(event) {
-            if (typeof event.target !== 'undefined') {
-                var action = event.target.getAttribute('data-ga-action');
-                var category = event.target.getAttribute('data-ga-category');
-                var label = event.target.getAttribute('data-ga-label');
-                var value = parseInt(event.target.getAttribute('data-ga-value'), 10);
-
-                if (typeof window.ga !== 'undefined' && typeof category !== 'undefined' && typeof action !== 'undefined') {
-                    window.ga('send', 'event', category, action, label, value, {});
-                }
-            }
-        }
-
-        /* eslint-disable */
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-32253110-1', 'bootstrapcdn.com');
-        ga('send', 'pageview');
-
-        window.addEventListener('click', gaEvent, false);
-        /* eslint-enable */
-    }
-
     function init() {
         toggleInputCaret();
         selectTextCopyToClipboard();
-        loadGhBtn();
         loadTwitterScript();
         initTwitterTimeline();
-        googleAnalytics();
     }
 
     init();
-    window.addEventListener('load', styleCarbonAds, false);
 
     window.addEventListener('resize', initTwitterTimeline, false);
 })();

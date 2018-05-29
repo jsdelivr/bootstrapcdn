@@ -5,9 +5,9 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
     res = appendLocals(req, res);
-    res.render('fontawesome.pug', {
-        title: 'Font Awesome',
-        description: 'The recommended CDN for Font Awesome'
+    res.render('books.pug', {
+        title: 'Bootstrap Books',
+        description: 'Books that feature BootstrapCDN.'
     });
 });
 

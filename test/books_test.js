@@ -4,9 +4,9 @@ const htmlEncode = require('htmlencode').htmlEncode;
 const staticify = require('staticify')(path.join(__dirname, '../public'));
 const helpers = require('./test_helpers.js');
 
-describe('integrations', () => {
+describe('books', () => {
     const config = helpers.getConfig();
-    const uri = helpers.getURI('integrations');
+    const uri = helpers.getURI('books');
     let response = {};
 
     before((done) => {
@@ -29,40 +29,32 @@ describe('integrations', () => {
     });
 
     it('has page header', (done) => {
-        helpers.assert.pageHeader('Integrations', response, done);
+        helpers.assert.pageHeader('Bootstrap Books', response, done);
     });
 
     it('has body class', (done) => {
-        helpers.assert.bodyClass('page-integrations', response, done);
+        helpers.assert.bodyClass('page-books', response, done);
     });
 
-    config.integrations.forEach((integration) => {
-        describe(integration.name, () => {
+    config.books.forEach((book) => {
+        describe(book.name, () => {
             it('has name', (done) => {
-                assert.ok(response.body.includes(integration.name),
-                    `Expects response body to include "${integration.name}"`);
+                assert.ok(response.body.includes(book.name),
+                    `Expects response body to include "${book.name}"`);
                 done();
             });
 
             it('has image', (done) => {
-                const img = staticify.getVersionedPath(integration.img);
+                const img = staticify.getVersionedPath(book.img);
 
                 assert.ok(response.body.includes(img),
                     `Expects response body to include "${img}"`);
                 done();
             });
 
-            it('has platform', (done) => {
-                assert.ok(response.body.includes(integration.plat),
-                    `Expects response body to include "${integration.plat}"`);
-                done();
-            });
-
             it('has url', (done) => {
-                const url = htmlEncode(integration.url);
-
-                assert.ok(response.body.includes(url),
-                    `Expects response body to include "${url}"`);
+                assert.ok(response.body.includes(htmlEncode(book.url)),
+                    `Expects response body to include "${book.url}"`);
                 done();
             });
         });

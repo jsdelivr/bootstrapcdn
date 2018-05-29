@@ -1,5 +1,3 @@
-'use strict';
-
 const assert = require('assert').strict;
 const helpers = require('./test_helpers.js');
 
@@ -35,6 +33,10 @@ describe('index', () => {
 
     it('has page header', (done) => {
         helpers.assert.pageHeader('Quick Start', response, done);
+    });
+
+    it('has body class', (done) => {
+        helpers.assert.bodyClass('page-home', response, done);
     });
 
     describe('stylesheet', () => {

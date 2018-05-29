@@ -1,5 +1,3 @@
-'use strict';
-
 const assert = require('assert').strict;
 const helpers = require('./test_helpers.js');
 
@@ -41,6 +39,10 @@ describe('bootlint', () => {
         assert.ok(response.body.includes(current.javascript),
             `Expects response body to include "${current.javascript}"`);
         done();
+    });
+
+    it('has body class', (done) => {
+        helpers.assert.bodyClass('page-bootlint', response, done);
     });
 
     ['html', 'pug', 'haml'].forEach((fmt) => {

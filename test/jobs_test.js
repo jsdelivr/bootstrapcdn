@@ -1,8 +1,6 @@
-'use strict';
-
 const helpers = require('./test_helpers.js');
 
-describe('Jobs', () => {
+describe('jobs', () => {
     const uri = helpers.getURI('jobs');
     let response = {};
 
@@ -27,5 +25,9 @@ describe('Jobs', () => {
 
     it('has page header', (done) => {
         helpers.assert.pageHeader('Jobs', response, done);
+    });
+
+    it('has body class', (done) => {
+        helpers.assert.bodyClass('page-jobs', response, done);
     });
 });

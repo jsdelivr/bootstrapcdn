@@ -1,5 +1,3 @@
-'use strict';
-
 const assert = require('assert').strict;
 const helpers = require('./test_helpers.js');
 
@@ -35,6 +33,10 @@ describe('fontawesome', () => {
 
     it('has page header', (done) => {
         helpers.assert.pageHeader('Font Awesome', response, done);
+    });
+
+    it('has body class', (done) => {
+        helpers.assert.bodyClass('page-fontawesome', response, done);
     });
 
     it('has stylesheet', (done) => {

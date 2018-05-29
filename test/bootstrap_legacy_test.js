@@ -1,5 +1,3 @@
-'use strict';
-
 const assert = require('assert').strict;
 const helpers = require('./test_helpers.js');
 
@@ -29,6 +27,10 @@ describe('legacy/bootstrap', () => {
 
     it('has page header', (done) => {
         helpers.assert.pageHeader('Bootstrap Legacy', response, done);
+    });
+
+    it('has body class', (done) => {
+        helpers.assert.bodyClass('page-legacybootstrap', response, done);
     });
 
     config.bootstrap.forEach((bootstrap) => {
