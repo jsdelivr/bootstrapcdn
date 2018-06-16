@@ -32,7 +32,7 @@
   },
   "dependencies": {
     "compression": "^1.7.2",
-    "cross-env": "^5.1.6",
+    "cross-env": "^5.2.0",
     "errorhandler": "^1.5.0",
     "express": "^4.16.3",
     "express-sitemap": "^1.8.0",
@@ -46,7 +46,7 @@
     "semver": "^5.5.0",
     "serve-favicon": "^2.5.0",
     "sri-toolbox": "^0.2.0",
-    "staticify": "^2.0.0",
+    "staticify": "^3.0.0",
     "uuid": "^3.2.1"
   },
   "devDependencies": {
