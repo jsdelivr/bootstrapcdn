@@ -16,7 +16,7 @@ version = version.replace(/^v/, '');
 
 const basedir = path.join(__dirname, '..');
 const bootstrapSrcDir = path.join(basedir, 'node_modules/bootstrap/dist');
-const bootstrapDistDir = path.join(basedir, 'public', 'twitter-bootstrap', version);
+const bootstrapDistDir = path.join(basedir, 'cdn', 'twitter-bootstrap', version);
 
 if (fs.existsSync(bootstrapDistDir)) {
     console.log('Bootstrap version already found.');
