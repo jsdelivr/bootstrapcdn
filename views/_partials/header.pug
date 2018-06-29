@@ -22,9 +22,9 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
                     +menuItem('Bootswatch Legacy', '/legacy/bootswatch/')(extra-class='dropdown-item bg-dark')
                     +menuItem('Font Awesome Legacy', '/legacy/fontawesome/')(extra-class='dropdown-item bg-dark')
         ul.nav.navbar-nav.ml-auto
-            +menuItem('Themes', '/themes/')
-            +menuItem('Books', '/books/')
-            +menuItem('Jobs', '/jobs/')
+            +menuItem('Themes', '/themes/', true)
+            +menuItem('Books', '/books/', true)
+            +menuItem('Jobs', '/jobs/', true)
             +menuItem('Showcase', '/showcase/')
             +menuItem('Integrations', '/integrations/')
             li.nav-item.dropdown
@@ -35,42 +35,42 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
                             data-ga-category='Navigation',
                             data-ga-action='Resources',
                             data-ga-label='GitHub project',
-                            rel='noopener',
+                            rel='noopener nofollow',
                             target='_blank') GitHub project
                     li.dropdown-item.bg-dark
                         a.nav-link(href='https://getbootstrap.com/',
                             data-ga-category='Navigation',
                             data-ga-action='Resources',
                             data-ga-label='Bootstrap',
-                            rel='noopener',
+                            rel='noopener nofollow',
                             target='_blank') Bootstrap
                     li.dropdown-item.bg-dark
                         a.nav-link(href='https://expo.getbootstrap.com/',
                             data-ga-category='Navigation',
                             data-ga-action='Resources',
                             data-ga-label='Expo',
-                            rel='noopener',
+                            rel='noopener nofollow',
                             target='_blank') Bootstrap Expo
                     li.dropdown-item.bg-dark
                         a.nav-link(href='https://fontawesome.com/',
                             data-ga-category='Navigation',
                             data-ga-action='Resources',
                             data-ga-label='Font Awesome',
-                            rel='noopener',
+                            rel='noopener nofollow',
                             target='_blank') Font Awesome
                     li.dropdown-item.bg-dark
                         a.nav-link(href='https://bootswatch.com/',
                             data-ga-category='Navigation',
                             data-ga-action='Resources',
                             data-ga-label='Bootswatch',
-                            rel='noopener',
+                            rel='noopener nofollow',
                             target='_blank') Bootswatch
                     li.dropdown-item.bg-dark
                         a.nav-link(href='https://github.com/twbs/bootlint'
                             data-ga-category='Navigation',
                             data-ga-action='Resources',
                             data-ga-label='Bootlint',
-                            rel='noopener',
+                            rel='noopener nofollow',
                             target='_blank') Bootlint
 
 //- vim: ft=pug sw=4 sts=4 et:
