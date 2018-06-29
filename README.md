@@ -1,11 +1,14 @@
 # BootstrapCDN
 
-[![Follow BootstrapCDN on Twitter](https://img.shields.io/badge/twitter-@getBootstrapCDN-55acee.svg?style=flat-square)](https://twitter.com/getbootstrapcdn)
 [![Linux Build Status](https://img.shields.io/travis/MaxCDN/bootstrapcdn/develop.svg?label=Linux%20build&style=flat-square)](https://travis-ci.org/MaxCDN/bootstrapcdn)
 [![Windows Build status](https://img.shields.io/appveyor/ci/jdorfman/bootstrapcdn/develop.svg?label=Windows%20build&style=flat-square)](https://ci.appveyor.com/project/jdorfman/bootstrapcdn)
 [![Coverage Status](https://img.shields.io/coveralls/github/MaxCDN/bootstrapcdn.svg?style=flat-square)](https://coveralls.io/github/MaxCDN/bootstrapcdn)
 [![dependencies Status](https://img.shields.io/david/MaxCDN/bootstrapcdn.svg?style=flat-square)](https://david-dm.org/MaxCDN/bootstrapcdn)
 [![devDependencies Status](https://img.shields.io/david/dev/MaxCDN/bootstrapcdn.svg?style=flat-square)](https://david-dm.org/MaxCDN/bootstrapcdn?type=dev)
+
+[![Follow BootstrapCDN on Twitter](https://img.shields.io/badge/twitter-@getBootstrapCDN-55acee.svg?style=flat-square)](https://twitter.com/getbootstrapcdn)
+[![Backers on Open Collective](https://opencollective.com/getbootstrapcdn/backers/badge.svg)](#backers)
+[![Sponsors on Open Collective](https://opencollective.com/getbootstrapcdn/sponsors/badge.svg)](#sponsors)
 
 ## Deploy your own copy on Heroku
 
@@ -76,10 +79,36 @@ Contains the CDN files we host.The SRI values are updated by running `npm run in
 
 Our CSP config using <https://github.com/helmetjs/csp>
 
-## Updating Bootstrap/Bootlint
+## Updating Bootstrap/Bootlint/Bootswatch
 
-1. `npm i bootstrap@version --save-exact -D`/`npm i bootlint@version --save-exact -D`
-2. `npm run bootstrap version`/`npm run bootlint version`
-3. Update `config/_config.yml` accordingly
-4. `npm run integrity`
-5. Make sure `npm run ci` passes after the files are on S3/CDN and verify the frontend works as expected without any visual breakage
+Replace `package` by the package you want to update and `version` with its version in the following commands:
+
+```shell
+npm i package@version --save-exact -D
+npm run package version
+```
+
+1. Update `config/_config.yml` accordingly
+2. `npm run integrity`
+3. Make sure `npm run ci` passes after the files are on S3/CDN and verify the frontend works as expected without any visual breakage
+
+## Backers
+
+Thank you to all our backers! 🙏 [[Become a backer](https://opencollective.com/getbootstrapcdn#backer)]
+
+[![Bakers](https://opencollective.com/getbootstrapcdn/backers.svg?width=890)](https://opencollective.com/getbootstrapcdn#backers)
+
+## Sponsors
+
+Support this project by becoming a sponsor. Your logo will show up here with a link to your website. [[Become a sponsor](https://opencollective.com/getbootstrapcdn#sponsor)]
+
+[![](https://opencollective.com/getbootstrapcdn/sponsor/0/avatar.svg)](https://opencollective.com/getbootstrapcdn/sponsor/0/website)
+[![](https://opencollective.com/getbootstrapcdn/sponsor/1/avatar.svg)](https://opencollective.com/getbootstrapcdn/sponsor/1/website)
+[![](https://opencollective.com/getbootstrapcdn/sponsor/2/avatar.svg)](https://opencollective.com/getbootstrapcdn/sponsor/2/website)
+[![](https://opencollective.com/getbootstrapcdn/sponsor/3/avatar.svg)](https://opencollective.com/getbootstrapcdn/sponsor/3/website)
+[![](https://opencollective.com/getbootstrapcdn/sponsor/4/avatar.svg)](https://opencollective.com/getbootstrapcdn/sponsor/4/website)
+[![](https://opencollective.com/getbootstrapcdn/sponsor/5/avatar.svg)](https://opencollective.com/getbootstrapcdn/sponsor/5/website)
+[![](https://opencollective.com/getbootstrapcdn/sponsor/6/avatar.svg)](https://opencollective.com/getbootstrapcdn/sponsor/6/website)
+[![](https://opencollective.com/getbootstrapcdn/sponsor/7/avatar.svg)](https://opencollective.com/getbootstrapcdn/sponsor/7/website)
+[![](https://opencollective.com/getbootstrapcdn/sponsor/8/avatar.svg)](https://opencollective.com/getbootstrapcdn/sponsor/8/website)
+[![](https://opencollective.com/getbootstrapcdn/sponsor/9/avatar.svg)](https://opencollective.com/getbootstrapcdn/sponsor/9/website)

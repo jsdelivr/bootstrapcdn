@@ -245,6 +245,10 @@
             "error",
             "always"
         ],
+        "space-before-function-paren": [
+          "error",
+          "never"
+        ],
         "spaced-comment": "off",
         "space-infix-ops": "error",
         "space-in-parens": [
