@@ -3,8 +3,8 @@
 const fs         = require('fs');
 const path       = require('path');
 const yaml       = require('js-yaml');
-const sri        = require('./sri.js');
 const config     = require('../config');
+const sri        = require('./sri.js');
 
 const filesConfig = config.loadConfig('_files.yml');
 const configFile = config.getConfigPath('_files.yml');

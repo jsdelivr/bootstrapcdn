@@ -1,4 +1,4 @@
-/* eslint no-undefined: 0*/
+/* eslint no-undefined: 0 */
 
 const ENV = process.env;
 

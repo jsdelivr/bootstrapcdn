@@ -1,6 +1,6 @@
 /* global ClipboardJS:false */
 
-(function () {
+(function() {
     'use strict';
 
     function toggleInputCaret() {
@@ -8,7 +8,7 @@
         var elements = document.querySelectorAll(selector);
 
         function toggleCode(index) {
-            elements[index].addEventListener('click', function () {
+            elements[index].addEventListener('click', function() {
                 elements[index].classList.toggle('dropdown-toggle-open');
             });
         }
@@ -24,17 +24,17 @@
         var origHelpBlockText = 'Click to copy';
 
         for (var i = 0, len = elements.length; i < len; i++) {
-            elements[i].addEventListener('focus', function (event) {
+            elements[i].addEventListener('focus', function(event) {
                 event.preventDefault();
                 this.select();
 
                 var clipboardInputs = new ClipboardJS(this, {
-                    target: function (trigger) {
+                    target: function(trigger) {
                         return trigger;
                     }
                 });
 
-                clipboardInputs.on('success', function (ev) {
+                clipboardInputs.on('success', function(ev) {
                     var helpBlock = {};
                     var parentNextSibling = ev.trigger.parentElement.nextElementSibling;
 
@@ -49,7 +49,7 @@
                 });
             }, true);
 
-            elements[i].addEventListener('blur', function (event) {
+            elements[i].addEventListener('blur', function(event) {
                 var helpBlock = {};
                 var parentNextSibling = this.parentElement.nextElementSibling;
 
@@ -74,7 +74,7 @@
             return;
         }
 
-        window.twttr.ready(function (twttr) {
+        window.twttr.ready(function(twttr) {
             twttr.widgets.createTimeline(
                 {
                     sourceType: 'collection',
