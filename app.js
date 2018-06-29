@@ -171,6 +171,7 @@ app.use('/jobs/', routes.jobsRoute);
 app.use('/legacy', routes.legacyRoutes);
 app.use('/privacy-policy/', routes.privacyPolicyRoute);
 app.use('/showcase/', routes.showcaseRoute);
+app.use('/themes/', routes.themesRoute);
 
 const map = sitemap({
     url: 'www.bootstrapcdn.com',
@@ -221,7 +222,8 @@ if (ENV.ENABLE_CRAWLING) {
             '/jobs',
             '/legacy',
             '/privacy-policy',
-            '/showcase'
+            '/showcase',
+            '/themes'
         ]);
         return map.XMLtoWeb(res);
     });

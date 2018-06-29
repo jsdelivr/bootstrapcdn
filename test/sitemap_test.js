@@ -11,10 +11,6 @@ describe('sitemap.xml', () => {
         });
     });
 
-    after((done) => {
-        helpers.stopServer(done);
-    });
-
     it('works', (done) => {
         helpers.assert.itWorks(response.statusCode, done);
     });
