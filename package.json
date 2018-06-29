@@ -47,14 +47,14 @@
     "serve-favicon": "^2.5.0",
     "sri-toolbox": "^0.2.0",
     "staticify": "^3.0.0",
-    "uuid": "^3.2.1"
+    "uuid": "^3.3.2"
   },
   "devDependencies": {
     "bootlint": "0.14.2",
     "bootstrap": "4.1.1",
     "bootswatch": "4.1.1",
     "coveralls": "^3.0.1",
-    "eslint": "^4.19.1",
+    "eslint": "^5.0.1",
     "fs-extra": "^6.0.1",
     "fs-walk": "^0.0.2",
     "html-validator": "^3.0.5",
@@ -66,7 +66,7 @@
     "pug-lint": "^2.5.0",
     "pug-lint-config-clock": "^2.0.0",
     "request": "^2.87.0",
-    "uglify-js": "^3.4.0"
+    "uglify-js": "^3.4.2"
   },
   "engines": {
     "node": "10.x"
