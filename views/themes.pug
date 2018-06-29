@@ -1,15 +1,15 @@
 extends layout.pug
 
 block content
-    h2.text-center.mb-4 Bootstrap Books
+    h2.text-center.mb-4 Bootstrap Themes
 
     p.lead.text-center.mb-4
         a(href='/about/#sustainability') What’s this?
 
     .row
-        each book in config.books
+        each theme in config.themesAd
             .col-12.col-md-6
-                include _partials/book.pug
+                include _partials/theme.pug
 
     .row
         .col-12
