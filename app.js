@@ -194,7 +194,13 @@ const map = sitemap({
         '/beta/': {
             hide: true
         },
+        '/books/': {
+            hide: true
+        },
         '/bootswatch4/': {
+            hide: true
+        },
+        '/jobs/': {
             hide: true
         },
         '/legacy/': {
@@ -205,6 +211,9 @@ const map = sitemap({
         },
         '/robots.txt': {
             hide: true
+        },
+        '/themes/': {
+            hide: true
         }
     }
 });
@@ -214,16 +223,13 @@ if (ENV.ENABLE_CRAWLING) {
         map.generate4(app, [
             '/',
             '/about',
-            '/books',
             '/bootlint',
             '/bootswatch',
             '/fontawesome',
             '/integrations',
-            '/jobs',
             '/legacy',
             '/privacy-policy',
-            '/showcase',
-            '/themes'
+            '/showcase'
         ]);
         return map.XMLtoWeb(res);
     });
