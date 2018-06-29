@@ -13,7 +13,7 @@ init:
 
 install:
   - ps: Install-Product node "10" $env:platform
-  - npm install
+  - npm ci
 
 build: off
 
@@ -23,7 +23,7 @@ before_test:
 test_script:
   - node -v
   - npm -v
-  - npm run ci
+  - npm run all
 
 matrix:
   fast_finish: true
