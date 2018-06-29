@@ -9,7 +9,7 @@ footer.mt-5.py-4.text-center
                             |  &amp; 
                         else if (index > 0)
                             | , 
-                        a(href=author.url, rel='noopener', target='_blank')=`@${author.twitter}` 
+                        a(href=author.url, rel='noopener nofollow', target='_blank')=`@${author.twitter}` 
 
                 p
                     a(href='https://www.stackpath.com/', title='StackPath', rel='noopener', target='_blank')
@@ -22,7 +22,7 @@ footer.mt-5.py-4.text-center
                             |  &amp; 
                         else if (index > 0)
                             | , 
-                        a(href=friend.url, rel='noopener', target='_blank')=friend.name 
+                        a(href=friend.url, rel='noopener nofollow', target='_blank')=friend.name 
 
                 p.
                     #[a(href='/about/') About] · #[a(href='/privacy-policy/') Privacy Policy]

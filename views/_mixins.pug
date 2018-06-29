@@ -1,6 +1,7 @@
-mixin menuItem(name, url)
+mixin menuItem(name, url, nofollow)
     -
         let classes = ['nav-item'];
+        var attributes = {};
 
         if (typeof attributes['extra-class'] !== 'undefined') {
             classes.push(attributes['extra-class']);
@@ -10,11 +11,13 @@ mixin menuItem(name, url)
             classes.push('active');
         }
 
-        classes = classes.join(' ');
-
         if (name.includes(' Legacy')) {
             name = name.replace(' Legacy', '');
         }
 
+        if (nofollow === true) {
+            attributes.rel = 'nofollow';
+        }
+
     li(class=classes)
-        a.nav-link(href=`${url}${themeQs}`)=name
+        a.nav-link(href=`${url}${themeQs}`)&attributes(attributes)=name
