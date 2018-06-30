@@ -28,10 +28,14 @@ function getPageTitle(pageTitle) {
 
 function getThemeQuery(req) {
     const totalThemes = config.bootswatch4.themes.length;
+    const query = req.query.theme;
 
-    return req.query.theme < totalThemes ?
-        req.query.theme :
-        '';
+    // Safety checks
+    if (Number.isNaN(query) || query < 0 || query >= totalThemes) {
+        return '';
+    }
+
+    return query;
 }
 
 function generateBodyClass(url) {

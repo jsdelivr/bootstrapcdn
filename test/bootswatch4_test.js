@@ -39,6 +39,25 @@ describe('bootswatch4', () => {
         helpers.assert.bodyClass('page-bootswatch', response, done);
     });
 
+    const invalidQueries = [
+        parseInt(-1, 10),
+        parseInt(500, 10),
+        parseInt('5', 10),
+        parseInt('foobar', 10)
+    ];
+
+    invalidQueries.forEach((i) => {
+        it(`handles invalid theme query parameter (${i})`, (done) => {
+            const invalidUri = helpers.getURI(`bootswatch/?theme=${i}`);
+            let invalidResponse = {};
+
+            helpers.prefetch(invalidUri, (res) => {
+                invalidResponse = res;
+                helpers.assert.itWorks(invalidResponse.statusCode, done);
+            });
+        });
+    });
+
     config.bootswatch4.themes.forEach((theme) => {
         describe(theme.name, () => {
             const themeImage = format(config.bootswatch4.image, theme.name);
