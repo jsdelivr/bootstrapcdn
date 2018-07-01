@@ -63,7 +63,7 @@ function generateSRI(file) {
 
 function appendLocals(req, res) {
     const siteUrl = getCurrentSiteurl(req);
-    const canonicalUrl = `${config.siteurl}${req.path}`;
+    const canonicalUrl = `${config.siteurl}${req.originalUrl}`;
     const theme = getThemeQuery(req);
     const pageUrl = req.originalUrl;
     const bodyClass = generateBodyClass(pageUrl);
