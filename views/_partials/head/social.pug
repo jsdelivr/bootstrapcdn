@@ -1,7 +1,7 @@
 meta(property='og:title', content!=title)
 meta(property='og:type', content='website')
 meta(property='og:description', content!=pageDescription)
-meta(property='og:url', content=siteUrl)
+meta(property='og:url', content=`${siteUrl}${pageUrl}`)
 meta(property='og:image', content=`${siteUrl.replace(/^https:/, 'http:')}${getVersionedPath('/assets/img/og.png')}`)
 meta(property='og:image:secure_url', content=`${siteUrl}${getVersionedPath('/assets/img/og.png')}`)
 meta(property='og:image:type', content='image/png')
