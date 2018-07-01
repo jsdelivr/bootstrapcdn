@@ -1,9 +1,8 @@
 --check-leaks
 --globals __core-js_shared__
 --reporter dot
---slow 500
 --throw-deprecation
---timeout 15000
+--timeout 3000
 --trace-deprecation
 --trace-warnings
 --use_strict
