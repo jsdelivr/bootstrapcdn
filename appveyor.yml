@@ -4,7 +4,7 @@ clone_depth: 5
 
 environment:
   matrix:
-    - platform: "x86"
+    - platform: "x64"
 
 init:
   # Enable symlinks in git; note that this requires to clone
