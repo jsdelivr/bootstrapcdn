@@ -90,7 +90,7 @@ npm run package version
 
 1. Update `config/_config.yml` accordingly
 2. `npm run integrity`
-3. Make sure `npm run ci` passes after the files are on S3/CDN and verify the frontend works as expected without any visual breakage
+3. Make sure `npm run all` passes after the files are on S3/CDN and verify the frontend works as expected without any visual breakage
 
 ## Backers
 
