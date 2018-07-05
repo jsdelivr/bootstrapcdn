@@ -1,4 +1,5 @@
 const path = require('path');
+const url = require('url');
 const helpers = require('../lib/helpers.js');
 const config = require('../config');
 
@@ -38,8 +39,8 @@ function getThemeQuery(req) {
     return query;
 }
 
-function generateBodyClass(url) {
-    let str = url;
+function generateBodyClass(pageUrl) {
+    let str = url.parse(pageUrl).pathname;
 
     if (str === '/') {
         str = 'home'; // only for the index page
@@ -63,7 +64,7 @@ function generateSRI(file) {
 
 function appendLocals(req, res) {
     const siteUrl = getCurrentSiteurl(req);
-    const canonicalUrl = `${config.siteurl}${req.originalUrl}`;
+    const canonicalUrl = config.siteurl + url.parse(`${req.originalUrl}`).pathname;
     const theme = getThemeQuery(req);
     const pageUrl = req.originalUrl;
     const bodyClass = generateBodyClass(pageUrl);
