@@ -42,7 +42,7 @@
     "jstransformer-clean-css": "^2.1.0",
     "morgan": "^1.9.0",
     "pug": "^2.0.3",
-    "rollbar": "^2.4.1",
+    "rollbar": "^2.4.2",
     "semver": "^5.5.0",
     "serve-favicon": "^2.5.0",
     "sri-toolbox": "^0.2.0",
@@ -52,21 +52,21 @@
   "devDependencies": {
     "bootlint": "0.14.2",
     "bootstrap": "4.1.2",
-    "bootswatch": "4.1.1",
-    "coveralls": "^3.0.1",
-    "eslint": "^5.0.1",
+    "bootswatch": "4.1.2",
+    "coveralls": "^3.0.2",
+    "eslint": "^5.1.0",
     "fs-extra": "^6.0.1",
     "fs-walk": "^0.0.2",
     "html-validator": "^3.0.5",
     "htmlencode": "^0.0.4",
     "mocha": "^5.2.0",
     "mockdate": "^2.0.2",
-    "nodemon": "^1.17.5",
+    "nodemon": "^1.18.1",
     "nyc": "^12.0.2",
     "pug-lint": "^2.5.0",
     "pug-lint-config-clock": "^2.0.0",
     "request": "^2.87.0",
-    "uglify-js": "^3.4.2"
+    "uglify-js": "^3.4.4"
   },
   "engines": {
     "node": "10.x"
