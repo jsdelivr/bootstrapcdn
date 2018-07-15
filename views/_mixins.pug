@@ -1,10 +1,10 @@
 mixin menuItem(name, url, nofollow)
     -
-        let classes = ['nav-item'];
-        var attributes = {};
+        const classes = ['nav-item'];
+        const attr = attributes || {};
 
-        if (typeof attributes['extra-class'] !== 'undefined') {
-            classes.push(attributes['extra-class']);
+        if (typeof attr.extraclass !== 'undefined') {
+            classes.push(attr.extraclass);
         }
 
         if (pageUrl === url) {
@@ -16,8 +16,8 @@ mixin menuItem(name, url, nofollow)
         }
 
         if (nofollow === true) {
-            attributes.rel = 'nofollow';
+            attr.rel = 'nofollow';
         }
 
     li(class=classes)
-        a.nav-link(href=`${url}${themeQs}`)&attributes(attributes)=name
+        a.nav-link(href=`${url}${themeQs}`, rel=attr.rel)=name
