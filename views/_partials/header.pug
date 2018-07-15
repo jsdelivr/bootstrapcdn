@@ -2,7 +2,7 @@ include ../_mixins.pug
 
 -var themeQs = theme ? `?theme=${theme}` : '';
 
-nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+nav.navbar.navbar-expand-xl.navbar-dark.bg-dark
     a.navbar-brand(href=`/${themeQs}`)
         include /assets/img/bootstrapcdn.svg
         | BootstrapCDN
@@ -11,7 +11,7 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
         span.navbar-toggler-icon
 
     #main-nav.navbar-collapse.collapse
-        ul.nav.navbar-nav.ml-lg-5
+        ul.nav.navbar-nav.ml-xl-5
             +menuItem('Font Awesome', '/fontawesome/')
             +menuItem('Bootswatch', '/bootswatch/')
             +menuItem('Bootlint', '/bootlint/')
