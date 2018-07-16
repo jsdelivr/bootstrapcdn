@@ -61,7 +61,7 @@
     "htmlencode": "^0.0.4",
     "mocha": "^5.2.0",
     "mockdate": "^2.0.2",
-    "nodemon": "^1.18.1",
+    "nodemon": "^1.18.2",
     "nyc": "^12.0.2",
     "pug-lint": "^2.5.0",
     "pug-lint-config-clock": "^2.0.0",
