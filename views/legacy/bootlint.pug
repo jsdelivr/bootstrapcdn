@@ -1,0 +1,26 @@
+extends ../layout.pug
+
+block content
+    h2.text-center.mb-4 Bootlint Legacy
+
+    each item in config.bootlint
+        unless (item.current)
+            .card.bg-light.mt-4.p-4.text-center
+                h3.mt-2=`v${item.version}`
+
+                -var name   = `fontawesomecss_${item.version.replace(/\./g, '_')}`;
+                -var file   = item.javascript;
+                -var sri    = item.javascriptSri;
+                -var formId = `${name}_form`;
+
+                .form-group.my-4
+                    label.font-weight-bold(for=formId) Complete JS
+                    .input-group.input-group-lg
+                        input.form-control(id=formId, type='text', value=file)
+                        .input-group-append
+                            button.btn.btn-dark.dropdown-toggle(type='button', data-toggle='collapse', data-target=`#${name}`, aria-expanded='false', aria-controls=name)
+                    span.form-text.text-muted Click to copy
+
+                include ../_partials/csscode.pug
+
+//- vim: ft=pug sw=4 sts=4 et:

@@ -19,6 +19,14 @@ router.get('/bootswatch/', (req, res) => {
     });
 });
 
+router.get('/bootlint/', (req, res) => {
+    res = appendLocals(req, res);
+    res.render('legacy/bootlint.pug', {
+        title: 'Bootlint Legacy',
+        description: 'Older versions of Bootlint hosted on a CDN'
+    });
+});
+
 router.get('/fontawesome/', (req, res) => {
     res = appendLocals(req, res);
     res.render('legacy/fontawesome.pug', {
