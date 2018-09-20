@@ -1,18 +1,41 @@
+image:
+  - Visual Studio 2017
+  - Ubuntu
+
 version: "{build}"
 
 clone_depth: 5
 
+stack: node 10
+
 environment:
   matrix:
-    - platform: "x64"
+    - PLATFORM: "x64"
+    
+for:
+  -
+    matrix:
+      only:
+        - image: Visual Studio 2017
+    cache:
+       - '%APPDATA%\npm-cache\ -> .appveyor.yml,package.json,package-lock.json' # need this only on Windows
+  -
+    matrix:
+      only:
+        - image: Ubuntu
+    cache:
+       - '$HOME/.npm -> .appveyor.yml,package.json,package-lock.json' # need this only on Linux
 
 init:
-  # Enable symlinks in git; note that this requires to clone
-  # the repo with admin rights, which AppVeyor does by default
-  - git config --global core.symlinks true
+  # Enable symlinks in git for Windows; note that this requires to
+  # clone the repo with admin rights, which AppVeyor does by default
+  - cmd: git config --global core.symlinks true
 
 install:
-  - ps: Install-Product node "10" $env:platform
+  - ps: |
+      if ($isWindows) {
+        Install-Product node "10" $env:PLATFORM
+      }
   - npm ci
 
 build: off
@@ -23,7 +46,14 @@ before_test:
   - npm -v
 
 test_script:
-  - npm run all
+  # Only run the no-functional tests on Windows
+  - cmd: npm run test
+  # Run the whole test suite on Linux
+  - sh: npm run all-with-coverage
 
-cache:
-  - '%APPDATA%\npm-cache\ -> .appveyor.yml,package.json,package-lock.json'
+on_success:
+  # Only run coveralls on Linux
+  - sh: npm run coveralls
+
+matrix:
+  fast_finish: true
