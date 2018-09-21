@@ -1,6 +1,10 @@
 {
   "name": "bootstrapcdn",
   "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MaxCDN/bootstrapcdn.git"
+  },
   "private": true,
   "scripts": {
     "clean": "rm -rf ./node_modules/",
