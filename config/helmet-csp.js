@@ -21,6 +21,7 @@ const CSP = {
         'fallbacks.carbonads.com',
         'www.ziprecruiter.com',
         'api.ziprecruiter.com',
+        'codefund.io',
         (req, res) => `'nonce-${res.locals.nonce}'`
     ],
     styleSrc: [
@@ -47,6 +48,7 @@ const CSP = {
         '*.convertro.com',
         '*.c3tag.com',
         '*.2mdn.net',
+        'codefund.io',
         'launchbit.com',
         'www.launchbit.com',
         'www.ziprecruiter.com'
@@ -69,7 +71,8 @@ const CSP = {
         'ghbtns.com'
     ],
     connectSrc: [
-        'syndication.twitter.com'
+        'syndication.twitter.com',
+        'codefund.io'
     ],
     manifestSrc: ['\'self\'']
 };
