@@ -9,10 +9,19 @@
     },
     "extends": "eslint:recommended",
     "rules": {
-        "array-bracket-spacing": "error",
+        "array-bracket-spacing": [
+            "error",
+            "never"
+        ],
         "array-callback-return": "error",
-        "arrow-body-style": ["error", "as-needed"],
-        "arrow-parens": ["error", "always"],
+        "arrow-body-style": [
+            "error",
+            "as-needed"
+        ],
+        "arrow-parens": [
+            "error",
+            "always"
+        ],
         "arrow-spacing": "error",
         "block-scoped-var": "error",
         "block-spacing": "error",
@@ -21,7 +30,12 @@
             "1tbs"
         ],
         "callback-return": "error",
-        "camelcase": "error",
+        "camelcase": [
+            "error",
+            {
+                "properties": "never"
+            }
+        ],
         "comma-dangle": "error",
         "comma-spacing": [
             "error",
@@ -33,6 +47,10 @@
         "comma-style": [
             "error",
             "last"
+        ],
+        "computed-property-spacing": [
+            "error",
+            "never"
         ],
         "consistent-return": "error",
         "consistent-this": "off",
@@ -91,7 +109,8 @@
             "always-multiline"
         ],
         "new-cap": [
-            "error", {
+            "error",
+            {
                 "properties": false
             }
         ],
@@ -123,7 +142,13 @@
         "no-eval": "error",
         "no-extra-bind": "error",
         "no-extra-label": "error",
-        "no-extra-parens": "error",
+        "no-extra-parens": [
+            "error",
+            "all",
+            {
+                "nestedBinaryExpressions": false
+            }
+        ],
         "no-floating-decimal": "error",
         "no-global-assign": "error",
         "no-implicit-coercion": "error",
@@ -165,6 +190,7 @@
             }
         ],
         "no-path-concat": "error",
+        "no-prototype-builtins": "error",
         "no-return-assign": "error",
         "no-self-compare": "error",
         "no-sequences": "error",
@@ -234,7 +260,10 @@
             "single"
         ],
         "radix": "error",
-        "rest-spread-spacing": ["error", "never"],
+        "rest-spread-spacing": [
+            "error",
+            "never"
+        ],
         "semi": [
             "error",
             "always"
@@ -246,8 +275,8 @@
             "always"
         ],
         "space-before-function-paren": [
-          "error",
-          "never"
+            "error",
+            "never"
         ],
         "spaced-comment": "off",
         "space-infix-ops": "error",
