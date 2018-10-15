@@ -1,3 +1,5 @@
+sudo: false
+
 git:
   depth: 5
 
@@ -10,22 +12,19 @@ install:
   - npm ci
 
 before_script:
-  - curl https://v4.ifconfig.co/
+  - curl --silent https://v4.ifconfig.co/
 
-script: npm run all-with-coverage
+script:
+  - npm run all-with-coverage
 
 after_success:
   - npm run coveralls
-
-matrix:
-  fast_finish: true
 
 notifications:
   email:
     - joshua@mervine.net
     - bootstrap@maxcdn.com
 
-# keep the npm cache around to speed up installs
 cache:
   directories:
     - "$HOME/.npm"

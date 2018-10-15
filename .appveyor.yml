@@ -19,14 +19,11 @@ build: off
 
 before_test:
   - curl --silent https://v4.ifconfig.co/
-
-test_script:
   - node -v
   - npm -v
-  - npm run all
 
-matrix:
-  fast_finish: true
+test_script:
+  - npm run all
 
 cache:
   - '%APPDATA%\npm-cache\ -> .appveyor.yml,package.json,package-lock.json'
