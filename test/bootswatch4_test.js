@@ -23,8 +23,7 @@ describe('bootswatch4', () => {
         helpers.assert.itWorks(response.statusCode, done);
     });
 
-    it('valid html', function(done) {
-        this.timeout(helpers.TESTS_TIMEOUT);
+    it('valid html', (done) => {
         helpers.assert.validHTML(response, done);
     });
 

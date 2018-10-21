@@ -2,7 +2,7 @@
 --globals __core-js_shared__
 --reporter dot
 --throw-deprecation
---timeout 3000
+--timeout 10000
 --trace-deprecation
 --trace-warnings
 --use_strict

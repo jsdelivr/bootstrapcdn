@@ -15,10 +15,6 @@ const validator = require('html-validator');
 const app = require('../app.js');
 const config = require('../config');
 
-// This is our custom tests timeout;
-// used in HTML validation tests and the server.close function
-const TESTS_TIMEOUT = 5000;
-
 // The server object holds the server instance across all tests;
 // We start it in the first test and close it in the last one,
 // otherwise test time increases a lot (more than 3x)
@@ -216,6 +212,5 @@ module.exports = {
         pug: jsJade,
         html: jsHTML,
         haml: jsHAML
-    },
-    TESTS_TIMEOUT
+    }
 };

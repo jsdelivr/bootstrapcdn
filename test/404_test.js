@@ -18,8 +18,7 @@ describe('404', () => {
         done();
     });
 
-    it('valid html', function(done) {
-        this.timeout(helpers.TESTS_TIMEOUT);
+    it('valid html', (done) => {
         helpers.assert.validHTML(response, done);
     });
 
