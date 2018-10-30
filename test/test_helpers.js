@@ -7,7 +7,7 @@ ENV.ENABLE_CRAWLING = true;
 ENV.BCDN_HEADERS = ENV.BCDN_HEADERS || 'production';
 
 const assert = require('assert').strict;
-const htmlEncode = require('htmlencode').htmlEncode;
+const { htmlEncode } = require('htmlencode');
 const mockDate = require('mockdate');
 const request = require('request');
 const validator = require('html-validator');
