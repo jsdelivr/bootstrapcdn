@@ -9,7 +9,7 @@ const assert = require('assert').strict;
 const path = require('path');
 const semver = require('semver');
 const walk = require('fs-walk');
-const digest = require('../lib/helpers.js').sri.digest;
+const { digest } = require('../lib/helpers.js').sri;
 const helpers = require('./test_helpers.js');
 
 const config = helpers.getConfig();

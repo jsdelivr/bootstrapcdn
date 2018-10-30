@@ -3,7 +3,7 @@ const url = require('url');
 const helpers = require('../lib/helpers.js');
 const config = require('../config');
 
-const digest = helpers.sri.digest;
+const { digest } = helpers.sri;
 const PUBLIC_DIR = path.join(__dirname, '../public/');
 const SRI_CACHE = {};
 
