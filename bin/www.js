@@ -1,3 +1,5 @@
+'use strict';
+
 const http = require('http');
 const app = require('../app.js');
 const config = require('../config');

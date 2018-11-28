@@ -1,3 +1,5 @@
+'use strict';
+
 const helpers = require('./test_helpers.js');
 
 describe('About', () => {

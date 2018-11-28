@@ -1,3 +1,5 @@
+'use strict';
+
 const path    = require('path');
 
 const helpers = require(path.resolve(__dirname, '../lib/helpers.js'));

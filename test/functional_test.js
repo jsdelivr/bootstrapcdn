@@ -1,5 +1,7 @@
 /* eslint no-undefined: 0 */
 
+'use strict';
+
 const ENV = process.env;
 
 // We use BCDN_HEADERS to distinguish between production and debug CDN headers
