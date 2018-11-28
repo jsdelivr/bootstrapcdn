@@ -1,7 +1,6 @@
 # BootstrapCDN
 
-[![Linux Build Status](https://img.shields.io/travis/MaxCDN/bootstrapcdn/develop.svg?label=Linux%20build&style=flat-square)](https://travis-ci.org/MaxCDN/bootstrapcdn)
-[![Windows Build status](https://img.shields.io/appveyor/ci/jdorfman/bootstrapcdn/develop.svg?label=Windows%20build&style=flat-square)](https://ci.appveyor.com/project/jdorfman/bootstrapcdn)
+[![Build Status](https://img.shields.io/travis/MaxCDN/bootstrapcdn/develop.svg?label=Build%20Status&style=flat-square)](https://travis-ci.org/MaxCDN/bootstrapcdn)
 [![Coverage Status](https://img.shields.io/coveralls/github/MaxCDN/bootstrapcdn.svg?style=flat-square)](https://coveralls.io/github/MaxCDN/bootstrapcdn)
 [![dependencies Status](https://img.shields.io/david/MaxCDN/bootstrapcdn.svg?style=flat-square)](https://david-dm.org/MaxCDN/bootstrapcdn)
 [![devDependencies Status](https://img.shields.io/david/dev/MaxCDN/bootstrapcdn.svg?style=flat-square)](https://david-dm.org/MaxCDN/bootstrapcdn?type=dev)
