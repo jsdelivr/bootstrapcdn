@@ -1,3 +1,5 @@
+'use strict';
+
 const CSP = {
     defaultSrc: ['\'none\''],
     baseUri: ['\'self\''],

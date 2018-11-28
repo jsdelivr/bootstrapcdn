@@ -1,3 +1,5 @@
+'use strict';
+
 // Force NODE_ENV (and thus 'env' in express)
 const ENV = process.env;
 
