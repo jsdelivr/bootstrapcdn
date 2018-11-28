@@ -6,23 +6,25 @@ language: node_js
 node_js:
   - "10"
 
-install:
-  - npm ci
+os:
+  - linux
+  - windows
 
 before_script:
   - curl --silent https://v4.ifconfig.co/
 
 script:
-  - npm run all-with-coverage
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then npm run all-with-coverage; fi
+  - if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then npm run test; fi
 
 after_success:
-  - npm run coveralls
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then npm run coveralls; fi
+
+cache:
+  directories:
+    - "$HOME/.npm"
 
 notifications:
   email:
     - joshua@mervine.net
     - bootstrap@maxcdn.com
-
-cache:
-  directories:
-    - "$HOME/.npm"
