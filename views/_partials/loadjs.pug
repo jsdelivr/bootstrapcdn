@@ -1,11 +1,11 @@
 -
     var bootswatchVersion = semver.coerce(config.bootswatch4.version);
-    var bootstrap = config.bootstrap.find((file) => semver.satisfies(file.version, `~${bootswatchVersion}`));
-    var jquery = config.javascript.find((file) => file.name === 'jquery');
-    var clipboardjs = config.javascript.find((file) => file.name === 'clipboardjs');
+    var bootstrap = config.bootstrap.find(file => semver.satisfies(file.version, `~${bootswatchVersion}`));
+    var jquery = config.javascript.find(file => file.name === 'jquery');
+    var clipboardjs = config.javascript.find(file => file.name === 'clipboardjs');
     var clipboardjsUri = getVersionedPath(clipboardjs.uri);
     var clipboardjsSri = generateSRI(clipboardjs.uri);
-    var mainJs = config.javascript.find((file) => file.name === 'main');
+    var mainJs = config.javascript.find(file => file.name === 'main');
     var mainJsUri = getVersionedPath(mainJs.uri);
     var mainJsSri = generateSRI('/assets/js/main.js');
 
