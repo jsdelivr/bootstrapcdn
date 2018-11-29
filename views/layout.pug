@@ -22,8 +22,7 @@ html(lang='en', prefix='og: http://ogp.me/ns#', itemscope, itemtype='http://sche
         include _partials/head/social.pug
 
         -var bootswatch = helpers.theme.fetch(config, theme);
-        link(rel='stylesheet', href=bootswatch.uri, integrity=bootswatch.sri,
-            crossorigin='anonymous')
+        link(rel='stylesheet', href=bootswatch.uri, integrity=bootswatch.sri, crossorigin='anonymous')
 
         block stylesheets
 
