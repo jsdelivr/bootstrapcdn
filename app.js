@@ -104,6 +104,8 @@ app.use((req, res, next) => {
     res.setHeader('Last-Modified', new Date().toUTCString());
     res.setHeader('X-Hello-Human', 'Say hello back! @getBootstrapCDN on Twitter');
     res.setHeader('X-Powered-By', 'StackPath');
+    // https://www.w3.org/TR/resource-timing-2/
+    res.setHeader('Timing-Allow-Origin', '*');
 
     res.locals.nonce = nonce;
 
