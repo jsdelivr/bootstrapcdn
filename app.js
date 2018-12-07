@@ -190,12 +190,6 @@ const map = sitemap({
         '/404/': {
             hide: true
         },
-        '/alpha/': {
-            hide: true
-        },
-        '/beta/': {
-            hide: true
-        },
         '/books/': {
             hide: true
         },
@@ -208,10 +202,10 @@ const map = sitemap({
         '/legacy/': {
             hide: true
         },
-        '/sitemap.xml': {
+        '/robots.txt': {
             hide: true
         },
-        '/robots.txt': {
+        '/sitemap.xml': {
             hide: true
         },
         '/themes/': {
