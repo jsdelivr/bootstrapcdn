@@ -94,7 +94,8 @@ function prefetch(uri, cb) {
         uri,
         forever: true, // for 'connection: Keep-Alive'
         followRedirect: false,
-        gzip: true
+        gzip: true,
+        strictSSL: true
     };
 
     if (ENV.BCDN_HEADERS === 'debug') {
