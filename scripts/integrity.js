@@ -60,20 +60,20 @@ function exists(file) {
 // bootstrap
 ((() => {
     for (const bootstrap of filesConfig.bootstrap) {
-        // Skip when the key doesn't exist
-        if (typeof bootstrap.javascriptBundle === 'undefined') {
-            continue;
-        }
+        let { javascriptBundle } = bootstrap;
 
         const javascript = buildPath(bootstrap.javascript);
-        const javascriptBundle = buildPath(bootstrap.javascriptBundle);
         const stylesheet = buildPath(bootstrap.stylesheet);
+
+        if (javascriptBundle) {
+            javascriptBundle = buildPath(bootstrap.javascriptBundle);
+        }
 
         if (exists(javascript)) {
             bootstrap.javascriptSri = sri.digest(javascript);
         }
 
-        if (exists(javascriptBundle)) {
+        if (javascriptBundle && exists(javascriptBundle)) {
             bootstrap.javascriptBundleSri = sri.digest(javascriptBundle);
         }
 
