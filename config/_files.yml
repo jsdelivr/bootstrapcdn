@@ -59,6 +59,11 @@ bootstrap:
     javascript: 'https://stackpath.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js'
     javascriptSri: sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn
     stylesheetSri: sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ
+  - version: 3.4.0
+    stylesheet: 'https://stackpath.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css'
+    javascript: 'https://stackpath.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js'
+    javascriptSri: sha384-vhJnz1OVIdLktyixHY4Uk3OHEwdQqPppqYR8+5mjsauETgLOcEynD9oPHhhz18Nw
+    stylesheetSri: sha384-PmY9l28YgO4JwMKbTvgaS7XNZJ30MK9FAZjjzXtlqyZCqBY6X6bXIkM++IkyinN+
   - version: 3.3.7
     stylesheet: 'https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'
     javascript: 'https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'
