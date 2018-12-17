@@ -19,7 +19,7 @@ const CSP = {
         'api.github.com',
         'www.ziprecruiter.com',
         'api.ziprecruiter.com',
-        'codefund.io',
+        'codefund.app',
         (req, res) => `'nonce-${res.locals.nonce}'`
     ],
     styleSrc: [
@@ -42,9 +42,8 @@ const CSP = {
         '*.convertro.com',
         '*.c3tag.com',
         '*.2mdn.net',
-        'codefund.io',
-        'cdn.codefund.io',
-        'cdn.codefund.app',
+        'codefund.app',
+        'cdn2.codefund.app',
         'launchbit.com',
         'www.launchbit.com',
         'www.ziprecruiter.com'
@@ -67,8 +66,7 @@ const CSP = {
         'ghbtns.com'
     ],
     connectSrc: [
-        'syndication.twitter.com',
-        'codefund.io'
+        'syndication.twitter.com'
     ],
     manifestSrc: ['\'self\'']
 };
