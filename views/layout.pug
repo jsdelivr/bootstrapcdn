@@ -20,6 +20,7 @@ html(lang='en', prefix='og: http://ogp.me/ns#', itemscope, itemtype='http://sche
 
         include _partials/head/favicons.pug
         include _partials/head/social.pug
+        include _partials/head/abp.pug
 
         -var bootswatch = helpers.theme.fetch(config, theme);
         link(rel='stylesheet', href=bootswatch.uri, integrity=bootswatch.sri, crossorigin='anonymous')
