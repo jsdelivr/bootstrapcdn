@@ -4,7 +4,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const uglifyjs = require('uglify-js');
+const fse = require('fs-extra');
 
 let version = process.argv[2];
 
@@ -26,39 +26,15 @@ if (fs.existsSync(bootlintDistDir)) {
 }
 
 fs.mkdirSync(bootlintDistDir);
-fs.copyFileSync(`${bootlintSrcDir}/bootlint.js`, `${bootlintDistDir}/bootlint.js`);
 
-function runUglify() {
-    const targetFile = 'bootlint.js';
-    const targetMinFile = `${targetFile.substr(0, targetFile.length - 3)}.min${targetFile.substr(targetFile.lastIndexOf('.'))}`;
-    const targetSourceMapFile = `${targetMinFile}.map`;
-
-    const targetFilepath = path.join(bootlintDistDir, targetFile);
-    const targetMinFilepath = path.join(bootlintDistDir, targetMinFile);
-
-    const uglifyOptions = {
-        // compress and mangle are on by default
-        output: {
-            comments: /(?:^!|@(?:license|preserve|cc_on))/
-        },
-        sourceMap: {
-            filename: targetSourceMapFile,
-            // includeSources: true,
-            url: targetSourceMapFile
-        }
-    };
-    const code = fs.readFileSync(targetFilepath, 'utf-8');
-    const result = uglifyjs.minify(code, uglifyOptions);
-
-    if (result.error) {
-        console.log(result.error);
-        process.exit(1);
-    }
-
-    fs.writeFileSync(targetMinFilepath, result.code);
-    fs.writeFileSync(path.join(bootlintDistDir, targetSourceMapFile), result.map);
+try {
+    fse.copySync(`${bootlintSrcDir}`, `${bootlintDistDir}`, {
+        overwrite: false,
+        errorOnExist: true,
+        preserveTimestamps: true
+    });
+    console.log(`Successfully copied "${bootlintSrcDir}" to "${bootlintDistDir}"`);
+    console.log(`\nDo not forget to update "${path.normalize('config/_config.yml')}"!`);
+} catch (err) {
+    throw new Error(err);
 }
-
-runUglify();
-
-console.log(`\nDo not forget to update "${path.normalize('config/_config.yml')}"!`);
