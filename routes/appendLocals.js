@@ -1,7 +1,6 @@
 'use strict';
 
 const path = require('path');
-const url = require('url');
 const helpers = require('../lib/helpers.js');
 const config = require('../config');
 
@@ -41,19 +40,17 @@ function getThemeQuery(req) {
     return query;
 }
 
-function generateBodyClass(pageUrl) {
-    let str = url.parse(pageUrl).pathname;
-
-    if (str === '/') {
-        str = 'home'; // only for the index page
+function generateBodyClass(pathname) {
+    if (pathname === '/') {
+        pathname = 'home'; // only for the index page
     }
 
-    str = str.replace(/\//g, ''); // remove any slashes
+    pathname = pathname.replace(/\//g, ''); // remove any slashes
 
     // Make the first letter lowercase
-    str = str.charAt(0).toLowerCase() + str.slice(1);
+    pathname = pathname.charAt(0).toLowerCase() + pathname.slice(1);
 
-    return `page-${str}`;
+    return `page-${pathname}`;
 }
 
 function generateSRI(file) {
@@ -66,17 +63,19 @@ function generateSRI(file) {
 
 function appendLocals(req, res) {
     const siteUrl = getCurrentSiteurl(req);
-    const canonicalUrl = config.siteurl + url.parse(`${req.originalUrl}`).pathname;
-    const theme = getThemeQuery(req);
     const pageUrl = req.originalUrl;
-    const bodyClass = generateBodyClass(pageUrl);
+    // OK, hack-ish way...
+    const pathname = pageUrl.split('?')[0];
+    const canonicalUrl = new URL(pathname, config.siteurl);
+    const theme = getThemeQuery(req);
+    const bodyClass = generateBodyClass(pathname);
 
     const locals = {
         siteUrl,
         canonicalUrl,
         pageUrl,
         theme,
-        displayTitle: getPageTitle,
+        getPageTitle,
         bodyClass,
         generateSRI
     };

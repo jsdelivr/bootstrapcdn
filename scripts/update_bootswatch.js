@@ -41,8 +41,8 @@ walk.filesSync(bootswatchSrcDir, (base, filename) => {
                 preserveTimestamps: true
             });
             console.log(`Copied "${path.join(themefolder, filename)}" to "${path.join(bootswatchDistDir, themefolder, filename)}"`);
-        } catch (err) {
-            throw new Error(err);
+        } catch (error) {
+            throw new Error(error);
         }
     }
 });

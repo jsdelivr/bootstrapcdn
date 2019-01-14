@@ -35,6 +35,6 @@ try {
     });
     console.log(`Successfully copied "${bootlintSrcDir}" to "${bootlintDistDir}"`);
     console.log(`\nDo not forget to update "${path.normalize('config/_config.yml')}"!`);
-} catch (err) {
-    throw new Error(err);
+} catch (error) {
+    throw new Error(error);
 }

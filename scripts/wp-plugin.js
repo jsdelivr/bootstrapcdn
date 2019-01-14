@@ -23,6 +23,7 @@ fs.writeFile(
             console.trace(err);
             process.exit(1);
         }
+
         console.log('Regenerated bootstrapcdn.json');
     }
 );

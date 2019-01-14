@@ -27,6 +27,7 @@ function exists(file) {
     if (!found) {
         console.log('WARNING: %s not found', file);
     }
+
     return found;
 }
 
