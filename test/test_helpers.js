@@ -140,8 +140,8 @@ function assertItWorks(statusCode, cb) {
     try {
         assert.strictEqual(statusCode, 200);
         return cb();
-    } catch (err) {
-        return cb(err);
+    } catch (error) {
+        return cb(error);
     }
 }
 

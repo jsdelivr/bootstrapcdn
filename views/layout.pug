@@ -8,7 +8,7 @@ html(lang='en', prefix='og: http://ogp.me/ns#', itemscope, itemtype='http://sche
         -var pageDescription = description || config.description;
         meta(name='description', content!=pageDescription)
 
-        title!=displayTitle(title)
+        title!=getPageTitle(title)
 
         link(rel='canonical', href=canonicalUrl)
 
