@@ -1,6 +1,13 @@
 bootstrap:
-  - version: 4.2.1
+  - version: 4.3.0
     current: true
+    stylesheet: 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css'
+    javascript: 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/js/bootstrap.min.js'
+    javascriptBundle: 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/js/bootstrap.bundle.min.js'
+    javascriptSri: sha384-7aThvCh9TypR7fIc2HV4O/nFMVCBwyIUKL8XCtKE+8xgCgl/PQGuFsvShjr74PBp
+    javascriptBundleSri: sha384-VoPFvGr9GxhDT3n8vqqZ46twP5lgex+raTCfICQy73NLhN7ZqSfCtfSn4mLA2EFA
+    stylesheetSri: sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA
+  - version: 4.2.1
     stylesheet: 'https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css'
     javascript: 'https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js'
     javascriptBundle: 'https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.bundle.min.js'
