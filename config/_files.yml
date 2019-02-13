@@ -1,6 +1,13 @@
 bootstrap:
-  - version: 4.3.0
+  - version: 4.3.1
     current: true
+    stylesheet: 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'
+    javascript: 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js'
+    javascriptBundle: 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js'
+    javascriptSri: sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM
+    javascriptBundleSri: sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o
+    stylesheetSri: sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T
+  - version: 4.3.0
     stylesheet: 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css'
     javascript: 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/js/bootstrap.min.js'
     javascriptBundle: 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/js/bootstrap.bundle.min.js'
@@ -80,6 +87,11 @@ bootstrap:
     javascript: 'https://stackpath.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js'
     javascriptSri: sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn
     stylesheetSri: sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ
+  - version: 3.4.1
+    stylesheet: 'https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css'
+    javascript: 'https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js'
+    javascriptSri: sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd
+    stylesheetSri: sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu
   - version: 3.4.0
     stylesheet: 'https://stackpath.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css'
     javascript: 'https://stackpath.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js'
