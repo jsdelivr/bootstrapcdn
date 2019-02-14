@@ -55,11 +55,13 @@ const CSP = {
     ],
     frameSrc: [
         '\'self\'',
+        'img.shields.io',
         'platform.twitter.com',
         'syndication.twitter.com'
     ],
     childSrc: [
         '\'self\'',
+        'img.shields.io',
         'platform.twitter.com',
         'syndication.twitter.com'
     ],
