@@ -66,7 +66,8 @@ const CSP = {
         'ghbtns.com'
     ],
     connectSrc: [
-        'syndication.twitter.com'
+        'syndication.twitter.com',
+        'cdn2.codefund.app'
     ],
     manifestSrc: ['\'self\'']
 };
