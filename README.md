@@ -6,8 +6,8 @@
 [![devDependencies Status](https://img.shields.io/david/dev/MaxCDN/bootstrapcdn.svg?style=flat-square)](https://david-dm.org/MaxCDN/bootstrapcdn?type=dev)
 
 [![Follow BootstrapCDN on Twitter](https://img.shields.io/badge/twitter-@getBootstrapCDN-55acee.svg?style=flat-square)](https://twitter.com/getbootstrapcdn)
-[![Backers on Open Collective](https://opencollective.com/getbootstrapcdn/backers/badge.svg)](#backers)
-[![Sponsors on Open Collective](https://opencollective.com/getbootstrapcdn/sponsors/badge.svg)](#sponsors)
+[![Backers on Open Collective](https://img.shields.io/opencollective/backers/getbootstrapcdn.svg?style=flat-square)](#backers)
+[![Sponsors on Open Collective](https://img.shields.io/opencollective/sponsors/getbootstrapcdn.svg?style=flat-square)](#sponsors)
 
 ## Deploy your own copy on Heroku
 
