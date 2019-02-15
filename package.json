@@ -55,9 +55,9 @@
     "uuid": "^3.3.2"
   },
   "devDependencies": {
-    "bootlint": "0.16.2",
-    "bootstrap": "4.2.1",
-    "bootswatch": "4.2.1",
+    "bootlint": "0.16.3",
+    "bootstrap": "4.3.1",
+    "bootswatch": "4.3.1",
     "coveralls": "^3.0.2",
     "eslint": "^5.13.0",
     "fs-extra": "^7.0.1",
@@ -67,7 +67,7 @@
     "mocha": "^5.2.0",
     "mockdate": "^2.0.2",
     "nodemon": "^1.18.10",
-    "nyc": "^13.2.0",
+    "nyc": "^13.3.0",
     "pug-lint": "^2.5.0",
     "pug-lint-config-clock": "^2.0.0",
     "request": "^2.88.0"

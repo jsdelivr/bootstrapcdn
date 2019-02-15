@@ -55,18 +55,22 @@ const CSP = {
     ],
     frameSrc: [
         '\'self\'',
+        'img.shields.io',
         'platform.twitter.com',
-        'syndication.twitter.com',
-        'ghbtns.com'
+        'syndication.twitter.com'
     ],
     childSrc: [
         '\'self\'',
+        'img.shields.io',
         'platform.twitter.com',
-        'syndication.twitter.com',
-        'ghbtns.com'
+        'syndication.twitter.com'
     ],
     connectSrc: [
-        'syndication.twitter.com'
+        'syndication.twitter.com',
+        'cdn2.codefund.app'
+    ],
+    objectSrc: [
+        'img.shields.io'
     ],
     manifestSrc: ['\'self\'']
 };
