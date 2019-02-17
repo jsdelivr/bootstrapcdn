@@ -45,7 +45,7 @@ describe('themes', () => {
     config.themesAd.forEach((theme) => {
         describe(theme.name, () => {
             it('has name', (done) => {
-                assert.ok(response.body.includes(theme.name),
+                assert.ok(response.body.includes(htmlEncode(theme.name)),
                     `Expects response body to include "${theme.name}"`);
                 done();
             });
