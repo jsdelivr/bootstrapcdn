@@ -12,6 +12,12 @@ books:
     img: /assets/img/books/Bootstrap-Hours-Sams-Teach-Yourself-ebook.jpg
     url: 'https://www.amazon.com/Bootstrap-Hours-Sams-Teach-Yourself-ebook/dp/B017M8OWZQ/ref=as_li_ss_il?ie=UTF8&linkCode=li3&tag=bcdn-20&linkId=f8a39275b5204f5f2d0427a1ef1c4f83'
 themesAd:
+  - name: 'Velonic - Admin Dashboard & Frontend'
+    img: /assets/img/themes/bootstrapbay-velonic-admin.jpg
+    url: 'https://bootstrapbay.sjv.io/kVaX3'
+  - name: 'ZTheme - Multipurpose Responsive Template'
+    img: /assets/img/themes/ztheme-mulipurpose-responsive-template-B8068D9.jpg
+    url: 'https://bootstrapbay.sjv.io/mNXyO'
   - name: 'Color Admin - Admin Template + Front End'
     img: /assets/img/themes/color-admin-admin-template-front-end.jpg
     url: 'https://wrapbootstrap.com/theme/color-admin-admin-template-front-end-WB0N89JMK?ref=bcdn'
