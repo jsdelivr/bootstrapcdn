@@ -28,7 +28,6 @@ function assertNotFound(res, message = 'Not found.', done) {
 }
 
 describe('api_v1', () => {
-    let uri = null;
     const name = 'bootstrap';
     const data = Object.assign({}, config.api.v1[name]);
     const version = data.tags.latest;
@@ -37,15 +36,41 @@ describe('api_v1', () => {
 
     delete versions.assets;
 
+    let uri = helpers.getURI('api');
+    let response = {};
+
+    before((done) => {
+        helpers.prefetch(uri, (res) => {
+            response = res;
+            done();
+        });
+    });
+
+    it('works', (done) => {
+        helpers.assert.itWorks(response.statusCode, done);
+    });
+
+    it('valid html', (done) => {
+        helpers.assert.validHTML(response, done);
+    });
+
+    it('has page header', (done) => {
+        helpers.assert.pageHeader('API', response, done);
+    });
+
+    it('has body class', (done) => {
+        helpers.assert.bodyClass('page-api', response, done);
+    });
+
     const invalidUrls = [
         'api/1',
         'api/v1',
-        'api/v1/:name/:version/catch-all-route'
+        'api/v1/unknown-name/unknown-version/extra-path/catch-all-route'
     ];
 
     invalidUrls.forEach((i) => {
         it(`handles invalid URL arguments (${i})`, (done) => {
-            uri = helpers.getURI('api/v1');
+            uri = helpers.getURI(i);
             helpers.prefetch(uri, (res) => {
                 assertBadRequest(res, 'Bad Request.', done);
             });
