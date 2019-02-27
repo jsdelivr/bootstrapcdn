@@ -48,21 +48,8 @@ function generateApiV1(packages) {
         console.log(`/api/v1/${name}`);
         const packagePath = path.join(cdnPath, name);
         const versions = semver.rsort(getDirectoryNames(packagePath).filter((v) => validSemVer.test(v)));
-        const tags = {
-            latest: versions[0]
-        };
-        const previous = versions.filter((v) => v[0] !== tags.latest[0])[0] || versions[1] || null;
 
-        if (previous) {
-            tags.previous = previous;
-        }
-
-        endpoint[name] = {
-            tags,
-            versions,
-            assets: {}
-        };
-
+        endpoint[name] = {};
         versions.forEach((version) => {
             console.log(`/api/v1/${name}/${version}`);
 
@@ -100,7 +87,7 @@ function generateApiV1(packages) {
                 assets.files.push(asset);
             });
 
-            endpoint[name].assets[version] = assets;
+            endpoint[name][version] = assets;
         });
     });
 

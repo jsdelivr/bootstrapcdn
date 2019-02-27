@@ -136,6 +136,17 @@ function assertItWorks(statusCode, cb) {
     }
 }
 
+function assertJsonResponse(expected, res, done, statusCode = 200) {
+    if (expected.status) {
+        statusCode = expected.status;
+    }
+    assert.strictEqual(res.statusCode, statusCode);
+    assert.deepStrictEqual(JSON.parse(res.body), expected);
+    if (done) {
+        done();
+    }
+}
+
 function assertPageHeader(txt, res, cb) {
     const escapedTxt = escapeRegExp(txt);
     const re = new RegExp(`<h[1-6]( class=".+")?>(${escapedTxt})(</h[1-6]>)`);
@@ -192,6 +203,7 @@ module.exports = {
         authors: assertAuthors,
         bodyClass: assertPageBodyClass,
         itWorks: assertItWorks,
+        jsonResponse: assertJsonResponse,
         pageHeader: assertPageHeader,
         validHTML: assertValidHTML
     },

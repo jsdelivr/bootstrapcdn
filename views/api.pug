@@ -73,9 +73,8 @@ block content
                 a(href='/api/v1/bootstrap' target='_blank') #{config.siteurl}/api/v1/bootstrap
 
             pre
-                -var versions = Object.assign({}, config.api.v1.bootstrap)
-                -delete versions.assets
-                code #{JSON.stringify(versions, null, 4)}
+                -var data = helpers.api.data('bootstrap')
+                code #{JSON.stringify(data, null, 4)}
 
             h4#list-package-files
                 code /:name/:version
@@ -103,9 +102,8 @@ block content
                 a(href='/api/v1/bootstrap/4.3.1' target='_blank') #{config.siteurl}/api/v1/bootstrap/4.3.1
 
             pre
-                -var latest = config.api.v1.bootstrap.tags.latest
-
-                code #{JSON.stringify(config.api.v1.bootstrap.assets[latest], null, 4)}
+                -var data = helpers.api.data('bootstrap', helpers.api.latest('bootstrap'))
+                code #{JSON.stringify(data, null, 4)}
 
             h4#notes Notes
 

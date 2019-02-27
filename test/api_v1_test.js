@@ -1,40 +1,12 @@
 'use strict';
 
-const assert = require('assert').strict;
+const libHelpers = require('../lib/helpers.js');
 const helpers = require('./test_helpers.js');
-const config = helpers.getConfig();
-
-function assertJsonResponse(res, expected, done) {
-    assert.deepStrictEqual(JSON.parse(res.body), expected);
-    if (done) {
-        done();
-    }
-}
-
-function assertBadRequest(res, message = 'Bad Request.', done) {
-    assert.strictEqual(res.statusCode, 400);
-    assertJsonResponse(res, {
-        status: 400,
-        message: `${message} Visit ${config.siteurl}/api for documentation.`
-    }, done);
-}
-
-function assertNotFound(res, message = 'Not found.', done) {
-    assert.strictEqual(res.statusCode, 404);
-    assertJsonResponse(res, {
-        status: 404,
-        message: `${message} Visit ${config.siteurl}/api for documentation.`
-    }, done);
-}
 
 describe('api_v1', () => {
+    const endpoint = 'v1';
     const name = 'bootstrap';
-    const data = Object.assign({}, config.api.v1[name]);
-    const version = data.tags.latest;
-    const assets = data.assets[version];
-    const versions = Object.assign({}, data);
-
-    delete versions.assets;
+    const version = libHelpers.api.latest(name, endpoint);
 
     let uri = helpers.getURI('api');
     let response = {};
@@ -62,55 +34,72 @@ describe('api_v1', () => {
         helpers.assert.bodyClass('page-api', response, done);
     });
 
-    const invalidUrls = [
+    const invalidEndpoints = [
         'api/1',
-        'api/v1',
-        'api/v1/unknown-name/unknown-version/extra-path/catch-all-route'
+        `api/${endpoint}`,
+        `api/${endpoint}/none/none/extra-path/catch-all-route`,
+        `api/${endpoint}/${name}/${version}/extra-path/catch-all-route`
     ];
 
-    invalidUrls.forEach((i) => {
-        it(`handles invalid URL arguments (${i})`, (done) => {
-            uri = helpers.getURI(i);
+    invalidEndpoints.forEach((path) => {
+        it(`handles invalid endpoints (${path})`, (done) => {
+            uri = helpers.getURI(path);
             helpers.prefetch(uri, (res) => {
-                assertBadRequest(res, 'Bad Request.', done);
+                const expected = libHelpers.api.badRequest();
+
+                helpers.assert.jsonResponse(expected, res, done);
             });
         });
     });
 
     it('gives all versions', (done) => {
-        uri = helpers.getURI(`api/v1/${name}`);
+        uri = helpers.getURI(`api/${endpoint}/${name}`);
         helpers.prefetch(uri, (res) => {
-            assert.strictEqual(res.statusCode, 200);
-            assertJsonResponse(res, versions, done);
+            const tags = libHelpers.api.tags(name, endpoint);
+            const versions = libHelpers.api.versions(name, endpoint);
+            const expected = {
+                tags,
+                versions
+            };
+
+            helpers.assert.jsonResponse(expected, res, done);
         });
     });
 
     it('gives all assets', (done) => {
-        uri = helpers.getURI(`api/v1/${name}/${version}`);
+        uri = helpers.getURI(`api/${endpoint}/${name}/${version}`);
         helpers.prefetch(uri, (res) => {
-            assert.strictEqual(res.statusCode, 200);
-            assertJsonResponse(res, assets, done);
+            const data = libHelpers.api.raw(name, endpoint) || {};
+            const expected = data[version];
+
+            helpers.assert.jsonResponse(expected, res, done);
         });
     });
 
     it('gives error when version is unknown', (done) => {
-        uri = helpers.getURI(`api/v1/${name}/unknown-version`);
+        uri = helpers.getURI(`api/${endpoint}/${name}/none`);
         helpers.prefetch(uri, (res) => {
-            assertNotFound(res, `Couldn't find version unknown-version for ${name}. Make sure you use a specific version number, and not a version range or a tag.`, done);
+            const expected = libHelpers.api.notFound(`Couldn't find version none for ${name}. Make sure you use a specific version number, and not a version range or a tag.`);
+
+            helpers.assert.jsonResponse(expected, res, done);
         });
     });
 
     it('gives error when package and version are unknown', (done) => {
-        uri = helpers.getURI('api/v1/unknown-name/unknown-version');
+        uri = helpers.getURI(`api/${endpoint}/none/none`);
         helpers.prefetch(uri, (res) => {
-            assertNotFound(res, 'Couldn\'t find unknown-name/unknown-version.', done);
+            const expected = libHelpers.api.notFound('Couldn\'t find none/none.');
+
+            helpers.assert.jsonResponse(expected, res, done);
         });
     });
 
     it('gives error when package is unknown and no version specified (versions)', (done) => {
-        uri = helpers.getURI('api/v1/unknown-name');
+        uri = helpers.getURI(`api/${endpoint}/none`);
         helpers.prefetch(uri, (res) => {
-            assertNotFound(res, 'Couldn\'t fetch versions for unknown-name.', done);
+            const expected = libHelpers.api.notFound('Couldn\'t fetch versions for none.');
+
+            helpers.assert.jsonResponse(expected, res, done);
         });
     });
 

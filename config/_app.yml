@@ -3,6 +3,7 @@ theme: 1
 siteurl: 'https://www.bootstrapcdn.com'
 description: 'The recommended CDN for Bootstrap, Font Awesome and Bootswatch.'
 title_suffix: 'BootstrapCDN by StackPath'
+apiVersion: v1
 authors:
   - name: Justin Dorfman
     twitter: jdorfman
