@@ -3,6 +3,7 @@
 // This file just holds all route requires
 const notFoundRoute = require('./404');
 const aboutRoute = require('./about');
+const apiRoute = require('./api');
 const booksRoute = require('./books');
 const bootlintRoute = require('./bootlint');
 const bootswatch4Route = require('./bootswatch4');
@@ -21,6 +22,7 @@ const themesRoute = require('./themes');
 const routes = {
     notFoundRoute,
     aboutRoute,
+    apiRoute,
     booksRoute,
     bootlintRoute,
     bootswatch4Route,

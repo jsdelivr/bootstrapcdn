@@ -157,6 +157,7 @@ app.locals.semver = semver;
 app.use('/', routes.indexRoute);
 app.use('/about/', routes.aboutRoute);
 app.use('/alpha/?|/beta/?', routes.redirectToRoot);
+app.use('/api/', routes.apiRoute);
 app.use('/books/', routes.booksRoute);
 app.use('/bootlint/', routes.bootlintRoute);
 app.use('/bootswatch/', routes.bootswatchRoute);

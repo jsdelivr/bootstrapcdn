@@ -27,6 +27,7 @@
     "test": "npm run lint && npm run mocha:no-functional",
     "test-with-coverage": "npm run lint && nyc npm run mocha:no-functional",
     "purge-latest": "bash ./scripts/purge.sh",
+    "api": "node ./scripts/api.js",
     "bootlint": "node ./scripts/update_bootlint.js",
     "bootstrap": "node ./scripts/update_bootstrap.js",
     "bootswatch": "node ./scripts/update_bootswatch.js",

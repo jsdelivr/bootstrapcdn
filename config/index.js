@@ -8,7 +8,7 @@ function loadConfig(file) {
     return yaml.safeLoad(fs.readFileSync(path.join(__dirname, file)), 'utf8');
 }
 
-['_app.yml', '_extras.yml', '_files.yml'].forEach((file) => {
+['_app.yml', '_extras.yml', '_files.yml', '_api.yml'].forEach((config) => {
     const name = file.replace(/^_/, '').replace(/.yml$/, '');
 
     module.exports[name] = loadConfig(file);

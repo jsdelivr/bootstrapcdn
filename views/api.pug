@@ -1,0 +1,133 @@
+extends layout.pug
+
+block content
+    .row
+        .col-12
+
+            h2.text-center.mb-4 API
+
+            p The BootstrapCDN API allows you to:
+
+            ul
+                li
+                    a(href='#list-package-versions') list package versions
+                li
+                    a(href='#list-package-files') list package files
+
+            p The API is free to use and imposes no rate limits (however, if you plan to make 100+ RPM for longer periods of time, you should contact us first).
+
+            p Looking for a search endpoint? You can use&nbsp;
+                a(href='https://github.com/npm/registry/blob/master/docs/REGISTRY-API.md#get-v1search') the official npm API
+                |
+                | or
+                |
+                a(href='https://github.com/algolia/npm-search') Algolia’s npm search
+                |.
+
+            h3
+                strong Let us know how you use this API
+
+            p
+                strong If you create a tool/plugin/etc. which uses this API, please include a link to your tool in the
+                    |
+                    |
+                    code User-Agent
+                    |
+                    | header so that we can learn more about how this API is being used.
+
+            h3 Endpoints
+
+            p
+                code #{config.siteurl}/api/v1
+
+            ul
+                li All responses are in JSON.
+                li All error responses have
+                    |
+                    |
+                    code status
+                    |
+                    | and
+                    |
+                    code message
+                    |
+                    | properties.
+
+            h4#list-package-versions
+                code /:name
+                |
+                | - List package versions
+
+            ul
+                li
+                    code:name
+                    |
+                    | - package name
+                    sup &nbsp;
+                        a(href='#notes') 1
+
+            p
+                strong Example
+
+            p GET &nbsp;
+                a(href='/api/v1/bootstrap' target='_blank') #{config.siteurl}/api/v1/bootstrap
+
+            pre.hljs
+                -var versions = Object.assign({}, config.api.v1.bootstrap)
+                -delete versions.assets
+                code #{JSON.stringify(versions, null, 4)}
+
+            h4#list-package-files
+                code /:name/:version
+                |
+                | - List package files
+
+            ul
+                li
+                    code :name
+                    |
+                    |- package name
+                    sup &nbsp;
+                        a(href='#notes') 1
+                li
+                    code :version
+                    |
+                    | - package version
+                    sup &nbsp;
+                        a(href='#notes') 2
+
+            p
+                strong Example
+
+            p GET &nbsp;
+                a(href='/api/v1/bootstrap/4.3.1' target='_blank') #{config.siteurl}/api/v1/bootstrap/4.3.1
+
+            pre.hljs
+                -var latest = config.api.v1.bootstrap.tags.latest
+
+                code #{JSON.stringify(config.api.v1.bootstrap.assets[latest], null, 4)}
+
+            h4#notes Notes
+
+            ol
+                li A package
+                    |
+                    |
+                    code :name
+                    |
+                    | can only be a package that BootstrapCDN actively supports:
+                    ul
+                        each name in Object.keys(config.api.v1)
+                            li
+                                code #{name}
+                li A package
+                    |
+                    |
+                    code :version
+                    |
+                    | must be exact, not a version range.
+                li To request a resource after using the API, use the following template for each file:
+                    br
+                    code https://stackpath.bootstrapcdn.com/:name/:version/:file
+
+//- vim: ft=pug sw=4 sts=4 et:
