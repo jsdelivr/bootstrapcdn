@@ -153,8 +153,8 @@ integrations:
     plat: React
     url: 'https://react-bootstrap.github.io/'
 friends:
-  - name: ScaleScale
-    url: 'https://www.scalescale.com/'
+  - name: SecurityTrails
+    url: 'https://securitytrails.com/'
   - name: Bootstrap
     url: 'https://getbootstrap.com/'
   - name: StackShare
