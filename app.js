@@ -180,6 +180,12 @@ const map = sitemap({
         '/': {
             disallow: !ENV.ENABLE_CRAWLING
         },
+        '/api*': {
+            hide: true  // exclude this route from xml and txt
+        },
+        '/api/:endpoint/:name/:version?': {
+            hide: true  // exclude this route from xml and txt
+        },
         '/data/bootstrapcdn.json': {
             hide: true  // exclude this route from xml and txt
         },
@@ -216,6 +222,7 @@ if (ENV.ENABLE_CRAWLING) {
         map.generate4(app, [
             '/',
             '/about',
+            '/api',
             '/bootlint',
             '/bootswatch',
             '/fontawesome',
