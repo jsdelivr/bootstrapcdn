@@ -4,6 +4,12 @@ block content
     .row
         .col-12
 
+            -var endpoint = config.apiVersion
+            -var name = 'bootstrap'
+            -var latest = helpers.api.latest(name, endpoint)
+            -var packageVersions = `/api/${endpoint}/${name}`
+            -var packageFiles = `/api/${endpoint}/${name}/${latest}`
+
             h2.text-center.mb-4 API
 
             p The BootstrapCDN API allows you to:
@@ -38,7 +44,7 @@ block content
             h3 Endpoints
 
             p
-                code #{config.siteurl}/api/v1
+                code #{config.siteurl}/api/#{endpoint}
 
             ul
                 li All responses are in JSON.
@@ -70,11 +76,10 @@ block content
                 strong Example
 
             p GET &nbsp;
-                a(href='/api/v1/bootstrap' target='_blank') #{config.siteurl}/api/v1/bootstrap
+                a(href=packageVersions target='_blank') #{config.siteurl}#{packageVersions}
 
             pre
-                -var data = helpers.api.data('bootstrap')
-                code #{JSON.stringify(data, null, 4)}
+                code #{JSON.stringify(helpers.api.data(name), null, 4)}
 
             h4#list-package-files
                 code /:name/:version
@@ -99,11 +104,10 @@ block content
                 strong Example
 
             p GET &nbsp;
-                a(href='/api/v1/bootstrap/4.3.1' target='_blank') #{config.siteurl}/api/v1/bootstrap/4.3.1
+                a(href=packageFiles target='_blank') #{config.siteurl}#{packageFiles}
 
             pre
-                -var data = helpers.api.data('bootstrap', helpers.api.latest('bootstrap'))
-                code #{JSON.stringify(data, null, 4)}
+                code #{JSON.stringify(helpers.api.data(name, latest), null, 4)}
 
             h4#notes Notes
 
@@ -115,7 +119,7 @@ block content
                     |
                     | can only be a package that BootstrapCDN actively supports:
                     ul
-                        each name in Object.keys(config.api.v1)
+                        each name in Object.keys(config.api[endpoint])
                             li
                                 code #{name}
                 li A package
