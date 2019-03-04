@@ -138,7 +138,7 @@ function assertValidHTML(res, cb) {
 
 function assertItWorks(statusCode, cb) {
     try {
-        assert.strictEqual(statusCode, 200);
+        assert.equal(statusCode, 200);
         return cb();
     } catch (error) {
         return cb(error);
