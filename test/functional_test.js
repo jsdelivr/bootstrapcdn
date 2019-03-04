@@ -100,7 +100,7 @@ function request(uri, cb) {
 function assertSRI(uri, actualSri, done) {
     const expectedSri = digest(responses[uri].body, true);
 
-    assert.strictEqual(actualSri, expectedSri);
+    assert.equal(actualSri, expectedSri);
     done();
 }
 
@@ -125,12 +125,12 @@ function assertHeaders(uri) {
                 const actual = responses[uri].headers[header];
 
                 if (typeof expected === 'undefined') {
-                    assert.strictEqual(actual, expected, `Expects ${header} to NOT be present in the response headers`);
+                    assert.equal(actual, expected, `Expects ${header} to NOT be present in the response headers`);
                 } else if (expected === '') {
                     assert.ok(Object.prototype.hasOwnProperty.call(responses[uri].headers, header),
                         `Expects "${header}" to be present in the response headers`);
                 } else {
-                    assert.strictEqual(actual, expected, `Expects ${header} to be present in the response headers`);
+                    assert.equal(actual, expected, `Expects ${header} to be present in the response headers`);
                 }
 
                 done();
@@ -141,13 +141,13 @@ function assertHeaders(uri) {
     /*
     if (compressedExtensions.includes(ext)) {
         it('has content-encoding: gzip', (done) => {
-            assert.strictEqual(responses[uri].headers['content-encoding'], 'gzip');
+            assert.equal(responses[uri].headers['content-encoding'], 'gzip');
             done();
         });
     } else {
         it('does NOT have content-encoding set', (done) => {
             // eslint-disable-next-line no-undefined
-            assert.strictEqual(responses[uri].headers['content-encoding'], undefined);
+            assert.equal(responses[uri].headers['content-encoding'], undefined);
             done();
         });
     }
@@ -158,7 +158,7 @@ function assertContentType(uri, currentType, cb) {
     const ext = helpers.getExtension(uri);
     const expectedType = CONTENT_TYPE_MAP[ext];
 
-    assert.strictEqual(currentType, expectedType,
+    assert.equal(currentType, expectedType,
         `Invalid "content-type" for "${ext}", expects "${expectedType}" but got "${currentType}"`);
     cb();
 }
