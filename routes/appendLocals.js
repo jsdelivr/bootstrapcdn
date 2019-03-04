@@ -8,18 +8,12 @@ const { digest } = helpers.sri;
 const PUBLIC_DIR = path.join(__dirname, '../public/');
 const SRI_CACHE = {};
 
-function getProto(req) {
+function getCurrentSiteurl(req) {
     let proto = req.get('x-forwarded-proto');
 
     if (typeof proto === 'undefined') {
         proto = req.protocol;
     }
-
-    return proto;
-}
-
-function getCurrentSiteurl(req) {
-    const proto = getProto(req);
 
     return `${proto}://${req.hostname}`;
 }
