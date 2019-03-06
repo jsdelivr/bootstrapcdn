@@ -83,7 +83,7 @@ Our CSP config using <https://github.com/helmetjs/csp>
 Replace `package` by the package you want to update and `version` with its version in the following commands:
 
 ```shell
-npm i package@version -D
+npm i package@version -ED
 npm run package version
 ```
 
