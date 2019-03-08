@@ -24,8 +24,8 @@ describe('redirects', () => {
             });
 
             it(`"${redirectFrom}" redirects to "${redirectTo}"`, (done) => {
-                assert.strictEqual(response.statusCode, 301);
-                assert.strictEqual(response.headers.location, redirectTo);
+                assert.equal(response.statusCode, 301);
+                assert.equal(response.headers.location, redirectTo);
                 done();
             });
         }

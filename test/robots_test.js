@@ -21,7 +21,7 @@ describe('robots.txt', () => {
     it('has content', (done) => {
         const expected = 'User-agent: *\nDisallow: \nSitemap: https://www.bootstrapcdn.com/sitemap.xml';
 
-        assert.strictEqual(response.body, expected, 'Expects response to be valid robots.txt');
+        assert.equal(response.body, expected, 'Expects response to be valid robots.txt');
         done();
     });
 });

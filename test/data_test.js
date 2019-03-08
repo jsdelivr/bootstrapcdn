@@ -23,7 +23,7 @@ describe('data', () => {
         const expected = libHelpers.generateDataJson();
         const actual = JSON.parse(response.body);
 
-        assert.deepStrictEqual(actual, expected);
+        assert.deepEqual(actual, expected);
         done();
     });
 });
