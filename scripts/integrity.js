@@ -6,7 +6,7 @@ const fs         = require('fs');
 const path       = require('path');
 const yaml       = require('js-yaml');
 const config     = require('../config');
-const { digest } = require('./sri.js');
+const { generateSri } = require('./sri');
 
 const filesConfig = config.loadConfig('_files.yml');
 const configFile = config.getConfigPath('_files.yml');
@@ -42,7 +42,7 @@ function exists(file) {
                                  .replace('SWATCH_NAME', theme.name);
 
             if (exists(file)) { // always regenerate
-                theme.sri = digest(file);
+                theme.sri = generateSri(file);
             }
         }
     });
@@ -54,7 +54,7 @@ function exists(file) {
         const file = buildPath(bootlint.javascript);
 
         if (exists(file)) { // always regenerate
-            bootlint.javascriptSri = digest(file);
+            bootlint.javascriptSri = generateSri(file);
         }
     }
 }))();
@@ -72,15 +72,15 @@ function exists(file) {
         }
 
         if (exists(javascript)) {
-            bootstrap.javascriptSri = digest(javascript);
+            bootstrap.javascriptSri = generateSri(javascript);
         }
 
         if (javascriptBundle && exists(javascriptBundle)) {
-            bootstrap.javascriptBundleSri = digest(javascriptBundle);
+            bootstrap.javascriptBundleSri = generateSri(javascriptBundle);
         }
 
         if (exists(stylesheet)) {
-            bootstrap.stylesheetSri = digest(stylesheet);
+            bootstrap.stylesheetSri = generateSri(stylesheet);
         }
     }
 }))();
@@ -91,7 +91,7 @@ function exists(file) {
         const stylesheet = buildPath(fontawesome.stylesheet);
 
         if (exists(stylesheet)) {
-            fontawesome.stylesheetSri = digest(stylesheet);
+            fontawesome.stylesheetSri = generateSri(stylesheet);
         }
     }
 }))();
