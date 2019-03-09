@@ -1,6 +1,6 @@
 'use strict';
 
-const helpers = require('./test_helpers.js');
+const helpers = require('./test_helpers');
 
 describe('privacy-policy', () => {
     const uri = helpers.getURI('privacy-policy');

@@ -1,7 +1,7 @@
 'use strict';
 
 const express = require('express');
-const helpers = require('../lib/helpers.js');
+const helpers = require('../lib/helpers');
 
 const router = express.Router();
 

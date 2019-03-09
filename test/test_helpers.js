@@ -14,7 +14,7 @@ const mockDate = require('mockdate');
 const request = require('request');
 const validator = require('html-validator');
 
-const app = require('../app.js');
+const app = require('../app');
 const config = require('../config');
 
 // The server object holds the server instance across all tests;
