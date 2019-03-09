@@ -2,9 +2,9 @@
 
 const http = require('http');
 const app = require('../app');
-const config = require('../config');
+const { port } = require('../config').app;
 
-app.set('port', process.env.PORT || config.port || 3000);
+app.set('port', process.env.PORT || port || 3000);
 
 const server = http.createServer(app);
 

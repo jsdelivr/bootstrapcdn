@@ -3,7 +3,7 @@ extends ../layout.pug
 block content
     h2.text-center.mb-4 Bootlint Legacy
 
-    each item in config.bootlint
+    each item in config.files.bootlint
         unless (item.current)
             .card.bg-light.mt-4.p-4.text-center
                 h3.mt-2=`v${item.version}`

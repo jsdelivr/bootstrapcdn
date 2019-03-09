@@ -1,12 +1,12 @@
 'use strict';
 
 const assert = require('assert').strict;
+const { files } = require('../config');
 const helpers = require('./test_helpers');
 
 describe('bootlint', () => {
-    const config = helpers.getConfig();
     const uri = helpers.getURI('bootlint');
-    const current = config.bootlint[0];
+    const current = files.bootlint[0];
     let response = {};
 
     before((done) => {

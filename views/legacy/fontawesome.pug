@@ -3,7 +3,7 @@ extends ../layout.pug
 block content
     h2.text-center.mb-4 Font Awesome Legacy
 
-    each item in config.fontawesome
+    each item in config.files.fontawesome
         unless (item.current)
             .card.bg-light.mt-4.p-4.text-center
                 h3.mt-2=`v${item.version}`

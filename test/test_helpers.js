@@ -15,7 +15,7 @@ const request = require('request');
 const validator = require('html-validator');
 
 const app = require('../app');
-const config = require('../config');
+const config = require('../config').app;
 
 // The server object holds the server instance across all tests;
 // We start it in the first test and close it in the last one,
@@ -38,12 +38,6 @@ function getExtension(str) {
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions
 function escapeRegExp(string) {
     return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); // $& means the whole matched string
-}
-
-// Just returning the existent config so that
-// we don't have to import lib/helpers in tests.
-function getConfig() {
-    return config;
 }
 
 function cleanEndpoint(endpoint = '/') {
@@ -195,7 +189,6 @@ function jsHAML(uri, sri) {
 }
 
 module.exports = {
-    getConfig,
     getExtension,
     getURI,
     startServer,

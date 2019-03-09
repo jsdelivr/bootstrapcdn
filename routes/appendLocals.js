@@ -2,7 +2,7 @@
 
 const path = require('path');
 const { generateSri } = require('../lib/helpers');
-const config = require('../config');
+const { app, files } = require('../config');
 
 const PUBLIC_DIR = path.join(__dirname, '../public/');
 const SRI_CACHE = {};
@@ -18,11 +18,11 @@ function getCurrentSiteurl(req) {
 }
 
 function getPageTitle(pageTitle) {
-    return `${pageTitle} · ${config.title_suffix}`;
+    return `${pageTitle} · ${app.title_suffix}`;
 }
 
 function getThemeQuery(req) {
-    const totalThemes = config.bootswatch4.themes.length;
+    const totalThemes = files.bootswatch4.themes.length;
     const query = req.query.theme;
 
     // Safety checks
@@ -59,7 +59,7 @@ function appendLocals(req, res) {
     const pageUrl = req.originalUrl;
     // OK, hack-ish way...
     const pathname = pageUrl.split('?')[0];
-    const canonicalUrl = new URL(pathname, config.siteurl);
+    const canonicalUrl = new URL(pathname, app.siteurl);
     const theme = getThemeQuery(req);
     const bodyClass = generateBodyClass(pathname);
 

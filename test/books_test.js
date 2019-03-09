@@ -4,10 +4,10 @@ const assert = require('assert').strict;
 const path = require('path');
 const { htmlEncode } = require('htmlencode');
 const staticify = require('staticify')(path.join(__dirname, '../public'));
+const { extras } = require('../config');
 const helpers = require('./test_helpers');
 
 describe('books', () => {
-    const config = helpers.getConfig();
     const uri = helpers.getURI('books');
     let response = {};
 
@@ -39,7 +39,7 @@ describe('books', () => {
         helpers.assert.bodyClass('page-books', response, done);
     });
 
-    config.books.forEach((book) => {
+    extras.books.forEach((book) => {
         describe(book.name, () => {
             it('has name', (done) => {
                 assert.ok(response.body.includes(book.name),
