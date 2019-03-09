@@ -1,12 +1,10 @@
 'use strict';
 
 const assert = require('assert').strict;
+const { redirects } = require('../config').app;
 const helpers = require('./test_helpers');
 
 describe('redirects', () => {
-    const config = helpers.getConfig();
-    const { redirects } = config;
-
     for (const redirect in redirects) {
         if (Object.prototype.hasOwnProperty.call(redirects, redirect)) {
             const redirectFrom = redirects[redirect].from;

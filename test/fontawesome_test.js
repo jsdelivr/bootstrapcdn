@@ -1,12 +1,12 @@
 'use strict';
 
 const assert = require('assert').strict;
+const { files } = require('../config');
 const helpers = require('./test_helpers');
 
 describe('fontawesome', () => {
-    const config = helpers.getConfig();
     const uri = helpers.getURI('fontawesome');
-    const current = config.fontawesome[0];
+    const current = files.fontawesome[0];
     let response = {};
 
     before((done) => {

@@ -1,10 +1,10 @@
 'use strict';
 
 const assert = require('assert').strict;
+const { files } = require('../config');
 const helpers = require('./test_helpers');
 
 describe('legacy/fontawesome', () => {
-    const config = helpers.getConfig();
     const uri = helpers.getURI('legacy/fontawesome');
     let response = {};
 
@@ -36,7 +36,7 @@ describe('legacy/fontawesome', () => {
         helpers.assert.bodyClass('page-legacyfontawesome', response, done);
     });
 
-    config.fontawesome.forEach((fontawesome) => {
+    files.fontawesome.forEach((fontawesome) => {
         if (fontawesome.current === true) {
             return;
         }

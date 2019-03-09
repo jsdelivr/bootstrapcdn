@@ -1,12 +1,12 @@
 'use strict';
 
 const assert = require('assert').strict;
+const { files } = require('../config');
 const helpers = require('./test_helpers');
 
 describe('index', () => {
-    const config = helpers.getConfig();
     const uri = helpers.getURI();
-    const current = config.bootstrap[0];
+    const current = files.bootstrap[0];
     let response = {};
 
     before((done) => {

@@ -4,10 +4,10 @@ const assert = require('assert').strict;
 const path = require('path');
 const { htmlEncode } = require('htmlencode');
 const staticify = require('staticify')(path.join(__dirname, '../public'));
+const { extras } = require('../config');
 const helpers = require('./test_helpers');
 
 describe('showcase', () => {
-    const config = helpers.getConfig();
     const uri = helpers.getURI('showcase');
     let response = {};
 
@@ -39,7 +39,7 @@ describe('showcase', () => {
         helpers.assert.bodyClass('page-showcase', response, done);
     });
 
-    config.showcase.forEach((showcase) => {
+    extras.showcase.forEach((showcase) => {
         describe(showcase.name, () => {
             it('has name', (done) => {
                 assert.ok(response.body.includes(showcase.name),

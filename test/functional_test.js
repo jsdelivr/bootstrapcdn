@@ -12,9 +12,9 @@ const path = require('path');
 const semver = require('semver');
 const walk = require('fs-walk');
 const { generateSri } = require('../lib/helpers');
+const { files } = require('../config');
 const helpers = require('./test_helpers');
 
-const config = helpers.getConfig();
 const CDN_URL = 'https://stackpath.bootstrapcdn.com/';
 const responses = {};
 
@@ -164,7 +164,7 @@ function assertContentType(uri, currentType, cb) {
 }
 
 describe('functional', () => {
-    config.bootstrap.forEach((self) => {
+    files.bootstrap.forEach((self) => {
         describe(domainCheck(self.javascript), () => {
             const uri = domainCheck(self.javascript);
 
@@ -235,9 +235,9 @@ describe('functional', () => {
     });
 
     describe('bootswatch3', () => {
-        config.bootswatch3.themes.forEach((theme) => {
-            const uri = domainCheck(config.bootswatch3.bootstrap
-                .replace('SWATCH_VERSION', config.bootswatch3.version)
+        files.bootswatch3.themes.forEach((theme) => {
+            const uri = domainCheck(files.bootswatch3.bootstrap
+                .replace('SWATCH_VERSION', files.bootswatch3.version)
                 .replace('SWATCH_NAME', theme.name));
 
             describe(uri, () => {
@@ -263,9 +263,9 @@ describe('functional', () => {
     });
 
     describe('bootswatch4', () => {
-        config.bootswatch4.themes.forEach((theme) => {
-            const uri = domainCheck(config.bootswatch4.bootstrap
-                .replace('SWATCH_VERSION', config.bootswatch4.version)
+        files.bootswatch4.themes.forEach((theme) => {
+            const uri = domainCheck(files.bootswatch4.bootstrap
+                .replace('SWATCH_VERSION', files.bootswatch4.version)
                 .replace('SWATCH_NAME', theme.name));
 
             describe(uri, () => {
@@ -291,7 +291,7 @@ describe('functional', () => {
     });
 
     describe('bootlint', () => {
-        config.bootlint.forEach((self) => {
+        files.bootlint.forEach((self) => {
             const uri = domainCheck(self.javascript);
 
             describe(uri, () => {
@@ -317,7 +317,7 @@ describe('functional', () => {
     });
 
     describe('fontawesome', () => {
-        config.fontawesome.forEach((self) => {
+        files.fontawesome.forEach((self) => {
             const uri = domainCheck(self.stylesheet);
 
             describe(uri, () => {

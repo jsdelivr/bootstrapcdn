@@ -1,10 +1,10 @@
 'use strict';
 
 const assert = require('assert').strict;
+const { files } = require('../config');
 const helpers = require('./test_helpers');
 
 describe('legacy/bootlint', () => {
-    const config = helpers.getConfig();
     const uri = helpers.getURI('legacy/bootlint');
     let response = {};
 
@@ -37,7 +37,7 @@ describe('legacy/bootlint', () => {
         helpers.assert.bodyClass('page-legacybootlint', response, done);
     });
 
-    config.bootlint.forEach((bootlint) => {
+    files.bootlint.forEach((bootlint) => {
         if (bootlint.current === true) {
             return;
         }

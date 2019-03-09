@@ -1,10 +1,10 @@
 'use strict';
 
 const assert = require('assert').strict;
+const { files } = require('../config');
 const helpers = require('./test_helpers');
 
 describe('legacy/bootstrap', () => {
-    const config = helpers.getConfig();
     const uri = helpers.getURI('legacy/bootstrap');
     let response = {};
 
@@ -36,7 +36,7 @@ describe('legacy/bootstrap', () => {
         helpers.assert.bodyClass('page-legacybootstrap', response, done);
     });
 
-    config.bootstrap.forEach((bootstrap) => {
+    files.bootstrap.forEach((bootstrap) => {
         if (bootstrap.current === true) {
             return;
         }

@@ -3,7 +3,7 @@ extends ../layout.pug
 block content
     h2.text-center.mb-4 Bootstrap Legacy
 
-    each item in config.bootstrap
+    each item in config.files.bootstrap
         unless (item.current)
             .card.bg-light.mt-4.p-4.text-center
                 h3.mt-2=`v${item.version}`
