@@ -50,6 +50,7 @@ app.set('json spaces', 2);
 app.set('x-powered-by', false);
 
 // Enable rollbar early on the middleware stack, if it's configured.
+/* istanbul ignore if */
 if (ENV.ROLLBAR_ACCESS_TOKEN) {
     const rollbarOptions = {
         accessToken: ENV.ROLLBAR_ACCESS_TOKEN,
@@ -70,6 +71,7 @@ if (ENV.ROLLBAR_ACCESS_TOKEN) {
     console.log('WARNING: starting without rollbar');
 }
 
+/* istanbul ignore if */
 if (NODE_ENV === 'production') {
     // production
     app.use(logger('combined'));
@@ -221,6 +223,7 @@ const map = sitemap({
     }
 });
 
+/* istanbul ignore if */
 if (ENV.ENABLE_CRAWLING) {
     app.get('/sitemap.xml', (req, res) => {
         map.generate4(app, [
