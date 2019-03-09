@@ -7,7 +7,7 @@
     var clipboardjsSri = generateSRI(clipboardjs.uri);
     var mainJs = config.javascript.find(file => file.name === 'main');
     var mainJsUri = getVersionedPath(mainJs.uri);
-    var mainJsSri = generateSRI('/assets/js/main.js');
+    var mainJsSri = generateSRI(mainJs.uri);
 
 | var mainJsUri = '#{mainJsUri}';
 | var clipboardjsUri = '#{clipboardjsUri}';
