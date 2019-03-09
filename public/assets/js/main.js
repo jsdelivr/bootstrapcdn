@@ -4,27 +4,20 @@
     'use strict';
 
     function toggleInputCaret() {
-        var selector = '.input-group .dropdown-toggle';
-        var elements = document.querySelectorAll(selector);
+        var elements = document.querySelectorAll('.input-group .dropdown-toggle');
 
-        function toggleCode(index) {
-            elements[index].addEventListener('click', function() {
-                elements[index].classList.toggle('dropdown-toggle-open');
+        Array.prototype.forEach.call(elements, function(element) {
+            element.addEventListener('click', function() {
+                element.classList.toggle('dropdown-toggle-open');
             });
-        }
-
-        for (var i = 0, len = elements.length; i < len; i++) {
-            toggleCode(i);
-        }
+        });
     }
 
     function selectTextCopyToClipboard() {
-        var selector = 'input[type="text"]';
-        var elements = document.querySelectorAll(selector);
-        var origHelpBlockText = 'Click to copy';
+        var elements = document.querySelectorAll('input[type="text"]');
 
-        for (var i = 0, len = elements.length; i < len; i++) {
-            elements[i].addEventListener('focus', function(event) {
+        Array.prototype.forEach.call(elements, function(element) {
+            element.addEventListener('focus', function(event) {
                 event.preventDefault();
                 this.select();
 
@@ -49,7 +42,7 @@
                 });
             }, true);
 
-            elements[i].addEventListener('blur', function(event) {
+            element.addEventListener('blur', function(event) {
                 var helpBlock = {};
                 var parentNextSibling = this.parentElement.nextElementSibling;
 
@@ -61,9 +54,9 @@
                 }
 
                 event.preventDefault();
-                helpBlock.innerHTML = origHelpBlockText;
+                helpBlock.innerHTML = 'Click to copy';
             }, true);
-        }
+        });
     }
 
     function initTwitterTimeline() {

@@ -1,22 +1,22 @@
 'use strict';
 
 // This file just holds all route requires
-const notFoundRoute = require('./404.js');
-const aboutRoute = require('./about.js');
-const booksRoute = require('./books.js');
-const bootlintRoute = require('./bootlint.js');
-const bootswatch4Route = require('./bootswatch4.js');
-const bootswatchRoute = require('./bootswatch.js');
-const dataRoute = require('./data.js');
-const fontawesomeRoute = require('./fontawesome.js');
-const indexRoute = require('./home.js');
-const integrationsRoute = require('./integrations.js');
-const jobsRoute = require('./jobs.js');
-const legacyRoutes = require('./legacy.js');
-const privacyPolicyRoute = require('./privacyPolicy.js');
-const redirectToRoot = require('./redirectToRoot.js');
-const showcaseRoute = require('./showcase.js');
-const themesRoute = require('./themes.js');
+const notFoundRoute = require('./404');
+const aboutRoute = require('./about');
+const booksRoute = require('./books');
+const bootlintRoute = require('./bootlint');
+const bootswatch4Route = require('./bootswatch4');
+const bootswatchRoute = require('./bootswatch');
+const dataRoute = require('./data');
+const fontawesomeRoute = require('./fontawesome');
+const indexRoute = require('./home');
+const integrationsRoute = require('./integrations');
+const jobsRoute = require('./jobs');
+const legacyRoutes = require('./legacy');
+const privacyPolicyRoute = require('./privacyPolicy');
+const redirectToRoot = require('./redirectToRoot');
+const showcaseRoute = require('./showcase');
+const themesRoute = require('./themes');
 
 const routes = {
     notFoundRoute,

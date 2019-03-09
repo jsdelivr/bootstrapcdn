@@ -7,12 +7,12 @@
     var clipboardjsSri = generateSRI(clipboardjs.uri);
     var mainJs = config.javascript.find(file => file.name === 'main');
     var mainJsUri = getVersionedPath(mainJs.uri);
-    var mainJsSri = generateSRI('/assets/js/main.js');
+    var mainJsSri = generateSRI(mainJs.uri);
 
 | var mainJsUri = '#{mainJsUri}';
 | var clipboardjsUri = '#{clipboardjsUri}';
 | var jqueryUri = '#{jquery.uri}';
-| var bootstrapBundleUri = '#{bootstrap.javascriptBundle}';
+| var bootstrapUri = '#{bootstrap.javascript}';
 |
 | loadjs([clipboardjsUri, mainJsUri], 'main', {
 |    before: function(path, el) {
@@ -21,9 +21,9 @@
 |     },
 |     async: false
 | });
-| loadjs([jqueryUri, bootstrapBundleUri], 'jquery', {
+| loadjs([jqueryUri, bootstrapUri], 'jquery', {
 |    before: function(path, el) {
-|        el.integrity = path === jqueryUri ? '#{jquery.sri}' : '#{bootstrap.javascriptBundleSri}';
+|        el.integrity = path === jqueryUri ? '#{jquery.sri}' : '#{bootstrap.javascriptSri}';
 |        el.crossOrigin = 'anonymous';
 |     },
 |     async: false

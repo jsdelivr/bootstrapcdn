@@ -1,10 +1,9 @@
 'use strict';
 
 const path = require('path');
-const helpers = require('../lib/helpers.js');
+const { generateSri } = require('../lib/helpers');
 const config = require('../config');
 
-const { digest } = helpers.sri;
 const PUBLIC_DIR = path.join(__dirname, '../public/');
 const SRI_CACHE = {};
 
@@ -49,7 +48,7 @@ function generateBodyClass(pathname) {
 
 function generateSRI(file) {
     if (typeof SRI_CACHE[file] === 'undefined') {
-        SRI_CACHE[file] = digest(path.join(PUBLIC_DIR, file));
+        SRI_CACHE[file] = generateSri(path.join(PUBLIC_DIR, file));
     }
 
     return SRI_CACHE[file];

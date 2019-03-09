@@ -36,7 +36,7 @@ const staticify    = require('staticify')(PUBLIC_DIR, {
 });
 
 const config  = require('./config');
-const helpers = require('./lib/helpers.js');
+const helpers = require('./lib/helpers');
 const routes  = require('./routes');
 
 const app     = express();

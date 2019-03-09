@@ -11,8 +11,8 @@ const assert = require('assert').strict;
 const path = require('path');
 const semver = require('semver');
 const walk = require('fs-walk');
-const { digest } = require('../lib/helpers.js').sri;
-const helpers = require('./test_helpers.js');
+const { generateSri } = require('../lib/helpers');
+const helpers = require('./test_helpers');
 
 const config = helpers.getConfig();
 const CDN_URL = 'https://stackpath.bootstrapcdn.com/';
@@ -98,7 +98,7 @@ function request(uri, cb) {
 }
 
 function assertSRI(uri, actualSri, done) {
-    const expectedSri = digest(responses[uri].body, true);
+    const expectedSri = generateSri(responses[uri].body, true);
 
     assert.equal(actualSri, expectedSri);
     done();

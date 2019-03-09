@@ -14,7 +14,7 @@ const mockDate = require('mockdate');
 const request = require('request');
 const validator = require('html-validator');
 
-const app = require('../app.js');
+const app = require('../app');
 const config = require('../config');
 
 // The server object holds the server instance across all tests;
@@ -172,7 +172,7 @@ function cssHTML(uri, sri) {
     return htmlEncode(`<link href="${uri}" rel="stylesheet" integrity="${sri}" crossorigin="anonymous">`);
 }
 
-function cssJade(uri, sri) {
+function cssPug(uri, sri) {
     return htmlEncode(`link(href="${uri}", rel="stylesheet", integrity="${sri}", crossorigin="anonymous")`);
 }
 
@@ -184,7 +184,7 @@ function jsHTML(uri, sri) {
     return htmlEncode(`<script src="${uri}" integrity="${sri}" crossorigin="anonymous"></script>`);
 }
 
-function jsJade(uri, sri) {
+function jsPug(uri, sri) {
     return htmlEncode(`script(src="${uri}", integrity="${sri}", crossorigin="anonymous")`);
 }
 
@@ -207,12 +207,12 @@ module.exports = {
     },
     prefetch,
     css: {
-        pug: cssJade,
+        pug: cssPug,
         html: cssHTML,
         haml: cssHAML
     },
     javascript: {
-        pug: jsJade,
+        pug: jsPug,
         html: jsHTML,
         haml: jsHAML
     }

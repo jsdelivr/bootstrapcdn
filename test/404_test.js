@@ -1,7 +1,7 @@
 'use strict';
 
 const assert = require('assert').strict;
-const helpers = require('./test_helpers.js');
+const helpers = require('./test_helpers');
 
 describe('404', () => {
     const uri = helpers.getURI('404');
