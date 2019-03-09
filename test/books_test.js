@@ -4,7 +4,7 @@ const assert = require('assert').strict;
 const path = require('path');
 const { htmlEncode } = require('htmlencode');
 const staticify = require('staticify')(path.join(__dirname, '../public'));
-const helpers = require('./test_helpers.js');
+const helpers = require('./test_helpers');
 
 describe('books', () => {
     const config = helpers.getConfig();

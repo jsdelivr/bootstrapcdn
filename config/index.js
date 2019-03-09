@@ -3,7 +3,7 @@
 const fs = require('fs');
 const path = require('path');
 const yaml = require('js-yaml');
-const csp = require('./helmet-csp.js');
+const csp = require('./helmet-csp');
 
 function loadConfig(file) {
     return yaml.safeLoad(fs.readFileSync(path.join(__dirname, file)), 'utf8');

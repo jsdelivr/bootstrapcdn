@@ -1,8 +1,8 @@
 'use strict';
 
 const assert = require('assert').strict;
-const libHelpers = require('../lib/helpers.js');
-const helpers = require('./test_helpers.js');
+const libHelpers = require('../lib/helpers');
+const helpers = require('./test_helpers');
 
 describe('data', () => {
     const uri = helpers.getURI('data/bootstrapcdn.json');

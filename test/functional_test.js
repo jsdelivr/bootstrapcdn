@@ -12,7 +12,7 @@ const path = require('path');
 const semver = require('semver');
 const walk = require('fs-walk');
 const { generateSri } = require('../lib/helpers');
-const helpers = require('./test_helpers.js');
+const helpers = require('./test_helpers');
 
 const config = helpers.getConfig();
 const CDN_URL = 'https://stackpath.bootstrapcdn.com/';

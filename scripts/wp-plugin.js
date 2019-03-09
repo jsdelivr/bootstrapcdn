@@ -4,7 +4,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const helpers = require('../lib/helpers.js');
+const helpers = require('../lib/helpers');
 
 const OUT_DIR = path.resolve(__dirname, '../data');
 

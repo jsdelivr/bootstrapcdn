@@ -1,7 +1,7 @@
 'use strict';
 
 const path = require('path');
-const { generateSri } = require('../lib/helpers.js');
+const { generateSri } = require('../lib/helpers');
 const config = require('../config');
 
 const PUBLIC_DIR = path.join(__dirname, '../public/');

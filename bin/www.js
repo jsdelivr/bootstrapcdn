@@ -1,7 +1,7 @@
 'use strict';
 
 const http = require('http');
-const app = require('../app.js');
+const app = require('../app');
 const config = require('../config');
 
 app.set('port', process.env.PORT || config.port || 3000);
