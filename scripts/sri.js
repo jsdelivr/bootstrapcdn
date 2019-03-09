@@ -10,8 +10,7 @@ if (process.argv[1] === __filename) {
     for (let i = 2; i < process.argv.length; i++) {
         const file = process.argv[i];
 
-        console.log(file);
-        console.log('>', digest(file));
+        console.log(`${file}\n> ${digest(file)}`);
     }
 } else {
     module.exports.digest = digest;

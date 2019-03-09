@@ -6,7 +6,7 @@ const fs         = require('fs');
 const path       = require('path');
 const yaml       = require('js-yaml');
 const config     = require('../config');
-const sri        = require('./sri.js');
+const { digest } = require('./sri.js');
 
 const filesConfig = config.loadConfig('_files.yml');
 const configFile = config.getConfigPath('_files.yml');
@@ -15,17 +15,18 @@ const configFile = config.getConfigPath('_files.yml');
 fs.createReadStream(configFile)
     .pipe(fs.createWriteStream(`${configFile}.bak`));
 
-function buildPath(d) {
-    d = d.replace('/bootstrap/', '/twitter-bootstrap/')
-         .replace('https://stackpath.bootstrapcdn.com/', '');
-    return path.join(__dirname, '../cdn', d);
+function buildPath(dir) {
+    dir = dir.replace('/bootstrap/', '/twitter-bootstrap/')
+             .replace('https://stackpath.bootstrapcdn.com/', '');
+
+    return path.join(__dirname, '../cdn', dir);
 }
 
 function exists(file) {
     const found = fs.existsSync(file);
 
     if (!found) {
-        console.log('WARNING: %s not found', file);
+        console.warn(`WARNING: ${file} not found`);
     }
 
     return found;
@@ -41,7 +42,7 @@ function exists(file) {
                                  .replace('SWATCH_NAME', theme.name);
 
             if (exists(file)) { // always regenerate
-                theme.sri = sri.digest(file);
+                theme.sri = digest(file);
             }
         }
     });
@@ -53,7 +54,7 @@ function exists(file) {
         const file = buildPath(bootlint.javascript);
 
         if (exists(file)) { // always regenerate
-            bootlint.javascriptSri = sri.digest(file);
+            bootlint.javascriptSri = digest(file);
         }
     }
 }))();
@@ -71,15 +72,15 @@ function exists(file) {
         }
 
         if (exists(javascript)) {
-            bootstrap.javascriptSri = sri.digest(javascript);
+            bootstrap.javascriptSri = digest(javascript);
         }
 
         if (javascriptBundle && exists(javascriptBundle)) {
-            bootstrap.javascriptBundleSri = sri.digest(javascriptBundle);
+            bootstrap.javascriptBundleSri = digest(javascriptBundle);
         }
 
         if (exists(stylesheet)) {
-            bootstrap.stylesheetSri = sri.digest(stylesheet);
+            bootstrap.stylesheetSri = digest(stylesheet);
         }
     }
 }))();
@@ -90,9 +91,13 @@ function exists(file) {
         const stylesheet = buildPath(fontawesome.stylesheet);
 
         if (exists(stylesheet)) {
-            fontawesome.stylesheetSri = sri.digest(stylesheet);
+            fontawesome.stylesheetSri = digest(stylesheet);
         }
     }
 }))();
 
-fs.writeFileSync(configFile, yaml.dump(filesConfig, { lineWidth: -1 }));
+fs.writeFileSync(configFile,
+    yaml.dump(filesConfig, {
+        lineWidth: -1
+    })
+);
