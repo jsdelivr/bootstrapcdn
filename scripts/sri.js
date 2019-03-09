@@ -1,6 +1,7 @@
 'use strict';
 
 const path = require('path');
+
 const { generateSri } = require(path.join(__dirname, '../lib/helpers'));
 
 if (process.argv[1] === __filename) {
