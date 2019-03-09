@@ -4,6 +4,7 @@
 config/*.bak
 Dockme.yml
 npm-debug.log
+.cache/
 .nyc_output/
 coverage/
 data/

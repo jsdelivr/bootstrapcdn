@@ -9,7 +9,7 @@
   "scripts": {
     "clean": "rm -rf ./node_modules/",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
-    "eslint": "eslint .",
+    "eslint": "eslint . --cache --cache-location .cache/.eslintcache",
     "puglint": "pug-lint views/",
     "pug-lint": "npm run puglint",
     "lint": "npm-run-all --parallel eslint puglint",
