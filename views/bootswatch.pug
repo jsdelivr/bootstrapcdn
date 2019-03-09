@@ -12,7 +12,7 @@ block content
             .row
                 .col-12.col-md-2
                     .tryit.mt-4
-                        -if (index === helpers.theme.selected(config, theme))
+                        -if (index === helpers.theme.selected(theme))
                             button.btn.btn-primary(type='button', disabled) Active!
                         -else
                             a.btn.btn-primary(role='button', href=`?theme=${index}`) Try it!

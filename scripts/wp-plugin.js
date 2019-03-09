@@ -17,11 +17,9 @@ if (!fs.existsSync(OUT_DIR)) {
 fs.writeFile(
     path.join(OUT_DIR, 'bootstrapcdn.json'),
     JSON.stringify(data, null, 2),
-    (err) => {
-        if (err) {
-            console.error('An error occured creating bootstrapcdn.json');
-            console.trace(err);
-            process.exit(1);
+    (error) => {
+        if (error) {
+            throw new Error(error);
         }
 
         console.log('Regenerated bootstrapcdn.json');
