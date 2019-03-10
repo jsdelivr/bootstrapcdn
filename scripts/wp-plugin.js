@@ -14,14 +14,5 @@ if (!fs.existsSync(OUT_DIR)) {
     fs.mkdirSync(OUT_DIR);
 }
 
-fs.writeFile(
-    path.join(OUT_DIR, 'bootstrapcdn.json'),
-    JSON.stringify(data, null, 2),
-    (error) => {
-        if (error) {
-            throw new Error(error);
-        }
-
-        console.log('Regenerated bootstrapcdn.json');
-    }
-);
+fs.writeFileSync(path.join(OUT_DIR, 'bootstrapcdn.json'), JSON.stringify(data, null, 2));
+console.log('Regenerated bootstrapcdn.json');

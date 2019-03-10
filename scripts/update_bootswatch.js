@@ -34,16 +34,12 @@ const walk = require('fs-walk');
 
             fse.ensureDirSync(path.join(bootswatchDistDir, themefolder));
 
-            try {
-                fse.copySync(path.join(base, filename), path.join(bootswatchDistDir, themefolder, filename), {
-                    overwrite: false,
-                    errorOnExist: true,
-                    preserveTimestamps: true
-                });
-                console.log(`Copied "${path.join(themefolder, filename)}" to "${path.join(bootswatchDistDir, themefolder, filename)}"`);
-            } catch (error) {
-                throw new Error(error);
-            }
+            fse.copySync(path.join(base, filename), path.join(bootswatchDistDir, themefolder, filename), {
+                overwrite: false,
+                errorOnExist: true,
+                preserveTimestamps: true
+            });
+            console.log(`Copied "${path.join(themefolder, filename)}" to "${path.join(bootswatchDistDir, themefolder, filename)}"`);
         }
     });
 
