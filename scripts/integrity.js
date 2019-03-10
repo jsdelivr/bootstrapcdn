@@ -2,18 +2,14 @@
 
 'use strict';
 
-const fs         = require('fs');
-const path       = require('path');
-const yaml       = require('js-yaml');
-const config     = require('../config');
+const fs = require('fs');
+const path = require('path');
+const yaml = require('js-yaml');
+const config = require('../config');
 const { generateSri } = require('./sri');
 
 const filesConfig = config.loadConfig('_files.yml');
 const configFile = config.getConfigPath('_files.yml');
-
-// create backup file
-fs.createReadStream(configFile)
-    .pipe(fs.createWriteStream(`${configFile}.bak`));
 
 function buildPath(dir) {
     dir = dir.replace('/bootstrap/', '/twitter-bootstrap/')
@@ -32,7 +28,7 @@ function exists(file) {
     return found;
 }
 
-// bootswatch{3,4}
+// Bootswatch {3,4}
 ((() => {
     ['bootswatch3', 'bootswatch4'].forEach((key) => {
         const bootswatch = buildPath(filesConfig[key].bootstrap);
@@ -48,18 +44,18 @@ function exists(file) {
     });
 }))();
 
-// bootlint
+// Bootlint
 ((() => {
     for (const bootlint of filesConfig.bootlint) {
         const file = buildPath(bootlint.javascript);
 
-        if (exists(file)) { // always regenerate
+        if (exists(file)) {
             bootlint.javascriptSri = generateSri(file);
         }
     }
 }))();
 
-// bootstrap
+// Bootstrap
 ((() => {
     for (const bootstrap of filesConfig.bootstrap) {
         let { javascriptBundle } = bootstrap;
@@ -85,7 +81,7 @@ function exists(file) {
     }
 }))();
 
-// fontawesome
+// Font Awesome
 ((() => {
     for (const fontawesome of filesConfig.fontawesome) {
         const stylesheet = buildPath(fontawesome.stylesheet);
@@ -95,6 +91,9 @@ function exists(file) {
         }
     }
 }))();
+
+// Create backup file
+fs.copyFileSync(configFile, `${configFile}.bak`);
 
 fs.writeFileSync(configFile,
     yaml.dump(filesConfig, {
