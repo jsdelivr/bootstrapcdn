@@ -27,15 +27,11 @@ const fse = require('fs-extra');
 
     fs.mkdirSync(bootlintDistDir);
 
-    try {
-        fse.copySync(`${bootlintSrcDir}`, `${bootlintDistDir}`, {
-            overwrite: false,
-            errorOnExist: true,
-            preserveTimestamps: true
-        });
-        console.log(`Successfully copied "${bootlintSrcDir}" to "${bootlintDistDir}"`);
-        console.log(`\nDo not forget to update "${path.normalize('config/_config.yml')}"!`);
-    } catch (error) {
-        throw new Error(error);
-    }
+    fse.copySync(`${bootlintSrcDir}`, `${bootlintDistDir}`, {
+        overwrite: false,
+        errorOnExist: true,
+        preserveTimestamps: true
+    });
+    console.log(`Successfully copied "${bootlintSrcDir}" to "${bootlintDistDir}"`);
+    console.log(`\nDo not forget to update "${path.normalize('config/_config.yml')}"!`);
 })();
