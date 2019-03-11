@@ -113,27 +113,29 @@ function prefetch(uri, cb) {
     });
 }
 
-async function assertValidHTML(res, cb) {
+function assertValidHTML(res) {
     const options = {
         data: res.body,
         format: 'text'
     };
 
-    try {
-        const data = await validator(options);
+    return new Promise(async(resolve, reject) => {
+        try {
+            const data = await validator(options);
 
-        // Return when successful.
-        if (data.includes('The document validates')) {
-            return cb();
+            // Return when successful.
+            if (data.includes('The document validates')) {
+                return resolve();
+            }
+
+            // Formatting output for readability.
+            const errStr = `HTML Validation for '${res.request.path}' failed with:\n\t${data.replace('Error: ', '').split('\n').join('\n\t')}\n`;
+
+            return reject(new Error(errStr));
+        } catch (err) {
+            return reject(err);
         }
-
-        // Formatting output for readability.
-        const errStr = `HTML Validation for '${res.request.path}' failed with:\n\t${data.replace('Error: ', '').split('\n').join('\n\t')}\n`;
-
-        return cb(new Error(errStr));
-    } catch (err) {
-        return cb(err);
-    }
+    });
 }
 
 function assertItWorks(statusCode, cb) {

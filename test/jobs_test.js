@@ -18,7 +18,8 @@ describe('jobs', () => {
     });
 
     it('valid html', (done) => {
-        helpers.assert.validHTML(response, done);
+        helpers.assert.validHTML(response)
+            .then(() => done());
     });
 
     it('contains authors', (done) => {
