@@ -36,20 +36,17 @@ describe('legacy/bootlint', () => {
         helpers.assert.bodyClass('page-legacybootlint', response, done);
     });
 
-    files.bootlint.forEach((bootlint) => {
-        if (bootlint.current === true) {
-            return;
-        }
+    files.bootlint.filter((file) => !file.current)
+        .forEach((bootlint) => {
+            describe(bootlint.version, () => {
+                ['html', 'pug', 'haml'].forEach((fmt) => {
+                    it(`has javascript ${fmt}`, (done) => {
+                        const str = helpers.css[fmt](bootlint.javascript, bootlint.javascriptSri);
 
-        describe(bootlint.version, () => {
-            ['html', 'pug', 'haml'].forEach((fmt) => {
-                it(`has javascript ${fmt}`, (done) => {
-                    const str = helpers.css[fmt](bootlint.javascript, bootlint.javascriptSri);
-
-                    assert.ok(response.body.includes(str), `Expects response body to include "${str}"`);
-                    done();
+                        assert.ok(response.body.includes(str), `Expects response body to include "${str}"`);
+                        done();
+                    });
                 });
             });
         });
-    });
 });

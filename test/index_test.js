@@ -6,7 +6,7 @@ const helpers = require('./test_helpers');
 
 describe('index', () => {
     const uri = helpers.getURI();
-    const current = files.bootstrap[0];
+    const current = files.bootstrap.find((file) => file.current);
     let response = {};
 
     before((done) => {
