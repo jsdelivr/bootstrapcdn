@@ -36,27 +36,24 @@ describe('legacy/bootstrap', () => {
         helpers.assert.bodyClass('page-legacybootstrap', response, done);
     });
 
-    files.bootstrap.forEach((bootstrap) => {
-        if (bootstrap.current === true) {
-            return;
-        }
+    files.bootstrap.filter((file) => !file.current)
+        .forEach((bootstrap) => {
+            describe(bootstrap.version, () => {
+                ['html', 'pug', 'haml'].forEach((fmt) => {
+                    it(`has javascript ${fmt}`, (done) => {
+                        const str = helpers.javascript[fmt](bootstrap.javascript, bootstrap.javascriptSri);
 
-        describe(bootstrap.version, () => {
-            ['html', 'pug', 'haml'].forEach((fmt) => {
-                it(`has javascript ${fmt}`, (done) => {
-                    const str = helpers.javascript[fmt](bootstrap.javascript, bootstrap.javascriptSri);
+                        assert.ok(response.body.includes(str), `Expects response body to include "${str}"`);
+                        done();
+                    });
 
-                    assert.ok(response.body.includes(str), `Expects response body to include "${str}"`);
-                    done();
-                });
+                    it(`has stylesheet ${fmt}`, (done) => {
+                        const str = helpers.css[fmt](bootstrap.stylesheet, bootstrap.stylesheetSri);
 
-                it(`has stylesheet ${fmt}`, (done) => {
-                    const str = helpers.css[fmt](bootstrap.stylesheet, bootstrap.stylesheetSri);
-
-                    assert.ok(response.body.includes(str), `Expects response body to include "${str}"`);
-                    done();
+                        assert.ok(response.body.includes(str), `Expects response body to include "${str}"`);
+                        done();
+                    });
                 });
             });
         });
-    });
 });

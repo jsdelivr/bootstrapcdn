@@ -6,7 +6,7 @@ const helpers = require('./test_helpers');
 
 describe('bootlint', () => {
     const uri = helpers.getURI('bootlint');
-    const current = files.bootlint[0];
+    const current = files.bootlint.find((file) => file.current);
     let response = {};
 
     before((done) => {
