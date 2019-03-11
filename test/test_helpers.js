@@ -113,16 +113,14 @@ function prefetch(uri, cb) {
     });
 }
 
-function assertValidHTML(res, cb) {
+async function assertValidHTML(res, cb) {
     const options = {
         data: res.body,
         format: 'text'
     };
 
-    validator(options, (err, data) => {
-        if (err) {
-            return cb(err);
-        }
+    try {
+        const data = await validator(options);
 
         // Return when successful.
         if (data.includes('The document validates')) {
@@ -133,7 +131,9 @@ function assertValidHTML(res, cb) {
         const errStr = `HTML Validation for '${res.request.path}' failed with:\n\t${data.replace('Error: ', '').split('\n').join('\n\t')}\n`;
 
         return cb(new Error(errStr));
-    });
+    } catch (err) {
+        return cb(err);
+    }
 }
 
 function assertItWorks(statusCode, cb) {
