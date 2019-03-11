@@ -12,7 +12,7 @@
     "eslint": "eslint . --cache --cache-location .cache/.eslintcache",
     "puglint": "pug-lint views/",
     "pug-lint": "npm run puglint",
-    "lint": "npm-run-all --parallel eslint puglint",
+    "lint": "npm-run-all --continue-on-error --parallel eslint puglint",
     "mocha": "cross-env NODE_ENV=test ENABLE_CRAWLING=true mocha",
     "mocha:only-functional": "npm run mocha -- --reporter progress ./test/functional_test.js",
     "mocha:only-functional:dev": "cross-env BCDN_HEADERS=debug npm run mocha:only-functional",
