@@ -110,22 +110,20 @@ function assertValidHTML(res) {
         format: 'text'
     };
 
-    return new Promise(async(resolve, reject) => {
-        try {
-            const data = await validator(options);
+    return new Promise((resolve, reject) => {
+        validator(options)
+            .then((data) => {
+                // Return when successful.
+                if (data.includes('The document validates')) {
+                    return resolve();
+                }
 
-            // Return when successful.
-            if (data.includes('The document validates')) {
-                return resolve();
-            }
+                // Formatting output for readability.
+                const errStr = `HTML Validation for '${res.request.path}' failed with:\n\t${data.replace('Error: ', '').split('\n').join('\n\t')}\n`;
 
-            // Formatting output for readability.
-            const errStr = `HTML Validation for '${res.request.path}' failed with:\n\t${data.replace('Error: ', '').split('\n').join('\n\t')}\n`;
-
-            return reject(new Error(errStr));
-        } catch (err) {
-            return reject(err);
-        }
+                return reject(new Error(errStr));
+            })
+            .catch((err) => reject(err));
     });
 }
 
