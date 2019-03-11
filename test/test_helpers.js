@@ -1,10 +1,7 @@
 'use strict';
 
-// Force NODE_ENV (and thus 'env' in express)
 const ENV = process.env;
 
-ENV.NODE_ENV = 'test';
-ENV.ENABLE_CRAWLING = true;
 // We use BCDN_HEADERS to distinguish between production and debug CDN headers
 ENV.BCDN_HEADERS = ENV.BCDN_HEADERS || 'production';
 
