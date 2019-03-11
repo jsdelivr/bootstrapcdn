@@ -21,7 +21,8 @@ describe('legacy/bootlint', () => {
 
     it('valid html', function(done) {
         this.timeout(helpers.TESTS_TIMEOUT);
-        helpers.assert.validHTML(response, done);
+        helpers.assert.validHTML(response)
+            .then(() => done());
     });
 
     it('contains authors', (done) => {
