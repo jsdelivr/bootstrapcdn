@@ -4,10 +4,10 @@ const assert = require('assert').strict;
 const path = require('path');
 const { htmlEncode } = require('htmlencode');
 const staticify = require('staticify')(path.join(__dirname, '../public'));
+const { extras } = require('../config');
 const helpers = require('./test_helpers');
 
 describe('themes', () => {
-    const config = helpers.getConfig();
     const uri = helpers.getURI('themes');
     let response = {};
 
@@ -27,7 +27,8 @@ describe('themes', () => {
     });
 
     it('valid html', (done) => {
-        helpers.assert.validHTML(response, done);
+        helpers.assert.validHTML(response)
+            .then(() => done());
     });
 
     it('contains authors', (done) => {
@@ -42,7 +43,7 @@ describe('themes', () => {
         helpers.assert.bodyClass('page-themes', response, done);
     });
 
-    config.themesAd.forEach((theme) => {
+    extras.themesAd.forEach((theme) => {
         describe(theme.name, () => {
             it('has name', (done) => {
                 assert.ok(response.body.includes(htmlEncode(theme.name)),

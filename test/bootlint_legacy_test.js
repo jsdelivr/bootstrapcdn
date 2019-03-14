@@ -1,10 +1,10 @@
 'use strict';
 
 const assert = require('assert').strict;
+const { files } = require('../config');
 const helpers = require('./test_helpers');
 
 describe('legacy/bootlint', () => {
-    const config = helpers.getConfig();
     const uri = helpers.getURI('legacy/bootlint');
     let response = {};
 
@@ -19,9 +19,9 @@ describe('legacy/bootlint', () => {
         helpers.assert.itWorks(response.statusCode, done);
     });
 
-    it('valid html', function(done) {
-        this.timeout(helpers.TESTS_TIMEOUT);
-        helpers.assert.validHTML(response, done);
+    it('valid html', (done) => {
+        helpers.assert.validHTML(response)
+            .then(() => done());
     });
 
     it('contains authors', (done) => {
@@ -36,20 +36,17 @@ describe('legacy/bootlint', () => {
         helpers.assert.bodyClass('page-legacybootlint', response, done);
     });
 
-    config.bootlint.forEach((bootlint) => {
-        if (bootlint.current === true) {
-            return;
-        }
+    files.bootlint.filter((file) => !file.current)
+        .forEach((bootlint) => {
+            describe(bootlint.version, () => {
+                ['html', 'pug', 'haml'].forEach((fmt) => {
+                    it(`has javascript ${fmt}`, (done) => {
+                        const str = helpers.css[fmt](bootlint.javascript, bootlint.javascriptSri);
 
-        describe(bootlint.version, () => {
-            ['html', 'pug', 'haml'].forEach((fmt) => {
-                it(`has javascript ${fmt}`, (done) => {
-                    const str = helpers.css[fmt](bootlint.javascript, bootlint.javascriptSri);
-
-                    assert.ok(response.body.includes(str), `Expects response body to include "${str}"`);
-                    done();
+                        assert.ok(response.body.includes(str), `Expects response body to include "${str}"`);
+                        done();
+                    });
                 });
             });
         });
-    });
 });

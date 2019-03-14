@@ -4,10 +4,10 @@ const assert = require('assert').strict;
 const path = require('path');
 const { htmlEncode } = require('htmlencode');
 const staticify = require('staticify')(path.join(__dirname, '../public'));
+const { extras } = require('../config');
 const helpers = require('./test_helpers');
 
 describe('integrations', () => {
-    const config = helpers.getConfig();
     const uri = helpers.getURI('integrations');
     let response = {};
 
@@ -23,7 +23,8 @@ describe('integrations', () => {
     });
 
     it('valid html', (done) => {
-        helpers.assert.validHTML(response, done);
+        helpers.assert.validHTML(response)
+            .then(() => done());
     });
 
     it('contains authors', (done) => {
@@ -38,7 +39,7 @@ describe('integrations', () => {
         helpers.assert.bodyClass('page-integrations', response, done);
     });
 
-    config.integrations.forEach((integration) => {
+    extras.integrations.forEach((integration) => {
         describe(integration.name, () => {
             it('has name', (done) => {
                 assert.ok(response.body.includes(integration.name),

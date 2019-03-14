@@ -4,8 +4,8 @@ footer.mt-5.py-4.text-center
             .col-12
                 p
                     | Maintained by 
-                    each author, index in config.authors
-                        if (index === config.authors.length - 1)
+                    each author, index in config.app.authors
+                        if (index === config.app.authors.length - 1)
                             |  &amp; 
                         else if (index > 0)
                             | , 
@@ -17,8 +17,8 @@ footer.mt-5.py-4.text-center
 
                 p
                     | Homies be 
-                    each friend, index in config.friends
-                        if (index === config.friends.length - 1)
+                    each friend, index in config.extras.friends
+                        if (index === config.extras.friends.length - 1)
                             |  &amp; 
                         else if (index > 0)
                             | , 

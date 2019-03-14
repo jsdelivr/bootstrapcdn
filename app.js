@@ -36,6 +36,7 @@ const staticify    = require('staticify')(PUBLIC_DIR, {
 });
 
 const config  = require('./config');
+const CSP     = require('./config/helmet-csp');
 const helpers = require('./lib/helpers');
 const routes  = require('./routes');
 
@@ -50,6 +51,7 @@ app.set('json spaces', 2);
 app.set('x-powered-by', false);
 
 // Enable rollbar early on the middleware stack, if it's configured.
+/* istanbul ignore if */
 if (ENV.ROLLBAR_ACCESS_TOKEN) {
     const rollbarOptions = {
         accessToken: ENV.ROLLBAR_ACCESS_TOKEN,
@@ -70,6 +72,7 @@ if (ENV.ROLLBAR_ACCESS_TOKEN) {
     console.log('WARNING: starting without rollbar');
 }
 
+/* istanbul ignore if */
 if (NODE_ENV === 'production') {
     // production
     app.use(logger('combined'));
@@ -95,7 +98,7 @@ if (NODE_ENV === 'production') {
 app.use(compression());
 app.use(staticify.middleware);
 
-app.use(favicon(path.join(PUBLIC_DIR, config.favicon.uri), '7d'));
+app.use(favicon(path.join(PUBLIC_DIR, config.app.favicon.uri), '7d'));
 
 app.use((req, res, next) => {
     // Create a nonce for use with CSP;
@@ -136,22 +139,7 @@ app.use(helmet.hsts({
 app.use(helmet.referrerPolicy({ policy: 'strict-origin-when-cross-origin' }));
 
 app.use(helmet.contentSecurityPolicy({
-    directives: config.CSP,
-
-    // This module will detect common mistakes in your directives and throw errors
-    // if it finds any. To disable this, enable "loose mode".
-    loose: false,
-
-    // Set to true if you only want browsers to report errors, not block them
-    reportOnly: false,
-
-    // Set to true if you want to blindly set all headers: Content-Security-Policy,
-    // X-WebKit-CSP, and X-Content-Security-Policy.
-    setAllHeaders: false,
-
-    // Set to true if you want to disable CSP on Android where it can be buggy.
-    disableAndroid: false,
-
+    directives: CSP,
     // Set to false if you want to completely disable any user-agent sniffing.
     // This may make the headers less compatible but it will be much faster.
     // This defaults to `true`.
@@ -221,6 +209,7 @@ const map = sitemap({
     }
 });
 
+/* istanbul ignore if */
 if (ENV.ENABLE_CRAWLING) {
     app.get('/sitemap.xml', (req, res) => {
         map.generate4(app, [

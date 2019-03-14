@@ -1,12 +1,12 @@
 'use strict';
 
 const assert = require('assert').strict;
+const { files } = require('../config');
 const helpers = require('./test_helpers');
 
 describe('fontawesome', () => {
-    const config = helpers.getConfig();
     const uri = helpers.getURI('fontawesome');
-    const current = config.fontawesome[0];
+    const current = files.fontawesome.find((file) => file.current);
     let response = {};
 
     before((done) => {
@@ -26,7 +26,8 @@ describe('fontawesome', () => {
     });
 
     it('valid html', (done) => {
-        helpers.assert.validHTML(response, done);
+        helpers.assert.validHTML(response)
+            .then(() => done());
     });
 
     it('contains authors', (done) => {

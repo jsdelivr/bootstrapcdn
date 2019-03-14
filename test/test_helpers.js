@@ -1,10 +1,7 @@
 'use strict';
 
-// Force NODE_ENV (and thus 'env' in express)
 const ENV = process.env;
 
-ENV.NODE_ENV = 'test';
-ENV.ENABLE_CRAWLING = true;
 // We use BCDN_HEADERS to distinguish between production and debug CDN headers
 ENV.BCDN_HEADERS = ENV.BCDN_HEADERS || 'production';
 
@@ -15,7 +12,7 @@ const request = require('request');
 const validator = require('html-validator');
 
 const app = require('../app');
-const config = require('../config');
+const config = require('../config').app;
 
 // The server object holds the server instance across all tests;
 // We start it in the first test and close it in the last one,
@@ -38,12 +35,6 @@ function getExtension(str) {
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions
 function escapeRegExp(string) {
     return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); // $& means the whole matched string
-}
-
-// Just returning the existent config so that
-// we don't have to import lib/helpers in tests.
-function getConfig() {
-    return config;
 }
 
 function cleanEndpoint(endpoint = '/') {
@@ -113,26 +104,26 @@ function prefetch(uri, cb) {
     });
 }
 
-function assertValidHTML(res, cb) {
+function assertValidHTML(res) {
     const options = {
         data: res.body,
         format: 'text'
     };
 
-    validator(options, (err, data) => {
-        if (err) {
-            return cb(err);
-        }
+    return new Promise((resolve, reject) => {
+        validator(options)
+            .then((data) => {
+                // Return when successful.
+                if (data.includes('The document validates')) {
+                    return resolve();
+                }
 
-        // Return when successful.
-        if (data.includes('The document validates')) {
-            return cb();
-        }
+                // Formatting output for readability.
+                const errStr = `HTML Validation for '${res.request.path}' failed with:\n\t${data.replace('Error: ', '').split('\n').join('\n\t')}\n`;
 
-        // Formatting output for readability.
-        const errStr = `HTML Validation for '${res.request.path}' failed with:\n\t${data.replace('Error: ', '').split('\n').join('\n\t')}\n`;
-
-        return cb(new Error(errStr));
+                return reject(new Error(errStr));
+            })
+            .catch((err) => reject(err));
     });
 }
 
@@ -193,7 +184,6 @@ function jsHAML(uri, sri) {
 }
 
 module.exports = {
-    getConfig,
     getExtension,
     getURI,
     startServer,

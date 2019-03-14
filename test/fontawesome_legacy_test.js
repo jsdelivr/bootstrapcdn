@@ -1,10 +1,10 @@
 'use strict';
 
 const assert = require('assert').strict;
+const { files } = require('../config');
 const helpers = require('./test_helpers');
 
 describe('legacy/fontawesome', () => {
-    const config = helpers.getConfig();
     const uri = helpers.getURI('legacy/fontawesome');
     let response = {};
 
@@ -20,7 +20,8 @@ describe('legacy/fontawesome', () => {
     });
 
     it('valid html', (done) => {
-        helpers.assert.validHTML(response, done);
+        helpers.assert.validHTML(response)
+            .then(() => done());
     });
 
     it('contains authors', (done) => {
@@ -35,20 +36,17 @@ describe('legacy/fontawesome', () => {
         helpers.assert.bodyClass('page-legacyfontawesome', response, done);
     });
 
-    config.fontawesome.forEach((fontawesome) => {
-        if (fontawesome.current === true) {
-            return;
-        }
+    files.fontawesome.filter((file) => !file.current)
+        .forEach((fontawesome) => {
+            describe(fontawesome.version, () => {
+                ['html', 'pug', 'haml'].forEach((fmt) => {
+                    it(`has stylesheet ${fmt}`, (done) => {
+                        const str = helpers.css[fmt](fontawesome.stylesheet, fontawesome.stylesheetSri);
 
-        describe(fontawesome.version, () => {
-            ['html', 'pug', 'haml'].forEach((fmt) => {
-                it(`has stylesheet ${fmt}`, (done) => {
-                    const str = helpers.css[fmt](fontawesome.stylesheet, fontawesome.stylesheetSri);
-
-                    assert.ok(response.body.includes(str), `Expects response body to include "${str}"`);
-                    done();
+                        assert.ok(response.body.includes(str), `Expects response body to include "${str}"`);
+                        done();
+                    });
                 });
             });
         });
-    });
 });

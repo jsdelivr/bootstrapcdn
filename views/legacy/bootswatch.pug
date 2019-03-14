@@ -3,17 +3,17 @@ extends ../layout.pug
 block content
     h2.text-center.mb-4 Bootswatch 3
 
-    each item in config.bootswatch3.themes
+    each item in config.files.bootswatch3.themes
         -var name = item.name.toLowerCase();
         -var sri  = item.sri;
-        -var file = config.bootswatch3.bootstrap.replace('SWATCH_NAME', name).replace('SWATCH_VERSION', config.bootswatch3.version);
+        -var file = config.files.bootswatch3.bootstrap.replace('SWATCH_NAME', name).replace('SWATCH_VERSION', config.files.bootswatch3.version);
 
         .card.bg-light.my-4.p-4.text-center
             .row
                 .col-12.col-md-8.offset-md-2
                     .mt-4
-                        a(href=config.bootswatch3.link.replace('SWATCH_NAME', name), rel='noopener', target='_blank')
-                            img.bootswatch.d-block.img-fluid.mx-auto(src=config.bootswatch3.image.replace('SWATCH_NAME', name), alt=`${name} thumbnail`, width='528', height='317')
+                        a(href=config.files.bootswatch3.link.replace('SWATCH_NAME', name), rel='noopener', target='_blank')
+                            img.bootswatch.d-block.img-fluid.mx-auto(src=config.files.bootswatch3.image.replace('SWATCH_NAME', name), alt=`${name} thumbnail`, width='528', height='317')
                         .input-group.mt-3
                             input.form-control(type='text', value=file)
                             .input-group-append

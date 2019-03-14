@@ -1,13 +1,12 @@
 'use strict';
 
 const assert = require('assert').strict;
+const { files } = require('../config');
 const helpers = require('./test_helpers');
-
-const config = helpers.getConfig();
 
 function format(str, name) {
     return str.replace('SWATCH_NAME', name)
-                .replace('SWATCH_VERSION', config.bootswatch4.version);
+                .replace('SWATCH_VERSION', files.bootswatch4.version);
 }
 
 describe('bootswatch4', () => {
@@ -26,7 +25,8 @@ describe('bootswatch4', () => {
     });
 
     it('valid html', (done) => {
-        helpers.assert.validHTML(response, done);
+        helpers.assert.validHTML(response)
+            .then(() => done());
     });
 
     it('contains authors', (done) => {
@@ -60,10 +60,10 @@ describe('bootswatch4', () => {
         });
     });
 
-    config.bootswatch4.themes.forEach((theme) => {
+    files.bootswatch4.themes.forEach((theme) => {
         describe(theme.name, () => {
-            const themeImage = format(config.bootswatch4.image, theme.name);
-            const themeUri   = format(config.bootswatch4.bootstrap, theme.name);
+            const themeImage = format(files.bootswatch4.image, theme.name);
+            const themeUri   = format(files.bootswatch4.bootstrap, theme.name);
             const themeSri   = theme.sri;
 
             it('has image', (done) => {
