@@ -28,68 +28,59 @@ function exists(file) {
 }
 
 // Bootswatch {3,4}
-((() => {
-    ['bootswatch3', 'bootswatch4'].forEach((key) => {
-        const bootswatch = buildPath(files[key].bootstrap);
+['bootswatch3', 'bootswatch4'].forEach((key) => {
+    const bootswatch = buildPath(files[key].bootstrap);
 
-        for (const theme of files[key].themes) {
-            const file = bootswatch.replace('SWATCH_VERSION', files[key].version)
-                                 .replace('SWATCH_NAME', theme.name);
-
-            if (exists(file)) { // always regenerate
-                theme.sri = generateSri(file);
-            }
-        }
-    });
-}))();
-
-// Bootlint
-((() => {
-    for (const bootlint of files.bootlint) {
-        const file = buildPath(bootlint.javascript);
+    files[key].themes.forEach((theme) => {
+        const file = bootswatch.replace('SWATCH_VERSION', files[key].version)
+                               .replace('SWATCH_NAME', theme.name);
 
         if (exists(file)) {
-            bootlint.javascriptSri = generateSri(file);
+            theme.sri = generateSri(file);
         }
+    });
+});
+
+// Bootlint
+files.bootlint.forEach((bootlint) => {
+    const file = buildPath(bootlint.javascript);
+
+    if (exists(file)) {
+        bootlint.javascriptSri = generateSri(file);
     }
-}))();
+});
 
 // Bootstrap
-((() => {
-    for (const bootstrap of files.bootstrap) {
-        let { javascriptBundle } = bootstrap;
+files.bootstrap.forEach((bootstrap) => {
+    const javascript = buildPath(bootstrap.javascript);
+    const stylesheet = buildPath(bootstrap.stylesheet);
+    let { javascriptBundle } = bootstrap;
 
-        const javascript = buildPath(bootstrap.javascript);
-        const stylesheet = buildPath(bootstrap.stylesheet);
-
-        if (javascriptBundle) {
-            javascriptBundle = buildPath(bootstrap.javascriptBundle);
-        }
-
-        if (exists(javascript)) {
-            bootstrap.javascriptSri = generateSri(javascript);
-        }
-
-        if (javascriptBundle && exists(javascriptBundle)) {
-            bootstrap.javascriptBundleSri = generateSri(javascriptBundle);
-        }
-
-        if (exists(stylesheet)) {
-            bootstrap.stylesheetSri = generateSri(stylesheet);
-        }
+    if (javascriptBundle) {
+        javascriptBundle = buildPath(bootstrap.javascriptBundle);
     }
-}))();
+
+    if (exists(javascript)) {
+        bootstrap.javascriptSri = generateSri(javascript);
+    }
+
+    if (javascriptBundle && exists(javascriptBundle)) {
+        bootstrap.javascriptBundleSri = generateSri(javascriptBundle);
+    }
+
+    if (exists(stylesheet)) {
+        bootstrap.stylesheetSri = generateSri(stylesheet);
+    }
+});
 
 // Font Awesome
-((() => {
-    for (const fontawesome of files.fontawesome) {
-        const stylesheet = buildPath(fontawesome.stylesheet);
+files.fontawesome.forEach((fontawesome) => {
+    const stylesheet = buildPath(fontawesome.stylesheet);
 
-        if (exists(stylesheet)) {
-            fontawesome.stylesheetSri = generateSri(stylesheet);
-        }
+    if (exists(stylesheet)) {
+        fontawesome.stylesheetSri = generateSri(stylesheet);
     }
-}))();
+});
 
 // Create backup file
 fs.copyFileSync(configFile, `${configFile}.bak`);
