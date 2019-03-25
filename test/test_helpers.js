@@ -123,7 +123,7 @@ function assertValidHTML(res) {
 
                 return reject(new Error(errStr));
             })
-            .catch((err) => reject(err));
+            .catch((error) => reject(error));
     });
 }
 
