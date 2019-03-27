@@ -48,7 +48,7 @@
     "morgan": "^1.9.1",
     "pug": "^2.0.3",
     "rollbar": "^2.5.4",
-    "semver": "^5.6.0",
+    "semver": "^6.0.0",
     "serve-favicon": "^2.5.0",
     "sri-toolbox": "^0.2.0",
     "staticify": "^3.3.0",
