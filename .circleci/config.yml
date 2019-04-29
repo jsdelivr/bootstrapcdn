@@ -28,7 +28,7 @@ _install: &install
 
 _image: &image
   docker:
-    - image: circleci/node:lts
+    - image: circleci/node:10
 
 commands:
   run-tests:
