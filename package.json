@@ -55,7 +55,7 @@
     "uuid": "^3.3.2"
   },
   "devDependencies": {
-    "bootlint": "0.16.5",
+    "bootlint": "0.16.6",
     "bootstrap": "4.3.1",
     "bootswatch": "4.3.1",
     "coveralls": "^3.0.3",

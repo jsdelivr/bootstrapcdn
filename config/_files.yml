@@ -314,8 +314,11 @@ bootswatch3:
     - name: yeti
       sri: sha384-bbfChtM4oMxTlcWghl4L4ja4z3qqkTUYpXACeFtB2WUoy2Swi5ucq+AyhOjMUKM1
 bootlint:
-  - version: 0.16.5
+  - version: 0.16.6
     current: true
+    javascript: 'https://stackpath.bootstrapcdn.com/bootlint/0.16.6/bootlint.min.js'
+    javascriptSri: sha384-ZwqoV50fe3lmAp0JfEykqDFq9dAC8vQP1lEuvdNIyVVWMcdE7oRYs7YcjnhS2Vnd
+  - version: 0.16.5
     javascript: 'https://stackpath.bootstrapcdn.com/bootlint/0.16.5/bootlint.min.js'
     javascriptSri: sha384-RBzknQoCBisTKMnA0e7K87uByQg6PgmOcT3Cp2wjk3XbLGLiwMgOnEHOixsHTU6f
   - version: 0.16.4
