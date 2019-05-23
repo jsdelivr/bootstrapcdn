@@ -14,17 +14,13 @@ block content
             #zipsearch_container
 
 block scripts
-    -var widgetJs = 'https://www.ziprecruiter.com/jobs-widget/pro/v2/agbxqbkdnitudfhi7nwdq2xtd55bfvj2';
+    script(src='https://www.ziprecruiter.com/jobs-widget/pro/v2/agbxqbkdnitudfhi7nwdq2xtd55bfvj2')
 
-    script(nonce=nonce).
-        window.loadjs('#{widgetJs}', 'ziprecruiter', {
-            success: function() {
-                window.zipsearch.init({
-                    search: 'Front End Developer',
-                    container: 'zipsearch_container',
-                    alerts_api_key: 'gvpvuqnqydx2tjwgzvusxzegy8bz95gu'
-                });
-            }
-        });
+    script(nonce=nonce)
+        | window.zipsearch.init({
+        |     search: 'Front End Developer',
+        |     container: 'zipsearch_container',
+        |     alerts_api_key: 'gvpvuqnqydx2tjwgzvusxzegy8bz95gu'
+        | });
 
 //- vim: ft=pug sw=4 sts=4 et:
