@@ -46,6 +46,7 @@ const CSP = {
         'codefund.app',
         'cdn2.codefund.app',
         'codefund.io',
+        'cdn.codefund.io',
         'launchbit.com',
         'www.launchbit.com',
         'www.ziprecruiter.com'
@@ -69,7 +70,8 @@ const CSP = {
     ],
     connectSrc: [
         'syndication.twitter.com',
-        'cdn2.codefund.app'
+        'cdn2.codefund.app',
+        'cdn.codefund.io'
     ],
     objectSrc: [
         'img.shields.io'
