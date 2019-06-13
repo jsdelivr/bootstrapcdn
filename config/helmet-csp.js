@@ -20,6 +20,7 @@ const CSP = {
         'www.ziprecruiter.com',
         'api.ziprecruiter.com',
         'codefund.app',
+        'codefund.io',
         (req, res) => `'nonce-${res.locals.nonce}'`
     ],
     styleSrc: [
@@ -44,6 +45,7 @@ const CSP = {
         '*.2mdn.net',
         'codefund.app',
         'cdn2.codefund.app',
+        'codefund.io',
         'launchbit.com',
         'www.launchbit.com',
         'www.ziprecruiter.com'
