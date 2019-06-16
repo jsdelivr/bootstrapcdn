@@ -65,7 +65,7 @@ showcase:
     url: 'https://www.nyu.edu/'
   - name: Cracked
     img: /assets/img/showcase/cracked.png
-    lib: 'Bootstrap 3.3.2, Font Awesome 4.3.0'
+    lib: 'Bootstrap 4.0.0'
     url: 'https://www.cracked.com/'
   - name: HP Support
     img: /assets/img/showcase/hp-support.png
