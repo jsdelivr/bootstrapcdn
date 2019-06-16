@@ -66,7 +66,7 @@ showcase:
   - name: Cracked
     img: /assets/img/showcase/cracked.png
     lib: 'Bootstrap 3.3.2, Font Awesome 4.3.0'
-    url: 'http://www.cracked.com/'
+    url: 'https://www.cracked.com/'
   - name: HP Support
     img: /assets/img/showcase/hp-support.png
     lib: Font Awesome 4.1.0
