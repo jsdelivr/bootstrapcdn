@@ -20,9 +20,6 @@ describe('api_v1', () => {
 
     it('works', (done) => {
         helpers.assert.itWorks(response.statusCode, done);
-    });
-
-    it('valid html', (done) => {
         helpers.assert.validHTML(response, done);
     });
 

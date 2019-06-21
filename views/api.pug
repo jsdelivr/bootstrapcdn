@@ -4,7 +4,7 @@ block content
     .row
         .col-12
 
-            -var endpoint = config.apiVersion
+            -var endpoint = config.app.apiVersion
             -var name = 'bootstrap'
             -var latest = helpers.api.latest(name, endpoint)
             -var packageVersions = `/api/${endpoint}/${name}`

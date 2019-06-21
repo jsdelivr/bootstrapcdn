@@ -5,25 +5,26 @@
 const fs         = require('fs');
 const path       = require('path');
 const yaml       = require('js-yaml');
-const config     = require('../config');
-const sri        = require('./sri.js');
+const helpers    = require('../lib/helpers');
 
-const configFile = config.getConfigPath('_api.yml');
+const configFile = path.join('config', '_api.yml');
 
 const semver = require('semver');
 
 function getDirectoryNames(source, ignore = []) {
-    return fs.readdirSync(source).map((name) => ignore.indexOf(name) === -1 && name).filter((name) => {
-        if (!name) {
-            return false;
-        }
-        const absolute = path.join(source, name);
-        const stat = fs.lstatSync(absolute);
+    return fs.readdirSync(source)
+      .map((name) => ignore.indexOf(name) === -1 && name)
+      .filter((name) => {
+          if (!name) {
+              return false;
+          }
+          const absolute = path.join(source, name);
+          const stat = fs.lstatSync(absolute);
 
-        // @todo Remove symlink check when twitter-bootstrap files are moved
-        // to the proper directory.
-        return name && (stat.isDirectory() || stat.isSymbolicLink());
-    });
+          // @todo Remove symlink check when twitter-bootstrap files are moved
+          // to the proper directory.
+          return name && (stat.isDirectory() || stat.isSymbolicLink());
+      });
 }
 
 function listFiles(dir) {
@@ -47,7 +48,9 @@ function generateApiV1(packages) {
     packages.forEach((name) => {
         console.log(`/api/v1/${name}`);
         const packagePath = path.join(cdnPath, name);
-        const versions = semver.rsort(getDirectoryNames(packagePath).filter((v) => validSemVer.test(v)));
+        const versions = semver.rsort(
+            getDirectoryNames(packagePath).filter((v) => validSemVer.test(v))
+        );
 
         endpoint[name] = {};
         versions.forEach((version) => {
@@ -66,7 +69,7 @@ function generateApiV1(packages) {
                 }
                 const stat = fs.lstatSync(file);
                 const relative = path.relative(versionPath, file);
-                const [, algorithm, hash] = sri.digest(file).split(/(sha\d{3})-(.*)/) || [];
+                const [, algorithm, hash] = helpers.generateSri(file).split(/(sha\d{3})-(.*)/) || [];
                 const asset = {
                     name: `/${relative}`,
                     [algorithm]: hash,
@@ -105,11 +108,9 @@ const endpoints = {};
 
 endpoints.v1 = generateApiV1(packages);
 
-const generated = yaml.dump({ api: endpoints }, { lineWidth: -1 });
+const generated = yaml.dump(endpoints, { lineWidth: -1 });
 
-const header = [
-    '# THIS FILE IS GENERATED AUTOMATICALLY. DO NOT MODIFY THIS FILE DIRECTLY.',
-    `# Last generated: ${(new Date()).toString()}`
-];
+const header = `# THIS FILE IS GENERATED AUTOMATICALLY. DO NOT MODIFY THIS FILE DIRECTLY.
+# Last generated: ${(new Date()).toString()}`;
 
-fs.writeFileSync(configFile, `${header.join('\n')}\n${generated}`);
+fs.writeFileSync(configFile, `${header}\n${generated}`);
