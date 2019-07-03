@@ -32,7 +32,9 @@
     "bootswatch": "node ./scripts/update_bootswatch.js",
     "integrity": "node ./scripts/integrity.js",
     "sri": "node ./scripts/sri.js",
-    "wp-plugin": "node ./scripts/wp-plugin.js"
+    "wp-plugin": "node ./scripts/wp-plugin.js",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "dependencies": {
     "compression": "^1.7.4",
@@ -52,7 +54,8 @@
     "serve-favicon": "^2.5.0",
     "sri-toolbox": "^0.2.0",
     "staticify": "^3.3.2",
-    "uuid": "^3.3.2"
+    "uuid": "^3.3.2",
+    "snyk": "^1.189.0"
   },
   "devDependencies": {
     "bootlint": "0.16.6",
@@ -84,5 +87,6 @@
       "html",
       "text-summary"
     ]
-  }
+  },
+  "snyk": true
 }
