@@ -47,7 +47,7 @@
     "mime": "^2.4.4",
     "morgan": "^1.9.1",
     "pug": "^2.0.4",
-    "rollbar": "^2.7.1",
+    "rollbar": "^2.8.1",
     "semver": "^6.2.0",
     "serve-favicon": "^2.5.0",
     "sri-toolbox": "^0.2.0",
