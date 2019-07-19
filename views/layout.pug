@@ -4,6 +4,7 @@ html(lang='en', prefix='og: http://ogp.me/ns#', itemscope, itemtype='http://sche
         meta(charset='utf-8')
         meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
         meta(name='author', content=config.app.authors.map(author => author.name).join(', '))
+        meta(name='twitter:dnt', content='on')
 
         -var pageDescription = description || config.app.description;
         meta(name='description', content!=pageDescription)
