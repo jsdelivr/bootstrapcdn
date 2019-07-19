@@ -16,8 +16,6 @@ html(lang='en', prefix='og: http://ogp.me/ns#', itemscope, itemtype='http://sche
         link(rel='dns-prefetch', href='https://code.jquery.com')
         link(rel='dns-prefetch', href='https://fonts.googleapis.com')
 
-        meta(name='twitter:widgets:csp', content='on')
-
         include _partials/head/favicons.pug
         include _partials/head/social.pug
 
@@ -45,11 +43,7 @@ html(lang='en', prefix='og: http://ogp.me/ns#', itemscope, itemtype='http://sche
                     block content
 
                 .col-12.col-md-3
-                    .row
-                        .col-12
-                            include _partials/codefund.pug
-                        .col-12.d-none.d-lg-block
-                            .twitter-timeline-custom
+                    include _partials/codefund.pug
 
         include _partials/footer.pug
 
