@@ -15,7 +15,6 @@ const CSP = {
         'www.google-analytics.com',
         'code.jquery.com',
         'platform.twitter.com',
-        'cdn.syndication.twimg.com',
         'api.github.com',
         'www.ziprecruiter.com',
         'api.ziprecruiter.com',
@@ -28,7 +27,6 @@ const CSP = {
         '\'unsafe-inline\'',
         'stackpath.bootstrapcdn.com',
         'fonts.googleapis.com',
-        '*.twimg.com',
         'platform.twitter.com'
     ],
     imgSrc: [
@@ -36,8 +34,6 @@ const CSP = {
         'data:',
         'www.google-analytics.com',
         'bootswatch.com',
-        '*.twitter.com',
-        '*.twimg.com',
         'stats.g.doubleclick.net',
         'ad.doubleclick.net',
         '*.convertro.com',
