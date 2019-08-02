@@ -161,5 +161,6 @@ friends:
     url: 'https://stackshare.io/'
   - name: nixCraft
     url: 'https://www.cyberciti.biz/'
-  - name: Fort Awesome
-    url: 'https://fortawesome.com/'
+  - name: EduBirdie
+    url: 'https://edubirdie.com/'
+    nofollow: false
