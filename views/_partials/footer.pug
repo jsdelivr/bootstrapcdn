@@ -22,7 +22,7 @@ footer.mt-5.py-4.text-center
                             |  &amp; 
                         else if (index > 0)
                             | , 
-                        a(href=friend.url, rel='noopener nofollow', target='_blank')=friend.name 
+                        a(href=friend.url, rel=`noopener${friend.nofollow !== false ? " nofollow" : ""}`, target='_blank')=friend.name 
 
                 p.
                     #[a(href='/about/') About] · #[a(href='/privacy-policy/') Privacy Policy]
