@@ -1,7 +1,7 @@
 # BootstrapCDN
 
 [![Total alerts](https://img.shields.io/lgtm/alerts/g/MaxCDN/bootstrapcdn.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/MaxCDN/bootstrapcdn/alerts/)
-[![Build Status](https://img.shields.io/circleci/project/github/MaxCDN/bootstrapcdn/develop.svg?style=flat-square)](https://circleci.com/gh/MaxCDN/bootstrapcdn)
+[![Build Status](https://github.com/MaxCDN/bootstrapcdn/workflows/Tests/badge.svg)](https://github.com/MaxCDN/bootstrapcdn/actions)
 [![Coverage Status](https://img.shields.io/coveralls/github/MaxCDN/bootstrapcdn/develop.svg?style=flat-square)](https://coveralls.io/github/MaxCDN/bootstrapcdn)
 [![dependencies Status](https://img.shields.io/david/MaxCDN/bootstrapcdn.svg?style=flat-square)](https://david-dm.org/MaxCDN/bootstrapcdn)
 [![devDependencies Status](https://img.shields.io/david/dev/MaxCDN/bootstrapcdn.svg?style=flat-square)](https://david-dm.org/MaxCDN/bootstrapcdn?type=dev)
