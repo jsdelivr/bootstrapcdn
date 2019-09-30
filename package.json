@@ -8,6 +8,7 @@
   "private": true,
   "scripts": {
     "clean": "rm -rf ./node_modules/",
+    "nyc": "nyc",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
     "eslint": "eslint . --cache --cache-location .cache/.eslintcache",
     "puglint": "pug-lint views/",

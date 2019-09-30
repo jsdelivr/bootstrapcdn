@@ -1,0 +1,55 @@
+name: CDN Tests
+on: [push, pull_request]
+
+jobs:
+  functional-debug:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v1
+        with:
+          fetch-depth: 3
+
+      - name: Set Node.js version
+        uses: actions/setup-node@v1
+        with:
+          node-version: "12"
+
+      - run: node --version
+      - run: npm --version
+      - run: curl --silent https://v4.ifconfig.co/
+
+      - name: Install npm dependencies
+        run: npm ci
+        env:
+          CI: true
+
+      - name: Run functional tests (debug)
+        run: npm run mocha:only-functional:dev
+
+  functional-prod:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v1
+        with:
+          fetch-depth: 3
+
+      - name: Set Node.js version
+        uses: actions/setup-node@v1
+        with:
+          node-version: "12"
+
+      - run: node --version
+      - run: npm --version
+      - run: curl --silent https://v4.ifconfig.co/
+
+      - name: Install npm dependencies
+        run: npm ci
+        env:
+          CI: true
+
+      - name: Run functional tests (production)
+        run: npm run mocha:only-functional:prod
