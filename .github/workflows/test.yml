@@ -1,0 +1,106 @@
+name: Tests
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        node: [12]
+        os: [ubuntu-latest]
+
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v1
+        with:
+          fetch-depth: 3
+
+      - name: Set Node.js version
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }}
+
+      - run: node --version
+      - run: npm --version
+      - run: curl --silent https://v4.ifconfig.co/
+
+      - name: Install npm dependencies
+        run: npm ci
+        env:
+          CI: true
+
+      - name: Run tests with coverage
+        run: npm run test-with-coverage
+
+      - name: Run Coveralls
+        run: npm run coveralls
+        if: github.repository == 'MaxCDN/bootstrapcdn' && github.event_name == 'push'
+        env:
+          COVERALLS_REPO_TOKEN: "${{ secrets.COVERALLS_REPO_TOKEN }}"
+          COVERALLS_GIT_BRANCH: "${{ github.ref }}"
+
+  test-functional-debug:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        node: [12]
+        os: [ubuntu-latest]
+
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v1
+        with:
+          fetch-depth: 3
+
+      - name: Set Node.js version
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }}
+
+      - run: node --version
+      - run: npm --version
+      - run: curl --silent https://v4.ifconfig.co/
+
+      - name: Install npm dependencies
+        run: npm ci
+        env:
+          CI: true
+
+      - name: Run functional tests (debug)
+        run: npm run mocha:only-functional:dev
+
+  test-functional-prod:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        node: [12]
+        os: [ubuntu-latest]
+
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v1
+        with:
+          fetch-depth: 3
+
+      - name: Set Node.js version
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }}
+
+      - run: node --version
+      - run: npm --version
+      - run: curl --silent https://v4.ifconfig.co/
+
+      - name: Install npm dependencies
+        run: npm ci
+        env:
+          CI: true
+
+      - name: Run functional tests (production)
+        run: npm run mocha:only-functional:prod
