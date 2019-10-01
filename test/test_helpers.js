@@ -6,6 +6,7 @@ const ENV = process.env;
 ENV.BCDN_HEADERS = ENV.BCDN_HEADERS || 'production';
 
 const assert = require('assert').strict;
+const escapeStringRegexp = require('escape-string-regexp');
 const { htmlEncode } = require('htmlencode');
 const mockDate = require('mockdate');
 const request = require('request');
@@ -30,11 +31,6 @@ function getExtension(str) {
     const match = str.match(/(\.)([a-zA-Z0-9]+)$/);
 
     return match && match[2];
-}
-
-// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions
-function escapeRegExp(string) {
-    return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); // $& means the whole matched string
 }
 
 function cleanEndpoint(endpoint = '/') {
@@ -137,7 +133,7 @@ function assertItWorks(statusCode, cb) {
 }
 
 function assertPageHeader(txt, res, cb) {
-    const escapedTxt = escapeRegExp(txt);
+    const escapedTxt = escapeStringRegexp(txt);
     const re = new RegExp(`<h[1-6]( class=".+")?>(${escapedTxt})(</h[1-6]>)`);
 
     assert.ok(re.test(res.body), `Expects page header to be "${txt}"`);
