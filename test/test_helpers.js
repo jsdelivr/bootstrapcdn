@@ -6,6 +6,7 @@ const ENV = process.env;
 ENV.BCDN_HEADERS = ENV.BCDN_HEADERS || 'production';
 
 const assert = require('assert').strict;
+const path = require('path');
 const escapeStringRegexp = require('escape-string-regexp');
 const { htmlEncode } = require('htmlencode');
 const mockDate = require('mockdate');
@@ -23,14 +24,7 @@ let server = {};
 mockDate.set('03/05/2018');
 
 function getExtension(str) {
-    // use two enclosing parts; one for the dot (.)
-    // and one for the extension itself.
-    // So, the result we want is the third Array element,
-    // since the first one is the whole match, the second one
-    // returns the first captured match, etc.
-    const match = str.match(/(\.)([a-zA-Z0-9]+)$/);
-
-    return match && match[2];
+    return path.extname(str).slice(1);
 }
 
 function cleanEndpoint(endpoint = '/') {
