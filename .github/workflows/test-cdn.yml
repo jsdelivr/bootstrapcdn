@@ -1,5 +1,7 @@
 name: CDN Tests
 on: [push, pull_request]
+env:
+  CI: true
 
 jobs:
   functional-debug:
@@ -22,8 +24,6 @@ jobs:
 
       - name: Install npm dependencies
         run: npm ci
-        env:
-          CI: true
 
       - name: Run functional tests (debug)
         run: npm run mocha:only-functional:dev
@@ -48,8 +48,6 @@ jobs:
 
       - name: Install npm dependencies
         run: npm ci
-        env:
-          CI: true
 
       - name: Run functional tests (production)
         run: npm run mocha:only-functional:prod
