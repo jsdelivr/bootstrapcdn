@@ -28,8 +28,6 @@ jobs:
         run: npm run nyc -- npm run mocha:no-functional
 
       - name: Run Coveralls
-        run: npm run coveralls
-        if: github.repository == 'MaxCDN/bootstrapcdn' && github.event_name == 'push'
-        env:
-          COVERALLS_REPO_TOKEN: "${{ secrets.COVERALLS_REPO_TOKEN }}"
-          COVERALLS_GIT_BRANCH: "${{ github.ref }}"
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: "${{ secrets.GITHUB_TOKEN }}"
