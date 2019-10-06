@@ -9,7 +9,6 @@
   "scripts": {
     "clean": "rm -rf ./node_modules/",
     "nyc": "nyc",
-    "coveralls": "nyc report --reporter=text-lcov | coveralls",
     "eslint": "eslint . --cache --cache-location .cache/.eslintcache",
     "puglint": "pug-lint views/",
     "pug-lint": "npm run puglint",
@@ -59,7 +58,6 @@
     "bootlint": "0.16.7",
     "bootstrap": "4.3.1",
     "bootswatch": "4.3.1",
-    "coveralls": "^3.0.6",
     "escape-string-regexp": "^2.0.0",
     "eslint": "^6.5.1",
     "fs-extra": "^8.1.0",
@@ -84,6 +82,7 @@
     ],
     "reporter": [
       "html",
+      "lcov",
       "text-summary"
     ]
   }
