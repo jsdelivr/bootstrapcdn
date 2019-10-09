@@ -16,6 +16,8 @@ const { files } = require('../config');
 const helpers = require('./test_helpers');
 
 const CDN_URL = 'https://stackpath.bootstrapcdn.com/';
+
+const cache = new Set();
 const responses = {};
 
 // Expects header names to be lowercase in this object.
@@ -86,12 +88,13 @@ function domainCheck(uri) {
 
 function request(uri, cb) {
     // return memoized response to avoid making the same http call twice
-    if (Object.prototype.hasOwnProperty.call(responses, uri)) {
+    if (cache.has(uri)) {
         return cb(responses[uri]);
     }
 
     // build memoized response
     return helpers.prefetch(uri, (res) => {
+        cache.add(uri);
         responses[uri] = res;
         cb(res);
     });
