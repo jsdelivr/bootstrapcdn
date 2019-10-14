@@ -7,6 +7,7 @@ block content
         -var name = item.name.toLowerCase();
         -var sri  = item.sri;
         -var file = config.files.bootswatch4.bootstrap.replace('SWATCH_NAME', name).replace('SWATCH_VERSION', config.files.bootswatch4.version);
+        -var capitalizedThemeName = capitalize(name);
 
         .card.bg-light.my-4.p-4.text-center
             .row
@@ -19,9 +20,9 @@ block content
                 .col-12.col-md-8
                     .mt-4
                         a(href=config.files.bootswatch4.link.replace('SWATCH_NAME', name), rel='noopener', target='_blank')
-                            img.bootswatch.d-block.img-fluid.mx-auto(src=config.files.bootswatch4.image.replace('SWATCH_NAME', name), alt=`${name} thumbnail`, width='528', height='317')
+                            img.bootswatch.d-block.img-fluid.mx-auto(src=config.files.bootswatch4.image.replace('SWATCH_NAME', name), alt=`${capitalizedThemeName} theme's thumbnail`, title=`Visit ${capitalizedThemeName} theme's demo page`, width='528', height='317')
                         .input-group.mt-3
-                            input.form-control(type='text', value=file)
+                            input.form-control(type='text', value=file, aria-label=`${capitalizedThemeName} theme's CSS file`)
                             .input-group-append
                                 button.btn.btn-dark.dropdown-toggle(type='button', data-toggle='collapse', data-target=`#${name}`, aria-label='Toggle Dropdown', aria-expanded='false', aria-controls=name)
                         span.form-text.text-muted.mb-4 Click to copy
