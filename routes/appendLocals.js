@@ -54,6 +54,14 @@ function generateSRI(file) {
     return SRI_CACHE[file];
 }
 
+function capitalize(str) {
+    if (typeof str !== 'string') {
+        return '';
+    }
+
+    return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
 function appendLocals(req, res) {
     const siteUrl = getCurrentSiteurl(req);
     const pageUrl = req.originalUrl;
@@ -70,7 +78,8 @@ function appendLocals(req, res) {
         theme,
         getPageTitle,
         bodyClass,
-        generateSRI
+        generateSRI,
+        capitalize
     };
 
     res.locals = Object.assign(res.locals, locals);
