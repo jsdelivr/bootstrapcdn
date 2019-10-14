@@ -16,6 +16,9 @@ const validator = require('html-validator');
 const app = require('../app');
 const config = require('../config').app;
 
+// don't use configured port
+const PORT = config.port < 3000 ? config.port + 3000 : config.port + 1;
+
 // The server object holds the server instance across all tests;
 // We start it in the first test and close it in the last one,
 // otherwise test time increases a lot (more than 3x)
@@ -23,45 +26,32 @@ let server = {};
 
 mockDate.set('03/05/2018');
 
+function getLocalUrl(str) {
+    return new URL(str, `http://localhost:${PORT}`);
+}
+
 function getExtension(str) {
-    return path.extname(str).slice(1);
+    const { pathname } = getLocalUrl(str);
+
+    return path.extname(pathname).slice(1);
 }
 
-function cleanEndpoint(endpoint = '/') {
-    // Maybe we should use node's `url` in this function
-    if (!endpoint.startsWith('/')) {
-        endpoint = `/${endpoint}`;
+function getURI(endpoint = '/') {
+    let url = getLocalUrl(endpoint);
+
+    if (!url.href.endsWith('/') && url.search === '' && !getExtension(url.href)) {
+        url += '/';
     }
 
-    if (!endpoint.endsWith('/') && !endpoint.includes('?') && !getExtension(endpoint)) {
-        endpoint = `${endpoint}/`;
-    }
-
-    return endpoint;
-}
-
-function getPort() {
-    // don't use configured port
-    const port = config.port < 3000 ? config.port + 3000 : config.port + 1;
-
-    return port;
-}
-
-function getURI(endpoint) {
-    const endp = cleanEndpoint(endpoint);
-    const port = getPort();
-
-    return `http://localhost:${port}${endp}`;
+    return url;
 }
 
 function startServer() {
-    const port = getPort();
-
     if (server.listening) {
         return server;
     }
 
-    server = app.listen(port);
+    server = app.listen(PORT);
 
     return server;
 }
