@@ -12,6 +12,3 @@ update_configs:
       - "XhmikosR"
     default_labels:
       - "dependencies"
-    allowed_updates:
-      - match:
-          update_type: "all"
