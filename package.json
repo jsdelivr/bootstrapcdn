@@ -9,7 +9,7 @@
   "scripts": {
     "clean": "rm -rf ./node_modules/",
     "nyc": "nyc",
-    "eslint": "eslint . --cache --cache-location node_modules/.cache/.eslintcache",
+    "eslint": "eslint . --cache --cache-location node_modules/.cache/.eslintcache --report-unused-disable-directives",
     "puglint": "pug-lint views/",
     "pug-lint": "npm run puglint",
     "lint": "npm-run-all --continue-on-error --parallel eslint puglint",
