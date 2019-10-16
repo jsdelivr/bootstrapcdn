@@ -1,6 +1,6 @@
 .navbar-brand > svg {
     display: inline-block;
-    margin-right: 8px;
+    margin-right: 0.5rem;
     vertical-align: middle;
     width: 20px;
     height: 20px;
@@ -20,10 +20,6 @@
     .social {
         height: 30px;
     }
-}
-
-footer {
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .input-group .dropdown-toggle::after {
