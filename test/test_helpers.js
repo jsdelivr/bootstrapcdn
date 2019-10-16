@@ -140,6 +140,13 @@ function assertPageHeader(txt, res, cb) {
     cb();
 }
 
+function assertCanonicalUrl(str, res, cb) {
+    const expected = `<link rel="canonical" href="${new URL(str, config.siteurl)}">`;
+
+    assert.ok(res.body.includes(expected), 'Expects page to have a canonical URL');
+    cb();
+}
+
 function assertPageBodyClass(bodyClass, res, cb) {
     const expected = `<body class="${bodyClass}`;
 
@@ -186,6 +193,7 @@ module.exports = {
     stopServer,
     assert: {
         authors: assertAuthors,
+        canonicalUrl: assertCanonicalUrl,
         bodyClass: assertPageBodyClass,
         itWorks: assertItWorks,
         pageHeader: assertPageHeader,

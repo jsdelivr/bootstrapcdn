@@ -24,6 +24,10 @@ describe('legacy/bootstrap', () => {
             .then(() => done());
     });
 
+    it('contains canonical URL', (done) => {
+        helpers.assert.canonicalUrl('/legacy/bootstrap/', response, done);
+    });
+
     it('contains authors', (done) => {
         helpers.assert.authors(response, done);
     });

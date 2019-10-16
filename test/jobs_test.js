@@ -22,6 +22,10 @@ describe('jobs', () => {
             .then(() => done());
     });
 
+    it('contains canonical URL', (done) => {
+        helpers.assert.canonicalUrl('/jobs/', response, done);
+    });
+
     it('contains authors', (done) => {
         helpers.assert.authors(response, done);
     });

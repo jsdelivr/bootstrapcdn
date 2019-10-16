@@ -29,6 +29,10 @@ describe('bootswatch3', () => {
             .then(() => done());
     });
 
+    it('contains canonical URL', (done) => {
+        helpers.assert.canonicalUrl('/legacy/bootswatch/', response, done);
+    });
+
     it('contains authors', (done) => {
         helpers.assert.authors(response, done);
     });

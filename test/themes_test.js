@@ -31,6 +31,10 @@ describe('themes', () => {
             .then(() => done());
     });
 
+    it('contains canonical URL', (done) => {
+        helpers.assert.canonicalUrl('/themes/', response, done);
+    });
+
     it('contains authors', (done) => {
         helpers.assert.authors(response, done);
     });
