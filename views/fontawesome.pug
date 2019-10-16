@@ -6,10 +6,11 @@ block content
     h2.text-center.mb-4 Font Awesome
 
     .card.bg-light.mt-4.p-4.text-center
-        -var name   = 'fontawesomecss';
-        -var file   = config.files.fontawesome[0].stylesheet;
-        -var sri    = config.files.fontawesome[0].stylesheetSri;
-        -var formId = `${name}_form`;
+        -var name    = 'fontawesomecss';
+        -var current = config.files.fontawesome.find(file => file.current);
+        -var file    = current.stylesheet;
+        -var sri     = current.stylesheetSri;
+        -var formId  = `${name}_form`;
 
         .form-group.my-4
             label.font-weight-bold(for=formId) Font Awesome CSS
