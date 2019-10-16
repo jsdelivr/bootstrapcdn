@@ -1,8 +1,6 @@
 extends layout.pug
 
 block content
-    include _partials/stackshare-alert.pug
-    
     h2.text-center=title
 
     -var current = config.files.bootstrap.find(file => file.current);
