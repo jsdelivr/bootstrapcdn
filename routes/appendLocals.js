@@ -1,7 +1,7 @@
 'use strict';
 
 const path = require('path');
-const { generateSri } = require('../lib/helpers');
+const { generateSri, capitalize } = require('../lib/helpers');
 const { app, files } = require('../config');
 
 const PUBLIC_DIR = path.join(__dirname, '../public/');
@@ -54,13 +54,6 @@ function generateSRI(file) {
     return SRI_CACHE[file];
 }
 
-function capitalize(str) {
-    if (typeof str !== 'string') {
-        return '';
-    }
-
-    return str.charAt(0).toUpperCase() + str.slice(1);
-}
 
 function appendLocals(req, res) {
     const siteUrl = getCurrentSiteurl(req);
