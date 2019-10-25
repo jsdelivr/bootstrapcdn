@@ -35,7 +35,6 @@
     "wp-plugin": "node ./scripts/wp-plugin.js"
   },
   "dependencies": {
-    "compression": "^1.7.4",
     "cross-env": "^6.0.3",
     "errorhandler": "^1.5.1",
     "express": "^4.17.1",
@@ -48,6 +47,7 @@
     "pug": "^2.0.4",
     "semver": "^6.3.0",
     "serve-favicon": "^2.5.0",
+    "shrink-ray-current": "^4.1.2",
     "sri-toolbox": "^0.2.0",
     "staticify": "^3.3.4",
     "uuid": "^3.3.3"

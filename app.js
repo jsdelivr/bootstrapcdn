@@ -18,12 +18,11 @@ const customMime  = mime.define({
 const STATIC_OPTS = {
     maxAge: '1y',
     lastModified: true,
-    etag: false,
     mime: customMime
 };
 
 // middleware
-const compression  = require('compression');
+const shrinkRay    = require('shrink-ray-current');
 const favicon      = require('serve-favicon');
 const logger       = require('morgan');
 const errorHandler = require('errorhandler');
@@ -44,7 +43,6 @@ const app     = express();
 // all environments
 app.set('views', path.join(__dirname, '/views/'));
 app.set('view engine', 'pug');
-app.set('etag', false);
 app.set('json escape', true);
 app.set('json spaces', 2);
 app.set('x-powered-by', false);
@@ -72,7 +70,7 @@ if (NODE_ENV === 'production') {
 }
 
 // middleware
-app.use(compression());
+app.use(shrinkRay({ useZopfliForGzip: false }));
 app.use(staticify.middleware);
 
 app.use(favicon(path.join(PUBLIC_DIR, config.app.favicon.uri), '7d'));
