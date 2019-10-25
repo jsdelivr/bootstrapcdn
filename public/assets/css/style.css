@@ -1,6 +1,6 @@
 .navbar-brand > svg {
     display: inline-block;
-    margin-right: 0.5rem;
+    margin-right: .5rem;
     vertical-align: middle;
     width: 20px;
     height: 20px;
@@ -8,8 +8,6 @@
 
 .display-5 {
     font-size: 3rem;
-    font-weight: 300;
-    line-height: 1.2;
 }
 
 .social {
@@ -23,9 +21,9 @@
 }
 
 .input-group .dropdown-toggle::after {
-    transition: -webkit-transform 0.35s ease;
-    transition: transform 0.35s ease;
-    transition: transform 0.35s ease, -webkit-transform 0.35s ease;
+    transition: -webkit-transform .35s ease;
+    transition: transform .35s ease;
+    transition: transform .35s ease, -webkit-transform .35s ease;
 }
 
 .input-group .dropdown-toggle-open::after {
@@ -34,7 +32,6 @@
 }
 
 .book-card img {
-    /* use the height of the smallest image so that they are aligned */
-    height: 250px;
     width: auto;
+    height: 250px;
 }
