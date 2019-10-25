@@ -26,10 +26,7 @@ html(lang='en', prefix='og: http://ogp.me/ns#', itemscope, itemtype='http://sche
         block stylesheets
 
         style
-            if (process.env.NODE_ENV === 'production')
-                include:clean-css /assets/css/style.css
-            else
-                include /assets/css/style.css
+            include /assets/css/style.css
 
         block head
 

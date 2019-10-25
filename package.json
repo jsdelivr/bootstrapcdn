@@ -43,7 +43,6 @@
     "express-sslify": "^1.2.0",
     "helmet": "^3.21.2",
     "js-yaml": "^3.13.1",
-    "jstransformer-clean-css": "^2.1.0",
     "mime": "^2.4.4",
     "morgan": "^1.9.1",
     "pug": "^2.0.4",
