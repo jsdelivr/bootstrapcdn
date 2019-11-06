@@ -12,6 +12,12 @@ books:
     img: /assets/img/books/Bootstrap-Hours-Sams-Teach-Yourself-ebook.jpg
     url: 'https://www.amazon.com/Bootstrap-Hours-Sams-Teach-Yourself-ebook/dp/B017M8OWZQ/ref=as_li_ss_il?ie=UTF8&linkCode=li3&tag=bcdn-20&linkId=f8a39275b5204f5f2d0427a1ef1c4f83'
 themesAd:
+  - name: 'Pixel Pro - Bootstrap 4 UI Kit'
+    img: /assets/img/themes/pixel-pro-ui-kit-preview-themesberg.jpg
+    url: 'https://themesberg.com/product/ui-kits/pixel-pro-premium-bootstrap-4-ui-kit'
+  - name: 'Pixel Lite - Bootstrap 4 UI Kit'
+    img: /assets/img/themes/pixel-lite-free-ui-kit-themesberg.jpg
+    url: 'https://themesberg.com/product/ui-kits/pixel-lite-free-bootstrap-4-ui-kit'
   - name: 'Velonic - Admin Dashboard & Frontend'
     img: /assets/img/themes/bootstrapbay-velonic-admin.jpg
     url: 'https://bootstrapbay.sjv.io/kVaX3'
@@ -24,12 +30,6 @@ themesAd:
   - name: 'Unify - Responsive Website Template'
     img: /assets/img/themes/unify-responsive-website-template.jpg
     url: 'https://wrapbootstrap.com/theme/unify-responsive-website-template-WB0412697?ref=bcdn'
-  - name: 'The Project - Multipurpose Template'
-    img: /assets/img/themes/the-project-multipurpose-template.jpg
-    url: 'https://wrapbootstrap.com/theme/the-project-multipurpose-template-WB0F82581?ref=bcdn'
-  - name: 'Vitality - One Page Bootstrap 4 Theme'
-    img: /assets/img/themes/vitality-one-page-bootstrap-4-theme.jpg
-    url: 'https://wrapbootstrap.com/theme/vitality-one-page-bootstrap-4-theme-WB02K3KK3?ref=bcdn'
 showcase:
   - name: Microsoft Education
     img: /assets/img/showcase/microsoft-education.png
