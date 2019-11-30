@@ -27,7 +27,8 @@ const CSP = {
         '\'unsafe-inline\'',
         'stackpath.bootstrapcdn.com',
         'fonts.googleapis.com',
-        'platform.twitter.com'
+        'platform.twitter.com',
+        'codefund.io'
     ],
     imgSrc: [
         '\'self\'',
