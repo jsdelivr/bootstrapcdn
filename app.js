@@ -86,9 +86,7 @@ app.use((req, res, next) => {
     req.config = config;
 
     // custom headers
-    res.setHeader('Accept-Ranges', 'bytes');
-    res.setHeader('Cache-Control', 'public, max-age=0');
-    res.setHeader('Last-Modified', new Date().toUTCString());
+    res.setHeader('Cache-Control', 'public, max-age=0, must-revalidate');
     res.setHeader('X-Hello-Human', 'Say hello back! @getBootstrapCDN on Twitter');
     res.setHeader('X-Powered-By', 'StackPath');
 
