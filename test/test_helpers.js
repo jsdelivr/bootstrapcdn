@@ -6,6 +6,7 @@ const ENV = process.env;
 ENV.BCDN_HEADERS = ENV.BCDN_HEADERS || 'production';
 
 const assert = require('assert').strict;
+const path = require('path');
 const escapeStringRegexp = require('escape-string-regexp');
 const { htmlEncode } = require('htmlencode');
 const mockDate = require('mockdate');
@@ -15,6 +16,9 @@ const validator = require('html-validator');
 const app = require('../app');
 const config = require('../config').app;
 
+// don't use configured port
+const PORT = config.port < 3000 ? config.port + 3000 : config.port + 1;
+
 // The server object holds the server instance across all tests;
 // We start it in the first test and close it in the last one,
 // otherwise test time increases a lot (more than 3x)
@@ -22,52 +26,32 @@ let server = {};
 
 mockDate.set('03/05/2018');
 
+function getLocalUrl(str) {
+    return new URL(str, `http://localhost:${PORT}`);
+}
+
 function getExtension(str) {
-    // use two enclosing parts; one for the dot (.)
-    // and one for the extension itself.
-    // So, the result we want is the third Array element,
-    // since the first one is the whole match, the second one
-    // returns the first captured match, etc.
-    const match = str.match(/(\.)([a-zA-Z0-9]+)$/);
+    const { pathname } = getLocalUrl(str);
 
-    return match && match[2];
+    return path.extname(pathname).slice(1);
 }
 
-function cleanEndpoint(endpoint = '/') {
-    // Maybe we should use node's `url` in this function
-    if (!endpoint.startsWith('/')) {
-        endpoint = `/${endpoint}`;
+function getURI(endpoint = '/') {
+    let url = getLocalUrl(endpoint);
+
+    if (!url.href.endsWith('/') && url.search === '' && !getExtension(url.href)) {
+        url += '/';
     }
 
-    if (!endpoint.endsWith('/') && !endpoint.includes('?') && !getExtension(endpoint)) {
-        endpoint = `${endpoint}/`;
-    }
-
-    return endpoint;
-}
-
-function getPort() {
-    // don't use configured port
-    const port = config.port < 3000 ? config.port + 3000 : config.port + 1;
-
-    return port;
-}
-
-function getURI(endpoint) {
-    const endp = cleanEndpoint(endpoint);
-    const port = getPort();
-
-    return `http://localhost:${port}${endp}`;
+    return url;
 }
 
 function startServer() {
-    const port = getPort();
-
     if (server.listening) {
         return server;
     }
 
-    server = app.listen(port);
+    server = app.listen(PORT);
 
     return server;
 }
