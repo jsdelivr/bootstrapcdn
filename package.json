@@ -57,7 +57,7 @@
     "bootstrap": "4.4.1",
     "bootswatch": "4.4.1",
     "escape-string-regexp": "^2.0.0",
-    "eslint": "^6.7.2",
+    "eslint": "^6.8.0",
     "fs-extra": "^8.1.0",
     "fs-walk": "0.0.2",
     "html-validator": "^5.0.0",
