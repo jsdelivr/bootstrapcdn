@@ -2,6 +2,7 @@ name: Tests
 on: [push, pull_request]
 env:
   CI: true
+  NODE: 12.x
 
 jobs:
   test:
@@ -14,10 +15,19 @@ jobs:
       - name: Set Node.js version
         uses: actions/setup-node@v1
         with:
-          node-version: "12"
+          node-version: "${{ env.NODE }}"
 
       - run: node --version
       - run: npm --version
+
+      - name: Set up npm cache
+        uses: actions/cache@v1
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-v${{ env.NODE }}-${{ hashFiles('package.json') }}-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.OS }}-node-v${{ env.NODE }}-${{ hashFiles('package.json') }}-${{ hashFiles('package-lock.json') }}
+            ${{ runner.OS }}-node-v${{ env.NODE }}-
 
       - name: Install npm dependencies
         run: npm ci
