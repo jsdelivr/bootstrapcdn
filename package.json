@@ -74,6 +74,16 @@
   "engines": {
     "node": "12.x"
   },
+  "mocha": {
+    "check-leaks": true,
+    "globals": "__core-js_shared__",
+    "reporter": "dot",
+    "throw-deprecation": true,
+    "timeout": 10000,
+    "trace-deprecation": true,
+    "trace-warnings": true,
+    "use_strict": true
+  },
   "nyc": {
     "include": [
       "**/*.js"
