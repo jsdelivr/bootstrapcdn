@@ -51,7 +51,7 @@
     "serve-favicon": "^2.5.0",
     "sri-toolbox": "^0.2.0",
     "staticify": "^4.0.0",
-    "uuid": "^3.3.3"
+    "uuid": "^3.4.0"
   },
   "devDependencies": {
     "bootlint": "1.0.0",
@@ -63,7 +63,7 @@
     "fs-walk": "0.0.2",
     "html-validator": "^5.0.0",
     "htmlencode": "0.0.4",
-    "lockfile-lint": "^3.0.5",
+    "lockfile-lint": "^3.0.8",
     "mocha": "^7.0.0",
     "mockdate": "^2.0.5",
     "nodemon": "^2.0.2",
