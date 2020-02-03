@@ -159,6 +159,3 @@ friends:
     url: 'https://getbootstrap.com/'
   - name: nixCraft
     url: 'https://www.cyberciti.biz/'
-  - name: EduBirdie
-    url: 'https://edubirdie.com/'
-    nofollow: false
