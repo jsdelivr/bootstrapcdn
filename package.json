@@ -71,7 +71,7 @@
     "nyc": "^15.0.0",
     "pug-lint": "^2.6.0",
     "pug-lint-config-clock": "^2.0.0",
-    "request": "^2.88.0"
+    "request": "^2.88.2"
   },
   "engines": {
     "node": "12.x"
