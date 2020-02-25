@@ -3,8 +3,8 @@
 const path    = require('path');
 const express = require('express');
 const mime    = require('mime');
-const uuidv4  = require('uuid/v4');
 const semver  = require('semver');
+const { v4: uuidv4 } = require('uuid');
 
 // constants
 const ENV         = process.env;
