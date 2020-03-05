@@ -152,10 +152,3 @@ integrations:
     img: /assets/img/integrations/react-bootstrap.png
     plat: React
     url: 'https://react-bootstrap.github.io/'
-friends:
-  - name: SecurityTrails
-    url: 'https://securitytrails.com/'
-  - name: Bootstrap
-    url: 'https://getbootstrap.com/'
-  - name: nixCraft
-    url: 'https://www.cyberciti.biz/'

@@ -29,6 +29,13 @@ javascript:
     uri: /assets/js/vendor/clipboard.min.js
   - name: main
     uri: /assets/js/main.js
+friends:
+  - name: SecurityTrails
+    url: 'https://securitytrails.com/'
+  - name: Bootstrap
+    url: 'https://getbootstrap.com/'
+  - name: nixCraft
+    url: 'https://www.cyberciti.biz/'
 redirects:
   - name: legacy
     from: /legacy/
