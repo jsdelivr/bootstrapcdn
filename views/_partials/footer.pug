@@ -17,8 +17,8 @@ footer.mt-5.py-4.text-center.border-top
 
                 p
                     | Homies be 
-                    each friend, index in config.extras.friends
-                        if (index === config.extras.friends.length - 1)
+                    each friend, index in config.app.friends
+                        if (index === config.app.friends.length - 1)
                             |  &amp; 
                         else if (index > 0)
                             | , 
