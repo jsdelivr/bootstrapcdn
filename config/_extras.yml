@@ -18,6 +18,9 @@ themesAd:
   - name: 'Pixel Lite - Bootstrap 4 UI Kit'
     img: /assets/img/themes/pixel-lite-free-ui-kit-themesberg.jpg
     url: 'https://themesberg.com/product/ui-kits/pixel-lite-free-bootstrap-4-ui-kit'
+  - name: 'AdminKit - Web UI Kit & Dashboard Template'
+    img: /assets/img/themes/adminkit-ui-kit-dashboard.jpg
+    url: 'https://github.com/adminkit/adminkit'
   - name: 'Velonic - Admin Dashboard & Frontend'
     img: /assets/img/themes/bootstrapbay-velonic-admin.jpg
     url: 'https://bootstrapbay.sjv.io/kVaX3'
