@@ -19,7 +19,7 @@ jobs:
 
       - run: node --version
       - run: npm --version
-      - run: curl -4 --silent https://ifconfig.co/
+      - run: curl -s4 https://ifconfig.co/
 
       - name: Set up npm cache
         uses: actions/cache@v1
@@ -50,7 +50,7 @@ jobs:
 
       - run: node --version
       - run: npm --version
-      - run: curl --silent https://v4.ifconfig.co/
+      - run: curl -s4 https://ifconfig.co/
 
       - name: Set up npm cache
         uses: actions/cache@v1
