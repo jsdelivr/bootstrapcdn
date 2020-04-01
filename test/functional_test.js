@@ -43,19 +43,21 @@ if (ENV.BCDN_HEADERS === 'debug') {
     expectedHeaders['x-hw'] = '';
 }
 
-/*
-const compressedExtensions = [
-    'css',
-    'eot',
-    'js',
-    'map',
-    'otf',
-    'svg',
-    'ttf',
-    'woff',
-    'woff2'
-];
-*/
+let compressedExtensions;
+
+if (ENV.BCDN_GZIP_TESTS) {
+    compressedExtensions = new Set([
+        'css',
+        'eot',
+        'js',
+        'map',
+        'otf',
+        'svg',
+        'ttf',
+        'woff',
+        'woff2'
+    ]);
+}
 
 const CONTENT_TYPE_MAP = {
     css: 'text/css; charset=utf-8',
@@ -107,8 +109,6 @@ function assertSRI(uri, actualSri, done) {
 const s3include = new Set(['content-type']);
 
 function assertHeaders(uri) {
-    // const ext = helpers.getExtension(uri);
-
     Object.keys(expectedHeaders).forEach((header) => {
         // Ignore header name case as per the specs
         header = header.toLowerCase();
@@ -138,19 +138,20 @@ function assertHeaders(uri) {
         }
     });
 
-    /*
-    if (compressedExtensions.includes(ext)) {
-        it('has content-encoding: gzip', (done) => {
-            assert.equal(responses[uri].headers['content-encoding'], 'gzip');
-            done();
-        });
-    } else {
-        it('does NOT have content-encoding set', (done) => {
-            assert.equal(responses[uri].headers['content-encoding'], undefined);
-            done();
-        });
+    if (ENV.BCDN_GZIP_TESTS) {
+        const ext = helpers.getExtension(uri);
+        if (compressedExtensions.has(ext)) {
+            it('has content-encoding: gzip', (done) => {
+                assert.equal(responses[uri].headers['content-encoding'], 'gzip');
+                done();
+            });
+        } else {
+            it('does NOT have content-encoding set', (done) => {
+                assert.equal(responses[uri].headers['content-encoding'], undefined);
+                done();
+            });
+        }
     }
-    */
 }
 
 function assertContentType(uri, currentType, cb) {
