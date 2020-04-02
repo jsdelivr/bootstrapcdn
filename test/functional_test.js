@@ -31,6 +31,7 @@ const expectedHeaders = {
     'timing-allow-origin': '*',
     'vary': 'Accept-Encoding',
     'x-cache': '',
+    'x-content-type-options': 'nosniff',
     'x-hello-human': undefined,
     'x-hw': undefined
 };
