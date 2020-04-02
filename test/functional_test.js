@@ -27,6 +27,7 @@ const expectedHeaders = {
     'cache-control': 'public, max-age=31536000',
     'connection': 'Keep-Alive',
     'content-length': '',
+    'cross-origin-resource-policy': 'cross-origin',
     'date': '',
     'debug': undefined,
     'etag': '',
