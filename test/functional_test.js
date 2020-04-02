@@ -24,7 +24,7 @@ const responses = {};
 const expectedHeaders = {
     'accept-ranges': 'bytes',
     'access-control-allow-origin': '*',
-    'cache-control': 'public, max-age=31536000',
+    'cache-control': 'public, max-age=31536000, stale-while-revalidate=2592000',
     'connection': 'Keep-Alive',
     'content-length': '',
     'date': '',
