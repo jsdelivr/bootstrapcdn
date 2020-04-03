@@ -42,6 +42,7 @@ const CSP = {
         '*.2mdn.net',
         'codefund.app',
         'cdn2.codefund.app',
+        'cdn2.codefund.io',
         'codefund.io',
         'cdn.codefund.io',
         'launchbit.com',
