@@ -27,6 +27,7 @@ const expectedHeaders = {
     'cache-control': 'public, max-age=31536000, stale-while-revalidate=2592000',
     'connection': 'Keep-Alive',
     'content-length': '',
+    'cross-origin-resource-policy': 'cross-origin',
     'date': '',
     'debug': undefined,
     'etag': '',
@@ -34,7 +35,7 @@ const expectedHeaders = {
     'timing-allow-origin': '*',
     'vary': 'Accept-Encoding',
     'x-cache': '',
-    'x-hello-human': 'Say hello back! @getBootstrapCDN on Twitter',
+    'x-hello-human': undefined,
     'x-hw': undefined
 };
 
