@@ -38,7 +38,7 @@
                         helpBlock = ev.trigger.nextElementSibling;
                     }
 
-                    helpBlock.innerHTML = 'Copied text to clipboard';
+                    helpBlock.textContent = 'Copied text to clipboard';
                 });
             }, true);
 
@@ -54,7 +54,7 @@
                 }
 
                 event.preventDefault();
-                helpBlock.innerHTML = 'Click to copy';
+                helpBlock.textContent = 'Click to copy';
             }, true);
         });
     }

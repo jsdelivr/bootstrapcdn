@@ -1,5 +1,3 @@
-/* eslint no-undefined: 0 */
-
 'use strict';
 
 const ENV = process.env;
@@ -150,7 +148,6 @@ function assertHeaders(uri) {
         });
     } else {
         it('does NOT have content-encoding set', (done) => {
-            // eslint-disable-next-line no-undefined
             assert.equal(responses[uri].headers['content-encoding'], undefined);
             done();
         });

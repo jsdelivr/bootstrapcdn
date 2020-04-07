@@ -9,11 +9,11 @@
   "scripts": {
     "clean": "rm -rf ./node_modules/",
     "nyc": "nyc",
-    "eslint": "eslint . --cache --cache-location node_modules/.cache/.eslintcache --report-unused-disable-directives",
     "puglint": "pug-lint views/",
     "pug-lint": "npm run puglint",
-    "lint": "npm-run-all --continue-on-error --parallel lockfile-lint eslint puglint",
+    "xo": "xo",
     "lockfile-lint": "lockfile-lint --allowed-hosts npm --allowed-schemes https: --empty-hostname false --type npm --path package-lock.json",
+    "lint": "npm-run-all --continue-on-error --parallel lockfile-lint xo puglint",
     "mocha": "cross-env NODE_ENV=test ENABLE_CRAWLING=true mocha",
     "mocha:only-functional": "npm run mocha -- --reporter progress ./test/functional_test.js",
     "mocha:only-functional:dev": "cross-env BCDN_HEADERS=debug npm run mocha:only-functional",
@@ -47,7 +47,7 @@
     "mime": "^2.4.4",
     "morgan": "^1.10.0",
     "pug": "^2.0.4",
-    "semver": "^7.1.3",
+    "semver": "^7.2.1",
     "serve-favicon": "^2.5.0",
     "sri-toolbox": "^0.2.0",
     "staticify": "^4.0.0",
@@ -58,7 +58,6 @@
     "bootstrap": "4.4.1",
     "bootswatch": "4.4.1",
     "escape-string-regexp": "^2.0.0",
-    "eslint": "^6.8.0",
     "fs-extra": "^9.0.0",
     "fs-walk": "0.0.2",
     "html-validator": "^5.1.7",
@@ -71,7 +70,8 @@
     "nyc": "^15.0.1",
     "pug-lint": "^2.6.0",
     "pug-lint-config-clock": "^2.0.0",
-    "request": "^2.88.2"
+    "request": "^2.88.2",
+    "xo": "^0.28.3"
   },
   "engines": {
     "node": "12.x"
@@ -94,6 +94,61 @@
       "html",
       "lcov",
       "text-summary"
+    ]
+  },
+  "xo": {
+    "ignores": [
+      "cdn/"
+    ],
+    "space": 4,
+    "rules": {
+      "arrow-parens": [
+        "error",
+        "always"
+      ],
+      "ava/no-import-test-files": "off",
+      "capitalized-comments": "off",
+      "max-nested-callbacks": "off",
+      "new-cap": "off",
+      "object-curly-spacing": [
+        "error",
+        "always"
+      ],
+      "promise/prefer-await-to-then": "off",
+      "quote-props": [
+        "error",
+        "consistent"
+      ],
+      "space-before-function-paren": [
+        "error",
+        "never"
+      ],
+      "unicorn/filename-case": "off",
+      "unicorn/prevent-abbreviations": "off",
+      "unicorn/string-content": "off"
+    },
+    "overrides": [
+      {
+        "files": "public/assets/js/*.js",
+        "esnext": false,
+        "envs": [
+          "browser"
+        ],
+        "parserOptions": {
+          "ecmaVersion": 3,
+          "sourceType": "script"
+        },
+        "strict": true,
+        "rules": {
+          "unicorn/no-abusive-eslint-disable": "off"
+        }
+      },
+      {
+        "files": "test/*.js",
+        "envs": [
+          "mocha"
+        ]
+      }
     ]
   }
 }
