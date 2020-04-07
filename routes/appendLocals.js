@@ -54,7 +54,6 @@ function generateSRI(file) {
     return SRI_CACHE[file];
 }
 
-
 function appendLocals(req, res) {
     const siteUrl = getCurrentSiteurl(req);
     const pageUrl = req.originalUrl;

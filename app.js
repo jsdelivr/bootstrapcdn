@@ -1,17 +1,17 @@
 'use strict';
 
-const path    = require('path');
+const path = require('path');
 const express = require('express');
-const mime    = require('mime');
-const semver  = require('semver');
+const mime = require('mime');
+const semver = require('semver');
 const { v4: uuidv4 } = require('uuid');
 
 // constants
-const ENV         = process.env;
-const NODE_ENV    = ENV.NODE_ENV || 'development';
-const PUBLIC_DIR  = path.join(__dirname, 'public');
+const ENV = process.env;
+const NODE_ENV = ENV.NODE_ENV || 'development';
+const PUBLIC_DIR = path.join(__dirname, 'public');
 
-const customMime  = mime.define({
+const customMime = mime.define({
     'text/javascript': ['js']
 }, true);
 
@@ -23,23 +23,23 @@ const STATIC_OPTS = {
 };
 
 // middleware
-const compression  = require('compression');
-const favicon      = require('serve-favicon');
-const logger       = require('morgan');
+const compression = require('compression');
+const favicon = require('serve-favicon');
+const logger = require('morgan');
 const errorHandler = require('errorhandler');
-const enforce      = require('express-sslify');
-const sitemap      = require('express-sitemap');
-const helmet       = require('helmet');
-const staticify    = require('staticify')(PUBLIC_DIR, {
+const enforce = require('express-sslify');
+const sitemap = require('express-sitemap');
+const helmet = require('helmet');
+const staticify = require('staticify')(PUBLIC_DIR, {
     sendOptions: STATIC_OPTS
 });
 
-const config  = require('./config');
-const CSP     = require('./config/helmet-csp');
+const config = require('./config');
+const CSP = require('./config/helmet-csp');
 const helpers = require('./lib/helpers');
-const routes  = require('./routes');
+const routes = require('./routes');
 
-const app     = express();
+const app = express();
 
 // all environments
 app.set('views', path.join(__dirname, '/views/'));
@@ -149,13 +149,13 @@ const map = sitemap({
     url: 'www.bootstrapcdn.com',
     http: 'https',
     sitemapSubmission: '/sitemap.xml',
-    cache: 60000,       // enable 1m cache
-    route: {            // custom route
+    cache: 60000, // enable 1m cache
+    route: { // custom route
         '/': {
             disallow: !ENV.ENABLE_CRAWLING
         },
         '/data/bootstrapcdn.json': {
-            hide: true  // exclude this route from xml and txt
+            hide: true // exclude this route from xml and txt
         },
         '/404/': {
             hide: true
