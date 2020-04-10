@@ -6,7 +6,7 @@ const helpers = require('./test_helpers');
 
 function format(str, name) {
     return str.replace('SWATCH_NAME', name)
-                .replace('SWATCH_VERSION', files.bootswatch4.version);
+        .replace('SWATCH_VERSION', files.bootswatch4.version);
 }
 
 describe('bootswatch4', () => {
@@ -46,10 +46,10 @@ describe('bootswatch4', () => {
     });
 
     const invalidQueries = [
-        parseInt(-1, 10),
-        parseInt(500, 10),
-        parseInt('5', 10),
-        parseInt('foobar', 10)
+        Number.parseInt(-1, 10),
+        Number.parseInt(500, 10),
+        Number.parseInt('5', 10),
+        Number.parseInt('foobar', 10)
     ];
 
     invalidQueries.forEach((i) => {
@@ -67,8 +67,8 @@ describe('bootswatch4', () => {
     files.bootswatch4.themes.forEach((theme) => {
         describe(theme.name, () => {
             const themeImage = format(files.bootswatch4.image, theme.name);
-            const themeUri   = format(files.bootswatch4.bootstrap, theme.name);
-            const themeSri   = theme.sri;
+            const themeUri = format(files.bootswatch4.bootstrap, theme.name);
+            const themeSri = theme.sri;
 
             it('has image', (done) => {
                 assert.ok(response.body.includes(themeImage),

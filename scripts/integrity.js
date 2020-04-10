@@ -12,7 +12,7 @@ const configFile = path.resolve(__dirname, '../config/_files.yml');
 
 function buildPath(dir) {
     dir = dir.replace('/bootstrap/', '/twitter-bootstrap/')
-             .replace('https://stackpath.bootstrapcdn.com/', '');
+        .replace('https://stackpath.bootstrapcdn.com/', '');
 
     return path.join(__dirname, '../cdn', dir);
 }
@@ -33,7 +33,7 @@ function exists(file) {
 
     files[key].themes.forEach((theme) => {
         const file = bootswatch.replace('SWATCH_VERSION', files[key].version)
-                               .replace('SWATCH_NAME', theme.name);
+            .replace('SWATCH_NAME', theme.name);
 
         if (exists(file)) {
             theme.sri = generateSri(file);

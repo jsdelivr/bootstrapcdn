@@ -6,7 +6,7 @@ const helpers = require('./test_helpers');
 
 function format(str, name) {
     return str.replace('SWATCH_NAME', name)
-                .replace('SWATCH_VERSION', files.bootswatch3.version);
+        .replace('SWATCH_VERSION', files.bootswatch3.version);
 }
 
 describe('bootswatch3', () => {
