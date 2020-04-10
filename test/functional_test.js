@@ -14,8 +14,6 @@ const { files } = require('../config');
 const helpers = require('./test_helpers');
 
 const CDN_URL = 'https://stackpath.bootstrapcdn.com/';
-
-const cache = new Set();
 const responses = {};
 
 // Expects header names to be lowercase in this object.
@@ -33,6 +31,7 @@ const expectedHeaders = {
     'timing-allow-origin': '*',
     'vary': 'Accept-Encoding',
     'x-cache': '',
+    'x-content-type-options': 'nosniff',
     'x-hello-human': undefined,
     'x-hw': undefined
 };
@@ -87,13 +86,12 @@ function domainCheck(uri) {
 
 function request(uri, cb) {
     // return memoized response to avoid making the same http call twice
-    if (cache.has(uri)) {
+    if (Object.prototype.hasOwnProperty.call(responses, uri)) {
         return cb(responses[uri]);
     }
 
     // build memoized response
     return helpers.prefetch(uri, (res) => {
-        cache.add(uri);
         responses[uri] = res;
         cb(res);
     });
@@ -106,7 +104,7 @@ function assertSRI(uri, actualSri, done) {
     done();
 }
 
-const s3include = ['content-type'];
+const s3include = new Set(['content-type']);
 
 function assertHeaders(uri) {
     // const ext = helpers.getExtension(uri);
@@ -115,7 +113,7 @@ function assertHeaders(uri) {
         // Ignore header name case as per the specs
         header = header.toLowerCase();
 
-        if (typeof process.env.TEST_S3 !== 'undefined' && !s3include.includes(header)) {
+        if (typeof process.env.TEST_S3 !== 'undefined' && !s3include.has(header)) {
             it.skip(`has ${header}`);
         } else {
             const expected = expectedHeaders[header];
