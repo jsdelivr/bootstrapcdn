@@ -106,7 +106,7 @@ function assertSRI(uri, actualSri, done) {
     done();
 }
 
-const s3include = ['content-type'];
+const s3include = new Set(['content-type']);
 
 function assertHeaders(uri) {
     // const ext = helpers.getExtension(uri);
@@ -115,7 +115,7 @@ function assertHeaders(uri) {
         // Ignore header name case as per the specs
         header = header.toLowerCase();
 
-        if (typeof process.env.TEST_S3 !== 'undefined' && !s3include.includes(header)) {
+        if (typeof process.env.TEST_S3 !== 'undefined' && !s3include.has(header)) {
             it.skip(`has ${header}`);
         } else {
             const expected = expectedHeaders[header];
