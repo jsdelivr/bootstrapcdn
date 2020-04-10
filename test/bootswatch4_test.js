@@ -46,10 +46,10 @@ describe('bootswatch4', () => {
     });
 
     const invalidQueries = [
-        parseInt(-1, 10),
-        parseInt(500, 10),
-        parseInt('5', 10),
-        parseInt('foobar', 10)
+        Number.parseInt(-1, 10),
+        Number.parseInt(500, 10),
+        Number.parseInt('5', 10),
+        Number.parseInt('foobar', 10)
     ];
 
     invalidQueries.forEach((i) => {
