@@ -26,7 +26,7 @@ function getThemeQuery(req) {
     const query = req.query.theme;
 
     // Safety checks
-    if (Number.isNaN(query) || query < 0 || query >= totalThemes) {
+    if (!Number.parseInt(query, 10) || query < 0 || query >= totalThemes) {
         return '';
     }
 

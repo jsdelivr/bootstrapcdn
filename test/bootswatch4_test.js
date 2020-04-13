@@ -46,15 +46,15 @@ describe('bootswatch4', () => {
     });
 
     const invalidQueries = [
-        Number.parseInt(-1, 10),
-        Number.parseInt(500, 10),
-        Number.parseInt('5', 10),
-        Number.parseInt('foobar', 10)
+        -1,
+        500,
+        '5',
+        'foobar'
     ];
 
-    invalidQueries.forEach((i) => {
-        it(`handles invalid theme query parameter (${i})`, (done) => {
-            const invalidUri = helpers.getURI(`bootswatch/?theme=${i}`);
+    invalidQueries.forEach((query) => {
+        it(`handles invalid theme query parameter (${query})`, (done) => {
+            const invalidUri = helpers.getURI(`bootswatch/?theme=${query}`);
             let invalidResponse = {};
 
             helpers.prefetch(invalidUri, (res) => {
