@@ -1,11 +1,6 @@
 'use strict';
 
-const path = require('path');
-const { generateSri } = require('../lib/helpers');
 const { app, files } = require('../config');
-
-const PUBLIC_DIR = path.join(__dirname, '../public/');
-const SRI_CACHE = {};
 
 function getCurrentSiteurl(req) {
     let proto = req.get('x-forwarded-proto');
@@ -42,14 +37,6 @@ function generateBodyClass(pathname) {
     return `page-${pathname}`;
 }
 
-function generateSRI(file) {
-    if (typeof SRI_CACHE[file] === 'undefined') {
-        SRI_CACHE[file] = generateSri(path.join(PUBLIC_DIR, file));
-    }
-
-    return SRI_CACHE[file];
-}
-
 function appendLocals(req, res) {
     const siteUrl = getCurrentSiteurl(req);
     const pageUrl = req.originalUrl;
@@ -64,8 +51,7 @@ function appendLocals(req, res) {
         canonicalUrl,
         pageUrl,
         theme,
-        bodyClass,
-        generateSRI
+        bodyClass
     };
 
     res.locals = Object.assign(res.locals, locals);
