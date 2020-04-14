@@ -17,10 +17,6 @@ function getCurrentSiteurl(req) {
     return `${proto}://${req.hostname}`;
 }
 
-function getPageTitle(pageTitle) {
-    return `${pageTitle} · ${app.title_suffix}`;
-}
-
 function getThemeQuery(req) {
     const totalThemes = files.bootswatch4.themes.length;
     const query = req.query.theme;
@@ -68,7 +64,6 @@ function appendLocals(req, res) {
         canonicalUrl,
         pageUrl,
         theme,
-        getPageTitle,
         bodyClass,
         generateSRI
     };
