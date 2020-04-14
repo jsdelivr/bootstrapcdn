@@ -9,7 +9,7 @@ html(lang='en', prefix='og: http://ogp.me/ns#', itemscope, itemtype='http://sche
         -var pageDescription = description || config.app.description;
         meta(name='description', content!=pageDescription)
 
-        title!=getPageTitle(title)
+        title!=helpers.getPageTitle(title)
 
         link(rel='canonical', href=canonicalUrl)
 
