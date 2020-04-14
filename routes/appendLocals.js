@@ -1,7 +1,7 @@
 'use strict';
 
 const path = require('path');
-const { generateSri, capitalize } = require('../lib/helpers');
+const { generateSri } = require('../lib/helpers');
 const { app, files } = require('../config');
 
 const PUBLIC_DIR = path.join(__dirname, '../public/');
@@ -70,8 +70,7 @@ function appendLocals(req, res) {
         theme,
         getPageTitle,
         bodyClass,
-        generateSRI,
-        capitalize
+        generateSRI
     };
 
     res.locals = Object.assign(res.locals, locals);
