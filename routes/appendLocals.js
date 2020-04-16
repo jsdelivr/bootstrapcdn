@@ -1,17 +1,10 @@
 'use strict';
 
 const { app, files } = require('../config');
-const { generateBodyClass } = require('../lib/helpers');
-
-function getCurrentSiteurl(req) {
-    let proto = req.get('x-forwarded-proto');
-
-    if (typeof proto === 'undefined') {
-        proto = req.protocol;
-    }
-
-    return `${proto}://${req.hostname}`;
-}
+const {
+    getCurrentSiteurl,
+    generateBodyClass
+} = require('../lib/helpers');
 
 function getThemeQuery(req) {
     const totalThemes = files.bootswatch4.themes.length;
