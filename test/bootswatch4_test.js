@@ -48,6 +48,7 @@ describe('bootswatch4', () => {
     const invalidQueries = [
         -1,
         500,
+        '123abc',
         '5',
         'foobar'
     ];
