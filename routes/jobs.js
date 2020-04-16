@@ -1,7 +1,7 @@
 'use strict';
 
 const express = require('express');
-const appendLocals = require('./appendLocals');
+const { appendLocals } = require('../lib/helpers');
 
 const router = express.Router();
 
