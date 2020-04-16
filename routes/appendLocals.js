@@ -1,6 +1,7 @@
 'use strict';
 
 const { app, files } = require('../config');
+const { generateBodyClass } = require('../lib/helpers');
 
 function getCurrentSiteurl(req) {
     let proto = req.get('x-forwarded-proto');
@@ -22,19 +23,6 @@ function getThemeQuery(req) {
     }
 
     return query;
-}
-
-function generateBodyClass(pathname) {
-    if (pathname === '/') {
-        pathname = 'home'; // only for the index page
-    }
-
-    pathname = pathname.replace(/\//g, ''); // remove any slashes
-
-    // Make the first letter lowercase
-    pathname = pathname.charAt(0).toLowerCase() + pathname.slice(1);
-
-    return `page-${pathname}`;
 }
 
 function appendLocals(req, res) {
