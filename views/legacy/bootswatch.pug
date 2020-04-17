@@ -7,7 +7,7 @@ block content
         -var name = item.name.toLowerCase();
         -var sri  = item.sri;
         -var file = config.files.bootswatch3.bootstrap.replace('SWATCH_NAME', name).replace('SWATCH_VERSION', config.files.bootswatch3.version);
-        -var capitalizedThemeName = capitalize(name);
+        -var capitalizedThemeName = helpers.capitalize(name);
 
         .card.bg-light.my-4.p-4.text-center
             .row
