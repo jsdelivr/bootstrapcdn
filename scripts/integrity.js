@@ -6,7 +6,7 @@ const fs = require('fs');
 const path = require('path');
 const yaml = require('js-yaml');
 const { files } = require('../config');
-const { generateSri } = require('./sri');
+const { generateSri } = require('../lib/helpers');
 
 const configFile = path.resolve(__dirname, '../config/_files.yml');
 

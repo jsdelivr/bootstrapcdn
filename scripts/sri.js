@@ -1,15 +1,9 @@
 'use strict';
 
-const path = require('path');
+const { generateSri } = require('../lib/helpers');
 
-const { generateSri } = require(path.join(__dirname, '../lib/helpers'));
+for (let i = 2; i < process.argv.length; i++) {
+    const file = process.argv[i];
 
-if (process.argv[1] === __filename) {
-    for (let i = 2; i < process.argv.length; i++) {
-        const file = process.argv[i];
-
-        console.log(`${file}\n> ${generateSri(file)}`);
-    }
-} else {
-    module.exports.generateSri = generateSri;
+    console.log(`${file}\n> ${generateSri(file)}`);
 }
