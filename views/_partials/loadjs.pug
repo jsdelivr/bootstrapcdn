@@ -4,10 +4,10 @@
     var jquery = config.app.javascript.find(file => file.name === 'jquery');
     var clipboardjs = config.app.javascript.find(file => file.name === 'clipboardjs');
     var clipboardjsUri = getVersionedPath(clipboardjs.uri);
-    var clipboardjsSri = helpers.generateSri(clipboardjs.uri);
+    var clipboardjsSri = helpers.getSri(clipboardjs.uri);
     var mainJs = config.app.javascript.find(file => file.name === 'main');
     var mainJsUri = getVersionedPath(mainJs.uri);
-    var mainJsSri = helpers.generateSri(mainJs.uri);
+    var mainJsSri = helpers.getSri(mainJs.uri);
 
 | var mainJsUri = '#{mainJsUri}';
 | var clipboardjsUri = '#{clipboardjsUri}';
