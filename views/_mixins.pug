@@ -7,7 +7,7 @@ mixin menuItem(name, url, nofollow)
             classes.push(attr.extraclass);
         }
 
-        if (pageUrl === url) {
+        if (pageUrl.split('?')[0] === url) {
             classes.push('active');
         }
 
