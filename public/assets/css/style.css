@@ -20,6 +20,11 @@
     }
 }
 
+iframe {
+    border: 0;
+    overflow: hidden;
+}
+
 .input-group .dropdown-toggle::after {
     transition: -webkit-transform .35s ease;
     transition: transform .35s ease;
