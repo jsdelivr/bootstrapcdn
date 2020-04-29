@@ -32,6 +32,7 @@ javascript:
 friends:
   - name: SecurityTrails
     url: 'https://securitytrails.com/'
+    nofollow: false
   - name: Bootstrap
     url: 'https://getbootstrap.com/'
   - name: nixCraft
