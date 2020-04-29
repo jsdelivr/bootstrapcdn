@@ -17,8 +17,6 @@ jobs:
         with:
           node-version: "${{ env.NODE }}"
 
-      - run: node --version
-      - run: npm --version
       - run: curl -s4 https://ifconfig.co/
 
       - name: Set up npm cache
@@ -48,8 +46,6 @@ jobs:
         with:
           node-version: "${{ env.NODE }}"
 
-      - run: node --version
-      - run: npm --version
       - run: curl -s4 https://ifconfig.co/
 
       - name: Set up npm cache
