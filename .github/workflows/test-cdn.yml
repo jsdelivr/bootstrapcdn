@@ -1,5 +1,14 @@
 name: CDN Tests
-on: [push, pull_request]
+
+on:
+  push:
+    branches:
+      - master
+      - develop
+  pull_request:
+    branches:
+      - "**"
+
 env:
   CI: true
   NODE: 12.x

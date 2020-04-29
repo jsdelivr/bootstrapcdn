@@ -1,12 +1,15 @@
-# https://github.com/github/codeql-action
-
-name: "Code Scanning - Action"
+name: Code Scanning - Action
 
 on:
   push:
+    branches:
+      - master
+      - develop
   pull_request:
+    branches:
+      - "**"
   schedule:
-    - cron: '0 0 * * 0'
+    - cron: "0 0 * * 0"
 
 jobs:
   CodeQL-Build:
