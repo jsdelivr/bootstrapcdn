@@ -54,7 +54,7 @@
     "uuid": "^8.0.0"
   },
   "devDependencies": {
-    "bootlint": "1.0.0",
+    "bootlint": "1.1.0",
     "bootstrap": "4.4.1",
     "bootswatch": "4.4.1",
     "escape-string-regexp": "^4.0.0",
