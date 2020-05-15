@@ -37,6 +37,9 @@ friends:
     url: 'https://getbootstrap.com/'
   - name: nixCraft
     url: 'https://www.cyberciti.biz/'
+  - name: Edubirdie
+    url: 'https://edubirdie.com/'
+    nofollow: false
 redirects:
   - name: legacy
     from: /legacy/
