@@ -249,53 +249,53 @@ bootstrap:
     javascriptSri: sha384-2sVosMIQw67h8RBCTmE20BSl9j66nWwbH+2W/CKr8celILSNnEfJnJv2PKCdet3I
     stylesheetSri: sha384-G87n9a15LEsz+OvKCr10ldEbckfbCpr2gjYnZgCiKiwH0p/If1QkSURCTzubbt19
 bootswatch4:
-  version: 4.4.1
+  version: 4.5.0
   link: 'https://bootswatch.com/SWATCH_NAME/'
   image: 'https://bootswatch.com/SWATCH_NAME/thumbnail.png'
   bootstrap: 'https://stackpath.bootstrapcdn.com/bootswatch/SWATCH_VERSION/SWATCH_NAME/bootstrap.min.css'
   themes:
     - name: cerulean
-      sri: sha384-LV/SIoc08vbV9CCeAwiz7RJZMI5YntsH8rGov0Y2nysmepqMWVvJqds6y0RaxIXT
+      sri: sha384-b+jboW/YIpW2ZZYyYdXczKK6igHlnkPNfN9kYAbqYV7rNQ9PKTXlS2D6j1QZIATW
     - name: cosmo
-      sri: sha384-qdQEsAI45WFCO5QwXBelBe1rR9Nwiss4rGEqiszC+9olH1ScrLrMQr1KmDR964uZ
+      sri: sha384-9/chHLTCcBULgxOFoUyZXSgEF0uFXs+NrQqzcy/DXqcR+Sk8C1l4EgmUXAEzTb92
     - name: cyborg
-      sri: sha384-l7xaoY0cJM4h9xh1RfazbgJVUZvdtyLWPueWNtLAphf/UbBgOVzqbOTogxPwYLHM
+      sri: sha384-GKugkVcT8wqoh3M8z1lqHbU+g6j498/ZT/zuXbepz7Dc09/otQZxTimkEMTkRWHP
     - name: darkly
-      sri: sha384-rCA2D+D9QXuP2TomtQwd+uP50EHjpafN+wruul0sXZzX/Da7Txn4tB9aLMZV4DZm
+      sri: sha384-Bo21yfmmZuXwcN/9vKrA5jPUMhr7znVBBeLxT9MA4r2BchhusfJ6+n8TLGUcRAtL
     - name: flatly
-      sri: sha384-yrfSO0DBjS56u5M+SjWTyAHujrkiYVtRYh2dtB3yLQtUz3bodOeialO59u5lUCFF
+      sri: sha384-mhpbKVUOPCSocLzx2ElRISIORFRwr1ZbO9bAlowgM5kO7hnpRBe+brVj8NNPUiFs
     - name: journal
-      sri: sha384-0d2eTc91EqtDkt3Y50+J9rW3tCXJWw6/lDgf1QNHLlV0fadTyvcA120WPsSOlwga
+      sri: sha384-vjBZc/DqIqR687k5rf6bUQ6IVSOxQUi9TcwtvULstA7+YGi//g3oT2qkh8W1Drx9
     - name: litera
-      sri: sha384-pLgJ8jZ4aoPja/9zBSujjzs7QbkTKvKw1+zfKuumQF9U+TH3xv09UUsRI52fS+A6
+      sri: sha384-Gr51humlTz50RfCwdBYgT+XvbSZqkm8Loa5nWlNrvUqCinoe6C6WUZKHS2WIRx5o
     - name: lumen
-      sri: sha384-715VMUUaOfZR3/rWXZJ9agJ/udwSXGEigabzUbJm2NR4/v5wpDy8c14yedZN6NL7
+      sri: sha384-VMuWne6iwiifi8iEWNZMw8sDatgb6ntBpBIr67q0rZAyOQwfu/VKpnFntQrjxB5W
     - name: lux
-      sri: sha384-oOs/gFavzADqv3i5nCM+9CzXe3e5vXLXZ5LZ7PplpsWpTCufB7kqkTlC9FtZ5nJo
+      sri: sha384-smnSwzHqW1zKbeuSMsAM/fMQpkk7HY11LuHiwT8snL/W2QBoZtVCT4H5x1CEcJCs
     - name: materia
-      sri: sha384-1tymk6x9Y5K+OF0tlmG2fDRcn67QGzBkiM3IgtJ3VrtGrIi5ryhHjKjeeS60f1FA
+      sri: sha384-uKLgCN8wZ+yo4RygxUNFhjywpL/l065dVTzvLuxys7LAIMmhZoLWb/1yP6+mF925
     - name: minty
-      sri: sha384-4HfFay3AYJnEmbgRzxYWJk/Ka5jIimhB/Fssk7NGT9Tj3rkEChpSxLK0btOGzf2I
+      sri: sha384-HqaYdAE26lgFCJsUF9TBdbZf7ygr9yPHtxtg37JshqVQi6CCAo6Qvwmgc5xclIiV
     - name: pulse
-      sri: sha384-FnujoHKLiA0lyWE/5kNhcd8lfMILbUAZFAT89u11OhZI7Gt135tk3bGYVBC2xmJ5
+      sri: sha384-t87SWLASAVDfD3SOypT7WDQZv9X6r0mq1lMEc6m1/+tAVfCXosegm1BvaIiQm3zB
     - name: sandstone
-      sri: sha384-ABdnjefqVzESm+f9z9hcqx2cvwvDNjfrwfW5Le9138qHCMGlNmWawyn/tt4jR4ba
+      sri: sha384-ztQCCdmKhYHBDMV3AyR4QGZ2/z6veowJBbsmvDJW/sTuMpB9lpoubJuD0ODGSbjh
     - name: simplex
-      sri: sha384-cRAmF0wErT4D9dEBc36qB6pVu+KmLh516IoGWD/Gfm6FicBbyDuHgS4jmkQB8u1a
+      sri: sha384-6ge4b1Lr1zrvyGvm5pdAkc3NMa97XYhFPBWsZsT6O3eOU+hqURR1bQEMm11Grf3a
     - name: sketchy
-      sri: sha384-2kOE+STGAkgemIkUbGtoZ8dJLqfvJ/xzRnimSkQN7viOfwRvWseF7lqcuNXmjwrL
+      sri: sha384-NkI/Nlr1DZ5rUXWWdnuZb97FQRgCCcwC66DC+HUCY0oVx6BgBHUfPcwL1vwp93JZ
     - name: slate
-      sri: sha384-G9YbB4o4U6WS4wCthMOpAeweY4gQJyyx0P3nZbEBHyz+AtNoeasfRChmek1C2iqV
+      sri: sha384-idNH3UIOiZbCf8jxqu4iExnH34y5UovfW/Mg8T5WfNvoJolDvknoNqR69V2OexgF
     - name: solar
-      sri: sha384-Ya0fS7U2c07GI3XufLEwSQlqhpN0ri7w/ujyveyqoxTJ2rFHJcT6SUhwhL7GM4h9
+      sri: sha384-iDw+DjLp94cdk+ODAgTY4IZ6d9aaRpG9KHr168TPxrfQ9wv/DTVC+cWyojoxjHBT
     - name: spacelab
-      sri: sha384-nl8CRcNYOGaXP68QRJeVTXCWAhwqBhRha0QbuubX1qDQpGT3GgclpvyzkR2JzyfZ
+      sri: sha384-sIQOcNYer0kt7oTyFe/YrGzKMFP/qxsJbXTxq0/uiZQgpwXwEu41sVz2M61lWbai
     - name: superhero
-      sri: sha384-R/oa7KS0iDoHwdh4Gyl3/fU7pgvSCt7oyuQ79pkw+e+bMWD9dzJJa+Zqd+XJS0AD
+      sri: sha384-rvwYMW9Z/bbxZfgxHQEKx6D91KwffWAG+XnsoYNCGWi/qL1P9dIVYm1HBiHFqQEt
     - name: united
-      sri: sha384-bzjLLgZOhgXbSvSc5A9LWWo/mSIYf7U7nFbmYIB2Lgmuiw3vKGJuu+abKoaTx4W6
+      sri: sha384-Uga2yStKRHUWCS7ORqIZhJ9LIAv4i7gZuEdoR1QAmw6H+ffhcf7yCOd0CvSoNwoz
     - name: yeti
-      sri: sha384-bWm7zrSUE5E+21rA9qdH5frkMpXvqjQm/WJw4L5PYQLNHrywI5zs5saEjIcCdGu1
+      sri: sha384-chJtTd1EMa6hQI40eyJWF6829eEk4oIe7b3nNtUni7VxA3uHc/uIM/8ppyjrggfV
 bootswatch3:
   version: 3.4.1
   link: 'https://bootswatch.com/3/SWATCH_NAME/'
