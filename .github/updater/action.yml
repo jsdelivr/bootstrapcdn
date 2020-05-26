@@ -1,0 +1,4 @@
+name: S3 Updater
+runs:
+  using: 'docker'
+  image: 'Dockerfile.updater'
