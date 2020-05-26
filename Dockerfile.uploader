@@ -1,0 +1,15 @@
+FROM banst/awscli:1.18.66
+MAINTAINER Joshua Mervine <joshua@mervine.net>
+
+RUN apk update && apk upgrade && apk add curl wget bash ruby ruby-bundler ruby-irb
+
+
+WORKDIR /src
+COPY scripts/uploader scripts/uploader
+COPY cdn cdn
+COPY public public
+
+ENV AWS_REGION=us-east-1
+ENV SOURCE=/src/cdn
+
+ENTRYPOINT [ "/src/scripts/uploader/entrypoint.sh" ]
