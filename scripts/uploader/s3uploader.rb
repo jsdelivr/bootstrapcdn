@@ -18,7 +18,7 @@ OptionParser.new do |opts|
   opts.banner = "Usage: #{opts.program_name}.rb [config]"
 
   opts.separator ""
-  opts.separator "Dependancies:"
+  opts.separator "Dependencies:"
   opts.separator "1. Requires AWS CLI to be installed and working."
   opts.separator "2. Requires AWS Credentials to be exported or passed through"
   opts.separator "   the 'profile' argument."
@@ -34,11 +34,11 @@ OptionParser.new do |opts|
     config.target = t
   end
 
-  opts.on("-p", "--profile [PROFILE]", String, "AWS Credentials profile, uses exported AWS Creds if missing") do |p|
+  opts.on("-p", "--profile [PROFILE]", String, "AWS Credentials profile, uses exported AWS Credentials if missing") do |p|
     config.profile = p
   end
 
-  opts.on("-e", "--extension [EXT]", String, "File extention to upload (defaults to all)") do |e|
+  opts.on("-e", "--extension [EXT]", String, "File extension to upload (defaults to all)") do |e|
     config.extension = e
   end
 
@@ -71,7 +71,7 @@ unless config.profile.nil?
 end
 
 Dir["#{config.source}/**/*"]
-  .reject  { |item| File.directory?(item) } # reject directorys
+  .reject  { |item| File.directory?(item) } # reject directories
   .collect { |item| item.split(".").last }  # only need exts
   .uniq.each do |ext|                       # iterate over unique ext
 

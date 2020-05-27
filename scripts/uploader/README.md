@@ -3,7 +3,8 @@
 ## Image
 
 From repo root, build with
-```
+
+```sh
 docker build -f Dockerfile.uploader -t jmervine/bootstrapcdn-uploader:latest .
 ```
 
@@ -18,10 +19,11 @@ Use this script to upload files to S3, ensuring their content types in the proce
 
 > Note: This script can also be used to normalize or adjust existing content types.
 
-```
+```text
 Usage: ruby ./s3uploader.rb [config]
 
-Dependancies:
+Dependencies:
+
 1. Requires AWS CLI to be installed and working.
 2. Requires AWS Credentials to be exported or passed through
    the 'profile' argument.
@@ -29,15 +31,15 @@ Dependancies:
 Options:
     -s, --source SOURCE              Source directory to upload
     -t, --target TARGET              Target location for upload
-    -p, --profile [PROFILE]          AWS Credentials profile, uses exported AWS Creds if missing
-    -e, --extension [EXT]            File extention to upload (defaults to all)
+    -p, --profile [PROFILE]          AWS Credentials profile, uses exported AWS Credentials if missing
+    -e, --extension [EXT]            File extension to upload (defaults to all)
     -D, --dryrun                     Pass a dry run to AWS CLI
     -h, --help                       Show this message
 ```
 
-**Example**
+#### Example
 
-```
+```console
 ~/Development/bootstrapcdn-ops/scripts $ ruby ./s3uploader.rb -s \
     ~/Development/bootstrap-cdn/cdn/bootlint/0.9.0/ -t public/bootlint/0.9.0/ -D
 + aws  s3 cp --dryrun --acl public-read \
