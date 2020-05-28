@@ -12,7 +12,7 @@
 | var mainJsUri = '#{mainJsUri}';
 | var clipboardjsUri = '#{clipboardjsUri}';
 | var jqueryUri = '#{jquery.uri}';
-| var bootstrapUri = '#{bootstrap.javascript}';
+| var bootstrapUri = '#{bootstrap.javascriptBundle}';
 |
 | loadjs([clipboardjsUri, mainJsUri], 'main', {
 |    before: function(path, el) {
@@ -23,7 +23,7 @@
 | });
 | loadjs([jqueryUri, bootstrapUri], 'jquery', {
 |    before: function(path, el) {
-|        el.integrity = path === jqueryUri ? '#{jquery.sri}' : '#{bootstrap.javascriptSri}';
+|        el.integrity = path === jqueryUri ? '#{jquery.sri}' : '#{bootstrap.javascriptBundleSri}';
 |        el.crossOrigin = 'anonymous';
 |     },
 |     async: false
