@@ -8,7 +8,5 @@ extraction:
     # The `index` step extracts information from the files in the codebase.
     index:
       # Specify a list of files and folders to exclude from extraction.
-      filters:
-        - exclude: cdn/
       exclude:
         - cdn/
