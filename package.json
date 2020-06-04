@@ -109,7 +109,12 @@
       "ava/no-import-test-files": "off",
       "capitalized-comments": "off",
       "max-nested-callbacks": "off",
-      "new-cap": "off",
+      "new-cap": [
+        "error",
+        {
+          "properties": false
+        }
+      ],
       "object-curly-spacing": [
         "error",
         "always"
