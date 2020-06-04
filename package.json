@@ -58,7 +58,7 @@
     "bootstrap": "4.5.0",
     "bootswatch": "4.5.0",
     "escape-string-regexp": "^4.0.0",
-    "fs-extra": "^9.0.0",
+    "fs-extra": "^9.0.1",
     "fs-walk": "0.0.2",
     "html-validator": "^5.1.14",
     "htmlencode": "0.0.4",
@@ -71,7 +71,7 @@
     "pug-lint": "^2.6.0",
     "pug-lint-config-clock": "^2.0.0",
     "request": "^2.88.2",
-    "xo": "^0.30.0"
+    "xo": "^0.32.0"
   },
   "engines": {
     "node": "12.x"
@@ -109,7 +109,12 @@
       "ava/no-import-test-files": "off",
       "capitalized-comments": "off",
       "max-nested-callbacks": "off",
-      "new-cap": "off",
+      "new-cap": [
+        "error",
+        {
+          "properties": false
+        }
+      ],
       "object-curly-spacing": [
         "error",
         "always"
