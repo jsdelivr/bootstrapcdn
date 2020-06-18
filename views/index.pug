@@ -4,52 +4,65 @@ block content
     h2.text-center=title
 
     -var current = config.files.bootstrap.find(file => file.current);
-    h3.text-center.mt-4=`v${current.version}`
+    -var latestBootstrap5 = config.files.bootstrap.find(file => semver.satisfies(file.version, '^5', { includePrerelease: true }));
 
-    .card.bg-light.mt-4.p-4.text-center
-        -var name   = `quickstartcss_${current.version.replace(/\./g, '_')}`;
-        -var file   = current.stylesheet;
-        -var sri    = current.stylesheetSri;
-        -var formId = `${name}_form`;
+    each item in [current, latestBootstrap5]
+        if (item === latestBootstrap5)
+            hr.my-5.w-50
 
-        .form-group.my-4
-            label.font-weight-bold(for=formId) Complete CSS
-            .input-group.input-group-lg
-                input.form-control(id=formId, type='text', readonly, value=file)
-                .input-group-append
-                    button.btn.btn-dark.dropdown-toggle(type='button', data-toggle='collapse', data-target=`#${name}`, aria-label='Toggle Dropdown', aria-expanded='false', aria-controls=name)
-            span.form-text.text-muted Click to copy
+        h3.text-center.mt-4=`v${item.version}`
 
-        include _partials/csscode.pug
+        if (item === latestBootstrap5)
+            .alert.alert-danger.my-3
+                | Bootstrap 5 is currently an Alpha release and should be treated as such! For details check out 
+                a.alert-link(href='https://blog.getbootstrap.com/2020/06/16/bootstrap-5-alpha/', target='_blank', rel='noopener').
+                    the Bootstrap 5 Alpha announcement
+                | .
 
-        -var name   = `quickstartjs_${current.version.replace(/\./g, '_')}`;
-        -var file   = current.javascript;
-        -var sri    = current.javascriptSri;
-        -var formId = `${name}_form`;
+        .card.bg-light.mt-4.p-4.text-center
+            -var name   = `quickstartcss_${item.version.replace(/\./g, '_')}`;
+            -var file   = item.stylesheet;
+            -var sri    = item.stylesheetSri;
+            -var formId = `${name}_form`;
 
-        .form-group.my-4
-            label.font-weight-bold(for=formId) Complete JavaScript
-            .input-group.input-group-lg
-                input.form-control(id=formId, type='text', readonly, value=file)
-                .input-group-append
-                    button.btn.btn-dark.dropdown-toggle(type='button', data-toggle='collapse', data-target=`#${name}`, aria-label='Toggle Dropdown', aria-expanded='false', aria-controls=name)
-            span.form-text.text-muted Click to copy
+            .form-group.my-4
+                label.font-weight-bold(for=formId) Complete CSS
+                .input-group.input-group-lg
+                    input.form-control(id=formId, type='text', readonly, value=file)
+                    .input-group-append
+                        button.btn.btn-dark.dropdown-toggle(type='button', data-toggle='collapse', data-target=`#${name}`, aria-label='Toggle Dropdown', aria-expanded='false', aria-controls=name)
+                span.form-text.text-muted Click to copy
 
-        include _partials/jscode.pug
+            include _partials/csscode.pug
 
-        -var name   = `quickstartjsbundle_${current.version.replace(/\./g, '_')}`;
-        -var file   = current.javascriptBundle;
-        -var sri    = current.javascriptBundleSri;
-        -var formId = `${name}_form`;
+            -var name   = `quickstartjs_${item.version.replace(/\./g, '_')}`;
+            -var file   = item.javascript;
+            -var sri    = item.javascriptSri;
+            -var formId = `${name}_form`;
 
-        .form-group.my-4
-            label.font-weight-bold(for=formId) Complete JavaScript Bundle
-            .input-group.input-group-lg
-                input.form-control(id=formId, type='text', readonly, value=file)
-                .input-group-append
-                    button.btn.btn-dark.dropdown-toggle(type='button', data-toggle='collapse', data-target=`#${name}`, aria-label='Toggle Dropdown', aria-expanded='false', aria-controls=name)
-            span.form-text.text-muted Click to copy
+            .form-group.my-4
+                label.font-weight-bold(for=formId) Complete JavaScript
+                .input-group.input-group-lg
+                    input.form-control(id=formId, type='text', readonly, value=file)
+                    .input-group-append
+                        button.btn.btn-dark.dropdown-toggle(type='button', data-toggle='collapse', data-target=`#${name}`, aria-label='Toggle Dropdown', aria-expanded='false', aria-controls=name)
+                span.form-text.text-muted Click to copy
 
-        include _partials/jscode.pug
+            include _partials/jscode.pug
+
+            -var name   = `quickstartjsbundle_${item.version.replace(/\./g, '_')}`;
+            -var file   = item.javascriptBundle;
+            -var sri    = item.javascriptBundleSri;
+            -var formId = `${name}_form`;
+
+            .form-group.my-4
+                label.font-weight-bold(for=formId) Complete JavaScript Bundle
+                .input-group.input-group-lg
+                    input.form-control(id=formId, type='text', readonly, value=file)
+                    .input-group-append
+                        button.btn.btn-dark.dropdown-toggle(type='button', data-toggle='collapse', data-target=`#${name}`, aria-label='Toggle Dropdown', aria-expanded='false', aria-controls=name)
+                span.form-text.text-muted Click to copy
+
+            include _partials/jscode.pug
 
 //- vim: ft=pug sw=4 sts=4 et:
