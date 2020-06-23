@@ -3,8 +3,10 @@ extends ../layout.pug
 block content
     h2.text-center.mb-4 Bootstrap Legacy
 
+    -var latestBootstrap5 = config.files.bootstrap.find(file => semver.satisfies(file.version, '^5', { includePrerelease: true }));
+
     each item in config.files.bootstrap
-        unless (item.current)
+        if (!item.current && item.version !== latestBootstrap5.version)
             .card.bg-light.mt-4.p-4.text-center
                 h3.mt-2=`v${item.version}`
 
