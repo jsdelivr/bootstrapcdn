@@ -54,10 +54,14 @@ files.bootlint.forEach((bootlint) => {
 files.bootstrap.forEach((bootstrap) => {
     const javascript = buildPath(bootstrap.javascript);
     const stylesheet = buildPath(bootstrap.stylesheet);
-    let { javascriptBundle } = bootstrap;
+    let { javascriptBundle, javascriptEsm } = bootstrap;
 
     if (javascriptBundle) {
         javascriptBundle = buildPath(bootstrap.javascriptBundle);
+    }
+
+    if (javascriptEsm) {
+        javascriptEsm = buildPath(bootstrap.javascriptEsm);
     }
 
     if (exists(javascript)) {
@@ -66,6 +70,10 @@ files.bootstrap.forEach((bootstrap) => {
 
     if (javascriptBundle && exists(javascriptBundle)) {
         bootstrap.javascriptBundleSri = generateSri(javascriptBundle);
+    }
+
+    if (javascriptEsm && exists(javascriptEsm)) {
+        bootstrap.javascriptEsmSri = generateSri(javascriptEsm);
     }
 
     if (exists(stylesheet)) {
