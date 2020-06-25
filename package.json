@@ -51,7 +51,7 @@
     "serve-favicon": "^2.5.0",
     "sri-toolbox": "^0.2.0",
     "staticify": "^4.0.0",
-    "uuid": "^8.1.0"
+    "uuid": "^8.2.0"
   },
   "devDependencies": {
     "bootlint": "1.1.0",
