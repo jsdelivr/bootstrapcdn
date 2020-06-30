@@ -1,0 +1,15 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: "/"
+    schedule:
+      interval: weekly
+      day: tuesday
+      time: "12:00"
+      timezone: Europe/Athens
+    open-pull-requests-limit: 10
+    reviewers:
+      - jmervine
+      - XhmikosR
+    labels:
+      - dependencies

@@ -1,8 +1,13 @@
 'use strict';
 
 const assert = require('assert').strict;
+const semver = require('semver');
 const { files } = require('../config');
 const helpers = require('./test_helpers');
+
+const latestBootstrap5 = files.bootstrap.find((file) => {
+    return semver.satisfies(file.version, '^5', { includePrerelease: true });
+});
 
 describe('legacy/bootstrap', () => {
     const uri = helpers.getURI('legacy/bootstrap');
@@ -40,7 +45,7 @@ describe('legacy/bootstrap', () => {
         helpers.assert.bodyClass('page-legacybootstrap', response, done);
     });
 
-    files.bootstrap.filter((file) => !file.current)
+    files.bootstrap.filter((file) => !file.current && file.version !== latestBootstrap5.version)
         .forEach((bootstrap) => {
             describe(bootstrap.version, () => {
                 ['html', 'pug', 'haml'].forEach((fmt) => {

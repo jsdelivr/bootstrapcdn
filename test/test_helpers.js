@@ -147,15 +147,15 @@ function assertAuthors(res, cb) {
 }
 
 function cssHTML(uri, sri) {
-    return htmlEncode(`<link href="${uri}" rel="stylesheet" integrity="${sri}" crossorigin="anonymous">`);
+    return htmlEncode(`<link rel="stylesheet" href="${uri}" integrity="${sri}" crossorigin="anonymous">`);
 }
 
 function cssPug(uri, sri) {
-    return htmlEncode(`link(href="${uri}", rel="stylesheet", integrity="${sri}", crossorigin="anonymous")`);
+    return htmlEncode(`link(rel="stylesheet", href="${uri}", integrity="${sri}", crossorigin="anonymous")`);
 }
 
 function cssHAML(uri, sri) {
-    return htmlEncode(`%link{href: "${uri}", rel: "stylesheet", integrity: "${sri}", crossorigin: "anonymous"}`);
+    return htmlEncode(`%link{rel: "stylesheet", href: "${uri}", integrity: "${sri}", crossorigin: "anonymous"}`);
 }
 
 function jsHTML(uri, sri) {

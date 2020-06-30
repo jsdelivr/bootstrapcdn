@@ -17,7 +17,7 @@ const fse = require('fs-extra');
     version = version.replace(/^v/, '');
 
     const basedir = path.join(__dirname, '..');
-    const bootstrapSrcDir = path.join(basedir, 'node_modules/bootstrap/dist');
+    const bootstrapSrcDir = path.join(basedir, `node_modules/${version.startsWith('5.') ? 'bootstrap5' : 'bootstrap'}/dist`);
     const bootstrapDistDir = path.join(basedir, 'cdn', 'twitter-bootstrap', version);
 
     if (fs.existsSync(bootstrapDistDir)) {
