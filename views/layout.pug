@@ -36,12 +36,9 @@ html(lang='en', prefix='og: http://ogp.me/ns#', itemscope, itemtype='http://sche
         include _partials/jumbotron.pug
 
         .container
-            .row
-                .col-12.col-md-9
+            .row.justify-content-center
+                .col-12.col-md-10
                     block content
-
-                .col-12.col-md-3
-                    include _partials/codefund.pug
 
         include _partials/footer.pug
 
