@@ -40,6 +40,9 @@ friends:
   - name: Edubirdie
     url: 'https://edubirdie.com/'
     nofollow: false
+  - name: FossHub
+    url: 'https://www.fosshub.com/'
+    nofollow: false
 redirects:
   - name: legacy
     from: /legacy/
