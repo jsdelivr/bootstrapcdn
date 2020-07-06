@@ -1,12 +1,11 @@
 # BootstrapCDN
 
-[![Total alerts](https://img.shields.io/lgtm/alerts/g/MaxCDN/bootstrapcdn.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/MaxCDN/bootstrapcdn/alerts/)
+[![LGTM alerts](https://img.shields.io/lgtm/alerts/g/MaxCDN/bootstrapcdn.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/MaxCDN/bootstrapcdn/alerts/)
 [![Build Status](https://github.com/MaxCDN/bootstrapcdn/workflows/Tests/badge.svg)](https://github.com/MaxCDN/bootstrapcdn/actions)
 [![Coverage Status](https://img.shields.io/coveralls/github/MaxCDN/bootstrapcdn/develop.svg?style=flat-square)](https://coveralls.io/github/MaxCDN/bootstrapcdn)
 [![dependencies Status](https://img.shields.io/david/MaxCDN/bootstrapcdn.svg?style=flat-square)](https://david-dm.org/MaxCDN/bootstrapcdn)
 [![devDependencies Status](https://img.shields.io/david/dev/MaxCDN/bootstrapcdn.svg?style=flat-square)](https://david-dm.org/MaxCDN/bootstrapcdn?type=dev)
 
-[![Follow BootstrapCDN on Twitter](https://img.shields.io/badge/twitter-@getBootstrapCDN-55acee.svg?style=flat-square)](https://twitter.com/getbootstrapcdn)
 [![Backers on Open Collective](https://img.shields.io/opencollective/backers/getbootstrapcdn.svg?style=flat-square)](#backers)
 [![Sponsors on Open Collective](https://img.shields.io/opencollective/sponsors/getbootstrapcdn.svg?style=flat-square)](#sponsors)
 
@@ -102,13 +101,13 @@ Thank you to all our backers! 🙏 [[Become a backer](https://opencollective.com
 
 Support this project by becoming a sponsor. Your logo will show up here with a link to your website. [[Become a sponsor](https://opencollective.com/getbootstrapcdn#sponsor)]
 
-[![](https://opencollective.com/getbootstrapcdn/sponsor/0/avatar.svg)](https://opencollective.com/getbootstrapcdn/sponsor/0/website)
-[![](https://opencollective.com/getbootstrapcdn/sponsor/1/avatar.svg)](https://opencollective.com/getbootstrapcdn/sponsor/1/website)
-[![](https://opencollective.com/getbootstrapcdn/sponsor/2/avatar.svg)](https://opencollective.com/getbootstrapcdn/sponsor/2/website)
-[![](https://opencollective.com/getbootstrapcdn/sponsor/3/avatar.svg)](https://opencollective.com/getbootstrapcdn/sponsor/3/website)
-[![](https://opencollective.com/getbootstrapcdn/sponsor/4/avatar.svg)](https://opencollective.com/getbootstrapcdn/sponsor/4/website)
-[![](https://opencollective.com/getbootstrapcdn/sponsor/5/avatar.svg)](https://opencollective.com/getbootstrapcdn/sponsor/5/website)
-[![](https://opencollective.com/getbootstrapcdn/sponsor/6/avatar.svg)](https://opencollective.com/getbootstrapcdn/sponsor/6/website)
-[![](https://opencollective.com/getbootstrapcdn/sponsor/7/avatar.svg)](https://opencollective.com/getbootstrapcdn/sponsor/7/website)
-[![](https://opencollective.com/getbootstrapcdn/sponsor/8/avatar.svg)](https://opencollective.com/getbootstrapcdn/sponsor/8/website)
-[![](https://opencollective.com/getbootstrapcdn/sponsor/9/avatar.svg)](https://opencollective.com/getbootstrapcdn/sponsor/9/website)
+[![OC sponsor 0](https://opencollective.com/getbootstrapcdn/sponsor/0/avatar.svg)](https://opencollective.com/getbootstrapcdn/sponsor/0/website)
+[![OC sponsor 1](https://opencollective.com/getbootstrapcdn/sponsor/1/avatar.svg)](https://opencollective.com/getbootstrapcdn/sponsor/1/website)
+[![OC sponsor 2](https://opencollective.com/getbootstrapcdn/sponsor/2/avatar.svg)](https://opencollective.com/getbootstrapcdn/sponsor/2/website)
+[![OC sponsor 3](https://opencollective.com/getbootstrapcdn/sponsor/3/avatar.svg)](https://opencollective.com/getbootstrapcdn/sponsor/3/website)
+[![OC sponsor 4](https://opencollective.com/getbootstrapcdn/sponsor/4/avatar.svg)](https://opencollective.com/getbootstrapcdn/sponsor/4/website)
+[![OC sponsor 5](https://opencollective.com/getbootstrapcdn/sponsor/5/avatar.svg)](https://opencollective.com/getbootstrapcdn/sponsor/5/website)
+[![OC sponsor 6](https://opencollective.com/getbootstrapcdn/sponsor/6/avatar.svg)](https://opencollective.com/getbootstrapcdn/sponsor/6/website)
+[![OC sponsor 7](https://opencollective.com/getbootstrapcdn/sponsor/7/avatar.svg)](https://opencollective.com/getbootstrapcdn/sponsor/7/website)
+[![OC sponsor 8](https://opencollective.com/getbootstrapcdn/sponsor/8/avatar.svg)](https://opencollective.com/getbootstrapcdn/sponsor/8/website)
+[![OC sponsor 9](https://opencollective.com/getbootstrapcdn/sponsor/9/avatar.svg)](https://opencollective.com/getbootstrapcdn/sponsor/9/website)
