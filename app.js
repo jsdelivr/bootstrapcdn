@@ -87,7 +87,6 @@ app.use((req, res, next) => {
 
     // custom headers
     res.setHeader('Cache-Control', 'public, max-age=0, must-revalidate');
-    res.setHeader('X-Hello-Human', 'Say hello back! @getBootstrapCDN on Twitter');
     res.setHeader('X-Powered-By', 'StackPath');
 
     res.locals.nonce = nonce;
