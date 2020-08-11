@@ -57,7 +57,7 @@
     "bootlint": "1.1.0",
     "bootstrap": "npm:bootstrap@4.5.2",
     "bootstrap5": "npm:bootstrap@5.0.0-alpha1",
-    "bootswatch": "4.5.1",
+    "bootswatch": "4.5.2",
     "escape-string-regexp": "^4.0.0",
     "fs-extra": "^9.0.1",
     "fs-walk": "0.0.2",
