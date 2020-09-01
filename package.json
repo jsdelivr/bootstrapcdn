@@ -61,7 +61,7 @@
     "escape-string-regexp": "^4.0.0",
     "fs-extra": "^9.0.1",
     "fs-walk": "0.0.2",
-    "html-validator": "^5.1.15",
+    "html-validator": "^5.1.16",
     "htmlencode": "0.0.4",
     "lockfile-lint": "^4.3.7",
     "mocha": "^8.1.3",
