@@ -50,7 +50,7 @@
     "semver": "^7.3.2",
     "serve-favicon": "^2.5.0",
     "sri-toolbox": "^0.2.0",
-    "staticify": "^4.0.0",
+    "staticify": "^5.0.0",
     "uuid": "^8.3.0"
   },
   "devDependencies": {
