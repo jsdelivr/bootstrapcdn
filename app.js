@@ -112,13 +112,7 @@ app.use(helmet.hsts({
 
 app.use(helmet.referrerPolicy({ policy: 'strict-origin-when-cross-origin' }));
 
-app.use(helmet.contentSecurityPolicy({
-    directives: CSP,
-    // Set to false if you want to completely disable any user-agent sniffing.
-    // This may make the headers less compatible but it will be much faster.
-    // This defaults to `true`.
-    browserSniff: false
-}));
+app.use(helmet.contentSecurityPolicy({ directives: CSP }));
 
 // locals
 app.locals.helpers = helpers;
