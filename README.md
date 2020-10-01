@@ -1,4 +1,4 @@
-# BootstrapCDN
+# BootstrapCDN An Amazing Project
 
 [![LGTM alerts](https://img.shields.io/lgtm/alerts/g/MaxCDN/bootstrapcdn.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/MaxCDN/bootstrapcdn/alerts/)
 [![Build Status](https://github.com/MaxCDN/bootstrapcdn/workflows/Tests/badge.svg)](https://github.com/MaxCDN/bootstrapcdn/actions)
