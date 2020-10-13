@@ -17,8 +17,15 @@ bootstrap:
     javascriptBundleSri: sha384-DBjhmceckmzwrnMMrjI7BvG2FmRuxQVaTfFYHgfnrdfqMhxKt445b7j3KBQLolRl
     javascriptEsmSri: sha384-sKZy8g2KJhBTFCD6cIg8d4EifJxaa8c/iYIERdeKorHWhAgZgQOfqOKMe3xBqye1
     stylesheetSri: sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I
-  - version: 4.5.2
+  - version: 4.5.3
     current: true
+    stylesheet: https://stackpath.bootstrapcdn.com/bootstrap/4.5.3/css/bootstrap.min.css
+    javascript: https://stackpath.bootstrapcdn.com/bootstrap/4.5.3/js/bootstrap.min.js
+    javascriptBundle: https://stackpath.bootstrapcdn.com/bootstrap/4.5.3/js/bootstrap.bundle.min.js
+    javascriptSri: sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s
+    javascriptBundleSri: sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx
+    stylesheetSri: sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2
+  - version: 4.5.2
     stylesheet: https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css
     javascript: https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js
     javascriptBundle: https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js
