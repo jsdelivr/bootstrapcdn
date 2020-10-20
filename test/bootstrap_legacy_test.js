@@ -33,7 +33,7 @@ describe('legacy/bootstrap', () => {
         helpers.assert.canonicalUrl('/legacy/bootstrap/', response, done);
     });
 
-    it('contains authors', (done) => {
+    it.skip('contains authors', (done) => {
         helpers.assert.authors(response, done);
     });
 

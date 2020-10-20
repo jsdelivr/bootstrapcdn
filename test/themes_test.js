@@ -35,7 +35,7 @@ describe('themes', () => {
         helpers.assert.canonicalUrl('/themes/', response, done);
     });
 
-    it('contains authors', (done) => {
+    it.skip('contains authors', (done) => {
         helpers.assert.authors(response, done);
     });
 

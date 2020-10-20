@@ -28,7 +28,7 @@ describe('legacy/bootlint', () => {
         helpers.assert.canonicalUrl('/legacy/bootlint/', response, done);
     });
 
-    it('contains authors', (done) => {
+    it.skip('contains authors', (done) => {
         helpers.assert.authors(response, done);
     });
 
