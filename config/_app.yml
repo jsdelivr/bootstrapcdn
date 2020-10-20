@@ -4,9 +4,6 @@ siteurl: 'https://www.bootstrapcdn.com'
 description: 'The recommended CDN for Bootstrap, Font Awesome and Bootswatch.'
 title_suffix: 'BootstrapCDN by StackPath'
 authors:
-  - name: Justin Dorfman
-    twitter: jdorfman
-    url: 'https://twitter.com/jdorfman'
   - name: Joshua Mervine
     twitter: mervinej
     url: 'https://twitter.com/mervinej'

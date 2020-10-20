@@ -28,30 +28,20 @@
                 });
 
                 clipboardInputs.on('success', function(ev) {
-                    var helpBlock = {};
                     var parentNextSibling = ev.trigger.parentElement.nextElementSibling;
-
-                    if (parentNextSibling &&
-                        parentNextSibling.nodeName.toLowerCase() === 'span') {
-                        helpBlock = parentNextSibling;
-                    } else {
-                        helpBlock = ev.trigger.nextElementSibling;
-                    }
+                    var helpBlock = parentNextSibling && parentNextSibling.nodeName.toLowerCase() === 'span' ?
+                        parentNextSibling :
+                        ev.trigger.nextElementSibling;
 
                     helpBlock.textContent = 'Copied text to clipboard';
                 });
             }, true);
 
             element.addEventListener('blur', function(event) {
-                var helpBlock = {};
                 var parentNextSibling = this.parentElement.nextElementSibling;
-
-                if (parentNextSibling &&
-                    parentNextSibling.nodeName.toLowerCase() === 'span') {
-                    helpBlock = parentNextSibling;
-                } else {
-                    helpBlock = this.nextElementSibling;
-                }
+                var helpBlock = parentNextSibling && parentNextSibling.nodeName.toLowerCase() === 'span' ?
+                    parentNextSibling :
+                    this.nextElementSibling;
 
                 event.preventDefault();
                 helpBlock.textContent = 'Click to copy';
