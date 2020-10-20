@@ -75,7 +75,7 @@
     "xo": "^0.34.1"
   },
   "engines": {
-    "node": "12.x"
+    "node": "14.x"
   },
   "mocha": {
     "check-leaks": true,
