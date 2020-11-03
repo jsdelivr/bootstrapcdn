@@ -1,5 +1,5 @@
 web:
-  image: jmervine/herokudev-node:12
+  image: jmervine/herokudev-node:14
   working_dir: /app/user
   volumes:
     - .:/app/user
