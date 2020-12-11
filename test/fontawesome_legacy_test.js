@@ -28,7 +28,7 @@ describe('legacy/fontawesome', () => {
         helpers.assert.canonicalUrl('/legacy/fontawesome/', response, done);
     });
 
-    it('contains authors', (done) => {
+    it.skip('contains authors', (done) => {
         helpers.assert.authors(response, done);
     });
 

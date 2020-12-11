@@ -33,7 +33,7 @@ describe('bootswatch4', () => {
         helpers.assert.canonicalUrl('/bootswatch/', response, done);
     });
 
-    it('contains authors', (done) => {
+    it.skip('contains authors', (done) => {
         helpers.assert.authors(response, done);
     });
 
