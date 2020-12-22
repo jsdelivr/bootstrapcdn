@@ -37,21 +37,21 @@
   },
   "dependencies": {
     "compression": "^1.7.4",
-    "cross-env": "^7.0.2",
+    "cross-env": "^7.0.3",
     "errorhandler": "^1.5.1",
     "express": "^4.17.1",
     "express-sitemap": "^1.8.0",
     "express-sslify": "^1.2.0",
     "helmet": "^4.2.0",
-    "js-yaml": "^3.14.0",
+    "js-yaml": "^3.14.1",
     "mime": "^2.4.6",
     "morgan": "^1.10.0",
     "pug": "^3.0.0",
-    "semver": "^7.3.2",
+    "semver": "^7.3.4",
     "serve-favicon": "^2.5.0",
     "sri-toolbox": "^0.2.0",
     "staticify": "^5.0.0",
-    "uuid": "^8.3.1"
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "bootlint": "1.1.0",
@@ -72,7 +72,7 @@
     "pug-lint": "^2.6.0",
     "pug-lint-config-clock": "^2.0.0",
     "request": "^2.88.2",
-    "xo": "^0.34.2"
+    "xo": "^0.36.1"
   },
   "engines": {
     "node": "14.x"

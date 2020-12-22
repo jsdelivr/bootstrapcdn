@@ -8,7 +8,5 @@ updates:
       time: "12:00"
       timezone: Europe/Athens
     open-pull-requests-limit: 10
-    reviewers:
-      - XhmikosR
     labels:
       - dependencies

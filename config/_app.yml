@@ -4,15 +4,19 @@ siteurl: 'https://www.bootstrapcdn.com'
 description: 'The recommended CDN for Bootstrap, Font Awesome and Bootswatch.'
 title_suffix: 'BootstrapCDN by StackPath'
 authors:
-  - name: Joshua Mervine
-    twitter: mervinej
-    url: 'https://twitter.com/mervinej'
-    work:
-      text: Heroku
-      url: 'https://www.heroku.com/'
-  - name: XhmikosR
-    twitter: XhmikosR
-    url: 'https://xhmikosr.io/'
+  inactive:
+    - name: Justin Dorfman
+      twitter: jdorfman
+      url: 'https://twitter.com/jdorfman'
+    - name: Joshua Mervine
+      twitter: mervinej
+      url: 'https://twitter.com/mervinej'
+      work:
+        text: Heroku
+        url: 'https://www.heroku.com/'
+    - name: XhmikosR
+      twitter: XhmikosR
+      url: 'https://xhmikosr.io/'
 favicon:
   uri: /assets/img/favicons/favicon.ico
 stylesheet:

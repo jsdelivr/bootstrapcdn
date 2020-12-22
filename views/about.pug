@@ -6,27 +6,43 @@ block content
 
             h2.text-center.mb-4 About
 
-            -var authors=config.app.authors;
-
             p.
                 BootstrapCDN was founded in 2012 by #[a(href='https://twitter.com/DavidHenzel', rel='noopener', target='_blank') David Henzel]
                 and Justin Dorfman at MaxCDN. Today, BootstrapCDN is used by over
                 #[a(href='https://trends.builtwith.com/cdn/StackPath-BootstrapCDN', rel='noopener', target='_blank') 7.9 million sites]
                 delivering over 70 billion requests a month.
 
-            p There are currently #{authors.length} maintainers:
+            -var activeAuthors=config.app.authors.active;
+            if (activeAuthors)
+                p There #{activeAuthors.length > 1 ? 'are' : 'is'} currently #{activeAuthors.length} maintainer#{activeAuthors.length > 1 ? 's' : ''}:
 
-            ul
-                each author in authors
-                    li
-                        a(href=author.url, rel='noopener', target='_blank')=author.name
+                ul
+                    each author in activeAuthors
+                        li
+                            a(href=author.url, rel='noopener', target='_blank')=author.name
 
-                        if (author.work && author.work.text)
-                            |  - 
-                            if (author.work.url)
-                                a(href=author.work.url, rel='noopener', target='_blank')=author.work.text
-                            else
-                                | #{author.work.text}
+                            if (author.work && author.work.text)
+                                |  - 
+                                if (author.work.url)
+                                    a(href=author.work.url, rel='noopener', target='_blank')=author.work.text
+                                else
+                                    | #{author.work.text}
+
+            -var inactiveAuthors=config.app.authors.inactive;
+            if (inactiveAuthors)
+                p Previous maintainers:
+
+                ul
+                    each author in inactiveAuthors
+                        li
+                            a(href=author.url, rel='noopener', target='_blank')=author.name
+
+                            if (author.work && author.work.text)
+                                |  - 
+                                if (author.work.url)
+                                    a(href=author.work.url, rel='noopener', target='_blank')=author.work.text
+                                else
+                                    | #{author.work.text}
 
             h2.my-4 Core Values
 
