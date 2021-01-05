@@ -3,6 +3,7 @@ on: [push, pull_request]
 env:
   CI: true
   NODE: 14.x
+  FORCE_COLOR: 2
 
 jobs:
   test:
