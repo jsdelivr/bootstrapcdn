@@ -95,7 +95,6 @@ npm run package version
 
 Thank you to all our backers! 🙏 [[Become a backer](https://opencollective.com/getbootstrapcdn#backer)]
 
-
 [![OC Backers](https://opencollective.com/getbootstrapcdn/backers.svg)](https://opencollective.com/getbootstrapcdn#backer)
 
 ## Sponsors
