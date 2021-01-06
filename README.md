@@ -1,8 +1,8 @@
 # BootstrapCDN
 
-[![LGTM alerts](https://img.shields.io/lgtm/alerts/g/MaxCDN/bootstrapcdn.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/MaxCDN/bootstrapcdn/alerts/)
-[![Build Status](https://github.com/MaxCDN/bootstrapcdn/workflows/Tests/badge.svg)](https://github.com/MaxCDN/bootstrapcdn/actions)
-[![Coverage Status](https://img.shields.io/coveralls/github/MaxCDN/bootstrapcdn/develop.svg?style=flat-square)](https://coveralls.io/github/MaxCDN/bootstrapcdn)
+[![LGTM alerts](https://img.shields.io/lgtm/alerts/g/MaxCDN/bootstrapcdn.svg?logo=lgtm&logoWidth=18&style=flat-square)](https://lgtm.com/projects/g/MaxCDN/bootstrapcdn/alerts/)
+[![Build Status](https://img.shields.io/github/workflow/status/MaxCDN/bootstrapcdn/Tests/develop?logo=github&label=Tests&style=flat-square)](https://github.com/MaxCDN/bootstrapcdn/actions?query=workflow%3ATests+branch%3Adevelop)
+[![Coverage Status](https://img.shields.io/coveralls/github/MaxCDN/bootstrapcdn/develop?style=flat-square)](https://coveralls.io/github/MaxCDN/bootstrapcdn)
 [![dependencies Status](https://img.shields.io/david/MaxCDN/bootstrapcdn.svg?style=flat-square)](https://david-dm.org/MaxCDN/bootstrapcdn)
 [![devDependencies Status](https://img.shields.io/david/dev/MaxCDN/bootstrapcdn.svg?style=flat-square)](https://david-dm.org/MaxCDN/bootstrapcdn?type=dev)
 
@@ -95,7 +95,16 @@ npm run package version
 
 Thank you to all our backers! 🙏 [[Become a backer](https://opencollective.com/getbootstrapcdn#backer)]
 
-[![Bakers](https://opencollective.com/getbootstrapcdn/backers.svg?width=890)](https://opencollective.com/getbootstrapcdn#backers)
+[![OC backer 0](https://opencollective.com/getbootstrapcdn/backer/0/avatar.svg)](https://opencollective.com/getbootstrapcdn/backer/0/website)
+[![OC backer 1](https://opencollective.com/getbootstrapcdn/backer/1/avatar.svg)](https://opencollective.com/getbootstrapcdn/backer/1/website)
+[![OC backer 2](https://opencollective.com/getbootstrapcdn/backer/2/avatar.svg)](https://opencollective.com/getbootstrapcdn/backer/2/website)
+[![OC backer 3](https://opencollective.com/getbootstrapcdn/backer/3/avatar.svg)](https://opencollective.com/getbootstrapcdn/backer/3/website)
+[![OC backer 4](https://opencollective.com/getbootstrapcdn/backer/4/avatar.svg)](https://opencollective.com/getbootstrapcdn/backer/4/website)
+[![OC backer 5](https://opencollective.com/getbootstrapcdn/backer/5/avatar.svg)](https://opencollective.com/getbootstrapcdn/backer/5/website)
+[![OC backer 6](https://opencollective.com/getbootstrapcdn/backer/6/avatar.svg)](https://opencollective.com/getbootstrapcdn/backer/6/website)
+[![OC backer 7](https://opencollective.com/getbootstrapcdn/backer/7/avatar.svg)](https://opencollective.com/getbootstrapcdn/backer/7/website)
+[![OC backer 8](https://opencollective.com/getbootstrapcdn/backer/8/avatar.svg)](https://opencollective.com/getbootstrapcdn/backer/8/website)
+[![OC backer 9](https://opencollective.com/getbootstrapcdn/backer/9/avatar.svg)](https://opencollective.com/getbootstrapcdn/backer/9/website)
 
 ## Sponsors
 
