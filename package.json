@@ -42,7 +42,7 @@
     "express": "^4.17.1",
     "express-sitemap": "^1.8.0",
     "express-sslify": "^1.2.0",
-    "helmet": "^4.3.1",
+    "helmet": "^4.4.1",
     "js-yaml": "^4.0.0",
     "mime": "^2.5.0",
     "morgan": "^1.10.0",
