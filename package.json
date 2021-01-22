@@ -55,7 +55,7 @@
   },
   "devDependencies": {
     "bootlint": "1.1.0",
-    "bootstrap": "npm:bootstrap@4.5.3",
+    "bootstrap": "npm:bootstrap@4.6.0",
     "bootstrap5": "npm:bootstrap@5.0.0-beta1",
     "bootswatch": "4.5.3",
     "escape-string-regexp": "^4.0.0",
