@@ -1,4 +1,13 @@
 bootstrap:
+  - version: 5.0.0-beta2
+    stylesheet: https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-beta2/css/bootstrap.min.css
+    javascript: https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-beta2/js/bootstrap.min.js
+    javascriptBundle: https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-beta2/js/bootstrap.bundle.min.js
+    javascriptEsm: https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-beta2/js/bootstrap.esm.min.js
+    javascriptSri: sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG
+    javascriptBundleSri: sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0
+    javascriptEsmSri: sha384-6bzZnCvHnki58RXGeO7KaGrn9k0ncAkHuTSLllRkU2K9olVvRthJP4tR8y0bsN0T
+    stylesheetSri: sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl
   - version: 5.0.0-beta1
     stylesheet: https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-beta1/css/bootstrap.min.css
     javascript: https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-beta1/js/bootstrap.min.js
