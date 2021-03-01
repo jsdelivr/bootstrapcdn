@@ -44,9 +44,9 @@
     "express-sslify": "^1.2.0",
     "helmet": "^4.4.1",
     "js-yaml": "^4.0.0",
-    "mime": "^2.5.0",
+    "mime": "^2.5.2",
     "morgan": "^1.10.0",
-    "pug": "^3.0.0",
+    "pug": "^3.0.2",
     "semver": "^7.3.4",
     "serve-favicon": "^2.5.0",
     "sri-toolbox": "^0.2.0",
@@ -63,8 +63,8 @@
     "fs-walk": "0.0.2",
     "html-validator": "^5.1.17",
     "htmlencode": "0.0.4",
-    "lockfile-lint": "^4.3.7",
-    "mocha": "^8.2.1",
+    "lockfile-lint": "^4.6.2",
+    "mocha": "^8.3.0",
     "mockdate": "^3.0.2",
     "nodemon": "^2.0.7",
     "npm-run-all": "^4.1.5",
@@ -72,7 +72,7 @@
     "pug-lint": "^2.6.0",
     "pug-lint-config-clock": "^2.0.0",
     "request": "^2.88.2",
-    "xo": "^0.37.1"
+    "xo": "^0.38.2"
   },
   "engines": {
     "node": "14.x"
@@ -130,6 +130,7 @@
         "never"
       ],
       "unicorn/filename-case": "off",
+      "unicorn/no-array-for-each": "off",
       "unicorn/prevent-abbreviations": "off"
     },
     "overrides": [
