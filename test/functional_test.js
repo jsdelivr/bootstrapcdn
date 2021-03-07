@@ -2,9 +2,6 @@
 
 const ENV = process.env;
 
-// We use BCDN_HEADERS to distinguish between production and debug CDN headers
-ENV.BCDN_HEADERS = ENV.BCDN_HEADERS || 'production';
-
 const assert = require('assert').strict;
 const path = require('path');
 const semver = require('semver');
@@ -18,30 +15,20 @@ const responses = {};
 
 // Expects header names to be lowercase in this object.
 const expectedHeaders = {
-    'accept-ranges': 'bytes',
+    'age': '',
     'access-control-allow-origin': '*',
     'cache-control': 'public, max-age=31536000',
-    'connection': 'Keep-Alive',
+    'connection': 'keep-alive',
     'content-length': '',
     'cross-origin-resource-policy': 'cross-origin',
     'date': '',
-    'debug': undefined,
-    'etag': '',
     'last-modified': '',
+    'strict-transport-security': 'max-age=31536000; includeSubDomains; preload',
     'timing-allow-origin': '*',
     'vary': 'Accept-Encoding',
     'x-cache': '',
-    'x-content-type-options': 'nosniff',
-    'x-hello-human': undefined,
-    'x-hw': undefined
+    'x-content-type-options': 'nosniff'
 };
-
-if (ENV.BCDN_HEADERS === 'debug') {
-    expectedHeaders.debug = 'Enabled';
-    // x-cache isn't present when the 'Debug' header is set to 'Enabled'
-    expectedHeaders['x-cache'] = undefined;
-    expectedHeaders['x-hw'] = '';
-}
 
 let compressedExtensions;
 
@@ -158,8 +145,7 @@ function assertContentType(uri, currentType, cb) {
     const ext = helpers.getExtension(uri);
     const expectedType = CONTENT_TYPE_MAP[ext];
 
-    assert.equal(currentType, expectedType,
-        `Invalid "content-type" for "${ext}", expects "${expectedType}" but got "${currentType}"`);
+    assert.equal(currentType, expectedType, `Invalid "content-type" for "${ext}", expects "${expectedType}" but got "${currentType}"`);
     cb();
 }
 
@@ -177,14 +163,6 @@ describe('functional', () => {
             it('has integrity', (done) => {
                 assertSRI(uri, self.javascriptSri, done);
             });
-
-            afterEach(function() {
-                if (this.currentTest.state === 'failed' && ENV.BCDN_HEADERS === 'debug') {
-                    const errStr = `\n${uri}\nX-HW: ${responses[uri].headers['x-hw']}`;
-
-                    console.error(errStr);
-                }
-            });
         });
 
         if (self.javascriptBundle) {
@@ -200,14 +178,6 @@ describe('functional', () => {
                 it('has integrity', (done) => {
                     assertSRI(uri, self.javascriptBundleSri, done);
                 });
-
-                afterEach(function() {
-                    if (this.currentTest.state === 'failed' && ENV.BCDN_HEADERS === 'debug') {
-                        const errStr = `\n${uri}\nX-HW: ${responses[uri].headers['x-hw']}`;
-
-                        console.error(errStr);
-                    }
-                });
             });
         }
 
@@ -222,14 +192,6 @@ describe('functional', () => {
 
             it('has integrity', (done) => {
                 assertSRI(uri, self.stylesheetSri, done);
-            });
-
-            afterEach(function() {
-                if (this.currentTest.state === 'failed' && ENV.BCDN_HEADERS === 'debug') {
-                    const errStr = `\n${uri}\nX-HW: ${responses[uri].headers['x-hw']}`;
-
-                    console.error(errStr);
-                }
             });
         });
     });
@@ -249,14 +211,6 @@ describe('functional', () => {
 
                 it('has integrity', (done) => {
                     assertSRI(uri, theme.sri, done);
-                });
-
-                afterEach(function() {
-                    if (this.currentTest.state === 'failed' && ENV.BCDN_HEADERS === 'debug') {
-                        const errStr = `\n${uri}\nX-HW: ${responses[uri].headers['x-hw']}`;
-
-                        console.error(errStr);
-                    }
                 });
             });
         });
@@ -278,14 +232,6 @@ describe('functional', () => {
                 it('has integrity', (done) => {
                     assertSRI(uri, theme.sri, done);
                 });
-
-                afterEach(function() {
-                    if (this.currentTest.state === 'failed' && ENV.BCDN_HEADERS === 'debug') {
-                        const errStr = `\n${uri}\nX-HW: ${responses[uri].headers['x-hw']}`;
-
-                        console.error(errStr);
-                    }
-                });
             });
         });
     });
@@ -304,14 +250,6 @@ describe('functional', () => {
                 it('has integrity', (done) => {
                     assertSRI(uri, self.javascriptSri, done);
                 });
-
-                afterEach(function() {
-                    if (this.currentTest.state === 'failed' && ENV.BCDN_HEADERS === 'debug') {
-                        const errStr = `\n${uri}\nX-HW: ${responses[uri].headers['x-hw']}`;
-
-                        console.error(errStr);
-                    }
-                });
             });
         });
     });
@@ -329,14 +267,6 @@ describe('functional', () => {
 
                 it('has integrity', (done) => {
                     assertSRI(uri, self.stylesheetSri, done);
-                });
-
-                afterEach(function() {
-                    if (this.currentTest.state === 'failed' && ENV.BCDN_HEADERS === 'debug') {
-                        const errStr = `\n${uri}\nX-HW: ${responses[uri].headers['x-hw']}`;
-
-                        console.error(errStr);
-                    }
                 });
             });
         });
@@ -383,14 +313,6 @@ describe('functional', () => {
 
                 it('has content-type', (done) => {
                     assertContentType(uri, responses[uri].headers['content-type'], done);
-                });
-
-                afterEach(function() {
-                    if (this.currentTest.state === 'failed' && ENV.BCDN_HEADERS === 'debug') {
-                        const errStr = `\n${uri}\nX-HW: ${responses[uri].headers['x-hw']}`;
-
-                        console.error(errStr);
-                    }
                 });
             });
         }
