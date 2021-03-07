@@ -20,7 +20,7 @@
     m=s.getElementsByTagName(o)[0];a.src=g;m.parentNode.insertBefore(a,m)
     })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-    ga('create', 'UA-32253110-1', 'bootstrapcdn.com');
+    ga('create', 'G-WWCYVX0YTQ', 'bootstrapcdn.com');
     ga('set', 'anonymizeIp', true);
     ga('send', 'pageview');
     /* eslint-enable */

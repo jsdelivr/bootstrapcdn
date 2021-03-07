@@ -11,9 +11,7 @@ const dataRoute = require('./data');
 const fontawesomeRoute = require('./fontawesome');
 const indexRoute = require('./home');
 const integrationsRoute = require('./integrations');
-const jobsRoute = require('./jobs');
 const legacyRoutes = require('./legacy');
-const privacyPolicyRoute = require('./privacyPolicy');
 const redirectToRoot = require('./redirectToRoot');
 const showcaseRoute = require('./showcase');
 const themesRoute = require('./themes');
@@ -29,9 +27,7 @@ const routes = {
     fontawesomeRoute,
     indexRoute,
     integrationsRoute,
-    jobsRoute,
     legacyRoutes,
-    privacyPolicyRoute,
     redirectToRoot,
     showcaseRoute,
     themesRoute
