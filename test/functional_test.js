@@ -65,14 +65,6 @@ const CONTENT_TYPE_MAP = {
 };
 
 // Helper functions used in this file
-function domainCheck(uri) {
-    if (typeof process.env.TEST_S3 === 'undefined') {
-        return uri;
-    }
-
-    return uri.replace(CDN_URL, process.env.TEST_S3);
-}
-
 function request(uri, cb) {
     // return memoized response to avoid making the same http call twice
     if (Object.prototype.hasOwnProperty.call(responses, uri)) {
@@ -93,36 +85,30 @@ function assertSRI(uri, actualSri, done) {
     done();
 }
 
-const s3include = new Set(['content-type']);
-
 function assertHeaders(uri) {
     Object.keys(expectedHeaders).forEach((header) => {
         // Ignore header name case as per the specs
         header = header.toLowerCase();
 
-        if (typeof process.env.TEST_S3 !== 'undefined' && !s3include.has(header)) {
-            it.skip(`has ${header}`);
-        } else {
-            const expected = expectedHeaders[header];
-            const testDescription = typeof expected === 'undefined' ?
-                `does NOT have ${header} present` :
-                `has ${header}${expected === '' ? ' present' : `: ${expected}`}`;
+        const expected = expectedHeaders[header];
+        const testDescription = typeof expected === 'undefined' ?
+            `does NOT have ${header} present` :
+            `has ${header}${expected === '' ? ' present' : `: ${expected}`}`;
 
-            it(testDescription, (done) => {
-                const actual = responses[uri].headers[header];
+        it(testDescription, (done) => {
+            const actual = responses[uri].headers[header];
 
-                if (typeof expected === 'undefined') {
-                    assert.equal(actual, expected, `Expects ${header} to NOT be present in the response headers`);
-                } else if (expected === '') {
-                    assert.ok(Object.prototype.hasOwnProperty.call(responses[uri].headers, header),
-                        `Expects "${header}" to be present in the response headers`);
-                } else {
-                    assert.equal(actual, expected, `Expects ${header} to be present in the response headers`);
-                }
+            if (typeof expected === 'undefined') {
+                assert.equal(actual, expected, `Expects ${header} to NOT be present in the response headers`);
+            } else if (expected === '') {
+                assert.ok(Object.prototype.hasOwnProperty.call(responses[uri].headers, header),
+                    `Expects "${header}" to be present in the response headers`);
+            } else {
+                assert.equal(actual, expected, `Expects ${header} to be present in the response headers`);
+            }
 
-                done();
-            });
-        }
+            done();
+        });
     });
 
     if (ENV.BCDN_GZIP_TESTS) {
@@ -151,8 +137,8 @@ function assertContentType(uri, currentType, cb) {
 
 describe('functional', () => {
     files.bootstrap.forEach((self) => {
-        describe(domainCheck(self.javascript), () => {
-            const uri = domainCheck(self.javascript);
+        describe(self.javascript, () => {
+            const uri = self.javascript;
 
             it('it works', (done) => {
                 request(uri, (res) => {
@@ -166,8 +152,8 @@ describe('functional', () => {
         });
 
         if (self.javascriptBundle) {
-            describe(domainCheck(self.javascriptBundle), () => {
-                const uri = domainCheck(self.javascriptBundle);
+            describe(self.javascriptBundle, () => {
+                const uri = self.javascriptBundle;
 
                 it('it works', (done) => {
                     request(uri, (res) => {
@@ -181,8 +167,8 @@ describe('functional', () => {
             });
         }
 
-        describe(domainCheck(self.stylesheet), () => {
-            const uri = domainCheck(self.stylesheet);
+        describe(self.stylesheet, () => {
+            const uri = self.stylesheet;
 
             it('it works', (done) => {
                 request(uri, (res) => {
@@ -198,9 +184,9 @@ describe('functional', () => {
 
     describe('bootswatch3', () => {
         files.bootswatch3.themes.forEach((theme) => {
-            const uri = domainCheck(files.bootswatch3.bootstrap
+            const uri = files.bootswatch3.bootstrap
                 .replace('SWATCH_VERSION', files.bootswatch3.version)
-                .replace('SWATCH_NAME', theme.name));
+                .replace('SWATCH_NAME', theme.name);
 
             describe(uri, () => {
                 it('it works', (done) => {
@@ -218,9 +204,9 @@ describe('functional', () => {
 
     describe('bootswatch4', () => {
         files.bootswatch4.themes.forEach((theme) => {
-            const uri = domainCheck(files.bootswatch4.bootstrap
+            const uri = files.bootswatch4.bootstrap
                 .replace('SWATCH_VERSION', files.bootswatch4.version)
-                .replace('SWATCH_NAME', theme.name));
+                .replace('SWATCH_NAME', theme.name);
 
             describe(uri, () => {
                 it('it works', (done) => {
@@ -238,7 +224,7 @@ describe('functional', () => {
 
     describe('bootlint', () => {
         files.bootlint.forEach((self) => {
-            const uri = domainCheck(self.javascript);
+            const uri = self.javascript;
 
             describe(uri, () => {
                 it('it works', (done) => {
@@ -256,7 +242,7 @@ describe('functional', () => {
 
     describe('fontawesome', () => {
         files.fontawesome.forEach((self) => {
-            const uri = domainCheck(self.stylesheet);
+            const uri = self.stylesheet;
 
             describe(uri, () => {
                 it('it works', (done) => {
@@ -284,8 +270,7 @@ describe('functional', () => {
 
             // replace Windows backslashes with forward ones
             root = root.replace(/\\/g, '/');
-            const domain = domainCheck(CDN_URL);
-            const uri = `${domain + root}/${name}`;
+            const uri = `${CDN_URL + root}/${name}`;
 
             // ignore twitter-bootstrap versions after 2.3.2
             if (uri.includes('twitter-bootstrap')) {
