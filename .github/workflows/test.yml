@@ -31,7 +31,7 @@ jobs:
         run: npm ci
 
       - name: Run tests with coverage
-        run: npm run nyc -- npm run mocha:no-functional
+        run: npm run c8 -- npm run mocha:no-functional
 
       - name: Run Coveralls
         uses: coverallsapp/github-action@v1.1.2
