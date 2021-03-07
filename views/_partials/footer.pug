@@ -12,11 +12,6 @@ footer.mt-5.py-4.text-center.border-top
                             else if (index > 0)
                                 | , 
                             a(href=author.url, rel='noopener nofollow', target='_blank')=`@${author.twitter}` 
-
-                p
-                    a(href='https://www.stackpath.com/?utm_campaign=Partner%20Display&utm_source=Partner%20Display&utm_medium=bootstrapcdn', title='StackPath', rel='noopener', target='_blank')
-                        include /assets/img/stackpath-logo-reversed-screen.svg
-
                 p
                     | Homies be 
                     each friend, index in config.app.friends
@@ -27,6 +22,6 @@ footer.mt-5.py-4.text-center.border-top
                         a(href=friend.url, rel=`noopener${friend.nofollow !== false ? " nofollow" : ""}`, target='_blank')=friend.name 
 
                 p.
-                    #[a(href='/about/') About] · #[a(href='/privacy-policy/') Privacy Policy]
+                    #[a(href='/about/') About] · #[a(href='https://www.jsdelivr.com/terms/privacy-policy-jsdelivr-net',  target='_blank') Privacy Policy]
 
 //- vim: ft=pug sw=4 sts=4 et:

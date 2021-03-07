@@ -1,8 +1,8 @@
 port: 3333
 theme: 1
 siteurl: 'https://www.bootstrapcdn.com'
-description: 'The recommended CDN for Bootstrap, Font Awesome and Bootswatch.'
-title_suffix: 'BootstrapCDN by StackPath'
+description: 'The recommended free CDN for Bootstrap, Font Awesome and Bootswatch.'
+title_suffix: 'BootstrapCDN'
 authors:
   inactive:
     - name: Justin Dorfman

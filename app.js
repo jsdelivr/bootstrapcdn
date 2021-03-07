@@ -132,9 +132,7 @@ app.use('/bootswatch4/', routes.bootswatch4Route);
 app.use('/data/bootstrapcdn.json', routes.dataRoute);
 app.use('/fontawesome/', routes.fontawesomeRoute);
 app.use('/integrations/', routes.integrationsRoute);
-app.use('/jobs/', routes.jobsRoute);
 app.use('/legacy', routes.legacyRoutes);
-app.use('/privacy-policy/', routes.privacyPolicyRoute);
 app.use('/showcase/', routes.showcaseRoute);
 app.use('/themes/', routes.themesRoute);
 
@@ -157,9 +155,6 @@ const map = sitemap({
             hide: true
         },
         '/bootswatch4/': {
-            hide: true
-        },
-        '/jobs/': {
             hide: true
         },
         '/legacy/': {
