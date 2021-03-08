@@ -132,6 +132,9 @@ app.use('/bootswatch4/', routes.bootswatch4Route);
 app.use('/data/bootstrapcdn.json', routes.dataRoute);
 app.use('/fontawesome/', routes.fontawesomeRoute);
 app.use('/integrations/', routes.integrationsRoute);
+app.use('/jobs/',(req,res)=>{
+    res.redirect( '/');
+ })
 app.use('/legacy', routes.legacyRoutes);
 app.use('/showcase/', routes.showcaseRoute);
 app.use('/themes/', routes.themesRoute);
