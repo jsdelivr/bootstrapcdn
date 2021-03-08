@@ -124,7 +124,7 @@ app.locals.semver = semver;
 // routes
 app.use('/', routes.indexRoute);
 app.use('/about/', routes.aboutRoute);
-app.use('/alpha/?|/beta/?', routes.redirectToRoot);
+app.use('/alpha/?|/beta/?|/jobs/?', routes.redirectToRoot);
 app.use('/books/', routes.booksRoute);
 app.use('/bootlint/', routes.bootlintRoute);
 app.use('/bootswatch/', routes.bootswatchRoute);
@@ -132,9 +132,6 @@ app.use('/bootswatch4/', routes.bootswatch4Route);
 app.use('/data/bootstrapcdn.json', routes.dataRoute);
 app.use('/fontawesome/', routes.fontawesomeRoute);
 app.use('/integrations/', routes.integrationsRoute);
-app.use('/jobs/', (req, res) => {
-    res.redirect('/');
-});
 app.use('/legacy', routes.legacyRoutes);
 app.use('/showcase/', routes.showcaseRoute);
 app.use('/themes/', routes.themesRoute);

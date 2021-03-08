@@ -57,3 +57,6 @@ redirects:
   - name: bootswatch4
     from: /bootswatch4/
     to: /bootswatch/
+  - name: jobs
+    from: /jobs/
+    to: /
