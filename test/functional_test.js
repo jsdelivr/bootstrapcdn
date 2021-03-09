@@ -1,7 +1,5 @@
 'use strict';
 
-const ENV = process.env;
-
 const assert = require('assert').strict;
 const path = require('path');
 const semver = require('semver');
@@ -27,21 +25,15 @@ const expectedHeaders = {
     'x-content-type-options': 'nosniff'
 };
 
-let compressedExtensions;
-
-if (ENV.BCDN_GZIP_TESTS) {
-    compressedExtensions = new Set([
-        'css',
-        'eot',
-        'js',
-        'map',
-        'otf',
-        'svg',
-        'ttf',
-        'woff',
-        'woff2'
-    ]);
-}
+const compressedExtensions = new Set([
+    'css',
+    'eot',
+    'js',
+    'map',
+    'otf',
+    'svg',
+    'ttf'
+]);
 
 const CONTENT_TYPE_MAP = {
     css: 'text/css; charset=utf-8',
@@ -108,19 +100,17 @@ function assertHeaders(uri) {
         });
     });
 
-    if (ENV.BCDN_GZIP_TESTS) {
-        const ext = helpers.getExtension(uri);
-        if (compressedExtensions.has(ext)) {
-            it('has content-encoding: gzip', (done) => {
-                assert.equal(responses[uri].headers['content-encoding'], 'gzip');
-                done();
-            });
-        } else {
-            it('does NOT have content-encoding set', (done) => {
-                assert.equal(responses[uri].headers['content-encoding'], undefined);
-                done();
-            });
-        }
+    const ext = helpers.getExtension(uri);
+    if (compressedExtensions.has(ext)) {
+        it('has content-encoding: gzip', (done) => {
+            assert.equal(responses[uri].headers['content-encoding'], 'gzip');
+            done();
+        });
+    } else {
+        it('does NOT have content-encoding set', (done) => {
+            assert.equal(responses[uri].headers['content-encoding'], undefined);
+            done();
+        });
     }
 }
 
