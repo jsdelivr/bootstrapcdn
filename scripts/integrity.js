@@ -1,65 +1,100 @@
-"use strict";
+#!/usr/bin/env node
 
-const axios = require("axios").default;
+'use strict';
 
-const baseURL = "https://data.jsdelivr.com/v1/package/npm";
+const fs = require('fs');
+const path = require('path');
+const yaml = require('js-yaml');
+const { files } = require('../config');
+const { generateSri } = require('../lib/helpers');
 
-async function getPackage(packageName) {
-    const { data } = await axios.get(`${baseURL}/${packageName}`);
-    return data;
+const configFile = path.resolve(__dirname, '../config/_files.yml');
+
+function buildPath(dir) {
+    dir = dir.replace('/bootstrap/', '/twitter-bootstrap/')
+        .replace('https://stackpath.bootstrapcdn.com/', '');
+
+    return path.join(__dirname, '../cdn', dir);
 }
 
-function findFile(folder,filename){
-    const file=folder.files.find(f=>f.name==filename);
-    return file!=undefined ? file : false;
+function exists(file) {
+    const found = fs.existsSync(file);
+
+    if (!found) {
+        console.warn(`WARNING: ${file} not found`);
+    }
+
+    return found;
 }
 
-function buildPath(packageData,ext,filename){
-    let path=`${packageData.version}/`;;
-    const dir=findFile(packageData,"dist");
-    if(dir){
-        path+=dir.name;
-        const jsFiles=findFile(dir,ext);
-        if(jsFiles){
-            path+=`/${jsFiles.name}`;
-            const jsFile=findFile(jsFiles,filename);
-            if(jsFiles){
-                path+=`/${jsFile.name}`;
-            }
+// Bootswatch {3,4}
+['bootswatch3', 'bootswatch4'].forEach((key) => {
+    const bootswatch = buildPath(files[key].bootstrap);
+
+    files[key].themes.forEach((theme) => {
+        const file = bootswatch.replace('SWATCH_VERSION', files[key].version)
+            .replace('SWATCH_NAME', theme.name);
+
+        if (exists(file)) {
+            theme.sri = generateSri(file);
         }
-        return path;
-    }
-    
-
-}
-
-async function onPackageVersions({ versions }) {
-    try {
-        const promises = versions.map(async (version) => {
-
-            const res= await getPackage(`bootstrap@${version}`);
-            return {...res,version};
-        });
-
-        const packages = await Promise.all(promises);
-
-        const cdn=packages.map(x=>{
-            const pathsObj={};
-            pathsObj.stylesheet=buildPath(x,"css","bootstrap.min.css");
-            pathsObj.javascript=buildPath(x,"js","bootstrap.min.js");
-            pathsObj.javascriptBundle=buildPath(x,"js","bootstrap.bundle.min.js");
-            pathsObj.javascriptEsm=buildPath(x,"js","bootstrap.esm.min.js");
-            return pathsObj;
-        })
-        console.log(cdn);
-
-    } catch (error) {
-        console.error(error);
-    }
-}
-
-getPackage("bootstrap")
-    .then(onPackageVersions)
-    .catch((err) => {
-        console.log(err.message);
     });
+});
+
+// Bootlint
+files.bootlint.forEach((bootlint) => {
+    const file = buildPath(bootlint.javascript);
+
+    if (exists(file)) {
+        bootlint.javascriptSri = generateSri(file);
+    }
+});
+
+// Bootstrap
+files.bootstrap.forEach((bootstrap) => {
+    const javascript = buildPath(bootstrap.javascript);
+    const stylesheet = buildPath(bootstrap.stylesheet);
+    let { javascriptBundle, javascriptEsm } = bootstrap;
+
+    if (javascriptBundle) {
+        javascriptBundle = buildPath(bootstrap.javascriptBundle);
+    }
+
+    if (javascriptEsm) {
+        javascriptEsm = buildPath(bootstrap.javascriptEsm);
+    }
+
+    if (exists(javascript)) {
+        bootstrap.javascriptSri = generateSri(javascript);
+    }
+
+    if (javascriptBundle && exists(javascriptBundle)) {
+        bootstrap.javascriptBundleSri = generateSri(javascriptBundle);
+    }
+
+    if (javascriptEsm && exists(javascriptEsm)) {
+        bootstrap.javascriptEsmSri = generateSri(javascriptEsm);
+    }
+
+    if (exists(stylesheet)) {
+        bootstrap.stylesheetSri = generateSri(stylesheet);
+    }
+});
+
+// Font Awesome
+files.fontawesome.forEach((fontawesome) => {
+    const stylesheet = buildPath(fontawesome.stylesheet);
+
+    if (exists(stylesheet)) {
+        fontawesome.stylesheetSri = generateSri(stylesheet);
+    }
+});
+
+// Create backup file
+fs.copyFileSync(configFile, `${configFile}.bak`);
+
+fs.writeFileSync(configFile,
+    yaml.dump(files, {
+        lineWidth: -1
+    })
+);
