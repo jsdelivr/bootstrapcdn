@@ -25,6 +25,8 @@ function buildPath(packageData, ext, filename) {
             const file = findFile(extensionFolder, filename)
             if (file) {
                 path += `/${file.name}`
+            } else {
+                return undefined
             }
         }
         return path
@@ -50,6 +52,11 @@ async function onPackageVersions({ versions }) {
                 'bootstrap.bundle.min.js',
             )
             paths.javascriptEsm = buildPath(pack, 'js', 'bootstrap.esm.min.js')
+
+            Object.keys(paths).map((path) => {
+                !paths[path] && delete paths[path]
+            })
+
             return paths
         })
 
