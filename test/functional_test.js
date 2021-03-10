@@ -9,7 +9,9 @@ const { files } = require('../config');
 const helpers = require('./test_helpers');
 
 const CDN_URL = 'https://stackpath.bootstrapcdn.com/';
-const responses = {};
+
+const cache = new Set();
+const responses = new Map();
 
 // Expects header names to be lowercase in this object.
 const expectedHeaders = {
@@ -56,19 +58,20 @@ const CONTENT_TYPE_MAP = {
 // Helper functions used in this file
 function request(uri, cb) {
     // return memoized response to avoid making the same http call twice
-    if (Object.prototype.hasOwnProperty.call(responses, uri)) {
-        return cb(responses[uri]);
+    if (cache.has(uri)) {
+        return cb(responses.get(uri));
     }
 
     // build memoized response
     return helpers.prefetch(uri, (res) => {
-        responses[uri] = res;
+        cache.add(uri);
+        responses.set(uri, res);
         cb(res);
     });
 }
 
 function assertSRI(uri, actualSri, done) {
-    const expectedSri = generateSri(responses[uri].body, true);
+    const expectedSri = generateSri(responses.get(uri).body, true);
 
     assert.equal(actualSri, expectedSri);
     done();
@@ -85,12 +88,12 @@ function assertHeaders(uri) {
             `has ${header}${expected === '' ? ' present' : `: ${expected}`}`;
 
         it(testDescription, (done) => {
-            const actual = responses[uri].headers[header];
+            const actual = responses.get(uri).headers[header];
 
             if (typeof expected === 'undefined') {
                 assert.equal(actual, expected, `Expects ${header} to NOT be present in the response headers`);
             } else if (expected === '') {
-                assert.ok(Object.prototype.hasOwnProperty.call(responses[uri].headers, header),
+                assert.ok(Object.prototype.hasOwnProperty.call(responses.get(uri).headers, header),
                     `Expects "${header}" to be present in the response headers`);
             } else {
                 assert.equal(actual, expected, `Expects ${header} to be present in the response headers`);
@@ -103,12 +106,12 @@ function assertHeaders(uri) {
     const ext = helpers.getExtension(uri);
     if (compressedExtensions.has(ext)) {
         it('has content-encoding: gzip', (done) => {
-            assert.equal(responses[uri].headers['content-encoding'], 'gzip');
+            assert.equal(responses.get(uri).headers['content-encoding'], 'gzip');
             done();
         });
     } else {
         it('does NOT have content-encoding set', (done) => {
-            assert.equal(responses[uri].headers['content-encoding'], undefined);
+            assert.equal(responses.get(uri).headers['content-encoding'], undefined);
             done();
         });
     }
@@ -284,7 +287,7 @@ describe('functional', () => {
                 assertHeaders(uri);
 
                 it('has content-type', (done) => {
-                    assertContentType(uri, responses[uri].headers['content-type'], done);
+                    assertContentType(uri, responses.get(uri).headers['content-type'], done);
                 });
             });
         }
