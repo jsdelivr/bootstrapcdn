@@ -57,3 +57,6 @@ redirects:
   - name: jobs
     from: /jobs/
     to: /
+  - name: privacy-policy
+    from: /privacy-policy/
+    to: /
