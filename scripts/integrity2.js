@@ -3,10 +3,11 @@
 const axios = require('axios').default
 
 const apiURL = 'https://data.jsdelivr.com/v1/package/npm'
+const packagesNameList = ['bootstrap', 'bootswatch', 'bootlint', 'fontawesome']
 
 async function getPackage(packageName) {
     const { data } = await axios.get(`${apiURL}/${packageName}`)
-    return data
+    return { ...data, packageName }
 }
 
 function findFile(folder, filename) {
@@ -15,7 +16,8 @@ function findFile(folder, filename) {
 }
 
 function buildPath(packageData, ext, filename) {
-    let path = `${packageData.version}/`
+    const baseURL = `https://cdn.jsdelivr.net/npm/${packageData.packageName}`
+    let path = `${baseURL}@${packageData.version}/`
     const dir = findFile(packageData, 'dist')
     if (dir) {
         path += dir.name
@@ -33,17 +35,17 @@ function buildPath(packageData, ext, filename) {
     }
 }
 
-async function onPackageVersions({ versions }) {
+async function onPackageVersions({ versions, packageName }) {
     try {
         const promises = versions.map(async (version) => {
-            const res = await getPackage(`bootstrap@${version}`)
-            return { ...res, version }
+            const res = await getPackage(`${packageName}@${version}`)
+            return { ...res, version, packageName }
         })
 
         const packages = await Promise.all(promises)
 
         const cdn = packages.map((pack) => {
-            const paths = {}
+            const paths = { version: pack.version }
             paths.stylesheet = buildPath(pack, 'css', 'bootstrap.min.css')
             paths.javascript = buildPath(pack, 'js', 'bootstrap.min.js')
             paths.javascriptBundle = buildPath(
@@ -71,3 +73,9 @@ getPackage('bootstrap')
     .catch((err) => {
         console.log(err.message)
     })
+
+// packagesNameList.map((p) => {
+//     getPackage(p).then((res) => {
+//         onPackageVersions(res, p)
+//     })
+// })
