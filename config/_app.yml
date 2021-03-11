@@ -19,9 +19,6 @@ authors:
       url: 'https://xhmikosr.io/'
 favicon:
   uri: /assets/img/favicons/favicon.ico
-stylesheet:
-  - name: iubenda
-    uri: /assets/css/privacy_policy.css
 javascript:
   - name: jquery
     uri: 'https://code.jquery.com/jquery-3.5.1.slim.min.js'
