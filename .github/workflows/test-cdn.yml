@@ -7,7 +7,7 @@ env:
   FORCE_COLOR: 2
 
 jobs:
-  functional-debug:
+  cdn:
     runs-on: ubuntu-latest
 
     steps:
@@ -32,33 +32,5 @@ jobs:
       - name: Install npm dependencies
         run: npm ci
 
-      - name: Run functional tests (debug)
-        run: npm run mocha:only-functional:dev
-
-  functional-prod:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Clone repository
-        uses: actions/checkout@v2
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: "${{ env.NODE }}"
-
-      - run: curl -s4 https://ifconfig.co/
-
-      - name: Set up npm cache
-        uses: actions/cache@v2
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ env.NODE }}-${{ hashFiles('package.json') }}-${{ hashFiles('package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-${{ env.NODE }}-${{ hashFiles('package.json') }}-${{ hashFiles('package-lock.json') }}
-
-      - name: Install npm dependencies
-        run: npm ci
-
-      - name: Run functional tests (production)
-        run: npm run mocha:only-functional:prod
+      - name: Run functional tests
+        run: npm run mocha:only-functional

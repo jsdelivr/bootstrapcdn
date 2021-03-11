@@ -1,8 +1,8 @@
 port: 3333
 theme: 1
 siteurl: 'https://www.bootstrapcdn.com'
-description: 'The recommended CDN for Bootstrap, Font Awesome and Bootswatch.'
-title_suffix: 'BootstrapCDN by StackPath'
+description: 'The recommended free CDN for Bootstrap, Font Awesome and Bootswatch.'
+title_suffix: 'BootstrapCDN'
 authors:
   inactive:
     - name: Justin Dorfman
@@ -19,13 +19,10 @@ authors:
       url: 'https://xhmikosr.io/'
 favicon:
   uri: /assets/img/favicons/favicon.ico
-stylesheet:
-  - name: iubenda
-    uri: /assets/css/privacy_policy.css
 javascript:
   - name: jquery
-    uri: 'https://code.jquery.com/jquery-3.5.1.slim.min.js'
-    sri: sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj
+    uri: 'https://code.jquery.com/jquery-3.6.0.slim.min.js'
+    sri: sha384-Qg00WFl9r0Xr6rUqNLv1ffTSSKEFFCDCKVyHZ+sVt8KuvG99nWw5RNvbhuKgif9z
   - name: clipboardjs
     uri: /assets/js/vendor/clipboard.min.js
   - name: main
@@ -57,3 +54,9 @@ redirects:
   - name: bootswatch4
     from: /bootswatch4/
     to: /bootswatch/
+  - name: jobs
+    from: /jobs/
+    to: /
+  - name: privacy-policy
+    from: /privacy-policy/
+    to: /

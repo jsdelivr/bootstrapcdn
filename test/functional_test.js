@@ -1,10 +1,5 @@
 'use strict';
 
-const ENV = process.env;
-
-// We use BCDN_HEADERS to distinguish between production and debug CDN headers
-ENV.BCDN_HEADERS = ENV.BCDN_HEADERS || 'production';
-
 const assert = require('assert').strict;
 const path = require('path');
 const semver = require('semver');
@@ -14,54 +9,37 @@ const { files } = require('../config');
 const helpers = require('./test_helpers');
 
 const CDN_URL = 'https://stackpath.bootstrapcdn.com/';
-const responses = {};
+
+const cache = new Set();
+const responses = new Map();
 
 // Expects header names to be lowercase in this object.
 const expectedHeaders = {
-    'accept-ranges': 'bytes',
     'access-control-allow-origin': '*',
-    'cache-control': 'public, max-age=31536000',
-    'connection': 'Keep-Alive',
-    'content-length': '',
+    'cache-control': 'public, max-age=31919000',
+    'cdn-cache': '',
     'cross-origin-resource-policy': 'cross-origin',
     'date': '',
-    'debug': undefined,
-    'etag': '',
     'last-modified': '',
+    'strict-transport-security': 'max-age=31536000; includeSubDomains; preload',
     'timing-allow-origin': '*',
     'vary': 'Accept-Encoding',
-    'x-cache': '',
-    'x-content-type-options': 'nosniff',
-    'x-hello-human': undefined,
-    'x-hw': undefined
+    'x-content-type-options': 'nosniff'
 };
 
-if (ENV.BCDN_HEADERS === 'debug') {
-    expectedHeaders.debug = 'Enabled';
-    // x-cache isn't present when the 'Debug' header is set to 'Enabled'
-    expectedHeaders['x-cache'] = undefined;
-    expectedHeaders['x-hw'] = '';
-}
-
-let compressedExtensions;
-
-if (ENV.BCDN_GZIP_TESTS) {
-    compressedExtensions = new Set([
-        'css',
-        'eot',
-        'js',
-        'map',
-        'otf',
-        'svg',
-        'ttf',
-        'woff',
-        'woff2'
-    ]);
-}
+const compressedExtensions = new Set([
+    'css',
+    'eot',
+    'js',
+    'map',
+    'otf',
+    'svg',
+    'ttf'
+]);
 
 const CONTENT_TYPE_MAP = {
     css: 'text/css; charset=utf-8',
-    js: 'text/javascript; charset=utf-8',
+    js: 'application/javascript; charset=utf-8',
 
     map: 'application/json; charset=utf-8',
 
@@ -78,79 +56,64 @@ const CONTENT_TYPE_MAP = {
 };
 
 // Helper functions used in this file
-function domainCheck(uri) {
-    if (typeof process.env.TEST_S3 === 'undefined') {
-        return uri;
-    }
-
-    return uri.replace(CDN_URL, process.env.TEST_S3);
-}
-
 function request(uri, cb) {
     // return memoized response to avoid making the same http call twice
-    if (Object.prototype.hasOwnProperty.call(responses, uri)) {
-        return cb(responses[uri]);
+    if (cache.has(uri)) {
+        return cb(responses.get(uri));
     }
 
     // build memoized response
     return helpers.prefetch(uri, (res) => {
-        responses[uri] = res;
+        cache.add(uri);
+        responses.set(uri, res);
         cb(res);
     });
 }
 
 function assertSRI(uri, actualSri, done) {
-    const expectedSri = generateSri(responses[uri].body, true);
+    const expectedSri = generateSri(responses.get(uri).body, true);
 
     assert.equal(actualSri, expectedSri);
     done();
 }
-
-const s3include = new Set(['content-type']);
 
 function assertHeaders(uri) {
     Object.keys(expectedHeaders).forEach((header) => {
         // Ignore header name case as per the specs
         header = header.toLowerCase();
 
-        if (typeof process.env.TEST_S3 !== 'undefined' && !s3include.has(header)) {
-            it.skip(`has ${header}`);
-        } else {
-            const expected = expectedHeaders[header];
-            const testDescription = typeof expected === 'undefined' ?
-                `does NOT have ${header} present` :
-                `has ${header}${expected === '' ? ' present' : `: ${expected}`}`;
+        const expected = expectedHeaders[header];
+        const testDescription = typeof expected === 'undefined' ?
+            `does NOT have ${header} present` :
+            `has ${header}${expected === '' ? ' present' : `: ${expected}`}`;
 
-            it(testDescription, (done) => {
-                const actual = responses[uri].headers[header];
+        it(testDescription, (done) => {
+            const actual = responses.get(uri).headers[header];
 
-                if (typeof expected === 'undefined') {
-                    assert.equal(actual, expected, `Expects ${header} to NOT be present in the response headers`);
-                } else if (expected === '') {
-                    assert.ok(Object.prototype.hasOwnProperty.call(responses[uri].headers, header),
-                        `Expects "${header}" to be present in the response headers`);
-                } else {
-                    assert.equal(actual, expected, `Expects ${header} to be present in the response headers`);
-                }
+            if (typeof expected === 'undefined') {
+                assert.equal(actual, expected, `Expects ${header} to NOT be present in the response headers`);
+            } else if (expected === '') {
+                assert.ok(Object.prototype.hasOwnProperty.call(responses.get(uri).headers, header),
+                    `Expects "${header}" to be present in the response headers`);
+            } else {
+                assert.equal(actual, expected, `Expects ${header} to be present in the response headers`);
+            }
 
-                done();
-            });
-        }
+            done();
+        });
     });
 
-    if (ENV.BCDN_GZIP_TESTS) {
-        const ext = helpers.getExtension(uri);
-        if (compressedExtensions.has(ext)) {
-            it('has content-encoding: gzip', (done) => {
-                assert.equal(responses[uri].headers['content-encoding'], 'gzip');
-                done();
-            });
-        } else {
-            it('does NOT have content-encoding set', (done) => {
-                assert.equal(responses[uri].headers['content-encoding'], undefined);
-                done();
-            });
-        }
+    const ext = helpers.getExtension(uri);
+    if (compressedExtensions.has(ext)) {
+        it('has content-encoding: gzip', (done) => {
+            assert.equal(responses.get(uri).headers['content-encoding'], 'gzip');
+            done();
+        });
+    } else {
+        it('does NOT have content-encoding set', (done) => {
+            assert.equal(responses.get(uri).headers['content-encoding'], undefined);
+            done();
+        });
     }
 }
 
@@ -158,15 +121,14 @@ function assertContentType(uri, currentType, cb) {
     const ext = helpers.getExtension(uri);
     const expectedType = CONTENT_TYPE_MAP[ext];
 
-    assert.equal(currentType, expectedType,
-        `Invalid "content-type" for "${ext}", expects "${expectedType}" but got "${currentType}"`);
+    assert.equal(currentType, expectedType, `Invalid "content-type" for "${ext}", expects "${expectedType}" but got "${currentType}"`);
     cb();
 }
 
 describe('functional', () => {
     files.bootstrap.forEach((self) => {
-        describe(domainCheck(self.javascript), () => {
-            const uri = domainCheck(self.javascript);
+        describe(self.javascript, () => {
+            const uri = self.javascript;
 
             it('it works', (done) => {
                 request(uri, (res) => {
@@ -177,19 +139,11 @@ describe('functional', () => {
             it('has integrity', (done) => {
                 assertSRI(uri, self.javascriptSri, done);
             });
-
-            afterEach(function() {
-                if (this.currentTest.state === 'failed' && ENV.BCDN_HEADERS === 'debug') {
-                    const errStr = `\n${uri}\nX-HW: ${responses[uri].headers['x-hw']}`;
-
-                    console.error(errStr);
-                }
-            });
         });
 
         if (self.javascriptBundle) {
-            describe(domainCheck(self.javascriptBundle), () => {
-                const uri = domainCheck(self.javascriptBundle);
+            describe(self.javascriptBundle, () => {
+                const uri = self.javascriptBundle;
 
                 it('it works', (done) => {
                     request(uri, (res) => {
@@ -200,19 +154,11 @@ describe('functional', () => {
                 it('has integrity', (done) => {
                     assertSRI(uri, self.javascriptBundleSri, done);
                 });
-
-                afterEach(function() {
-                    if (this.currentTest.state === 'failed' && ENV.BCDN_HEADERS === 'debug') {
-                        const errStr = `\n${uri}\nX-HW: ${responses[uri].headers['x-hw']}`;
-
-                        console.error(errStr);
-                    }
-                });
             });
         }
 
-        describe(domainCheck(self.stylesheet), () => {
-            const uri = domainCheck(self.stylesheet);
+        describe(self.stylesheet, () => {
+            const uri = self.stylesheet;
 
             it('it works', (done) => {
                 request(uri, (res) => {
@@ -223,22 +169,14 @@ describe('functional', () => {
             it('has integrity', (done) => {
                 assertSRI(uri, self.stylesheetSri, done);
             });
-
-            afterEach(function() {
-                if (this.currentTest.state === 'failed' && ENV.BCDN_HEADERS === 'debug') {
-                    const errStr = `\n${uri}\nX-HW: ${responses[uri].headers['x-hw']}`;
-
-                    console.error(errStr);
-                }
-            });
         });
     });
 
     describe('bootswatch3', () => {
         files.bootswatch3.themes.forEach((theme) => {
-            const uri = domainCheck(files.bootswatch3.bootstrap
+            const uri = files.bootswatch3.bootstrap
                 .replace('SWATCH_VERSION', files.bootswatch3.version)
-                .replace('SWATCH_NAME', theme.name));
+                .replace('SWATCH_NAME', theme.name);
 
             describe(uri, () => {
                 it('it works', (done) => {
@@ -249,14 +187,6 @@ describe('functional', () => {
 
                 it('has integrity', (done) => {
                     assertSRI(uri, theme.sri, done);
-                });
-
-                afterEach(function() {
-                    if (this.currentTest.state === 'failed' && ENV.BCDN_HEADERS === 'debug') {
-                        const errStr = `\n${uri}\nX-HW: ${responses[uri].headers['x-hw']}`;
-
-                        console.error(errStr);
-                    }
                 });
             });
         });
@@ -264,9 +194,9 @@ describe('functional', () => {
 
     describe('bootswatch4', () => {
         files.bootswatch4.themes.forEach((theme) => {
-            const uri = domainCheck(files.bootswatch4.bootstrap
+            const uri = files.bootswatch4.bootstrap
                 .replace('SWATCH_VERSION', files.bootswatch4.version)
-                .replace('SWATCH_NAME', theme.name));
+                .replace('SWATCH_NAME', theme.name);
 
             describe(uri, () => {
                 it('it works', (done) => {
@@ -278,21 +208,13 @@ describe('functional', () => {
                 it('has integrity', (done) => {
                     assertSRI(uri, theme.sri, done);
                 });
-
-                afterEach(function() {
-                    if (this.currentTest.state === 'failed' && ENV.BCDN_HEADERS === 'debug') {
-                        const errStr = `\n${uri}\nX-HW: ${responses[uri].headers['x-hw']}`;
-
-                        console.error(errStr);
-                    }
-                });
             });
         });
     });
 
     describe('bootlint', () => {
         files.bootlint.forEach((self) => {
-            const uri = domainCheck(self.javascript);
+            const uri = self.javascript;
 
             describe(uri, () => {
                 it('it works', (done) => {
@@ -304,21 +226,13 @@ describe('functional', () => {
                 it('has integrity', (done) => {
                     assertSRI(uri, self.javascriptSri, done);
                 });
-
-                afterEach(function() {
-                    if (this.currentTest.state === 'failed' && ENV.BCDN_HEADERS === 'debug') {
-                        const errStr = `\n${uri}\nX-HW: ${responses[uri].headers['x-hw']}`;
-
-                        console.error(errStr);
-                    }
-                });
             });
         });
     });
 
     describe('fontawesome', () => {
         files.fontawesome.forEach((self) => {
-            const uri = domainCheck(self.stylesheet);
+            const uri = self.stylesheet;
 
             describe(uri, () => {
                 it('it works', (done) => {
@@ -329,14 +243,6 @@ describe('functional', () => {
 
                 it('has integrity', (done) => {
                     assertSRI(uri, self.stylesheetSri, done);
-                });
-
-                afterEach(function() {
-                    if (this.currentTest.state === 'failed' && ENV.BCDN_HEADERS === 'debug') {
-                        const errStr = `\n${uri}\nX-HW: ${responses[uri].headers['x-hw']}`;
-
-                        console.error(errStr);
-                    }
                 });
             });
         });
@@ -354,8 +260,7 @@ describe('functional', () => {
 
             // replace Windows backslashes with forward ones
             root = root.replace(/\\/g, '/');
-            const domain = domainCheck(CDN_URL);
-            const uri = `${domain + root}/${name}`;
+            const uri = `${CDN_URL + root}/${name}`;
 
             // ignore twitter-bootstrap versions after 2.3.2
             if (uri.includes('twitter-bootstrap')) {
@@ -382,15 +287,7 @@ describe('functional', () => {
                 assertHeaders(uri);
 
                 it('has content-type', (done) => {
-                    assertContentType(uri, responses[uri].headers['content-type'], done);
-                });
-
-                afterEach(function() {
-                    if (this.currentTest.state === 'failed' && ENV.BCDN_HEADERS === 'debug') {
-                        const errStr = `\n${uri}\nX-HW: ${responses[uri].headers['x-hw']}`;
-
-                        console.error(errStr);
-                    }
+                    assertContentType(uri, responses.get(uri).headers['content-type'], done);
                 });
             });
         }
