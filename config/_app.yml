@@ -24,8 +24,8 @@ stylesheet:
     uri: /assets/css/privacy_policy.css
 javascript:
   - name: jquery
-    uri: 'https://code.jquery.com/jquery-3.5.1.slim.min.js'
-    sri: sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj
+    uri: 'https://code.jquery.com/jquery-3.6.0.slim.min.js'
+    sri: sha384-Qg00WFl9r0Xr6rUqNLv1ffTSSKEFFCDCKVyHZ+sVt8KuvG99nWw5RNvbhuKgif9z
   - name: clipboardjs
     uri: /assets/js/vendor/clipboard.min.js
   - name: main
