@@ -16,8 +16,20 @@ function findFile(folder, filename) {
     return file
 }
 
+function makePackagesObject(packsArr) {
+    const packagesNameObj = {
+        'font-awesome': [],
+        bootstrap: [],
+        bootswatch: [],
+        bootlint: [],
+    }
+    packsArr.map((pack) => {
+        packagesNameObj[pack.n] = pack.v
+    })
+    return packagesNameObj
+}
+
 function buildPath(packageData, ext, filename) {
-    //const baseURL = `https://cdn.jsdelivr.net/npm/${packageData.packageName}`
     let path = `${baseURL}${packageData.packageName}@${packageData.version}/`
     const dir = findFile(packageData, 'dist')
     if (dir) {
@@ -34,6 +46,7 @@ function buildPath(packageData, ext, filename) {
         }
         return path
     }
+    return false
 }
 
 function buildPathFontAwesome(packageData) {
@@ -59,7 +72,6 @@ function buildPathBootsWatch(packageData) {
                 stylesheet: `${path}/${name}/${cssFile}`,
             }
         })
-        // return themes
     } else {
         const themesNames = [
             'cerulean',
@@ -95,13 +107,14 @@ function buildPathBootsWatch(packageData) {
                 }
             })
             .filter((und) => und)
-        // return themes
     }
     return themes
 }
 
 function buildPathBootlint(packageData) {
-    return `${baseURL}/${packageData.packageName}@${packageData.version}${packageData.default}`
+    return packageData.default
+        ? `${baseURL}/${packageData.packageName}@${packageData.version}${packageData.default}`
+        : false
 }
 
 async function onPackageVersions({ versions, packageName }) {
@@ -113,58 +126,81 @@ async function onPackageVersions({ versions, packageName }) {
 
         const packages = await Promise.all(promises)
 
-        const cdn = packages.map((pack) => {
-            const paths = { version: pack.version }
-            //Start switch
-            switch (pack.packageName) {
-                case 'bootstrap':
-                    paths.stylesheet = buildPath(
-                        pack,
-                        'css',
-                        'bootstrap.min.css',
-                    )
-                    paths.javascript = buildPath(pack, 'js', 'bootstrap.min.js')
-                    paths.javascriptBundle = buildPath(
-                        pack,
-                        'js',
-                        'bootstrap.bundle.min.js',
-                    )
-                    paths.javascriptEsm = buildPath(
-                        pack,
-                        'js',
-                        'bootstrap.esm.min.js',
-                    )
+        const cdn = packages
+            .map((pack) => {
+                const paths = { version: pack.version }
+                //Start switch
+                switch (pack.packageName) {
+                    case 'bootstrap':
+                        paths.stylesheet = buildPath(
+                            pack,
+                            'css',
+                            'bootstrap.min.css',
+                        )
+                        paths.javascript = buildPath(
+                            pack,
+                            'js',
+                            'bootstrap.min.js',
+                        )
+                        paths.javascriptBundle = buildPath(
+                            pack,
+                            'js',
+                            'bootstrap.bundle.min.js',
+                        )
+                        paths.javascriptEsm = buildPath(
+                            pack,
+                            'js',
+                            'bootstrap.esm.min.js',
+                        )
 
-                    Object.keys(paths).map((path) => {
-                        !paths[path] && delete paths[path]
-                    })
-                    break
-                case 'bootswatch':
-                    paths.themes = buildPathBootsWatch(pack)
-                    break
-                case 'font-awesome':
-                    paths.stylesheet = buildPathFontAwesome(pack)
-                    break
-                case 'bootlint':
-                    paths.javascript = buildPathBootlint(pack)
-                    break
-                default:
-                    return null
-            }
-            //End switch
-            return paths
-        })
+                        Object.keys(paths).map((path) => {
+                            !paths[path] && delete paths[path]
+                        })
+                        break
+                    case 'bootswatch':
+                        paths.themes = buildPathBootsWatch(pack)
+                        break
+                    case 'font-awesome':
+                        paths.stylesheet = buildPathFontAwesome(pack)
+                        break
+                    case 'bootlint':
+                        const bootlintPath = buildPathBootlint(pack)
+                        if (bootlintPath) {
+                            paths.javascript = buildPathBootlint(pack)
+                        } else {
+                            return false
+                        }
+                        break
+                    default:
+                        return null
+                }
+                //End switch
+                return paths
+            })
+            .filter((cdn) => cdn)
 
-        console.log(cdn)
-
-        //return cdn
+        return cdn
     } catch (error) {
         console.error(error)
     }
 }
 
-getPackage('bootlint')
-    .then(onPackageVersions)
+// getPackage('font-awesome')
+//     .then(onPackageVersions)
+//     .catch((err) => {
+//         console.log(err.message)
+//     })
+const allPaths = packagesNameList.map(async (p) => {
+    const versions = await getPackage(p)
+    const packPaths = await onPackageVersions(versions)
+    return { n: p, v: packPaths }
+})
+
+Promise.all(allPaths)
+    .then((res) => {
+        const packageObj = makePackagesObject(res)
+        console.log(packageObj)
+    })
     .catch((err) => {
         console.log(err.message)
     })
