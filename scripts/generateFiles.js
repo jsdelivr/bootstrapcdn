@@ -117,7 +117,7 @@ function buildPathBootsWatch(packageData) {
 
 function buildPathBootlint(packageData) {
     return packageData.default
-        ? `${baseURL}/${packageData.packageName}@${packageData.version}${packageData.default}`
+        ? `${baseURL}${packageData.packageName}@${packageData.version}${packageData.default}`
         : false
 }
 

@@ -1,492 +1,227 @@
 bootstrap:
+  - version: 5.0.0-beta2
+    stylesheet: https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css
+    javascript: https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js
+    javascriptBundle: https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js
+    javascriptEsm: https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.esm.min.js
+  - version: 5.0.0-beta1
+    stylesheet: https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css
+    javascript: https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js
+    javascriptBundle: https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js
+    javascriptEsm: https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.esm.min.js
+  - version: 5.0.0-alpha3
+    stylesheet: https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/css/bootstrap.min.css
+    javascript: https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/js/bootstrap.min.js
+    javascriptBundle: https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/js/bootstrap.bundle.min.js
+    javascriptEsm: https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/js/bootstrap.esm.min.js
   - version: 5.0.0-alpha2
-    stylesheet: https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css
-    javascript: https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.min.js
-    javascriptBundle: https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.bundle.min.js
-    javascriptEsm: https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.esm.min.js
-    javascriptSri: sha384-5h4UG+6GOuV9qXh6HqOLwZMY4mnLPraeTrjT5v07o347pj6IkfuoASuGBhfDsp3d
-    javascriptBundleSri: sha384-BOsAfwzjNJHrJ8cZidOg56tcQWfp6y72vEJ8xQ9w6Quywb24iOsW913URv1IS4GD
-    javascriptEsmSri: sha384-Eg5XYZrb+x0FMnsSAcaUNc6vJ/6B47jQvyhan3IGKcCfko9Hq6vS3s1PviSpNbdE
-    stylesheetSri: sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK
+    stylesheet: https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha2/dist/css/bootstrap.min.css
+    javascript: https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha2/dist/js/bootstrap.min.js
+    javascriptBundle: https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha2/dist/js/bootstrap.bundle.min.js
+    javascriptEsm: https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha2/dist/js/bootstrap.esm.min.js
   - version: 5.0.0-alpha1
-    stylesheet: https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css
-    javascript: https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js
-    javascriptBundle: https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.bundle.min.js
-    javascriptEsm: https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.esm.min.js
-    javascriptSri: sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/
-    javascriptBundleSri: sha384-DBjhmceckmzwrnMMrjI7BvG2FmRuxQVaTfFYHgfnrdfqMhxKt445b7j3KBQLolRl
-    javascriptEsmSri: sha384-sKZy8g2KJhBTFCD6cIg8d4EifJxaa8c/iYIERdeKorHWhAgZgQOfqOKMe3xBqye1
-    stylesheetSri: sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I
+    stylesheet: https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css
+    javascript: https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.min.js
+    javascriptBundle: https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js
+    javascriptEsm: https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.esm.min.js
+  - version: 4.6.0
+    stylesheet: https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css
+    javascript: https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js
+    javascriptBundle: https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js
+  - version: 4.5.3
+    stylesheet: https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css
+    javascript: https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js
+    javascriptBundle: https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js
   - version: 4.5.2
-    current: true
-    stylesheet: https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css
-    javascript: https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js
-    javascriptBundle: https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js
-    javascriptSri: sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV
-    javascriptBundleSri: sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf
-    stylesheetSri: sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z
+    stylesheet: https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css
+    javascript: https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js
+    javascriptBundle: https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js
   - version: 4.5.1
-    stylesheet: https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css
-    javascript: https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/js/bootstrap.min.js
-    javascriptBundle: https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/js/bootstrap.bundle.min.js
-    javascriptSri: sha384-XEerZL0cuoUbHE4nZReLT7nx9gQrQreJekYhJD9WNWhH8nEW+0c5qq7aIo2Wl30J
-    javascriptBundleSri: sha384-FxkQtQ8fW6C3xA7BoW8ocAb2N7U9dCA7ZJXMJlz/37PL6Q6PUGQ5ZeJcaXdYKcdJ
-    stylesheetSri: sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX
+    stylesheet: https://cdn.jsdelivr.net/npm/bootstrap@4.5.1/dist/css/bootstrap.min.css
+    javascript: https://cdn.jsdelivr.net/npm/bootstrap@4.5.1/dist/js/bootstrap.min.js
+    javascriptBundle: https://cdn.jsdelivr.net/npm/bootstrap@4.5.1/dist/js/bootstrap.bundle.min.js
   - version: 4.5.0
-    stylesheet: https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css
-    javascript: https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js
-    javascriptBundle: https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js
-    javascriptSri: sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI
-    javascriptBundleSri: sha384-1CmrxMRARb6aLqgBO7yyAxTOQE2AKb9GfXnEo760AUcUmFx3ibVJJAzGytlQcNXd
-    stylesheetSri: sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk
+    stylesheet: https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css
+    javascript: https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js
+    javascriptBundle: https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js
   - version: 4.4.1
-    stylesheet: https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css
-    javascript: https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js
-    javascriptBundle: https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js
-    javascriptSri: sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6
-    javascriptBundleSri: sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm
-    stylesheetSri: sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh
+    stylesheet: https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css
+    javascript: https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js
+    javascriptBundle: https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.bundle.min.js
   - version: 4.4.0
-    stylesheet: https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css
-    javascript: https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/js/bootstrap.min.js
-    javascriptBundle: https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/js/bootstrap.bundle.min.js
-    javascriptSri: sha384-3qaqj0lc6sV/qpzrc1N5DC6i1VRn/HyX4qdPaiEFbn54VjQBEU341pvjz7Dv3n6P
-    javascriptBundleSri: sha384-Iep5TjrwnXOp2AdreAjhlprhxI5Ix8Y3I/zJd1tNQZQmonaE3i6fTdrvIG9YjOWl
-    stylesheetSri: sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt
+    stylesheet: https://cdn.jsdelivr.net/npm/bootstrap@4.4.0/dist/css/bootstrap.min.css
+    javascript: https://cdn.jsdelivr.net/npm/bootstrap@4.4.0/dist/js/bootstrap.min.js
+    javascriptBundle: https://cdn.jsdelivr.net/npm/bootstrap@4.4.0/dist/js/bootstrap.bundle.min.js
   - version: 4.3.1
-    stylesheet: https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css
-    javascript: https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js
-    javascriptBundle: https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js
-    javascriptSri: sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM
-    javascriptBundleSri: sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o
-    stylesheetSri: sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T
+    stylesheet: https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css
+    javascript: https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js
+    javascriptBundle: https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.bundle.min.js
   - version: 4.3.0
-    stylesheet: https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css
-    javascript: https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/js/bootstrap.min.js
-    javascriptBundle: https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/js/bootstrap.bundle.min.js
-    javascriptSri: sha384-7aThvCh9TypR7fIc2HV4O/nFMVCBwyIUKL8XCtKE+8xgCgl/PQGuFsvShjr74PBp
-    javascriptBundleSri: sha384-VoPFvGr9GxhDT3n8vqqZ46twP5lgex+raTCfICQy73NLhN7ZqSfCtfSn4mLA2EFA
-    stylesheetSri: sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA
+    stylesheet: https://cdn.jsdelivr.net/npm/bootstrap@4.3.0/dist/css/bootstrap.min.css
+    javascript: https://cdn.jsdelivr.net/npm/bootstrap@4.3.0/dist/js/bootstrap.min.js
+    javascriptBundle: https://cdn.jsdelivr.net/npm/bootstrap@4.3.0/dist/js/bootstrap.bundle.min.js
   - version: 4.2.1
-    stylesheet: https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css
-    javascript: https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js
-    javascriptBundle: https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.bundle.min.js
-    javascriptSri: sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k
-    javascriptBundleSri: sha384-zDnhMsjVZfS3hiP7oCBRmfjkQC4fzxVxFhBx8Hkz2aZX8gEvA/jsP3eXRCvzTofP
-    stylesheetSri: sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS
-  - version: 4.2.0
-    stylesheet: https://stackpath.bootstrapcdn.com/bootstrap/4.2.0/css/bootstrap.min.css
-    javascript: https://stackpath.bootstrapcdn.com/bootstrap/4.2.0/js/bootstrap.min.js
-    javascriptBundle: https://stackpath.bootstrapcdn.com/bootstrap/4.2.0/js/bootstrap.bundle.min.js
-    javascriptSri: sha384-1AHwFvFDF+iQPDBasw2LKa8PdkI8aYv2ad2o197DHC8qr4LuwSe44JY1THkowrqg
-    javascriptBundleSri: sha384-DzxYXig+LjvgMPAmuesvYZSTCE+bYqgfCLpnqxglyMvZGL5gNcalAK2mVo9klgWS
-    stylesheetSri: sha384-SlJL6LojdN8eNCOoIfK7KJ7SgRFeYBDu8tB1uxELbSAv+RVgD12pZmOcxTUTPXIg
+    stylesheet: https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/css/bootstrap.min.css
+    javascript: https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/js/bootstrap.min.js
+    javascriptBundle: https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/js/bootstrap.bundle.min.js
   - version: 4.1.3
-    stylesheet: https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css
-    javascript: https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js
-    javascriptBundle: https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js
-    javascriptSri: sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy
-    javascriptBundleSri: sha384-pjaaA8dDz/5BgdFUPX6M/9SUZv4d12SUPF0axWc+VRZkx5xU3daN+lYb49+Ax+Tl
-    stylesheetSri: sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO
+    stylesheet: https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css
+    javascript: https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js
+    javascriptBundle: https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.bundle.min.js
   - version: 4.1.2
-    stylesheet: https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css
-    javascript: https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js
-    javascriptBundle: https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.bundle.min.js
-    javascriptSri: sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em
-    javascriptBundleSri: sha384-CS0nxkpPy+xUkNGhObAISrkg/xjb3USVCwy+0/NMzd5VxgY4CMCyTkItmy5n0voC
-    stylesheetSri: sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B
+    stylesheet: https://cdn.jsdelivr.net/npm/bootstrap@4.1.2/dist/css/bootstrap.min.css
+    javascript: https://cdn.jsdelivr.net/npm/bootstrap@4.1.2/dist/js/bootstrap.min.js
+    javascriptBundle: https://cdn.jsdelivr.net/npm/bootstrap@4.1.2/dist/js/bootstrap.bundle.min.js
   - version: 4.1.1
-    stylesheet: https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css
-    javascript: https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js
-    javascriptBundle: https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js
-    javascriptSri: sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T
-    javascriptBundleSri: sha384-u/bQvRA/1bobcXlcEYpsEdFVK/vJs3+T+nXLsBYJthmdBuavHvAW6UsmqO2Gd/F9
-    stylesheetSri: sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB
+    stylesheet: https://cdn.jsdelivr.net/npm/bootstrap@4.1.1/dist/css/bootstrap.min.css
+    javascript: https://cdn.jsdelivr.net/npm/bootstrap@4.1.1/dist/js/bootstrap.min.js
+    javascriptBundle: https://cdn.jsdelivr.net/npm/bootstrap@4.1.1/dist/js/bootstrap.bundle.min.js
   - version: 4.1.0
-    stylesheet: https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css
-    javascript: https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js
-    javascriptBundle: https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.bundle.min.js
-    javascriptSri: sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm
-    javascriptBundleSri: sha384-lZmvU/TzxoIQIOD9yQDEpvxp6wEU32Fy0ckUgOH4EIlMOCdR823rg4+3gWRwnX1M
-    stylesheetSri: sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4
+    stylesheet: https://cdn.jsdelivr.net/npm/bootstrap@4.1.0/dist/css/bootstrap.min.css
+    javascript: https://cdn.jsdelivr.net/npm/bootstrap@4.1.0/dist/js/bootstrap.min.js
+    javascriptBundle: https://cdn.jsdelivr.net/npm/bootstrap@4.1.0/dist/js/bootstrap.bundle.min.js
   - version: 4.0.0
-    stylesheet: https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css
-    javascript: https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js
-    javascriptBundle: https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js
-    javascriptSri: sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl
-    javascriptBundleSri: sha384-feJI7QwhOS+hwpX2zkaeJQjeiwlhOP+SdQDqhgvvo1DsjtiSQByFdThsxO669S2D
-    stylesheetSri: sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm
+    stylesheet: https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css
+    javascript: https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js
+    javascriptBundle: https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.bundle.min.js
   - version: 4.0.0-beta.3
-    stylesheet: https://stackpath.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css
-    javascript: https://stackpath.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js
-    javascriptBundle: https://stackpath.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.bundle.min.js
-    javascriptSri: sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4
-    javascriptBundleSri: sha384-VspmFJ2uqRrKr3en+IG0cIq1Cl/v/PHneDw6SQZYgrcr8ZZmZoQ3zhuGfMnSR/F2
-    stylesheetSri: sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy
+    stylesheet: https://cdn.jsdelivr.net/npm/bootstrap@4.0.0-beta.3/dist/css/bootstrap.min.css
+    javascript: https://cdn.jsdelivr.net/npm/bootstrap@4.0.0-beta.3/dist/js/bootstrap.min.js
+    javascriptBundle: https://cdn.jsdelivr.net/npm/bootstrap@4.0.0-beta.3/dist/js/bootstrap.bundle.min.js
   - version: 4.0.0-beta.2
-    stylesheet: https://stackpath.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css
-    javascript: https://stackpath.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js
-    javascriptBundle: https://stackpath.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.bundle.min.js
-    javascriptSri: sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ
-    javascriptBundleSri: sha384-3ziFidFTgxJXHMDttyPJKDuTlmxJlwbSkojudK/CkRqKDOmeSbN6KLrGdrBQnT2n
-    stylesheetSri: sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb
+    stylesheet: https://cdn.jsdelivr.net/npm/bootstrap@4.0.0-beta.2/dist/css/bootstrap.min.css
+    javascript: https://cdn.jsdelivr.net/npm/bootstrap@4.0.0-beta.2/dist/js/bootstrap.min.js
+    javascriptBundle: https://cdn.jsdelivr.net/npm/bootstrap@4.0.0-beta.2/dist/js/bootstrap.bundle.min.js
   - version: 4.0.0-beta
-    stylesheet: https://stackpath.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css
-    javascript: https://stackpath.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js
-    javascriptSri: sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1
-    stylesheetSri: sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M
+    stylesheet: https://cdn.jsdelivr.net/npm/bootstrap@4.0.0-beta/dist/css/bootstrap.min.css
+    javascript: https://cdn.jsdelivr.net/npm/bootstrap@4.0.0-beta/dist/js/bootstrap.min.js
   - version: 4.0.0-alpha.6
-    stylesheet: https://stackpath.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css
-    javascript: https://stackpath.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js
-    javascriptSri: sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn
-    stylesheetSri: sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ
+    stylesheet: https://cdn.jsdelivr.net/npm/bootstrap@4.0.0-alpha.6/dist/css/bootstrap.min.css
+    javascript: https://cdn.jsdelivr.net/npm/bootstrap@4.0.0-alpha.6/dist/js/bootstrap.min.js
+  - version: 4.0.0-alpha.5
+    stylesheet: https://cdn.jsdelivr.net/npm/bootstrap@4.0.0-alpha.5/dist/css/bootstrap.min.css
+    javascript: https://cdn.jsdelivr.net/npm/bootstrap@4.0.0-alpha.5/dist/js/bootstrap.min.js
+  - version: 4.0.0-alpha.4
+    stylesheet: https://cdn.jsdelivr.net/npm/bootstrap@4.0.0-alpha.4/dist/css/bootstrap.min.css
+    javascript: https://cdn.jsdelivr.net/npm/bootstrap@4.0.0-alpha.4/dist/js/bootstrap.min.js
+  - version: 4.0.0-alpha.3
+    stylesheet: https://cdn.jsdelivr.net/npm/bootstrap@4.0.0-alpha.3/dist/css/bootstrap.min.css
+    javascript: https://cdn.jsdelivr.net/npm/bootstrap@4.0.0-alpha.3/dist/js/bootstrap.min.js
+  - version: 4.0.0-alpha.2
+    stylesheet: https://cdn.jsdelivr.net/npm/bootstrap@4.0.0-alpha.2/dist/css/bootstrap.min.css
+    javascript: https://cdn.jsdelivr.net/npm/bootstrap@4.0.0-alpha.2/dist/js/bootstrap.min.js
   - version: 3.4.1
-    stylesheet: https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css
-    javascript: https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js
-    javascriptSri: sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd
-    stylesheetSri: sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu
+    stylesheet: https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css
+    javascript: https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js
   - version: 3.4.0
-    stylesheet: https://stackpath.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css
-    javascript: https://stackpath.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js
-    javascriptSri: sha384-vhJnz1OVIdLktyixHY4Uk3OHEwdQqPppqYR8+5mjsauETgLOcEynD9oPHhhz18Nw
-    stylesheetSri: sha384-PmY9l28YgO4JwMKbTvgaS7XNZJ30MK9FAZjjzXtlqyZCqBY6X6bXIkM++IkyinN+
+    stylesheet: https://cdn.jsdelivr.net/npm/bootstrap@3.4.0/dist/css/bootstrap.min.css
+    javascript: https://cdn.jsdelivr.net/npm/bootstrap@3.4.0/dist/js/bootstrap.min.js
   - version: 3.3.7
-    stylesheet: https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css
-    javascript: https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js
-    javascriptSri: sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa
-    stylesheetSri: sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u
+    stylesheet: https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css
+    javascript: https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js
   - version: 3.3.6
-    stylesheet: https://stackpath.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css
-    javascript: https://stackpath.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js
-    javascriptSri: sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS
-    stylesheetSri: sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7
+    stylesheet: https://cdn.jsdelivr.net/npm/bootstrap@3.3.6/dist/css/bootstrap.min.css
+    javascript: https://cdn.jsdelivr.net/npm/bootstrap@3.3.6/dist/js/bootstrap.min.js
   - version: 3.3.5
-    stylesheet: https://stackpath.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css
-    javascript: https://stackpath.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js
-    stylesheetSri: sha384-pdapHxIh7EYuwy6K7iE41uXVxGCXY0sAjBzaElYGJUrzwodck3Lx6IE2lA0rFREo
-    javascriptSri: sha384-pPttEvTHTuUJ9L2kCoMnNqCRcaMPMVMsWVO+RLaaaYDmfSP5//dP6eKRusbPcqhZ
+    stylesheet: https://cdn.jsdelivr.net/npm/bootstrap@3.3.5/dist/css/bootstrap.min.css
+    javascript: https://cdn.jsdelivr.net/npm/bootstrap@3.3.5/dist/js/bootstrap.min.js
   - version: 3.3.4
-    stylesheet: https://stackpath.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css
-    javascript: https://stackpath.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js
-    javascriptSri: sha384-EKxMxgJ+EnnZ5yB3ygGPe1lXaPvlAzKFXU+wW7kO9Bn9ZCgFRrc3wWtCnsDHbemf
-    stylesheetSri: sha384-604wwakM23pEysLJAhja8Lm42IIwYrJ0dEAqzFsj9pJ/P5buiujjywArgPCi8eoz
+    stylesheet: https://cdn.jsdelivr.net/npm/bootstrap@3.3.4/dist/css/bootstrap.min.css
+    javascript: https://cdn.jsdelivr.net/npm/bootstrap@3.3.4/dist/js/bootstrap.min.js
   - version: 3.3.2
-    stylesheet: https://stackpath.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css
-    javascript: https://stackpath.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js
-    javascriptSri: sha384-4Kp4aQ6UNeqsJ/ithPcxYnnIGt/QJJ64J9QtfDAJZUTaePAIPm9aaBdu7Gw84oGs
-    stylesheetSri: sha384-Tfj13fqQQqqzQFuaZ81WDzmmOU610WeS08VMuHmElK5oI2f7NwojuL6VupYXR/jK
+    stylesheet: https://cdn.jsdelivr.net/npm/bootstrap@3.3.2/dist/css/bootstrap.min.css
+    javascript: https://cdn.jsdelivr.net/npm/bootstrap@3.3.2/dist/js/bootstrap.min.js
   - version: 3.3.1
-    stylesheet: https://stackpath.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css
-    javascript: https://stackpath.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js
-    javascriptSri: sha384-Nud2SriDt2fZ+u85IBC48Yn9p+l4AGlapnX1EGA2KrnZjYJx8sxKnw/CIxc1wU1B
-    stylesheetSri: sha384-8+rznmq/k0KZkJlZhnuPEVkbRD7tA0wcFEjY48dajGWn3Xc1MasJwS8/tJ7OEsKW
+    stylesheet: https://cdn.jsdelivr.net/npm/bootstrap@3.3.1/dist/css/bootstrap.min.css
+    javascript: https://cdn.jsdelivr.net/npm/bootstrap@3.3.1/dist/js/bootstrap.min.js
   - version: 3.3.0
-    stylesheet: https://stackpath.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css
-    javascript: https://stackpath.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js
-    javascriptSri: sha384-jspctxrQmizRroXAKjoWWOOhkG3aZesspL7dmISSX5+p1LfXftbGQocYmzOsv9wx
-    stylesheetSri: sha384-dT8WZNLW+WmnMquYY8GD+px5+PPMy/Rz1pZTBuLQv7EfAZG0xhipTd08JFVCf8bp
+    stylesheet: https://cdn.jsdelivr.net/npm/bootstrap@3.3.0/dist/css/bootstrap.min.css
+    javascript: https://cdn.jsdelivr.net/npm/bootstrap@3.3.0/dist/js/bootstrap.min.js
   - version: 3.2.0
-    stylesheet: https://stackpath.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css
-    javascript: https://stackpath.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js
-    javascriptSri: sha384-VI5+XuguQ/l3kUhh4knz7Hxptx47wpQbVRDnp8v7Vvuhzwn1PEYb/uvtH6KLxv6d
-    stylesheetSri: sha384-Ej0hUpn6wbrOTJtRExp8jvboBagaz+Or6E9zzWT+gHCQuuZQQVZUcbmhXQzSG17s
+    stylesheet: https://cdn.jsdelivr.net/npm/bootstrap@3.2.0/dist/css/bootstrap.min.css
+    javascript: https://cdn.jsdelivr.net/npm/bootstrap@3.2.0/dist/js/bootstrap.min.js
   - version: 3.1.1
-    stylesheet: https://stackpath.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css
-    javascript: https://stackpath.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js
-    javascriptSri: sha384-oFMgcGzKX7GaHtF4hx14KbxdsGjyfHK6m1comHjI1FH6g4m6qYre+4cnZbwaYbHD
-    stylesheetSri: sha384-7tY7Dc2Q8WQTKGz2Fa0vC4dWQo07N4mJjKvHfIGnxuC4vPqFGFQppd9b3NWpf18/
-  - version: 3.1.0
-    stylesheet: https://stackpath.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css
-    javascript: https://stackpath.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js
-    javascriptSri: sha384-7pPmvaV7JjM/wsobVyDu9o+X6ETgKe/Yp7VfxVr7OiOEnkvzsQB8LfBqMXnbTIht
-    stylesheetSri: sha384-GYBZMlEOunzhR/VZ6XhlOir+4wC0SyDpSIotW0oxJizkK/V2czMG1GvOmuRiNUNP
-  - version: 3.0.3
-    stylesheet: https://stackpath.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css
-    javascript: https://stackpath.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js
-    javascriptSri: sha384-s1ITto93iSMDxlp/79qhWHi+LsIi9Gx6yL+cOKDuymvihkfol83TYbLbOw+W/wv4
-    stylesheetSri: sha384-IS73LIqjtYesmURkDE9MXKbXqYA8rvKEp/ghicjem7Vc3mGRdQRptJSz60tvrB6+
-  - version: 3.0.2
-    stylesheet: https://stackpath.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css
-    javascript: https://stackpath.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js
-    javascriptSri: sha384-DKoN2gpE9Yt/u0fuNvcJBn4n7wjnKFKjg4+Iz4ORs52lUc0Qp++smhHtWwHeapVW
-    stylesheetSri: sha384-eumbg33EfHRpbzLIm0lGs0JresLNj7c+5beuRW4d11/vF3Wv3YYmuudfOwMsCmp5
-  - version: 3.0.1
-    stylesheet: https://stackpath.bootstrapcdn.com/bootstrap/3.0.1/css/bootstrap.min.css
-    javascript: https://stackpath.bootstrapcdn.com/bootstrap/3.0.1/js/bootstrap.min.js
-    javascriptSri: sha384-v8HX8SQTySTjAPEOaAUfPj9Gjk/7LIdxELgikx0A/paeRU2yNSrHNeA1zGkKgOiS
-    stylesheetSri: sha384-LPhngNOCBL/UBSMVU9FgFJvedMM7pf3l3s+DDyYV/gqd+D2+NEn5a2Uf18B0MBMv
-  - version: 3.0.0
-    stylesheet: https://stackpath.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css
-    javascript: https://stackpath.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js
-    javascriptSri: sha384-Zzs5x1/YUvlxpCu06c197tRCubLCMA7pCoHbZeoZuz/oEgYD6NVmvLzDSKYBoc3J
-    stylesheetSri: sha384-dkTxiR4Mv8i0ubTj0fsgTCmhYmOtrc0o6rdrEO6hDZs9cAifak0Y2VVL2cecWHLQ
-  - version: 3.0.0-noicons
-    stylesheet: https://stackpath.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.no-icons.min.css
-    javascript: https://stackpath.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js
-    javascriptSri: sha384-Zzs5x1/YUvlxpCu06c197tRCubLCMA7pCoHbZeoZuz/oEgYD6NVmvLzDSKYBoc3J
-    stylesheetSri: sha384-dkTxiR4Mv8i0ubTj0fsgTCmhYmOtrc0o6rdrEO6hDZs9cAifak0Y2VVL2cecWHLQ
-  - version: 2.3.2
-    stylesheet: https://stackpath.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css
-    javascript: https://stackpath.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js
-    javascriptSri: sha384-vOWIrgFbxIPzY09VArRHMsxned7WiY6hzIPtAIIeTFuii9y3Cr6HE6fcHXy5CFhc
-    stylesheetSri: sha384-4FeI0trTH/PCsLWrGCD1mScoFu9Jf2NdknFdFoJhXZFwsvzZ3Bo5sAh7+zL8Xgnd
-  - version: 2.3.2-noicons
-    stylesheet: https://stackpath.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css
-    javascript: https://stackpath.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js
-    javascriptSri: sha384-vOWIrgFbxIPzY09VArRHMsxned7WiY6hzIPtAIIeTFuii9y3Cr6HE6fcHXy5CFhc
-    stylesheetSri: sha384-nITPVmSN/64KqhfcWtEJQwuzHIHqSgbSPmp74MISiB8zab+d6ThLyqTpw8bYMBqY
-  - version: 2.3.1
-    stylesheet: https://stackpath.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css
-    javascript: https://stackpath.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js
-    javascriptSri: sha384-c9p7VJz4n41pctsFNm0SJNtxs1tEtVpbHd6KlMj1gRb5G3hVejCHUMwu+jfyRnNK
-    stylesheetSri: sha384-AfZ+8dl93QPpFmy0Q1kFwfwG1NBplh51QAw7oZCXARa9KWcl9Xx/7vk16PCDna/T
-  - version: 2.3.0
-    stylesheet: https://stackpath.bootstrapcdn.com/twitter-bootstrap/2.3.0/css/bootstrap-combined.min.css
-    javascript: https://stackpath.bootstrapcdn.com/twitter-bootstrap/2.3.0/js/bootstrap.min.js
-    javascriptSri: sha384-aUC8DaWA3aOpC7vk8W8jXtUafWxpUqKoxscempkyBcP8giruBvcooYNAKt8ZlbLo
-    stylesheetSri: sha384-j4yX2PowqrVy4Ogwr6u4kWzszBjcwPSvEjXy5oAODYFpI/KZCiVl8hRTGAJULguo
-  - version: 2.2.2
-    stylesheet: https://stackpath.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css
-    javascript: https://stackpath.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js
-    javascriptSri: sha384-e0kRLAUzZF/GpUULwXoniNHgUSfqSx0Xg5mdnYeD4W3PGOPxsX8j6pPeCGxWp0Ul
-    stylesheetSri: sha384-br15D1xki2uxso2Jd5k/aDmd7daYX3Ur17nGlEj4cSCYVaurBnBDfUXA+uKk7hUG
-  - version: 2.2.2-noresponsible
-    stylesheet: https://stackpath.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap.min.nr.css
-    javascript: https://stackpath.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js
-    javascriptSri: sha384-e0kRLAUzZF/GpUULwXoniNHgUSfqSx0Xg5mdnYeD4W3PGOPxsX8j6pPeCGxWp0Ul
-    stylesheetSri: sha384-YdMhjk0LNUOdsF1AiNOR4GXZxEEUy8d6DAcT7bo/Pl5RUw2zbSDxe8RhWoyV1S+0
-  - version: 2.2.1
-    stylesheet: https://stackpath.bootstrapcdn.com/twitter-bootstrap/2.2.1/css/bootstrap-combined.min.css
-    javascript: https://stackpath.bootstrapcdn.com/twitter-bootstrap/2.2.1/js/bootstrap.min.js
-    javascriptSri: sha384-qJ8AGIuPqPo4I2zhyRYO6vQaJrGBbTpIiXGihDsGpfMCHJD0IKH0gkPQToGD5ek3
-    stylesheetSri: sha384-SxD9NhT6x7xbJZq3DchEPXL/Go+GKOxlfipD1Y+5v4WFOnsU6MNTmzRe9oPoXwCA
-  - version: 2.2.0
-    stylesheet: https://stackpath.bootstrapcdn.com/twitter-bootstrap/2.2.0/css/bootstrap-combined.min.css
-    javascript: https://stackpath.bootstrapcdn.com/twitter-bootstrap/2.2.0/js/bootstrap.min.js
-    javascriptSri: sha384-tq2l1Z48uwiIMDmueFNbFz/v2HjHbDDIaVhXH4qhRU99PosO4Rm1WjwKOkXmwWJY
-    stylesheetSri: sha384-2MqdmrQ8pl9PeLkJ5NcUtr55S/rzeGRJ6VigvGOZ2e9jKeyA5uQfNF1A6MnBd95x
-  - version: 2.1.1
-    stylesheet: https://stackpath.bootstrapcdn.com/twitter-bootstrap/2.1.1/css/bootstrap-combined.min.css
-    javascript: https://stackpath.bootstrapcdn.com/twitter-bootstrap/2.1.1/js/bootstrap.min.js
-    javascriptSri: sha384-gYjuefvjBnMR9aV2JTKd0GeQnxj+mKMBirUgIH+rBsMaUe1iAC8UtOnqPrZV8s2V
-    stylesheetSri: sha384-Cnxb+E2mrhv+pAvYnCOpd6HecV+JYAqrZFWwhuURK4EhHf3A4ALFYOpsbtLTdkPT
-  - version: 2.1.0
-    stylesheet: https://stackpath.bootstrapcdn.com/twitter-bootstrap/2.1.0/css/bootstrap-combined.min.css
-    javascript: https://stackpath.bootstrapcdn.com/twitter-bootstrap/2.1.0/js/bootstrap.min.js
-    javascriptSri: sha384-SiZElk5uhDW0J6QmBKDDd6IjV9oUcvQ1uoy9kB+G3a8icLOwjNovKjAC1fHwo22V
-    stylesheetSri: sha384-EAs/2xIodeYnc03rJToARHvNHFcPHv+Gndif5gelxOUVUM440UC9/rJdovM84FlL
-  - version: 2.0.4
-    stylesheet: https://stackpath.bootstrapcdn.com/twitter-bootstrap/2.0.4/css/bootstrap-combined.min.css
-    javascript: https://stackpath.bootstrapcdn.com/twitter-bootstrap/2.0.4/js/bootstrap.min.js
-    javascriptSri: sha384-2sVosMIQw67h8RBCTmE20BSl9j66nWwbH+2W/CKr8celILSNnEfJnJv2PKCdet3I
-    stylesheetSri: sha384-G87n9a15LEsz+OvKCr10ldEbckfbCpr2gjYnZgCiKiwH0p/If1QkSURCTzubbt19
-bootswatch4:
-  version: 4.5.2
-  link: https://bootswatch.com/SWATCH_NAME/
-  image: https://bootswatch.com/SWATCH_NAME/thumbnail.png
-  bootstrap: https://stackpath.bootstrapcdn.com/bootswatch/SWATCH_VERSION/SWATCH_NAME/bootstrap.min.css
-  themes:
-    - name: cerulean
-      sri: sha384-3fdgwJw17Bi87e1QQ4fsLn4rUFqWw//KU0g8TvV6quvahISRewev6/EocKNuJmEw
-    - name: cosmo
-      sri: sha384-5QFXyVb+lrCzdN228VS3HmzpiE7ZVwLQtkt+0d9W43LQMzz4HBnnqvVxKg6O+04d
-    - name: cyborg
-      sri: sha384-nEnU7Ae+3lD52AK+RGNzgieBWMnEfgTbRHIwEvp1XXPdqdO6uLTd/NwXbzboqjc2
-    - name: darkly
-      sri: sha384-nNK9n28pDUDDgIiIqZ/MiyO3F4/9vsMtReZK39klb/MtkZI3/LtjSjlmyVPS3KdN
-    - name: flatly
-      sri: sha384-qF/QmIAj5ZaYFAeQcrQ6bfVMAh4zZlrGwTPY7T/M+iTTLJqJBJjwwnsE5Y0mV7QK
-    - name: journal
-      sri: sha384-QDSPDoVOoSWz2ypaRUidLmLYl4RyoBWI44iA5agn6jHegBxZkNqgm2eHb6yZ5bYs
-    - name: litera
-      sri: sha384-enpDwFISL6M3ZGZ50Tjo8m65q06uLVnyvkFO3rsoW0UC15ATBFz3QEhr3hmxpYsn
-    - name: lumen
-      sri: sha384-GzaBcW6yPIfhF+6VpKMjxbTx6tvR/yRd/yJub90CqoIn2Tz4rRXlSpTFYMKHCifX
-    - name: lux
-      sri: sha384-9+PGKSqjRdkeAU7Eu4nkJU8RFaH8ace8HGXnkiKMP9I9Te0GJ4/km3L1Z8tXigpG
-    - name: materia
-      sri: sha384-B4morbeopVCSpzeC1c4nyV0d0cqvlSAfyXVfrPJa25im5p+yEN/YmhlgQP/OyMZD
-    - name: minty
-      sri: sha384-H4X+4tKc7b8s4GoMrylmy2ssQYpDHoqzPa9aKXbDwPoPUA3Ra8PA5dGzijN+ePnH
-    - name: pulse
-      sri: sha384-L7+YG8QLqGvxQGffJ6utDKFwmGwtLcCjtwvonVZR/Ba2VzhpMwBz51GaXnUsuYbj
-    - name: sandstone
-      sri: sha384-zEpdAL7W11eTKeoBJK1g79kgl9qjP7g84KfK3AZsuonx38n8ad+f5ZgXtoSDxPOh
-    - name: simplex
-      sri: sha384-FYrl2Nk72fpV6+l3Bymt1zZhnQFK75ipDqPXK0sOR0f/zeOSZ45/tKlsKucQyjSp
-    - name: sketchy
-      sri: sha384-RxqHG2ilm4r6aFRpGmBbGTjsqwfqHOKy1ArsMhHusnRO47jcGqpIQqlQK/kmGy9R
-    - name: slate
-      sri: sha384-8iuq0iaMHpnH2vSyvZMSIqQuUnQA7QM+f6srIdlgBrTSEyd//AWNMyEaSF2yPzNQ
-    - name: solar
-      sri: sha384-NCwXci5f5ZqlDw+m7FwZSAwboa0svoPPylIW3Nf+GBDsyVum+yArYnaFLE9UDzLd
-    - name: spacelab
-      sri: sha384-F1AY0h4TrtJ8OCUQYOzhcFzUTxSOxuaaJ4BeagvyQL8N9mE4hrXjdDsNx249NpEc
-    - name: superhero
-      sri: sha384-HnTY+mLT0stQlOwD3wcAzSVAZbrBp141qwfR4WfTqVQKSgmcgzk+oP0ieIyrxiFO
-    - name: united
-      sri: sha384-JW3PJkbqVWtBhuV/gsuyVVt3m/ecRJjwXC3gCXlTzZZV+zIEEl6AnryAriT7GWYm
-    - name: yeti
-      sri: sha384-mLBxp+1RMvmQmXOjBzRjqqr0dP9VHU2tb3FK6VB0fJN/AOu7/y+CAeYeWJZ4b3ii
-bootswatch3:
-  version: 3.4.1
-  link: https://bootswatch.com/3/SWATCH_NAME/
-  image: https://bootswatch.com/3/SWATCH_NAME/thumbnail.png
-  bootstrap: https://stackpath.bootstrapcdn.com/bootswatch/SWATCH_VERSION/SWATCH_NAME/bootstrap.min.css
-  themes:
-    - name: cerulean
-      sri: sha384-S0cN63+vYrG1/kfcUhtXsKZfyE9azrjw5p+Q5yYU+Dzjg60sZUEYsIKIb5O/oaT3
-    - name: cosmo
-      sri: sha384-6SQbkR6/v7QGEoFg1os3KF4uJMFxP6vxm6vLCSbbwwHllJdb4FqkWMiYLtHWGGN4
-    - name: cyborg
-      sri: sha384-tzza3U8XATv+JNCKjtm0Hn232CwBDxSBjYPkfcByr38iojQCN8+IvnC8OEC1r4Co
-    - name: darkly
-      sri: sha384-pKJMCXwCXq3HwRBt27cwwSmc0/DAo2BjRxGd7nEESEStk++p6LffHmhX9oqzVDUk
-    - name: flatly
-      sri: sha384-bfWZLPtvQKHg/nZNhaO/ZW4Ba8ISud5CtEjnCTU6OR1yOq5zrrF+JP2o7om6rzLf
-    - name: journal
-      sri: sha384-T+Z3XwwI21wMyfe0vTxryTqEfv0fxK9gMuolkXbN8HEzFNFSKVyZiRvPQ0Xu4QF0
-    - name: lumen
-      sri: sha384-5HAjBLBhXAArWyyh/bPaIK9FKMqOGhu8g6tf5ARGMvuNWuvpY38SFgqCCl+bG3Gk
-    - name: paper
-      sri: sha384-czdUt3c5InCk6AjJWW7zMMS5xcvRAyC6tWoWfXuRYfX6Vvv4Es8m8eRjzMChD493
-    - name: readable
-      sri: sha384-cEtSoDrbFB1ZfF3E823wseIQXTddQNKRdACknoZ9ivL6BoQcvL9qrUcA3yPxf14L
-    - name: sandstone
-      sri: sha384-MdGHxjbrV2GoFVHadLhX6S9c4u3zfMCjYWiJCd1qukSKYr5/WblrjNve58VRoYg4
-    - name: simplex
-      sri: sha384-Ml0EbeK7eVNRHfVP5719pLP1XxMxmGHkzHnlYw6d+l9JEOW0ooutGR8Rc+M4ML7O
-    - name: slate
-      sri: sha384-XiCBeLjnyW8fUT1Qsjw3NzEeO4AawGrU7aadPCgvNK4DiK5glSw5S66MOluKW8wc
-    - name: spacelab
-      sri: sha384-+UEyBtcMUzEVPU/VzsSuQxSAdP59Rg8OU5jCsE89v4bKCKi/0NqVy479qQMAmZ4x
-    - name: superhero
-      sri: sha384-myonMxXntR4GLlIlbcFuvqvz3IgiV9V0VdLdQARqcQTzQQuJ/pa0C4BSYZYSWVfu
-    - name: united
-      sri: sha384-Sa176srEjCXftw8QYd+wY/WVLqUNOlQ+ENT4shhgMBfALErUsVL8RrhU4zWbWyRt
-    - name: yeti
-      sri: sha384-bbfChtM4oMxTlcWghl4L4ja4z3qqkTUYpXACeFtB2WUoy2Swi5ucq+AyhOjMUKM1
+    stylesheet: https://cdn.jsdelivr.net/npm/bootstrap@3.1.1/dist/css/bootstrap.min.css
+    javascript: https://cdn.jsdelivr.net/npm/bootstrap@3.1.1/dist/js/bootstrap.min.js
+  - version: 0.0.2
+  - version: 0.0.1
+font-awesome:
+  - version: 4.7.0
+    stylesheet: https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css
+  - version: 4.6.3
+    stylesheet: https://cdn.jsdelivr.net/npm/font-awesome@4.6.3/css/font-awesome.min.css
+  - version: 4.6.1
+    stylesheet: https://cdn.jsdelivr.net/npm/font-awesome@4.6.1/css/font-awesome.min.css
+  - version: 4.5.0
+    stylesheet: https://cdn.jsdelivr.net/npm/font-awesome@4.5.0/css/font-awesome.min.css
+  - version: 4.4.0
+    stylesheet: https://cdn.jsdelivr.net/npm/font-awesome@4.4.0/css/font-awesome.min.css
+  - version: 4.3.0
+    stylesheet: https://cdn.jsdelivr.net/npm/font-awesome@4.3.0/css/font-awesome.min.css
+  - version: 4.2.0
+    stylesheet: https://cdn.jsdelivr.net/npm/font-awesome@4.2.0/css/font-awesome.min.css
+  - version: 4.1.0
+    stylesheet: https://cdn.jsdelivr.net/npm/font-awesome@4.1.0/css/font-awesome.min.css
+  - version: 4.0.3
+    stylesheet: https://cdn.jsdelivr.net/npm/font-awesome@4.0.3/css/font-awesome.min.css
+  - version: 3.2.1
+    stylesheet: https://cdn.jsdelivr.net/npm/font-awesome@3.2.1/css/font-awesome.min.css
 bootlint:
   - version: 1.1.0
-    current: true
-    javascript: https://stackpath.bootstrapcdn.com/bootlint/1.1.0/bootlint.min.js
-    javascriptSri: sha384-D0zT3yu3RBG+Jc54wtMtxDEyZGWfa30nEkS/o2AyBZUOmIpezYYjBLZjUetRV3iG
+    javascript: https://cdn.jsdelivr.net/npm/bootlint@1.1.0/src/bootlint.min.js
   - version: 1.0.0
-    javascript: https://stackpath.bootstrapcdn.com/bootlint/1.0.0/bootlint.min.js
-    javascriptSri: sha384-N+BTm0BCfumqkjdZt552I0kBBcMzkYe8aWUaSqL13fGJEGVhOi0rljWKtlU6sC6Z
+    javascript: https://cdn.jsdelivr.net/npm/bootlint@1.0.0/src/bootlint.min.js
   - version: 0.16.8
-    javascript: https://stackpath.bootstrapcdn.com/bootlint/0.16.8/bootlint.min.js
-    javascriptSri: sha384-HPkV/OwPqCAF6gWym3SbH+GoQgxtYWMK9BGmUz8DKtbNSw1fC/hDVMJF5x3n1AII
+    javascript: https://cdn.jsdelivr.net/npm/bootlint@0.16.8/src/bootlint.min.js
   - version: 0.16.7
-    javascript: https://stackpath.bootstrapcdn.com/bootlint/0.16.7/bootlint.min.js
-    javascriptSri: sha384-3T50BVAepXDP+/77qijxE3Yj8K/jaICuCvy27UZhXdMymNl/ojOww5yJKFINHsvK
+    javascript: https://cdn.jsdelivr.net/npm/bootlint@0.16.7/src/bootlint.min.js
   - version: 0.16.6
-    javascript: https://stackpath.bootstrapcdn.com/bootlint/0.16.6/bootlint.min.js
-    javascriptSri: sha384-ZwqoV50fe3lmAp0JfEykqDFq9dAC8vQP1lEuvdNIyVVWMcdE7oRYs7YcjnhS2Vnd
+    javascript: https://cdn.jsdelivr.net/npm/bootlint@0.16.6/src/bootlint.min.js
   - version: 0.16.5
-    javascript: https://stackpath.bootstrapcdn.com/bootlint/0.16.5/bootlint.min.js
-    javascriptSri: sha384-RBzknQoCBisTKMnA0e7K87uByQg6PgmOcT3Cp2wjk3XbLGLiwMgOnEHOixsHTU6f
+    javascript: https://cdn.jsdelivr.net/npm/bootlint@0.16.5/src/bootlint.min.js
   - version: 0.16.4
-    javascript: https://stackpath.bootstrapcdn.com/bootlint/0.16.4/bootlint.min.js
-    javascriptSri: sha384-e/2ot6cpELVeTLh6i0DH8H96jkpTFjmqi4IQXdCPjcjqOfjbplXwIc/BMt7+67gb
+    javascript: https://cdn.jsdelivr.net/npm/bootlint@0.16.4/src/bootlint.min.js
   - version: 0.16.3
-    javascript: https://stackpath.bootstrapcdn.com/bootlint/0.16.3/bootlint.min.js
-    javascriptSri: sha384-SOk+Ij8o6+MX91JnBunwqcDRWYxowflX9OSj7oIvIRillreZuvd6ay+V86biR9tf
+    javascript: https://cdn.jsdelivr.net/npm/bootlint@0.16.3/src/bootlint.min.js
   - version: 0.16.2
-    javascript: https://stackpath.bootstrapcdn.com/bootlint/0.16.2/bootlint.min.js
-    javascriptSri: sha384-RG3OcSMPDRbQ26+VdhXElBChUeZstkQipV9ZsT3PKu3cREhTQgpdr9ilp4k9adHE
+    javascript: https://cdn.jsdelivr.net/npm/bootlint@0.16.2/src/bootlint.min.js
+  - version: 0.16.1
+    javascript: https://cdn.jsdelivr.net/npm/bootlint@0.16.1/src/bootlint.min.js
+  - version: 0.16.0
+    javascript: https://cdn.jsdelivr.net/npm/bootlint@0.16.0/src/bootlint.min.js
   - version: 0.15.1
-    javascript: https://stackpath.bootstrapcdn.com/bootlint/0.15.1/bootlint.min.js
-    javascriptSri: sha384-JQfZvbsydam1eUSPN2oJhxsmu6S4ODLD7AcGFhDIih2D7NGt0uLiIi90Hp43QcUF
+    javascript: https://cdn.jsdelivr.net/npm/bootlint@0.15.1/src/bootlint.min.js
   - version: 0.14.2
-    javascript: https://stackpath.bootstrapcdn.com/bootlint/0.14.2/bootlint.min.js
-    javascriptSri: sha384-SLfe/wBrCVfyGjtLhfUmA5cYQLnNVTRmwMUJ11s7x5HxXCKom2oeEwX9bvY74CAs
+    javascript: https://cdn.jsdelivr.net/npm/bootlint@0.14.2/src/bootlint.min.js
   - version: 0.14.1
-    javascript: https://stackpath.bootstrapcdn.com/bootlint/0.14.1/bootlint.min.js
-    javascriptSri: sha384-RGGs6yfDJajhE2PZjPyoEpu1afuSvcRTIsCVQqh4T01JRpVu1LMR5MkqlV+hiyNl
+    javascript: https://cdn.jsdelivr.net/npm/bootlint@0.14.1/src/bootlint.min.js
+  - version: 0.14.0
+    javascript: https://cdn.jsdelivr.net/npm/bootlint@0.14.0/src/bootlint.min.js
   - version: 0.13.0
-    javascript: https://stackpath.bootstrapcdn.com/bootlint/0.13.0/bootlint.min.js
-    javascriptSri: sha384-Z/Jc/+Ht6y0IPxD7ZCpdEhfI/J4TSprqCKzbzjyzCW3ZDzc0wsA60sO0uNCb8tBu
+    javascript: https://cdn.jsdelivr.net/npm/bootlint@0.13.0/src/bootlint.min.js
   - version: 0.12.0
-    javascript: https://stackpath.bootstrapcdn.com/bootlint/0.12.0/bootlint.min.js
-    javascriptSri: sha384-KYsji+fDuxg7jE37wkRx7KMgXOKXLUicCEQ2Qt/5vVnmxAI7ME/COVEzrm8Bm/TF
+    javascript: https://cdn.jsdelivr.net/npm/bootlint@0.12.0/src/bootlint.min.js
   - version: 0.11.0
-    javascript: https://stackpath.bootstrapcdn.com/bootlint/0.11.0/bootlint.min.js
-    javascriptSri: sha384-vhLxe1shSKL48k2i+V3v2s52saBKKjHBalzu7iptmvSBuW4zgtXEBVZ9ElvSj88D
+    javascript: https://cdn.jsdelivr.net/npm/bootlint@0.11.0/src/bootlint.min.js
   - version: 0.10.0
-    javascript: https://stackpath.bootstrapcdn.com/bootlint/0.10.0/bootlint.min.js
-    javascriptSri: sha384-3cwT+fYKzc/VjPg0CqCXTZfKVjwhFXBr3Mk1lPrf9GOiD3ssSYMdYd3vdEgesXJY
+    javascript: https://cdn.jsdelivr.net/npm/bootlint@0.10.0/src/bootlint.min.js
+  - version: 0.9.2
+    javascript: https://cdn.jsdelivr.net/npm/bootlint@0.9.2/src/bootlint.min.js
   - version: 0.9.1
-    javascript: https://stackpath.bootstrapcdn.com/bootlint/0.9.1/bootlint.min.js
-    javascriptSri: sha384-bTObS0JZ20i0RwwnzkZFz2v+Da0lhPQLBVASAjnbOAxGgxHrJZk6ZC/V4zEP/Q+T
+    javascript: https://cdn.jsdelivr.net/npm/bootlint@0.9.1/src/bootlint.min.js
   - version: 0.9.0
-    javascript: https://stackpath.bootstrapcdn.com/bootlint/0.9.0/bootlint.min.js
-    javascriptSri: sha384-4T0Q6C7dUf1hLWWQzA/vylc7Uc84Bseh0HfuA/zuFu39oLvlCwWZb9cGZqKf5+02
+    javascript: https://cdn.jsdelivr.net/npm/bootlint@0.9.0/src/bootlint.min.js
   - version: 0.8.0
-    javascript: https://stackpath.bootstrapcdn.com/bootlint/0.8.0/bootlint.min.js
-    javascriptSri: sha384-Q7G3fKrWzj2bS7BSQyu/3g7r63g5JtdH3ZdH3LH71E2b/4xWAIY0cFU/AhZ4LOIT
+    javascript: https://cdn.jsdelivr.net/npm/bootlint@0.8.0/src/bootlint.min.js
   - version: 0.7.0
-    javascript: https://stackpath.bootstrapcdn.com/bootlint/0.7.0/bootlint.min.js
-    javascriptSri: sha384-b740LiGX053UW7LoIHtAbf77wQTBsVC5xrIDADlGHMezO1S1KGsCcts13kudim8h
+    javascript: https://cdn.jsdelivr.net/npm/bootlint@0.7.0/src/bootlint.min.js
   - version: 0.6.0
-    javascript: https://stackpath.bootstrapcdn.com/bootlint/0.6.0/bootlint.min.js
-    javascriptSri: sha384-zjis2bbC8Xzsd8UTbNrz3BRqrYTve0z2xmntBmymFIl1dqGMc2cZzL10M6FJghhZ
+    javascript: https://cdn.jsdelivr.net/npm/bootlint@0.6.0/src/bootlint.min.js
   - version: 0.5.0
-    javascript: https://stackpath.bootstrapcdn.com/bootlint/0.5.0/bootlint.min.js
-    javascriptSri: sha384-OAHC0PXxfcVXE/I81UIEdDL9B1w+LQfZHnTkCe23xkZYd6joRINh0SJxsv/x/9H9
+    javascript: https://cdn.jsdelivr.net/npm/bootlint@0.5.0/src/bootlint.min.js
   - version: 0.4.0
-    javascript: https://stackpath.bootstrapcdn.com/bootlint/0.4.0/bootlint.min.js
-    javascriptSri: sha384-rhFTT37rQVhnqWXGqG7Y0wfKhJN38KdJuvmk+yxZFw+sEJ6jlHhXDp32TS6srhfU
+    javascript: https://cdn.jsdelivr.net/npm/bootlint@0.4.0/src/bootlint.min.js
   - version: 0.3.0
-    javascript: https://stackpath.bootstrapcdn.com/bootlint/0.3.0/bootlint.min.js
-    javascriptSri: sha384-iaoElvStTQlsmAsAa2guAcozzzhh6md25Vq90yGNhYYpZaN1dWae6KlexarlVQ5f
+    javascript: https://cdn.jsdelivr.net/npm/bootlint@0.3.0/src/bootlint.min.js
   - version: 0.2.0
-    javascript: https://stackpath.bootstrapcdn.com/bootlint/0.2.0/bootlint.min.js
-    javascriptSri: sha384-OuU4cNKby6UDoPD/pWtrEhfGUWHZXIFGs/E8+mUnoDIdR98n/cL0RZcixIA0XlnS
-fontawesome:
-  - version: 4.7.0
-    current: true
-    stylesheet: https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css
-    stylesheetSri: sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN
-  - version: 4.6.3
-    stylesheet: https://stackpath.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css
-    stylesheetSri: sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1
-  - version: 4.6.2
-    stylesheet: https://stackpath.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css
-    stylesheetSri: sha384-aNUYGqSUL9wG/vP7+cWZ5QOM4gsQou3sBfWRr/8S3R1Lv0rysEmnwsRKMbhiQX/O
-  - version: 4.6.1
-    stylesheet: https://stackpath.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css
-    stylesheetSri: sha384-hQpvDQiCJaD2H465dQfA717v7lu5qHWtDbWNPvaTJ0ID5xnPUlVXnKzq7b8YUkbN
-  - version: 4.6.0
-    stylesheet: https://stackpath.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css
-    stylesheetSri: sha384-I6JCnqxMbC2DuiHjsoCiLa15NVbKRf8/ooANRLsXD87zD2dVqzlz6Oqjvj470ztk
-  - version: 4.5.0
-    stylesheet: https://stackpath.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css
-    stylesheetSri: sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+
-  - version: 4.4.0
-    stylesheet: https://stackpath.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css
-    stylesheetSri: sha384-MI32KR77SgI9QAPUs+6R7leEOwtop70UsjEtFEezfKnMjXWx15NENsZpfDgq8m8S
-  - version: 4.3.0
-    stylesheet: https://stackpath.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css
-    stylesheetSri: sha384-yNuQMX46Gcak2eQsUzmBYgJ3eBeWYNKhnjyiBqLd1vvtE9kuMtgw6bjwN8J0JauQ
-  - version: 4.2.0
-    stylesheet: https://stackpath.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css
-    stylesheetSri: sha384-CmLV3WR+cw/TcN50vJSYAs2EAzhDD77tQvGcmoZ1KEzxtpl2K5xkrpFz9N2H9ClN
-  - version: 4.1.0
-    stylesheet: https://stackpath.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css
-    stylesheetSri: sha384-X7L1bhgb36bF1iFvaqvhgpaGpayKM+vXNNYRlF89BFA5s3vi1qZ8EX9086RlZjy1
-  - version: 4.0.3
-    stylesheet: https://stackpath.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css
-    stylesheetSri: sha384-UMpQFQdby6sZ3T16Qz0uq+QsAA7AhfgfMhkZdFOjY8D5kfgRaU2RKE6wHNEo7062
-  - version: 4.0.2
-    stylesheet: https://stackpath.bootstrapcdn.com/font-awesome/4.0.2/css/font-awesome.min.css
-    stylesheetSri: sha384-5dQsFPHX9TfyZXy1AFBBv3gLnd1YI5OSKtFBaxfXLcPFSV5AjjLtS6FD4D8e7I/R
-  - version: 4.0.1
-    stylesheet: https://stackpath.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.min.css
-    stylesheetSri: sha384-Sny7En3GKRrKIzzbFN1VJGA/wVVLmWH8/GeE7eBSe0M83a3WGyRCbh0VyljhaOKT
-  - version: 4.0.0
-    stylesheet: https://stackpath.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.min.css
-    stylesheetSri: sha384-zFzXNZnkXgOSk/hRVQNKFU1ZqC9h18Ge1sp4XCwupvrh3zLMRHclbusmMKTznUnX
-  - version: 3.2.1
-    stylesheet: https://stackpath.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css
-    stylesheetSri: sha384-5WSMKsEjlK1hO/E+0ERtEmsujy8NFgEb15UOB5phg+1xk2zTO0Dd71qJ+7yD1QFN
+    javascript: https://cdn.jsdelivr.net/npm/bootlint@0.2.0/src/bootlint.min.js

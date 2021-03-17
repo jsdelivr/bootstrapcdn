@@ -1,19 +1,24 @@
 #!/usr/bin/env node
 
 'use strict'
-
+const axios = require('axios').default
 const fs = require('fs')
 const path = require('path')
 const yaml = require('js-yaml')
-const { files } = require('../config')
-const { generateSri } = require('../lib/helpers')
+const sri = require('sri-toolbox')
+const files = yaml.load(
+    fs.readFileSync(path.join(__dirname, '_files.yml')),
+    'utf8',
+)
+
+// const { generateSri } = require('../lib/helpers')
 
 const { configFile } = require('./generateFiles')
 
 function buildPath(dir) {
     dir = dir
         .replace('/bootstrap/', '/twitter-bootstrap/')
-        .replace('https://stackpath.bootstrapcdn.com/', '')
+        .replace('https://cdn.jsdelivr.net/', '')
 
     return path.join(__dirname, '../cdn', dir)
 }
@@ -26,6 +31,14 @@ function exists(file) {
     }
 
     return found
+}
+
+async function generateSri(file) {
+    const getFile = await axios.get(file).then((res) => {
+        const sriHash = sri.generate({ algorithms: ['sha384'] }, res.data)
+        return sriHash
+    })
+    return getFile
 }
 
 // // Bootswatch {3,4}
@@ -43,63 +56,89 @@ function exists(file) {
 //     })
 // })
 
-// // Bootlint
-// files.bootlint.forEach((bootlint) => {
-//     const file = buildPath(bootlint.javascript)
-
-//     if (exists(file)) {
-//         bootlint.javascriptSri = generateSri(file)
-//     }
-// })
-
 // // Bootstrap
-// files.bootstrap.forEach((bootstrap) => {
-//     const javascript = buildPath(bootstrap.javascript)
-//     const stylesheet = buildPath(bootstrap.stylesheet)
-//     let { javascriptBundle, javascriptEsm } = bootstrap
+async function bootstrapSri() {
+    const sris = files.bootstrap.map(async (bootstrap) => {
+        const javascript = bootstrap.javascript
+        const stylesheet = bootstrap.stylesheet
+        let { javascriptBundle, javascriptEsm } = bootstrap
 
-//     if (javascriptBundle) {
-//         javascriptBundle = buildPath(bootstrap.javascriptBundle)
-//     }
+        if (javascript) {
+            const remoteJs = await generateSri(javascript)
+            bootstrap.javascriptSri = remoteJs
+        }
 
-//     if (javascriptEsm) {
-//         javascriptEsm = buildPath(bootstrap.javascriptEsm)
-//     }
+        if (javascriptBundle) {
+            const remoteBundle = await generateSri(javascriptBundle)
+            bootstrap.javascriptBundleSri = remoteBundle
+            //bootstrap.javascriptBundleSri = generateSri(javascriptBundle)
+        }
 
-//     if (exists(javascript)) {
-//         bootstrap.javascriptSri = generateSri(javascript)
-//     }
+        if (javascriptEsm) {
+            const remoteEsm = await generateSri(javascriptEsm)
+            bootstrap.javascriptEsmSri = remoteEsm
+        }
 
-//     if (javascriptBundle && exists(javascriptBundle)) {
-//         bootstrap.javascriptBundleSri = generateSri(javascriptBundle)
-//     }
+        if (stylesheet) {
+            const remoteCss = await generateSri(stylesheet)
+            bootstrap.stylesheetSri = remoteCss
+        }
 
-//     if (javascriptEsm && exists(javascriptEsm)) {
-//         bootstrap.javascriptEsmSri = generateSri(javascriptEsm)
-//     }
+        return bootstrap
+    })
+    return sris
+}
 
-//     if (exists(stylesheet)) {
-//         bootstrap.stylesheetSri = generateSri(stylesheet)
-//     }
-// })
+//Font Awesome
+async function fontAwesomeSri() {
+    const sris = files['font-awesome'].map(async (fontawesome) => {
+        const stylesheet = fontawesome.stylesheet
+        const version = fontawesome.version
+        if (stylesheet) {
+            const remoteFile = await generateSri(stylesheet)
+            fontawesome.stylesheetSri = remoteFile
+            return fontawesome
+        }
+    })
+    return sris
+}
 
-// Font Awesome
-files.fontawesome.forEach((fontawesome) => {
-    const stylesheet = buildPath(fontawesome.stylesheet)
+// Bootlint
+async function bootlintSri() {
+    const sris = files.bootlint.map(async (bootlint) => {
+        const javascript = bootlint.javascript
+        if (javascript) {
+            const remoteFile = await generateSri(javascript)
+            bootlint.javascriptSri = remoteFile
+            return bootlint
+        }
+    })
+    return sris
+}
 
-    if (exists(stylesheet)) {
-        fontawesome.stylesheetSri = generateSri(stylesheet)
-    }
-})
+async function main() {
+    const faPromises = await fontAwesomeSri()
+    const faSri = await Promise.all(faPromises)
 
-// Create backup file
-fs.copyFileSync(configFile, `${configFile}.bak`)
+    const bootlintPromises = await bootlintSri()
+    const blSri = await Promise.all(bootlintPromises)
 
-fs.writeFileSync(
-    configFile,
-    yaml.dump(files, {
-        lineWidth: -1,
-    }),
-)
+    const bsPromises = await bootstrapSri()
+    const bsSri = await Promise.all(bsPromises)
 
-console.log(configFile)
+    files['font-awesome'] = faSri
+    files.bootlint = blSri
+    files.bootstrap = bsSri
+
+    //console.log(files)
+    //Create backup file
+    fs.copyFileSync(configFile, `${configFile}.bak`)
+
+    fs.writeFileSync(
+        configFile,
+        yaml.dump(files, {
+            lineWidth: -1,
+        }),
+    )
+}
+main()
