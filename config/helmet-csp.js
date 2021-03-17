@@ -16,8 +16,6 @@ const CSP = {
         'code.jquery.com',
         'platform.twitter.com',
         'api.github.com',
-        'www.ziprecruiter.com',
-        'api.ziprecruiter.com',
         (req, res) => `'nonce-${res.locals.nonce}'`
     ],
     styleSrc: [
@@ -32,14 +30,14 @@ const CSP = {
         'data:',
         'www.google-analytics.com',
         'bootswatch.com',
+        'syndication.twitter.com',
         'stats.g.doubleclick.net',
         'ad.doubleclick.net',
         '*.convertro.com',
         '*.c3tag.com',
         '*.2mdn.net',
         'launchbit.com',
-        'www.launchbit.com',
-        'www.ziprecruiter.com'
+        'www.launchbit.com'
     ],
     fontSrc: [
         '\'self\'',
