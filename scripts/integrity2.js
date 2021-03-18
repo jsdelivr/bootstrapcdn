@@ -125,7 +125,7 @@ async function main() {
 
     const bsPromises = await bootstrapSri()
     const bsSri = await Promise.all(bsPromises)
-    
+
     files['font-awesome'] = faSri
     files.bootlint = blSri
     files.bootstrap = bsSri
