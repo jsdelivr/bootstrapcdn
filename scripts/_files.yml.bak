@@ -1,0 +1,21 @@
+font-awesome:
+  - version: 4.7.0
+    stylesheet: https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css
+  - version: 4.6.3
+    stylesheet: https://cdn.jsdelivr.net/npm/font-awesome@4.6.3/css/font-awesome.min.css
+  - version: 4.6.1
+    stylesheet: https://cdn.jsdelivr.net/npm/font-awesome@4.6.1/css/font-awesome.min.css
+  - version: 4.5.0
+    stylesheet: https://cdn.jsdelivr.net/npm/font-awesome@4.5.0/css/font-awesome.min.css
+  - version: 4.4.0
+    stylesheet: https://cdn.jsdelivr.net/npm/font-awesome@4.4.0/css/font-awesome.min.css
+  - version: 4.3.0
+    stylesheet: https://cdn.jsdelivr.net/npm/font-awesome@4.3.0/css/font-awesome.min.css
+  - version: 4.2.0
+    stylesheet: https://cdn.jsdelivr.net/npm/font-awesome@4.2.0/css/font-awesome.min.css
+  - version: 4.1.0
+    stylesheet: https://cdn.jsdelivr.net/npm/font-awesome@4.1.0/css/font-awesome.min.css
+  - version: 4.0.3
+    stylesheet: https://cdn.jsdelivr.net/npm/font-awesome@4.0.3/css/font-awesome.min.css
+  - version: 3.2.1
+    stylesheet: https://cdn.jsdelivr.net/npm/font-awesome@3.2.1/css/font-awesome.min.css
