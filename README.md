@@ -1,23 +1,71 @@
 # BootstrapCDN
 
-[![LGTM alerts](https://img.shields.io/lgtm/alerts/g/MaxCDN/bootstrapcdn.svg?logo=lgtm&logoWidth=18&style=flat-square)](https://lgtm.com/projects/g/MaxCDN/bootstrapcdn/alerts/)
-[![Build Status](https://img.shields.io/github/workflow/status/MaxCDN/bootstrapcdn/Tests/develop?logo=github&label=Tests&style=flat-square)](https://github.com/MaxCDN/bootstrapcdn/actions?query=workflow%3ATests+branch%3Adevelop)
-[![Coverage Status](https://img.shields.io/coveralls/github/MaxCDN/bootstrapcdn/develop?style=flat-square)](https://coveralls.io/github/MaxCDN/bootstrapcdn)
-[![dependencies Status](https://img.shields.io/david/MaxCDN/bootstrapcdn.svg?style=flat-square)](https://david-dm.org/MaxCDN/bootstrapcdn)
-[![devDependencies Status](https://img.shields.io/david/dev/MaxCDN/bootstrapcdn.svg?style=flat-square)](https://david-dm.org/MaxCDN/bootstrapcdn?type=dev)
+[![jsDelivr Download Stats](https://data.jsdelivr.com/v1/package/npm/bootstrap/badge)](https://www.jsdelivr.com/package/npm/bootstrap)
+[![Build Status](https://img.shields.io/github/workflow/status/jsdelivr/bootstrapcdn/Tests/develop?logo=github&label=Tests&style=flat-square)](https://github.com/jsdelivr/bootstrapcdn/actions?query=workflow%3ATests+branch%3Adevelop)
+[![Coverage Status](https://img.shields.io/coveralls/github/jsdelivr/bootstrapcdn/develop?style=flat-square)](https://coveralls.io/github/jsdelivr/bootstrapcdn)
+[![dependencies Status](https://img.shields.io/david/jsdelivr/bootstrapcdn.svg?style=flat-square)](https://david-dm.org/jsdelivr/bootstrapcdn)
+[![devDependencies Status](https://img.shields.io/david/dev/jsdelivr/bootstrapcdn.svg?style=flat-square)](https://david-dm.org/jsdelivr/bootstrapcdn?type=dev)
 
-[![Backers on Open Collective](https://img.shields.io/opencollective/backers/getbootstrapcdn.svg?style=flat-square)](#backers)
-[![Sponsors on Open Collective](https://img.shields.io/opencollective/sponsors/getbootstrapcdn.svg?style=flat-square)](#sponsors)
 
-## Deploy your own copy on Heroku
+[BootstrapCDN](https://www.bootstrapcdn.com/) is the easiest and fastest way to get started with Bootstrap, Font Awesome, Bootswatch and Bootstrap Icons.
+Simply visit the main site and copy the URLs you need. New versions of all projects are pulled directly from NPM. 
 
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+Or follow the instructions bellow for more advanced use cases.
 
-## Requirements
+### Example CDN links
+
+These will pull the `4.6.0` version. It is safe to use SRI with static versions like this.
+```
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+```
+
+### Version aliasing
+
+To auto-update to latest minor version you can specify for example `4` as the version in the URL. 
+You will then get the latest v4 version available with a delay of up to 7 days.
+```
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.bundle.min.js"></script>
+```
+Warning: Do not use SRI hashes with dynamic URLs like this or the next update will break your site.
+
+A more detailed documentation is available on [jsDelivr's Github page](https://github.com/jsdelivr/jsdelivr#usage).
+
+### Using the API to pull versions
+
+For certain use-cases it is possible to automate updates [using our API](https://data.jsdelivr.com/v1/package/npm/jquery). 
+You can use it to get the list of versions available on the CDN including the latest one.
+```
+https://data.jsdelivr.com/v1/package/npm/bootstrap
+{
+	"tags": {
+		"latest": "4.6.0",
+		"previous": "3.4.1",
+		"next": "5.0.0-beta2"
+	},
+	"versions": [
+		"5.0.0-beta2",
+...
+		"4.6.0",
+...
+	]
+}
+```
+
+## Contributing
+
+### Requirements
 
 1. [Node.js](https://nodejs.org/)
 
-## Running
+### Running
 
 Use `npm run <task>`.
 
@@ -44,9 +92,9 @@ npm start
 npm run
 ```
 
-## Configuration
+### Configuration
 
-### `config/_app.yml`
+#### `config/_app.yml`
 
 The Express.js app configuration.
 
@@ -66,19 +114,19 @@ The Express.js app configuration.
 * javascript: Array of javascript file(s) we use.
 * redirects: Array of Objects for the page redirects.
 
-### `config/_extras.yml`
+#### `config/_extras.yml`
 
 Contains the `/showcase/` and `/integrations/` config we use in the Express.js app.
 
-### `config/_files.yml`
+#### `config/_files.yml`
 
 Contains the CDN files we host.The SRI values are updated by running `npm run integrity`.
 
-### `config/helmet-csp.js`
+#### `config/helmet-csp.js`
 
 Our CSP config using <https://github.com/helmetjs/csp>
 
-## Updating Bootstrap/Bootlint/Bootswatch
+### Updating Bootstrap/Bootlint/Bootswatch
 
 Replace `package` by the package you want to update and `version` with its version in the following commands:
 
@@ -90,24 +138,3 @@ npm run package version
 1. Update `config/_config.yml` accordingly
 2. `npm run integrity`
 3. Make sure `npm run all` passes after the files are on S3/CDN and verify the frontend works as expected without any visual breakage
-
-## Backers
-
-Thank you to all our backers! 🙏 [[Become a backer](https://opencollective.com/getbootstrapcdn#backer)]
-
-[![Bakers](https://opencollective.com/getbootstrapcdn/backers.svg?width=890)](https://opencollective.com/getbootstrapcdn#backers)
-
-## Sponsors
-
-Support this project by becoming a sponsor. Your logo will show up here with a link to your website. [[Become a sponsor](https://opencollective.com/getbootstrapcdn#sponsor)]
-
-[![OC sponsor 0](https://opencollective.com/getbootstrapcdn/sponsor/0/avatar.svg)](https://opencollective.com/getbootstrapcdn/sponsor/0/website)
-[![OC sponsor 1](https://opencollective.com/getbootstrapcdn/sponsor/1/avatar.svg)](https://opencollective.com/getbootstrapcdn/sponsor/1/website)
-[![OC sponsor 2](https://opencollective.com/getbootstrapcdn/sponsor/2/avatar.svg)](https://opencollective.com/getbootstrapcdn/sponsor/2/website)
-[![OC sponsor 3](https://opencollective.com/getbootstrapcdn/sponsor/3/avatar.svg)](https://opencollective.com/getbootstrapcdn/sponsor/3/website)
-[![OC sponsor 4](https://opencollective.com/getbootstrapcdn/sponsor/4/avatar.svg)](https://opencollective.com/getbootstrapcdn/sponsor/4/website)
-[![OC sponsor 5](https://opencollective.com/getbootstrapcdn/sponsor/5/avatar.svg)](https://opencollective.com/getbootstrapcdn/sponsor/5/website)
-[![OC sponsor 6](https://opencollective.com/getbootstrapcdn/sponsor/6/avatar.svg)](https://opencollective.com/getbootstrapcdn/sponsor/6/website)
-[![OC sponsor 7](https://opencollective.com/getbootstrapcdn/sponsor/7/avatar.svg)](https://opencollective.com/getbootstrapcdn/sponsor/7/website)
-[![OC sponsor 8](https://opencollective.com/getbootstrapcdn/sponsor/8/avatar.svg)](https://opencollective.com/getbootstrapcdn/sponsor/8/website)
-[![OC sponsor 9](https://opencollective.com/getbootstrapcdn/sponsor/9/avatar.svg)](https://opencollective.com/getbootstrapcdn/sponsor/9/website)
