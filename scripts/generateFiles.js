@@ -161,6 +161,8 @@ async function generateFilesPath({ versions, packageName }) {
 
                 switch (file.packageName) {
                     case 'bootstrap':
+                        paths.current = file.version === '4.5.2' ? true : false
+
                         const stylesheet = buildPath(
                             file,
                             'css',
@@ -171,6 +173,7 @@ async function generateFilesPath({ versions, packageName }) {
                             'js',
                             'bootstrap.min.js',
                         )
+
                         if (javascript && stylesheet) {
                             paths.stylesheet = stylesheet
                             paths.javascript = javascript
@@ -189,7 +192,6 @@ async function generateFilesPath({ versions, packageName }) {
                         }
 
                         break
-
                     case 'bootswatch':
                         paths.link = 'https://bootswatch.com/SWATCH_NAME/'
                         paths.image =
@@ -213,10 +215,13 @@ async function generateFilesPath({ versions, packageName }) {
                         }
                         break
                     case 'font-awesome':
+                        paths.current = file.version === '4.7.0' ? true : false
                         paths.stylesheet = buildPathFontAwesome(file)
                         break
                     case 'bootlint':
+                        paths.current = file.version === '1.1.0' ? true : false
                         const bootlintPath = buildPathBootlint(file)
+
                         if (bootlintPath) {
                             paths.javascript = buildPathBootlint(file)
                         } else {
