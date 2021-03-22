@@ -13,24 +13,6 @@ const files = yaml.load(
 
 const { configFile } = require('./generateFiles')
 
-function buildPath(dir) {
-    dir = dir
-        .replace('/bootstrap/', '/twitter-bootstrap/')
-        .replace('https://cdn.jsdelivr.net/', '')
-
-    return path.join(__dirname, '../cdn', dir)
-}
-
-function exists(file) {
-    const found = fs.existsSync(file)
-
-    if (!found) {
-        console.warn(`WARNING: ${file} not found`)
-    }
-
-    return found
-}
-
 async function generateSri(file) {
     const getFile = await axios.get(file).then((res) => {
         const sriHash = sri.generate({ algorithms: ['sha384'] }, res.data)
@@ -38,21 +20,6 @@ async function generateSri(file) {
     })
     return getFile
 }
-
-// // Bootswatch {3,4}
-// ;['bootswatch3', 'bootswatch4'].forEach((key) => {
-//     const bootswatch = buildPath(files[key].bootstrap)
-
-//     files[key].themes.forEach((theme) => {
-//         const file = bootswatch
-//             .replace('SWATCH_VERSION', files[key].version)
-//             .replace('SWATCH_NAME', theme.name)
-
-//         if (exists(file)) {
-//             theme.sri = generateSri(file)
-//         }
-//     })
-// })
 
 async function bootswatchSri(bs4 = false) {
     const baseLink = bs4
@@ -154,7 +121,6 @@ async function main() {
     files.bootswatch3.themes = b3Sri
     files.bootswatch4.themes = b4Sri
 
-    //console.log(files)
     //Create backup file
     fs.copyFileSync(configFile, `${configFile}.bak`)
 

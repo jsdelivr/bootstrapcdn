@@ -200,7 +200,7 @@ async function generateFilesPath({ versions, packageName }) {
                             paths.image =
                                 'https://bootswatch.com/SWATCH_NAME/thumbnail.png'
                             paths.bootstrap = bspath
-                            paths.themes = themes
+                            paths.themes = themes.reverse()
                         } else if (file.version == '3.4.1') {
                             paths.link = 'https://bootswatch.com/3/SWATCH_NAME/'
                             paths.image =
@@ -211,7 +211,6 @@ async function generateFilesPath({ versions, packageName }) {
                         } else {
                             return false
                         }
-                        //paths.themes = buildPathBootsWatch(file)
                         break
                     case 'font-awesome':
                         paths.stylesheet = buildPathFontAwesome(file)
