@@ -4,7 +4,7 @@ const fs = require('fs')
 const path = require('path')
 const yaml = require('js-yaml')
 
-const configFile = path.resolve(__dirname, './_files.yml')
+const configFile = path.resolve(__dirname, '../config/_files.yml')
 
 const apiURL = 'https://data.jsdelivr.com/v1/package/npm'
 const baseURL = `https://cdn.jsdelivr.net/npm/`
@@ -21,8 +21,6 @@ function findFile(folder, filename) {
 }
 
 function writeToYml(files) {
-    const configFile = path.resolve(__dirname, './_files.yml')
-
     fs.copyFileSync(configFile, `${configFile}.bak`)
 
     fs.writeFileSync(
@@ -266,11 +264,8 @@ async function main() {
     })
 
     writeToYml(filesMap)
-    //console.log(filesMap)
 }
 
 main()
-
-//getPackage('font-awesome').then(generateFilesPath)
 
 module.exports = { configFile }
