@@ -1,10 +1,5 @@
 'use strict';
 
-const ENV = process.env;
-
-// We use BCDN_HEADERS to distinguish between production and debug CDN headers
-ENV.BCDN_HEADERS = ENV.BCDN_HEADERS || 'production';
-
 const assert = require('assert').strict;
 const path = require('path');
 const escapeStringRegexp = require('escape-string-regexp');
@@ -68,12 +63,6 @@ function prefetch(uri, cb) {
         gzip: true,
         strictSSL: true
     };
-
-    if (ENV.BCDN_HEADERS === 'debug') {
-        reqOpts.headers = {
-            Pragma: 'debug'
-        };
-    }
 
     request.get(reqOpts, (err, res) => {
         if (err) {

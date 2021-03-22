@@ -124,7 +124,7 @@ app.locals.semver = semver;
 // routes
 app.use('/', routes.indexRoute);
 app.use('/about/', routes.aboutRoute);
-app.use('/alpha/?|/beta/?|/jobs/?', routes.redirectToRoot);
+app.use('/alpha/?|/beta/?|/jobs/?|/privacy-policy/?', routes.redirectToRoot);
 app.use('/books/', routes.booksRoute);
 app.use('/bootlint/', routes.bootlintRoute);
 app.use('/bootswatch/', routes.bootswatchRoute);
@@ -183,7 +183,6 @@ if (ENV.ENABLE_CRAWLING) {
             '/fontawesome',
             '/integrations',
             '/legacy',
-            '/privacy-policy',
             '/showcase'
         ]);
         return map.XMLtoWeb(res);
