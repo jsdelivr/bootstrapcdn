@@ -56,6 +56,24 @@ async function generateSri(file) {
 //     })
 // })
 
+async function bootswatchSri(bs4 = false) {
+    const baseLink = bs4
+        ? files.bootswatch4.bootstrap
+        : files.bootswatch3.bootstrap
+    const themesArr = bs4 ? files.bootswatch4.themes : files.bootswatch3.themes
+    const sris = themesArr.map(async (theme) => {
+        let axiosLink = bs4
+            ? baseLink.replace('SWATCH_VERSION', files.bootswatch4.version)
+            : baseLink.replace('SWATCH_VERSION', files.bootswatch3.version)
+        axiosLink = axiosLink.replace('SWATCH_NAME', theme.name)
+        const remoteFile = await generateSri(axiosLink)
+        theme.sri = remoteFile
+        //console.log(remoteFile)
+        return theme
+    })
+    return sris
+}
+
 // // Bootstrap
 async function bootstrapSri() {
     const sris = files.bootstrap.map(async (bootstrap) => {
@@ -126,9 +144,17 @@ async function main() {
     const bsPromises = await bootstrapSri()
     const bsSri = await Promise.all(bsPromises)
 
+    const bs3Promises = await bootswatchSri()
+    const b3Sri = await Promise.all(bs3Promises)
+
+    const bs4Promises = await bootswatchSri(true)
+    const b4Sri = await Promise.all(bs4Promises)
+
     files['font-awesome'] = faSri
     files.bootlint = blSri
     files.bootstrap = bsSri
+    files.bootswatch3.themes = b3Sri
+    files.bootswatch4.themes = b4Sri
 
     //console.log(files)
     //Create backup file

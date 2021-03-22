@@ -8,7 +8,7 @@ const configFile = path.resolve(__dirname, './_files.yml')
 
 const apiURL = 'https://data.jsdelivr.com/v1/package/npm'
 const baseURL = `https://cdn.jsdelivr.net/npm/`
-const packagesList = ['bootstrap', 'font-awesome', 'bootlint'] //'bootswatch', 'bootlint'
+const packagesList = ['bootstrap', 'font-awesome', 'bootlint', 'bootswatch'] //'bootswatch', 'bootlint'
 
 async function getPackage(packageName) {
     const { data } = await axios.get(`${apiURL}/${packageName}`)
@@ -31,6 +31,12 @@ function writeToYml(files) {
             lineWidth: -1,
         }),
     )
+}
+
+async function findLastBootsWatchVersion() {
+    const allVersions = await getPackage('bootswatch')
+    const latestVersion = await allVersions.versions[0]
+    return latestVersion
 }
 
 function buildPath(packageData, ext, filename) {
@@ -62,18 +68,20 @@ function buildPathFontAwesome(packageData) {
     return path
 }
 
-function buildPathBootsWatch(packageData) {
-    const basepath = `${baseURL}${packageData.packageName}@${packageData.version}`
+function buildPathBootsWatch(packageData, bs4 = true) {
+    const basepath = `${baseURL}${packageData.packageName}@SWATCH_VERSION`
     const distFolder = findFile(packageData, 'dist')
+    let bootstrapPath = ''
     let themes
     if (distFolder) {
-        let path = `${basepath}/${distFolder.name}`
         themes = distFolder.files.map((theme) => {
+            let path = `${basepath}/${distFolder.name}`
             const name = theme.name
             const cssFile = findFile(theme, 'bootstrap.min.css').name
+            path += `/SWATCH_NAME/${cssFile}`
+            bootstrapPath = path
             return {
                 name: name,
-                stylesheet: `${path}/${name}/${cssFile}`,
             }
         })
     } else {
@@ -100,25 +108,42 @@ function buildPathBootsWatch(packageData) {
             'united',
             'yeti',
         ]
+        let path = basepath
         themes = themesNames
             .map((theme) => {
                 const themeFolder = findFile(packageData, theme)
                 if (themeFolder) {
-                    let path = `${basepath}/${themeFolder.name}`
+                    path = `${basepath}/SWATCH_NAME`
                     const cssFile = findFile(themeFolder, 'bootstrap.min.css')
                     path += `/${cssFile.name}`
-                    return { name: theme, stylesheet: path }
+                    bootstrapPath = path
+                    return { name: theme }
+                    //return { name: theme }
                 }
             })
             .filter((und) => und)
     }
-    return themes
+    return { bspath: bootstrapPath, themes: themes }
 }
 
 function buildPathBootlint(packageData) {
-    return packageData.default
-        ? `${baseURL}${packageData.packageName}@${packageData.version}${packageData.default}`
-        : false
+    let basepath = `${baseURL}${packageData.packageName}@${packageData.version}/`
+    const distFolder = findFile(packageData, 'dist')
+    if (distFolder) {
+        let path = `${basepath}${distFolder.name}`
+        const browserFolder = findFile(distFolder, 'browser')
+        if (browserFolder) {
+            path += `/${browserFolder.name}`
+            const minjsFile = findFile(browserFolder, 'bootlint.min.js')
+            if (minjsFile) {
+                path += `/${minjsFile.name}`
+                return path
+            } else {
+                return false
+            }
+        }
+    }
+    return false
 }
 
 async function generateFilesPath({ versions, packageName }) {
@@ -130,36 +155,65 @@ async function generateFilesPath({ versions, packageName }) {
 
         const files = await Promise.all(filesPromises)
 
+        //const lastbsVersion = await findLastBootsWatchVersion()
+
         const versionFiles = files
-            .map((file) => {
+            .map((file, index) => {
                 const paths = { version: file.version }
 
                 switch (file.packageName) {
                     case 'bootstrap':
-                        paths.stylesheet = buildPath(
+                        const stylesheet = buildPath(
                             file,
                             'css',
                             'bootstrap.min.css',
                         )
-                        paths.javascript = buildPath(
+                        const javascript = buildPath(
                             file,
                             'js',
                             'bootstrap.min.js',
                         )
-                        paths.javascriptBundle = buildPath(
-                            file,
-                            'js',
-                            'bootstrap.bundle.min.js',
-                        )
-                        paths.javascriptEsm = buildPath(
-                            file,
-                            'js',
-                            'bootstrap.esm.min.js',
-                        )
+                        if (javascript && stylesheet) {
+                            paths.stylesheet = stylesheet
+                            paths.javascript = javascript
+                            paths.javascriptBundle = buildPath(
+                                file,
+                                'js',
+                                'bootstrap.bundle.min.js',
+                            )
+                            paths.javascriptEsm = buildPath(
+                                file,
+                                'js',
+                                'bootstrap.esm.min.js',
+                            )
+                        } else {
+                            return false
+                        }
+
                         break
 
                     case 'bootswatch':
-                        paths.themes = buildPathBootsWatch(file)
+                        paths.link = 'https://bootswatch.com/SWATCH_NAME/'
+                        paths.image =
+                            'https://bootswatch.com/SWATCH_NAME/thumbnail.png'
+                        if (!index) {
+                            const { bspath, themes } = buildPathBootsWatch(file)
+                            paths.link = 'https://bootswatch.com/SWATCH_NAME/'
+                            paths.image =
+                                'https://bootswatch.com/SWATCH_NAME/thumbnail.png'
+                            paths.bootstrap = bspath
+                            paths.themes = themes
+                        } else if (file.version == '3.4.1') {
+                            paths.link = 'https://bootswatch.com/3/SWATCH_NAME/'
+                            paths.image =
+                                'https://bootswatch.com/3/SWATCH_NAME/thumbnail.png'
+                            const { bspath, themes } = buildPathBootsWatch(file)
+                            paths.bootstrap = bspath
+                            paths.themes = themes
+                        } else {
+                            return false
+                        }
+                        //paths.themes = buildPathBootsWatch(file)
                         break
                     case 'font-awesome':
                         paths.stylesheet = buildPathFontAwesome(file)
@@ -183,7 +237,7 @@ async function generateFilesPath({ versions, packageName }) {
                 return paths
             })
             .filter((cdn) => cdn)
-
+        //console.log(versionFiles)
         return versionFiles
     } catch (error) {
         console.error(error)
@@ -202,7 +256,13 @@ async function main() {
 
     let filesMap = {}
     files.forEach((file) => {
-        filesMap = { ...filesMap, ...file }
+        const keysName = Object.keys(file)
+        if (keysName.includes('bootswatch')) {
+            filesMap = { ...filesMap, bootswatch3: file.bootswatch[1] }
+            filesMap = { ...filesMap, bootswatch4: file.bootswatch[0] }
+        } else {
+            filesMap = { ...filesMap, ...file }
+        }
     })
 
     writeToYml(filesMap)
@@ -210,5 +270,7 @@ async function main() {
 }
 
 main()
+
+//getPackage('font-awesome').then(generateFilesPath)
 
 module.exports = { configFile }
