@@ -251,6 +251,7 @@ bootstrap:
     stylesheetSri: sha384-7tY7Dc2Q8WQTKGz2Fa0vC4dWQo07N4mJjKvHfIGnxuC4vPqFGFQppd9b3NWpf18/
 font-awesome:
   - version: 4.7.0
+    current: true
     stylesheet: https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css
     stylesheetSri: sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN
   - version: 4.6.3
@@ -282,6 +283,7 @@ font-awesome:
     stylesheetSri: sha384-5WSMKsEjlK1hO/E+0ERtEmsujy8NFgEb15UOB5phg+1xk2zTO0Dd71qJ+7yD1QFN
 bootlint:
   - version: 1.1.0
+    current: true
     javascript: https://cdn.jsdelivr.net/npm/bootlint@1.1.0/dist/browser/bootlint.min.js
     javascriptSri: sha384-D0zT3yu3RBG+Jc54wtMtxDEyZGWfa30nEkS/o2AyBZUOmIpezYYjBLZjUetRV3iG
   - version: 1.0.0
