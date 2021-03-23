@@ -15,6 +15,7 @@ const { configFile } = require('./generateFiles')
 
 async function generateSri(file) {
     const getFile = await axios.get(file).then((res) => {
+        console.log(file)
         const sriHash = sri.generate({ algorithms: ['sha384'] }, res.data)
         return sriHash
     })
@@ -78,11 +79,12 @@ async function fontAwesomeSri() {
         const stylesheet = fontawesome.stylesheet
         const version = fontawesome.version
         if (stylesheet) {
-            const remoteFile = await generateSri(stylesheet)
-            fontawesome.stylesheetSri = remoteFile
+            const sri = await generateSri(stylesheet)
+            fontawesome.stylesheetSri = sri
             return fontawesome
         }
     })
+
     return sris
 }
 
@@ -121,14 +123,20 @@ async function main() {
     files.bootswatch3.themes = b3Sri
     files.bootswatch4.themes = b4Sri
 
-    //Create backup file
-    fs.copyFileSync(configFile, `${configFile}.bak`)
-
+    console.log('Writing to yml file...')
     fs.writeFileSync(
         configFile,
         yaml.dump(files, {
             lineWidth: -1,
         }),
     )
+
+    console.log('Create bak...')
+    //Create backup file
+    fs.copyFileSync(configFile, `${configFile}.bak`)
+
+    console.log(`Integrity generated for: ${configFile}`)
+    console.log('Done')
 }
+
 main()

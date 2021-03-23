@@ -21,20 +21,14 @@ function findFile(folder, filename) {
 }
 
 function writeToYml(files) {
-    fs.copyFileSync(configFile, `${configFile}.bak`)
-
     fs.writeFileSync(
         configFile,
         yaml.dump(files, {
             lineWidth: -1,
         }),
     )
-}
 
-async function findLastBootsWatchVersion() {
-    const allVersions = await getPackage('bootswatch')
-    const latestVersion = await allVersions.versions[0]
-    return latestVersion
+    fs.copyFileSync(configFile, `${configFile}.bak`)
 }
 
 function buildPath(packageData, ext, filename) {
@@ -153,11 +147,13 @@ async function generateFilesPath({ versions, packageName }) {
 
         const files = await Promise.all(filesPromises)
 
-        //const lastbsVersion = await findLastBootsWatchVersion()
-
         const versionFiles = files
             .map((file, index) => {
                 const paths = { version: file.version }
+
+                console.log(
+                    `Building cdn for ${file.packageName} - v${file.version}`,
+                )
 
                 switch (file.packageName) {
                     case 'bootstrap':
@@ -239,7 +235,7 @@ async function generateFilesPath({ versions, packageName }) {
                 return paths
             })
             .filter((cdn) => cdn)
-        //console.log(versionFiles)
+
         return versionFiles
     } catch (error) {
         console.error(error)
@@ -267,7 +263,10 @@ async function main() {
         }
     })
 
+    console.log('Writing to _files.yml...')
     writeToYml(filesMap)
+    console.log(`Generated file: ${configFile}`)
+    console.log('Done')
 }
 
 main()
