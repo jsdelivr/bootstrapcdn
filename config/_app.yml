@@ -21,8 +21,8 @@ favicon:
   uri: /assets/img/favicons/favicon.ico
 javascript:
   - name: jquery
-    uri: 'https://code.jquery.com/jquery-3.6.0.slim.min.js'
-    sri: sha384-Qg00WFl9r0Xr6rUqNLv1ffTSSKEFFCDCKVyHZ+sVt8KuvG99nWw5RNvbhuKgif9z
+    uri: 'https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js'
+    sri: sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=
   - name: clipboardjs
     uri: /assets/js/vendor/clipboard.min.js
   - name: main
