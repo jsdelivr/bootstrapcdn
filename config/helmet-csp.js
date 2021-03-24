@@ -1,31 +1,31 @@
-'use strict'
+'use strict';
 
 const CSP = {
-    defaultSrc: ["'none'"],
-    baseUri: ["'self'"],
+    defaultSrc: ['"none"'],
+    baseUri: ['"self"'],
     formAction: ['platform.twitter.com', 'syndication.twitter.com'],
-    frameAncestors: ["'none'"],
+    frameAncestors: ['"none"'],
     scriptSrc: [
-        "'self'",
-        "'unsafe-inline'",
+        '"self"',
+        '\'unsafe-inline\'',
         'stackpath.bootstrapcdn.com',
         'www.google-analytics.com',
         'code.jquery.com',
         'platform.twitter.com',
         'api.github.com',
         'https://cdn.jsdelivr.net',
-        (req, res) => `'nonce-${res.locals.nonce}'`,
+        (req, res) => `'nonce-${res.locals.nonce}'`
     ],
     styleSrc: [
-        "'self'",
-        "'unsafe-inline'",
+        '\'self\'',
+        '\'unsafe-inline\'',
         'stackpath.bootstrapcdn.com',
         'fonts.googleapis.com',
         'platform.twitter.com',
-        'https://cdn.jsdelivr.net',
+        'https://cdn.jsdelivr.net'
     ],
     imgSrc: [
-        "'self'",
+        '\'self\'',
         'data:',
         'www.google-analytics.com',
         'bootswatch.com',
@@ -37,31 +37,31 @@ const CSP = {
         '*.2mdn.net',
         'launchbit.com',
         'www.launchbit.com',
-        'https://cdn.jsdelivr.net',
+        'https://cdn.jsdelivr.net'
     ],
     fontSrc: [
-        "'self'",
+        '"self"',
         'stackpath.bootstrapcdn.com',
         'fonts.gstatic.com',
-        'https://cdn.jsdelivr.net',
+        'https://cdn.jsdelivr.net'
     ],
     frameSrc: [
-        "'self'",
+        '"self"',
         'img.shields.io',
         'platform.twitter.com',
         'syndication.twitter.com',
-        'https://cdn.jsdelivr.net',
+        'https://cdn.jsdelivr.net'
     ],
     childSrc: [
-        "'self'",
+        '"self"',
         'img.shields.io',
         'platform.twitter.com',
         'syndication.twitter.com',
-        'https://cdn.jsdelivr.net',
+        'https://cdn.jsdelivr.net'
     ],
     connectSrc: ['syndication.twitter.com'],
     objectSrc: ['img.shields.io'],
-    manifestSrc: ["'self'"],
-}
+    manifestSrc: ['"self"']
+};
 
-module.exports = CSP
+module.exports = CSP;
