@@ -11,7 +11,7 @@ const CSP = {
     scriptSrc: [
         '\'self\'',
         '\'unsafe-inline\'',
-        'stackpath.bootstrapcdn.com',
+        'cdn.jsdelivr.net',
         'www.google-analytics.com',
         'code.jquery.com',
         'platform.twitter.com',
@@ -21,7 +21,7 @@ const CSP = {
     styleSrc: [
         '\'self\'',
         '\'unsafe-inline\'',
-        'stackpath.bootstrapcdn.com',
+        'cdn.jsdelivr.net',
         'fonts.googleapis.com',
         'platform.twitter.com'
     ],
@@ -41,7 +41,7 @@ const CSP = {
     ],
     fontSrc: [
         '\'self\'',
-        'stackpath.bootstrapcdn.com',
+        'cdn.jsdelivr.net',
         'fonts.gstatic.com'
     ],
     frameSrc: [

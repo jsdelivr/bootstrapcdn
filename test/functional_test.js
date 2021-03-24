@@ -8,7 +8,7 @@ const { generateSri } = require('../lib/helpers');
 const { files } = require('../config');
 const helpers = require('./test_helpers');
 
-const CDN_URL = 'https://stackpath.bootstrapcdn.com/';
+const CDN_URL = 'https://cdn.jsdelivr.net/';
 
 const cache = new Set();
 const responses = new Map();

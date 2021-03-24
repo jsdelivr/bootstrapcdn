@@ -12,7 +12,7 @@ const configFile = path.resolve(__dirname, '../config/_files.yml');
 
 function buildPath(dir) {
     dir = dir.replace('/bootstrap/', '/twitter-bootstrap/')
-        .replace('https://stackpath.bootstrapcdn.com/', '');
+        .replace('https://cdn.jsdelivr.net/', '');
 
     return path.join(__dirname, '../cdn', dir);
 }
