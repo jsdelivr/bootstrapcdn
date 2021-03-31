@@ -15,6 +15,11 @@ async function getPackage(packageName) {
     return { ...data, packageName };
 }
 
+async function getLatestVersion(packageName) {
+    const latestV = await getPackage(packageName);
+    return latestV.tags.latest;
+}
+
 function findFile(folder, filename) {
     const file = folder.files.find((file) => file.name === filename);
     return file;
@@ -151,9 +156,12 @@ async function generateFilesPath({ versions, packageName }) {
 
         const files = await Promise.all(filesPromises);
 
+        const latestVersion = await getLatestVersion(packageName);
+
         const versionFiles = files
-            .map((file, index) => {
+            .map((file) => {
                 const paths = { version: file.version };
+                paths.current = file.version === latestVersion;
 
                 console.log(
                     `Building cdn for ${file.packageName} - v${file.version}`
@@ -161,8 +169,6 @@ async function generateFilesPath({ versions, packageName }) {
 
                 switch (file.packageName) {
                     case 'bootstrap': {
-                        paths.current = file.version === '4.5.2';
-
                         const stylesheet = buildPath(
                             file,
                             'css',
@@ -198,7 +204,7 @@ async function generateFilesPath({ versions, packageName }) {
                         paths.link = 'https://bootswatch.com/SWATCH_NAME/';
                         paths.image =
                             'https://bootswatch.com/SWATCH_NAME/thumbnail.png';
-                        if (!index) {
+                        if (file.version === '4.5.2') {
                             const { bspath, themes } = buildPathBootsWatch(
                                 file
                             );
@@ -223,11 +229,9 @@ async function generateFilesPath({ versions, packageName }) {
 
                         break;
                     case 'font-awesome':
-                        paths.current = file.version === '4.7.0';
                         paths.stylesheet = buildPathFontAwesome(file);
                         break;
                     case 'bootlint': {
-                        paths.current = file.version === '1.1.0';
                         const bootlintPath = buildPathBootlint(file);
 
                         if (bootlintPath) {

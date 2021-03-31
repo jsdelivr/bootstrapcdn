@@ -15,7 +15,6 @@ const { configFile } = require('./generateFiles');
 
 async function generateSri(file) {
     const getFile = await axios.get(file).then((res) => {
-        console.log(file);
         const sriHash = sri.generate({ algorithms: ['sha384'] }, res.data);
         return sriHash;
     });
