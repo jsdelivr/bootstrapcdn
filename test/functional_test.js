@@ -231,7 +231,7 @@ describe('functional', () => {
     });
 
     describe('fontawesome', () => {
-        files['font-awesome'].forEach((self) => {
+        files['@fortawesome/fontawesome-free'].forEach((self) => {
             const uri = self.stylesheet;
 
             describe(uri, () => {

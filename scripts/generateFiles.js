@@ -8,7 +8,7 @@ const configFile = path.resolve(__dirname, '../config/_files.yml');
 
 const apiURL = 'https://data.jsdelivr.com/v1/package/npm';
 const baseURL = 'https://cdn.jsdelivr.net/npm/';
-const packagesList = ['bootstrap', 'font-awesome', 'bootlint', 'bootswatch'];
+const packagesList = ['bootstrap', '@fortawesome/fontawesome-free', 'bootlint', 'bootswatch'];
 
 async function getPackage(packageName) {
     const { data } = await axios.get(`${apiURL}/${packageName}`);
@@ -62,9 +62,14 @@ function buildPathFontAwesome(packageData) {
     let path = `${baseURL}${packageData.packageName}@${packageData.version}/`;
     const cssFolder = findFile(packageData, 'css');
     path += cssFolder.name;
-    const cssFile = findFile(cssFolder, 'font-awesome.min.css');
-    path += `/${cssFile.name}`;
-    return path;
+    const cssFile = findFile(cssFolder, 'fontawesome.min.css');
+    if(cssFile){
+        path += `/${cssFile.name}`;
+
+        return path;
+    }
+
+    return false;
 }
 
 function buildPathBootsWatch(packageData) {
@@ -228,9 +233,16 @@ async function generateFilesPath({ versions, packageName }) {
                         }
 
                         break;
-                    case 'font-awesome':
-                        paths.stylesheet = buildPathFontAwesome(file);
+                    case '@fortawesome/fontawesome-free': {
+                        const stylesheet = buildPathFontAwesome(file);
+                        if(!stylesheet){
+
+                            return false;
+                        }
+                        paths.stylesheet=stylesheet;
                         break;
+                    }
+                        
                     case 'bootlint': {
                         const bootlintPath = buildPathBootlint(file);
 
@@ -267,6 +279,7 @@ async function generateFilesPath({ versions, packageName }) {
 
 async function main() {
     const filesPromise = packagesList.map(async(pack) => {
+        console.log(pack);
         const versions = await getPackage(pack);
         const versionFiles = await generateFilesPath(versions);
 
@@ -293,5 +306,7 @@ async function main() {
 }
 
 main();
+
+//getPackage("@fortawesome/fontawesome-free").then(generateFilesPath)
 
 module.exports = { configFile };

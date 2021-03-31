@@ -69,7 +69,7 @@ async function bootstrapSri() {
 // Font Awesome
 
 async function fontAwesomeSri() {
-    const sris = files['font-awesome'].map(async(fontawesome) => {
+    const sris = files['@fortawesome/fontawesome-free'].map(async(fontawesome) => {
         const { stylesheet } = fontawesome;
         if (stylesheet) {
             const sri = await generateSri(stylesheet);
@@ -110,7 +110,7 @@ async function main() {
     const bs4Promises = await bootswatchSri(true);
     const b4Sri = await Promise.all(bs4Promises);
 
-    files['font-awesome'] = faSri;
+    files['@fortawesome/fontawesome-free'] = faSri;
     files.bootlint = blSri;
     files.bootstrap = bsSri;
     files.bootswatch3.themes = b3Sri;

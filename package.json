@@ -28,6 +28,7 @@
     "bootstrap": "node ./scripts/update_bootstrap.js",
     "bootswatch": "node ./scripts/update_bootswatch.js",
     "integrity": "node ./scripts/integrity.js",
+    "generateFiles": "node ./scripts/generateFiles.js",
     "sri": "node ./scripts/sri.js",
     "wp-plugin": "node ./scripts/wp-plugin.js"
   },
