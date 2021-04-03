@@ -1,18 +1,18 @@
-"use strict";
-const axios = require("axios").default;
-const fs = require("fs");
-const path = require("path");
-const yaml = require("js-yaml");
+'use strict';
+const axios = require('axios').default;
+const fs = require('fs');
+const path = require('path');
+const yaml = require('js-yaml');
 
-const configFile = path.resolve(__dirname, "../config/_files.yml");
+const configFile = path.resolve(__dirname, '../config/_files.yml');
 
-const apiURL = "https://data.jsdelivr.com/v1/package/npm";
-const baseURL = "https://cdn.jsdelivr.net/npm/";
+const apiURL = 'https://data.jsdelivr.com/v1/package/npm';
+const baseURL = 'https://cdn.jsdelivr.net/npm/';
 const packagesList = [
-    "bootstrap",
-    "@fortawesome/fontawesome-free",
-    "bootlint",
-    "bootswatch",
+    'bootstrap',
+    '@fortawesome/fontawesome-free',
+    'bootlint',
+    'bootswatch'
 ];
 
 async function getPackage(packageName) {
@@ -34,7 +34,7 @@ function writeToYml(files) {
     fs.writeFileSync(
         configFile,
         yaml.dump(files, {
-            lineWidth: -1,
+            lineWidth: -1
         })
     );
 
@@ -43,7 +43,7 @@ function writeToYml(files) {
 
 function buildPath(packageData, ext, filename) {
     let path = `${baseURL}${packageData.packageName}@${packageData.version}/`;
-    const dir = findFile(packageData, "dist");
+    const dir = findFile(packageData, 'dist');
     if (dir) {
         path += dir.name;
         const extensionFolder = findFile(dir, ext);
@@ -65,9 +65,9 @@ function buildPath(packageData, ext, filename) {
 
 function buildPathFontAwesome(packageData) {
     let path = `${baseURL}${packageData.packageName}@${packageData.version}/`;
-    const cssFolder = findFile(packageData, "css");
+    const cssFolder = findFile(packageData, 'css');
     path += cssFolder.name;
-    const cssFile = findFile(cssFolder, "fontawesome.min.css");
+    const cssFile = findFile(cssFolder, 'fontawesome.min.css');
     if (cssFile) {
         path += `/${cssFile.name}`;
 
@@ -79,43 +79,43 @@ function buildPathFontAwesome(packageData) {
 
 function buildPathBootsWatch(packageData) {
     const basepath = `${baseURL}${packageData.packageName}@SWATCH_VERSION`;
-    const distFolder = findFile(packageData, "dist");
-    let bootstrapPath = "";
+    const distFolder = findFile(packageData, 'dist');
+    let bootstrapPath = '';
     let themes;
     if (distFolder) {
         themes = distFolder.files.map((theme) => {
             let path = `${basepath}/${distFolder.name}`;
             const { name } = theme;
-            const cssFile = findFile(theme, "bootstrap.min.css").name;
+            const cssFile = findFile(theme, 'bootstrap.min.css').name;
             path += `/SWATCH_NAME/${cssFile}`;
             bootstrapPath = path;
             return {
-                name,
+                name
             };
         });
     } else {
         const themesNames = [
-            "cerulean",
-            "cosmo",
-            "cyborg",
-            "darkly",
-            "flatly",
-            "journal",
-            "litera",
-            "lumen",
-            "lux",
-            "materia",
-            "minty",
-            "pulse",
-            "sandstone",
-            "simplex",
-            "sketchy",
-            "slate",
-            "solar",
-            "spacelab",
-            "superhero",
-            "united",
-            "yeti",
+            'cerulean',
+            'cosmo',
+            'cyborg',
+            'darkly',
+            'flatly',
+            'journal',
+            'litera',
+            'lumen',
+            'lux',
+            'materia',
+            'minty',
+            'pulse',
+            'sandstone',
+            'simplex',
+            'sketchy',
+            'slate',
+            'solar',
+            'spacelab',
+            'superhero',
+            'united',
+            'yeti'
         ];
         let path = basepath;
         themes = themesNames
@@ -123,7 +123,7 @@ function buildPathBootsWatch(packageData) {
                 const themeFolder = findFile(packageData, theme);
                 if (themeFolder) {
                     path = `${basepath}/SWATCH_NAME`;
-                    const cssFile = findFile(themeFolder, "bootstrap.min.css");
+                    const cssFile = findFile(themeFolder, 'bootstrap.min.css');
                     path += `/${cssFile.name}`;
                     bootstrapPath = path;
 
@@ -140,13 +140,13 @@ function buildPathBootsWatch(packageData) {
 
 function buildPathBootlint(packageData) {
     const basepath = `${baseURL}${packageData.packageName}@${packageData.version}/`;
-    const distFolder = findFile(packageData, "dist");
+    const distFolder = findFile(packageData, 'dist');
     if (distFolder) {
         let path = `${basepath}${distFolder.name}`;
-        const browserFolder = findFile(distFolder, "browser");
+        const browserFolder = findFile(distFolder, 'browser');
         if (browserFolder) {
             path += `/${browserFolder.name}`;
-            const minjsFile = findFile(browserFolder, "bootlint.min.js");
+            const minjsFile = findFile(browserFolder, 'bootlint.min.js');
             if (minjsFile) {
                 path += `/${minjsFile.name}`;
                 return path;
@@ -160,9 +160,9 @@ function buildPathBootlint(packageData) {
 }
 
 async function generateFilesPath({ versions, packageName }) {
-    const filesPromises = versions.map(async (version, index) => {
-        return await new Promise((resolve, rejects) => {
-            setTimeout(async () => {
+    const filesPromises = versions.map((version, index) => {
+        return new Promise((resolve) => {
+            setTimeout(async() => {
                 console.log(`Fetching ${packageName}@${version}...`);
                 const res = await getPackage(`${packageName}@${version}`);
                 resolve({ ...res, version, packageName });
@@ -184,16 +184,16 @@ async function generateFilesPath({ versions, packageName }) {
             );
 
             switch (file.packageName) {
-                case "bootstrap": {
+                case 'bootstrap': {
                     const stylesheet = buildPath(
                         file,
-                        "css",
-                        "bootstrap.min.css"
+                        'css',
+                        'bootstrap.min.css'
                     );
                     const javascript = buildPath(
                         file,
-                        "js",
-                        "bootstrap.min.js"
+                        'js',
+                        'bootstrap.min.js'
                     );
 
                     if (javascript && stylesheet) {
@@ -201,13 +201,13 @@ async function generateFilesPath({ versions, packageName }) {
                         paths.javascript = javascript;
                         paths.javascriptBundle = buildPath(
                             file,
-                            "js",
-                            "bootstrap.bundle.min.js"
+                            'js',
+                            'bootstrap.bundle.min.js'
                         );
                         paths.javascriptEsm = buildPath(
                             file,
-                            "js",
-                            "bootstrap.esm.min.js"
+                            'js',
+                            'bootstrap.esm.min.js'
                         );
                     } else {
                         return false;
@@ -216,21 +216,21 @@ async function generateFilesPath({ versions, packageName }) {
                     break;
                 }
 
-                case "bootswatch":
-                    paths.link = "https://bootswatch.com/SWATCH_NAME/";
+                case 'bootswatch':
+                    paths.link = 'https://bootswatch.com/SWATCH_NAME/';
                     paths.image =
-                        "https://bootswatch.com/SWATCH_NAME/thumbnail.png";
-                    if (file.version === "4.5.2") {
+                        'https://bootswatch.com/SWATCH_NAME/thumbnail.png';
+                    if (file.version === '4.5.2') {
                         const { bspath, themes } = buildPathBootsWatch(file);
-                        paths.link = "https://bootswatch.com/SWATCH_NAME/";
+                        paths.link = 'https://bootswatch.com/SWATCH_NAME/';
                         paths.image =
-                            "https://bootswatch.com/SWATCH_NAME/thumbnail.png";
+                            'https://bootswatch.com/SWATCH_NAME/thumbnail.png';
                         paths.bootstrap = bspath;
                         paths.themes = themes.reverse();
-                    } else if (file.version === "3.4.1") {
-                        paths.link = "https://bootswatch.com/3/SWATCH_NAME/";
+                    } else if (file.version === '3.4.1') {
+                        paths.link = 'https://bootswatch.com/3/SWATCH_NAME/';
                         paths.image =
-                            "https://bootswatch.com/3/SWATCH_NAME/thumbnail.png";
+                            'https://bootswatch.com/3/SWATCH_NAME/thumbnail.png';
                         const { bspath, themes } = buildPathBootsWatch(file);
                         paths.bootstrap = bspath;
                         paths.themes = themes;
@@ -239,16 +239,17 @@ async function generateFilesPath({ versions, packageName }) {
                     }
 
                     break;
-                case "@fortawesome/fontawesome-free": {
+                case '@fortawesome/fontawesome-free': {
                     const stylesheet = buildPathFontAwesome(file);
                     if (!stylesheet) {
                         return false;
                     }
+
                     paths.stylesheet = stylesheet;
                     break;
                 }
 
-                case "bootlint": {
+                case 'bootlint': {
                     const bootlintPath = buildPathBootlint(file);
 
                     if (bootlintPath) {
@@ -269,7 +270,7 @@ async function generateFilesPath({ versions, packageName }) {
                     delete paths[path];
                 }
 
-                return "";
+                return '';
             });
 
             return paths;
@@ -279,8 +280,8 @@ async function generateFilesPath({ versions, packageName }) {
     return versionFiles;
 }
 
-(async function main() {
-    const promises = packagesList.map(async (pack) => {
+async function main() {
+    const promises = packagesList.map(async(pack) => {
         const versions = await getPackage(pack);
         const versionFiles = await generateFilesPath(versions);
 
@@ -292,7 +293,7 @@ async function generateFilesPath({ versions, packageName }) {
     let filesMap = {};
     files.forEach((file) => {
         const keysName = Object.keys(file);
-        if (keysName.includes("bootswatch")) {
+        if (keysName.includes('bootswatch')) {
             filesMap = { ...filesMap, bootswatch3: file.bootswatch[1] };
             filesMap = { ...filesMap, bootswatch4: file.bootswatch[0] };
         } else {
@@ -300,10 +301,12 @@ async function generateFilesPath({ versions, packageName }) {
         }
     });
 
-    console.log("Writing to _files.yml...");
+    console.log('Writing to _files.yml...');
     writeToYml(filesMap);
     console.log(`Generated file: ${configFile}`);
-    console.log("Done");
-})();
+    console.log('Done');
+}
+
+main();
 
 module.exports = { configFile };
