@@ -1,3 +1,5 @@
+/* eslint-env es2020 */
+
 'use strict';
 const axios = require('axios').default;
 const fs = require('fs');
