@@ -16,21 +16,19 @@ const files = yaml.load(
 );
 
 function generateSri(file) {
-    return new Promise((resolve, rejects) => {
-		setTimeout(async () => {
-			try {
-				console.log(`Generating sri for ${file}`);
-				const res = await axios.get(file);
-				const sriHash = sri.generate({ algorithms: ['sha384'] }, res.data);
+    return new Promise((resolve, reject) => {
+        setTimeout(async() => {
+            try {
+                console.log(`Generating sri for ${file}`);
+                const res = await axios.get(file);
+                const sriHash = sri.generate({ algorithms: ['sha384'] }, res.data);
 
-				resolve(sriHash);
-			} catch (error) {
-				rejects(error);
-			}
-		}, 1000)
-	})
-
-    
+                resolve(sriHash);
+            } catch (error) {
+                reject(error);
+            }
+        }, 1000);
+    });
 }
 
 // Bootswatch
