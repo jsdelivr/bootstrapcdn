@@ -1,35 +1,45 @@
 #!/usr/bin/env node
+/* eslint-env es2020 */
 
 'use strict';
+
 const axios = require('axios').default;
 const fs = require('fs');
 const path = require('path');
 const yaml = require('js-yaml');
 const sri = require('sri-toolbox');
+
+const configFile = path.resolve(__dirname, '../config/_files.yml');
 const files = yaml.load(
     fs.readFileSync(path.join(__dirname, '../config/_files.yml')),
     'utf8'
 );
 
-const { configFile } = require('./generateFiles');
+function generateSri(file) {
+    return new Promise((resolve, reject) => {
+        setTimeout(async() => {
+            try {
+                console.log(`Generating sri for ${file}`);
+                const res = await axios.get(file);
+                const sriHash = sri.generate({ algorithms: ['sha384'] }, res.data);
 
-async function generateSri(file) {
-    const getFile = await axios.get(file).then((res) => {
-        console.log(file);
-        const sriHash = sri.generate({ algorithms: ['sha384'] }, res.data);
-        return sriHash;
+                resolve(sriHash);
+            } catch (error) {
+                reject(error);
+            }
+        }, 1000);
     });
-    return getFile;
 }
 
+// Bootswatch
 async function bootswatchSri(bs4 = false) {
     const baseLink = bs4 ? files.bootswatch4.bootstrap : files.bootswatch3.bootstrap;
     const themesArr = bs4 ? files.bootswatch4.themes : files.bootswatch3.themes;
     const sris = themesArr.map(async(theme) => {
         let axiosLink = bs4 ? baseLink.replace('SWATCH_VERSION', files.bootswatch4.version) : baseLink.replace('SWATCH_VERSION', files.bootswatch3.version);
         axiosLink = axiosLink.replace('SWATCH_NAME', theme.name);
-        const remoteFile = await generateSri(axiosLink);
-        theme.sri = remoteFile;
+        const themeSri = await generateSri(axiosLink);
+        theme.sri = themeSri;
 
         return theme;
     });
@@ -43,23 +53,23 @@ async function bootstrapSri() {
         const { javascriptBundle, javascriptEsm } = bootstrap;
 
         if (javascript) {
-            const remoteJs = await generateSri(javascript);
-            bootstrap.javascriptSri = remoteJs;
+            const jsSri = await generateSri(javascript);
+            bootstrap.javascriptSri = jsSri;
         }
 
         if (javascriptBundle) {
-            const remoteBundle = await generateSri(javascriptBundle);
-            bootstrap.javascriptBundleSri = remoteBundle;
+            const bundleSri = await generateSri(javascriptBundle);
+            bootstrap.javascriptBundleSri = bundleSri;
         }
 
         if (javascriptEsm) {
-            const remoteEsm = await generateSri(javascriptEsm);
-            bootstrap.javascriptEsmSri = remoteEsm;
+            const esmSri = await generateSri(javascriptEsm);
+            bootstrap.javascriptEsmSri = esmSri;
         }
 
         if (stylesheet) {
-            const remoteCss = await generateSri(stylesheet);
-            bootstrap.stylesheetSri = remoteCss;
+            const cssSri = await generateSri(stylesheet);
+            bootstrap.stylesheetSri = cssSri;
         }
 
         return bootstrap;
@@ -68,16 +78,17 @@ async function bootstrapSri() {
 }
 
 // Font Awesome
-
 async function fontAwesomeSri() {
-    const sris = files['font-awesome'].map(async(fontawesome) => {
-        const { stylesheet } = fontawesome;
-        if (stylesheet) {
-            const sri = await generateSri(stylesheet);
-            fontawesome.stylesheetSri = sri;
-            return fontawesome;
+    const sris = files['@fortawesome/fontawesome-free'].map(
+        async(fontawesome) => {
+            const { stylesheet } = fontawesome;
+            if (stylesheet) {
+                const sri = await generateSri(stylesheet);
+                fontawesome.stylesheetSri = sri;
+                return fontawesome;
+            }
         }
-    });
+    );
 
     return sris;
 }
@@ -87,8 +98,8 @@ async function bootlintSri() {
     const sris = files.bootlint.map(async(bootlint) => {
         const { javascript } = bootlint;
         if (javascript) {
-            const remoteFile = await generateSri(javascript);
-            bootlint.javascriptSri = remoteFile;
+            const jsSri = await generateSri(javascript);
+            bootlint.javascriptSri = jsSri;
             return bootlint;
         }
     });
@@ -111,7 +122,7 @@ async function main() {
     const bs4Promises = await bootswatchSri(true);
     const b4Sri = await Promise.all(bs4Promises);
 
-    files['font-awesome'] = faSri;
+    files['@fortawesome/fontawesome-free'] = faSri;
     files.bootlint = blSri;
     files.bootstrap = bsSri;
     files.bootswatch3.themes = b3Sri;
@@ -124,11 +135,6 @@ async function main() {
             lineWidth: -1
         })
     );
-
-    console.log('Create bak...');
-
-    // Create backup file
-
     fs.copyFileSync(configFile, `${configFile}.bak`);
 
     console.log(`Integrity generated for: ${configFile}`);

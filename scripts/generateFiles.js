@@ -1,3 +1,5 @@
+/* eslint-env es2020 */
+
 'use strict';
 const axios = require('axios').default;
 const fs = require('fs');
@@ -8,11 +10,21 @@ const configFile = path.resolve(__dirname, '../config/_files.yml');
 
 const apiURL = 'https://data.jsdelivr.com/v1/package/npm';
 const baseURL = 'https://cdn.jsdelivr.net/npm/';
-const packagesList = ['bootstrap', 'font-awesome', 'bootlint', 'bootswatch'];
+const packagesList = [
+    'bootstrap',
+    '@fortawesome/fontawesome-free',
+    'bootlint',
+    'bootswatch'
+];
 
 async function getPackage(packageName) {
     const { data } = await axios.get(`${apiURL}/${packageName}`);
     return { ...data, packageName };
+}
+
+async function getLatestVersion(packageName) {
+    const latestV = await getPackage(packageName);
+    return latestV.tags.latest;
 }
 
 function findFile(folder, filename) {
@@ -57,9 +69,14 @@ function buildPathFontAwesome(packageData) {
     let path = `${baseURL}${packageData.packageName}@${packageData.version}/`;
     const cssFolder = findFile(packageData, 'css');
     path += cssFolder.name;
-    const cssFile = findFile(cssFolder, 'font-awesome.min.css');
-    path += `/${cssFile.name}`;
-    return path;
+    const cssFile = findFile(cssFolder, 'fontawesome.min.css');
+    if (cssFile) {
+        path += `/${cssFile.name}`;
+
+        return path;
+    }
+
+    return false;
 }
 
 function buildPathBootsWatch(packageData) {
@@ -103,19 +120,21 @@ function buildPathBootsWatch(packageData) {
             'yeti'
         ];
         let path = basepath;
-        themes = themesNames.map((theme) => {
-            const themeFolder = findFile(packageData, theme);
-            if (themeFolder) {
-                path = `${basepath}/SWATCH_NAME`;
-                const cssFile = findFile(themeFolder, 'bootstrap.min.css');
-                path += `/${cssFile.name}`;
-                bootstrapPath = path;
+        themes = themesNames
+            .map((theme) => {
+                const themeFolder = findFile(packageData, theme);
+                if (themeFolder) {
+                    path = `${basepath}/SWATCH_NAME`;
+                    const cssFile = findFile(themeFolder, 'bootstrap.min.css');
+                    path += `/${cssFile.name}`;
+                    bootstrapPath = path;
 
-                return { name: theme };
-            }
+                    return { name: theme };
+                }
 
-            return false;
-        }).filter((und) => und);
+                return false;
+            })
+            .filter((und) => und);
     }
 
     return { bspath: bootstrapPath, themes };
@@ -143,133 +162,135 @@ function buildPathBootlint(packageData) {
 }
 
 async function generateFilesPath({ versions, packageName }) {
-    try {
-        const filesPromises = versions.map(async(version) => {
-            const res = await getPackage(`${packageName}@${version}`);
-            return { ...res, version, packageName };
+    const filesPromises = versions.map((version, index) => {
+        return new Promise((resolve) => {
+            setTimeout(async() => {
+                console.log(`Fetching ${packageName}@${version}...`);
+                const res = await getPackage(`${packageName}@${version}`);
+                resolve({ ...res, version, packageName });
+            }, index * 1000);
         });
+    });
 
-        const files = await Promise.all(filesPromises);
+    const files = await Promise.all(filesPromises);
 
-        const versionFiles = files
-            .map((file, index) => {
-                const paths = { version: file.version };
+    const latestVersion = await getLatestVersion(packageName);
 
-                console.log(
-                    `Building cdn for ${file.packageName} - v${file.version}`
-                );
+    const versionFiles = files
+        .map((file) => {
+            const paths = { version: file.version };
+            paths.current = file.version === latestVersion;
 
-                switch (file.packageName) {
-                    case 'bootstrap': {
-                        paths.current = file.version === '4.5.2';
+            console.log(
+                `Building cdn for ${file.packageName} - v${file.version}`
+            );
 
-                        const stylesheet = buildPath(
-                            file,
-                            'css',
-                            'bootstrap.min.css'
-                        );
-                        const javascript = buildPath(
+            switch (file.packageName) {
+                case 'bootstrap': {
+                    const stylesheet = buildPath(
+                        file,
+                        'css',
+                        'bootstrap.min.css'
+                    );
+                    const javascript = buildPath(
+                        file,
+                        'js',
+                        'bootstrap.min.js'
+                    );
+
+                    if (javascript && stylesheet) {
+                        paths.stylesheet = stylesheet;
+                        paths.javascript = javascript;
+                        paths.javascriptBundle = buildPath(
                             file,
                             'js',
-                            'bootstrap.min.js'
+                            'bootstrap.bundle.min.js'
                         );
-
-                        if (javascript && stylesheet) {
-                            paths.stylesheet = stylesheet;
-                            paths.javascript = javascript;
-                            paths.javascriptBundle = buildPath(
-                                file,
-                                'js',
-                                'bootstrap.bundle.min.js'
-                            );
-                            paths.javascriptEsm = buildPath(
-                                file,
-                                'js',
-                                'bootstrap.esm.min.js'
-                            );
-                        } else {
-                            return false;
-                        }
-
-                        break;
+                        paths.javascriptEsm = buildPath(
+                            file,
+                            'js',
+                            'bootstrap.esm.min.js'
+                        );
+                    } else {
+                        return false;
                     }
 
-                    case 'bootswatch':
+                    break;
+                }
+
+                case 'bootswatch':
+                    paths.link = 'https://bootswatch.com/SWATCH_NAME/';
+                    paths.image =
+                        'https://bootswatch.com/SWATCH_NAME/thumbnail.png';
+                    if (file.version === '4.5.2') {
+                        const { bspath, themes } = buildPathBootsWatch(file);
                         paths.link = 'https://bootswatch.com/SWATCH_NAME/';
                         paths.image =
                             'https://bootswatch.com/SWATCH_NAME/thumbnail.png';
-                        if (!index) {
-                            const { bspath, themes } = buildPathBootsWatch(
-                                file
-                            );
-                            paths.link = 'https://bootswatch.com/SWATCH_NAME/';
-                            paths.image =
-                                'https://bootswatch.com/SWATCH_NAME/thumbnail.png';
-                            paths.bootstrap = bspath;
-                            paths.themes = themes.reverse();
-                        } else if (file.version === '3.4.1') {
-                            paths.link =
-                                'https://bootswatch.com/3/SWATCH_NAME/';
-                            paths.image =
-                                'https://bootswatch.com/3/SWATCH_NAME/thumbnail.png';
-                            const { bspath, themes } = buildPathBootsWatch(
-                                file
-                            );
-                            paths.bootstrap = bspath;
-                            paths.themes = themes;
-                        } else {
-                            return false;
-                        }
-
-                        break;
-                    case 'font-awesome':
-                        paths.current = file.version === '4.7.0';
-                        paths.stylesheet = buildPathFontAwesome(file);
-                        break;
-                    case 'bootlint': {
-                        paths.current = file.version === '1.1.0';
-                        const bootlintPath = buildPathBootlint(file);
-
-                        if (bootlintPath) {
-                            paths.javascript = buildPathBootlint(file);
-                        } else {
-                            return false;
-                        }
-
-                        break;
+                        paths.bootstrap = bspath;
+                        paths.themes = themes.reverse();
+                    } else if (file.version === '3.4.1') {
+                        paths.link = 'https://bootswatch.com/3/SWATCH_NAME/';
+                        paths.image =
+                            'https://bootswatch.com/3/SWATCH_NAME/thumbnail.png';
+                        const { bspath, themes } = buildPathBootsWatch(file);
+                        paths.bootstrap = bspath;
+                        paths.themes = themes;
+                    } else {
+                        return false;
                     }
 
-                    default:
-                        return null;
+                    break;
+                case '@fortawesome/fontawesome-free': {
+                    const stylesheet = buildPathFontAwesome(file);
+                    if (!stylesheet) {
+                        return false;
+                    }
+
+                    paths.stylesheet = stylesheet;
+                    break;
                 }
 
-                Object.keys(paths).map((path) => {
-                    if (!paths[path]) {
-                        delete paths[path];
+                case 'bootlint': {
+                    const bootlintPath = buildPathBootlint(file);
+
+                    if (bootlintPath) {
+                        paths.javascript = buildPathBootlint(file);
+                    } else {
+                        return false;
                     }
 
-                    return '';
-                });
+                    break;
+                }
 
-                return paths;
-            })
-            .filter((cdn) => cdn);
+                default:
+                    return null;
+            }
 
-        return versionFiles;
-    } catch (error) {
-        console.error(error);
-    }
+            Object.keys(paths).map((path) => {
+                if (!paths[path]) {
+                    delete paths[path];
+                }
+
+                return '';
+            });
+
+            return paths;
+        })
+        .filter((cdn) => cdn);
+
+    return versionFiles;
 }
 
 async function main() {
-    const filesPromise = packagesList.map(async(pack) => {
+    const promises = packagesList.map(async(pack) => {
         const versions = await getPackage(pack);
         const versionFiles = await generateFilesPath(versions);
 
         return { [pack]: versionFiles };
-    }, {});
+    });
 
-    const files = await Promise.all(filesPromise);
+    const files = await Promise.all(promises);
 
     let filesMap = {};
     files.forEach((file) => {
