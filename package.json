@@ -1,157 +1,156 @@
 {
-  "name": "bootstrapcdn",
-  "version": "0.0.1",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/MaxCDN/bootstrapcdn.git"
-  },
-  "private": true,
-  "scripts": {
-    "clean": "rm -rf ./node_modules/",
-    "c8": "c8",
-    "puglint": "pug-lint views/",
-    "xo": "xo",
-    "lockfile-lint": "lockfile-lint --allowed-hosts npm --allowed-schemes https: --empty-hostname false --type npm --path package-lock.json",
-    "lint": "npm-run-all --continue-on-error --parallel lockfile-lint xo puglint",
-    "mocha": "cross-env NODE_ENV=test ENABLE_CRAWLING=true mocha",
-    "mocha:only-functional": "npm run mocha -- --reporter progress ./test/functional_test.js",
-    "mocha:no-functional": "npm run mocha -- --invert --grep \"functional\"",
-    "dev": "nodemon --ext css,js,pug,svg,png,yml --ignore test --ignore cdn --exec \"npm run server\"",
-    "watch": "npm run dev",
-    "server": "node bin/www.js",
-    "start": "cross-env NODE_ENV=production npm run server",
-    "all": "npm run lint && npm run mocha:no-functional && npm run mocha:only-functional",
-    "all-with-coverage": "npm run lint && c8 npm run mocha:no-functional && npm run mocha:only-functional",
-    "test": "npm run lint && npm run mocha:no-functional",
-    "test-with-coverage": "npm run lint && c8 npm run mocha:no-functional",
-    "bootlint": "node ./scripts/update_bootlint.js",
-    "bootstrap": "node ./scripts/update_bootstrap.js",
-    "bootswatch": "node ./scripts/update_bootswatch.js",
-    "integrity": "node ./scripts/integrity.js",
-    "sri": "node ./scripts/sri.js",
-    "wp-plugin": "node ./scripts/wp-plugin.js"
-  },
-  "dependencies": {
-    "compression": "^1.7.4",
-    "cross-env": "^7.0.3",
-    "errorhandler": "^1.5.1",
-    "express": "^4.17.1",
-    "express-sitemap": "^1.8.0",
-    "express-sslify": "^1.2.0",
-    "helmet": "^4.4.1",
-    "js-yaml": "^4.0.0",
-    "mime": "^2.5.2",
-    "morgan": "^1.10.0",
-    "pug": "^3.0.2",
-    "semver": "^7.3.4",
-    "serve-favicon": "^2.5.0",
-    "sri-toolbox": "^0.2.0",
-    "staticify": "^5.0.0",
-    "uuid": "^8.3.2"
-  },
-  "devDependencies": {
-    "bootlint": "1.1.0",
-    "bootstrap": "npm:bootstrap@4.5.2",
-    "bootstrap5": "npm:bootstrap@5.0.0-alpha2",
-    "bootswatch": "4.6.0",
-    "c8": "^7.6.0",
-    "escape-string-regexp": "^4.0.0",
-    "fs-extra": "^9.1.0",
-    "fs-walk": "0.0.2",
-    "html-validator": "^5.1.17",
-    "htmlencode": "0.0.4",
-    "lockfile-lint": "^4.6.2",
-    "mocha": "^8.3.2",
-    "mockdate": "^3.0.4",
-    "nodemon": "^2.0.7",
-    "npm-run-all": "^4.1.5",
-    "pug-lint": "^2.6.0",
-    "pug-lint-config-clock": "^2.0.0",
-    "request": "^2.88.2",
-    "xo": "^0.38.2"
-  },
-  "engines": {
-    "node": "14.x"
-  },
-  "mocha": {
-    "check-leaks": true,
-    "globals": "__core-js_shared__",
-    "reporter": "dot",
-    "throw-deprecation": true,
-    "timeout": 10000,
-    "trace-deprecation": true,
-    "trace-warnings": true,
-    "use_strict": true
-  },
-  "c8": {
-    "include": [
-      "**/*.js"
-    ],
-    "reporter": [
-      "html",
-      "lcov",
-      "text-summary"
-    ]
-  },
-  "xo": {
-    "ignores": [
-      "cdn/"
-    ],
-    "space": 4,
-    "rules": {
-      "arrow-parens": [
-        "error",
-        "always"
-      ],
-      "ava/no-import-test-files": "off",
-      "capitalized-comments": "off",
-      "max-nested-callbacks": "off",
-      "new-cap": [
-        "error",
-        {
-          "properties": false
-        }
-      ],
-      "object-curly-spacing": [
-        "error",
-        "always"
-      ],
-      "promise/prefer-await-to-then": "off",
-      "quote-props": [
-        "error",
-        "consistent"
-      ],
-      "space-before-function-paren": [
-        "error",
-        "never"
-      ],
-      "unicorn/filename-case": "off",
-      "unicorn/no-array-for-each": "off",
-      "unicorn/prevent-abbreviations": "off"
+    "name": "bootstrapcdn",
+    "version": "0.0.1",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/MaxCDN/bootstrapcdn.git"
     },
-    "overrides": [
-      {
-        "files": "public/assets/js/*.js",
-        "esnext": false,
-        "envs": [
-          "browser"
+    "private": true,
+    "scripts": {
+        "clean": "rm -rf ./node_modules/",
+        "c8": "c8",
+        "puglint": "pug-lint views/",
+        "xo": "xo",
+        "lockfile-lint": "lockfile-lint --allowed-hosts npm --allowed-schemes https: --empty-hostname false --type npm --path package-lock.json",
+        "lint": "npm-run-all --continue-on-error --parallel lockfile-lint xo puglint",
+        "mocha": "cross-env NODE_ENV=test ENABLE_CRAWLING=true mocha",
+        "mocha:only-functional": "npm run mocha -- --reporter progress ./test/functional_test.js",
+        "mocha:no-functional": "npm run mocha -- --invert --grep \"functional\"",
+        "dev": "nodemon --ext css,js,pug,svg,png,yml --ignore test --ignore cdn --exec \"npm run server\"",
+        "watch": "npm run dev",
+        "server": "node bin/www.js",
+        "start": "cross-env NODE_ENV=production npm run server",
+        "all": "npm run lint && npm run mocha:no-functional && npm run mocha:only-functional",
+        "all-with-coverage": "npm run lint && c8 npm run mocha:no-functional && npm run mocha:only-functional",
+        "test": "npm run lint && npm run mocha:no-functional",
+        "test-with-coverage": "npm run lint && c8 npm run mocha:no-functional",
+        "bootlint": "node ./scripts/update_bootlint.js",
+        "bootstrap": "node ./scripts/update_bootstrap.js",
+        "bootswatch": "node ./scripts/update_bootswatch.js",
+        "integrity": "node ./scripts/integrity.js",
+        "generateFiles": "node ./scripts/generateFiles.js",
+        "sri": "node ./scripts/sri.js",
+        "wp-plugin": "node ./scripts/wp-plugin.js",
+        "postinstall": "npm run generateFiles && npm run integrity"
+    },
+    "dependencies": {
+        "axios": "^0.21.1",
+        "compression": "^1.7.4",
+        "cross-env": "^7.0.3",
+        "errorhandler": "^1.5.1",
+        "express": "^4.17.1",
+        "express-sitemap": "^1.8.0",
+        "express-sslify": "^1.2.0",
+        "helmet": "^4.4.1",
+        "js-yaml": "^4.0.0",
+        "mime": "^2.5.2",
+        "morgan": "^1.10.0",
+        "pug": "^3.0.2",
+        "semver": "^7.3.4",
+        "serve-favicon": "^2.5.0",
+        "sri-toolbox": "^0.2.0",
+        "staticify": "^5.0.0",
+        "uuid": "^8.3.2"
+    },
+    "devDependencies": {
+        "c8": "^7.6.0",
+        "escape-string-regexp": "^4.0.0",
+        "fs-extra": "^9.1.0",
+        "fs-walk": "0.0.2",
+        "html-validator": "^5.1.17",
+        "htmlencode": "0.0.4",
+        "lockfile-lint": "^4.6.2",
+        "mocha": "^8.3.2",
+        "mockdate": "^3.0.4",
+        "nodemon": "^2.0.7",
+        "npm-run-all": "^4.1.5",
+        "pug-lint": "^2.6.0",
+        "pug-lint-config-clock": "^2.0.0",
+        "request": "^2.88.2",
+        "xo": "^0.38.2"
+    },
+    "engines": {
+        "node": "14.x"
+    },
+    "mocha": {
+        "check-leaks": true,
+        "globals": "__core-js_shared__",
+        "reporter": "dot",
+        "throw-deprecation": true,
+        "timeout": 10000,
+        "trace-deprecation": true,
+        "trace-warnings": true,
+        "use_strict": true
+    },
+    "c8": {
+        "include": [
+            "**/*.js"
         ],
-        "parserOptions": {
-          "ecmaVersion": 3,
-          "sourceType": "script"
-        },
-        "strict": true,
-        "rules": {
-          "unicorn/no-abusive-eslint-disable": "off",
-          "unicorn/prefer-number-properties": "off"
-        }
-      },
-      {
-        "files": "test/*.js",
-        "envs": [
-          "mocha"
+        "reporter": [
+            "html",
+            "lcov",
+            "text-summary"
         ]
-      }
-    ]
-  }
+    },
+    "xo": {
+        "ignores": [
+            "cdn/"
+        ],
+        "space": 4,
+        "rules": {
+            "arrow-parens": [
+                "error",
+                "always"
+            ],
+            "ava/no-import-test-files": "off",
+            "capitalized-comments": "off",
+            "max-nested-callbacks": "off",
+            "new-cap": [
+                "error",
+                {
+                    "properties": false
+                }
+            ],
+            "object-curly-spacing": [
+                "error",
+                "always"
+            ],
+            "promise/prefer-await-to-then": "off",
+            "quote-props": [
+                "error",
+                "consistent"
+            ],
+            "space-before-function-paren": [
+                "error",
+                "never"
+            ],
+            "unicorn/filename-case": "off",
+            "unicorn/no-array-for-each": "off",
+            "unicorn/prevent-abbreviations": "off"
+        },
+        "overrides": [
+            {
+                "files": "public/assets/js/*.js",
+                "esnext": false,
+                "envs": [
+                    "browser"
+                ],
+                "parserOptions": {
+                    "ecmaVersion": 3,
+                    "sourceType": "script"
+                },
+                "strict": true,
+                "rules": {
+                    "unicorn/no-abusive-eslint-disable": "off",
+                    "unicorn/prefer-number-properties": "off"
+                }
+            },
+            {
+                "files": "test/*.js",
+                "envs": [
+                    "mocha"
+                ]
+            }
+        ]
+    }
 }

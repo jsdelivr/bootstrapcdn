@@ -40,7 +40,7 @@ describe('legacy/fontawesome', () => {
         helpers.assert.bodyClass('page-legacyfontawesome', response, done);
     });
 
-    files.fontawesome.filter((file) => !file.current)
+    files['@fortawesome/fontawesome-free'].filter((file) => !file.current)
         .forEach((fontawesome) => {
             describe(fontawesome.version, () => {
                 ['html', 'pug', 'haml'].forEach((fmt) => {
