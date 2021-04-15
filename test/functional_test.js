@@ -247,4 +247,49 @@ describe('functional', () => {
             });
         });
     });
+
+    // describe('cdn/**/*.*', () => {
+    //     const cdnURIs = [];
+
+    //     walk.filesSync(path.join(__dirname, '../cdn'), (base, name) => {
+    //         let root = base.split(`${path.sep}cdn${path.sep}`)[1];
+
+    //         if (typeof root === 'undefined') {
+    //             return;
+    //         }
+
+    //         // replace Windows backslashes with forward ones
+    //         root = root.replace(/\\/g, '/');
+    //         const uri = `${CDN_URL + root}/${name}`;
+
+    //         // ignore twitter-bootstrap versions after 2.3.2
+    //         if (uri.includes('twitter-bootstrap')) {
+    //             const m = uri.match(/(\d+\.\d+\.\d+)/);
+
+    //             // err on the side of testing things that can't be abstracted
+    //             if (m && m[1] && semver.valid(m[1]) && semver.gt(m[1], '2.3.2')) {
+    //                 return; // don't add the file
+    //             }
+    //         }
+
+    //         cdnURIs.push(uri);
+    //     });
+
+    //     // Run Tests
+    //     for (const uri of cdnURIs) {
+    //         describe(uri, () => {
+    //             it('it works', (done) => {
+    //                 request(uri, (res) => {
+    //                     helpers.assert.itWorks(res.statusCode, done);
+    //                 });
+    //             });
+
+    //             assertHeaders(uri);
+
+    //             it('has content-type', (done) => {
+    //                 assertContentType(uri, responses.get(uri).headers['content-type'], done);
+    //             });
+    //         });
+    //     }
+    // });
 });
