@@ -46,7 +46,7 @@
         "mime": "^2.5.2",
         "morgan": "^1.10.0",
         "pug": "^3.0.2",
-        "semver": "^7.3.4",
+        "semver": "^7.3.5",
         "serve-favicon": "^2.5.0",
         "sri-toolbox": "^0.2.0",
         "staticify": "^5.0.0",
