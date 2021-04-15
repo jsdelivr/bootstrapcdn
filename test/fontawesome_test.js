@@ -6,7 +6,7 @@ const helpers = require('./test_helpers');
 
 describe('fontawesome', () => {
     const uri = helpers.getURI('fontawesome');
-    const current = files.fontawesome.find((file) => file.current);
+    const current = files['@fortawesome/fontawesome-free'].find((file) => file.current);
     let response = {};
 
     before((done) => {
