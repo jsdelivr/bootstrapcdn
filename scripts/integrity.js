@@ -2,13 +2,18 @@
 /* eslint-env es2020 */
 
 'use strict';
-
 const axios = require('axios').default;
 const fs = require('fs');
 const path = require('path');
 const yaml = require('js-yaml');
 const sri = require('sri-toolbox');
+const https = require('https');
 
+const instance = axios.create({
+    timeout: 60000, // optional
+    httpsAgent: new https.Agent({ keepAlive: true }),
+    headers: { 'Content-Type': 'application/json' }
+});
 const configFile = path.resolve(__dirname, '../config/_files.yml');
 const files = yaml.load(
     fs.readFileSync(path.join(__dirname, '../config/_files.yml')),
@@ -20,7 +25,7 @@ function generateSri(file) {
         setTimeout(async() => {
             try {
                 console.log(`Generating sri for ${file}`);
-                const res = await axios.get(file);
+                const res = await instance.get(file);
                 const sriHash = sri.generate({ algorithms: ['sha384'] }, res.data);
 
                 resolve(sriHash);
