@@ -33,13 +33,19 @@ html(lang='en', prefix='og: http://ogp.me/ns#', itemscope, itemtype='http://sche
     body(class=bodyClass)
         include _partials/nav.pug
 
-        include _partials/jumbotron.pug
-
-        .container
-            .row.justify-content-center
-                .col-12.col-md-10
-                    block content
-
+        //include _partials/jumbotron.pug
+        main.row
+            .container.col-12.col-md-8
+                .row.justify-content-center
+                    .col-12.col-md-10
+                        block content
+            aside.container.col-12.col-md-2.text-center.mt-2
+                    .productionDiv
+                        a(href="#") Learn more
+                        p Check what makes us production ready
+                        img(src='assets/img/bannerImage.png' alt='banner image')
+                    
+                
         include _partials/footer.pug
 
         script(nonce=nonce)
