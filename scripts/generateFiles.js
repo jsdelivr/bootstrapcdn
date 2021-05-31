@@ -5,6 +5,7 @@ const axios = require('axios').default;
 const fs = require('fs');
 const path = require('path');
 const yaml = require('js-yaml');
+const https = require('https');
 
 const configFile = path.resolve(__dirname, '../config/_files.yml');
 
@@ -16,9 +17,13 @@ const packagesList = [
     'bootlint',
     'bootswatch'
 ];
-
+const instance = axios.create({
+    timeout: 60000, // optional
+    httpsAgent: new https.Agent({ keepAlive: true }),
+    headers: { 'Content-Type': 'application/json' }
+});
 async function getPackage(packageName) {
-    const { data } = await axios.get(`${apiURL}/${packageName}`);
+    const { data } = await instance.get(`${apiURL}/${packageName}`);
     return { ...data, packageName };
 }
 
@@ -310,5 +315,3 @@ async function main() {
 }
 
 main();
-
-module.exports = { configFile };
