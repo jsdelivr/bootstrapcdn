@@ -1,8 +1,9 @@
 extends layout.pug
 
 block content
-    h2.text-center=title
+    h2=title
 
+    p Get your production ready CDN links bellow. You can also automate your upgrades by pulling the latest versions from our API.
     -var current = config.files.bootstrap.find(file => file.current);
     -var latestBootstrap5 = config.files.bootstrap.find(file => semver.satisfies(file.version, '^5', { includePrerelease: true }));
 
@@ -10,16 +11,16 @@ block content
         if (item === latestBootstrap5)
             hr.my-5.w-50
 
-        h3.text-center.mt-4=`v${item.version}`
+        h3.mt-4=`v${item.version}`
 
         if (item === latestBootstrap5)
             .alert.alert-danger.my-3
-                | Bootstrap 5 is currently an Alpha release and should be treated as such! For details check out 
+                | Bootstrap 5 is currently an Alpha release and should be treated as such! For details check out
                 a.alert-link(href='https://blog.getbootstrap.com/2020/06/16/bootstrap-5-alpha/', target='_blank', rel='noopener').
                     the Bootstrap 5 Alpha announcement
                 | .
 
-        .card.bg-light.mt-4.p-4.text-center
+        .card.bg-light.mt-4.p-4
             -var name   = `quickstartcss_${item.version.replace(/\./g, '_')}`;
             -var file   = item.stylesheet;
             -var sri    = item.stylesheetSri;
@@ -80,5 +81,6 @@ block content
                     span.form-text.text-muted Click to copy
 
                 include _partials/jscode.pug
+
 
 //- vim: ft=pug sw=4 sts=4 et:

@@ -1,22 +1,28 @@
-.jumbotron.text-center
-    h1.display-5 BootstrapCDN
+.jumbotron
+    #jumbotron-content
+        h1.display-5 BootstrapCDN
 
-    p.lead
-        | The recommended CDN
-        |  for 
-        a(href='https://getbootstrap.com/', rel='noopener nofollow', target='_blank') Bootstrap
-        | , 
-        a(href='https://fontawesome.com/', rel='noopener nofollow', target='_blank') Font Awesome
-        |  and 
-        a(href='https://bootswatch.com/', rel='noopener nofollow', target='_blank') Bootswatch
-        |  powered by 
-        a(href='https://www.jsdelivr.com', rel='noopener', target='_blank') jsDelivr
+        p.lead
+            | The recommended CDN
+            |  for
+            a(href='https://getbootstrap.com/', rel='noopener nofollow', target='_blank') Bootstrap
+            | ,
+            a(href='https://fontawesome.com/', rel='noopener nofollow', target='_blank') Font Awesome
+            | ,
+            a(href='https://bootswatch.com/', rel='noopener nofollow', target='_blank') Bootswatch
+            |  and
+            a(href='https://www.jsdelivr.com', rel='noopener', target='_blank') Bootstrap Icons
 
-    .social.my-4.text-center
-        ul.list-inline
-            li.list-inline-item.d-block.d-sm-inline-block.mr-sm-3
-                object(data='https://img.shields.io/github/stars/MaxCDN/bootstrapcdn.svg?style=social', type='image/svg+xml', aria-hidden='true', width='100', height='20')
-            li.list-inline-item.d-block.d-sm-inline-block.mx-sm-3
-                a.twitter-follow-button(href='https://twitter.com/jsdelivr', data-show-count='false') Follow @jsDelivr
+        .social.mt-5
+            ul.list-inline
+                li.list-inline-item.d-block.d-sm-inline-block.mr-sm-3
+                    //object(data='https://img.shields.io/github/stars/MaxCDN/bootstrapcdn.svg?style=social', type='image/svg+xml', aria-hidden='true', width='100', height='20')
+                    a(href='https://getbootstrap.com/', rel='noopener nofollow',data-show-count='false' target='_blank')
+                        include /assets/img/starIcon.svg
+                li.list-inline-item.d-block.d-sm-inline-block.mx-sm-3
+                    a.twitter-follow-button(href='https://twitter.com/jsdelivr', data-show-count='false' target='_blank')
+                        //- include /assets/img/tw.svg
+    .boxes-images
+        img(src="/assets/img/boxes.png" alt='boxes')
 
 //- vim: ft=pug sw=4 sts=4 et:

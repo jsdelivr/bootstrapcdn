@@ -1,83 +1,97 @@
 include ../_mixins.pug
 
 -var themeQs = theme ? `?theme=${theme}` : '';
+header
+    nav.navbar.navbar-expand-xl
+        a.navbar-brand(href=`/${themeQs}`)
+            include /assets/img/bootstrapcdn.svg
+            | BootstrapCDN
 
-nav.navbar.navbar-expand-xl.navbar-dark.bg-dark
-    a.navbar-brand(href=`/${themeQs}`)
-        include /assets/img/bootstrapcdn.svg
-        | BootstrapCDN
+        button.navbar-toggler(type='button', data-toggle='collapse', data-target='#main-nav', aria-controls='main-nav', aria-expanded='false', aria-label='Toggle navigation')
+            span.navbar-toggler-icon
 
-    button.navbar-toggler(type='button', data-toggle='collapse', data-target='#main-nav', aria-controls='main-nav', aria-expanded='false', aria-label='Toggle navigation')
-        span.navbar-toggler-icon
+        #main-nav.navbar-collapse.collapse
+            ul.nav.navbar-nav.ml-xl-5
+                +menuItem('Font Awesome CDN', '/fontawesome/')
+                +menuItem('Bootswatch CDN', '/bootswatch/')
+                +menuItem('Bootstrap Icons CDN', '/bootswatch/')
+                +menuItem('Bootlint CDN', '/bootlint/')
+                //- li.nav-item.dropdown
+                //-     a#navbarDropdown1.nav-link.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false') Old Versions
+                //-     ul.dropdown-menu.bg-dark(aria-labelledby='navbarDropdown1')
+                //-         +menuItem('Bootlint Legacy', '/legacy/bootlint/')(extraclass='dropdown-item bg-dark')
+                //-         +menuItem('Bootstrap Legacy', '/legacy/bootstrap/')(extraclass='dropdown-item bg-dark')
+                //-         +menuItem('Bootswatch Legacy', '/legacy/bootswatch/')(extraclass='dropdown-item bg-dark')
+                //-         +menuItem('Font Awesome Legacy', '/legacy/fontawesome/')(extraclass='dropdown-item bg-dark')
+            ul.nav.navbar-nav.ml-auto
+                //- +menuItem('Themes', '/themes/', true)
+                //- +menuItem('Books', '/books/', true)
+                //- +menuItem('Showcase', '/showcase/')
+                //- +menuItem('Integrations', '/integrations/')
+                li.nav-item.dropdown
+                    a#navbarDropdownRight.nav-dropdown.nav-link.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false') Resources
+                    ul.dropdown-menu.dropdown-menu-right.resource-dropwdown(aria-labelledby='navbarDropdownRight')
+                        //- li.dropdown-item.bg-light
+                        //-     a.nav-link(href='https://github.com/MaxCDN/bootstrapcdn',
+                        //-         data-ga-category='Navigation',
+                        //-         data-ga-action='Resources',
+                        //-         data-ga-label='GitHub project',
+                        //-         rel='noopener nofollow',
+                        //-         target='_blank') GitHub project
+                        //- li.dropdown-item.bg-light
+                        //-     a.nav-link(href='https://opencollective.com/getbootstrapcdn',
+                        //-         data-ga-category='Navigation',
+                        //-         data-ga-action='Resources',
+                        //-         data-ga-label='OpenCollective',
+                        //-         rel='noopener',
+                        //-         target='_blank') OpenCollective
+                        //- li.dropdown-item.bg-light
+                        //-     a.nav-link(href='https://getbootstrap.com/',
+                        //-         data-ga-category='Navigation',
+                        //-         data-ga-action='Resources',
+                        //-         data-ga-label='Bootstrap',
+                        //-         rel='noopener nofollow',
+                        //-         target='_blank') Bootstrap
+                        //- li.dropdown-item.bg-light
+                        //-     a.nav-link(href='https://expo.getbootstrap.com/',
+                        //-         data-ga-category='Navigation',
+                        //-         data-ga-action='Resources',
+                        //-         data-ga-label='Expo',
+                        //-         rel='noopener nofollow',
+                        //-         target='_blank') Bootstrap Expo
+                        li.dropdown-item.resource-item
+                            a.nav-link(href='https://fontawesome.com/',
+                                data-ga-category='Navigation',
+                                data-ga-action='Resources',
+                                data-ga-label='Font Awesome',
+                                rel='noopener nofollow',
+                                target='_blank') Font Awesome
+                                include /assets/img/link_arrow.svg
+                        li.dropdown-item.resource-item
+                            a.nav-link(href='https://bootswatch.com/',
+                                data-ga-category='Navigation',
+                                data-ga-action='Resources',
+                                data-ga-label='Bootswatch',
+                                rel='noopener nofollow',
+                                target='_blank') Bootswatch
+                                include /assets/img/link_arrow.svg
+                        li.dropdown-item.resource-item
+                            a.nav-link(href='https://bootswatch.com/',
+                                data-ga-category='Navigation',
+                                data-ga-action='Resources',
+                                data-ga-label='Bootswatch',
+                                rel='noopener nofollow',
+                                target='_blank') Bootstrap Icons
+                                include /assets/img/link_arrow.svg
+                        li.dropdown-item.resource-item
+                            a.nav-link(href='https://github.com/twbs/bootlint'
+                                data-ga-category='Navigation',
+                                data-ga-action='Resources',
+                                data-ga-label='Bootlint',
+                                rel='noopener nofollow',
+                                target='_blank') Bootlint
+                                include /assets/img/link_arrow.svg
 
-    #main-nav.navbar-collapse.collapse
-        ul.nav.navbar-nav.ml-xl-5
-            +menuItem('Font Awesome', '/fontawesome/')
-            +menuItem('Bootswatch', '/bootswatch/')
-            +menuItem('Bootlint', '/bootlint/')
-            li.nav-item.dropdown
-                a#navbarDropdown1.nav-link.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false') Old Versions
-                ul.dropdown-menu.bg-dark(aria-labelledby='navbarDropdown1')
-                    +menuItem('Bootlint Legacy', '/legacy/bootlint/')(extraclass='dropdown-item bg-dark')
-                    +menuItem('Bootstrap Legacy', '/legacy/bootstrap/')(extraclass='dropdown-item bg-dark')
-                    +menuItem('Bootswatch Legacy', '/legacy/bootswatch/')(extraclass='dropdown-item bg-dark')
-                    +menuItem('Font Awesome Legacy', '/legacy/fontawesome/')(extraclass='dropdown-item bg-dark')
-        ul.nav.navbar-nav.ml-auto
-            +menuItem('Themes', '/themes/', true)
-            +menuItem('Books', '/books/', true)
-            +menuItem('Showcase', '/showcase/')
-            +menuItem('Integrations', '/integrations/')
-            li.nav-item.dropdown
-                a#navbarDropdownRight.nav-dropdown.nav-link.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false') Resources
-                ul.dropdown-menu.dropdown-menu-right.bg-dark(aria-labelledby='navbarDropdownRight')
-                    li.dropdown-item.bg-dark
-                        a.nav-link(href='https://github.com/MaxCDN/bootstrapcdn',
-                            data-ga-category='Navigation',
-                            data-ga-action='Resources',
-                            data-ga-label='GitHub project',
-                            rel='noopener nofollow',
-                            target='_blank') GitHub project
-                    li.dropdown-item.bg-dark
-                        a.nav-link(href='https://opencollective.com/getbootstrapcdn',
-                            data-ga-category='Navigation',
-                            data-ga-action='Resources',
-                            data-ga-label='OpenCollective',
-                            rel='noopener',
-                            target='_blank') OpenCollective
-                    li.dropdown-item.bg-dark
-                        a.nav-link(href='https://getbootstrap.com/',
-                            data-ga-category='Navigation',
-                            data-ga-action='Resources',
-                            data-ga-label='Bootstrap',
-                            rel='noopener nofollow',
-                            target='_blank') Bootstrap
-                    li.dropdown-item.bg-dark
-                        a.nav-link(href='https://expo.getbootstrap.com/',
-                            data-ga-category='Navigation',
-                            data-ga-action='Resources',
-                            data-ga-label='Expo',
-                            rel='noopener nofollow',
-                            target='_blank') Bootstrap Expo
-                    li.dropdown-item.bg-dark
-                        a.nav-link(href='https://fontawesome.com/',
-                            data-ga-category='Navigation',
-                            data-ga-action='Resources',
-                            data-ga-label='Font Awesome',
-                            rel='noopener nofollow',
-                            target='_blank') Font Awesome
-                    li.dropdown-item.bg-dark
-                        a.nav-link(href='https://bootswatch.com/',
-                            data-ga-category='Navigation',
-                            data-ga-action='Resources',
-                            data-ga-label='Bootswatch',
-                            rel='noopener nofollow',
-                            target='_blank') Bootswatch
-                    li.dropdown-item.bg-dark
-                        a.nav-link(href='https://github.com/twbs/bootlint'
-                            data-ga-category='Navigation',
-                            data-ga-action='Resources',
-                            data-ga-label='Bootlint',
-                            rel='noopener nofollow',
-                            target='_blank') Bootlint
+    include jumbotron.pug
 
-//- vim: ft=pug sw=4 sts=4 et:
+    //- vim: ft=pug sw=4 sts=4 et:

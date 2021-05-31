@@ -1,25 +1,25 @@
-footer.mt-5.py-4.text-center.border-top
+footer.mt-5.py-4.text-center.border-top.whiteBack
     .container
         .row
             .col-12
                 -var authors=config.app.authors.active;
                 if (authors && authors.length > 0)
                     p
-                        | Maintained by 
+                        | Maintained by
                         each author, index in authors
                             if (authors.length > 1 && index === authors.length - 1)
-                                |  &amp; 
+                                |  &amp;
                             else if (index > 0)
-                                | , 
-                            a(href=author.url, rel='noopener nofollow', target='_blank')=`@${author.twitter}` 
+                                | ,
+                            a(href=author.url, rel='noopener nofollow', target='_blank')=`@${author.twitter}`
                 p
-                    | Homies be 
+                    | Homies be
                     each friend, index in config.app.friends
                         if (index === config.app.friends.length - 1)
-                            |  &amp; 
+                            |  &amp;
                         else if (index > 0)
-                            | , 
-                        a(href=friend.url, rel=`noopener${friend.nofollow !== false ? " nofollow" : ""}`, target='_blank')=friend.name 
+                            | ,
+                        a(href=friend.url, rel=`noopener${friend.nofollow !== false ? " nofollow" : ""}`, target='_blank')=friend.name
 
                 p.
                     #[a(href='/about/') About] · #[a(href='https://www.jsdelivr.com/terms/privacy-policy-jsdelivr-net', rel='noopener', target='_blank') Privacy Policy]

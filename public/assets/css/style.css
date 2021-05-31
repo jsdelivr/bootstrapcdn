@@ -1,19 +1,107 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+.row {
+    margin: 0px;
+}
+header {
+    background-color: #f3f6fc;
+}
+main {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    width: 95%;
+    margin-top: 80px !important;
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
+.whiteBack {
+    background-color: #fff;
+}
 .navbar-brand > svg {
     display: inline-block;
-    margin-right: .5rem;
+    margin-right: 0.5rem;
     vertical-align: middle;
     width: 20px;
     height: 20px;
 }
-
+.navbar {
+    background-color: transparent;
+    z-index: 100;
+}
+#main-nav {
+    background-color: transparent;
+}
+.navbar-brand {
+    color: #000;
+}
+.navbar-brand:hover {
+    color: #000;
+}
+.nav-link {
+    color: #39496b;
+}
 .display-5 {
     font-size: 3rem;
 }
-
+.jumbotron {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    padding: 0px;
+    background-color: #f3f6fc;
+    height: calc(470px - 54.5px);
+}
+#jumbotron-content {
+    width: 75%;
+    justify-content: center;
+    margin-left: 165px;
+}
+#jumbotron-content p {
+    font-size: 18px;
+    font-style: normal;
+    margin-top: 16px;
+    font-weight: 500;
+    line-height: 28px;
+}
+#jumbotron-content h1 {
+    font-size: 48px;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 64px;
+    letter-spacing: -0.800000011920929px;
+}
+.boxes-images {
+    width: 24%;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+.boxes-images img {
+    width: 255px;
+}
 .social {
     height: 75px;
 }
-
+.resource-dropwdown,
+.resource-item {
+    background-color: #fff;
+}
+.resource-dropwdown {
+    box-shadow: 0px 8px 12px rgba(15, 50, 123, 0.04),
+        0px 2px 4px rgba(15, 50, 123, 0.16);
+    border-radius: 8px;
+}
+.resource-item a svg {
+    margin-left: 5px;
+    vertical-align: baseline;
+}
 @media (min-width: 576px) {
     .social {
         height: 30px;
@@ -21,17 +109,69 @@
 }
 
 .input-group .dropdown-toggle::after {
-    transition: -webkit-transform .35s ease;
-    transition: transform .35s ease;
-    transition: transform .35s ease, -webkit-transform .35s ease;
+    transition: -webkit-transform 0.35s ease;
+    transition: transform 0.35s ease;
+    transition: transform 0.35s ease, -webkit-transform 0.35s ease;
 }
 
 .input-group .dropdown-toggle-open::after {
     -webkit-transform: rotate(-180deg);
     transform: rotate(-180deg);
 }
+.container {
+    width: 70%;
+    /* border: 2px solid red; */
+}
+.container p {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    max-width: 730px;
+    line-height: 28px;
+    /* or 156% */
 
+    color: #595e68;
+}
 .book-card img {
     width: auto;
     height: 250px;
+}
+.productionDiv {
+    background-color: #f3f6fc;
+    border-radius: 8px;
+    height: max-content;
+    width: fit-content !important;
+    padding-top: 32px;
+}
+.productionDiv a {
+    /* font-family: Inter; */
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+    letter-spacing: 1px;
+
+    color: #2f6cec;
+}
+.productionDiv p {
+    /* font-family: Inter; */
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    width: 191px;
+    margin: auto;
+    margin-top: 12px;
+    line-height: 24px;
+    /* or 150% */
+
+    text-align: center;
+    letter-spacing: -0.2px;
+
+    color: #26282c;
+}
+.productionDiv img {
+    filter: drop-shadow(0px 20px 48px rgba(9, 65, 178, 0.16));
+    border-radius: 8px;
 }
