@@ -126,7 +126,8 @@
             ],
             "unicorn/filename-case": "off",
             "unicorn/no-array-for-each": "off",
-            "unicorn/prevent-abbreviations": "off"
+            "unicorn/prevent-abbreviations": "off",
+            "import/extensions": "off"
         },
         "overrides": [
             {
