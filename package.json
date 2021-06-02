@@ -41,8 +41,8 @@
         "express": "^4.17.1",
         "express-sitemap": "^1.8.0",
         "express-sslify": "^1.2.0",
-        "helmet": "^4.4.1",
-        "js-yaml": "^4.0.0",
+        "helmet": "^4.6.0",
+        "js-yaml": "^4.1.0",
         "mime": "^2.5.2",
         "morgan": "^1.10.0",
         "pug": "^3.0.2",
@@ -53,14 +53,14 @@
         "uuid": "^8.3.2"
     },
     "devDependencies": {
-        "c8": "^7.7.1",
+        "c8": "^7.7.2",
         "escape-string-regexp": "^4.0.0",
-        "fs-extra": "^9.1.0",
+        "fs-extra": "^10.0.0",
         "fs-walk": "0.0.2",
         "html-validator": "^5.1.17",
         "htmlencode": "0.0.4",
         "lockfile-lint": "^4.6.2",
-        "mocha": "^8.3.2",
+        "mocha": "^8.4.0",
         "mockdate": "^3.0.5",
         "nodemon": "^2.0.7",
         "npm-run-all": "^4.1.5",
@@ -126,7 +126,8 @@
             ],
             "unicorn/filename-case": "off",
             "unicorn/no-array-for-each": "off",
-            "unicorn/prevent-abbreviations": "off"
+            "unicorn/prevent-abbreviations": "off",
+            "import/extensions": "off"
         },
         "overrides": [
             {

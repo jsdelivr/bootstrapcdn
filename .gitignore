@@ -4,6 +4,7 @@
 /config/*.bak
 Dockme.yml
 npm-debug.log
+.idea/
 /coverage/
 /data/
 /node_modules/

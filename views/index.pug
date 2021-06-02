@@ -4,20 +4,10 @@ block content
     h2.text-center=title
 
     -var current = config.files.bootstrap.find(file => file.current);
-    -var latestBootstrap5 = config.files.bootstrap.find(file => semver.satisfies(file.version, '^5', { includePrerelease: true }));
+    -var previous = config.files.bootstrap.find(file => semver.satisfies(file.version, '^4', { includePrerelease: true }));
 
-    each item in [current, latestBootstrap5]
-        if (item === latestBootstrap5)
-            hr.my-5.w-50
-
+    each item in [current, previous]
         h3.text-center.mt-4=`v${item.version}`
-
-        if (item === latestBootstrap5)
-            .alert.alert-danger.my-3
-                | Bootstrap 5 is currently an Alpha release and should be treated as such! For details check out 
-                a.alert-link(href='https://blog.getbootstrap.com/2020/06/16/bootstrap-5-alpha/', target='_blank', rel='noopener').
-                    the Bootstrap 5 Alpha announcement
-                | .
 
         .card.bg-light.mt-4.p-4.text-center
             -var name   = `quickstartcss_${item.version.replace(/\./g, '_')}`;
