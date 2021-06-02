@@ -14,4 +14,4 @@ updates:
       - dependency-name: "escape-string-regexp"
         versions: [ "5.x" ]
       - dependency-name: "xo"
-        versions: [ ">0.39" ]
+        versions: [ ">=0.40" ]
