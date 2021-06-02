@@ -10,3 +10,8 @@ updates:
     open-pull-requests-limit: 10
     labels:
       - dependencies
+    ignore:
+      - dependency-name: "escape-string-regexp"
+        versions: [ "5.x" ]
+      - dependency-name: "xo"
+        versions: [ ">0.39" ]
