@@ -2,8 +2,8 @@ include ../_mixins.pug
 
 -var themeQs = theme ? `?theme=${theme}` : '';
 header
-    nav.navbar.navbar-expand-xl
-        a.navbar-brand(href=`/${themeQs}`)
+    nav.navbar.navbar-expand-xl.pt-4.pl-4.pr-4.pb-0
+        a.navbar-brand.p-0(href=`/${themeQs}`)
             include /assets/img/bootstrapcdn.svg
             | BootstrapCDN
 
@@ -11,7 +11,7 @@ header
             span.navbar-toggler-icon
 
         #main-nav.navbar-collapse.collapse
-            ul.nav.navbar-nav.ml-xl-5
+            ul.nav.navbar-nav
                 +menuItem('Font Awesome CDN', '/fontawesome/')
                 +menuItem('Bootswatch CDN', '/bootswatch/')
                 +menuItem('Bootstrap Icons CDN', '/bootswatch/')
@@ -29,7 +29,7 @@ header
                 //- +menuItem('Showcase', '/showcase/')
                 //- +menuItem('Integrations', '/integrations/')
                 li.nav-item
-                    a.nav-link.d-flex.align-items-center.github-link(href=`https://github.com/jsdelivr/bootstrapcdn`,
+                    a.nav-link.d-flex.align-items-center.github-link.p-0.mr-4(href=`https://github.com/jsdelivr/bootstrapcdn`,
                         data-ga-category='Navigation',
                         data-ga-action='Github Projet',
                         data-ga-label='Font Awesome',
@@ -39,7 +39,7 @@ header
                         | Github Project
 
                 li.nav-item.dropdown
-                    a#navbarDropdownRight.nav-dropdown.nav-link.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false') Resources
+                    a#navbarDropdownRight.nav-dropdown.nav-link.dropdown-toggle.p-0(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false') Resources
                     ul.dropdown-menu.dropdown-menu-right.resource-dropwdown(aria-labelledby='navbarDropdownRight')
                         //- li.dropdown-item.bg-light
                         //-     a.nav-link(href='https://github.com/MaxCDN/bootstrapcdn',

@@ -7,7 +7,7 @@
     margin: 0px;
 }
 header {
-    background-color: #f3f6fc;
+    background: #F3F6FC;
 }
 main {
     display: flex;
@@ -38,10 +38,11 @@ img {
     background-color: transparent;
 }
 .navbar-brand {
-    color: #000;
+    margin-right: 32px;
+    color: #26282C;
 }
 .navbar-brand:hover {
-    color: #000;
+    color: #26282C;
 }
 .nav-link {
     color: #39496b;
@@ -178,4 +179,14 @@ img {
 
 .github-link > svg {
     margin-right: 16px;
+}
+
+#main-nav {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: -0.2px;
+    color: #39496B;
 }

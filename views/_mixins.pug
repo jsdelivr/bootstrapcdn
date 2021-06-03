@@ -1,6 +1,6 @@
 mixin menuItem(name, url, nofollow)
     -
-        const classes = ['nav-item'];
+        const classes = ['nav-item', 'mr-4'];
         const attr = attributes || {};
 
         if (typeof attr.extraclass !== 'undefined') {
@@ -20,4 +20,4 @@ mixin menuItem(name, url, nofollow)
         }
 
     li(class=classes)
-        a.nav-link(href=`${url}${themeQs}`, rel=attr.rel)=name
+        a.nav-link.p-0(href=`${url}${themeQs}`, rel=attr.rel)=name
