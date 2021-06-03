@@ -206,3 +206,9 @@ img {
     letter-spacing: -0.2px;
     color: #39496B;
 }
+#navbarDropdownRight > svg {
+    margin-left: 8px;
+}
+#navbarDropdownRight::after {
+    display: none;
+}
