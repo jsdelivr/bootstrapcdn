@@ -90,6 +90,20 @@ img {
 .social {
     height: 75px;
 }
+
+.resource-dropwdown {
+    margin-top: 12px;
+    width: 163px;
+    height: 184px;
+    padding: 20px;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: -0.2px;
+    color: #39496B;
+}
 .resource-dropwdown,
 .resource-item {
     background-color: #fff;
@@ -100,8 +114,10 @@ img {
     border-radius: 8px;
 }
 .resource-item a svg {
-    margin-left: 5px;
-    vertical-align: baseline;
+    margin-left: 8px;
+}
+.resource-item:hover {
+    background: transparent;
 }
 @media (min-width: 576px) {
     .social {
