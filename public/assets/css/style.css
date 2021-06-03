@@ -7,6 +7,9 @@
     margin: 0px;
 }
 header {
+    display: flex;
+    flex-direction: column;
+    height: 470px;
     background: #F3F6FC;
 }
 main {
@@ -24,9 +27,7 @@ img {
     background-color: #fff;
 }
 .navbar-brand > svg {
-    display: inline-block;
-    margin-right: 0.5rem;
-    vertical-align: middle;
+    margin-right: 16px;
     width: 20px;
     height: 20px;
 }
@@ -51,32 +52,32 @@ img {
     font-size: 3rem;
 }
 .jumbotron {
+    flex: 1;
     display: flex;
-    flex-flow: row wrap;
-    align-items: center;
-    padding: 0px;
-    background-color: #f3f6fc;
-    height: calc(470px - 54.5px);
 }
 #jumbotron-content {
-    width: 75%;
-    justify-content: center;
+    width: 100%;
+    margin-top: 106px;
     margin-left: 165px;
-}
-#jumbotron-content p {
-    font-size: 18px;
-    font-style: normal;
-    margin-top: 16px;
-    font-weight: 500;
-    line-height: 28px;
-}
-#jumbotron-content h1 {
-    font-size: 48px;
     font-family: Inter;
     font-style: normal;
+}
+#jumbotron-content > h1 {
     font-weight: 600;
+    font-size: 48px;
     line-height: 64px;
-    letter-spacing: -0.800000011920929px;
+    letter-spacing: -0.8px;
+    color: #26282C;
+}
+#jumbotron-content > p {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: -0.4px;
+    color: #595E68;
+}
+#jumbotron-content > p > a:not(:hover) {
+    color: #2F6CEC;
 }
 .boxes-images {
     width: 24%;
