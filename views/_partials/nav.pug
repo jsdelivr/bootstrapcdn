@@ -28,6 +28,16 @@ header
                 //- +menuItem('Books', '/books/', true)
                 //- +menuItem('Showcase', '/showcase/')
                 //- +menuItem('Integrations', '/integrations/')
+                li.nav-item
+                    a.nav-link.d-flex.align-items-center.github-link(href=`https://github.com/jsdelivr/bootstrapcdn`,
+                        data-ga-category='Navigation',
+                        data-ga-action='Github Projet',
+                        data-ga-label='Font Awesome',
+                        rel='noopener nofollow',
+                        target="_blank",)
+                        include /assets/img/github.svg
+                        | Github Project
+
                 li.nav-item.dropdown
                     a#navbarDropdownRight.nav-dropdown.nav-link.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false') Resources
                     ul.dropdown-menu.dropdown-menu-right.resource-dropwdown(aria-labelledby='navbarDropdownRight')
