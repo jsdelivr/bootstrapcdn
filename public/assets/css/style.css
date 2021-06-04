@@ -80,10 +80,9 @@ img {
     color: #2F6CEC;
 }
 .boxes-images {
-    width: 24%;
     position: absolute;
     top: 0px;
-    right: 0px;
+    right: 165px;
 }
 .boxes-images img {
     width: 255px;
