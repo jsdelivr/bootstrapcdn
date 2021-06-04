@@ -23,9 +23,6 @@ img {
     max-width: 100%;
     height: auto;
 }
-.whiteBack {
-    background-color: #fff;
-}
 .navbar-brand > svg {
     margin-right: 16px;
     width: 20px;
@@ -216,4 +213,13 @@ img {
 }
 #navbarDropdownRight::after {
     display: none;
+}
+.footer-container {
+    padding: 40px 165px;
+}
+.footer-container > div:nth-child(1) {
+    margin-right: 50px;
+}
+.footer-container > div:nth-child(2) {
+    margin-right: 348px;
 }

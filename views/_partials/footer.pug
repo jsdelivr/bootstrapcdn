@@ -1,27 +1,31 @@
-footer.mt-5.py-4.text-center.border-top.whiteBack
-    .container
-        .row
-            .col-12
-                -var authors=config.app.authors.active;
-                if (authors && authors.length > 0)
-                    p
-                        | Maintained by
-                        each author, index in authors
-                            if (authors.length > 1 && index === authors.length - 1)
-                                |  &amp;
-                            else if (index > 0)
-                                | ,
-                            a(href=author.url, rel='noopener nofollow', target='_blank')=`@${author.twitter}`
-                p
-                    | Homies be
-                    each friend, index in config.app.friends
-                        if (index === config.app.friends.length - 1)
-                            |  &amp;
-                        else if (index > 0)
-                            | ,
-                        a(href=friend.url, rel=`noopener${friend.nofollow !== false ? " nofollow" : ""}`, target='_blank')=friend.name
+footer.border-top.bg-white.mt-auto
+    .container-fluid.d-flex.justify-content-between.footer-container
+        div.d-flex.align-items-center
+            include /assets/img/jsdelivr_footer_logo.svg
 
-                p.
-                    #[a(href='/about/') About] · #[a(href='https://www.jsdelivr.com/terms/privacy-policy-jsdelivr-net', rel='noopener', target='_blank') Privacy Policy]
+        div.d-flex.justify-items-center.flex-column.mr-auto.align-content-start
+            div
+                | Powered by
+                |
+                a.text-decoration-none(href='https://jsdelivr.com')
+                    | jsDelivr
+            div
+                | and sponsored by
+                |
+                each friend, index in config.app.friends
+                    if (index === config.app.friends.length - 1)
+                        |  &amp;
+                        |
+                    else if (index > 0)
+                        | ,
+                        |
+                    a.text-decoration-none(href=friend.url, rel=`noopener${friend.nofollow !== false ? " nofollow" : ""}`, target='_blank')=friend.name
+
+        div.d-flex.align-items-center
+            a.text-decoration-none(href='/about/')
+                | About
+            a.text-decoration-none(href='https://www.jsdelivr.com/terms/privacy-policy-jsdelivr-net', rel='noopener', target='_blank')
+                | Privacy Policy
+
 
 //- vim: ft=pug sw=4 sts=4 et:
