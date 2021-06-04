@@ -207,8 +207,13 @@ img {
     letter-spacing: -0.2px;
     color: #39496B;
 }
-#navbarDropdownRight > svg {
-    margin-left: 8px;
+#navbarDropdownRight {
+    padding-right: 18px;
+    background: url('/assets/img/arrow_down.svg') no-repeat bottom 7px right 0;
+}
+.nav-item.dropdown.show #navbarDropdownRight {
+    color: #2F6CEC;
+    background: url('/assets/img/arrow_down_blue.svg') no-repeat bottom 7px right 0;
 }
 #navbarDropdownRight::after {
     display: none;
