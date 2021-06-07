@@ -216,10 +216,25 @@ img {
 }
 .footer-container {
     padding: 40px 165px;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: -0.2px;
+    color: #595E68;
 }
 .footer-container > div:nth-child(1) {
     margin-right: 50px;
 }
 .footer-container > div:nth-child(2) {
     margin-right: 348px;
+}
+.footer-logo > a {
+    background: url('/assets/img/jsdelivr_footer_logo.svg');
+    width: 140px;
+    height: 34px;
+}
+a.custom-link {
+    color: #2F6CEC;
 }

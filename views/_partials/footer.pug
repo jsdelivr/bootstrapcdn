@@ -1,9 +1,10 @@
 footer.border-top.bg-white.mt-auto
     .container-fluid.d-flex.justify-content-between.footer-container
-        div.d-flex.align-items-center
-            include /assets/img/jsdelivr_footer_logo.svg
+        .d-flex.align-items-center.footer-logo
+            a(href='https://www.jsdelivr.com/', rel='noopener', target='_blank')
+                //- include /assets/img/jsdelivr_footer_logo.svg
 
-        div.d-flex.justify-items-center.flex-column.mr-auto.align-content-start
+        .d-flex.justify-items-center.flex-column.mr-auto.align-content-start
             div
                 | Powered by
                 |
@@ -19,13 +20,12 @@ footer.border-top.bg-white.mt-auto
                     else if (index > 0)
                         | ,
                         |
-                    a.text-decoration-none(href=friend.url, rel=`noopener${friend.nofollow !== false ? " nofollow" : ""}`, target='_blank')=friend.name
+                    a.text-decoration-none.custom-link(href=friend.url, rel=`noopener${friend.nofollow !== false ? " nofollow" : ""}`, target='_blank')=friend.name
 
-        div.d-flex.align-items-center
-            a.text-decoration-none(href='/about/')
+        .d-flex.align-items-center.about-policy
+            a.mr-5.text-decoration-none.custom-link(href='/about/')
                 | About
-            a.text-decoration-none(href='https://www.jsdelivr.com/terms/privacy-policy-jsdelivr-net', rel='noopener', target='_blank')
+            a.text-decoration-none.custom-link(href='https://www.jsdelivr.com/terms/privacy-policy-jsdelivr-net', rel='noopener', target='_blank')
                 | Privacy Policy
-
 
 //- vim: ft=pug sw=4 sts=4 et:
