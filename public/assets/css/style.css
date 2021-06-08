@@ -233,9 +233,18 @@ a.custom-link {
     color: #2F6CEC;
 }
 
+
+@media (max-width: 1400px) {
+    #jumbotron-content {
+        margin-right: 444px;
+    }
+}
 @media (max-width: 992px) {
     .footer-container {
         padding: 20px 20px;
+    }
+    #jumbotron-content {
+        margin-right: 0;
     }
 }
 @media (min-width: 992px) {
