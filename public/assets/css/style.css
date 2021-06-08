@@ -224,12 +224,6 @@ img {
     letter-spacing: -0.2px;
     color: #595E68;
 }
-.footer-container > div:nth-child(1) {
-    margin-right: 50px;
-}
-.footer-container > div:nth-child(2) {
-    margin-right: 348px;
-}
 .footer-logo > a {
     background: url('/assets/img/jsdelivr_footer_logo.svg');
     width: 140px;
@@ -237,4 +231,15 @@ img {
 }
 a.custom-link {
     color: #2F6CEC;
+}
+
+@media (max-width: 992px) {
+    .footer-container {
+        padding: 20px 20px;
+    }
+}
+@media (min-width: 992px) {
+    .footer-container > div:nth-child(1) {
+        margin-right: 50px;
+    }
 }

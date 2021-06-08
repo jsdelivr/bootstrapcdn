@@ -1,16 +1,16 @@
 footer.border-top.bg-white.mt-auto
-    .container-fluid.d-flex.justify-content-between.footer-container
-        .d-flex.align-items-center.footer-logo
+    .container-fluid.d-flex.flex-column.flex-lg-row.align-items-center.justify-content-center.footer-container
+        .d-flex.align-items-center.footer-logo.mb-2.mb-lg-0
             a(href='https://www.jsdelivr.com/', rel='noopener', target='_blank')
                 //- include /assets/img/jsdelivr_footer_logo.svg
 
-        .d-flex.justify-items-center.flex-column.mr-auto.align-content-start
-            div
+        .d-flex.justify-items-center.flex-column.mr-lg-auto.mb-2.mb-lg-0
+            div.text-center.text-lg-left
                 | Powered by
                 |
                 a.text-decoration-none(href='https://jsdelivr.com')
                     | jsDelivr
-            div
+            div.text-center.text-lg-left
                 | and sponsored by
                 |
                 each friend, index in config.app.friends
@@ -22,7 +22,7 @@ footer.border-top.bg-white.mt-auto
                         |
                     a.text-decoration-none.custom-link(href=friend.url, rel=`noopener${friend.nofollow !== false ? " nofollow" : ""}`, target='_blank')=friend.name
 
-        .d-flex.align-items-center.about-policy
+        .d-flex.align-items-center.mb-2.mb-lg-0.about-policy
             a.mr-5.text-decoration-none.custom-link(href='/about/')
                 | About
             a.text-decoration-none.custom-link(href='https://www.jsdelivr.com/terms/privacy-policy-jsdelivr-net', rel='noopener', target='_blank')
