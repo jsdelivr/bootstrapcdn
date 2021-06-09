@@ -154,8 +154,8 @@ img {
 .productionDiv {
     background-color: #f3f6fc;
     border-radius: 8px;
-    height: max-content;
-    width: fit-content !important;
+    height: 300px;
+    width: 255px;
     padding-top: 32px;
 }
 .productionDiv a {
@@ -245,6 +245,12 @@ a.custom-link {
     }
     #jumbotron-content {
         margin-right: 0;
+    }
+    .productionDiv {
+        height: max-content;
+        width: auto;
+        margin-left: 15px;
+        margin-right: 15px;
     }
 }
 @media (min-width: 992px) {
