@@ -145,15 +145,15 @@ img {
     height: 250px;
 }
 .productionDiv {
-    background-color: #f3f6fc;
-    border-radius: 8px;
     height: 300px;
     width: 255px;
+    background-color: #f3f6fc;
+    border-radius: 8px;
     padding-top: 32px;
-}
-.productionDiv a {
     font-style: normal;
     font-weight: 600;
+}
+.productionDiv a {
     font-size: 12px;
     line-height: 16px;
     text-align: center;
@@ -161,8 +161,6 @@ img {
     color: #2f6cec;
 }
 .productionDiv p {
-    font-style: normal;
-    font-weight: 600;
     font-size: 16px;
     width: 191px;
     margin: auto;
@@ -232,10 +230,6 @@ a.custom-link {
     #jumbotron-content {
         margin-right: 0;
     }
-    .productionDiv {
-        height: max-content;
-        width: auto;
-    }
 }
 @media (min-width: 992px) {
     .footer-container > div:nth-child(1) {
@@ -243,5 +237,12 @@ a.custom-link {
     }
     #jumbotron-content {
         margin-left: 165px;
+    }
+}
+
+@media (max-width: 768px) {
+    .productionDiv {
+        height: max-content;
+        width: auto;
     }
 }
