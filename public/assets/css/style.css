@@ -149,9 +149,10 @@ img {
     width: 255px;
     background-color: #f3f6fc;
     border-radius: 8px;
-    padding-top: 32px;
     font-style: normal;
     font-weight: 600;
+    overflow: hidden;
+    padding-top: 32px;
 }
 .productionDiv a {
     font-size: 12px;
@@ -173,6 +174,7 @@ img {
 .productionDiv img {
     filter: drop-shadow(0px 20px 48px rgba(9, 65, 178, 0.16));
     border-radius: 8px;
+    margin-top: -10px;
 }
 
 .github-link > svg {
