@@ -54,10 +54,9 @@ img {
 }
 #jumbotron-content {
     width: 100%;
-    margin-top: 106px;
-    margin-left: 165px;
     font-family: Inter;
     font-style: normal;
+    margin-top: 106px;
 }
 #jumbotron-content > h1 {
     font-weight: 600;
@@ -241,5 +240,8 @@ a.custom-link {
 @media (min-width: 992px) {
     .footer-container > div:nth-child(1) {
         margin-right: 50px;
+    }
+    #jumbotron-content {
+        margin-left: 165px;
     }
 }
