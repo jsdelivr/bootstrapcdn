@@ -34,12 +34,12 @@ html(lang='en', prefix='og: http://ogp.me/ns#', itemscope, itemtype='http://sche
         include _partials/nav.pug
 
         //include _partials/jumbotron.pug
-        main.row.mb-5
-            .container.col-12.col-md-8
+        main.row.mb-5.mx-auto
+            .col.col-md-8.p-0
                 .row.justify-content-center
-                    .col-12.col-md-10
+                    .col-12.col-md-10.p-0
                         block content
-            aside.container.col-12.col-md-2.text-center.mt-2
+            aside.col-12.col-md-2.text-center.mt-2.p-0
                 .productionDiv
                     a(href='#') Learn more
                     p Check what makes us production ready
