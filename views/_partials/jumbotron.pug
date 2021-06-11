@@ -23,11 +23,13 @@
         .social.my-5.text-start
             ul.list-inline.text-center.text-md-left
                 li.list-inline-item.d-block.d-sm-inline-block.mr-sm-3
-                    object(data='https://img.shields.io/github/stars/MaxCDN/bootstrapcdn.svg?style=social',
-                        type='image/svg+xml',
-                        aria-hidden='true',
-                        width='100',
-                        height='20')
+                    a.github-button(href="https://github.com/jsdelivr/bootstrapcdn",
+                        data-color-scheme="no-preference: dark; light: dark; dark: dark;",
+                        data-icon="octicon-star",
+                        data-size="large",
+                        data-text="Star",
+                        aria-label="Star jsdelivr/bootstrapcdn on GitHub")
+
                 li.list-inline-item.d-block.d-sm-inline-block.mx-sm-3
                     a.twitter-follow-button(href='https://twitter.com/getbootstrapcdn',
                         data-show-count='false',
