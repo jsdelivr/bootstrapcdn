@@ -221,6 +221,12 @@ a.custom-link {
         margin-right: 444px;
     }
 }
+
+@media (min-width: 1200px) {
+    #jumbotron-content {
+        margin-left: 165px;
+    }
+}
 @media (max-width: 991px) {
     .footer-container {
         padding: 20px 20px;
@@ -233,11 +239,7 @@ a.custom-link {
     .footer-container > div:nth-child(1) {
         margin-right: 50px;
     }
-    #jumbotron-content {
-        margin-left: 165px;
-    }
 }
-
 @media (max-width: 768px) {
     .productionDiv {
         height: max-content;
