@@ -13,10 +13,6 @@ header {
     background: #F3F6FC;
 }
 main {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-around;
-    width: 95%;
     margin-top: 80px !important;
 }
 img {
