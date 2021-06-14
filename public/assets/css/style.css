@@ -306,7 +306,6 @@ a.custom-link {
     background: #2F6CEC;
     color: #fff;
 }
-
 .content-card-input > button > svg {
     width: 10px;
     height: 7px;
@@ -328,6 +327,37 @@ a.custom-link {
     margin-left: 24px;
     padding-left: 24px;
     border-left: 2px solid #D8DFEE;
+}
+.about-text {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.2px;
+    color: #595E68;
+}
+.about-prev-maintainers {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.2px;
+    color: #595E68;
+}
+.about-author-link {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.2px;
+    text-decoration-line: underline;
+    color: #2F6CEC;
+}
+.about-author-list {
+    margin-bottom: 64px;
 }
 
 @media (max-width: 1400px) {
