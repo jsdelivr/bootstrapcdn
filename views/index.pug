@@ -1,9 +1,9 @@
 extends layout.pug
 
 block content
-    h2=title
+    .second-header.mb-3=title
 
-    p Get your production ready CDN links bellow. You can also automate your upgrades by pulling the latest versions from our API.
+    p.sub-header Get your production ready CDN links bellow. You can also automate your upgrades by pulling the latest versions from our API.
     -var current = config.files.bootstrap.find(file => file.current);
 
     each item in [current]
