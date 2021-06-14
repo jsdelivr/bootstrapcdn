@@ -1,13 +1,15 @@
 extends layout.pug
 
 block content
-    .second-header.mb-3=title
+    .second-heading.mb-3=title
 
-    p.sub-header Get your production ready CDN links bellow. You can also automate your upgrades by pulling the latest versions from our API.
+    p.sub-heading Get your production ready CDN links bellow. You can also automate your upgrades by pulling the latest versions from our API.
     -var current = config.files.bootstrap.find(file => file.current);
 
     each item in [current]
-        h3.mt-4=`v${item.version}`
+        .third-heading=`v${item.version}`
+
+        .hr.horizontal-divider
 
         .card.bg-light.mt-4.p-4
             -var name   = `quickstartcss_${item.version.replace(/\./g, '_')}`;

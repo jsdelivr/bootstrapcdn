@@ -215,7 +215,7 @@ img {
 a.custom-link {
     color: #2F6CEC;
 }
-.second-header {
+.second-heading {
     font-family: Inter;
     font-style: normal;
     font-weight: 600;
@@ -224,7 +224,16 @@ a.custom-link {
     letter-spacing: -0.6px;
     color: #26282C;
 }
-.sub-header {
+.third-heading {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 36px;
+    letter-spacing: -0.4px;
+    color: #26282C;
+}
+.sub-heading {
     font-family: Inter;
     font-style: normal;
     font-weight: 500;
@@ -233,6 +242,13 @@ a.custom-link {
     letter-spacing: -0.4px;
     color: #595E68;
     margin-bottom: 64px;
+}
+.horizontal-divider {
+    height: 1px;
+    background: #D8DFEE;
+    border-radius: 6px;
+    margin-top: 15px;
+    margin-bottom: 32px;
 }
 
 
