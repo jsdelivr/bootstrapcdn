@@ -250,7 +250,70 @@ a.custom-link {
     margin-top: 15px;
     margin-bottom: 32px;
 }
+.content-card-subtitle {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.2px;
+    color: #26282C;
+    margin-bottom: 12px;
+}
+.content-card-block {
+    margin-bottom: 32px;
+}
+.content-card-input {
+    background: #F3F4F5;
+    border-radius: 6px;
+    position: relative;
+}
+.content-card-input > input {
+    background: inherit;
+    border: none;
+    border-radius: 6px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    padding-left: 12px;
+    padding-right: 48px;
+    height: 48px;
+    width: 100%;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.2px;
+    color: #26282C;
+}
+.content-card-input > button {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    background: #2F6CEC;
+    color: #fff;
+}
 
+.content-card-input > button > svg {
+    width: 10px;
+    height: 7px;
+}
+.content-card-input > button:after {
+    display: none;
+}
+.copy-btn {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 20px;
+    letter-spacing: -0.2px;
+    color: #9DA2AD;
+    cursor: pointer;
+}
 
 @media (max-width: 1400px) {
     #jumbotron-content {
