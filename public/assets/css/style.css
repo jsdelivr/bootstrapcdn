@@ -263,6 +263,16 @@ a.custom-link {
 .content-card-block {
     margin-bottom: 32px;
 }
+.content-card-block > a {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.2px;
+    color: #2F6CEC;
+    margin-bottom: 12px;
+ }
 .content-card-input {
     background: #F3F4F5;
     border-radius: 6px;
@@ -313,6 +323,11 @@ a.custom-link {
     letter-spacing: -0.2px;
     color: #9DA2AD;
     cursor: pointer;
+}
+.collapsed-content {
+    margin-left: 24px;
+    padding-left: 24px;
+    border-left: 2px solid #D8DFEE;
 }
 
 @media (max-width: 1400px) {
