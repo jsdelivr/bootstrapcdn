@@ -222,7 +222,6 @@ a.custom-link {
         margin-right: 444px;
     }
 }
-
 @media (min-width: 1400px) {
     #jumbotron-content {
         margin-left: 165px;
@@ -231,6 +230,14 @@ a.custom-link {
     .main-content {
         margin-right: 165px !important;
         margin-left: 165px !important;
+    }
+}
+@media (max-width: 1200px) {
+    .github-link > svg {
+        margin-right: 4px;
+    }
+    #navbarDropdownRight {
+        width: 90px;
     }
 }
 @media (max-width: 991px) {
