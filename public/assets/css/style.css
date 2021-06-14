@@ -9,7 +9,7 @@
 header {
     display: flex;
     flex-direction: column;
-    height: 470px;
+    min-height: 470px;
     background: #F3F6FC;
 }
 main {
@@ -47,6 +47,7 @@ img {
 .jumbotron {
     flex: 1;
     display: flex;
+    position: relative;
 }
 #jumbotron-content {
     width: 100%;
@@ -73,7 +74,7 @@ img {
 }
 .boxes-images {
     position: absolute;
-    top: 0px;
+    bottom: 0px;
     right: 165px;
 }
 .boxes-images img {
