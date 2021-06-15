@@ -1,6 +1,6 @@
 .collapse(id=name)
     .collapsed-content
-        .content-card-block
+        .d-flex.flex-column.content-card-block
             -var formId = `html_${name}`;
 
             a.text-decoration-none(href='https://www.w3.org/html/', rel='noopener', target='_blank') HTML
@@ -10,7 +10,7 @@
                 value=`<script src="${file}" integrity="${sri}" crossorigin="anonymous"></script>`)
             span.mt-2.copy-btn Click to copy
 
-        .content-card-block
+        .d-flex.flex-column.content-card-block
             -var formId = `pug_${name}`;
 
             a.text-decoration-none(href='https://pugjs.org/', rel='noopener', target='_blank') Pug
@@ -21,7 +21,7 @@
                     value=`script(src="${file}", integrity="${sri}", crossorigin="anonymous")`)
             span.mt-2.copy-btn Click to copy
 
-        .content-card-block
+        .d-flex.flex-column.content-card-block
             -var formId = `haml_${name}`;
 
             a.text-decoration-none(href='http://haml.info/', rel='noopener', target='_blank') Haml
