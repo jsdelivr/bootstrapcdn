@@ -359,6 +359,26 @@ a.custom-link {
 .about-author-list {
     margin-bottom: 64px;
 }
+.bootswatch-mb {
+    margin-bottom: 64px;
+}
+.tryit > button, .tryit > button:hover, .tryit > a, .tryit > a:hover {
+    border-radius: 4px;
+    color: #FFF;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.2px;
+    height: 48px;
+}
+.tryit > button {
+    background: #9DA2AD;
+}
+.tryit > a {
+    background: #2F6CEC;
+}
 
 @media (max-width: 1400px) {
     #jumbotron-content {
