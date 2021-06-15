@@ -31,9 +31,10 @@ html(lang='en', prefix='og: http://ogp.me/ns#', itemscope, itemtype='http://sche
         block head
 
     body(class=bodyClass)
-        include _partials/nav.pug
+        header
+            include _partials/nav.pug
+            include _partials/jumbotron.pug
 
-        //include _partials/jumbotron.pug
         main.row.content-wrapper.mb-5.mx-3.mx-md-5.mx-xl-auto
             .col.col-md-8.col-xl-9.p-0.content-main
                 .row.justify-content-center
