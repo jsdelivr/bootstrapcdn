@@ -175,11 +175,9 @@ img {
     border-radius: 8px;
     margin-top: -10px;
 }
-
 .github-link > svg {
     margin-right: 16px;
 }
-
 #main-nav {
     font-family: Inter;
     font-style: normal;
@@ -429,6 +427,9 @@ a.custom-link {
 @media (min-width: 992px) {
     .footer-container > div:nth-child(1) {
         margin-right: 50px;
+    }
+    #jumbotron-content {
+        padding-right: 255px;
     }
 }
 @media (max-width: 768px) {
