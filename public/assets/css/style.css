@@ -51,6 +51,7 @@ img {
 }
 #jumbotron-content {
     width: 100%;
+    max-width: 1110px;
     font-family: Inter;
     font-style: normal;
     margin-top: 106px;
@@ -389,7 +390,7 @@ a.custom-link {
 }
 @media (min-width: 1400px) {
     #jumbotron-content {
-        margin-left: 165px;
+        /* margin-left: 165px; */
         padding: 0 !important;
     }
     .content-wrapper {
