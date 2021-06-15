@@ -199,7 +199,9 @@ img {
     display: none;
 }
 .footer-container {
-    padding: 40px 165px;
+    width: auto;
+    max-width: 1110px;
+    padding: 40px 0;
     font-family: Inter;
     font-style: normal;
     font-weight: 500;
