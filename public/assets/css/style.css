@@ -49,7 +49,6 @@ img {
 .jumbotron {
     flex: 1;
     display: flex;
-    position: relative;
 }
 #jumbotron-content {
     width: 100%;
@@ -57,6 +56,7 @@ img {
     font-family: Inter;
     font-style: normal;
     margin-top: 106px;
+    position: relative;
 }
 #jumbotron-content > h1 {
     font-weight: 600;
@@ -77,8 +77,8 @@ img {
 }
 .boxes-images {
     position: absolute;
-    bottom: 0px;
-    right: 165px;
+    bottom: -48px;
+    right: 0;
 }
 .boxes-images svg {
     width: 255px;
@@ -86,7 +86,6 @@ img {
 .social {
     height: 75px;
 }
-
 .resource-dropwdown {
     margin-top: 12px;
     width: 163px;
@@ -392,7 +391,6 @@ a.custom-link {
 }
 @media (min-width: 1400px) {
     #jumbotron-content {
-        /* margin-left: 165px; */
         padding: 0 !important;
     }
     .content-wrapper {
