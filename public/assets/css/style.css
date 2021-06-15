@@ -390,9 +390,21 @@ a.custom-link {
         margin-left: 165px;
         padding: 0 !important;
     }
-    .main-content {
-        margin-right: 165px !important;
-        margin-left: 165px !important;
+    .content-wrapper {
+        margin-right: auto !important;
+        margin-left: auto !important;
+    }
+}
+@media (min-width: 1200px) {
+    .content-wrapper  {
+        max-width: 1110px;
+    }
+    .content-wrapper .content-main {
+        max-width: 730px;
+        margin-right: auto;
+    }
+    .content-wrapper .content-aside {
+        max-width: 255px;
     }
 }
 @media (max-width: 1200px) {
