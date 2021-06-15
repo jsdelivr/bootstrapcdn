@@ -25,6 +25,8 @@ img {
     height: 20px;
 }
 .navbar {
+    max-width: 1440px;
+    width: 100%;
     background-color: transparent;
     z-index: 100;
 }
