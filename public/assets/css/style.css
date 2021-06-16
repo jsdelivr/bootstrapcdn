@@ -2,6 +2,8 @@
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
+    font-family: Inter;
+    font-style: normal;
 }
 .row {
     margin: 0px;
@@ -53,8 +55,6 @@ img {
 #jumbotron-content {
     width: 100%;
     max-width: 1110px;
-    font-family: Inter;
-    font-style: normal;
     margin-top: 106px;
     position: relative;
 }
@@ -91,8 +91,6 @@ img {
     width: 163px;
     height: 184px;
     padding: 20px;
-    font-family: Inter;
-    font-style: normal;
     font-weight: 500;
     font-size: 14px;
     line-height: 24px;
@@ -131,8 +129,6 @@ img {
     transform: rotate(-180deg);
 }
 .container p {
-    font-family: Inter;
-    font-style: normal;
     font-weight: 500;
     font-size: 20px;
     max-width: 730px;
@@ -148,7 +144,6 @@ img {
     width: 255px;
     background-color: #f3f6fc;
     border-radius: 8px;
-    font-style: normal;
     font-weight: 600;
     overflow: hidden;
     padding-top: 32px;
@@ -179,8 +174,6 @@ img {
     margin-right: 16px;
 }
 #main-nav {
-    font-family: Inter;
-    font-style: normal;
     font-weight: 500;
     font-size: 14px;
     line-height: 24px;
@@ -202,8 +195,6 @@ img {
     width: auto;
     max-width: 1110px;
     padding: 40px 0;
-    font-family: Inter;
-    font-style: normal;
     font-weight: 500;
     font-size: 14px;
     line-height: 24px;
@@ -218,8 +209,6 @@ a.custom-link {
     color: #2F6CEC;
 }
 .second-heading {
-    font-family: Inter;
-    font-style: normal;
     font-weight: 600;
     font-size: 32px;
     line-height: 48px;
@@ -227,8 +216,6 @@ a.custom-link {
     color: #26282C;
 }
 .third-heading {
-    font-family: Inter;
-    font-style: normal;
     font-weight: 600;
     font-size: 24px;
     line-height: 36px;
@@ -236,8 +223,6 @@ a.custom-link {
     color: #26282C;
 }
 .sub-heading {
-    font-family: Inter;
-    font-style: normal;
     font-weight: 500;
     font-size: 18px;
     line-height: 28px;
@@ -253,8 +238,6 @@ a.custom-link {
     margin-bottom: 32px;
 }
 .content-card-subtitle {
-    font-family: Inter;
-    font-style: normal;
     font-weight: 600;
     font-size: 16px;
     line-height: 24px;
@@ -266,8 +249,6 @@ a.custom-link {
     margin-bottom: 32px;
 }
 .content-card-block > a {
-    font-family: Inter;
-    font-style: normal;
     font-weight: 600;
     font-size: 16px;
     line-height: 24px;
@@ -290,8 +271,6 @@ a.custom-link {
     padding-right: 48px;
     height: 48px;
     width: 100%;
-    font-family: Inter;
-    font-style: normal;
     font-weight: 500;
     font-size: 14px;
     line-height: 20px;
@@ -316,8 +295,6 @@ a.custom-link {
     display: none;
 }
 .copy-btn {
-    font-family: Inter;
-    font-style: normal;
     font-weight: 500;
     font-size: 12px;
     line-height: 20px;
@@ -331,8 +308,6 @@ a.custom-link {
     border-left: 2px solid #D8DFEE;
 }
 .about-text {
-    font-family: Inter;
-    font-style: normal;
     font-weight: 500;
     font-size: 16px;
     line-height: 24px;
@@ -340,8 +315,6 @@ a.custom-link {
     color: #595E68;
 }
 .about-prev-maintainers {
-    font-family: Inter;
-    font-style: normal;
     font-weight: 500;
     font-size: 16px;
     line-height: 24px;
@@ -349,8 +322,6 @@ a.custom-link {
     color: #595E68;
 }
 .about-link {
-    font-family: Inter;
-    font-style: normal;
     font-weight: 500;
     font-size: 16px;
     line-height: 24px;
@@ -367,8 +338,6 @@ a.custom-link {
 .tryit > button, .tryit > button:hover, .tryit > a, .tryit > a:hover {
     border-radius: 4px;
     color: #FFF;
-    font-family: Inter;
-    font-style: normal;
     font-weight: 600;
     font-size: 16px;
     line-height: 24px;
