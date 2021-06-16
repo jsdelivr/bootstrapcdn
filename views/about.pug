@@ -31,7 +31,7 @@ block content
             if (inactiveAuthors)
                 p.about-prev-maintainers.mb-3 Previous maintainers:
 
-                ul.ml-3.about-author-list(type='square')
+                ul.ml-3.about-author-list.square-list
                     each author in inactiveAuthors
                         li.mb-2
                             a.about-link.ml-3(href=author.url, rel='noopener', target='_blank')=author.name
@@ -49,47 +49,62 @@ block content
 
             p.about-text We agree with StackPath, security should be built in, not bolted on.
 
-            ul.ml-3.about-text(type='square')
-                li.mb-2 Our DNS & CDN is managed by #[a.about-link(href='https://www.stackpath.com/?utm_campaign=Partner%20Display&utm_source=Partner%20Display&utm_medium=bootstrapcdn', rel='noopener', target='_blank') StackPath].
-                li.mb-2 Our origin server is #[a.about-link(href='https://aws.amazon.com/s3/', rel='noopener', target='_blank') Amazon S3].
-                li.mb-2 This website is hosted by Heroku.
-                li.mb-2.
-                    We enforce #[a.about-link(href='https://en.wikipedia.org/wiki/Multi-factor_authentication', rel='noopener', target='_blank') 2-factor authentication]
-                    on all services (including GitHub, MarkMonitor, AWS & Gmail).
-                li.mb-2.
-                    Our production branch on GitHub is protected to prevent force pushing, prevent branches from being deleted,
-                    and require status checks to pass before merging.
-                li.mb-2.
-                    Our domain #[code bootstrapcdn.com] is managed by #[a.about-link(href='https://www.markmonitor.com/', rel='noopener', target='_blank') MarkMonitor],
-                    an ICANN-accredited registrar and recognized industry leader since 1999. They have security measures
-                    in place such as registry locking and IP restrictions to help reduce security vulnerabilities and minimize
-                    the likelihood of successful domain hijacking.
-                li.mb-2.
-                    By default we include #[a.about-link(href='https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity', rel='noopener', target='_blank') Subresource Integrity (SRI)]
-                    hashes when users copy a code snippet from this site.
+            ul.ml-3.about-text.square-list
+                li.mb-2
+                    .ml-3.
+                        Our DNS & CDN is managed by #[a.about-link(href='https://www.stackpath.com/?utm_campaign=Partner%20Display&utm_source=Partner%20Display&utm_medium=bootstrapcdn', rel='noopener', target='_blank') StackPath].
+                li.mb-2
+                    .ml-3.
+                        Our origin server is #[a.about-link(href='https://aws.amazon.com/s3/', rel='noopener', target='_blank') Amazon S3].
+                li.mb-2
+                    .ml-3.
+                        This website is hosted by Heroku.
+                li.mb-2
+                    .ml-3.
+                        We enforce #[a.about-link(href='https://en.wikipedia.org/wiki/Multi-factor_authentication', rel='noopener', target='_blank') 2-factor authentication]
+                        on all services (including GitHub, MarkMonitor, AWS & Gmail).
+                li.mb-2
+                    .ml-3.
+                        Our production branch on GitHub is protected to prevent force pushing, prevent branches from being deleted,
+                        and require status checks to pass before merging.
+                li.mb-2
+                    .ml-3.
+                        Our domain #[code bootstrapcdn.com] is managed by #[a.about-link(href='https://www.markmonitor.com/', rel='noopener', target='_blank') MarkMonitor],
+                        an ICANN-accredited registrar and recognized industry leader since 1999. They have security measures
+                        in place such as registry locking and IP restrictions to help reduce security vulnerabilities and minimize
+                        the likelihood of successful domain hijacking.
+                li.mb-2
+                    .ml-3.
+                        By default we include #[a.about-link(href='https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity', rel='noopener', target='_blank') Subresource Integrity (SRI)]
+                        hashes when users copy a code snippet from this site.
 
             .third-heading.mb-3 2. Reliability
 
             p.about-text Reliable services require reliable people.
 
-            ul.ml-3.about-text(type='square')
-                li.mb-2.
-                    StackPath's network is monitored #[em 24/7/365] and any incidents are posted to their
-                    #[a.about-link(href='https://status.stackpath.com/', rel='noopener', target='_blank') status page]
-                    in real-time.
-                li.mb-2.
-                    Twitter is monitored for any mentions of the terms "#[em BootstrapCDN]",
-                    "#[em #BootstrapCDN]", "#[em Bootstrap CDN]".
-                li.
-                    There is someone always on call and has direct access to the StackPath support team
-                    via a private Slack channel. As mentioned above, we only use services that are secure
-                    & reliable.
-                li.mb-2.
-                    Every Pull Request requires our whole test suite to pass. This includes checking every
-                    file we deliver, making #[strong ~26K tests] in total, to make sure all of the HTTP headers
-                    are correct and the SRI hashes match.
-                li.mb-2.
-                    If for some reason you are experiencing issues, please fill out our #[a.about-link(href='https://docs.google.com/forms/d/e/1FAIpQLSdZu2dX68oApkjzPgSWBdIvDbiCYk5KhAL5rSNTn2YlImP-SQ/viewform', rel='noopener', target='_blank') debug form].
+            ul.ml-3.about-text.square-list
+                li.mb-2
+                    .ml-3.
+                        StackPath's network is monitored #[em 24/7/365] and any incidents are posted to their
+                        #[a.about-link(href='https://status.stackpath.com/', rel='noopener', target='_blank') status page]
+                        in real-time.
+                li.mb-2
+                    .ml-3.
+                        Twitter is monitored for any mentions of the terms "#[em BootstrapCDN]",
+                        "#[em #BootstrapCDN]", "#[em Bootstrap CDN]".
+                li.mb-2
+                    .ml-3.
+                        There is someone always on call and has direct access to the StackPath support team
+                        via a private Slack channel. As mentioned above, we only use services that are secure
+                        & reliable.
+                li.mb-2
+                    .ml-3.
+                        Every Pull Request requires our whole test suite to pass. This includes checking every
+                        file we deliver, making #[strong ~26K tests] in total, to make sure all of the HTTP headers
+                        are correct and the SRI hashes match.
+                li.mb-2
+                    .ml-3.
+                        If for some reason you are experiencing issues, please fill out our #[a.about-link(href='https://docs.google.com/forms/d/e/1FAIpQLSdZu2dX68oApkjzPgSWBdIvDbiCYk5KhAL5rSNTn2YlImP-SQ/viewform', rel='noopener', target='_blank') debug form].
 
             .third-heading.mb-3 3. Accessibility
 
@@ -112,10 +127,16 @@ block content
                 and affiliate commissions (#[a.about-link(href='/themes/') Themes] and #[a.about-link(href='/books/') Books].
                 This allows us to do the following:
 
-            ul.ml-3.about-text(type='square')
-                li.mb-2 Reimburse any expenses that are paid out of pocket.
-                li.mb-2 Pay for any work that requires a lot of hours.
-                li.mb-2 Rainy day fund for the unexpected.
+            ul.ml-3.about-text.square-list
+                li.mb-2
+                    .ml-3.
+                        Reimburse any expenses that are paid out of pocket.
+                li.mb-2
+                    .ml-3.
+                        Pay for any work that requires a lot of hours.
+                li.mb-2
+                    .ml-3.
+                        Rainy day fund for the unexpected.
 
             p.about-text.
                 Without the help of our in-kind partners (#[a.about-link(href='https://www.stackpath.com/?utm_campaign=Partner%20Display&utm_source=Partner%20Display&utm_medium=bootstrapcdn', rel='noopener', target='_blank') StackPath],

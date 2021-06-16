@@ -112,18 +112,11 @@ img {
 .resource-item:hover {
     background: transparent;
 }
-@media (min-width: 576px) {
-    .social {
-        height: 30px;
-    }
-}
-
 .input-group .dropdown-toggle::after {
     transition: -webkit-transform 0.35s ease;
     transition: transform 0.35s ease;
     transition: transform 0.35s ease, -webkit-transform 0.35s ease;
 }
-
 .input-group .dropdown-toggle-open::after {
     -webkit-transform: rotate(-180deg);
     transform: rotate(-180deg);
@@ -350,6 +343,9 @@ a.custom-link {
 .tryit > a {
     background: #2F6CEC;
 }
+.square-list > li {
+    list-style-type: square;
+}
 
 @media (max-width: 1400px) {
     #jumbotron-content {
@@ -403,5 +399,10 @@ a.custom-link {
     }
     #jumbotron-content {
         padding-right: 255px;
+    }
+}
+@media (min-width: 576px) {
+    .social {
+        height: 30px;
     }
 }
