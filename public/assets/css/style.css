@@ -423,6 +423,10 @@ a.custom-link {
     #jumbotron-content {
         margin-right: 0;
     }
+    .productionDiv {
+        height: max-content;
+        width: auto;
+    }
 }
 @media (min-width: 992px) {
     .footer-container > div:nth-child(1) {
@@ -430,11 +434,5 @@ a.custom-link {
     }
     #jumbotron-content {
         padding-right: 255px;
-    }
-}
-@media (max-width: 768px) {
-    .productionDiv {
-        height: max-content;
-        width: auto;
     }
 }
