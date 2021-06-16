@@ -5,8 +5,9 @@ block content
 
     p.sub-heading Get your production ready CDN links bellow. You can also automate your upgrades by pulling the latest versions from our API.
     -var current = config.files.bootstrap.find(file => file.current);
+    -var previous = config.files.bootstrap.find(file => semver.satisfies(file.version, '^4', { includePrerelease: true }));
 
-    each item in [current]
+    each item in [current, previous]
         .third-heading=`v${item.version}`
 
         .hr.horizontal-divider
