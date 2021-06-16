@@ -1,22 +1,35 @@
 extends layout.pug
 
 block content
-    h2.text-center.mb-4 Font Awesome
+    h2.second-heading.mb-5 Font Awesome
 
-    .card.bg-light.mt-4.p-4.text-center
+    div
         -var name    = 'fontawesomecss';
         -var current = config.files['@fortawesome/fontawesome-free'].find(file => file.current);
         -var file    = current.stylesheet;
         -var sri     = current.stylesheetSri;
         -var formId  = `${name}_form`;
 
-        .form-group.my-4
-            label.font-weight-bold(for=formId) Font Awesome CSS
-            .input-group.input-group-lg
-                input.form-control(id=formId, type='text', readonly, value=file)
-                .input-group-append
-                    button.btn.btn-dark.dropdown-toggle(type='button', data-toggle='collapse', data-target=`#${name}`, aria-label='Toggle Dropdown', aria-expanded='false', aria-controls=name)
-            span.form-text.text-muted Click to copy
+        //- .form-group.my-4
+        //-     label.font-weight-bold(for=formId) Font Awesome CSS
+        //-     .input-group.input-group-lg
+        //-         input.form-control(id=formId, type='text', readonly, value=file)
+        //-         .input-group-append
+        //-             button.btn.btn-dark.dropdown-toggle(type='button', data-toggle='collapse', data-target=`#${name}`, aria-label='Toggle Dropdown', aria-expanded='false', aria-controls=name)
+        //-     span.form-text.text-muted Click to copy
+
+        .d-flex.flex-column.content-card-block
+            .content-card-subtitle(for=formId) Font Awesome CSS
+            .content-card-input
+                input.d-flex.flex-grow-1(id=formId, type='text', readonly, value=file)
+                button.btn.p-0.d-flex.align-items-center.justify-content-center.dropdown-toggle(type='button',
+                    data-toggle='collapse',
+                    data-target=`#${name}`,
+                    aria-label='Toggle Dropdown',
+                    aria-expanded='false',
+                    aria-controls=name)
+                    include /assets/img/arrow_down_white.svg
+            span.mt-2.copy-btn Click to copy
 
         include _partials/csscode.pug
 
