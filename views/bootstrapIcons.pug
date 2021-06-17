@@ -1,0 +1,28 @@
+extends layout.pug
+
+block content
+    h2.second-heading.mb-5 Bootstrap Icons
+
+    div
+        -var name    = 'bootstrapicons';
+        -var current = config.files['@fortawesome/fontawesome-free'].find(file => file.current);
+        -var file    = current.stylesheet;
+        -var sri     = current.stylesheetSri;
+        -var formId  = `${name}_form`;
+
+        .d-flex.flex-column.content-card-block
+            .content-card-subtitle Bootstrap Icons
+            .content-card-input
+                input.d-flex.flex-grow-1(id=formId, type='text', readonly, value=file)
+                button.btn.p-0.d-flex.align-items-center.justify-content-center.dropdown-toggle(type='button',
+                    data-toggle='collapse',
+                    data-target=`#${name}`,
+                    aria-label='Toggle Dropdown',
+                    aria-expanded='false',
+                    aria-controls=name)
+                    include /assets/img/arrow_down_white.svg
+            span.mt-2.copy-btn Click to copy
+
+        include _partials/csscode.pug
+
+//- vim: ft=pug sw=4 sts=4 et:
