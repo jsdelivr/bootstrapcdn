@@ -14,7 +14,6 @@ const CSP = {
         'platform.twitter.com',
         'api.github.com',
         'https://cdn.jsdelivr.net',
-        'buttons.github.io/buttons.js',
         (req, res) => `'nonce-${res.locals.nonce}'`
     ],
     styleSrc: [
