@@ -15,7 +15,8 @@ const packagesList = [
     'bootstrap',
     '@fortawesome/fontawesome-free',
     'bootlint',
-    'bootswatch'
+    'bootswatch',
+    'bootstrap-icons'
 ];
 const instance = axios.create({
     timeout: 60000, // optional
@@ -166,6 +167,20 @@ function buildPathBootlint(packageData) {
     return false;
 }
 
+function buildPathBootstrapIcons(packageData) {
+    let path = `${baseURL}${packageData.packageName}@${packageData.version}/`;;
+    const folder = findFile(packageData, 'font');
+    path += folder ? folder.name : '';
+    const cssFile = folder ? findFile(folder, 'bootstrap-icons.css') : null;
+    if (cssFile) {
+        path += `/${cssFile.name}`;
+
+        return path;
+    }
+
+    return false;
+}
+
 async function generateFilesPath({ versions, packageName }) {
     const filesPromises = versions.map((version, index) => {
         return new Promise((resolve) => {
@@ -265,6 +280,16 @@ async function generateFilesPath({ versions, packageName }) {
                         return false;
                     }
 
+                    break;
+                }
+
+                case 'bootstrap-icons': {
+                    const stylesheet = buildPathBootstrapIcons(file);
+                    if (!stylesheet) {
+                        return false;
+                    }
+
+                    paths.stylesheet = stylesheet;
                     break;
                 }
 
