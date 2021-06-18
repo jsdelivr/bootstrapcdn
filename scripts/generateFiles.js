@@ -168,7 +168,7 @@ function buildPathBootlint(packageData) {
 }
 
 function buildPathBootstrapIcons(packageData) {
-    let path = `${baseURL}${packageData.packageName}@${packageData.version}/`;;
+    let path = `${baseURL}${packageData.packageName}@${packageData.version}/`;
     const folder = findFile(packageData, 'font');
     path += folder ? folder.name : '';
     const cssFile = folder ? findFile(folder, 'bootstrap-icons.css') : null;
