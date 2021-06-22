@@ -6,7 +6,7 @@ const CSP = {
     formAction: ['platform.twitter.com', 'syndication.twitter.com'],
     frameAncestors: ['"none"'],
     scriptSrc: [
-        '"self"',
+        '\'self\'',
         '\'unsafe-inline\'',
         'stackpath.bootstrapcdn.com',
         'www.google-analytics.com',
@@ -40,20 +40,20 @@ const CSP = {
         'https://cdn.jsdelivr.net'
     ],
     fontSrc: [
-        '"self"',
+        '\'self\'',
         'stackpath.bootstrapcdn.com',
         'fonts.gstatic.com',
         'https://cdn.jsdelivr.net'
     ],
     frameSrc: [
-        '"self"',
+        '\'self\'',
         'img.shields.io',
         'platform.twitter.com',
         'syndication.twitter.com',
         'https://cdn.jsdelivr.net'
     ],
     childSrc: [
-        '"self"',
+        '\'self\'',
         'img.shields.io',
         'platform.twitter.com',
         'syndication.twitter.com',
@@ -61,7 +61,7 @@ const CSP = {
     ],
     connectSrc: ['syndication.twitter.com'],
     objectSrc: ['img.shields.io'],
-    manifestSrc: ['"self"']
+    manifestSrc: ['\'self\'']
 };
 
 module.exports = CSP;
