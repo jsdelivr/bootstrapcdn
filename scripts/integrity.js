@@ -153,7 +153,6 @@ async function main() {
     files.bootswatch4.themes = b4Sri;
     files['bootstrap-icons'] = biSri;
 
-
     console.log('Writing to yml file...');
     fs.writeFileSync(
         configFile,
