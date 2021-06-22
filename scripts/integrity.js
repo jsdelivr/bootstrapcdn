@@ -111,6 +111,22 @@ async function bootlintSri() {
     return sris;
 }
 
+// Bootstrap Icons
+async function bootstrapIconsSri() {
+    const sris = files['bootstrap-icons'].map(
+        async(bootstrapIcons) => {
+            const { stylesheet } = bootstrapIcons;
+            if (stylesheet) {
+                const sri = await generateSri(stylesheet);
+                bootstrapIcons.stylesheetSri = sri;
+                return bootstrapIcons;
+            }
+        }
+    );
+
+    return sris;
+}
+
 async function main() {
     const faPromises = await fontAwesomeSri();
     const faSri = await Promise.all(faPromises);
@@ -127,11 +143,16 @@ async function main() {
     const bs4Promises = await bootswatchSri(true);
     const b4Sri = await Promise.all(bs4Promises);
 
+    const biPromises = await bootstrapIconsSri();
+    const biSri = await Promise.all(biPromises);
+
     files['@fortawesome/fontawesome-free'] = faSri;
     files.bootlint = blSri;
     files.bootstrap = bsSri;
     files.bootswatch3.themes = b3Sri;
     files.bootswatch4.themes = b4Sri;
+    files['bootstrap-icons'] = biSri;
+
 
     console.log('Writing to yml file...');
     fs.writeFileSync(
