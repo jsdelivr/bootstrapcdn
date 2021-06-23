@@ -293,7 +293,6 @@ a.custom-link {
     line-height: 20px;
     letter-spacing: -0.2px;
     color: #9DA2AD;
-    cursor: pointer;
 }
 .collapsed-content {
     margin-left: 24px;
@@ -345,6 +344,9 @@ a.custom-link {
 }
 .square-list > li {
     list-style-type: square;
+}
+.copy-btn-active {
+    color: #329656;
 }
 
 @media (max-width: 1400px) {

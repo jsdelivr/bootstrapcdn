@@ -34,6 +34,7 @@
                         ev.trigger.nextElementSibling;
 
                     helpBlock.textContent = 'Copied text to clipboard';
+                    helpBlock.classList.add('copy-btn-active');
                 });
             }, true);
 
@@ -45,6 +46,7 @@
 
                 event.preventDefault();
                 helpBlock.textContent = 'Click to copy';
+                helpBlock.classList.remove('copy-btn-active');
             }, true);
         });
     }
