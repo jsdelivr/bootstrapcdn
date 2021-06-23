@@ -261,6 +261,11 @@ a.custom-link {
     letter-spacing: -0.2px;
     color: #26282C;
 }
+.content-card-input > input:focus {
+    outline: none;
+    box-shadow: 0px 0px 0px 2px #2F6CEC;
+
+}
 .content-card-input > button {
     position: absolute;
     bottom: 12px;
