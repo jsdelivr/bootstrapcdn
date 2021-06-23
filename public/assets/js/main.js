@@ -4,7 +4,7 @@
     'use strict';
 
     function toggleInputCaret() {
-        var elements = document.querySelectorAll('.input-group .dropdown-toggle');
+        var elements = document.querySelectorAll('.content-card-block .dropdown-toggle');
 
         Array.prototype.forEach.call(elements, function(element) {
             element.addEventListener('click', function() {

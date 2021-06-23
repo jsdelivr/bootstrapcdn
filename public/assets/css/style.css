@@ -112,15 +112,6 @@ img {
 .resource-item:hover {
     background: transparent;
 }
-.input-group .dropdown-toggle::after {
-    transition: -webkit-transform 0.35s ease;
-    transition: transform 0.35s ease;
-    transition: transform 0.35s ease, -webkit-transform 0.35s ease;
-}
-.input-group .dropdown-toggle-open::after {
-    -webkit-transform: rotate(-180deg);
-    transform: rotate(-180deg);
-}
 .container p {
     font-weight: 500;
     font-size: 20px;
@@ -347,6 +338,15 @@ a.custom-link {
 }
 .copy-btn-active {
     color: #329656;
+}
+.dropdown-toggle-open > svg {
+    transform: rotate(-180deg);
+    -webkit-transform: rotate(-180deg);
+}
+.content-card-block .dropdown-toggle > svg {
+    transition: -webkit-transform 0.35s ease;
+    transition: transform 0.35s ease;
+    transition: transform 0.35s ease, -webkit-transform 0.35s ease;
 }
 
 @media (max-width: 1400px) {
