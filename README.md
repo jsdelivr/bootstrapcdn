@@ -114,10 +114,6 @@ The Express.js app configuration.
 * javascript: Array of javascript file(s) we use.
 * redirects: Array of Objects for the page redirects.
 
-#### `config/_extras.yml`
-
-Contains the `/integrations/` config we use in the Express.js app.
-
 #### `config/_files.yml`
 
 Contains the CDN files we host.The SRI values are updated by running `npm run integrity`.

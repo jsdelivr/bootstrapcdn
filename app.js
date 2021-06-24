@@ -130,7 +130,6 @@ app.use('/bootswatch/', routes.bootswatchRoute);
 app.use('/bootswatch4/', routes.bootswatch4Route);
 app.use('/data/bootstrapcdn.json', routes.dataRoute);
 app.use('/fontawesome/', routes.fontawesomeRoute);
-app.use('/integrations/', routes.integrationsRoute);
 app.use('/legacy', routes.legacyRoutes);
 app.use('/bootstrapicons/', routes.bootstrapIconsRoute);
 
@@ -173,7 +172,6 @@ if (ENV.ENABLE_CRAWLING) {
             '/bootlint',
             '/bootswatch',
             '/fontawesome',
-            '/integrations',
             '/legacy'
         ]);
         return map.XMLtoWeb(res);

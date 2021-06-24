@@ -9,7 +9,6 @@ const bootswatchRoute = require('./bootswatch');
 const dataRoute = require('./data');
 const fontawesomeRoute = require('./fontawesome');
 const indexRoute = require('./home');
-const integrationsRoute = require('./integrations');
 const legacyRoutes = require('./legacy');
 const redirectToRoot = require('./redirectToRoot');
 const bootstrapIconsRoute = require('./bootstrapIcons');
@@ -23,7 +22,6 @@ const routes = {
     dataRoute,
     fontawesomeRoute,
     indexRoute,
-    integrationsRoute,
     legacyRoutes,
     redirectToRoot,
     bootstrapIconsRoute
