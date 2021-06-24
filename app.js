@@ -134,7 +134,6 @@ app.use('/fontawesome/', routes.fontawesomeRoute);
 app.use('/integrations/', routes.integrationsRoute);
 app.use('/legacy', routes.legacyRoutes);
 app.use('/showcase/', routes.showcaseRoute);
-app.use('/themes/', routes.themesRoute);
 app.use('/bootstrapicons/', routes.bootstrapIconsRoute);
 
 const map = sitemap({
@@ -165,9 +164,6 @@ const map = sitemap({
             hide: true
         },
         '/sitemap.xml': {
-            hide: true
-        },
-        '/themes/': {
             hide: true
         }
     }

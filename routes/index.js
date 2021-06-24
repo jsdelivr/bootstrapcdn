@@ -14,7 +14,6 @@ const integrationsRoute = require('./integrations');
 const legacyRoutes = require('./legacy');
 const redirectToRoot = require('./redirectToRoot');
 const showcaseRoute = require('./showcase');
-const themesRoute = require('./themes');
 const bootstrapIconsRoute = require('./bootstrapIcons');
 
 const routes = {
@@ -31,7 +30,6 @@ const routes = {
     legacyRoutes,
     redirectToRoot,
     showcaseRoute,
-    themesRoute,
     bootstrapIconsRoute
 };
 
