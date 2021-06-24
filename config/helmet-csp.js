@@ -1,10 +1,10 @@
 'use strict';
 
 const CSP = {
-    defaultSrc: ['"none"'],
-    baseUri: ['"self"'],
+    defaultSrc: ['\'none\''],
+    baseUri: ['\'self\''],
     formAction: ['platform.twitter.com', 'syndication.twitter.com'],
-    frameAncestors: ['"none"'],
+    frameAncestors: ['\'none\''],
     scriptSrc: [
         '\'self\'',
         '\'unsafe-inline\'',
