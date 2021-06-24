@@ -132,7 +132,6 @@ app.use('/data/bootstrapcdn.json', routes.dataRoute);
 app.use('/fontawesome/', routes.fontawesomeRoute);
 app.use('/integrations/', routes.integrationsRoute);
 app.use('/legacy', routes.legacyRoutes);
-app.use('/showcase/', routes.showcaseRoute);
 app.use('/bootstrapicons/', routes.bootstrapIconsRoute);
 
 const map = sitemap({
@@ -175,8 +174,7 @@ if (ENV.ENABLE_CRAWLING) {
             '/bootswatch',
             '/fontawesome',
             '/integrations',
-            '/legacy',
-            '/showcase'
+            '/legacy'
         ]);
         return map.XMLtoWeb(res);
     });
