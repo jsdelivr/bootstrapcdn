@@ -59,7 +59,7 @@ const CSP = {
         'syndication.twitter.com',
         'https://cdn.jsdelivr.net'
     ],
-    connectSrc: ['syndication.twitter.com'],
+    connectSrc: ['syndication.twitter.com', 'https://api.github.com/repos/jsdelivr/bootstrapcdn'],
     objectSrc: ['img.shields.io'],
     manifestSrc: ['\'self\'']
 };
