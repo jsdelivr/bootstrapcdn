@@ -11,28 +11,6 @@ books:
   - name: 'Bootstrap in 24 Hours, Sams Teach Yourself'
     img: /assets/img/books/Bootstrap-Hours-Sams-Teach-Yourself-ebook.jpg
     url: 'https://www.amazon.com/Bootstrap-Hours-Sams-Teach-Yourself-ebook/dp/B017M8OWZQ/ref=as_li_ss_il?ie=UTF8&linkCode=li3&tag=bcdn-20&linkId=f8a39275b5204f5f2d0427a1ef1c4f83'
-themesAd:
-  - name: 'Pixel Pro - Bootstrap 4 UI Kit'
-    img: /assets/img/themes/pixel-pro-ui-kit-preview-themesberg.jpg
-    url: 'https://themesberg.com/product/ui-kits/pixel-pro-premium-bootstrap-4-ui-kit'
-  - name: 'Pixel Lite - Bootstrap 4 UI Kit'
-    img: /assets/img/themes/pixel-lite-free-ui-kit-themesberg.jpg
-    url: 'https://themesberg.com/product/ui-kits/pixel-lite-free-bootstrap-4-ui-kit'
-  - name: 'AdminKit - Web UI Kit & Dashboard Template'
-    img: /assets/img/themes/adminkit-ui-kit-dashboard.jpg
-    url: 'https://github.com/adminkit/adminkit'
-  - name: 'Velonic - Admin Dashboard & Frontend'
-    img: /assets/img/themes/bootstrapbay-velonic-admin.jpg
-    url: 'https://bootstrapbay.sjv.io/kVaX3'
-  - name: 'ZTheme - Multipurpose Responsive Template'
-    img: /assets/img/themes/ztheme-mulipurpose-responsive-template-B8068D9.jpg
-    url: 'https://bootstrapbay.sjv.io/mNXyO'
-  - name: 'Color Admin - Admin Template + Front End'
-    img: /assets/img/themes/color-admin-admin-template-front-end.jpg
-    url: 'https://wrapbootstrap.com/theme/color-admin-admin-template-front-end-WB0N89JMK?ref=bcdn'
-  - name: 'Unify - Responsive Website Template'
-    img: /assets/img/themes/unify-responsive-website-template.jpg
-    url: 'https://wrapbootstrap.com/theme/unify-responsive-website-template-WB0412697?ref=bcdn'
 showcase:
   - name: Microsoft Education
     img: /assets/img/showcase/microsoft-education.png
