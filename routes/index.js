@@ -12,6 +12,7 @@ const indexRoute = require('./home');
 const legacyRoutes = require('./legacy');
 const redirectToRoot = require('./redirectToRoot');
 const bootstrapIconsRoute = require('./bootstrapIcons');
+const themesRoute = require('./themes');
 
 const routes = {
     notFoundRoute,
@@ -24,7 +25,8 @@ const routes = {
     indexRoute,
     legacyRoutes,
     redirectToRoot,
-    bootstrapIconsRoute
+    bootstrapIconsRoute,
+    themesRoute
 };
 
 module.exports = routes;

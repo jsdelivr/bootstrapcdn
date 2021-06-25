@@ -132,6 +132,7 @@ app.use('/data/bootstrapcdn.json', routes.dataRoute);
 app.use('/fontawesome/', routes.fontawesomeRoute);
 app.use('/legacy', routes.legacyRoutes);
 app.use('/bootstrapicons/', routes.bootstrapIconsRoute);
+app.use('/themes/', routes.themesRoute);
 
 const map = sitemap({
     url: 'www.bootstrapcdn.com',
@@ -158,6 +159,9 @@ const map = sitemap({
             hide: true
         },
         '/sitemap.xml': {
+            hide: true
+        },
+        '/themes/': {
             hide: true
         }
     }
