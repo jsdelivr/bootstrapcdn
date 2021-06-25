@@ -2,14 +2,13 @@ extends layout.pug
 
 block content
     .row
-        .col-12
+        .col-12.p-0
+            h2.second-heading.mb-3 About
 
-            h2.text-center.mb-4 About
-
-            p.
-                BootstrapCDN was founded in 2012 by #[a(href='https://twitter.com/DavidHenzel', rel='noopener', target='_blank') David Henzel]
+            p.about-text.
+                BootstrapCDN was founded in 2012 by #[a.about-link(href='https://twitter.com/DavidHenzel', rel='noopener', target='_blank') David Henzel]
                 and Justin Dorfman at MaxCDN. Today, BootstrapCDN is used by over
-                #[a(href='https://trends.builtwith.com/cdn/StackPath-BootstrapCDN', rel='noopener', target='_blank') 7.9 million sites]
+                #[a.about-link(href='https://trends.builtwith.com/cdn/StackPath-BootstrapCDN', rel='noopener', target='_blank') 7.9 million sites]
                 delivering over 70 billion requests a month.
 
             -var activeAuthors=config.app.authors.active;
@@ -22,7 +21,7 @@ block content
                             a(href=author.url, rel='noopener', target='_blank')=author.name
 
                             if (author.work && author.work.text)
-                                |  - 
+                                |  -
                                 if (author.work.url)
                                     a(href=author.work.url, rel='noopener', target='_blank')=author.work.text
                                 else
@@ -30,100 +29,117 @@ block content
 
             -var inactiveAuthors=config.app.authors.inactive;
             if (inactiveAuthors)
-                p Previous maintainers:
+                p.about-prev-maintainers.mb-3 Previous maintainers:
 
-                ul
+                ul.ml-3.about-author-list.square-list
                     each author in inactiveAuthors
-                        li
-                            a(href=author.url, rel='noopener', target='_blank')=author.name
+                        li.mb-2
+                            a.about-link.ml-3(href=author.url, rel='noopener', target='_blank')=author.name
 
                             if (author.work && author.work.text)
-                                |  - 
+                                |  -
                                 if (author.work.url)
-                                    a(href=author.work.url, rel='noopener', target='_blank')=author.work.text
+                                    a.about-link(href=author.work.url, rel='noopener', target='_blank')=author.work.text
                                 else
                                     | #{author.work.text}
 
-            h2.my-4 Core Values
+            .second-heading.mb-3 Core Values
 
-            h3.h4.mb-3
-                strong 1. Security
+            .third-heading.mb-3 1. Security
 
-            p We agree with StackPath, security should be built in, not bolted on.
+            p.about-text We agree with StackPath, security should be built in, not bolted on.
 
-            ul
-                li Our DNS & CDN is managed by #[a(href='https://www.stackpath.com/?utm_campaign=Partner%20Display&utm_source=Partner%20Display&utm_medium=bootstrapcdn', rel='noopener', target='_blank') StackPath].
-                li Our origin server is #[a(href='https://aws.amazon.com/s3/', rel='noopener', target='_blank') Amazon S3].
-                li This website is hosted by Heroku.
-                li.
-                    We enforce #[a(href='https://en.wikipedia.org/wiki/Multi-factor_authentication', rel='noopener', target='_blank') 2-factor authentication]
-                    on all services (including GitHub, MarkMonitor, AWS & Gmail).
-                li.
-                    Our production branch on GitHub is protected to prevent force pushing, prevent branches from being deleted,
-                    and require status checks to pass before merging.
-                li.
-                    Our domain #[code bootstrapcdn.com] is managed by #[a(href='https://www.markmonitor.com/', rel='noopener', target='_blank') MarkMonitor],
-                    an ICANN-accredited registrar and recognized industry leader since 1999. They have security measures
-                    in place such as registry locking and IP restrictions to help reduce security vulnerabilities and minimize
-                    the likelihood of successful domain hijacking.
-                li.
-                    By default we include #[a(href='https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity', rel='noopener', target='_blank') Subresource Integrity (SRI)]
-                    hashes when users copy a code snippet from this site.
+            ul.ml-3.about-text.square-list
+                li.mb-2
+                    .ml-3.
+                        Our DNS & CDN is managed by #[a.about-link(href='https://www.stackpath.com/?utm_campaign=Partner%20Display&utm_source=Partner%20Display&utm_medium=bootstrapcdn', rel='noopener', target='_blank') StackPath].
+                li.mb-2
+                    .ml-3.
+                        Our origin server is #[a.about-link(href='https://aws.amazon.com/s3/', rel='noopener', target='_blank') Amazon S3].
+                li.mb-2
+                    .ml-3.
+                        This website is hosted by Heroku.
+                li.mb-2
+                    .ml-3.
+                        We enforce #[a.about-link(href='https://en.wikipedia.org/wiki/Multi-factor_authentication', rel='noopener', target='_blank') 2-factor authentication]
+                        on all services (including GitHub, MarkMonitor, AWS & Gmail).
+                li.mb-2
+                    .ml-3.
+                        Our production branch on GitHub is protected to prevent force pushing, prevent branches from being deleted,
+                        and require status checks to pass before merging.
+                li.mb-2
+                    .ml-3.
+                        Our domain #[code bootstrapcdn.com] is managed by #[a.about-link(href='https://www.markmonitor.com/', rel='noopener', target='_blank') MarkMonitor],
+                        an ICANN-accredited registrar and recognized industry leader since 1999. They have security measures
+                        in place such as registry locking and IP restrictions to help reduce security vulnerabilities and minimize
+                        the likelihood of successful domain hijacking.
+                li.mb-2
+                    .ml-3.
+                        By default we include #[a.about-link(href='https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity', rel='noopener', target='_blank') Subresource Integrity (SRI)]
+                        hashes when users copy a code snippet from this site.
 
-            h3.h4.my-3
-                strong 2. Reliability
+            .third-heading.mb-3 2. Reliability
 
-            p Reliable services require reliable people.
+            p.about-text Reliable services require reliable people.
 
-            ul
-                li.
-                    StackPath's network is monitored #[em 24/7/365] and any incidents are posted to their
-                    #[a(href='https://status.stackpath.com/', rel='noopener', target='_blank') status page]
-                    in real-time.
-                li.
-                    Twitter is monitored for any mentions of the terms "#[em BootstrapCDN]",
-                    "#[em #BootstrapCDN]", "#[em Bootstrap CDN]".
-                li.
-                    There is someone always on call and has direct access to the StackPath support team
-                    via a private Slack channel. As mentioned above, we only use services that are secure
-                    & reliable.
-                li.
-                    Every Pull Request requires our whole test suite to pass. This includes checking every
-                    file we deliver, making #[strong ~26K tests] in total, to make sure all of the HTTP headers
-                    are correct and the SRI hashes match.
-                li.
-                    If for some reason you are experiencing issues, please fill out our #[a(href='https://docs.google.com/forms/d/e/1FAIpQLSdZu2dX68oApkjzPgSWBdIvDbiCYk5KhAL5rSNTn2YlImP-SQ/viewform', rel='noopener', target='_blank') debug form].
+            ul.ml-3.about-text.square-list
+                li.mb-2
+                    .ml-3.
+                        StackPath's network is monitored #[em 24/7/365] and any incidents are posted to their
+                        #[a.about-link(href='https://status.stackpath.com/', rel='noopener', target='_blank') status page]
+                        in real-time.
+                li.mb-2
+                    .ml-3.
+                        Twitter is monitored for any mentions of the terms "#[em BootstrapCDN]",
+                        "#[em #BootstrapCDN]", "#[em Bootstrap CDN]".
+                li.mb-2
+                    .ml-3.
+                        There is someone always on call and has direct access to the StackPath support team
+                        via a private Slack channel. As mentioned above, we only use services that are secure
+                        & reliable.
+                li.mb-2
+                    .ml-3.
+                        Every Pull Request requires our whole test suite to pass. This includes checking every
+                        file we deliver, making #[strong ~26K tests] in total, to make sure all of the HTTP headers
+                        are correct and the SRI hashes match.
+                li.mb-2
+                    .ml-3.
+                        If for some reason you are experiencing issues, please fill out our #[a.about-link(href='https://docs.google.com/forms/d/e/1FAIpQLSdZu2dX68oApkjzPgSWBdIvDbiCYk5KhAL5rSNTn2YlImP-SQ/viewform', rel='noopener', target='_blank') debug form].
 
-            h3.h4.my-3
-                strong 3. Accessibility
+            .third-heading.mb-3 3. Accessibility
 
-            p.
+            p.about-text.
                 We must do everything we can to make sure this service is accessible to all.
                 #[s We do that by providing IPv6 support], we are also whitelisted in
-                #[a(href='https://amp.dev/documentation/guides-and-tutorials/develop/style_and_layout/custom_fonts', rel='noopener', target='_blank') Google AMP]
+                #[a.about-link(href='https://amp.dev/documentation/guides-and-tutorials/develop/style_and_layout/custom_fonts', rel='noopener', target='_blank') Google AMP]
                 & the "Great Firewall of China".
 
-            p.
+            p.about-text.
                 Last but not least, we have Points of Presence (POPs) in North America,
                 South America, Europe & Asia-Pacific region
-                (#[a(href='https://www.stackpath.com/platform/network/?utm_campaign=Partner%20Display&utm_source=Partner%20Display&utm_medium=bootstrapcdn', rel='noopener', target='_blank') view network map]).
+                (#[a.about-link(href='https://www.stackpath.com/platform/network/?utm_campaign=Partner%20Display&utm_source=Partner%20Display&utm_medium=bootstrapcdn', rel='noopener', target='_blank') view network map]).
 
-            h3#sustainability.h4.my-3
-                strong 4. Sustainability
+            .third-heading.mb-3 4. Sustainability
 
-            p.
-                In May 2018, we created #[a(href='https://opencollective.com/getbootstrapcdn', rel='noopener', target='_blank') an organization on Open Collective].
-                We use the collective for any money we make from ethical advertisements (#[a(href='https://codefund.io/invite/EBoAxC6PuGU', rel='noopener', target='_blank') CodeFund])
-                and affiliate commissions (#[a(href='/themes/') Themes] and #[a(href='/books/') Books].
+            p.about-text.
+                In May 2018, we created #[a.about-link(href='https://opencollective.com/getbootstrapcdn', rel='noopener', target='_blank') an organization on Open Collective].
+                We use the collective for any money we make from ethical advertisements (#[a.about-link(href='https://codefund.io/invite/EBoAxC6PuGU', rel='noopener', target='_blank') CodeFund])
+                and affiliate commissions (#[a.about-link(href='/themes') Themes] and #[a.about-link(href='/books') Books].
                 This allows us to do the following:
 
-            ul
-                li Reimburse any expenses that are paid out of pocket.
-                li Pay for any work that requires a lot of hours.
-                li Rainy day fund for the unexpected.
+            ul.ml-3.about-text.square-list
+                li.mb-2
+                    .ml-3.
+                        Reimburse any expenses that are paid out of pocket.
+                li.mb-2
+                    .ml-3.
+                        Pay for any work that requires a lot of hours.
+                li.mb-2
+                    .ml-3.
+                        Rainy day fund for the unexpected.
 
-            p.
-                Without the help of our in-kind partners (#[a(href='https://www.stackpath.com/?utm_campaign=Partner%20Display&utm_source=Partner%20Display&utm_medium=bootstrapcdn', rel='noopener', target='_blank') StackPath],
+            p.about-text.
+                Without the help of our in-kind partners (#[a.about-link(href='https://www.stackpath.com/?utm_campaign=Partner%20Display&utm_source=Partner%20Display&utm_medium=bootstrapcdn', rel='noopener', target='_blank') StackPath],
                 this service would not be able to exist. Please support us by supporting them.
 
 //- vim: ft=pug sw=4 sts=4 et:

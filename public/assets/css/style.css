@@ -1,37 +1,411 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+}
+.row {
+    margin: 0px;
+}
+header {
+    display: flex;
+    flex-direction: column;
+    min-height: 470px;
+    background: #F3F6FC;
+}
+main {
+    margin-top: 80px !important;
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
 .navbar-brand > svg {
-    display: inline-block;
-    margin-right: .5rem;
-    vertical-align: middle;
+    margin-right: 16px;
     width: 20px;
     height: 20px;
 }
-
+.navbar {
+    max-width: 1440px;
+    width: 100%;
+    background-color: transparent;
+    z-index: 100;
+}
+#main-nav {
+    background-color: transparent;
+}
+.navbar-brand {
+    margin-right: 32px;
+    color: #26282C;
+}
+.navbar-brand:hover {
+    color: #26282C;
+}
+.nav-link {
+    color: #39496b;
+}
 .display-5 {
     font-size: 3rem;
 }
-
+.jumbotron {
+    flex: 1;
+    display: flex;
+}
+#jumbotron-content {
+    width: 100%;
+    max-width: 1110px;
+    margin-top: 106px;
+    position: relative;
+}
+#jumbotron-content > h1 {
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 64px;
+    letter-spacing: -0.8px;
+    color: #26282C;
+}
+#jumbotron-content > p {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: -0.4px;
+    color: #595E68;
+}
+#jumbotron-content > p > a:not(:hover) {
+    color: #2F6CEC;
+}
+.boxes-images {
+    position: absolute;
+    bottom: -48px;
+    right: 0;
+}
+.boxes-images svg {
+    width: 255px;
+}
 .social {
     height: 75px;
 }
+.resource-dropwdown {
+    margin-top: 12px;
+    width: 163px;
+    height: 184px;
+    padding: 20px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: -0.2px;
+    color: #39496B;
+}
+.resource-dropwdown,
+.resource-item {
+    background-color: #fff;
+}
+.resource-dropwdown {
+    box-shadow: 0px 8px 12px rgba(15, 50, 123, 0.04),
+        0px 2px 4px rgba(15, 50, 123, 0.16);
+    border-radius: 8px;
+}
+.resource-item a svg {
+    margin-left: 8px;
+}
+.resource-item:hover {
+    background: transparent;
+}
+.container p {
+    font-weight: 500;
+    font-size: 20px;
+    max-width: 730px;
+    line-height: 28px;
+    color: #595e68;
+}
+.productionDiv {
+    height: 300px;
+    width: 255px;
+    background-color: #f3f6fc;
+    border-radius: 8px;
+    font-weight: 600;
+    overflow: hidden;
+    padding-top: 32px;
+}
+.productionDiv a {
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+    letter-spacing: 1px;
+    color: #2f6cec;
+}
+.productionDiv p {
+    font-size: 16px;
+    width: 191px;
+    margin: auto;
+    margin-top: 12px;
+    line-height: 24px;
+    text-align: center;
+    letter-spacing: -0.2px;
+    color: #26282c;
+}
+.productionDiv img {
+    filter: drop-shadow(0px 20px 48px rgba(9, 65, 178, 0.16));
+    border-radius: 8px;
+    margin-top: -10px;
+}
+.github-link > svg {
+    margin-right: 16px;
+}
+#main-nav {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: -0.2px;
+    color: #39496B;
+}
+#navbarDropdownRight {
+    padding-right: 18px;
+    background: url('/assets/img/arrow_down.svg') no-repeat bottom 7px right 0;
+}
+.nav-item.dropdown.show #navbarDropdownRight {
+    color: #2F6CEC;
+    background: url('/assets/img/arrow_down_blue.svg') no-repeat bottom 7px right 0;
+}
+#navbarDropdownRight::after {
+    display: none;
+}
+.footer-container {
+    width: auto;
+    max-width: 1110px;
+    padding: 40px 0;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: -0.2px;
+    color: #595E68;
+}
+.footer-logo > a {
+    width: 140px;
+    height: 34px;
+}
+a.custom-link {
+    color: #2F6CEC;
+}
+.second-heading {
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 48px;
+    letter-spacing: -0.6px;
+    color: #26282C;
+}
+.third-heading {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 36px;
+    letter-spacing: -0.4px;
+    color: #26282C;
+}
+.sub-heading {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: -0.4px;
+    color: #595E68;
+    margin-bottom: 64px;
+}
+.horizontal-divider {
+    height: 1px;
+    background: #D8DFEE;
+    border-radius: 6px;
+    margin-top: 15px;
+    margin-bottom: 32px;
+}
+.content-card-subtitle {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.2px;
+    color: #26282C;
+    margin-bottom: 12px;
+}
+.content-card-block {
+    margin-bottom: 32px;
+}
+.content-card-block > a {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.2px;
+    color: #2F6CEC;
+    margin-bottom: 12px;
+ }
+.content-card-input {
+    background: #F3F4F5;
+    border-radius: 6px;
+    position: relative;
+}
+.content-card-input > input {
+    background: inherit;
+    border: none;
+    border-radius: 6px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    padding-left: 12px;
+    padding-right: 48px;
+    height: 48px;
+    width: 100%;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.2px;
+    color: #26282C;
+}
+.content-card-input > input:focus {
+    outline: none;
+    box-shadow: 0px 0px 0px 2px #2F6CEC;
 
+}
+.content-card-input > button {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    background: #2F6CEC;
+    color: #fff;
+}
+.content-card-input > button > svg {
+    width: 10px;
+    height: 7px;
+}
+.content-card-input > button:after {
+    display: none;
+}
+.copy-btn {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 20px;
+    letter-spacing: -0.2px;
+    color: #9DA2AD;
+}
+.collapsed-content {
+    margin-left: 24px;
+    padding-left: 24px;
+    border-left: 2px solid #D8DFEE;
+}
+.about-text {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.2px;
+    color: #595E68;
+}
+.about-prev-maintainers {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.2px;
+    color: #595E68;
+}
+.about-link {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.2px;
+    text-decoration-line: underline;
+    color: #2F6CEC;
+}
+.about-author-list {
+    margin-bottom: 64px;
+}
+.bootswatch-mb {
+    margin-bottom: 64px;
+}
+.tryit > button, .tryit > button:hover, .tryit > a, .tryit > a:hover {
+    border-radius: 4px;
+    color: #FFF;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.2px;
+    height: 48px;
+}
+.tryit > button {
+    background: #9DA2AD;
+}
+.tryit > a {
+    background: #2F6CEC;
+}
+.square-list > li {
+    list-style-type: square;
+}
+.copy-btn-active {
+    color: #329656;
+}
+.dropdown-toggle-open > svg {
+    transform: rotate(-180deg);
+    -webkit-transform: rotate(-180deg);
+}
+.content-card-block .dropdown-toggle > svg {
+    transition: -webkit-transform 0.35s ease;
+    transition: transform 0.35s ease;
+    transition: transform 0.35s ease, -webkit-transform 0.35s ease;
+}
+
+@media (max-width: 1400px) {
+    #jumbotron-content {
+        margin-right: 444px;
+    }
+}
+@media (min-width: 1400px) {
+    #jumbotron-content {
+        padding: 0 !important;
+    }
+    .content-wrapper {
+        margin-right: auto !important;
+        margin-left: auto !important;
+    }
+}
+@media (min-width: 1200px) {
+    .content-wrapper  {
+        max-width: 1110px;
+    }
+    .content-wrapper .content-main {
+        max-width: 730px;
+        margin-right: auto;
+    }
+    .content-wrapper .content-aside {
+        max-width: 255px;
+    }
+}
+@media (max-width: 1200px) {
+    .github-link > svg {
+        margin-right: 4px;
+    }
+    #navbarDropdownRight {
+        width: 90px;
+    }
+}
+@media (max-width: 991px) {
+    .footer-container {
+        padding: 20px 20px;
+    }
+    #jumbotron-content {
+        margin-right: 0;
+    }
+    .productionDiv {
+        height: max-content;
+        width: auto;
+    }
+}
+@media (min-width: 992px) {
+    .footer-container > div:nth-child(1) {
+        margin-right: 50px;
+    }
+    #jumbotron-content {
+        padding-right: 255px;
+    }
+}
 @media (min-width: 576px) {
     .social {
         height: 30px;
     }
-}
-
-.input-group .dropdown-toggle::after {
-    transition: -webkit-transform .35s ease;
-    transition: transform .35s ease;
-    transition: transform .35s ease, -webkit-transform .35s ease;
-}
-
-.input-group .dropdown-toggle-open::after {
-    -webkit-transform: rotate(-180deg);
-    transform: rotate(-180deg);
-}
-
-.book-card img {
-    width: auto;
-    height: 250px;
 }

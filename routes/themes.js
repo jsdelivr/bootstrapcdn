@@ -7,10 +7,7 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
     res = appendLocals(req, res);
-    res.render('themes.pug', {
-        title: 'Bootstrap Themes',
-        description: 'Bootstrap Themes from WrapBootstrap.'
-    });
+    res.redirect(301, '/');
 });
 
 module.exports = router;

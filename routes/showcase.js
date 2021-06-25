@@ -7,10 +7,7 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
     res = appendLocals(req, res);
-    res.render('showcase.pug', {
-        title: 'Showcase',
-        description: 'Websites and apps that use BootstrapCDN'
-    });
+    res.redirect(301, '/');
 });
 
 module.exports = router;

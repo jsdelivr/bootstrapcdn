@@ -4,7 +4,7 @@
     'use strict';
 
     function toggleInputCaret() {
-        var elements = document.querySelectorAll('.input-group .dropdown-toggle');
+        var elements = document.querySelectorAll('.content-card-block .dropdown-toggle');
 
         Array.prototype.forEach.call(elements, function(element) {
             element.addEventListener('click', function() {
@@ -34,6 +34,7 @@
                         ev.trigger.nextElementSibling;
 
                     helpBlock.textContent = 'Copied text to clipboard';
+                    helpBlock.classList.add('copy-btn-active');
                 });
             }, true);
 
@@ -45,6 +46,7 @@
 
                 event.preventDefault();
                 helpBlock.textContent = 'Click to copy';
+                helpBlock.classList.remove('copy-btn-active');
             }, true);
         });
     }

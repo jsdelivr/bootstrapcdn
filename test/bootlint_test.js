@@ -27,7 +27,7 @@ describe('bootlint', () => {
 
     it('valid html', (done) => {
         helpers.assert.validHTML(response)
-            .then(() => done());
+            .then(done, done);
     });
 
     it('contains canonical URL', (done) => {

@@ -28,19 +28,16 @@ javascript:
   - name: main
     uri: /assets/js/main.js
 friends:
-  - name: SecurityTrails
-    url: 'https://securitytrails.com/'
-    nofollow: false
-  - name: Bootstrap
-    url: 'https://getbootstrap.com/'
-  - name: nixCraft
-    url: 'https://www.cyberciti.biz/'
-  - name: Edubirdie
-    url: 'https://edubirdie.com/'
-    nofollow: false
-  - name: FossHub
-    url: 'https://www.fosshub.com/'
-    nofollow: false
+  - name: Cloudflare
+    url: 'https://www.cloudflare.com/'
+  - name: appfleet
+    url: 'https://appfleet.com/'
+  - name: Fastly
+    url: 'https://www.fastly.com/'
+  - name: NS1
+    url: 'https://ns1.com/'
+  - name: bunny.net
+    url: 'https://bunny.net/'
 redirects:
   - name: legacy
     from: /legacy/

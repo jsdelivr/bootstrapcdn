@@ -125,16 +125,17 @@ app.locals.semver = semver;
 app.use('/', routes.indexRoute);
 app.use('/about/', routes.aboutRoute);
 app.use('/alpha/?|/beta/?|/jobs/?|/privacy-policy/?', routes.redirectToRoot);
-app.use('/books/', routes.booksRoute);
 app.use('/bootlint/', routes.bootlintRoute);
 app.use('/bootswatch/', routes.bootswatchRoute);
 app.use('/bootswatch4/', routes.bootswatch4Route);
 app.use('/data/bootstrapcdn.json', routes.dataRoute);
 app.use('/fontawesome/', routes.fontawesomeRoute);
-app.use('/integrations/', routes.integrationsRoute);
 app.use('/legacy', routes.legacyRoutes);
-app.use('/showcase/', routes.showcaseRoute);
+app.use('/bootstrapicons/', routes.bootstrapIconsRoute);
 app.use('/themes/', routes.themesRoute);
+app.use('/books/', routes.booksRoute);
+app.use('/integrations/', routes.integrationsRoute);
+app.use('/showcase/', routes.showcaseRoute);
 
 const map = sitemap({
     url: 'www.bootstrapcdn.com',
@@ -151,9 +152,6 @@ const map = sitemap({
         '/404/': {
             hide: true
         },
-        '/books/': {
-            hide: true
-        },
         '/bootswatch4/': {
             hide: true
         },
@@ -168,6 +166,15 @@ const map = sitemap({
         },
         '/themes/': {
             hide: true
+        },
+        '/books/': {
+            hide: true
+        },
+        '/integrations/': {
+            hide: true
+        },
+        '/showcase/': {
+            hide: true
         }
     }
 });
@@ -181,9 +188,7 @@ if (ENV.ENABLE_CRAWLING) {
             '/bootlint',
             '/bootswatch',
             '/fontawesome',
-            '/integrations',
-            '/legacy',
-            '/showcase'
+            '/legacy'
         ]);
         return map.XMLtoWeb(res);
     });

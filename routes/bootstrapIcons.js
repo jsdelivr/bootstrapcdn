@@ -7,7 +7,10 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
     res = appendLocals(req, res);
-    res.redirect(301, '/');
+    res.render('bootstrapIcons.pug', {
+        title: 'Bootstrap Icons',
+        description: 'The recommended CDN for Bootstrap Icons'
+    });
 });
 
 module.exports = router;

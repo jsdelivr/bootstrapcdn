@@ -1,27 +1,35 @@
 extends layout.pug
 
 block content
-    h2.text-center=title
+    h2.second-heading.mb-3=title
 
+    p.sub-heading Get your production ready CDN links bellow. You can also automate your upgrades by pulling the latest versions from our API.
     -var current = config.files.bootstrap.find(file => file.current);
     -var previous = config.files.bootstrap.find(file => semver.satisfies(file.version, '^4', { includePrerelease: true }));
 
     each item in [current, previous]
-        h3.text-center.mt-4=`v${item.version}`
+        .third-heading=`v${item.version}`
 
-        .card.bg-light.mt-4.p-4.text-center
+        .hr.horizontal-divider
+
+        div
             -var name   = `quickstartcss_${item.version.replace(/\./g, '_')}`;
             -var file   = item.stylesheet;
             -var sri    = item.stylesheetSri;
             -var formId = `${name}_form`;
 
-            .form-group.my-4
-                label.font-weight-bold(for=formId) CSS
-                .input-group.input-group-lg
-                    input.form-control(id=formId, type='text', readonly, value=file)
-                    .input-group-append
-                        button.btn.btn-dark.dropdown-toggle(type='button', data-toggle='collapse', data-target=`#${name}`, aria-label='Toggle Dropdown', aria-expanded='false', aria-controls=name)
-                span.form-text.text-muted Click to copy
+            .d-flex.flex-column.content-card-block
+                .content-card-subtitle CSS
+                .content-card-input
+                    input.d-flex.flex-grow-1(id=formId, type='text', readonly, value=file)
+                    button.btn.p-0.d-flex.align-items-center.justify-content-center.dropdown-toggle(type='button',
+                        data-toggle='collapse',
+                        data-target=`#${name}`,
+                        aria-label='Toggle Dropdown',
+                        aria-expanded='false',
+                        aria-controls=name)
+                        include /assets/img/arrow_down_white.svg
+                span.mt-2.copy-btn Click to copy
 
             include _partials/csscode.pug
 
@@ -30,13 +38,18 @@ block content
             -var sri    = item.javascriptSri;
             -var formId = `${name}_form`;
 
-            .form-group.my-4
-                label.font-weight-bold(for=formId) JavaScript
-                .input-group.input-group-lg
-                    input.form-control(id=formId, type='text', readonly, value=file)
-                    .input-group-append
-                        button.btn.btn-dark.dropdown-toggle(type='button', data-toggle='collapse', data-target=`#${name}`, aria-label='Toggle Dropdown', aria-expanded='false', aria-controls=name)
-                span.form-text.text-muted Click to copy
+            .d-flex.flex-column.content-card-block
+                .content-card-subtitle JavaScript
+                .content-card-input
+                    input.d-flex.flex-grow-1(id=formId, type='text', readonly, value=file)
+                    button.btn.p-0.d-flex.align-items-center.justify-content-center.dropdown-toggle(type='button',
+                        data-toggle='collapse',
+                        data-target=`#${name}`,
+                        aria-label='Toggle Dropdown',
+                        aria-expanded='false',
+                        aria-controls=name)
+                        include /assets/img/arrow_down_white.svg
+                span.mt-2.copy-btn Click to copy
 
             include _partials/jscode.pug
 
@@ -45,30 +58,40 @@ block content
             -var sri    = item.javascriptBundleSri;
             -var formId = `${name}_form`;
 
-            .form-group.my-4
-                label.font-weight-bold(for=formId) JavaScript Bundle
-                .input-group.input-group-lg
-                    input.form-control(id=formId, type='text', readonly, value=file)
-                    .input-group-append
-                        button.btn.btn-dark.dropdown-toggle(type='button', data-toggle='collapse', data-target=`#${name}`, aria-label='Toggle Dropdown', aria-expanded='false', aria-controls=name)
-                span.form-text.text-muted Click to copy
+            .d-flex.flex-column.content-card-block
+                .content-card-subtitle JavaScript Bundle
+                .content-card-input
+                    input.d-flex.flex-grow-1(id=formId, type='text', readonly, value=file)
+                    button.btn.p-0.d-flex.align-items-center.justify-content-center.dropdown-toggle(type='button',
+                        data-toggle='collapse',
+                        data-target=`#${name}`,
+                        aria-label='Toggle Dropdown',
+                        aria-expanded='false',
+                        aria-controls=name)
+                        include /assets/img/arrow_down_white.svg
+                span.mt-2.copy-btn Click to copy
 
             include _partials/jscode.pug
 
-            if (item.javascriptEsm)
-                -var name   = `quickstartjsesm_${item.version.replace(/\./g, '_')}`;
-                -var file   = item.javascriptEsm;
-                -var sri    = item.javascriptEsmSri;
-                -var formId = `${name}_form`;
+            //- if (item.javascriptEsm)
+            //-     -var name   = `quickstartjsesm_${item.version.replace(/\./g, '_')}`;
+            //-     -var file   = item.javascriptEsm;
+            //-     -var sri    = item.javascriptEsmSri;
+            //-     -var formId = `${name}_form`;
 
-                .form-group.my-4
-                    label.font-weight-bold(for=formId) JavaScript ESM Build
-                    .input-group.input-group-lg
-                        input.form-control(id=formId, type='text', readonly, value=file)
-                        .input-group-append
-                            button.btn.btn-dark.dropdown-toggle(type='button', data-toggle='collapse', data-target=`#${name}`, aria-label='Toggle Dropdown', aria-expanded='false', aria-controls=name)
-                    span.form-text.text-muted Click to copy
+            //-     .form-group.my-4
+            //-         label.content-card-subtitle(for=formId) JavaScript ESM Build
+            //-         .input-group.input-group-lg
+            //-             input.form-control(id=formId, type='text', readonly, value=file)
+            //-             .input-group-append
+            //-                 button.btn.btn-dark.dropdown-toggle(type='button',
+            //-                     data-toggle='collapse',
+            //-                     data-target=`#${name}`,
+            //-                     aria-label='Toggle Dropdown',
+            //-                     aria-expanded='false',
+            //-                     aria-controls=name)
+            //-         span.form-text.text-muted Click to copy
 
-                include _partials/jscode.pug
+            //-     include _partials/jscode.pug
 
 //- vim: ft=pug sw=4 sts=4 et:

@@ -1,7 +1,7 @@
 extends layout.pug
 
 block content
-    h2.text-center.mb-4 Bootswatch 4
+    h2.second-heading.bootswatch-mb Bootswatch 4
 
     each item, index in config.files.bootswatch4.themes
         -var name = item.name.toLowerCase();
@@ -9,24 +9,58 @@ block content
         -var file = config.files.bootswatch4.bootstrap.replace('SWATCH_NAME', name).replace('SWATCH_VERSION', config.files.bootswatch4.version);
         -var capitalizedThemeName = helpers.capitalize(name);
 
-        .card.bg-light.my-4.p-4.text-center
+        .bootswatch-mb
             .row
-                .col-12.col-md-2
-                    .tryit.mt-4
-                        -if (index === helpers.theme.selected(theme))
-                            button.btn.btn-primary(type='button', disabled) Active!
-                        -else
-                            a.btn.btn-primary(role='button', href=`?theme=${index}`) Try it!
-                .col-12.col-md-8
-                    .mt-4
-                        a(href=config.files.bootswatch4.link.replace('SWATCH_NAME', name), rel='noopener', target='_blank')
-                            img.bootswatch.d-block.img-fluid.mx-auto(src=config.files.bootswatch4.image.replace('SWATCH_NAME', name), alt=`${capitalizedThemeName} theme's thumbnail`, title=`Visit ${capitalizedThemeName} theme's demo page`, width='528', height='317')
-                        .input-group.mt-3
-                            input.form-control(type='text', readonly, value=file, aria-label=`${capitalizedThemeName} theme's CSS file`)
-                            .input-group-append
-                                button.btn.btn-dark.dropdown-toggle(type='button', data-toggle='collapse', data-target=`#${name}`, aria-label='Toggle Dropdown', aria-expanded='false', aria-controls=name)
-                        span.form-text.text-muted.mb-4 Click to copy
+                .col-12.p-0
+                    a(href=config.files.bootswatch4.link.replace('SWATCH_NAME', name),
+                        rel='noopener',
+                        target='_blank')
 
-                        include _partials/csscode.pug
+                        img.bootswatch.d-block.img-fluid.w-100.px-sm-5(src=config.files.bootswatch4.image.replace('SWATCH_NAME', name),
+                            alt=`${capitalizedThemeName} theme's thumbnail`,
+                            title=`Visit ${capitalizedThemeName} theme's demo page`,
+                            width='528',
+                            height='317')
+
+                    .tryit.mt-4.mb-3
+                        -if (index === helpers.theme.selected(theme))
+                            button.w-100.btn.d-flex.align-items-center.justify-content-center(type='button', disabled) Active!
+                        -else
+                            a.w-100.btn.d-flex.align-items-center.justify-content-center(role='button', href=`?theme=${index}`) Try it!
+
+                    .d-flex.flex-column.content-card-block
+                        .content-card-input
+                            input.d-flex.flex-grow-1(type='text',
+                                readonly,
+                                value=file,
+                                aria-label=`${capitalizedThemeName} theme's CSS file`)
+                            button.btn.p-0.d-flex.align-items-center.justify-content-center.dropdown-toggle(type='button',
+                                data-toggle='collapse',
+                                data-target=`#${name}`,
+                                aria-label='Toggle Dropdown',
+                                aria-expanded='false',
+                                aria-controls=name)
+                                include /assets/img/arrow_down_white.svg
+                        span.mt-2.copy-btn Click to copy
+
+                    //- .input-group.mt-4
+                    //-     input.form-control(type='text',
+                    //-         readonly,
+                    //-         value=file,
+                    //-         aria-label=`${capitalizedThemeName} theme's CSS file`)
+                    //-     .input-group-append
+                    //-         button.btn.btn-dark.dropdown-toggle(type='button',
+                    //-             data-toggle='collapse',
+                    //-             data-target=`#${name}`,
+                    //-             aria-label='Toggle Dropdown',
+                    //-             aria-expanded='false',
+                    //-             aria-controls=name)
+
+                    //- span.form-text.text-muted.mb-4 Click to copy
+
+                    include _partials/csscode.pug
+
+        if config.files.bootswatch4.themes.length ? config.files.bootswatch4.themes.length - index - 1 : 0
+            hr.bootswatch-mb.horizontal-divider.mt-0
 
 //- vim: ft=pug sw=4 sts=4 et:

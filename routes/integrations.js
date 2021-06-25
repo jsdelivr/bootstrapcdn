@@ -7,10 +7,7 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
     res = appendLocals(req, res);
-    res.render('integrations.pug', {
-        title: 'Integrations',
-        description: 'Apps that integrate BootstrapCDN'
-    });
+    res.redirect(301, '/');
 });
 
 module.exports = router;

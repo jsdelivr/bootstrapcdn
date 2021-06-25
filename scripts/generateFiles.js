@@ -5,6 +5,7 @@ const axios = require('axios').default;
 const fs = require('fs');
 const path = require('path');
 const yaml = require('js-yaml');
+const https = require('https');
 
 const configFile = path.resolve(__dirname, '../config/_files.yml');
 
@@ -14,11 +15,16 @@ const packagesList = [
     'bootstrap',
     '@fortawesome/fontawesome-free',
     'bootlint',
-    'bootswatch'
+    'bootswatch',
+    'bootstrap-icons'
 ];
-
+const instance = axios.create({
+    timeout: 60000, // optional
+    httpsAgent: new https.Agent({ keepAlive: true }),
+    headers: { 'Content-Type': 'application/json' }
+});
 async function getPackage(packageName) {
-    const { data } = await axios.get(`${apiURL}/${packageName}`);
+    const { data } = await instance.get(`${apiURL}/${packageName}`);
     return { ...data, packageName };
 }
 
@@ -161,6 +167,20 @@ function buildPathBootlint(packageData) {
     return false;
 }
 
+function buildPathBootstrapIcons(packageData) {
+    let path = `${baseURL}${packageData.packageName}@${packageData.version}/`;
+    const folder = findFile(packageData, 'font');
+    path += folder ? folder.name : '';
+    const cssFile = folder ? findFile(folder, 'bootstrap-icons.css') : null;
+    if (cssFile) {
+        path += `/${cssFile.name}`;
+
+        return path;
+    }
+
+    return false;
+}
+
 async function generateFilesPath({ versions, packageName }) {
     const filesPromises = versions.map((version, index) => {
         return new Promise((resolve) => {
@@ -263,6 +283,16 @@ async function generateFilesPath({ versions, packageName }) {
                     break;
                 }
 
+                case 'bootstrap-icons': {
+                    const stylesheet = buildPathBootstrapIcons(file);
+                    if (!stylesheet) {
+                        return false;
+                    }
+
+                    paths.stylesheet = stylesheet;
+                    break;
+                }
+
                 default:
                     return null;
             }
@@ -310,5 +340,3 @@ async function main() {
 }
 
 main();
-
-module.exports = { configFile };
