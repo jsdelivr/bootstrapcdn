@@ -1,7 +1,7 @@
 port: 3333
 theme: 1
 siteurl: 'https://www.bootstrapcdn.com'
-description: 'The recommended free CDN for Bootstrap, Font Awesome and Bootswatch.'
+description: 'The recommended free CDN for Bootstrap, Font Awesome, Bootswatch and Bootstrap Icons.'
 title_suffix: 'BootstrapCDN'
 authors:
   inactive:
@@ -30,14 +30,14 @@ javascript:
 friends:
   - name: Cloudflare
     url: 'https://www.cloudflare.com/'
-  - name: appfleet
-    url: 'https://appfleet.com/'
   - name: Fastly
     url: 'https://www.fastly.com/'
   - name: NS1
     url: 'https://ns1.com/'
-  - name: bunny.net
+  - name: BunnyCDN
     url: 'https://bunny.net/'
+  - name: Dmitriy Akulov
+    url: 'https://dakulov.com/'
 redirects:
   - name: legacy
     from: /legacy/
