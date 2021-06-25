@@ -9,7 +9,7 @@ block content
                 BootstrapCDN was founded in 2012 by #[a.about-link(href='https://twitter.com/DavidHenzel', rel='noopener', target='_blank') David Henzel]
                 and Justin Dorfman at MaxCDN. Today, BootstrapCDN is used by over
                 #[a.about-link(href='https://trends.builtwith.com/cdn/StackPath-BootstrapCDN', rel='noopener', target='_blank') 7.9 million sites]
-                delivering over 70 billion requests a month.
+                delivering over 70 billion requests a month. In 2021 it was moved under the #[a.about-link(href='https://github.com/jsdelivr', rel='noopener', target='_blank') jsDelivr] organization and is being maintained by #[a.about-link(href='https://dakulov.com/', rel='noopener', target='_blank') Dmitriy Akulov].
 
             -var activeAuthors=config.app.authors.active;
             if (activeAuthors)
@@ -47,32 +47,26 @@ block content
 
             .third-heading.mb-3 1. Security
 
-            p.about-text We agree with StackPath, security should be built in, not bolted on.
+            p.about-text Security should be built in, not bolted on.
 
             ul.ml-3.about-text.square-list
                 li.mb-2
                     .ml-3.
-                        Our DNS & CDN is managed by #[a.about-link(href='https://www.stackpath.com/?utm_campaign=Partner%20Display&utm_source=Partner%20Display&utm_medium=bootstrapcdn', rel='noopener', target='_blank') StackPath].
+                        The legacy infrastructure continues to serve millions of users. The DNS is managed by Cloudflare, and CDN is a mix of Cloudflare and BunnyCDN. The new system is explained in the #[a.about-link(href='https://www.jsdelivr.com/network/infographic', rel='noopener', target='_blank') jsDelivr Infographic]
                 li.mb-2
                     .ml-3.
-                        Our origin server is #[a.about-link(href='https://aws.amazon.com/s3/', rel='noopener', target='_blank') Amazon S3].
+                        Our legacy origin server is hosted by #[a.about-link(href='https://aws.amazon.com/s3/', rel='noopener', target='_blank') Amazon S3] and is in read-only mode. For new origin check the infographic above.
                 li.mb-2
                     .ml-3.
-                        This website is hosted by Heroku.
+                        This website is hosted by Render.
                 li.mb-2
                     .ml-3.
                         We enforce #[a.about-link(href='https://en.wikipedia.org/wiki/Multi-factor_authentication', rel='noopener', target='_blank') 2-factor authentication]
-                        on all services (including GitHub, MarkMonitor, AWS & Gmail).
+                        on all services (including GitHub, Namecheap, AWS & Gmail).
                 li.mb-2
                     .ml-3.
                         Our production branch on GitHub is protected to prevent force pushing, prevent branches from being deleted,
                         and require status checks to pass before merging.
-                li.mb-2
-                    .ml-3.
-                        Our domain #[code bootstrapcdn.com] is managed by #[a.about-link(href='https://www.markmonitor.com/', rel='noopener', target='_blank') MarkMonitor],
-                        an ICANN-accredited registrar and recognized industry leader since 1999. They have security measures
-                        in place such as registry locking and IP restrictions to help reduce security vulnerabilities and minimize
-                        the likelihood of successful domain hijacking.
                 li.mb-2
                     .ml-3.
                         By default we include #[a.about-link(href='https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity', rel='noopener', target='_blank') Subresource Integrity (SRI)]
@@ -85,18 +79,13 @@ block content
             ul.ml-3.about-text.square-list
                 li.mb-2
                     .ml-3.
-                        StackPath's network is monitored #[em 24/7/365] and any incidents are posted to their
-                        #[a.about-link(href='https://status.stackpath.com/', rel='noopener', target='_blank') status page]
+                        The network is monitored #[em 24/7/365] and any incidents are posted to jsDelivr's
+                        #[a.about-link(href='https://twitter.com/jsdelivr', rel='noopener', target='_blank') Twitter page]
                         in real-time.
                 li.mb-2
                     .ml-3.
                         Twitter is monitored for any mentions of the terms "#[em BootstrapCDN]",
-                        "#[em #BootstrapCDN]", "#[em Bootstrap CDN]".
-                li.mb-2
-                    .ml-3.
-                        There is someone always on call and has direct access to the StackPath support team
-                        via a private Slack channel. As mentioned above, we only use services that are secure
-                        & reliable.
+                        "#[em #BootstrapCDN]", "#[em jsDelivr]".
                 li.mb-2
                     .ml-3.
                         Every Pull Request requires our whole test suite to pass. This includes checking every
@@ -104,42 +93,19 @@ block content
                         are correct and the SRI hashes match.
                 li.mb-2
                     .ml-3.
-                        If for some reason you are experiencing issues, please fill out our #[a.about-link(href='https://docs.google.com/forms/d/e/1FAIpQLSdZu2dX68oApkjzPgSWBdIvDbiCYk5KhAL5rSNTn2YlImP-SQ/viewform', rel='noopener', target='_blank') debug form].
+                        If for some reason you are experiencing issues, please open an issue in our #[a.about-link(href='https://github.com/jsdelivr/jsdelivr', rel='noopener', target='_blank') Github repo].
 
             .third-heading.mb-3 3. Accessibility
 
             p.about-text.
                 We must do everything we can to make sure this service is accessible to all.
-                #[s We do that by providing IPv6 support], we are also whitelisted in
+                We do that by providing IPv6 support, we are also whitelisted in
                 #[a.about-link(href='https://amp.dev/documentation/guides-and-tutorials/develop/style_and_layout/custom_fonts', rel='noopener', target='_blank') Google AMP]
                 & the "Great Firewall of China".
 
             p.about-text.
                 Last but not least, we have Points of Presence (POPs) in North America,
                 South America, Europe & Asia-Pacific region
-                (#[a.about-link(href='https://www.stackpath.com/platform/network/?utm_campaign=Partner%20Display&utm_source=Partner%20Display&utm_medium=bootstrapcdn', rel='noopener', target='_blank') view network map]).
-
-            .third-heading.mb-3 4. Sustainability
-
-            p.about-text.
-                In May 2018, we created #[a.about-link(href='https://opencollective.com/getbootstrapcdn', rel='noopener', target='_blank') an organization on Open Collective].
-                We use the collective for any money we make from ethical advertisements (#[a.about-link(href='https://codefund.io/invite/EBoAxC6PuGU', rel='noopener', target='_blank') CodeFund])
-                and affiliate commissions (#[a.about-link(href='/themes') Themes] and #[a.about-link(href='/books') Books].
-                This allows us to do the following:
-
-            ul.ml-3.about-text.square-list
-                li.mb-2
-                    .ml-3.
-                        Reimburse any expenses that are paid out of pocket.
-                li.mb-2
-                    .ml-3.
-                        Pay for any work that requires a lot of hours.
-                li.mb-2
-                    .ml-3.
-                        Rainy day fund for the unexpected.
-
-            p.about-text.
-                Without the help of our in-kind partners (#[a.about-link(href='https://www.stackpath.com/?utm_campaign=Partner%20Display&utm_source=Partner%20Display&utm_medium=bootstrapcdn', rel='noopener', target='_blank') StackPath],
-                this service would not be able to exist. Please support us by supporting them.
+                (#[a.about-link(href='https://www.jsdelivr.com/network', rel='noopener', target='_blank') view network map]).
 
 //- vim: ft=pug sw=4 sts=4 et:
