@@ -57,3 +57,15 @@ redirects:
   - name: privacy-policy
     from: /privacy-policy/
     to: /
+  - name: themes
+    from: /themes/
+    to: /
+  - name: books
+    from: /books/
+    to: /
+  - name: integrations
+    from: /integrations/
+    to: /
+  - name: showcase
+    from: /showcase/
+    to: /
