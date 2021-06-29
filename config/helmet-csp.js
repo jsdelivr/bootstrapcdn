@@ -14,6 +14,7 @@ const CSP = {
         'platform.twitter.com',
         'api.github.com',
         'https://cdn.jsdelivr.net',
+        'https://www.googletagmanager.com',
         (req, res) => `'nonce-${res.locals.nonce}'`
     ],
     styleSrc: [
@@ -59,7 +60,12 @@ const CSP = {
         'syndication.twitter.com',
         'https://cdn.jsdelivr.net'
     ],
-    connectSrc: ['syndication.twitter.com', 'https://api.github.com/repos/jsdelivr/bootstrapcdn'],
+    connectSrc: [
+        'syndication.twitter.com',
+        'https://api.github.com/repos/jsdelivr/bootstrapcdn',
+        'www.google-analytics.com',
+        'https://analytics.google.com'
+    ],
     objectSrc: ['img.shields.io'],
     manifestSrc: ['\'self\'']
 };
