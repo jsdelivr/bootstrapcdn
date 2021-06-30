@@ -39,7 +39,7 @@ describe('index', () => {
     });
 
     it('has page header', (done) => {
-        helpers.assert.pageHeader('Official CDN of Bootstrap and Font Awesome', response, done);
+        helpers.assert.pageHeader('Quick Start', response, done);
     });
 
     it('has body class', (done) => {
