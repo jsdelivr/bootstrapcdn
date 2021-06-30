@@ -136,10 +136,6 @@
                 "envs": [
                     "browser"
                 ],
-                "parserOptions": {
-                    "ecmaVersion": 3,
-                    "sourceType": "script"
-                },
                 "strict": true,
                 "rules": {
                     "unicorn/no-abusive-eslint-disable": "off",

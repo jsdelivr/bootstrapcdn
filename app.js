@@ -124,7 +124,7 @@ app.locals.semver = semver;
 // routes
 app.use('/', routes.indexRoute);
 app.use('/about/', routes.aboutRoute);
-app.use('/alpha/?|/beta/?|/jobs/?|/privacy-policy/?', routes.redirectToRoot);
+app.use('/alpha/?|/beta/?|/jobs/?|/privacy-policy/?|/themes/?|/books/?|/integrations/?|/showcase/?', routes.redirectToRoot);
 app.use('/bootlint/', routes.bootlintRoute);
 app.use('/bootswatch/', routes.bootswatchRoute);
 app.use('/bootswatch4/', routes.bootswatch4Route);
@@ -132,10 +132,6 @@ app.use('/data/bootstrapcdn.json', routes.dataRoute);
 app.use('/fontawesome/', routes.fontawesomeRoute);
 app.use('/legacy', routes.legacyRoutes);
 app.use('/bootstrapicons/', routes.bootstrapIconsRoute);
-app.use('/themes/', routes.themesRoute);
-app.use('/books/', routes.booksRoute);
-app.use('/integrations/', routes.integrationsRoute);
-app.use('/showcase/', routes.showcaseRoute);
 
 const map = sitemap({
     url: 'www.bootstrapcdn.com',
@@ -162,18 +158,6 @@ const map = sitemap({
             hide: true
         },
         '/sitemap.xml': {
-            hide: true
-        },
-        '/themes/': {
-            hide: true
-        },
-        '/books/': {
-            hide: true
-        },
-        '/integrations/': {
-            hide: true
-        },
-        '/showcase/': {
             hide: true
         }
     }
