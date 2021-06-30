@@ -86,8 +86,7 @@ app.use((req, res, next) => {
     req.config = config;
 
     // custom headers
-    res.setHeader('Cache-Control', 'public, max-age=0, must-revalidate');
-    res.setHeader('X-Powered-By', 'StackPath');
+    res.setHeader('Cache-Control', 'public, max-age=300');
 
     res.locals.nonce = nonce;
 
