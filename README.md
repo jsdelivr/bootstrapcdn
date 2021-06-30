@@ -8,7 +8,7 @@
 
 
 [BootstrapCDN](https://www.bootstrapcdn.com/) is the easiest and fastest way to get started with Bootstrap, Font Awesome, Bootswatch and Bootstrap Icons.
-Simply visit the main site and copy the URLs you need. New versions of all projects are pulled directly from NPM. 
+Simply visit the main site and copy the URLs you need. New versions of all projects are pulled directly from NPM.
 
 Or follow the instructions bellow for more advanced use cases.
 
@@ -25,7 +25,7 @@ These will pull the `4.6.0` version. It is safe to use SRI with static versions 
 
 ### Version aliasing
 
-To auto-update to latest minor version you can specify for example `4` as the version in the URL. 
+To auto-update to latest minor version you can specify for example `4` as the version in the URL.
 You will then get the latest v4 version available with a delay of up to 7 days.
 ```
 <!-- CSS only -->
@@ -40,7 +40,7 @@ A more detailed documentation is available on [jsDelivr's Github page](https://g
 
 ### Using the API to pull versions
 
-For certain use-cases it is possible to automate updates [using our API](https://data.jsdelivr.com/v1/package/npm/jquery). 
+For certain use-cases it is possible to automate updates [using our API](https://data.jsdelivr.com/v1/package/npm/jquery).
 You can use it to get the list of versions available on the CDN including the latest one.
 ```
 https://data.jsdelivr.com/v1/package/npm/bootstrap
@@ -113,10 +113,6 @@ The Express.js app configuration.
 * stylesheet: Array of stylesheet file(s) we use apart from the Bootswatch stylesheet.
 * javascript: Array of javascript file(s) we use.
 * redirects: Array of Objects for the page redirects.
-
-#### `config/_extras.yml`
-
-Contains the `/showcase/` and `/integrations/` config we use in the Express.js app.
 
 #### `config/_files.yml`
 

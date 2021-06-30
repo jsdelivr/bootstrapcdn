@@ -1,7 +1,7 @@
 port: 3333
 theme: 1
 siteurl: 'https://www.bootstrapcdn.com'
-description: 'The recommended free CDN for Bootstrap, Font Awesome and Bootswatch.'
+description: 'The recommended free CDN for Bootstrap, Font Awesome, Bootswatch and Bootstrap Icons.'
 title_suffix: 'BootstrapCDN'
 authors:
   inactive:
@@ -28,19 +28,16 @@ javascript:
   - name: main
     uri: /assets/js/main.js
 friends:
-  - name: SecurityTrails
-    url: 'https://securitytrails.com/'
-    nofollow: false
-  - name: Bootstrap
-    url: 'https://getbootstrap.com/'
-  - name: nixCraft
-    url: 'https://www.cyberciti.biz/'
-  - name: Edubirdie
-    url: 'https://edubirdie.com/'
-    nofollow: false
-  - name: FossHub
-    url: 'https://www.fosshub.com/'
-    nofollow: false
+  - name: Cloudflare
+    url: 'https://www.cloudflare.com/'
+  - name: Fastly
+    url: 'https://www.fastly.com/'
+  - name: NS1
+    url: 'https://ns1.com/'
+  - name: BunnyCDN
+    url: 'https://bunny.net/'
+  - name: Dmitriy Akulov
+    url: 'https://dakulov.com/'
 redirects:
   - name: legacy
     from: /legacy/
@@ -59,4 +56,16 @@ redirects:
     to: /
   - name: privacy-policy
     from: /privacy-policy/
+    to: /
+  - name: themes
+    from: /themes/
+    to: /
+  - name: books
+    from: /books/
+    to: /
+  - name: integrations
+    from: /integrations/
+    to: /
+  - name: showcase
+    from: /showcase/
     to: /

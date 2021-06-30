@@ -8,7 +8,7 @@ const router = express.Router();
 router.get('/', (req, res) => {
     res = appendLocals(req, res);
     res.render('index.pug', {
-        title: 'Quick Start'
+        title: 'Official CDN of Bootstrap and Font Awesome'
     });
 });
 

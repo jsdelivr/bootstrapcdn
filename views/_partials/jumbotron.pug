@@ -1,22 +1,43 @@
-.jumbotron.text-center
-    h1.display-5 BootstrapCDN
+.jumbotron.p-0.m-0.bg-transparent
+    #jumbotron-content.mb-5.mx-3.mx-md-5.mx-xl-auto
+        h1.display-5.mb-3 BootstrapCDN
 
-    p.lead
-        | The recommended CDN
-        |  for 
-        a(href='https://getbootstrap.com/', rel='noopener nofollow', target='_blank') Bootstrap
-        | , 
-        a(href='https://fontawesome.com/', rel='noopener nofollow', target='_blank') Font Awesome
-        |  and 
-        a(href='https://bootswatch.com/', rel='noopener nofollow', target='_blank') Bootswatch
-        |  powered by 
-        a(href='https://www.jsdelivr.com', rel='noopener', target='_blank') jsDelivr
+        p.m-0.text-md-left
+            | The recommended
+            |
+            a.text-decoration-none(href='https://www.jsdelivr.com', rel='noopener nofollow', target='_blank') CDN
+            |
+            | for
+            |
+            a.text-decoration-none(href='https://getbootstrap.com/', rel='noopener nofollow', target='_blank') Bootstrap
+            | ,
+            |
+            a.text-decoration-none(href='https://fontawesome.com/', rel='noopener nofollow', target='_blank') Font Awesome
+            | ,
+            |
+            a.text-decoration-none(href='https://bootswatch.com/', rel='noopener nofollow', target='_blank') Bootswatch
+            |  and
+            |
+            a.text-decoration-none(href='https://icons.getbootstrap.com/', rel='noopener', target='_blank') Bootstrap Icons
 
-    .social.my-4.text-center
-        ul.list-inline
-            li.list-inline-item.d-block.d-sm-inline-block.mr-sm-3
-                object(data='https://img.shields.io/github/stars/MaxCDN/bootstrapcdn.svg?style=social', type='image/svg+xml', aria-hidden='true', width='100', height='20')
-            li.list-inline-item.d-block.d-sm-inline-block.mx-sm-3
-                a.twitter-follow-button(href='https://twitter.com/jsdelivr', data-show-count='false') Follow @jsDelivr
+        .social.my-5.text-start
+            ul.list-inline
+                li.list-inline-item.d-block.d-sm-inline-block.mr-sm-3
+                    a.github-button(href='https://github.com/jsdelivr/bootstrapcdn',
+                        data-color-scheme='no-preference: dark; light: dark; dark: dark;',
+                        data-icon='octicon-star',
+                        data-size='large',
+                        data-text='Star',
+                        data-show-count='true',
+                        aria-label='Star jsdelivr/bootstrapcdn on GitHub')
+
+                li.list-inline-item.d-block.d-sm-inline-block.mx-sm-3
+                    a.twitter-follow-button(href='https://twitter.com/jsdelivr',
+                        data-show-count='false',
+                        data-size='large',
+                        data-text='Follow @jsdelivr')
+
+        .boxes-images.d-none.d-lg-block
+            include /assets/img/jumbotron_boxes.svg
 
 //- vim: ft=pug sw=4 sts=4 et:

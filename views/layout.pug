@@ -16,6 +16,15 @@ html(lang='en', prefix='og: http://ogp.me/ns#', itemscope, itemtype='http://sche
 
         link(rel='dns-prefetch', href='https://cdn.jsdelivr.net')
         link(rel='dns-prefetch', href='https://fonts.googleapis.com')
+        link(rel='preconnect', href='https://fonts.gstatic.com')
+        link(href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap', rel='stylesheet')
+        
+        link(rel='prefetch', href='/')
+        link(rel='prerender', href='/')
+        link(rel='prefetch', href='/fontawesome/')
+        link(rel='prerender', href='/fontawesome/')
+        link(rel='prefetch', href='/bootstrapicons/')
+        link(rel='prerender', href='/bootstrapicons/')
 
         include _partials/head/favicons.pug
         include _partials/head/social.pug
@@ -31,14 +40,20 @@ html(lang='en', prefix='og: http://ogp.me/ns#', itemscope, itemtype='http://sche
         block head
 
     body(class=bodyClass)
-        include _partials/nav.pug
+        header
+            include _partials/nav.pug
+            include _partials/jumbotron.pug
 
-        include _partials/jumbotron.pug
-
-        .container
-            .row.justify-content-center
-                .col-12.col-md-10
-                    block content
+        main.row.content-wrapper.mb-5.mx-3.mx-md-5.mx-xl-auto
+            .col.col-lg-8.col-xl-9.p-0.content-main
+                .row.justify-content-center
+                    .col-12.p-0
+                        block content
+            aside.col-12.mt-3.p-0.text-center.col-lg-4.col-xl-3.content-aside
+                .productionDiv.ml-auto
+                    a.text-decoration-none(href='https://www.jsdelivr.com/network/infographic', rel='noopener', target='_blank') LEARN MORE
+                    p Check what makes us production ready
+                    img(src='/assets/img/bannerImage.png' alt='banner image')
 
         include _partials/footer.pug
 
@@ -46,8 +61,11 @@ html(lang='en', prefix='og: http://ogp.me/ns#', itemscope, itemtype='http://sche
             include /assets/js/vendor/loadjs.min.js
             include _partials/loadjs.pug
             include /assets/js/google-analytics.js
+            include /assets/js/google-tag-manager.js
 
         script(async, src='https://platform.twitter.com/widgets.js')
+        script(async, defer, src='https://cdn.jsdelivr.net/npm/github-buttons@2')
+        script(async, src='https://www.googletagmanager.com/gtag/js?id=G-WWCYVX0YTQ')
 
         block scripts
 

@@ -7,9 +7,9 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
     res = appendLocals(req, res);
-    res.render('themes.pug', {
-        title: 'Bootstrap Themes',
-        description: 'Bootstrap Themes from WrapBootstrap.'
+    res.render('bootstrapIcons.pug', {
+        title: 'Bootstrap Icons',
+        description: 'The recommended CDN for Bootstrap Icons'
     });
 });
 
