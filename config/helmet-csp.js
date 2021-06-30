@@ -64,7 +64,8 @@ const CSP = {
         'syndication.twitter.com',
         'https://api.github.com/repos/jsdelivr/bootstrapcdn',
         'www.google-analytics.com',
-        'https://analytics.google.com'
+        'https://analytics.google.com',
+        'https://stats.g.doubleclick.net'
     ],
     objectSrc: ['img.shields.io'],
     manifestSrc: ['\'self\'']
