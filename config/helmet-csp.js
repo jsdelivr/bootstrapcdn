@@ -1,7 +1,7 @@
 'use strict';
 
 const CSP = {
-    defaultSrc: ['\'none\''],
+    defaultSrc: ['\'self\''],
     baseUri: ['\'self\''],
     formAction: ['platform.twitter.com', 'syndication.twitter.com'],
     frameAncestors: ['\'none\''],
