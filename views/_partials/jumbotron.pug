@@ -21,8 +21,8 @@
             a.text-decoration-none(href='https://icons.getbootstrap.com/', rel='noopener', target='_blank') Bootstrap Icons
 
         .social.my-5.text-start
-            ul.list-inline
-                li.list-inline-item.d-block.d-sm-inline-block.mr-sm-3
+            ul.d-flex.flex-column.flex-sm-row
+                li.d-block.d-sm-inline-flex.align-items-center.mr-sm-3.jsdelivr-github-btn
                     a.github-button(href='https://github.com/jsdelivr/bootstrapcdn',
                         data-color-scheme='no-preference: dark; light: dark; dark: dark;',
                         data-icon='octicon-star',
@@ -31,11 +31,18 @@
                         data-show-count='true',
                         aria-label='Star jsdelivr/bootstrapcdn on GitHub')
 
-                li.list-inline-item.d-block.d-sm-inline-block.mx-sm-3
+                li.d-block.d-sm-inline-flex.align-items-center.mx-sm-3
                     a.twitter-follow-button(href='https://twitter.com/jsdelivr',
                         data-show-count='false',
                         data-size='large',
                         data-text='Follow @jsdelivr')
+
+                li.d-block.d-sm-inline-flex.align-items-center.mx-sm-3.jsdelivr-sponsor-btn
+                    iframe(src='https://github.com/sponsors/jsdelivr/button',
+                        title='Sponsor jsdelivr',
+                        height='35',
+                        width='116',
+                        style='border: 0;')
 
         .boxes-images.d-none.d-lg-block
             include /assets/img/jumbotron_boxes.svg
