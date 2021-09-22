@@ -51,7 +51,8 @@ const CSP = {
         'img.shields.io',
         'platform.twitter.com',
         'syndication.twitter.com',
-        'https://cdn.jsdelivr.net'
+        'https://cdn.jsdelivr.net',
+        'https://github.com/sponsors/jsdelivr/button'
     ],
     childSrc: [
         '\'self\'',

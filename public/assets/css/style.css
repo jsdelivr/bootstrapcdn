@@ -349,6 +349,9 @@ a.custom-link {
     transition: transform 0.35s ease;
     transition: transform 0.35s ease, -webkit-transform 0.35s ease;
 }
+.jsdelivr-github-btn > span {
+    display: inline-flex;
+}
 
 @media (max-width: 1400px) {
     #jumbotron-content {
@@ -407,5 +410,10 @@ a.custom-link {
 @media (min-width: 576px) {
     .social {
         height: 30px;
+    }
+
+    .jsdelivr-sponsor-btn {
+        position: relative;
+        top: 1.5px;
     }
 }
