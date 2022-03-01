@@ -55,7 +55,7 @@
     "devDependencies": {
         "c8": "^7.7.3",
         "escape-string-regexp": "^4.0.0",
-        "fs-extra": "^10.0.0",
+        "fs-extra": "^10.0.1",
         "fs-walk": "0.0.2",
         "html-validator": "^5.1.17",
         "htmlencode": "0.0.4",
