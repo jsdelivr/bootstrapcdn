@@ -59,7 +59,7 @@
         "fs-walk": "0.0.2",
         "html-validator": "^5.1.17",
         "htmlencode": "0.0.4",
-        "lockfile-lint": "^4.6.2",
+        "lockfile-lint": "^4.10.1",
         "mocha": "^8.4.0",
         "mockdate": "^3.0.5",
         "nodemon": "^2.0.7",
