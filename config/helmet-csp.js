@@ -61,7 +61,6 @@ const CSP = {
     connectSrc: [
         'syndication.twitter.com',
         'https://api.github.com/repos/jsdelivr/bootstrapcdn',
-        'https://analytics.google.com',
         'https://stats.g.doubleclick.net'
     ],
     objectSrc: ['img.shields.io'],
