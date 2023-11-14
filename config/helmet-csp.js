@@ -13,6 +13,7 @@ const CSP = {
         'platform.twitter.com',
         'api.github.com',
         'https://cdn.jsdelivr.net',
+        'https://datum.jsdelivr.com',
         (req, res) => `'nonce-${res.locals.nonce}'`
     ],
     styleSrc: [
