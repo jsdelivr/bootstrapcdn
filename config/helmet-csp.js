@@ -9,12 +9,11 @@ const CSP = {
         '\'self\'',
         '\'unsafe-inline\'',
         'stackpath.bootstrapcdn.com',
-        'www.google-analytics.com',
         'code.jquery.com',
         'platform.twitter.com',
         'api.github.com',
         'https://cdn.jsdelivr.net',
-        'https://www.googletagmanager.com',
+        'https://datum.jsdelivr.com',
         (req, res) => `'nonce-${res.locals.nonce}'`
     ],
     styleSrc: [
@@ -28,7 +27,6 @@ const CSP = {
     imgSrc: [
         '\'self\'',
         'data:',
-        'www.google-analytics.com',
         'bootswatch.com',
         'syndication.twitter.com',
         'stats.g.doubleclick.net',
@@ -64,8 +62,6 @@ const CSP = {
     connectSrc: [
         'syndication.twitter.com',
         'https://api.github.com/repos/jsdelivr/bootstrapcdn',
-        'www.google-analytics.com',
-        'https://analytics.google.com',
         'https://stats.g.doubleclick.net'
     ],
     objectSrc: ['img.shields.io'],

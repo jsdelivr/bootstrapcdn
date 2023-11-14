@@ -18,7 +18,7 @@ html(lang='en', prefix='og: http://ogp.me/ns#', itemscope, itemtype='http://sche
         link(rel='dns-prefetch', href='https://fonts.googleapis.com')
         link(rel='preconnect', href='https://fonts.gstatic.com')
         link(href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap', rel='stylesheet')
-        
+
         link(rel='prefetch', href='/')
         link(rel='prerender', href='/')
         link(rel='prefetch', href='/fontawesome/')
@@ -60,12 +60,10 @@ html(lang='en', prefix='og: http://ogp.me/ns#', itemscope, itemtype='http://sche
         script(nonce=nonce)
             include /assets/js/vendor/loadjs.min.js
             include _partials/loadjs.pug
-            include /assets/js/google-analytics.js
-            include /assets/js/google-tag-manager.js
 
         script(async, src='https://platform.twitter.com/widgets.js')
         script(async, defer, src='https://cdn.jsdelivr.net/npm/github-buttons@2')
-        script(async, src='https://www.googletagmanager.com/gtag/js?id=G-WWCYVX0YTQ')
+        script(defer, data-domain='bootstrapcdn.com', src='https://datum.jsdelivr.com/js/script.js')
 
         block scripts
 
