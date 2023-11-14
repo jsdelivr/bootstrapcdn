@@ -19,7 +19,7 @@ jobs:
         with:
           node-version: "${{ env.NODE }}"
 
-      - run: curl -s4 https://ip.seeip.org/
+      - run: curl -s4 https://api.ipify.org/
 
       - name: Set up npm cache
         uses: actions/cache@v2
