@@ -62,7 +62,8 @@ const CSP = {
     connectSrc: [
         'syndication.twitter.com',
         'https://api.github.com/repos/jsdelivr/bootstrapcdn',
-        'https://stats.g.doubleclick.net'
+        'https://stats.g.doubleclick.net',
+        'https://datum.jsdelivr.com/api/event'
     ],
     objectSrc: ['img.shields.io'],
     manifestSrc: ['\'self\'']
