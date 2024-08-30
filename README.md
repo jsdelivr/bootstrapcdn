@@ -6,8 +6,6 @@
 [![jsDelivr Download Stats](https://data.jsdelivr.com/v1/package/npm/bootstrap/badge)](https://www.jsdelivr.com/package/npm/bootstrap)
 [![Build Status](https://img.shields.io/github/workflow/status/jsdelivr/bootstrapcdn/Tests/develop?logo=github&label=Tests&style=flat-square)](https://github.com/jsdelivr/bootstrapcdn/actions?query=workflow%3ATests+branch%3Adevelop)
 [![Coverage Status](https://img.shields.io/coveralls/github/jsdelivr/bootstrapcdn/develop?style=flat-square)](https://coveralls.io/github/jsdelivr/bootstrapcdn)
-[![dependencies Status](https://img.shields.io/david/jsdelivr/bootstrapcdn.svg?style=flat-square)](https://david-dm.org/jsdelivr/bootstrapcdn)
-[![devDependencies Status](https://img.shields.io/david/dev/jsdelivr/bootstrapcdn.svg?style=flat-square)](https://david-dm.org/jsdelivr/bootstrapcdn?type=dev)
 
 
 [BootstrapCDN](https://www.bootstrapcdn.com/) is the easiest and fastest way to get started with Bootstrap, Font Awesome, Bootswatch and Bootstrap Icons.
